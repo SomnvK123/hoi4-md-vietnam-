@@ -44,6 +44,14 @@ on_actions = {
 				if = { limit = { has_country_flag = VIE_sched_congress_12 } set_variable = { VIE_congress_term = 12 } }
 				if = { limit = { has_country_flag = VIE_sched_congress_13 } set_variable = { VIE_congress_term = 13 } }
 				if = { limit = { has_country_flag = VIE_sched_congress_14 } set_variable = { VIE_congress_term = 14 } }
+
+				# VIE_two_tier_local_gov was deleted in Phase 3 (section 8.3): a save that had
+				# already completed it kept the idea it granted but lost the flag the new
+				# 2026 fork and VIE_era_of_rising now gate on. Re-derive that flag from the idea.
+				if = {
+					limit = { has_idea = VIE_two_tier_gov_idea }
+					set_country_flag = VIE_two_tier_done
+				}
 			}
 		}
 	}
