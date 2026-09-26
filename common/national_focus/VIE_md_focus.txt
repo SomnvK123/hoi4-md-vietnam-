@@ -221,13 +221,13 @@ focus_tree = {
 		prerequisite = { focus = VIE_prepare_congress_9 }
 
 		available = {
-			VIE_congress_started = { N = 9 }
+			has_country_flag = VIE_sched_congress_9
 		}
 
 		bypass = {
 			OR = {
 				NOT = { VIE_party_rule_active = yes }
-				VIE_congress_started = { N = 10 }
+				has_country_flag = VIE_sched_congress_10
 			}
 		}
 
@@ -263,13 +263,13 @@ focus_tree = {
 		prerequisite = { focus = VIE_resolution_congress_9 }
 
 		available = {
-			VIE_congress_started = { N = 10 }
+			has_country_flag = VIE_sched_congress_10
 		}
 
 		bypass = {
 			OR = {
 				NOT = { VIE_party_rule_active = yes }
-				VIE_congress_started = { N = 11 }
+				has_country_flag = VIE_sched_congress_11
 			}
 		}
 
@@ -299,13 +299,13 @@ focus_tree = {
 		prerequisite = { focus = VIE_resolution_congress_10 }
 
 		available = {
-			VIE_congress_started = { N = 11 }
+			has_country_flag = VIE_sched_congress_11
 		}
 
 		bypass = {
 			OR = {
 				NOT = { VIE_party_rule_active = yes }
-				VIE_congress_started = { N = 12 }
+				has_country_flag = VIE_sched_congress_12
 			}
 		}
 
@@ -335,13 +335,13 @@ focus_tree = {
 		prerequisite = { focus = VIE_resolution_congress_11 }
 
 		available = {
-			VIE_congress_started = { N = 12 }
+			has_country_flag = VIE_sched_congress_12
 		}
 
 		bypass = {
 			OR = {
 				NOT = { VIE_party_rule_active = yes }
-				VIE_congress_started = { N = 13 }
+				has_country_flag = VIE_sched_congress_13
 			}
 		}
 
@@ -377,13 +377,13 @@ focus_tree = {
 		prerequisite = { focus = VIE_resolution_congress_12 }
 
 		available = {
-			VIE_congress_started = { N = 13 }
+			has_country_flag = VIE_sched_congress_13
 		}
 
 		bypass = {
 			OR = {
 				NOT = { VIE_party_rule_active = yes }
-				VIE_congress_started = { N = 14 }
+				has_country_flag = VIE_sched_congress_14
 			}
 		}
 
@@ -413,13 +413,13 @@ focus_tree = {
 		prerequisite = { focus = VIE_resolution_congress_13 }
 
 		available = {
-			VIE_congress_started = { N = 14 }
+			has_country_flag = VIE_sched_congress_14
 		}
 
 		bypass = {
 			OR = {
 				NOT = { VIE_party_rule_active = yes }
-				VIE_congress_started = { N = 15 }
+				has_country_flag = VIE_sched_congress_15
 			}
 		}
 
@@ -563,7 +563,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_sez_postpone
-		icon = generic_political_reform
+		icon = focus_generic_court
 
 		x = -2
 		y = 6
@@ -596,7 +596,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_sez_pass_99
-		icon = generic_political_reform
+		icon = economic_privatisation
 
 		x = 2
 		y = 6
@@ -636,7 +636,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_island_special_zones
-		icon = generic_civilian_economy
+		icon = economic_civil_industry
 
 		x = -2
 		y = 7
@@ -1447,7 +1447,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_bauxite_suspend
-		icon = generic_political_reform
+		icon = focus_generic_court
 
 		x = -16
 		y = 3
@@ -3657,7 +3657,7 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_rule_of_law_state }
 		available = {
-			VIE_constitution_2013_adopted = yes
+			has_country_flag = VIE_constitution_2013_adopted
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
@@ -8757,7 +8757,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_covid_zero_extend
-		icon = generic_political_pressure
+		icon = GFX_goal_generic_political_pressure
 
 		x = -2
 		y = 5
@@ -8790,7 +8790,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_covid_safe_adaptation
-		icon = generic_civilian_economy
+		icon = economic_civil_industry
 
 		x = 0
 		y = 5

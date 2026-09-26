@@ -269,7 +269,7 @@ for p_ in glob.glob('common/national_focus/*.txt') + glob.glob('events/*.txt') +
         if n_ and n_.group(1) not in loc and n_.group(1) not in mdloc:
             err.append('add_tech_bonus name without loc: ' + n_.group(1))
 # ---- engine-agnostic: every `name = yes` effect/trigger call in events/decisions must be a defined scripted effect/trigger (mod, MD) or a known engine keyword
-known_kw = set('instant_build always yes no'.split())
+known_kw = set('instant_build always yes no fire_only_once'.split())
 defd2 = set(defd)
 for p_ in glob.glob('events/*.txt') + glob.glob('common/decisions/*.txt'):
     for m_ in re.finditer(r'(?m)^\t{2,}([a-z][a-z_0-9]+)\s*=\s*yes\s*$', open(p_, encoding='utf-8-sig', errors='ignore').read()):

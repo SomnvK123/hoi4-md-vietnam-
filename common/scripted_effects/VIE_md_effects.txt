@@ -249,7 +249,7 @@ VIE_event_scheduler = {
 				NOT = { has_country_flag = VIE_sched_congress_9 }
 			}
 			set_country_flag = VIE_sched_congress_9
-			VIE_start_congress_term = { N = 9 }
+			VIE_start_congress_term_9 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
@@ -262,7 +262,7 @@ VIE_event_scheduler = {
 				NOT = { has_country_flag = VIE_sched_congress_10 }
 			}
 			set_country_flag = VIE_sched_congress_10
-			VIE_start_congress_term = { N = 10 }
+			VIE_start_congress_term_10 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
@@ -275,7 +275,7 @@ VIE_event_scheduler = {
 				NOT = { has_country_flag = VIE_sched_congress_11 }
 			}
 			set_country_flag = VIE_sched_congress_11
-			VIE_start_congress_term = { N = 11 }
+			VIE_start_congress_term_11 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
@@ -288,7 +288,7 @@ VIE_event_scheduler = {
 				NOT = { has_country_flag = VIE_sched_congress_12 }
 			}
 			set_country_flag = VIE_sched_congress_12
-			VIE_start_congress_term = { N = 12 }
+			VIE_start_congress_term_12 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }

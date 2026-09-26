@@ -235,13 +235,7 @@ VIE_statebuilding_category = {
 	# Size: streamline administrative apparatus
 	VIE_streamline_administrative_org = {
 		icon = GFX_decision_VIE_streamline_administrative_org
-		cost = {
-			base = 100
-			modifier = {
-				add = -20
-				has_country_flag = VIE_par3_cost_reduction
-			}
-		}
+		cost = 100
 		days_re_enable = 360
 
 		visible = { has_country_flag = VIE_ax_initialized }
@@ -249,6 +243,10 @@ VIE_statebuilding_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_streamline_administrative_org"
+			if = {
+				limit = { has_country_flag = VIE_par3_cost_reduction }
+				add_political_power = 20
+			}
 			add_to_variable = { VIE_ax_size = -1 tooltip = VIE_ax_size_tt }
 			decrease_centralization = yes
 			set_temp_variable = { desire_change = -0.5 }

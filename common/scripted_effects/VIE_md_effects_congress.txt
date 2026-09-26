@@ -1,17 +1,7 @@
-# Party Congress spine (see VIE_congress_spine_redesign.md). Parameterized helper effect.
-
-########################################################################
-# Called from the six Congress scheduler blocks (VIE_md_effects.txt / _p2.txt), right after
-# each sets its own VIE_sched_congress_N flag - including in catch-up mode, so a civil-war
-# winner taking over the VIE lineage still lands on the correct term.
+# Party Congress spine (see VIE_congress_spine_redesign.md).
 # Sets the term variable and drops whichever term-spirit idea the previous Congress granted.
-# Checks has_idea before each remove_ideas (mod convention) instead of tracking which one
-# (or which variant) was actually active.
-# Usage: VIE_start_congress_term = { N = 12 }
-########################################################################
-VIE_start_congress_term = {
-	set_variable = { VIE_congress_term = $N$ }
 
+VIE_clear_congress_resolution_ideas = {
 	if = { limit = { has_idea = VIE_resolution_9_idea } remove_ideas = VIE_resolution_9_idea }
 	if = { limit = { has_idea = VIE_resolution_9_cons_idea } remove_ideas = VIE_resolution_9_cons_idea }
 	if = { limit = { has_idea = VIE_resolution_10_idea } remove_ideas = VIE_resolution_10_idea }
@@ -20,4 +10,34 @@ VIE_start_congress_term = {
 	if = { limit = { has_idea = VIE_resolution_12_dev_idea } remove_ideas = VIE_resolution_12_dev_idea }
 	if = { limit = { has_idea = VIE_resolution_13_idea } remove_ideas = VIE_resolution_13_idea }
 	if = { limit = { has_idea = VIE_resolution_14_idea } remove_ideas = VIE_resolution_14_idea }
+}
+
+VIE_start_congress_term_9 = {
+	set_variable = { VIE_congress_term = 9 }
+	VIE_clear_congress_resolution_ideas = yes
+}
+
+VIE_start_congress_term_10 = {
+	set_variable = { VIE_congress_term = 10 }
+	VIE_clear_congress_resolution_ideas = yes
+}
+
+VIE_start_congress_term_11 = {
+	set_variable = { VIE_congress_term = 11 }
+	VIE_clear_congress_resolution_ideas = yes
+}
+
+VIE_start_congress_term_12 = {
+	set_variable = { VIE_congress_term = 12 }
+	VIE_clear_congress_resolution_ideas = yes
+}
+
+VIE_start_congress_term_13 = {
+	set_variable = { VIE_congress_term = 13 }
+	VIE_clear_congress_resolution_ideas = yes
+}
+
+VIE_start_congress_term_14 = {
+	set_variable = { VIE_congress_term = 14 }
+	VIE_clear_congress_resolution_ideas = yes
 }
