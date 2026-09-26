@@ -451,3 +451,40 @@ country_event = {
 	}
 
 }
+
+########################################################################
+# vie_pol.27  Labour Code 2019 and ILO Convention ratification (late 2019)
+#  -- class B choice event, scheduled from VIE_event_scheduler_p2
+#  -- ties the CPTPP-driven labour reform to an independent workers' representation body
+########################################################################
+country_event = {
+	id = vie_pol.27
+	title = vie_pol.27.t
+	desc = vie_pol.27.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.27.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.27.a executed"
+		add_political_power = -25
+		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		set_country_flag = VIE_labor_convention_ratified
+		ai_chance = { base = 75 }
+	}
+
+	option = {
+		name = vie_pol.27.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.27.b executed"
+		add_political_power = 25
+		add_stability = -0.01
+		add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		ai_chance = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+}
