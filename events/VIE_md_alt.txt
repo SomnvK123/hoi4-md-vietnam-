@@ -137,26 +137,27 @@ country_event = {
 	picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
 
-	# Historical: postpone the law
+	immediate = {
+		set_country_flag = VIE_sez_bill_debated
+	}
+
+	# Dialogue: hear out the protesters
 	option = {
 		name = vie_alt.6.a
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.6.a executed"
 		add_stability = 0.02
-		ai_chance = { base = 100 }
+		add_political_power = -25
+		ai_chance = { base = 60 }
 	}
 
-	# Pass it anyway
+	# Keep order: a firm hand
 	option = {
 		name = vie_alt.6.b
-		trigger = { VIE_bop_is_reformist = yes }
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.6.b executed"
-		add_timed_idea = { idea = VIE_sez_unrest_idea days = 180 }
-		VIE_bop_reform_small = yes
-		ai_chance = {
-			base = 3
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
+		add_stability = -0.01
+		add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+		VIE_ax_normalize = yes
+		ai_chance = { base = 40 }
 	}
 }
 
@@ -206,8 +207,6 @@ country_event = {
 	desc = vie_alt.8.d
 	picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
-
-	trigger = { check_variable = { ruling_party = 16 } }
 
 	# Withdraw the leases
 	option = {
