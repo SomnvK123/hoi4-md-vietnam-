@@ -282,6 +282,8 @@ Ba focus `merge_ministries`, `provincial_merger`, `two_tier_local_gov` **bị x�
 
 Biến thể được chọn bằng cờ event đã có: `VIE_congress9_phieu` (IX) và `VIE_developmental_unlocked` (XII). Không cần cờ mới.
 
+Theo `VIE_economic_branch_redesign.md`, dải Bảo vệ nền tảng và dải Nhà nước kiến tạo bị bỏ. `vie_pol.2.b` và `vie_pol.5.b` vẫn còn nhưng **không mở dải nào nữa**: hai biến thể tinh thần ở trên là toàn bộ hệ quả của chúng, tức là biến thể đường lối trong khuôn khổ Đảng.
+
 ---
 
 ## 6. Decision: "Thực hiện Nghị quyết"
@@ -464,8 +466,8 @@ Pha 1 và 2 không đổi gì người chơi nhìn thấy trong cây, nên là �
 
 1. **Đường lịch sử, AI** (`VIE_ai_historical`) chạy 2000 → 2027: đủ 6 tinh thần nối nhau; mỗi Đại hội gỡ tinh thần cũ; chuỗi 2025 hoàn tất trước 2025.12; tham nhũng cuối ván trong khoảng `level_04`–`level_06`.
 2. **Người chơi bỏ qua NQ IX** tới năm 2006: focus bị bypass, nhánh X vẫn mở, không có tinh thần IX.
-3. **Cửa rẽ bảo thủ ở IX** (`vie_pol.2.b`): nhận `VIE_resolution_9_cons_idea`.
-4. **Cửa rẽ Kiến tạo ở XII** (`vie_pol.5.b`): nhận `VIE_resolution_12_dev_idea`; dải Kiến tạo vẫn mở như cũ.
+3. **Cửa rẽ bảo thủ ở IX** (`vie_pol.2.b`): nhận `VIE_resolution_9_cons_idea`; không mở dải nào.
+4. **Cửa rẽ Kiến tạo ở XII** (`vie_pol.5.b`): nhận `VIE_resolution_12_dev_idea`; không mở dải nào.
 5. **Rời chế độ Đảng năm 2010**: nghị quyết XI–XIV bypass; `rule_of_law_state`, `constitution_2013`, `e_government` vẫn làm được; danh mục "Thực hiện Nghị quyết" ẩn; `VIE_anticorruption_campaign` hiện.
 6. **Catch-up** sau nội chiến: `VIE_congress_term` đúng nhiệm kỳ hiện tại.
 7. **Save cũ** đã làm `two_tier_local_gov`: ngã rẽ 2026 vẫn mở.
