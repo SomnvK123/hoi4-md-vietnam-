@@ -411,6 +411,8 @@ Tất cả dùng mẫu lớp B (cooldown 45 ngày, fallback im lặng), trừ `v
 | `vie_pol.16`, `vie_pol.17` | Option đặt cờ mở decision (mục 6.4) |
 | `vie_pol.11` | Thêm option phụ khi đã làm `tw4_party_building`: kỷ luật thành công một phần (khác lịch sử) |
 
+> **Đã code (pha 2 — Event), có hai điều chỉnh.** (1) `vie_pol.16`/`.17` không thêm event mới cho nhánh "thận trọng" (hạn 180 ngày rồi mới mở decision) — thay vào đó `vie_pol.16.b` đặt hai cờ: `VIE_streamline_wait_ever` (vĩnh viễn) và `VIE_streamline_wait` (tự xóa sau 180 ngày, cú pháp `set_country_flag = { flag = X days = N }` mod đã dùng khắp nơi). Decision `VIE_rn_xiii_restructure_center` (pha 4) sẽ kiểm tra "đã từng đặt cờ NHƯNG cờ có hạn đã hết" (`has_country_flag = VIE_streamline_wait_ever` và `NOT has_country_flag = VIE_streamline_wait`) thay vì cần một event ẩn chỉ để dời lịch. `vie_pol.17` không rẽ theo lựa chọn (đúng sơ đồ mục 6.4 chỉ có một mũi tên), nên cả hai option đều đặt chung `VIE_merge_provinces_started`. (2) **Chưa sửa `vie_pol.11`** dù mục 9 liệt nó vào pha 2 — option phụ cần `has_completed_focus = VIE_tw4_party_building`, focus đó chỉ được tạo ở pha 3 (mục 4.3). Thêm tham chiếu bây giờ sẽ treo tới khi pha 3 xong. Dời việc này sang lúc tạo `tw4_party_building`. Scheduler part 13 (file mới, viết tay) nối cả 3 event mới, thêm vào `on_monthly` và `VIE_catch_up_schedule`; phát hiện thêm: `VIE_catch_up_schedule` vốn đã thiếu gọi `VIE_event_scheduler_p11`/`_p12` (lỗi có sẵn, không liên quan tới pha này, không sửa).
+
 ---
 
 ## 8. Ràng buộc phải giữ
