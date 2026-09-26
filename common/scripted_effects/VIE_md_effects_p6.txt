@@ -1,0 +1,105 @@
+# Scheduler, part 6 (plan v6 batch 2). Same rules as VIE_event_scheduler_p2.
+VIE_event_scheduler_p6 = {
+	if = {
+		limit = {
+			date > 2006.8.31
+			NOT = { has_country_flag = VIE_sched_apec06 }
+		}
+		set_country_flag = VIE_sched_apec06
+		if = {
+			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_dip.5 days = 3 random_days = 15 }
+		}
+	}
+	if = {
+		limit = {
+			date > 2018.6.30
+			NOT = { has_country_flag = VIE_sched_trade_war }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_trade_war
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_trade_war
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.19 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2019.9.30 }
+			set_country_flag = VIE_sched_trade_war
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = { has_country_flag = VIE_solar_boom_done }
+		if = {
+			limit = {
+				date > 2020.3.31
+				NOT = { has_country_flag = VIE_sched_solar_overload }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				set_country_flag = VIE_sched_solar_overload
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_sched_solar_overload
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_eco.21 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2021.3.31 }
+				set_country_flag = VIE_sched_solar_overload
+				VIE_fb_none = yes
+			}
+		}
+	}
+	if = {
+		limit = { NOT = { has_country_flag = VIE_grid_500kv } }
+		if = {
+			limit = {
+				date > 2023.4.30
+				NOT = { has_country_flag = VIE_sched_power_cut23 }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				set_country_flag = VIE_sched_power_cut23
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_sched_power_cut23
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_eco.25 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2024.1.31 }
+				set_country_flag = VIE_sched_power_cut23
+				VIE_fb_none = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			date > 2021.1.31
+			NOT = { has_country_flag = VIE_sched_cg_law }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_cg_law
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_cg_law
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_scs.13 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2021.9.30 }
+			set_country_flag = VIE_sched_cg_law
+			VIE_fb_none = yes
+		}
+	}
+}

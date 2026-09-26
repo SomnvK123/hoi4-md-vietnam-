@@ -1,0 +1,124 @@
+# AI strategies for an AI-controlled Vietnam (submod). MD had no VIE file. Patterns follow SIN.txt / SIA.txt.
+# The VIE_path_* blocks are switched on by the game rule "Vietnam AI behaviour" (global flags VIE_AI_PATH_*).
+
+# ---- Default: bamboo diplomacy. Friends in ASEAN and among the big partners, no war with anyone.
+VIE_befriend_asean = {
+	allowed = { original_tag = VIE }
+	enable = {
+		NOT = { has_government = nationalist }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "SIA" value = 100 }
+	ai_strategy = { type = befriend id = "LAO" value = 150 }
+	ai_strategy = { type = befriend id = "CBD" value = 100 }
+	ai_strategy = { type = befriend id = "SIN" value = 100 }
+	ai_strategy = { type = befriend id = "MAY" value = 100 }
+	ai_strategy = { type = befriend id = "IND" value = 100 }
+	ai_strategy = { type = befriend id = "PHI" value = 50 }
+	ai_strategy = { type = befriend id = "BRM" value = 50 }
+}
+
+VIE_befriend_partners = {
+	allowed = { original_tag = VIE }
+	enable = {
+		NOT = { has_government = nationalist }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "JAP" value = 100 }
+	ai_strategy = { type = befriend id = "KOR" value = 100 }
+	ai_strategy = { type = befriend id = "RAJ" value = 100 }
+	ai_strategy = { type = befriend id = "SOV" value = 100 }
+	ai_strategy = { type = befriend id = "AST" value = 50 }
+	ai_strategy = { type = befriend id = "USA" value = 50 }
+	ai_strategy = { type = befriend id = "CHI" value = 50 }
+}
+
+# Vietnam never starts a war on China, and joins no bloc: the Four Nos also block factions through an idea.
+VIE_avoid_war_with_china = {
+	allowed = { original_tag = VIE }
+	enable = {
+		NOT = { has_global_flag = VIE_AI_PATH_NATIONALIST }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = declare_war id = "CHI" value = -300 }
+}
+
+VIE_avoid_war_with_neighbours = {
+	allowed = { original_tag = VIE }
+	enable = {
+		NOT = { has_government = nationalist }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = declare_war id = "LAO" value = -200 }
+	ai_strategy = { type = declare_war id = "CBD" value = -200 }
+	ai_strategy = { type = declare_war id = "SIA" value = -200 }
+}
+
+# ---- Path: hardline / Chinese primacy
+VIE_path_hardline = {
+	allowed = { original_tag = VIE }
+	enable = { has_global_flag = VIE_AI_PATH_HARDLINE }
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "CHI" value = 200 }
+	ai_strategy = { type = befriend id = "SOV" value = 150 }
+	ai_strategy = { type = befriend id = "LAO" value = 100 }
+	ai_strategy = { type = befriend id = "CBD" value = 100 }
+}
+
+# ---- Path: Western pivot
+VIE_path_western = {
+	allowed = { original_tag = VIE }
+	enable = { has_global_flag = VIE_AI_PATH_WESTERN }
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "USA" value = 200 }
+	ai_strategy = { type = befriend id = "JAP" value = 150 }
+	ai_strategy = { type = befriend id = "AST" value = 100 }
+	ai_strategy = { type = befriend id = "KOR" value = 100 }
+	ai_strategy = { type = befriend id = "RAJ" value = 100 }
+	ai_strategy = { type = contain id = "CHI" value = 50 }
+}
+
+# ---- Path: strategic autonomy
+VIE_path_autonomy = {
+	allowed = { original_tag = VIE }
+	enable = { has_global_flag = VIE_AI_PATH_AUTONOMY }
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "SOV" value = 150 }
+	ai_strategy = { type = befriend id = "RAJ" value = 150 }
+	ai_strategy = { type = befriend id = "SIN" value = 100 }
+	ai_strategy = { type = befriend id = "SIA" value = 100 }
+}
+
+# ---- Path: nationalist South China Sea movement (only once tension is high)
+VIE_path_nationalist = {
+	allowed = { original_tag = VIE }
+	enable = {
+		has_global_flag = VIE_AI_PATH_NATIONALIST
+		VIE_scs_escalated_trigger = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = antagonize id = "CHI" value = 50 }
+	ai_strategy = { type = contain id = "CHI" value = 100 }
+	ai_strategy = { type = befriend id = "SOV" value = 100 }
+	ai_strategy = { type = befriend id = "RAJ" value = 100 }
+}
+
+# ---- Path: free zones and conglomerates
+VIE_path_free_zones = {
+	allowed = { original_tag = VIE }
+	enable = { has_global_flag = VIE_AI_PATH_FREE_ZONES }
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "USA" value = 100 }
+	ai_strategy = { type = befriend id = "JAP" value = 150 }
+	ai_strategy = { type = befriend id = "KOR" value = 150 }
+	ai_strategy = { type = befriend id = "SIN" value = 150 }
+}

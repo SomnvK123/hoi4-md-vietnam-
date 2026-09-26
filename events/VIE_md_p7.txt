@@ -1,0 +1,185 @@
+add_namespace = vie_dip
+add_namespace = vie_soc
+add_namespace = vie_eco
+
+########################################################################
+# vie_dip.16  Who supplies the new fighters?  (opened by VIE_fighter_replacement)
+########################################################################
+country_event = {
+	id = vie_dip.16
+	title = vie_dip.16.t
+	desc = vie_dip.16.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	# Stay with Russia: Su-30SM. MD has no Su-35 variant, so the Su-30 airframe is used
+	# (variant "Su-30" of SOV exists in the By Blood Alone block; without the DLC the generic AS_Fighter2 is the closest type).
+	option = {
+		name = vie_dip.16.a
+		trigger = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.16.a executed"
+		add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
+		reverse_add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
+		set_temp_variable = { treasury_change = -4 }
+		modify_treasury_effect = yes
+		air_experience = 10
+		if = {
+			limit = { has_dlc = "By Blood Alone" }
+			add_equipment_to_stockpile = {
+				type = medium_plane_airframe_2
+				amount = 12
+				producer = SOV
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = AS_Fighter2
+				amount = 12
+				producer = SOV
+			}
+		}
+		ai_chance = { base = 70 }
+	}
+
+	# Buy Western fighters (Gripen, as SIA does), possible once the embargo has been lifted
+	option = {
+		name = vie_dip.16.b
+		trigger = {
+			has_country_flag = VIE_us_arms_open
+			country_exists = SWE
+		}
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.16.b executed"
+		add_opinion_modifier = { target = USA modifier = VIE_arms_deal }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_arms_deal }
+		add_opinion_modifier = { target = SWE modifier = VIE_arms_deal }
+		reverse_add_opinion_modifier = { target = SWE modifier = VIE_arms_deal }
+		set_temp_variable = { treasury_change = -5 }
+		modify_treasury_effect = yes
+		air_experience = 10
+		add_equipment_to_stockpile = {
+			type = MR_Fighter3
+			amount = 12
+			producer = SWE
+		}
+		set_temp_variable = { VIE_tension_add = 1 }
+		VIE_add_scs_tension = yes
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { add = 60 has_global_flag = VIE_AI_PATH_WESTERN }
+		}
+	}
+
+	# Put off the decision, or build a home-grown answer once the defence industry can carry it
+	option = {
+		name = vie_dip.16.c
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.16.c executed"
+		if = {
+			limit = { has_completed_focus = VIE_dual_use_industry }
+			air_experience = 25
+			add_tech_bonus = {
+				name = VIE_home_fighter
+				category = CAT_mr_fighter
+				uses = 1
+				bonus = 1.0
+			}
+		}
+		else = {
+			add_political_power = 25
+		}
+		ai_chance = { base = 10 }
+	}
+}
+
+########################################################################
+# vie_soc.14  Winter smog in Hanoi  -- random, silenced by VIE_hanoi_air_quality
+########################################################################
+country_event = {
+	id = vie_soc.14
+	title = vie_soc.14.t
+	desc = vie_soc.14.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	# Emergency restrictions
+	option = {
+		name = vie_soc.14.a
+		log = "[GetDateText]: [This.GetName]: Event vie_soc.14.a executed"
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_stability = 0.01
+		ai_chance = { base = 70 }
+	}
+
+	# Wait for the wind
+	option = {
+		name = vie_soc.14.b
+		log = "[GetDateText]: [This.GetName]: Event vie_soc.14.b executed"
+		add_stability = -0.02
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_soc.18  A falling birth rate (2024-25)  -- class B
+########################################################################
+country_event = {
+	id = vie_soc.18
+	title = vie_soc.18.t
+	desc = vie_soc.18.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# Support families
+	option = {
+		name = vie_soc.18.a
+		log = "[GetDateText]: [This.GetName]: Event vie_soc.18.a executed"
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_stability = 0.01
+		set_country_flag = VIE_birth_support
+		ai_chance = { base = 70 }
+	}
+
+	# Study the problem first
+	option = {
+		name = vie_soc.18.b
+		log = "[GetDateText]: [This.GetName]: Event vie_soc.18.b executed"
+		add_political_power = 25
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_eco.29  Trouble at the national car maker (2021-23)  -- class B, needs VIE_domestic_automotive
+########################################################################
+country_event = {
+	id = vie_eco.29
+	title = vie_eco.29.t
+	desc = vie_eco.29.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	# Put in more capital
+	option = {
+		name = vie_eco.29.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.29.a executed"
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		increase_economic_growth = yes
+		ai_chance = { base = 50 }
+	}
+
+	# Scale the project down
+	option = {
+		name = vie_eco.29.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.29.b executed"
+		set_temp_variable = { treasury_change = 1 }
+		modify_treasury_effect = yes
+		add_stability = -0.01
+		ai_chance = { base = 50 }
+	}
+}

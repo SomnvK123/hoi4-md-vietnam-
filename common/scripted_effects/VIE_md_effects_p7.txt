@@ -1,0 +1,65 @@
+# Scheduler, part 7 (plan v6 batch 3). Same rules as VIE_event_scheduler_p2.
+VIE_event_scheduler_p7 = {
+	if = {
+		limit = {
+			date > 2024.1.31
+			NOT = { has_country_flag = VIE_sched_birth_rate }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_birth_rate
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_birth_rate
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.18 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2025.6.30 }
+			set_country_flag = VIE_sched_birth_rate
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = { has_country_flag = VIE_auto_program }
+		if = {
+			limit = {
+				date > 2021.6.30
+				NOT = { has_country_flag = VIE_sched_car_maker }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				set_country_flag = VIE_sched_car_maker
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_sched_car_maker
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_eco.29 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2023.12.31 }
+				set_country_flag = VIE_sched_car_maker
+				VIE_fb_none = yes
+			}
+		}
+	}
+
+	# ---- Random winter smog in Hanoi: 3 % per month, then at least ~2.5 years before the next one
+	if = {
+		limit = {
+			date > 2014.12.31
+			NOT = { check_variable = { VIE_catch_up = 1 } }
+			NOT = { has_country_flag = VIE_air_cleaned }
+			NOT = { has_country_flag = VIE_smog_cd }
+			NOT = { has_country_flag = VIE_popup_cd }
+		}
+		random = {
+			chance = 3
+			set_country_flag = { flag = VIE_smog_cd days = 900 }
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.14 days = 3 random_days = 20 }
+		}
+	}
+}

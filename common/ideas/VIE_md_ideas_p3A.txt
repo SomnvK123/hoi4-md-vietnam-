@@ -1,0 +1,29 @@
+ideas = {
+	country = {
+		VIE_regional_intervention_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_org_factor = 0.03
+				experience_gain_army_factor = 0.05
+				army_speed_factor = 0.03
+			}
+		}
+		VIE_modern_vpa_2030_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_attack_factor = 0.03
+				army_defence_factor = 0.03
+				planning_speed = 0.05
+				land_reinforce_rate = 0.02
+			}
+		}
+	}
+}

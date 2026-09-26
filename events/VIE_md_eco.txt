@@ -1,0 +1,56 @@
+add_namespace = vie_eco
+
+########################################################################
+# vie_eco.1  WTO accession result (fired by focus VIE_wto_negotiations after a delay)
+########################################################################
+country_event = {
+	id = vie_eco.1
+	title = vie_eco.1.t
+	desc = vie_eco.1.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+
+	trigger = { NOT = { has_idea = VIE_wto_member } }
+
+	option = {
+		name = vie_eco.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.1.a executed"
+		add_ideas = VIE_wto_member
+		VIE_bop_reform_small = yes
+		increase_economic_growth = yes
+		set_country_flag = VIE_wto_member_flag
+	}
+}
+
+########################################################################
+# vie_eco.2  Nam Cam case (2002-03)  -- class B choice event
+########################################################################
+country_event = {
+	id = vie_eco.2
+	title = vie_eco.2.t
+	desc = vie_eco.2.d
+	picture = GFX_report_event_Arrest
+	is_triggered_only = yes
+
+	option = {
+		name = vie_eco.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.2.a executed"
+		decrease_corruption = yes
+		add_political_power = -25
+		add_stability = -0.01
+		ai_chance = { base = 80 }
+	}
+
+	option = {
+		name = vie_eco.2.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.2.b executed"
+		VIE_bop_conservative_small = yes
+		add_political_power = 25
+		add_stability = 0.01
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+}

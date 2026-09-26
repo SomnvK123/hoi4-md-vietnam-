@@ -1,0 +1,125 @@
+add_namespace = vie_dip
+
+########################################################################
+# vie_dip.1  US lifts the arms embargo (May 2016)  -- class B
+# Sets VIE_us_arms_open, needed by focus VIE_us_embargo_lifted.
+########################################################################
+country_event = {
+	id = vie_dip.1
+	title = vie_dip.1.t
+	desc = vie_dip.1.d
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+
+	option = {
+		name = vie_dip.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.1.a executed"
+		set_country_flag = VIE_us_arms_open
+		add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+		add_political_power = 25
+		ai_chance = { base = 100 }
+	}
+}
+
+########################################################################
+# vie_dip.2  Trump-Kim summit in Hanoi (Feb 2019)  -- class B
+########################################################################
+country_event = {
+	id = vie_dip.2
+	title = vie_dip.2.t
+	desc = vie_dip.2.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# Host with full honours
+	option = {
+		name = vie_dip.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.2.a executed"
+		add_political_power = 50
+		add_stability = 0.02
+		add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+		ai_chance = { base = 80 }
+	}
+
+	# Keep a low profile
+	option = {
+		name = vie_dip.2.b
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.2.b executed"
+		add_political_power = 25
+		ai_chance = { base = 20 }
+	}
+}
+
+########################################################################
+# vie_dip.3  Comprehensive Strategic Partnership with the US (Sep 2023)  -- class B
+########################################################################
+country_event = {
+	id = vie_dip.3
+	title = vie_dip.3.t
+	desc = vie_dip.3.d
+	picture = GFX_report_event_generic_sign_treaty3
+	is_triggered_only = yes
+
+	# Upgrade the partnership
+	option = {
+		name = vie_dip.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.3.a executed"
+		add_opinion_modifier = { target = USA modifier = VIE_strategic_partnership }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_strategic_partnership }
+		add_political_power = 75
+		VIE_bop_reform_small = yes
+		ai_chance = {
+			base = 80
+			modifier = { add = 60 has_global_flag = VIE_AI_PATH_WESTERN }
+		}
+	}
+
+	# Keep it at the current level
+	option = {
+		name = vie_dip.3.b
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.3.b executed"
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		VIE_bop_conservative_small = yes
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_dip.4  Funan Techo canal (2024)  -- class B
+########################################################################
+country_event = {
+	id = vie_dip.4
+	title = vie_dip.4.t
+	desc = vie_dip.4.d
+	picture = GFX_report_event_generic_construction_site
+	is_triggered_only = yes
+
+	trigger = { country_exists = CBD }
+
+	# Ask for an environmental review
+	option = {
+		name = vie_dip.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.4.a executed"
+		set_country_flag = VIE_mekong_pressure
+		add_opinion_modifier = { target = CBD modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CBD modifier = VIE_hd981_defiance }
+		ai_chance = { base = 40 }
+	}
+
+	# Offer cooperation and shared data
+	option = {
+		name = vie_dip.4.b
+		log = "[GetDateText]: [This.GetName]: Event vie_dip.4.b executed"
+		add_opinion_modifier = { target = CBD modifier = historic_friends }
+		reverse_add_opinion_modifier = { target = CBD modifier = historic_friends }
+		add_political_power = 25
+		ai_chance = { base = 60 }
+	}
+}

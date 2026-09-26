@@ -1,0 +1,24 @@
+VIE_oligarch_category = {
+	allowed = { original_tag = VIE }
+	priority = 100
+	visible = { has_country_flag = VIE_bop_oli_active }
+}
+
+VIE_military_category = {
+	allowed = { original_tag = VIE }
+	priority = 100
+	visible = { has_idea = VIE_maritime_denial_idea }
+}
+
+VIE_military_readiness_category = {
+	allowed = { original_tag = VIE }
+	priority = 100
+	visible = { has_completed_focus = VIE_defence_strategy_review }
+}
+
+VIE_statebuilding_category = {
+	allowed = { original_tag = VIE }
+	priority = 90
+	visible = { has_country_flag = VIE_ax_initialized }
+}
+

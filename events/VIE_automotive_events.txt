@@ -1,0 +1,56 @@
+add_namespace = vie_auto
+
+########################################################################
+# vie_auto.1  Rung Chuông Niêm Yết trên Sàn Giao Dịch Quốc Tế
+########################################################################
+country_event = {
+	id = vie_auto.1
+	title = vie_auto.1.t
+	desc = vie_auto.1.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = vie_auto.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_auto.1.a executed"
+		add_stability = 0.03
+		add_political_power = 75
+		set_temp_variable = { treasury_change = 2 }
+		modify_treasury_effect = yes
+	}
+}
+
+########################################################################
+# vie_auto.2  Liên Minh Xe Điện & Mạng Lưới Trạm Sạc Xanh Toàn Quốc
+########################################################################
+country_event = {
+	id = vie_auto.2
+	title = vie_auto.2.t
+	desc = vie_auto.2.d
+	picture = GFX_report_event_generic_factory
+
+	is_triggered_only = no
+	fire_only_once = yes
+
+	trigger = {
+		tag = VIE
+		has_completed_focus = VIE_ev_revolution_batteries
+		has_completed_focus = VIE_petrolimex_green_ev_hubs
+		NOT = { has_country_flag = VIE_green_mobility_alliance_active }
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	option = {
+		name = vie_auto.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_auto.2.a executed"
+		add_political_power = 50
+		increase_economic_growth = yes
+		add_stability = 0.02
+		set_country_flag = VIE_green_mobility_alliance_active
+	}
+}

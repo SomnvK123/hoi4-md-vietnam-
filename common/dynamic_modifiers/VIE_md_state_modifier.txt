@@ -1,0 +1,16 @@
+# State-building dynamic modifier (Batch 0).
+# Reads normalized modifier variables updated by VIE_ax_normalize.
+VIE_state_modifier = {
+	icon = GFX_idea_generic_political_reform
+
+	production_speed_buildings_factor = VIE_ax_size_mod
+	political_power_gain = VIE_ax_merit_mod
+	production_factory_efficiency_gain_factor = VIE_ax_merit_eff_mod
+	consumer_goods_factor = VIE_ax_decent_mod
+	stability_factor = VIE_ax_checks_mod
+	country_productivity_growth_modifier = VIE_ax_market_mod
+	drift_defence_factor = VIE_ax_civil_mod
+	trade_opinion_factor = VIE_ax_integ_mod
+	war_support_factor = VIE_ax_mob_mod
+	research_speed_factor = VIE_ax_west_mod
+}

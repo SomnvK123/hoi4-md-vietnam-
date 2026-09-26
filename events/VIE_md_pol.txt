@@ -1,0 +1,453 @@
+add_namespace = vie_pol
+
+########################################################################
+# vie_pol.1  Hidden init (fired once by VIE_event_scheduler)
+#  - Party General Secretary Le Kha Phieu is the effective leader in 2000
+#  - informal non-alignment policy, balance of power, South China Sea tension = 0
+########################################################################
+country_event = {
+	id = vie_pol.1
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.1 (init)"
+		set_variable = { VIE_scs_tension = 0 }
+		add_ideas = VIE_non_alignment_policy
+		if = {
+			limit = { VIE_party_rule_active = yes }
+			VIE_new_leader_phieu = yes
+			set_power_balance = {
+				id = VIE_party_balance
+				left_side = VIE_conservative_side
+				right_side = VIE_reform_side
+				set_value = -0.1
+			}
+			set_country_flag = VIE_bop_active
+		}
+	}
+}
+
+########################################################################
+# vie_pol.2  Ninth Party Congress (Apr 2001)  -- turning point A
+########################################################################
+country_event = {
+	id = vie_pol.2
+	title = vie_pol.2.t
+	desc = vie_pol.2.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	option = {
+		name = vie_pol.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.2.a executed"
+		VIE_new_leader_manh = yes
+		VIE_bop_reform_small = yes
+		add_political_power = 50
+		set_country_flag = VIE_congress9_manh
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
+	}
+
+	option = {
+		name = vie_pol.2.b
+		trigger = { VIE_bop_leans_conservative = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.2.b executed"
+		VIE_bop_conservative_medium = yes
+		add_stability = 0.03
+		add_political_power = -25
+		set_country_flag = VIE_conservative_unlocked
+		custom_effect_tooltip = VIE_gate_note_con
+		set_country_flag = VIE_congress9_phieu
+		ai_chance = {
+			base = 3
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 100 has_global_flag = VIE_AI_PATH_HARDLINE }
+		}
+	}
+}
+
+########################################################################
+# vie_pol.3  Tenth Party Congress (Apr 2006)  -- turning point A
+########################################################################
+country_event = {
+	id = vie_pol.3
+	title = vie_pol.3.t
+	desc = vie_pol.3.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	immediate = { set_country_flag = VIE_era_2006 }
+
+	option = {
+		name = vie_pol.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.3.a executed"
+		add_political_power = 50
+		VIE_bop_reform_small = yes
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = vie_pol.3.b
+		trigger = { VIE_bop_is_reformist = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.3.b executed"
+		VIE_bop_reform_medium = yes
+		add_stability = -0.02
+		set_country_flag = VIE_reform_mandate
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 100 has_global_flag = VIE_AI_PATH_REFORM }
+		}
+	}
+}
+
+########################################################################
+# vie_pol.4  Eleventh Party Congress (Jan 2011)  -- Nguyen Phu Trong
+########################################################################
+country_event = {
+	id = vie_pol.4
+	title = vie_pol.4.t
+	desc = vie_pol.4.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	immediate = { set_country_flag = VIE_era_2011 }
+
+	option = {
+		name = vie_pol.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.4.a executed"
+		VIE_new_leader_trong = yes
+		VIE_bop_conservative_small = yes
+		add_political_power = 50
+		ai_chance = { base = 100 }
+	}
+}
+
+########################################################################
+# vie_pol.5  Twelfth Party Congress (Jan 2016)  -- biggest fork
+#   historical: Trong re-elected        alt: Government camp (Dung) wins -> developmental state
+########################################################################
+country_event = {
+	id = vie_pol.5
+	title = vie_pol.5.t
+	desc = vie_pol.5.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	immediate = { set_country_flag = VIE_era_2016 }
+
+	option = {
+		name = vie_pol.5.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.5.a executed"
+		VIE_bop_conservative_small = yes
+		add_political_power = 50
+		set_country_flag = VIE_trong_third_term
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
+	}
+
+	option = {
+		name = vie_pol.5.b
+		trigger = {
+			OR = {
+				VIE_bop_is_reformist = yes
+				has_country_flag = VIE_reform_mandate
+			}
+		}
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.5.b executed"
+		VIE_new_leader_dung = yes
+		VIE_bop_reform_large = yes
+		increase_economic_growth = yes
+		add_stability = -0.03
+		set_country_flag = VIE_developmental_unlocked
+		custom_effect_tooltip = VIE_gate_note_dev
+		clr_country_flag = VIE_conservative_unlocked
+		ai_chance = {
+			base = 4
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 100 has_global_flag = VIE_AI_PATH_REFORM }
+			modifier = { add = 100 has_global_flag = VIE_AI_PATH_FREE_ZONES }
+		}
+	}
+}
+
+########################################################################
+# vie_pol.6  Thirteenth Party Congress (Jan 2021)  -- turning point A
+########################################################################
+country_event = {
+	id = vie_pol.6
+	title = vie_pol.6.t
+	desc = vie_pol.6.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	immediate = { set_country_flag = VIE_era_2021_congress }
+
+	# Historical: an unprecedented third term for the General Secretary
+	option = {
+		name = vie_pol.6.a
+		trigger = { has_country_flag = VIE_trong_third_term }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.a executed"
+		add_political_power = 50
+		VIE_bop_conservative_small = yes
+		set_country_flag = VIE_trong_third_term_confirmed
+		ai_chance = { base = 100 }
+	}
+
+	# Government camp path: the reforming leadership is confirmed
+	option = {
+		name = vie_pol.6.b
+		trigger = { has_country_flag = VIE_developmental_unlocked }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.b executed"
+		add_political_power = 50
+		VIE_bop_reform_small = yes
+		ai_chance = { base = 100 }
+	}
+
+	# Neither path recorded (e.g. Twelfth Congress skipped): simply confirm the leadership
+	option = {
+		name = vie_pol.6.c
+		trigger = {
+			NOT = { has_country_flag = VIE_trong_third_term }
+			NOT = { has_country_flag = VIE_developmental_unlocked }
+		}
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.c executed"
+		add_political_power = 50
+		ai_chance = { base = 100 }
+	}
+}
+
+########################################################################
+# vie_pol.7  Extraordinary Central Committee meeting (Aug 2024) -- only on the Trong path
+########################################################################
+country_event = {
+	id = vie_pol.7
+	title = vie_pol.7.t
+	desc = vie_pol.7.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	option = {
+		name = vie_pol.7.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.7.a executed"
+		VIE_new_leader_to_lam = yes
+		VIE_bop_conservative_small = yes
+		add_political_power = 50
+		set_country_flag = VIE_to_lam_era
+		ai_chance = { base = 100 }
+	}
+}
+
+########################################################################
+# vie_pol.8  Fourteenth Party Congress (Jan 2026) -- end marker of the historical content
+########################################################################
+country_event = {
+	id = vie_pol.8
+	title = vie_pol.8.t
+	desc = vie_pol.8.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	immediate = { set_country_flag = VIE_congress14_done }
+
+	option = {
+		name = vie_pol.8.a
+		trigger = { has_country_flag = VIE_to_lam_era }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.a executed"
+		add_political_power = 100
+		VIE_bop_conservative_small = yes
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = vie_pol.8.b
+		trigger = { NOT = { has_country_flag = VIE_to_lam_era } }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.b executed"
+		add_political_power = 50
+		ai_chance = { base = 100 }
+	}
+}
+
+########################################################################
+# vie_pol.9  General Secretary also becomes President (Apr 2026)
+########################################################################
+country_event = {
+	id = vie_pol.9
+	title = vie_pol.9.t
+	desc = vie_pol.9.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { VIE_party_rule_active = yes }
+
+	option = {
+		name = vie_pol.9.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.9.a executed"
+		add_political_power = 50
+		add_stability = 0.02
+		set_country_flag = VIE_dual_role_2026
+		ai_chance = { base = 100 }
+	}
+
+	# Hypothetical: keep collective leadership, the National Assembly keeps its oversight role
+	option = {
+		name = vie_pol.9.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.9.b executed"
+		add_political_power = 25
+		add_stability = 0.01
+		set_country_flag = VIE_collective_leadership_2026
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_pol.23
+########################################################################
+country_event = {
+	id = vie_pol.23
+	title = vie_pol.23.t
+	desc = vie_pol.23.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.23.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.23.a executed"
+		add_stability = 0.02
+		add_political_power = -50
+		add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		ai_chance = { base = 60 }
+	}
+
+	option = {
+		name = vie_pol.23.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.23.b executed"
+		add_political_power = 25
+		VIE_ax_normalize = yes
+		ai_chance = { base = 40 }
+	}
+
+}
+
+########################################################################
+# vie_pol.24
+########################################################################
+country_event = {
+	id = vie_pol.24
+	title = vie_pol.24.t
+	desc = vie_pol.24.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.24.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.24.a executed"
+		add_stability = -0.03
+		add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = vie_pol.24.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.24.b executed"
+		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		ai_chance = { base = 60 }
+	}
+
+}
+
+########################################################################
+# vie_pol.25
+########################################################################
+country_event = {
+	id = vie_pol.25
+	title = vie_pol.25.t
+	desc = vie_pol.25.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { has_idea = VIE_unified_leadership_idea }
+
+	option = {
+		name = vie_pol.25.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.25.a executed"
+		decrease_corruption = yes
+		add_stability = -0.02
+		VIE_ax_normalize = yes
+		ai_chance = { base = 60 }
+	}
+
+	option = {
+		name = vie_pol.25.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.25.b executed"
+		add_political_power = 25
+		increase_corruption = yes
+		if = {
+			limit = { has_idea = communist_cadres }
+			set_temp_variable = { temp_opinion = -3 }
+			change_communist_cadres_opinion = yes
+		}
+		ai_chance = { base = 40 }
+	}
+
+}
+
+########################################################################
+# vie_pol.26
+########################################################################
+country_event = {
+	id = vie_pol.26
+	title = vie_pol.26.t
+	desc = vie_pol.26.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	trigger = { has_idea = VIE_institutional_oversight_idea }
+
+	option = {
+		name = vie_pol.26.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.26.a executed"
+		add_stability = 0.02
+		add_political_power = -25
+		ai_chance = { base = 60 }
+	}
+
+	option = {
+		name = vie_pol.26.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.26.b executed"
+		add_stability = -0.01
+		add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+		add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		ai_chance = { base = 40 }
+	}
+
+}

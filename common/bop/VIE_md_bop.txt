@@ -1,0 +1,86 @@
+# Vietnam - Conservative <-> Reform balance (ruling party: Neutral_Communism / Communist-State)
+# Left  (negative) = VIE_conservative_side  "Preserving the Foundations"
+# Right (positive) = VIE_reform_side        "Deep Renovation"
+# Initialised by event vie_pol.1 (set_power_balance, flag VIE_bop_active). Moved via VIE_bop_* scripted effects.
+# Modifier sizes are deliberately small (+-1 to +-5%); see implementation_plan_final.md section 2.11.
+
+VIE_party_balance = {
+	initial_value = -0.1
+	left_side = VIE_conservative_side
+	right_side = VIE_reform_side
+
+	range = {
+		id = VIE_mid_range
+		min = -0.2
+		max = 0.2
+		modifier = {
+			custom_modifier_tooltip = VIE_mid_range_desc
+			stability_factor = 0.02
+			political_power_gain = 0.02
+		}
+	}
+
+	side = {
+		id = VIE_conservative_side
+		icon = GFX_idea_generic_communist_drift_bonus
+
+		range = {
+			id = VIE_conservative_range
+			min = -0.6
+			max = -0.2
+			modifier = {
+				custom_modifier_tooltip = VIE_conservative_range_desc
+				stability_factor = 0.03
+				drift_defence_factor = 0.03
+				country_productivity_growth_modifier = -0.01
+				trade_opinion_factor = -0.02
+			}
+		}
+
+		range = {
+			id = VIE_hardline_range
+			min = -1
+			max = -0.6
+			modifier = {
+				custom_modifier_tooltip = VIE_hardline_range_desc
+				stability_factor = 0.05
+				drift_defence_factor = 0.05
+				country_productivity_growth_modifier = -0.03
+				trade_opinion_factor = -0.04
+				research_speed_factor = -0.03
+			}
+		}
+	}
+
+	side = {
+		id = VIE_reform_side
+		icon = GFX_idea_generic_political_reform
+
+		range = {
+			id = VIE_reform_range
+			min = 0.2
+			max = 0.6
+			modifier = {
+				custom_modifier_tooltip = VIE_reform_range_desc
+				country_productivity_growth_modifier = 0.02
+				trade_opinion_factor = 0.03
+				research_speed_factor = 0.02
+				stability_factor = -0.01
+			}
+		}
+
+		range = {
+			id = VIE_radical_reform_range
+			min = 0.6
+			max = 1
+			modifier = {
+				custom_modifier_tooltip = VIE_radical_reform_range_desc
+				country_productivity_growth_modifier = 0.04
+				trade_opinion_factor = 0.05
+				research_speed_factor = 0.04
+				stability_factor = -0.03
+				drift_defence_factor = -0.03
+			}
+		}
+	}
+}

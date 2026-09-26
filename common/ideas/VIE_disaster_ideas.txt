@@ -1,0 +1,81 @@
+ideas = {
+	country = {
+		# Binh chủng Cứu hộ - Cứu nạn
+		VIE_military_rescue_idea = {
+			picture = generic_military_mission
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_core_defence_factor = 0.05
+				land_reinforce_rate = 0.05
+			}
+		}
+
+		# Công trình Thủy lợi Hà Lan hóa
+		VIE_dutch_engineering_idea = {
+			picture = economic_water_supply
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				industrial_capacity_factory = 0.03
+				stability_factor = 0.01
+			}
+		}
+
+		# Thích ứng Sinh thái NQ120
+		VIE_nature_adaptation_idea = {
+			picture = green_world
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				consumer_goods_factor = -0.01
+				stability_factor = 0.02
+			}
+		}
+
+		# Vựa lúa Mê Kông kiên cường
+		VIE_mekong_granary_idea = {
+			picture = Generic_Digital_Agriculture
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				consumer_goods_factor = -0.02
+				monthly_population = 0.05
+			}
+		}
+
+		# Hạn mặn khẩn cấp (Timed idea)
+		VIE_salinity_emergency = {
+			picture = economic_water_supply
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				consumer_goods_factor = 0.02
+				stability_factor = -0.02
+			}
+		}
+
+		# Chuyển dịch sinh thái (Timed idea)
+		VIE_nature_transition = {
+			picture = green_world
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				industry_repair_factor = 0.05
+				stability_factor = 0.01
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+# Vietnam submod: alternative-history game rule (Phase 4). Rule token: VIE_alt_history
+#   historical : AI (and nobody else) never takes alternative options
+#   plausible  : default; alternatives exist behind their historical conditions
+#   free       : lower thresholds for the alternative doors; the AI takes alternatives sometimes
+
+VIE_ai_historical = {
+	OR = {
+		is_historical_focus_on = yes
+		has_game_rule = { rule = VIE_alt_history option = historical }
+		has_global_flag = VIE_AI_PATH_HISTORICAL
+	}
+}
+
+VIE_ai_free = {
+	has_game_rule = { rule = VIE_alt_history option = free }
+}
+
+# Door D3 (security state): 40% normally, 55% in free mode
+VIE_gate_security_stability = {
+	OR = {
+		VIE_ai_path_security = yes
+		has_stability < 0.40
+		AND = {
+			VIE_ai_free = yes
+			has_stability < 0.55
+		}
+	}
+}
+
+# Collapse: stability below 20% (25% in free mode)
+VIE_collapse_stability = {
+	OR = {
+		has_stability < 0.20
+		AND = {
+			VIE_ai_free = yes
+			has_stability < 0.25
+		}
+	}
+}
+
+########################################################################
+# AI paths (game rule VIE_ai_behavior -> global flags VIE_AI_PATH_*). They only ever relax the gates of the
+# alternative doors for an AI-controlled Vietnam, so an AI that was told to follow a path can actually reach it.
+########################################################################
+VIE_ai_path_reformish = {
+	is_ai = yes
+	OR = {
+		has_global_flag = VIE_AI_PATH_REFORM
+		has_global_flag = VIE_AI_PATH_FREE_ZONES
+		has_global_flag = VIE_AI_PATH_WESTERN
+	}
+}
+VIE_ai_path_security = {
+	is_ai = yes
+	OR = {
+		has_global_flag = VIE_AI_PATH_HARDLINE
+		has_global_flag = VIE_AI_PATH_NATIONALIST
+	}
+}
+VIE_ai_path_conservative = {
+	is_ai = yes
+	has_global_flag = VIE_AI_PATH_HARDLINE
+}

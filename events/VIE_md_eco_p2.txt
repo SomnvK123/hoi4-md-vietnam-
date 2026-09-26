@@ -1,0 +1,338 @@
+add_namespace = vie_eco
+
+########################################################################
+# vie_eco.3  PMU18 corruption scandal (2006)  -- class B
+########################################################################
+country_event = {
+	id = vie_eco.3
+	title = vie_eco.3.t
+	desc = vie_eco.3.d
+	picture = GFX_report_event_Corruption_1
+	is_triggered_only = yes
+
+	option = {
+		name = vie_eco.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.3.a executed"
+		decrease_corruption = yes
+		add_political_power = -25
+		VIE_bop_reform_small = yes
+		set_temp_variable = { temp_opinion = -3 }
+		change_communist_cadres_opinion = yes
+		ai_chance = { base = 80 }
+	}
+
+	option = {
+		name = vie_eco.3.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.3.b executed"
+		add_political_power = 25
+		VIE_bop_conservative_small = yes
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_eco.4  Inflation and asset bubble (2008)  -- class B
+########################################################################
+country_event = {
+	id = vie_eco.4
+	title = vie_eco.4.t
+	desc = vie_eco.4.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	# Tighten credit and public investment (historical Resolution 10)
+	option = {
+		name = vie_eco.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.4.a executed"
+		decrease_economic_growth = yes
+		VIE_bop_conservative_small = yes
+		ai_chance = { base = 70 }
+	}
+
+	# Keep growth going and accept a period of high inflation
+	option = {
+		name = vie_eco.4.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.4.b executed"
+		add_timed_idea = { idea = VIE_high_inflation days = 540 }
+		VIE_bop_reform_small = yes
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_eco.5  Vinashin default (2010)  -- class B; harsher if state groups were built up
+########################################################################
+country_event = {
+	id = vie_eco.5
+	title = vie_eco.5.t
+	desc = vie_eco.5.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { check_variable = { VIE_vinashin_risk > 1 } }
+			add_timed_idea = { idea = VIE_state_debt_overhang days = 730 }
+		}
+	}
+
+	# Bail out and restructure
+	option = {
+		name = vie_eco.5.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.5.a executed"
+		set_temp_variable = { treasury_change = -3 }
+		modify_treasury_effect = yes
+		set_temp_variable = { temp_opinion = 3 }
+		change_communist_cadres_opinion = yes
+		increase_corruption = yes
+		ai_chance = { base = 40 }
+	}
+
+	# Prosecute the managers and restructure
+	option = {
+		name = vie_eco.5.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.5.b executed"
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_stability = -0.02
+		set_temp_variable = { temp_opinion = -4 }
+		change_communist_cadres_opinion = yes
+		VIE_bop_reform_small = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+########################################################################
+# vie_eco.6  Formosa fish deaths (Apr 2016)  -- only if the Ha Tinh steel complex was built
+########################################################################
+country_event = {
+	id = vie_eco.6
+	title = vie_eco.6.t
+	desc = vie_eco.6.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+
+	# Publicly hold the company to account
+	option = {
+		name = vie_eco.6.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.6.a executed"
+		set_temp_variable = { treasury_change = 2 }
+		modify_treasury_effect = yes
+		add_stability = -0.02
+		VIE_bop_reform_small = yes
+		set_country_flag = VIE_formosa_open
+		ai_chance = { base = 60 }
+	}
+
+	# Settle quietly and control the story
+	option = {
+		name = vie_eco.6.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.6.b executed"
+		add_stability = -0.04
+		add_political_power = 25
+		VIE_bop_conservative_small = yes
+		set_country_flag = VIE_formosa_covered
+		ai_chance = {
+			base = 40
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_eco.7  Bad debts and the property slump (2012)  -- class B
+########################################################################
+country_event = {
+	id = vie_eco.7
+	title = vie_eco.7.t
+	desc = vie_eco.7.d
+	picture = GFX_report_event_Closed_Shop
+	is_triggered_only = yes
+
+	# Create a state asset-management company to buy the bad loans
+	option = {
+		name = vie_eco.7.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.7.a executed"
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		add_stability = 0.01
+		ai_chance = { base = 70 }
+	}
+
+	# Leave it to the banks
+	option = {
+		name = vie_eco.7.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.7.b executed"
+		decrease_economic_growth = yes
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_eco.8  Test-kit scandal (Dec 2021)  -- class B
+########################################################################
+country_event = {
+	id = vie_eco.8
+	title = vie_eco.8.t
+	desc = vie_eco.8.d
+	picture = GFX_report_event_Arrest
+	is_triggered_only = yes
+
+	option = {
+		name = vie_eco.8.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.8.a executed"
+		decrease_corruption = yes
+		add_stability = -0.02
+		add_political_power = 25
+		set_temp_variable = { temp_opinion = -3 }
+		change_communist_cadres_opinion = yes
+		ai_chance = { base = 80 }
+	}
+
+	option = {
+		name = vie_eco.8.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.8.b executed"
+		add_political_power = 25
+		VIE_bop_conservative_small = yes
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_eco.9  Corporate bond crisis (Oct 2022)  -- class B
+########################################################################
+country_event = {
+	id = vie_eco.9
+	title = vie_eco.9.t
+	desc = vie_eco.9.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	# Ease the rules to buy time
+	option = {
+		name = vie_eco.9.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.9.a executed"
+		add_timed_idea = { idea = VIE_bond_overhang days = 540 }
+		add_stability = 0.01
+		ai_chance = { base = 50 }
+	}
+
+	# Enforce, and let weak developers fail
+	option = {
+		name = vie_eco.9.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.9.b executed"
+		decrease_economic_growth = yes
+		add_stability = -0.03
+		decrease_corruption = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+########################################################################
+# vie_eco.10  Van Thinh Phat / SCB verdict (2024)  -- class B
+########################################################################
+country_event = {
+	id = vie_eco.10
+	title = vie_eco.10.t
+	desc = vie_eco.10.d
+	picture = GFX_report_event_Arrest
+	is_triggered_only = yes
+
+	# Full prosecution
+	option = {
+		name = vie_eco.10.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.10.a executed"
+		decrease_corruption = yes
+		add_stability = -0.01
+		add_political_power = 50
+		ai_chance = { base = 70 }
+	}
+
+	# Stabilise the banking system first
+	option = {
+		name = vie_eco.10.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.10.b executed"
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		add_stability = 0.01
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_eco.11  US tariff announcement (Apr 2025)  -- turning point A
+########################################################################
+country_event = {
+	id = vie_eco.11
+	title = vie_eco.11.t
+	desc = vie_eco.11.d
+	picture = GFX_report_event_generic_shanghai_clash
+	is_triggered_only = yes
+
+	immediate = {
+		add_timed_idea = { idea = VIE_us_tariff_shock days = 120 }
+	}
+
+	# Send a delegation to negotiate at once
+	option = {
+		name = vie_eco.11.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.11.a executed"
+		add_political_power = -25
+		set_country_flag = VIE_tariff_negotiating
+		country_event = { id = vie_eco.12 days = 60 random_days = 30 }
+		ai_chance = { base = 80 }
+	}
+
+	# Hold firm and look for other markets first
+	option = {
+		name = vie_eco.11.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.11.b executed"
+		add_stability = 0.01
+		VIE_bop_conservative_small = yes
+		country_event = { id = vie_eco.12 days = 75 random_days = 30 }
+		ai_chance = { base = 20 }
+	}
+}
+
+########################################################################
+# vie_eco.12  US tariff outcome (Jul 2025)
+########################################################################
+country_event = {
+	id = vie_eco.12
+	title = vie_eco.12.t
+	desc = vie_eco.12.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	# Accept a lower tariff and a framework deal
+	option = {
+		name = vie_eco.12.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.12.a executed"
+		add_timed_idea = { idea = VIE_us_tariff_mild days = 365 }
+		add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
+		ai_chance = { base = 80 }
+	}
+
+	# Hold out for better terms
+	option = {
+		name = vie_eco.12.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.12.b executed"
+		add_timed_idea = { idea = VIE_us_tariff_shock days = 240 }
+		VIE_bop_conservative_small = yes
+		ai_chance = { base = 20 }
+	}
+}

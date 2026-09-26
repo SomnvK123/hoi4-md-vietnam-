@@ -1,0 +1,197 @@
+add_namespace = vie_scs
+
+########################################################################
+# vie_scs.4  Binh Minh 02 survey cable cut (May 2011)  -- class B
+########################################################################
+country_event = {
+	id = vie_scs.4
+	title = vie_scs.4.t
+	desc = vie_scs.4.d
+	picture = GFX_CHI_pla_navy
+	is_triggered_only = yes
+
+	# Protest quietly
+	option = {
+		name = vie_scs.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.4.a executed"
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		ai_chance = { base = 70 }
+	}
+
+	# Hold live-fire exercises off the coast
+	option = {
+		name = vie_scs.4.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.4.b executed"
+		set_temp_variable = { VIE_tension_add = 1 }
+		VIE_add_scs_tension = yes
+		navy_experience = 5
+		add_war_support = 0.02
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 60 has_global_flag = VIE_AI_PATH_NATIONALIST }
+			modifier = { add = 40 has_global_flag = VIE_AI_PATH_AUTONOMY }
+		}
+	}
+}
+
+########################################################################
+# vie_scs.5  Law of the Sea (Jun 2012)  -- class B
+########################################################################
+country_event = {
+	id = vie_scs.5
+	title = vie_scs.5.t
+	desc = vie_scs.5.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Adopt the law
+	option = {
+		name = vie_scs.5.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.5.a executed"
+		set_temp_variable = { VIE_tension_add = 1 }
+		VIE_add_scs_tension = yes
+		add_stability = 0.02
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		ai_chance = { base = 90 }
+	}
+
+	# Postpone it
+	option = {
+		name = vie_scs.5.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.5.b executed"
+		add_stability = -0.01
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		ai_chance = { base = 10 }
+	}
+}
+
+########################################################################
+# vie_scs.6  Arbitral ruling on the South China Sea (12 Jul 2016)  -- turning point A
+########################################################################
+country_event = {
+	id = vie_scs.6
+	title = vie_scs.6.t
+	desc = vie_scs.6.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+
+	# Welcome the ruling and call for compliance
+	option = {
+		name = vie_scs.6.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.6.a executed"
+		add_stability = 0.01
+		add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		ai_chance = { base = 70 }
+	}
+
+	# Say little and avoid provoking Beijing
+	option = {
+		name = vie_scs.6.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.6.b executed"
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		VIE_bop_conservative_small = yes
+		ai_chance = { base = 30 }
+	}
+
+	# Use the ruling as the basis for a wider diplomatic campaign
+	option = {
+		name = vie_scs.6.c
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.6.c executed"
+		set_temp_variable = { VIE_tension_add = 1 }
+		VIE_add_scs_tension = yes
+		VIE_bop_reform_small = yes
+		add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		add_opinion_modifier = { target = JAP modifier = VIE_hd981_appeal }
+		reverse_add_opinion_modifier = { target = JAP modifier = VIE_hd981_appeal }
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 80 has_global_flag = VIE_AI_PATH_WESTERN }
+			modifier = { add = 50 has_global_flag = VIE_AI_PATH_REFORM }
+		}
+	}
+}
+
+########################################################################
+# vie_scs.7  Pressure on the oil blocks (2017-18)  -- only with expanded offshore oil and gas
+########################################################################
+country_event = {
+	id = vie_scs.7
+	title = vie_scs.7.t
+	desc = vie_scs.7.d
+	picture = GFX_report_event_generic_naval_treaty
+	is_triggered_only = yes
+
+	# Suspend drilling (historical)
+	option = {
+		name = vie_scs.7.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.7.a executed"
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		ai_chance = { base = 90 }
+	}
+
+	# Continue drilling and reinforce the outposts
+	option = {
+		name = vie_scs.7.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.7.b executed"
+		set_temp_variable = { VIE_tension_add = 1 }
+		VIE_add_scs_tension = yes
+		add_war_support = 0.02
+		navy_experience = 5
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_scs.8  Vanguard Bank survey standoff (Jul 2019)  -- class B
+########################################################################
+country_event = {
+	id = vie_scs.8
+	title = vie_scs.8.t
+	desc = vie_scs.8.d
+	picture = GFX_CHI_pla_navy
+	is_triggered_only = yes
+
+	# Shadow the survey ships and send diplomatic notes
+	option = {
+		name = vie_scs.8.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.8.a executed"
+		set_temp_variable = { VIE_tension_add = 1 }
+		VIE_add_scs_tension = yes
+		navy_experience = 5
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		ai_chance = { base = 70 }
+	}
+
+	# Keep it low-key
+	option = {
+		name = vie_scs.8.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.8.b executed"
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		ai_chance = { base = 30 }
+	}
+}

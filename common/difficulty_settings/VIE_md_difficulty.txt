@@ -1,0 +1,15 @@
+# "Nation Buffs & Debuffs" entries for Vietnam (Custom Game Rules). Same static modifiers as MD's other countries.
+difficulty_settings = {
+	difficulty_setting = {
+		key = "custom_diff_strong_vie"
+		modifier = diff_strong_ai_generic
+		countries = { VIE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "custom_diff_weak_vie"
+		modifier = diff_weak_ai_generic
+		countries = { VIE }
+		multiplier = 2.0
+	}
+}

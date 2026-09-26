@@ -1,0 +1,85 @@
+ideas = {
+	country = {
+		# Tự chủ Thép cuộn cán nóng HRC (Hòa Phát Dung Quất)
+		VIE_hrc_steel_self_reliance = {
+			picture = economic_civil_industry
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_infrastructure_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+			}
+		}
+
+		# Khuôn mẫu & Cơ khí Chính xác CNC (Giải quyết bài toán ốc vít)
+		VIE_precision_molds_idea = {
+			picture = economic_civil_industry
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.02
+				industrial_capacity_factory = 0.03
+			}
+		}
+
+		# Mạng lưới Doanh nghiệp Cung ứng Cấp 1 (Tier-1 Suppliers)
+		VIE_tier1_suppliers_idea = {
+			picture = economic_civil_industry
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				corporate_tax_income_multiplier_modifier = 0.03
+				country_productivity_growth_modifier = 0.02
+			}
+		}
+
+		# Cụm Công nghiệp Phụ trợ Ô tô Tích hợp Cát Hải
+		VIE_auto_supplier_cluster_idea = {
+			picture = economic_civil_industry
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				industrial_capacity_factory = 0.03
+				production_speed_industrial_complex_factor = 0.04
+			}
+		}
+
+		# Cách mạng Xe điện & Tổ hợp Pin VinES
+		VIE_ev_mobility_idea = {
+			picture = economic_civil_industry
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.025
+				fuel_cost = -0.05
+				stability_factor = 0.01
+			}
+		}
+
+		# Thương hiệu Công nghiệp Quốc gia Vươn ra Toàn cầu (Nasdaq)
+		VIE_global_brand_recognition = {
+			picture = economic_boom
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				corporate_tax_income_multiplier_modifier = 0.04
+				country_productivity_growth_modifier = 0.02
+				foreign_influence_defense_modifier = 0.10
+				stability_factor = 0.02
+			}
+		}
+	}
+}

@@ -1,0 +1,321 @@
+# Vietnam submod scripted effects (Phase 3): doors, regime ticks, collapse and civil war.
+# All of it is called from VIE_event_scheduler_p3 (monthly) or from focuses/events.
+
+########################################################################
+# Regime entry helper: idempotent wrapper around VIE_transition_regime with a popularity boost.
+#   VIE_enter_regime = { PARTY = 20 AMOUNT = 0.20 }
+########################################################################
+########################################################################
+# Doors: a conditional event that fires once; the event's own options gate the alternatives.
+########################################################################
+########################################################################
+# Collapse: pick the rebel faction and start the civil war (see plan 2.10).
+#   Rebel party 22 (military):  states 524 523   (Military Regions 1 and 2)
+#   Rebel party 20 (populist):  states 521 520   (Military Regions 4 and 5)
+#   Rebel party 13 (reformist): states 519 518   (Military Regions 7 and 9)
+# The capital region (522) and the Spratlys (801) always stay with the government.
+########################################################################
+VIE_col_pick_rebel = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_reform_mandate
+				has_country_flag = VIE_press_relaxed
+			}
+		}
+		set_variable = { VIE_col_rebel = 13 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_wk_grievance
+				has_country_flag = VIE_wa_labor_repressed
+			}
+		}
+		set_variable = { VIE_col_rebel = 5 }
+	}
+	else = {
+		set_variable = { VIE_col_rebel = 22 }
+	}
+}
+
+VIE_col_start_civil_war = {
+	VIE_col_pick_rebel = yes
+	set_country_flag = { flag = VIE_civil_war_clock days = 180 }
+	hidden_effect = {
+		if = {
+			limit = { check_variable = { VIE_col_rebel = 13 } }
+			start_civil_war = {
+				ideology = neutrality
+				size = 0.35
+				states = { 519 518 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { VIE_col_rebel = 5 } }
+			start_civil_war = {
+				ideology = communism
+				size = 0.30
+				states = { 519 524 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { VIE_col_rebel = 20 } }
+			start_civil_war = {
+				ideology = nationalist
+				size = 0.35
+				states = { 521 520 }
+			}
+		}
+		else = {
+			start_civil_war = {
+				ideology = nationalist
+				size = 0.35
+				states = { 524 523 }
+			}
+		}
+		# Same pattern as MD start_civil_war_against_the_strongest_opposition
+		random_enemy_country = {
+			limit = { original_tag = ROOT }
+			set_country_flag = VIE_civil_war_rebel
+			set_temp_variable = { rul_party_temp = PREV.VIE_col_rebel }
+			if = {
+				limit = { check_variable = { rul_party_temp = 13 } }
+				set_temp_variable = { party_index = 13 }
+				set_temp_variable = { party_popularity_increase = 0.25 }
+				set_temp_variable = { temp_outlook_increase = 0.25 }
+				hidden_effect = { change_relative_party_popularity = yes }
+			}
+			else_if = {
+				limit = { check_variable = { rul_party_temp = 5 } }
+				set_temp_variable = { party_index = 5 }
+				set_temp_variable = { party_popularity_increase = 0.25 }
+				set_temp_variable = { temp_outlook_increase = 0.25 }
+				hidden_effect = { change_relative_party_popularity = yes }
+			}
+			else = {
+				set_temp_variable = { party_index = 22 }
+				set_temp_variable = { party_popularity_increase = 0.25 }
+				set_temp_variable = { temp_outlook_increase = 0.25 }
+				hidden_effect = { change_relative_party_popularity = yes }
+			}
+			set_temp_variable = { disable_elections = 1 }
+			change_ruling_party_effect = yes
+			hidden_effect = { set_variable = { current_term = 0 } }
+		}
+	}
+}
+
+########################################################################
+# Called for the winner of a civil war whose original tag is VIE (from on_civil_war_end).
+# The winner may be the old country or the rebel country, so it re-creates the "already happened" flags.
+########################################################################
+VIE_catch_up_schedule = {
+	set_temp_variable = { VIE_catch_up = 1 }
+	VIE_event_scheduler = yes
+	VIE_event_scheduler_p2 = yes
+	VIE_event_scheduler_p3 = yes
+	VIE_event_scheduler_p5 = yes
+	VIE_event_scheduler_p6 = yes
+	VIE_event_scheduler_p7 = yes
+	VIE_event_scheduler_p10 = yes
+}
+
+VIE_collapse_aftermath = {
+	clr_country_flag = VIE_civil_war_rebel
+	VIE_catch_up_schedule = yes
+	set_country_flag = VIE_collapse_done
+	set_country_flag = VIE_post_collapse
+	set_country_flag = { flag = VIE_collapse_immunity days = 1095 }
+	# the winner needs the balance of power that matches its regime
+	if = {
+		limit = {
+			OR = {
+				check_variable = { ruling_party = 19 }
+				check_variable = { ruling_party = 4 }
+			}
+			NOT = { has_country_flag = VIE_bop_active }
+		}
+		set_power_balance = {
+			id = VIE_party_balance
+			left_side = VIE_conservative_side
+			right_side = VIE_reform_side
+			set_value = -0.4
+		}
+		set_country_flag = VIE_bop_active
+	}
+	if = {
+		limit = { check_variable = { ruling_party = 5 } }
+		clr_country_flag = VIE_wk_grievance
+	}
+	country_event = { id = vie_col.6 days = 20 }
+}
+
+########################################################################
+# Monthly collapse check: stability < 20%, two crises and a pole. First a single chance to pull back.
+########################################################################
+VIE_collapse_check = {
+	if = {
+		limit = {
+			VIE_collapse_stability = yes
+			VIE_crisis_count_ge_2 = yes
+			VIE_collapse_pole = yes
+			has_war = no
+			has_civil_war = no
+			NOT = { has_country_flag = VIE_collapse_done }
+			NOT = { has_country_flag = VIE_collapse_immunity }
+		}
+		if = {
+			limit = { NOT = { has_country_flag = VIE_winter_used } }
+			set_country_flag = VIE_winter_used
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_col.1 days = 2 }
+		}
+		else = {
+			set_country_flag = VIE_collapse_done
+			country_event = { id = vie_col.2 days = 5 }
+		}
+	}
+	# Reconciliation conference if the war drags on
+	if = {
+		limit = {
+			has_civil_war = yes
+			has_country_flag = VIE_collapse_done
+			NOT = { has_country_flag = VIE_civil_war_clock }
+			NOT = { has_country_flag = VIE_hue_done }
+		}
+		set_country_flag = VIE_hue_done
+		country_event = { id = vie_col.4 days = 3 }
+	}
+}
+
+########################################################################
+# Silent fallbacks / small helpers used by regime events
+########################################################################
+VIE_bubble_cool = {
+	add_to_variable = { VIE_bubble = -4 }
+	clamp_variable = { var = VIE_bubble min = 0 max = 30 }
+	add_to_variable = { VIE_bubble_cools = 1 }
+}
+
+########################################################################
+# Scheduler, part 3.  Called monthly after part 1 and part 2.  Skipped in catch-up mode.
+########################################################################
+VIE_event_scheduler_p3 = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+
+		# ---- Doors (fire once each; options are gated inside the events)
+		if = {
+			limit = {
+				VIE_party_rule_active = yes
+				has_country_flag = VIE_hd981_done
+				NOT = { has_country_flag = VIE_regime_changed_recently }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_door_d4_done } }
+				set_country_flag = VIE_door_d4_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_alt.1 days = 20 random_days = 20 }
+			}
+		}
+		if = {
+			limit = {
+				VIE_party_rule_active = yes
+				date > 2006.10.31
+				has_country_flag = VIE_press_relaxed
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_door_d2_done } }
+				set_country_flag = VIE_door_d2_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_alt.2 days = 20 random_days = 20 }
+			}
+		}
+		if = {
+			limit = {
+				VIE_party_rule_active = yes
+				date > 2011.5.31
+				OR = {
+					has_stability < 0.55
+					check_variable = { VIE_vinashin_risk > 1 }
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_door_d3_done } }
+				set_country_flag = VIE_door_d3_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_alt.3 days = 20 random_days = 20 }
+			}
+		}
+		if = {
+			limit = {
+				VIE_party_rule_active = yes
+				date > 2018.5.31
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_door_d6_done } }
+				set_country_flag = VIE_door_d6_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_alt.6 days = 20 random_days = 20 }
+			}
+		}
+		if = {
+			limit = {
+				VIE_party_rule_active = yes
+				date > 2022.9.30
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_door_d8_done } }
+				set_country_flag = VIE_door_d8_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_alt.7 days = 20 random_days = 20 }
+			}
+		}
+
+		# ---- Free Zone regime: share of the zones that is foreign-owned creeps up
+		if = {
+			limit = {
+				check_variable = { ruling_party = 16 }
+				has_country_flag = VIE_lb_leases_done
+			}
+			add_to_variable = { VIE_sez_share = 1 }
+			if = {
+				limit = {
+					check_variable = { VIE_sez_share > 71 }
+					NOT = { has_country_flag = VIE_sez_degrade_fired }
+				}
+				set_country_flag = VIE_sez_degrade_fired
+				country_event = { id = vie_alt.9 days = 5 }
+			}
+		}
+
+		# ---- Oligarchic regime: the housing bubble
+		if = {
+			limit = { has_idea = VIE_real_estate_boom_idea }
+			add_to_variable = { VIE_bubble = 1 }
+			if = {
+				limit = { check_variable = { VIE_bubble > 23 } }
+				remove_ideas = VIE_real_estate_boom_idea
+				country_event = { id = vie_alt.20 days = 2 }
+			}
+		}
+
+		# ---- Development Council: years in power until the "Democratic Summer"
+		if = {
+			limit = { check_variable = { ruling_party = 0 } }
+			add_to_variable = { VIE_wa_months = 1 }
+			if = {
+				limit = {
+					check_variable = { VIE_wa_months > 95 }
+					NOT = { has_country_flag = VIE_wa_summer_fired }
+				}
+				set_country_flag = VIE_wa_summer_fired
+				country_event = { id = vie_alt.22 days = 5 }
+			}
+		}
+
+		# ---- Collapse
+		VIE_collapse_check = yes
+	}
+}

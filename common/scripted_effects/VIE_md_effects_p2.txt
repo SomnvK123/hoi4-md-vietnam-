@@ -1,0 +1,635 @@
+# Vietnam submod scripted effects (Phase 2): later-period scheduler, leader, silent fallbacks.
+# Called from on_monthly_VIE (VIE_md_on_actions.txt) after VIE_event_scheduler.
+
+# VIE_create_leader_to_lam lives in VIE_md_effects.txt (defined before VIE_recreate_general_secretary)
+VIE_new_leader_to_lam = {
+	hidden_effect = {
+		kill_country_leader = yes
+		set_country_flag = VIE_congress_controls_leader
+		set_variable = { VIE_gs = 5 }
+		VIE_create_leader_to_lam = yes
+	}
+}
+
+########################################################################
+# Silent historical outcomes for class B events whose pop-up window has passed
+########################################################################
+VIE_fb_none = {
+	log = "[GetDateText]: [This.GetName]: VIE scheduler fallback (no effect)"
+}
+VIE_fb_pmu18 = {
+	decrease_corruption = yes
+}
+VIE_fb_inflation = {
+	decrease_economic_growth = yes
+}
+VIE_fb_vinashin = {
+	set_temp_variable = { treasury_change = -2 }
+	modify_treasury_effect = yes
+}
+VIE_fb_bad_debt = {
+	set_temp_variable = { treasury_change = -2 }
+	modify_treasury_effect = yes
+}
+VIE_fb_salinity = {
+	set_temp_variable = { temp_opinion = -3 }
+	change_farmers_opinion = yes
+}
+# The focus VIE_us_embargo_lifted needs this flag, so the flag is set even without the pop-up
+VIE_fb_embargo = {
+	set_country_flag = VIE_us_arms_open
+	add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+	reverse_add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+}
+VIE_fb_formosa = {
+	add_stability = -0.02
+}
+VIE_fb_viet_a = {
+	decrease_corruption = yes
+}
+VIE_fb_vtp = {
+	decrease_corruption = yes
+}
+
+########################################################################
+# Scheduler, part 2 (2003 onwards). Order = priority when the 45 day cooldown is contested.
+########################################################################
+VIE_event_scheduler_p2 = {
+	# ---- Class A: turning points
+	if = {
+		limit = { VIE_party_rule_active = yes }
+		if = {
+			limit = {
+				date > 2020.12.31
+				NOT = { has_country_flag = VIE_sched_congress_13 }
+			}
+			set_country_flag = VIE_sched_congress_13
+			if = {
+				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_pol.6 days = 3 random_days = 15 }
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_trong_third_term
+				NOT = { has_country_flag = VIE_developmental_unlocked }
+			}
+			if = {
+				limit = {
+					date > 2024.7.31
+					NOT = { has_country_flag = VIE_sched_plenum_2024 }
+				}
+				set_country_flag = VIE_sched_plenum_2024
+				if = {
+					limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					country_event = { id = vie_pol.7 days = 3 random_days = 15 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				date > 2025.12.31
+				NOT = { has_country_flag = VIE_sched_congress_14 }
+			}
+			set_country_flag = VIE_sched_congress_14
+			if = {
+				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_pol.8 days = 3 random_days = 15 }
+			}
+		}
+		if = {
+			limit = { has_country_flag = VIE_to_lam_era }
+			if = {
+				limit = {
+					date > 2026.3.31
+					NOT = { has_country_flag = VIE_sched_president_2026 }
+				}
+				set_country_flag = VIE_sched_president_2026
+				if = {
+					limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					country_event = { id = vie_pol.9 days = 3 random_days = 15 }
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			date > 2016.6.30
+			NOT = { has_country_flag = VIE_sched_pca }
+		}
+		set_country_flag = VIE_sched_pca
+		if = {
+			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_scs.6 days = 3 random_days = 15 }
+		}
+	}
+	if = {
+		limit = {
+			date > 2025.3.31
+			NOT = { has_country_flag = VIE_sched_tariff }
+		}
+		set_country_flag = VIE_sched_tariff
+		if = {
+			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.11 days = 3 random_days = 15 }
+		}
+	}
+
+	# ---- Class B: choice events (fire when the cooldown is free)
+	if = {
+		limit = {
+			date > 2003.1.31
+			NOT = { has_country_flag = VIE_sched_sars }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_sars
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_sars
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.1 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2003.7.31 }
+			set_country_flag = VIE_sched_sars
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2003.11.30
+			NOT = { has_country_flag = VIE_sched_h5n1 }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_h5n1
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_h5n1
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.2 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2004.6.30 }
+			set_country_flag = VIE_sched_h5n1
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2006.3.31
+			NOT = { has_country_flag = VIE_sched_pmu18 }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_pmu18
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_pmu18
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.3 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2006.10.31 }
+			set_country_flag = VIE_sched_pmu18
+			VIE_fb_pmu18 = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2008.3.31
+			NOT = { has_country_flag = VIE_sched_inflation08 }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_inflation08
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_inflation08
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.4 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2008.12.1 }
+			set_country_flag = VIE_sched_inflation08
+			VIE_fb_inflation = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2010.6.30
+			NOT = { has_country_flag = VIE_sched_vinashin }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_vinashin
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_vinashin
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.5 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2011.3.31 }
+			set_country_flag = VIE_sched_vinashin
+			VIE_fb_vinashin = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2011.4.30
+			NOT = { has_country_flag = VIE_sched_binh_minh }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_binh_minh
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_binh_minh
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_scs.4 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2011.12.31 }
+			set_country_flag = VIE_sched_binh_minh
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2012.3.31
+			NOT = { has_country_flag = VIE_sched_bad_debt }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_bad_debt
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_bad_debt
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.7 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2013.1.1 }
+			set_country_flag = VIE_sched_bad_debt
+			VIE_fb_bad_debt = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2012.5.31
+			NOT = { has_country_flag = VIE_sched_sea_law }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_sea_law
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_sea_law
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_scs.5 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2012.12.31 }
+			set_country_flag = VIE_sched_sea_law
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2016.2.29
+			NOT = { has_country_flag = VIE_sched_salinity16 }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_salinity16
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_salinity16
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.4 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2016.9.30 }
+			set_country_flag = VIE_sched_salinity16
+			VIE_fb_salinity = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2016.5.22
+			NOT = { has_country_flag = VIE_sched_embargo }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_embargo
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_embargo
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_dip.1 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2016.12.31 }
+			set_country_flag = VIE_sched_embargo
+			VIE_fb_embargo = yes
+		}
+	}
+	if = {
+		limit = { has_country_flag = VIE_steel_complex_built }
+		if = {
+			limit = {
+				date > 2016.3.31
+				NOT = { has_country_flag = VIE_sched_formosa }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				set_country_flag = VIE_sched_formosa
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_sched_formosa
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_eco.6 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2016.12.31 }
+				set_country_flag = VIE_sched_formosa
+				VIE_fb_formosa = yes
+			}
+		}
+	}
+	if = {
+		limit = { has_country_flag = VIE_oil_blocks_active }
+		if = {
+			limit = {
+				date > 2017.6.30
+				NOT = { has_country_flag = VIE_sched_oil_blocks }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				set_country_flag = VIE_sched_oil_blocks
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_sched_oil_blocks
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_scs.7 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2018.12.31 }
+				set_country_flag = VIE_sched_oil_blocks
+				VIE_fb_none = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			date > 2019.1.31
+			NOT = { has_country_flag = VIE_sched_hanoi_summit }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_hanoi_summit
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_hanoi_summit
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_dip.2 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2019.8.31 }
+			set_country_flag = VIE_sched_hanoi_summit
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2019.6.30
+			NOT = { has_country_flag = VIE_sched_vanguard }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_vanguard
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_vanguard
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_scs.8 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2019.12.31 }
+			set_country_flag = VIE_sched_vanguard
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2020.1.31
+			NOT = { has_country_flag = VIE_sched_salinity20 }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_salinity20
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_salinity20
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.5 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2020.8.31 }
+			set_country_flag = VIE_sched_salinity20
+			VIE_fb_salinity = yes
+		}
+	}
+	if = {
+		limit = { has_global_flag = COVID_start_of_pandemic }
+		if = {
+			limit = {
+				date > 2019.12.31
+				NOT = { has_country_flag = VIE_sched_covid_response }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				set_country_flag = VIE_sched_covid_response
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_sched_covid_response
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_soc.6 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2021.6.30 }
+				set_country_flag = VIE_sched_covid_response
+				VIE_fb_none = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			date > 2021.10.31
+			NOT = { has_country_flag = VIE_sched_viet_a }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_viet_a
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_viet_a
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.8 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2022.6.30 }
+			set_country_flag = VIE_sched_viet_a
+			VIE_fb_viet_a = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2022.9.30
+			NOT = { has_country_flag = VIE_sched_bond_crisis }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_bond_crisis
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_bond_crisis
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.9 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2023.6.30 }
+			set_country_flag = VIE_sched_bond_crisis
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2023.8.31
+			NOT = { has_country_flag = VIE_sched_csp_us }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_csp_us
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_csp_us
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_dip.3 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2024.3.31 }
+			set_country_flag = VIE_sched_csp_us
+			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2024.3.31
+			NOT = { has_country_flag = VIE_sched_vtp_verdict }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_vtp_verdict
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_vtp_verdict
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_eco.10 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2024.12.31 }
+			set_country_flag = VIE_sched_vtp_verdict
+			VIE_fb_vtp = yes
+		}
+	}
+	if = {
+		limit = { country_exists = CBD }
+		if = {
+			limit = {
+				date > 2024.6.30
+				NOT = { has_country_flag = VIE_sched_funan }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				set_country_flag = VIE_sched_funan
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_sched_funan
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_dip.4 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2025.3.31 }
+				set_country_flag = VIE_sched_funan
+				VIE_fb_none = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			date > 2024.8.31
+			NOT = { has_country_flag = VIE_sched_yagi }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_yagi
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_yagi
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.7 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2025.1.31 }
+			set_country_flag = VIE_sched_yagi
+			VIE_fb_none = yes
+		}
+	}
+
+	# ---- Random central-Vietnam floods: 4 % per month, then at least ~2.7 years before the next one
+	if = {
+		limit = {
+			date > 2002.12.31
+			NOT = { check_variable = { VIE_catch_up = 1 } }
+			NOT = { has_country_flag = VIE_flood_cd }
+			NOT = { has_country_flag = VIE_popup_cd }
+		}
+		random = {
+			chance = 4
+			set_country_flag = { flag = VIE_flood_cd days = 1000 }
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_soc.3 days = 3 random_days = 20 }
+		}
+	}
+}

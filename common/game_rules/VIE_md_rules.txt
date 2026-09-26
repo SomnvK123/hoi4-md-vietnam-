@@ -1,0 +1,81 @@
+# Vietnam submod game rule (Phase 4). Add-on file: MD's own common/game_rules/00_game_rules.txt is untouched.
+VIE_alt_history = {
+	name = "RULE_VIE_ALT_HISTORY"
+	group = "MD_AI_RULES"
+	icon = "GFX_production_licenses"
+
+	default = {
+		name = plausible
+		text = "RULE_VIE_ALT_HISTORY_PLAUSIBLE"
+		desc = "RULE_VIE_ALT_HISTORY_PLAUSIBLE_DESC"
+	}
+	option = {
+		name = historical
+		text = "RULE_VIE_ALT_HISTORY_HISTORICAL"
+		desc = "RULE_VIE_ALT_HISTORY_HISTORICAL_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = free
+		text = "RULE_VIE_ALT_HISTORY_FREE"
+		desc = "RULE_VIE_ALT_HISTORY_FREE_DESC"
+		allow_achievements = no
+	}
+}
+
+# AI behaviour when Vietnam is AI-controlled (same pattern as MD's XXX_ai_behavior rules).
+# The chosen path is stored as a global flag VIE_AI_PATH_* at game start (VIE_md_on_actions.txt).
+VIE_ai_behavior = {
+	name = "VIE_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_BEHAVIOR"
+	option = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "VIE_RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = VIE_HISTORICAL
+		text = "VIE_HISTORICAL"
+		desc = "VIE_HISTORICAL_DESC"
+	}
+	option = {
+		name = VIE_REFORM
+		text = "VIE_REFORM"
+		desc = "VIE_REFORM_DESC"
+	}
+	option = {
+		name = VIE_AUTONOMY
+		text = "VIE_AUTONOMY"
+		desc = "VIE_AUTONOMY_DESC"
+	}
+	option = {
+		name = VIE_HARDLINE
+		text = "VIE_HARDLINE"
+		desc = "VIE_HARDLINE_DESC"
+	}
+	option = {
+		name = VIE_WESTERN
+		text = "VIE_WESTERN"
+		desc = "VIE_WESTERN_DESC"
+	}
+	option = {
+		name = VIE_NATIONALIST
+		text = "VIE_NATIONALIST"
+		desc = "VIE_NATIONALIST_DESC"
+	}
+	option = {
+		name = VIE_FREE_ZONES
+		text = "VIE_FREE_ZONES"
+		desc = "VIE_FREE_ZONES_DESC"
+	}
+	option = {
+		name = RANDOM
+		text = "RULE_OPTION_RANDOM"
+		desc = "RULE_OPTION_RANDOM_DESC"
+	}
+	default = {
+		name = NO_PATH
+		text = "RULE_OPTION_MD_NO_PATH"
+		desc = "RULE_OPTION_MD_NO_PATH_DESC"
+	}
+}

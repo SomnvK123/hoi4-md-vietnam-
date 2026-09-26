@@ -1,0 +1,105 @@
+ideas = {
+	country = {
+
+		# Present from 2000: informal non-alignment. Upgraded to VIE_four_nos by VIE_event_scheduler (Nov 2019, no pop-up).
+		VIE_non_alignment_policy = {
+			picture = generic_neutrality
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			rule = {
+				can_join_factions = no
+				can_create_factions = no
+			}
+
+			modifier = {
+				stability_factor = 0.02
+				trade_opinion_factor = 0.03
+				drift_defence_factor = 0.03
+			}
+		}
+
+		# 2019 Defence White Paper: "Four Nos". Removed only by regime transitions or the pro-China / pro-West focuses.
+		VIE_four_nos = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			rule = {
+				can_join_factions = no
+				can_create_factions = no
+			}
+
+			modifier = {
+				stability_factor = 0.03
+				trade_opinion_factor = 0.05
+				drift_defence_factor = 0.05
+			}
+		}
+
+		VIE_us_bta_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.05
+				country_productivity_growth_modifier = 0.02
+			}
+		}
+
+		VIE_fdi_zones_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.03
+				corporate_tax_income_multiplier_modifier = 0.03
+				consumer_goods_factor = 0.01
+			}
+		}
+
+		VIE_wto_member = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.08
+				country_productivity_growth_modifier = 0.03
+				political_power_gain = 0.03
+			}
+		}
+
+		# Short-lived side effects of the 2014 HD-981 crisis. Timed; see vie_scs events.
+		VIE_public_anger = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.03
+				war_support_factor = 0.05
+			}
+		}
+
+		VIE_fdi_confidence_shock = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.02
+				corporate_tax_income_multiplier_modifier = -0.02
+			}
+		}
+	}
+}

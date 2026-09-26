@@ -1,0 +1,67 @@
+# Vietnam submod triggers
+
+# The Communist Party still holds power (Neutral_Communism = historical CPV, Communist-State = hardline variant).
+# Used to switch the Party Congress event chain on/off. Do NOT test has_government = communism: VIE is 'neutrality' in MD.
+VIE_party_rule_active = {
+	original_tag = VIE
+	OR = {
+		check_variable = { ruling_party = 19 }
+		check_variable = { ruling_party = 4 }
+	}
+	NOT = { has_country_flag = VIE_party_rule_ended }
+}
+
+# South China Sea tension has reached level 2 or more (unlocks the assertive maritime focuses).
+VIE_scs_escalated_trigger = {
+	check_variable = { VIE_scs_tension > 1 }
+}
+
+# Balance-of-power readers (need VIE_bop_active, i.e. Party rule and the balance initialised)
+VIE_bop_is_reformist = {
+	has_country_flag = VIE_bop_active
+	OR = {
+		VIE_ai_path_reformish = yes
+		power_balance_value = {
+			id = VIE_party_balance
+			value > 0.2
+		}
+		AND = {
+			VIE_ai_free = yes
+			power_balance_value = {
+				id = VIE_party_balance
+				value > 0.05
+			}
+		}
+	}
+}
+VIE_bop_leans_conservative = {
+	has_country_flag = VIE_bop_active
+	OR = {
+		VIE_ai_path_conservative = yes
+		power_balance_value = {
+			id = VIE_party_balance
+			value < 0
+		}
+	}
+}
+
+# Calendar eras used to pace the historical trunk (see plan 2.5). Calendar-driven so they also work outside Party rule.
+VIE_era_2011 = {
+	date > 2010.12.31
+}
+VIE_era_2016 = {
+	date > 2015.12.31
+}
+VIE_era_2021 = {
+	date > 2020.12.31
+}
+
+# Set by event vie_pol.8 (Fourteenth Congress, Jan 2026)
+VIE_fourteenth_congress_held = {
+	has_country_flag = VIE_congress14_done
+}
+
+# Set by event vie_dip.1 (US arms embargo lifted, May 2016)
+VIE_us_arms_open_tt = {
+	has_country_flag = VIE_us_arms_open
+}

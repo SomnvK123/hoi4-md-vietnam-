@@ -1,0 +1,26 @@
+﻿l_english:
+
+ ### Country selection screen (bookmark)
+ VIE_MILLENNIUM_DAWN_DESC:0 "14 năm sau khi công cuộc Đổi Mới mở cửa nền kinh tế, Việt Nam trở thành một trong những quốc gia trỗi dậy nhanh nhất châu Á. Tăng trưởng đạt gần 7%, nông dân trở thành các nhà xuất khẩu gạo và cà phê hàng đầu, và một hiệp định thương mại song phương mang tính bước ngoặt với Hoa Kỳ sắp sửa được ký kết. Tuy nhiên, cuộc khủng hoảng tài chính châu Á đã để lại cho các ngân hàng và doanh nghiệp nhà nước gánh nặng nợ xấu, và nội bộ Đảng đang phân hóa giữa sự thận trọng của Tổng Bí thư Lê Khả Phiêu và những người muốn đẩy nhanh cải cách.\n\nĐất nước phải duy trì tăng trưởng mà không đánh mất quyền kiểm soát trong nước, đồng thời cân bằng giữa sức hút từ người láng giềng khổng lồ phương Bắc với ký ức về các cuộc chiến tranh trong quá khứ và mong muốn làm bạn với tất cả các quốc gia. Những lựa chọn trong các thập kỷ tới, tại các kỳ Đại hội Đảng và trên Biển Đông, sẽ quyết định diện mạo của một nước Việt Nam mới."
+
+ ### Custom Game Rules: Nation Buffs & Debuffs
+ custom_diff_strong_vie:0 "@VIE Tăng sức mạnh Việt Nam"
+ custom_diff_weak_vie:0 "@VIE Làm yếu Việt Nam"
+
+ ### Custom Game Rules: AI behaviour
+ VIE_AI_BEHAVIOR:0 "@VIE Việt Nam"
+ VIE_RULE_OPTION_DEFAULT_AI_DESC:0 "AI của Việt Nam đi theo đường lối Đổi Mới và 'ngoại giao cây tre': cải cách ổn định, không liên minh quân sự, duy trì quan hệ tốt đẹp với mọi quốc gia. Các ngã rẽ thay thế chỉ mở ra nếu luật chơi 'Việt Nam: Lịch sử Giả định' cho phép."
+ VIE_HISTORICAL:0 "Kế thừa Lịch sử"
+ VIE_HISTORICAL_DESC:0 "Đảng tiếp tục nắm quyền và đi theo tiến trình lịch sử: Đổi Mới, WTO, CPTPP, chính sách Bốn Không. AI sẽ không bao giờ lựa chọn bất kỳ phương án rẽ nhánh nào tại các bước ngoặt."
+ VIE_REFORM:0 "Đổi mới Sâu rộng"
+ VIE_REFORM_DESC:0 "Phe cải cách trong Đảng giành ưu thế. AI xây dựng một nhà nước kiến tạo phát triển, nới lỏng báo chí, mở đối thoại xã hội dân sự và tiến tới đa nguyên có kiểm soát, cuối cùng là bầu cử tự do."
+ VIE_AUTONOMY:0 "Tự chủ Chiến lược"
+ VIE_AUTONOMY_DESC:0 "Sau cuộc khủng hoảng giàn khoan năm 2014, Đảng áp dụng lập trường cứng rắn và tách khỏi cả hai khối: tách rời chuỗi cung ứng với Trung Quốc, mua vũ khí từ Nga và Ấn Độ, cất tiếng nói đại diện cho phương Nam Toàn cầu và duy trì trung lập vũ trang."
+ VIE_HARDLINE:0 "Đường lối Cứng rắn Thân Trung Quốc"
+ VIE_HARDLINE_DESC:0 "Phe bảo thủ giành thắng lợi sớm. AI kiên định bảo vệ các nền tảng, mở rộng khu vực kinh tế nhà nước, thắt chặt quan hệ với Bắc Kinh và Moskva, từ bỏ chính sách Bốn Không. Bộ máy an ninh ngày càng giữ vai trò lớn hơn."
+ VIE_WESTERN:0 "Ngả sang Phương Tây"
+ VIE_WESTERN_DESC:0 "Hà Nội đối phó với sức ép từ Trung Quốc bằng cách liên kết chặt chẽ với Washington và các đối tác. Hàng loạt hiệp định thương mại và hợp tác quân sự được triển khai; Bắc Kinh phản ứng bằng các đòn trừng phạt kinh tế."
+ VIE_NATIONALIST:0 "Phong trào Dân tộc Chủ nghĩa"
+ VIE_NATIONALIST_DESC:0 "Làn sóng phẫn nộ về Biển Đông thúc đẩy lập trường cứng rắn: AI leo thang căng thẳng ở Biển Đông, huy động hải đội dân quân tự vệ biển, và trong khủng hoảng có thể để quân đội nắm quyền."
+ VIE_FREE_ZONES:0 "Đặc khu Tự do và Đại tập đoàn"
+ VIE_FREE_ZONES_DESC:0 "AI thông qua luật các đơn vị hành chính - kinh tế đặc biệt, cho nhà đầu tư thuê đất dài hạn và để các tập đoàn tư nhân khổng lồ chi phối nhà nước. Bong bóng bất động sản và một cuộc hạ cánh cứng là khó tránh khỏi."

@@ -1,0 +1,533 @@
+# Vietnam: defence companies (MIO). Requires Arms Against Tyranny; the game ignores the file without it.
+# Schema copied from Millennium Dawn (MD_SIA_organizations.txt / MD_BEL_organizations.txt):
+#   allowed / name / icon / available / task_capacity / equipment_type / research_categories / research_bonus
+#   tree_header_text / initial_trait / trait { token name icon position relative_position_id all_parents any_parent
+#                                              mutually_exclusive organization_modifier production_bonus equipment_bonus on_complete }
+# Icons are generic sprites that already exist in the base game, so no new art is needed.
+
+VIE_viettel_manufacturer = {
+	allowed = { original_tag = VIE }
+	name = VIE_viettel_manufacturer
+	icon = GFX_idea_generic_electronics_concern_2
+
+	task_capacity = 3
+
+	equipment_type = { cnc_equipment_type mio_cat_eq_only_uav guided_missile_equipment sam_missile_equipment }
+	research_categories = { CAT_cnc CAT_drones CAT_a_uav CAT_naval_radar CAT_as_missiles CAT_missile CAT_electrical_tech }
+	research_bonus = 0.08
+	ai_will_do = { base = 10 }
+
+	tree_header_text = {
+		text = VIE_viettel_mio_header_electronics
+		x = 0
+	}
+	tree_header_text = {
+		text = VIE_viettel_mio_header_uav
+		x = 3
+	}
+	tree_header_text = {
+		text = VIE_viettel_mio_header_missiles
+		x = 6
+	}
+
+	initial_trait = {
+		name = VIE_viettel_mio_trait_initial
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_funds_gain = 0.15
+		}
+		equipment_bonus = {
+			reliability = 0.03
+		}
+	}
+
+	# --- electronics
+	trait = {
+		token = VIE_viettel_mio_trait_military_radios
+		name = VIE_viettel_mio_trait_military_radios
+		icon = GFX_generic_mio_trait_icon_design
+		position = { x = 0 y = 1 }
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_viettel_mio_trait_coastal_radar
+		name = VIE_viettel_mio_trait_coastal_radar
+		icon = GFX_generic_mio_trait_icon_reliability
+		all_parents = { VIE_viettel_mio_trait_military_radios }
+		position = { x = 0 y = 2 }
+		equipment_bonus = {
+			reliability = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_viettel_mio_trait_electronic_warfare
+		name = VIE_viettel_mio_trait_electronic_warfare
+		icon = GFX_generic_mio_trait_icon_unique
+		all_parents = { VIE_viettel_mio_trait_coastal_radar }
+		position = { x = 0 y = 3 }
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+
+	# --- unmanned systems: a fork between reconnaissance and strike drones
+	trait = {
+		token = VIE_viettel_mio_trait_uav_programme
+		name = VIE_viettel_mio_trait_uav_programme
+		icon = GFX_generic_mio_trait_icon_air_range
+		position = { x = 3 y = 1 }
+		equipment_bonus = {
+			air_range = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_viettel_mio_trait_recon_drones
+		name = VIE_viettel_mio_trait_recon_drones
+		icon = GFX_generic_mio_trait_icon_air_agility
+		all_parents = { VIE_viettel_mio_trait_uav_programme }
+		position = { x = -1 y = 1 }
+		relative_position_id = VIE_viettel_mio_trait_uav_programme
+		mutually_exclusive = { VIE_viettel_mio_trait_strike_drones }
+		equipment_bonus = {
+			air_agility = 0.08
+			air_range = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_viettel_mio_trait_strike_drones
+		name = VIE_viettel_mio_trait_strike_drones
+		icon = GFX_generic_mio_trait_icon_air_attack
+		all_parents = { VIE_viettel_mio_trait_uav_programme }
+		position = { x = 1 y = 1 }
+		relative_position_id = VIE_viettel_mio_trait_uav_programme
+		mutually_exclusive = { VIE_viettel_mio_trait_recon_drones }
+		equipment_bonus = {
+			air_ground_attack = 0.08
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_viettel_mio_trait_loitering_munitions
+		name = VIE_viettel_mio_trait_loitering_munitions
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		any_parent = { VIE_viettel_mio_trait_recon_drones VIE_viettel_mio_trait_strike_drones }
+		position = { x = 3 y = 3 }
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+
+	# --- missiles
+	trait = {
+		token = VIE_viettel_mio_trait_antiship_missiles
+		name = VIE_viettel_mio_trait_antiship_missiles
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		position = { x = 6 y = 1 }
+		equipment_bonus = {
+			hard_attack = 0.06
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_viettel_mio_trait_air_defence_missiles
+		name = VIE_viettel_mio_trait_air_defence_missiles
+		icon = GFX_generic_mio_trait_icon_air_defence
+		all_parents = { VIE_viettel_mio_trait_antiship_missiles }
+		position = { x = 6 y = 2 }
+		equipment_bonus = {
+			air_attack = 0.06
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_viettel_mio_trait_national_champion
+		name = VIE_viettel_mio_trait_national_champion
+		icon = GFX_generic_mio_trait_icon_task
+		all_parents = { VIE_viettel_mio_trait_electronic_warfare VIE_viettel_mio_trait_loitering_munitions VIE_viettel_mio_trait_air_defence_missiles }
+		position = { x = 3 y = 4 }
+		special_trait_background = yes
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+			military_industrial_organization_funds_gain = 0.20
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+}
+
+VIE_gdt_manufacturer = {
+	allowed = { original_tag = VIE }
+	name = VIE_gdt_manufacturer
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_2
+
+	task_capacity = 3
+
+	equipment_type = { infantry_weapons_type artillery_equipment util_vehicle_type AA_Equipment L_AT_Equipment mio_cat_all_armor }
+	research_categories = { CAT_inf_wep CAT_inf CAT_artillery CAT_sp_arty CAT_sp_r_arty CAT_at CAT_util }
+	research_bonus = 0.06
+	ai_will_do = { base = 10 }
+
+	tree_header_text = {
+		text = VIE_gdt_mio_header_small_arms
+		x = 0
+	}
+	tree_header_text = {
+		text = VIE_gdt_mio_header_artillery
+		x = 3
+	}
+
+	initial_trait = {
+		name = VIE_gdt_mio_trait_initial
+		production_bonus = {
+			production_cost_factor = -0.03
+			production_efficiency_gain_factor = 0.05
+		}
+	}
+
+	trait = {
+		token = VIE_gdt_mio_trait_licensed_rifles
+		name = VIE_gdt_mio_trait_licensed_rifles
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = { x = 0 y = 1 }
+		equipment_bonus = {
+			reliability = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_gdt_mio_trait_stv_family
+		name = VIE_gdt_mio_trait_stv_family
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		all_parents = { VIE_gdt_mio_trait_licensed_rifles }
+		position = { x = -1 y = 1 }
+		relative_position_id = VIE_gdt_mio_trait_licensed_rifles
+		mutually_exclusive = { VIE_gdt_mio_trait_mass_production }
+		equipment_bonus = {
+			soft_attack = 0.06
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_gdt_mio_trait_mass_production
+		name = VIE_gdt_mio_trait_mass_production
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		all_parents = { VIE_gdt_mio_trait_licensed_rifles }
+		position = { x = 1 y = 1 }
+		relative_position_id = VIE_gdt_mio_trait_licensed_rifles
+		mutually_exclusive = { VIE_gdt_mio_trait_stv_family }
+		production_bonus = {
+			production_capacity_factor = 0.08
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_gdt_mio_trait_ammunition_plants
+		name = VIE_gdt_mio_trait_ammunition_plants
+		icon = GFX_generic_mio_trait_icon_resources
+		any_parent = { VIE_gdt_mio_trait_stv_family VIE_gdt_mio_trait_mass_production }
+		position = { x = 0 y = 3 }
+		production_bonus = {
+			production_resource_need_factor = -0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_gdt_mio_trait_towed_artillery
+		name = VIE_gdt_mio_trait_towed_artillery
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		position = { x = 3 y = 1 }
+		equipment_bonus = {
+			soft_attack = 0.06
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_gdt_mio_trait_rocket_artillery
+		name = VIE_gdt_mio_trait_rocket_artillery
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		all_parents = { VIE_gdt_mio_trait_towed_artillery }
+		position = { x = 3 y = 2 }
+		equipment_bonus = {
+			breakthrough = 0.06
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_gdt_mio_trait_vehicle_overhaul
+		name = VIE_gdt_mio_trait_vehicle_overhaul
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		all_parents = { VIE_gdt_mio_trait_rocket_artillery }
+		position = { x = 3 y = 3 }
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_gdt_mio_trait_arsenal_of_the_people
+		name = VIE_gdt_mio_trait_arsenal_of_the_people
+		icon = GFX_generic_mio_trait_icon_task
+		all_parents = { VIE_gdt_mio_trait_ammunition_plants VIE_gdt_mio_trait_vehicle_overhaul }
+		position = { x = 1 y = 4 }
+		special_trait_background = yes
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+}
+
+VIE_ba_son_manufacturer = {
+	allowed = { original_tag = VIE }
+	name = VIE_ba_son_manufacturer
+	icon = GFX_idea_generic_naval_manufacturer_2
+
+	task_capacity = 2
+
+	equipment_type = { mio_cat_only_small_ships mio_cat_frigates mio_cat_destroyers submarine }
+	research_categories = { CAT_patrolboat CAT_corvette CAT_frigate CAT_green_water_navy CAT_naval_sonar }
+	research_bonus = 0.06
+	ai_will_do = { base = 10 }
+
+	tree_header_text = {
+		text = VIE_ba_son_mio_header_hulls
+		x = 0
+	}
+	tree_header_text = {
+		text = VIE_ba_son_mio_header_systems
+		x = 3
+	}
+
+	initial_trait = {
+		name = VIE_ba_son_mio_trait_initial
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.03
+		}
+	}
+
+	trait = {
+		token = VIE_ba_son_mio_trait_patrol_boats
+		name = VIE_ba_son_mio_trait_patrol_boats
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = { x = 0 y = 1 }
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_ba_son_mio_trait_missile_boats
+		name = VIE_ba_son_mio_trait_missile_boats
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		all_parents = { VIE_ba_son_mio_trait_patrol_boats }
+		position = { x = -1 y = 1 }
+		relative_position_id = VIE_ba_son_mio_trait_patrol_boats
+		mutually_exclusive = { VIE_ba_son_mio_trait_offshore_patrol }
+		equipment_bonus = {
+			hard_attack = 0.06
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_ba_son_mio_trait_offshore_patrol
+		name = VIE_ba_son_mio_trait_offshore_patrol
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		all_parents = { VIE_ba_son_mio_trait_patrol_boats }
+		position = { x = 1 y = 1 }
+		relative_position_id = VIE_ba_son_mio_trait_patrol_boats
+		mutually_exclusive = { VIE_ba_son_mio_trait_missile_boats }
+		equipment_bonus = {
+			maximum_speed = 0.05
+			reliability = 0.03
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_ba_son_mio_trait_frigate_yard
+		name = VIE_ba_son_mio_trait_frigate_yard
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		any_parent = { VIE_ba_son_mio_trait_missile_boats VIE_ba_son_mio_trait_offshore_patrol }
+		position = { x = 0 y = 3 }
+		production_bonus = {
+			production_capacity_factor = 0.08
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_ba_son_mio_trait_sonar_suite
+		name = VIE_ba_son_mio_trait_sonar_suite
+		icon = GFX_generic_mio_trait_icon_design
+		position = { x = 3 y = 1 }
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_ba_son_mio_trait_repair_docks
+		name = VIE_ba_son_mio_trait_repair_docks
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		all_parents = { VIE_ba_son_mio_trait_sonar_suite }
+		position = { x = 3 y = 2 }
+		production_bonus = {
+			production_efficiency_gain_factor = 0.08
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_ba_son_mio_trait_shipbuilding_nation
+		name = VIE_ba_son_mio_trait_shipbuilding_nation
+		icon = GFX_generic_mio_trait_icon_task
+		all_parents = { VIE_ba_son_mio_trait_frigate_yard VIE_ba_son_mio_trait_repair_docks }
+		position = { x = 2 y = 4 }
+		special_trait_background = yes
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+			military_industrial_organization_research_bonus = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+}
+
+VIE_vaeco_manufacturer = {
+	allowed = { original_tag = VIE }
+	name = VIE_vaeco_manufacturer
+	icon = GFX_idea_generic_air_manufacturer_2
+
+	task_capacity = 2
+
+	equipment_type = { mio_cat_eq_only_all_light_aircraft mio_cat_helicopters mio_cat_eq_only_transport }
+	research_categories = { CAT_heli CAT_trans_heli CAT_trans_plane CAT_training CAT_air_eqp }
+	research_bonus = 0.06
+	ai_will_do = { base = 10 }
+
+	tree_header_text = {
+		text = VIE_vaeco_mio_header_maintenance
+		x = 0
+	}
+	tree_header_text = {
+		text = VIE_vaeco_mio_header_rotary
+		x = 3
+	}
+
+	initial_trait = {
+		name = VIE_vaeco_mio_trait_initial
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+		equipment_bonus = {
+			reliability = 0.04
+		}
+	}
+
+	trait = {
+		token = VIE_vaeco_mio_trait_overhaul_line
+		name = VIE_vaeco_mio_trait_overhaul_line
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = { x = 0 y = 1 }
+		equipment_bonus = {
+			reliability = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_vaeco_mio_trait_avionics_upgrades
+		name = VIE_vaeco_mio_trait_avionics_upgrades
+		icon = GFX_generic_mio_trait_icon_design
+		all_parents = { VIE_vaeco_mio_trait_overhaul_line }
+		position = { x = 0 y = 2 }
+		equipment_bonus = {
+			air_agility = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_vaeco_mio_trait_trainer_fleet
+		name = VIE_vaeco_mio_trait_trainer_fleet
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		all_parents = { VIE_vaeco_mio_trait_avionics_upgrades }
+		position = { x = 0 y = 3 }
+		production_bonus = {
+			production_efficiency_gain_factor = 0.08
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_vaeco_mio_trait_transport_helicopters
+		name = VIE_vaeco_mio_trait_transport_helicopters
+		icon = GFX_generic_mio_trait_icon_max_strength
+		position = { x = 3 y = 1 }
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_vaeco_mio_trait_naval_helicopters
+		name = VIE_vaeco_mio_trait_naval_helicopters
+		icon = GFX_generic_mio_trait_icon_air_range
+		all_parents = { VIE_vaeco_mio_trait_transport_helicopters }
+		position = { x = 3 y = 2 }
+		equipment_bonus = {
+			air_range = 0.08
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+	trait = {
+		token = VIE_vaeco_mio_trait_aviation_industry
+		name = VIE_vaeco_mio_trait_aviation_industry
+		icon = GFX_generic_mio_trait_icon_task
+		all_parents = { VIE_vaeco_mio_trait_trainer_fleet VIE_vaeco_mio_trait_naval_helicopters }
+		position = { x = 2 y = 4 }
+		special_trait_background = yes
+		organization_modifier = {
+			military_industrial_organization_task_capacity = 1
+			military_industrial_organization_funds_gain = 0.15
+		}
+		on_complete = { expenditure_for_mio_upgrade = yes }
+		ai_will_do = { base = 10 }
+	}
+}

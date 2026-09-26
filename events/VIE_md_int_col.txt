@@ -1,0 +1,383 @@
+add_namespace = vie_int
+add_namespace = vie_col
+
+########################################################################
+# International reactions (plan H7): only the important cells get a pop-up.
+# vie_int.1 China vs strategic autonomy   .2 China vs populist regime   .3 China vs Development Council
+# vie_int.4 China vs Western pivot        .5 US vs Chinese primacy      .6 US aid to a young democracy
+# vie_int.7 China offers to "stabilise"   .8 ASEAN and refugees (both during the collapse)
+########################################################################
+
+country_event = {
+	id = vie_int.1
+	title = vie_int.1.t
+	desc = vie_int.1.d
+	picture = GFX_report_event_generic_shanghai_clash
+	is_triggered_only = yes
+
+	# Endure the pressure
+	option = {
+		name = vie_int.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.1.a executed"
+		add_timed_idea = { idea = VIE_china_pressure_idea days = 365 }
+		add_stability = 0.01
+		ai_chance = { base = 60 }
+	}
+
+	# Look for other suppliers and buyers
+	option = {
+		name = vie_int.1.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.1.b executed"
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
+		reverse_add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
+		ai_chance = { base = 40 }
+	}
+}
+
+country_event = {
+	id = vie_int.2
+	title = vie_int.2.t
+	desc = vie_int.2.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+
+	# Reinforce the border
+	option = {
+		name = vie_int.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.2.a executed"
+		army_experience = 10
+		add_war_support = 0.03
+		set_temp_variable = { VIE_tension_add = 1 }
+		VIE_add_scs_tension = yes
+		ai_chance = { base = 50 }
+	}
+
+	# De-escalate
+	option = {
+		name = vie_int.2.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.2.b executed"
+		add_stability = -0.02
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		ai_chance = { base = 50 }
+	}
+}
+
+country_event = {
+	id = vie_int.3
+	title = vie_int.3.t
+	desc = vie_int.3.d
+	picture = GFX_report_event_generic_shanghai_clash
+	is_triggered_only = yes
+
+	# Treat it as a security problem
+	option = {
+		name = vie_int.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.3.a executed"
+		army_experience = 10
+		add_timed_idea = { idea = VIE_china_pressure_idea days = 365 }
+		ai_chance = { base = 50 }
+	}
+
+	# Reassure Beijing
+	option = {
+		name = vie_int.3.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.3.b executed"
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		add_stability = -0.01
+		ai_chance = { base = 50 }
+	}
+}
+
+country_event = {
+	id = vie_int.4
+	title = vie_int.4.t
+	desc = vie_int.4.d
+	picture = GFX_report_event_generic_shanghai_clash
+	is_triggered_only = yes
+
+	# Endure the pressure
+	option = {
+		name = vie_int.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.4.a executed"
+		add_timed_idea = { idea = VIE_china_pressure_idea days = 365 }
+		ai_chance = { base = 60 }
+	}
+
+	# Offer reassurances
+	option = {
+		name = vie_int.4.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.4.b executed"
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		add_political_power = -25
+		ai_chance = { base = 40 }
+	}
+}
+
+country_event = {
+	id = vie_int.5
+	title = vie_int.5.t
+	desc = vie_int.5.d
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+
+	# Accept the chill with Washington
+	option = {
+		name = vie_int.5.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.5.a executed"
+		add_stability = -0.01
+		ai_chance = { base = 60 }
+	}
+
+	# Balance with quiet outreach
+	option = {
+		name = vie_int.5.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.5.b executed"
+		add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		add_political_power = -25
+		ai_chance = { base = 40 }
+	}
+}
+
+country_event = {
+	id = vie_int.6
+	title = vie_int.6.t
+	desc = vie_int.6.d
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+
+	# Accept the aid
+	option = {
+		name = vie_int.6.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.6.a executed"
+		set_temp_variable = { treasury_change = 4 }
+		modify_treasury_effect = yes
+		add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		ai_chance = { base = 70 }
+	}
+
+	# Decline it and keep every option open
+	option = {
+		name = vie_int.6.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.6.b executed"
+		add_political_power = 50
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
+		ai_chance = { base = 30 }
+	}
+}
+
+country_event = {
+	id = vie_int.7
+	title = vie_int.7.t
+	desc = vie_int.7.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	# Reject it firmly
+	option = {
+		name = vie_int.7.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.7.a executed"
+		add_war_support = 0.05
+		add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
+		ai_chance = { base = 60 }
+	}
+
+	# Accept limited support
+	option = {
+		name = vie_int.7.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.7.b executed"
+		add_stability = 0.03
+		add_ideas = VIE_china_orbit_idea
+		add_opinion_modifier = { target = CHI modifier = VIE_chinese_influence }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_chinese_influence }
+		ai_chance = { base = 20 }
+	}
+
+	# Appeal to ASEAN and the United Nations
+	option = {
+		name = vie_int.7.c
+		log = "[GetDateText]: [This.GetName]: Event vie_int.7.c executed"
+		add_political_power = 50
+		add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_hd981_appeal }
+		ai_chance = { base = 20 }
+	}
+}
+
+country_event = {
+	id = vie_int.8
+	title = vie_int.8.t
+	desc = vie_int.8.d
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+
+	# Open the borders to aid and refugees
+	option = {
+		name = vie_int.8.a
+		log = "[GetDateText]: [This.GetName]: Event vie_int.8.a executed"
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		every_country = {
+			limit = {
+				has_idea = ASEAN_Member
+				NOT = { original_tag = VIE }
+			}
+			add_opinion_modifier = { target = VIE modifier = VIE_asean_cooperation }
+		}
+		ai_chance = { base = 60 }
+	}
+
+	# Close the borders
+	option = {
+		name = vie_int.8.b
+		log = "[GetDateText]: [This.GetName]: Event vie_int.8.b executed"
+		add_stability = -0.01
+		ai_chance = { base = 40 }
+	}
+}
+
+########################################################################
+# Collapse and civil war (see plan 2.10 and VIE_collapse_check)
+########################################################################
+
+# vie_col.1  Winter: the one chance to pull back
+country_event = {
+	id = vie_col.1
+	title = vie_col.1.t
+	desc = vie_col.1.d
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+
+	# Emergency stabilisation, at a heavy price
+	option = {
+		name = vie_col.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_col.1.a executed"
+		add_political_power = -150
+		set_temp_variable = { treasury_change = -3 }
+		modify_treasury_effect = yes
+		add_stability = 0.10
+		set_country_flag = { flag = VIE_collapse_immunity days = 730 }
+		ai_chance = { base = 95 }
+	}
+
+	# Ride it out
+	option = {
+		name = vie_col.1.b
+		log = "[GetDateText]: [This.GetName]: Event vie_col.1.b executed"
+		add_stability = -0.02
+		ai_chance = { base = 5 }
+	}
+}
+
+# vie_col.2  The General Crisis: the country splits
+country_event = {
+	id = vie_col.2
+	title = vie_col.2.t
+	desc = vie_col.2.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_col_pick_rebel = yes
+	}
+
+	option = {
+		name = vie_col.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_col.2.a executed (civil war starts)"
+		VIE_col_start_civil_war = yes
+		country_event = { id = vie_int.7 days = 60 }
+		country_event = { id = vie_int.8 days = 90 }
+		ai_chance = { base = 100 }
+	}
+}
+
+# vie_col.4  Hue conference: a way to reconciliation if the war drags on
+country_event = {
+	id = vie_col.4
+	title = vie_col.4.t
+	desc = vie_col.4.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# Convene a national reconciliation conference
+	option = {
+		name = vie_col.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_col.4.a executed"
+		set_country_flag = VIE_democracy_path_open
+		add_stability = 0.03
+		add_political_power = -50
+		ai_chance = { base = 70 }
+	}
+
+	# Refuse to talk
+	option = {
+		name = vie_col.4.b
+		log = "[GetDateText]: [This.GetName]: Event vie_col.4.b executed"
+		add_war_support = 0.03
+		ai_chance = { base = 30 }
+	}
+}
+
+# vie_col.6  After the war: what kind of country is left?
+country_event = {
+	id = vie_col.6
+	title = vie_col.6.t
+	desc = vie_col.6.d
+	picture = GFX_report_event_generic_ruins
+	is_triggered_only = yes
+
+	immediate = {
+		add_timed_idea = { idea = VIE_post_collapse_idea days = 730 }
+	}
+
+	# A road map to elections
+	option = {
+		name = vie_col.6.a
+		trigger = { check_variable = { ruling_party = 13 } }
+		log = "[GetDateText]: [This.GetName]: Event vie_col.6.a executed"
+		set_country_flag = VIE_democracy_path_open
+		add_stability = 0.02
+		ai_chance = { base = 100 }
+	}
+
+	# Recentralise under the Party
+	option = {
+		name = vie_col.6.c
+		trigger = {
+			OR = {
+				check_variable = { ruling_party = 19 }
+				check_variable = { ruling_party = 4 }
+			}
+		}
+		log = "[GetDateText]: [This.GetName]: Event vie_col.6.c executed"
+		VIE_bop_conservative_large = yes
+		add_stability = 0.05
+		add_political_power = 50
+		ai_chance = { base = 100 }
+	}
+
+	# Consolidate the new order
+	option = {
+		name = vie_col.6.e
+		trigger = {
+			NOT = { check_variable = { ruling_party = 13 } }
+			NOT = { check_variable = { ruling_party = 19 } }
+			NOT = { check_variable = { ruling_party = 4 } }
+		}
+		log = "[GetDateText]: [This.GetName]: Event vie_col.6.e executed"
+		add_stability = 0.03
+		add_political_power = 50
+		ai_chance = { base = 100 }
+	}
+}
+

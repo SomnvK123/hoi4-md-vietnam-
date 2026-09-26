@@ -1,0 +1,67 @@
+#########################################################################
+# VIE_md opinion modifiers (submod). Prefix VIE_ to avoid clashing with MD.
+#########################################################################
+opinion_modifiers = {
+
+	VIE_asean_cooperation = {
+		value = 15
+		decay = 0.1
+	}
+	VIE_comprehensive_partnership = {
+		value = 20
+		decay = 0.1
+	}
+	VIE_strategic_partnership = {
+		value = 30
+		decay = 0.1
+	}
+	VIE_chinese_influence = {
+		value = 25
+		decay = 0.1
+	}
+	VIE_pro_china_shift = {
+		value = -20
+		decay = 0.2
+	}
+	VIE_western_pivot = {
+		value = 25
+		decay = 0.1
+	}
+	VIE_western_shift = {
+		value = -25
+		decay = 0.2
+	}
+	VIE_trade_agreement = {
+		value = 15
+		trade = yes
+		decay = 0.1
+	}
+	VIE_arms_deal = {
+		value = 10
+		decay = 0.2
+	}
+	VIE_nationalized_industry = {
+		value = -40
+		decay = 0.3
+	}
+
+	# HD-981 crisis (May 2014)
+	VIE_hd981_restraint = {
+		value = 10
+		decay = 0.2
+	}
+	VIE_hd981_defiance = {
+		value = -25
+		decay = 0.2
+	}
+	VIE_hd981_appeal = {
+		value = 15
+		decay = 0.2
+	}
+
+	# Border settlement with China (1999-2008 demarcation)
+	VIE_border_treaty = {
+		value = 15
+		decay = 0.1
+	}
+}

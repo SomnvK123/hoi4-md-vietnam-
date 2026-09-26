@@ -1,0 +1,272 @@
+# Scripted effects for Vietnam 9-Axis State-Building (Batch 0).
+
+VIE_ax_init = {
+	if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = VIE_state_modifier } }
+		}
+		add_dynamic_modifier = { modifier = VIE_state_modifier }
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_ax_initialized }
+		}
+		set_country_flag = VIE_ax_initialized
+		set_variable = { VIE_ax_size = 3 }
+		set_variable = { VIE_ax_merit = -2 }
+		set_variable = { VIE_ax_decent = 1 }
+		set_variable = { VIE_ax_checks = -2 }
+		set_variable = { VIE_ax_market = -2 }
+		set_variable = { VIE_ax_civil = -3 }
+		set_variable = { VIE_ax_integ = 0 }
+		set_variable = { VIE_ax_mob = 0 }
+		set_variable = { VIE_ax_west = 0 }
+		VIE_ax_normalize = yes
+	}
+}
+
+VIE_ax_normalize = {
+	# Recursion guard: set flag FIRST before calling VIE_ax_init to prevent
+	# mutual infinite recursion (VIE_ax_normalize → VIE_ax_init → VIE_ax_normalize → ...).
+	# VIE_ax_init checks this flag and skips its body if already set.
+	if = {
+		limit = { NOT = { has_country_flag = VIE_ax_initialized } }
+		set_country_flag = VIE_ax_initialized
+		VIE_ax_init = yes
+	}
+
+	# 1. Size (SPAN 12)
+	set_variable = { VIE_ax_size_norm = VIE_ax_size }
+	multiply_variable = { var = VIE_ax_size_norm value = 10 }
+	divide_variable = { var = VIE_ax_size_norm value = 12 }
+	clamp_variable = { var = VIE_ax_size_norm min = -10 max = 10 }
+	round_variable = VIE_ax_size_norm
+
+	# 2. Merit (SPAN 59)
+	set_variable = { VIE_ax_merit_norm = VIE_ax_merit }
+	multiply_variable = { var = VIE_ax_merit_norm value = 10 }
+	divide_variable = { var = VIE_ax_merit_norm value = 59 }
+	clamp_variable = { var = VIE_ax_merit_norm min = -10 max = 10 }
+	round_variable = VIE_ax_merit_norm
+
+	# 3. Decent (SPAN 24)
+	set_variable = { VIE_ax_decent_norm = VIE_ax_decent }
+	multiply_variable = { var = VIE_ax_decent_norm value = 10 }
+	divide_variable = { var = VIE_ax_decent_norm value = 24 }
+	clamp_variable = { var = VIE_ax_decent_norm min = -10 max = 10 }
+	round_variable = VIE_ax_decent_norm
+
+	# 4. Checks (SPAN 19)
+	set_variable = { VIE_ax_checks_norm = VIE_ax_checks }
+	multiply_variable = { var = VIE_ax_checks_norm value = 10 }
+	divide_variable = { var = VIE_ax_checks_norm value = 19 }
+	clamp_variable = { var = VIE_ax_checks_norm min = -10 max = 10 }
+	round_variable = VIE_ax_checks_norm
+
+	# 5. Market (SPAN 41)
+	set_variable = { VIE_ax_market_norm = VIE_ax_market }
+	multiply_variable = { var = VIE_ax_market_norm value = 10 }
+	divide_variable = { var = VIE_ax_market_norm value = 41 }
+	clamp_variable = { var = VIE_ax_market_norm min = -10 max = 10 }
+	round_variable = VIE_ax_market_norm
+
+	# 6. Civil (SPAN 14)
+	set_variable = { VIE_ax_civil_norm = VIE_ax_civil }
+	multiply_variable = { var = VIE_ax_civil_norm value = 10 }
+	divide_variable = { var = VIE_ax_civil_norm value = 14 }
+	clamp_variable = { var = VIE_ax_civil_norm min = -10 max = 10 }
+	round_variable = VIE_ax_civil_norm
+
+	# 7. Integ (SPAN 98)
+	set_variable = { VIE_ax_integ_norm = VIE_ax_integ }
+	multiply_variable = { var = VIE_ax_integ_norm value = 10 }
+	divide_variable = { var = VIE_ax_integ_norm value = 98 }
+	clamp_variable = { var = VIE_ax_integ_norm min = -10 max = 10 }
+	round_variable = VIE_ax_integ_norm
+
+	# 8. Mob (SPAN 12)
+	set_variable = { VIE_ax_mob_norm = VIE_ax_mob }
+	multiply_variable = { var = VIE_ax_mob_norm value = 10 }
+	divide_variable = { var = VIE_ax_mob_norm value = 12 }
+	clamp_variable = { var = VIE_ax_mob_norm min = -10 max = 10 }
+	round_variable = VIE_ax_mob_norm
+
+	# 9. West (SPAN 29)
+	set_variable = { VIE_ax_west_norm = VIE_ax_west }
+	multiply_variable = { var = VIE_ax_west_norm value = 10 }
+	divide_variable = { var = VIE_ax_west_norm value = 29 }
+	clamp_variable = { var = VIE_ax_west_norm min = -10 max = 10 }
+	round_variable = VIE_ax_west_norm
+
+	# Calculate modifier variables (range +-3% at +-10 norm)
+	set_variable = { VIE_ax_size_mod = VIE_ax_size_norm }
+	multiply_variable = { var = VIE_ax_size_mod value = -0.003 }
+
+	set_variable = { VIE_ax_merit_mod = VIE_ax_merit_norm }
+	multiply_variable = { var = VIE_ax_merit_mod value = 0.003 }
+	set_variable = { VIE_ax_merit_eff_mod = VIE_ax_merit_norm }
+	multiply_variable = { var = VIE_ax_merit_eff_mod value = 0.003 }
+
+	set_variable = { VIE_ax_decent_mod = VIE_ax_decent_norm }
+	multiply_variable = { var = VIE_ax_decent_mod value = -0.003 }
+
+	set_variable = { VIE_ax_checks_mod = VIE_ax_checks_norm }
+	multiply_variable = { var = VIE_ax_checks_mod value = 0.003 }
+
+	set_variable = { VIE_ax_market_mod = VIE_ax_market_norm }
+	multiply_variable = { var = VIE_ax_market_mod value = 0.003 }
+
+	set_variable = { VIE_ax_civil_mod = VIE_ax_civil_norm }
+	multiply_variable = { var = VIE_ax_civil_mod value = 0.003 }
+
+	set_variable = { VIE_ax_integ_mod = VIE_ax_integ_norm }
+	multiply_variable = { var = VIE_ax_integ_mod value = 0.003 }
+
+	set_variable = { VIE_ax_mob_mod = VIE_ax_mob_norm }
+	multiply_variable = { var = VIE_ax_mob_mod value = 0.003 }
+
+	set_variable = { VIE_ax_west_mod = VIE_ax_west_norm }
+	multiply_variable = { var = VIE_ax_west_mod value = 0.003 }
+
+	VIE_ax_faction_check = yes
+	VIE_ax_events_check = yes
+}
+
+# Evolution of internal factions based on axis thresholds and regime flags (Batch 4).
+# Respects Millennium Dawn's exact 3-slot limit for internal factions.
+VIE_ax_faction_check = {
+	# 1. Oligarchs: state capture when market outpaces merit or oligarch regime active
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_bop_oli_active
+				has_country_flag = VIE_oligarch_active
+				AND = {
+					check_variable = { VIE_ax_market_norm > 3 }
+					check_variable = { VIE_ax_merit_norm < 3 }
+					OR = {
+						has_idea = corruption_level_07
+						has_idea = corruption_level_08
+						has_idea = corruption_level_09
+						has_idea = corruption_level_10
+					}
+				}
+			}
+			NOT = { has_idea = oligarchs }
+		}
+		if = {
+			limit = { has_idea = industrial_conglomerates }
+			remove_ideas = industrial_conglomerates
+			add_ideas = oligarchs
+		}
+	}
+
+	# 2. Intelligence Community: security primacy when civil liberties drop or security regime active
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_security_active
+				AND = {
+					check_variable = { VIE_ax_civil_norm < -7 }
+					check_variable = { VIE_ax_checks_norm < -1 }
+				}
+			}
+			NOT = { has_idea = intelligence_community }
+		}
+		if = {
+			limit = { has_idea = farmers }
+			remove_ideas = farmers
+			add_ideas = intelligence_community
+		}
+	}
+
+	# 3. The Military: mobilization
+	if = {
+		limit = {
+			check_variable = { VIE_ax_mob_norm > 7 }
+			NOT = { has_idea = the_military }
+		}
+		if = {
+			limit = { has_idea = farmers }
+			remove_ideas = farmers
+			add_ideas = the_military
+		}
+	}
+
+	# 4. Labour Unions: high horizontal checks and reform or democratic path
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_democracy_path_open
+				check_variable = { VIE_ax_checks_norm > 4 }
+			}
+			NOT = { has_idea = labour_unions }
+		}
+		if = {
+			limit = { has_idea = farmers }
+			remove_ideas = farmers
+			add_ideas = labour_unions
+		}
+	}
+
+	# 5. Small & Medium Business Owners: clean market development
+	if = {
+		limit = {
+			check_variable = { VIE_ax_market_norm > 2 }
+			check_variable = { VIE_ax_merit_norm > 2 }
+			NOT = { has_idea = small_medium_business_owners }
+			NOT = { has_idea = labour_unions }
+		}
+		if = {
+			limit = { has_idea = farmers }
+			remove_ideas = farmers
+			add_ideas = small_medium_business_owners
+		}
+	}
+}
+
+# Failure and reversal event triggers (Batch 5)
+VIE_ax_events_check = {
+	# 1. Developmental state slides into Oligarchy
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_axis_1_fired }
+			has_completed_focus = VIE_developmental_state
+			NOT = { check_variable = { ruling_party = 15 } }
+			check_variable = { VIE_ax_market_norm > 4 }
+			check_variable = { VIE_ax_merit_norm < 2 }
+		}
+		set_country_flag = VIE_axis_1_fired
+		country_event = { id = vie_axis.1 days = 14 }
+	}
+
+	# 3. Democratization stalls at competitive authoritarianism
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_axis_3_fired }
+			has_country_flag = VIE_managed_pluralism_active
+			NOT = { has_country_flag = VIE_democracy_elected }
+			OR = {
+				check_variable = { VIE_ax_checks_norm < 4 }
+				check_variable = { VIE_ax_merit_norm < 4 }
+			}
+		}
+		set_country_flag = VIE_axis_3_fired
+		country_event = { id = vie_axis.3 days = 30 }
+	}
+
+	# 4. Multi-dimensional crisis warning
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_axis_4_fired }
+			has_stability < 0.20
+			OR = {
+				check_variable = { VIE_ax_checks_norm < -5 }
+				check_variable = { VIE_ax_merit_norm < -3 }
+			}
+		}
+		set_country_flag = VIE_axis_4_fired
+		country_event = { id = vie_axis.4 days = 10 }
+	}
+}
+

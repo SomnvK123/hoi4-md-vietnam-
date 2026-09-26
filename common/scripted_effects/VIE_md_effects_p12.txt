@@ -1,0 +1,93 @@
+# Scheduler, part 12 (military deliveries): ships from the Russian contracts and the arms-export income.
+# Class C of the scheduler (silent, one flag per delivery). Skipped in catch-up mode (a civil-war winner takes over the
+# VIE lineage without the hardware).
+# The focuses only sign the contract (VIE_gepard_contract, VIE_kilo_contract, VIE_arms_export_active); the hulls arrive on
+# the historical dates, or the month after the focus is finished if the date has already passed.
+# MD builds its naval OOB (VIE_2000_naval_mtg) without a DLC check, so create_ship is not gated either.
+VIE_event_scheduler_p12 = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+
+		# ---- Two Gepard 3.9 frigates in 2011 (Dinh Tien Hoang, Ly Thai To) ...
+		if = {
+			limit = {
+				has_country_flag = VIE_gepard_contract
+				NOT = { has_country_flag = VIE_gepard_b1 }
+				date > 2011.5.31
+				country_exists = SOV
+			}
+			set_country_flag = VIE_gepard_b1
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Dinh Tien Hoang" }
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Ly Thai To" }
+		}
+		# ... and two more in 2017-2018 (Tran Hung Dao, Quang Trung)
+		if = {
+			limit = {
+				has_country_flag = VIE_gepard_contract
+				NOT = { has_country_flag = VIE_gepard_b2 }
+				date > 2017.5.31
+				country_exists = SOV
+			}
+			set_country_flag = VIE_gepard_b2
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = SOV name = "Tran Hung Dao" }
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = SOV name = "Quang Trung" }
+		}
+
+		# ---- Six improved Kilo boats, one by one from 2014 to 2017
+		if = {
+			limit = { has_country_flag = VIE_kilo_contract country_exists = SOV }
+			if = {
+				limit = { NOT = { has_country_flag = VIE_kilo_b1 } date > 2014.7.31 }
+				set_country_flag = VIE_kilo_b1
+				create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Ha Noi" }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_kilo_b2 } date > 2014.12.31 }
+				set_country_flag = VIE_kilo_b2
+				create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Thanh pho Ho Chi Minh" }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_kilo_b3 } date > 2015.11.30 }
+				set_country_flag = VIE_kilo_b3
+				create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Hai Phong" }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_kilo_b4 } date > 2016.1.31 }
+				set_country_flag = VIE_kilo_b4
+				create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Khanh Hoa" }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_kilo_b5 } date > 2016.10.31 }
+				set_country_flag = VIE_kilo_b5
+				create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Da Nang" }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_kilo_b6 } date > 2017.1.31 }
+				set_country_flag = VIE_kilo_b6
+				create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Ba Ria - Vung Tau" }
+			}
+			# All six in service: the flotilla becomes a lasting asset
+			if = {
+				limit = {
+					has_country_flag = VIE_kilo_b6
+					NOT = { has_country_flag = VIE_kilo_flotilla_done }
+				}
+				set_country_flag = VIE_kilo_flotilla_done
+				add_ideas = VIE_kilo_flotilla_idea
+			}
+		}
+
+		# ---- Arms export: one payment a year, for five years
+		if = {
+			limit = {
+				has_country_flag = VIE_arms_export_active
+				NOT = { has_country_flag = VIE_arms_export_cd }
+				NOT = { check_variable = { VIE_arms_export_years > 4 } }
+			}
+			set_country_flag = { flag = VIE_arms_export_cd days = 365 }
+			add_to_variable = { VIE_arms_export_years = 1 }
+			set_temp_variable = { treasury_change = 1 }
+			modify_treasury_effect = yes
+		}
+	}
+}

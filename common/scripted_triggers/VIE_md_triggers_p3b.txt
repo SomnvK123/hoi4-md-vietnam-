@@ -1,0 +1,11 @@
+# Flag readers with a localised name, for focus tooltips (Phase 3)
+
+# Set by event vie_eco.6 option a (Formosa handled in public)
+VIE_formosa_open_tt = {
+	has_country_flag = VIE_formosa_open
+}
+
+# Set by event vie_alt.2 option b (civil-society dialogue)
+VIE_d2_open_tt = {
+	has_country_flag = VIE_door_d2_open
+}

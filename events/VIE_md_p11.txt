@@ -1,0 +1,196 @@
+add_namespace = vie_alt
+add_namespace = vie_scs
+add_namespace = vie_col
+
+########################################################################
+# vie_alt.23  Door D7: a crisis of legitimacy (scheduler p11, once)
+########################################################################
+country_event = {
+	id = vie_alt.23
+	title = vie_alt.23.t
+	desc = vie_alt.23.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+
+	# Emergency measures: money, discipline and a firm hand
+	option = {
+		name = vie_alt.23.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.23.a executed"
+		add_stability = 0.03
+		add_political_power = -50
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		ai_chance = { base = 70 }
+	}
+
+	# Concede reforms
+	option = {
+		name = vie_alt.23.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.23.b executed"
+		VIE_bop_reform_medium = yes
+		add_stability = 0.02
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	# Hold firm and let the anger build
+	option = {
+		name = vie_alt.23.c
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.23.c executed"
+		add_timed_idea = { idea = VIE_public_anger days = 365 }
+		set_country_flag = VIE_wa_suppressed
+		VIE_bop_conservative_medium = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_scs.16  Level 3: a clash at the Paracels (scheduler p11, once)
+########################################################################
+country_event = {
+	id = vie_scs.16
+	title = vie_scs.16.t
+	desc = vie_scs.16.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+
+	# Show restraint
+	option = {
+		name = vie_scs.16.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.16.a executed"
+		add_political_power = -75
+		set_temp_variable = { VIE_tension_add = -1 }
+		VIE_add_scs_tension = yes
+		ai_chance = { base = 90 }
+	}
+
+	# Answer force with force: a limited claim on the Paracels
+	option = {
+		name = vie_scs.16.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.16.b executed"
+		trigger = {
+			country_exists = CHI
+			NOT = { has_war_with = CHI }
+		}
+		add_state_claim = 813
+		set_temp_variable = { wargoal_on = CHI }
+		add_threat_from_wargoal_effect = yes
+		create_wargoal = {
+			type = take_state_focus
+			target = CHI
+			generator = { 813 }
+		}
+		add_war_support = 0.10
+		navy_experience = 20
+		set_country_flag = VIE_paracel_clash
+		if = {
+			limit = { has_completed_focus = VIE_limited_war_doctrine }
+			set_country_flag = { flag = VIE_war_clock days = 60 }
+		}
+		else = {
+			set_country_flag = { flag = VIE_war_clock days = 120 }
+		}
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_scs.17  Ceasefire talks (scheduler p11, after the war has run for a while)
+########################################################################
+country_event = {
+	id = vie_scs.17
+	title = vie_scs.17.t
+	desc = vie_scs.17.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	# Accept the status quo and stop
+	option = {
+		name = vie_scs.17.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.17.a executed"
+		white_peace = CHI
+		add_political_power = -25
+		ai_chance = { base = 70 }
+	}
+
+	# Fight on
+	option = {
+		name = vie_scs.17.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.17.b executed"
+		add_war_support = 0.05
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_col.8  ASEAN offers to mediate (scheduler p11, during the civil war)
+########################################################################
+country_event = {
+	id = vie_col.8
+	title = vie_col.8.t
+	desc = vie_col.8.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# Accept the mediation
+	option = {
+		name = vie_col.8.a
+		log = "[GetDateText]: [This.GetName]: Event vie_col.8.a executed"
+		add_stability = 0.02
+		set_country_flag = VIE_asean_mediation
+		ai_chance = { base = 70 }
+	}
+
+	# Refuse: no outside interference
+	option = {
+		name = vie_col.8.b
+		log = "[GetDateText]: [This.GetName]: Event vie_col.8.b executed"
+		add_political_power = 25
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_scs.19  The tribunal takes up the case (90 days after VIE_legal_warfare)
+########################################################################
+country_event = {
+	id = vie_scs.19
+	title = vie_scs.19.t
+	desc = vie_scs.19.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	# Pursue the case to the end
+	option = {
+		name = vie_scs.19.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.19.a executed"
+		set_temp_variable = { VIE_tension_add = -1 }
+		VIE_add_scs_tension = yes
+		add_opinion_modifier = { target = CHI modifier = medium_decrease }
+		add_stability = 0.01
+		ai_chance = { base = 60 }
+	}
+
+	# Use the case as leverage in the talks on a code of conduct
+	option = {
+		name = vie_scs.19.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs.19.b executed"
+		add_political_power = 25
+		if = {
+			limit = { NOT = { has_completed_focus = VIE_code_of_conduct } }
+			reduce_focus_completion_cost = {
+				focus = VIE_code_of_conduct
+				cost = 14
+			}
+		}
+		ai_chance = { base = 40 }
+	}
+}

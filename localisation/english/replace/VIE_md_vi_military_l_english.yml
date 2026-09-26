@@ -1,0 +1,123 @@
+﻿l_english:
+
+ ### Hướng chiến lược quân sự (focus)
+ VIE_defence_strategy_review:0 "Kế hoạch phát triển Quân đội nhân dân"
+ VIE_defence_strategy_review_desc:0 "Sách trắng Quốc phòng 2009 đặt ra câu hỏi cho các thập kỷ tới: một nước không liên minh, đất hẹp, bờ biển dài, láng giềng khổng lồ phải xây dựng lực lượng vũ trang ra sao? Kế hoạch này mở ba hướng phát triển song song: §YLục quân§!, §YHải quân§! và §YKhông quân§!. Mỗi hướng có một ngã rẽ chiến lược riêng."
+ VIE_path_peoples_war:0 "Pháo đài chiến tranh nhân dân"
+ VIE_path_peoples_war_desc:0 "Không thể thắng đối thủ bằng sức mạnh tấn công, nhưng có thể khiến bất kỳ cuộc xâm lược nào cũng phải trả giá đắt. Phòng thủ chiều sâu, dân quân và địa hình chia cắt biến mỗi tỉnh thành một pháo đài. §RĐổi lại, khả năng tấn công bị hạn chế và ta không thể chọn hướng cơ động.§!"
+ VIE_path_self_reliant_deterrence:0 "Răn đe tự chủ"
+ VIE_path_self_reliant_deterrence_desc:0 "Nền công nghiệp quốc phòng đã đủ sức để nói chuyện tự tin. Vũ khí mua từ nhiều nguồn, tự sản xuất phần lớn phụ tùng, và Bốn Không được xem là một học thuyết chứ không chỉ là khẩu hiệu. §YCần còn Ba/Bốn Không.§!"
+ VIE_path_maritime_denial:0 "Chống tiếp cận trên biển"
+ VIE_path_maritime_denial_desc:0 "Tàu ngầm, tên lửa bờ, không quân và các tiền đồn được xây để không ai dám tiến vào vùng biển của ta mà không chịu tổn thất. §RBắc Kinh sẽ nhận ra và nấc căng thẳng trên biển tăng lên. Không thể đồng thời theo hạm đội viễn dương.§!"
+
+ ### Hướng chiến lược quân sự (idea)
+ VIE_peoples_war_idea:0 "Pháo đài chiến tranh nhân dân"
+ VIE_peoples_war_idea_desc:0 "Toàn dân là một pháo đài. Phòng thủ vững hơn, công sự hiệu quả hơn, nhưng sức tấn công thấp và không ai dễ tin rằng ta sẽ đi xa."
+ VIE_self_reliant_deterrence_idea:0 "Răn đe tự chủ"
+ VIE_self_reliant_deterrence_idea_desc:0 "Vũ khí từ nhiều nguồn, công nghiệp quốc phòng mạnh, và một chính sách đối ngoại khiến kẻ gây chiến khó dựng nổi cớ."
+ VIE_maritime_denial_idea:0 "Chống tiếp cận trên biển"
+ VIE_maritime_denial_idea_desc:0 "Tàu ngầm, tên lửa bờ, tiêm kích và radar cùng phong tỏa tầm tiếp cận của tàu lạ, đổi lại lục quân bị coi nhẹ hơn."
+
+ ### Danh mục quyết định quân sự
+ VIE_military_category:0 "Chiến lược quân sự"
+ VIE_military_category_desc:0 "Điều khiển nhịp căng thẳng trên biển khi đang theo hướng chống tiếp cận."
+
+ ### Idea bổ sung của nhánh quân sự
+ VIE_corps_restructure_idea:0 "Tái cơ cấu quân đoàn"
+ VIE_corps_restructure_idea_desc:0 "Các cấp chỉ huy được sắp xếp lại để điều hành lực lượng trên cả một chiến trường, không chỉ trong một tỉnh."
+ VIE_pilot_training_idea:0 "Hệ thống huấn luyện phi công hiện đại"
+ VIE_pilot_training_idea_desc:0 "Máy bay huấn luyện thế hệ mới giúp phi công lên tay nhanh hơn và ít tai nạn hơn."
+ VIE_force_47_idea:0 "Lực lượng 47"
+ VIE_force_47_idea_desc:0 "Một lực lượng chuyên trách đấu tranh trên không gian mạng, bảo vệ nền tảng tư tưởng và làm lạnh các chiến dịch thông tin thù địch."
+ VIE_cyber_command_idea:0 "Bộ Tư lệnh tác chiến không gian mạng"
+ VIE_cyber_command_idea_desc:0 "Bảo vệ mạng lưới quân sự và trực tiếp tiến hành các chiến dịch trên không gian mạng."
+ VIE_kilo_flotilla_idea:0 "Hải đội tàu ngầm Kilo"
+ VIE_kilo_flotilla_idea_desc:0 "Sáu tàu ngầm hiện đại đã vào biên chế và huấn luyện xong. Không ai còn coi thường vùng biển của ta."
+ VIE_arbitral_track:0 "Con đường pháp lý"
+ VIE_arbitral_track_desc:0 "Đưa tranh chấp ra tòa và dựa vào luật pháp quốc tế. Ít thắng bằng vũ lực, nhưng được nhiều nước thông cảm và khó bị kết tội gây hấn."
+ VIE_limited_war_idea:0 "Học thuyết chiến tranh hạn chế"
+ VIE_limited_war_idea_desc:0 "Một cuộc chiến ngắn, quyết liệt với một đối thủ, trên một khu vực nhỏ, và một lối thoát đã tính sẵn. §YChỉ có hiệu lực đặc biệt khi đối đầu Trung Quốc.§!"
+
+ ### Sự kiện
+ vie_scs.19.t:0 "Tòa trọng tài thụ lý vụ kiện"
+ vie_scs.19.d:0 "Tòa án đã chính thức thụ lý đơn kiện của ta về các vùng biển tranh chấp. Bắc Kinh tuyên bố không công nhận thẩm quyền của tòa, còn các nước láng giềng chờ xem ta sẽ làm gì tiếp theo."
+ vie_scs.19.a:0 "Theo đuổi vụ kiện đến cùng"
+ vie_scs.19.b:0 "Dùng vụ kiện làm đòn bẩy trong đàm phán về Bộ Quy tắc Ứng xử"
+
+ ### Điều khiển nhịp căng thẳng trên biển (hướng C)
+ VIE_scs_patrol_disputed_waters:0 "Tuần tra vùng biển tranh chấp"
+ VIE_scs_patrol_disputed_waters_desc:0 "Đưa tàu ra tuần tra ở những vùng biển đang tranh chấp. Tăng sức ép và kinh nghiệm hải quân, nhưng §Rđẩy nấc căng thẳng lên§!: ở nấc 2 mở đường tối hậu thư Hoàng Sa, ở nấc 3 dễ xảy ra đụng độ."
+ VIE_scs_deescalate:0 "Hạ nhiệt trên biển"
+ VIE_scs_deescalate_desc:0 "Rút bớt tàu, tăng liên lạc qua kênh ngoại giao và đường dây nóng quốc phòng. Nấc căng thẳng giảm một bậc."
+
+ ### Lục quân
+ VIE_army_development:0 "Chương trình phát triển Lục quân"
+ VIE_army_development_desc:0 "Nâng cấp tổ chức, đào tạo và chỉ huy của lục quân, nền móng cho các hướng chuyên biệt phía sau."
+ VIE_army_combined_arms:0 "Hiệp đồng binh chủng"
+ VIE_army_combined_arms_desc:0 "Bộ binh, thiết giáp, pháo binh và công binh tập luyện chung dưới một bộ chỉ huy, thay vì mỗi binh chủng một kế hoạch."
+ VIE_army_expeditionary:0 "Lữ đoàn cơ động"
+ VIE_army_expeditionary_desc:0 "Lực lượng có thể di chuyển nhanh, đổ bộ và hoạt động xa căn cứ. §YMở khi có kinh nghiệm gìn giữ hòa bình hoặc khi đã rời Ba/Bốn Không.§! §RKhông thể đồng thời chọn Pháo đài chiến tranh nhân dân.§!"
+ VIE_army_jungle_warfare:0 "Tác chiến rừng núi"
+ VIE_army_jungle_warfare_desc:0 "Kinh nghiệm chiến tranh nhiều thập kỷ ở rừng rậm và núi cao được đúc kết thành học thuyết và trang bị ngụy trang, quan sát ban đêm."
+ VIE_army_logistics_reform:0 "Cải cách hậu cần"
+ VIE_army_logistics_reform_desc:0 "Kho bãi, vận tải và bảo dưỡng được tổ chức lại để một sư đoàn có thể chiến đấu lâu hơn trên cùng một lượng tiếp tế."
+ VIE_army_iron_triangle:0 "Tam giác thép"
+ VIE_army_iron_triangle_desc:0 "Phòng ngự vững, hậu cần trơn tru và lực lượng dự bị dày: ba trụ cột làm nên một lục quân khó bị lật đổ."
+ ### Hải quân
+ VIE_navy_development:0 "Chương trình phát triển Hải quân"
+ VIE_navy_development_desc:0 "Mua tàu mới chưa đủ. Hải quân cần thủy thủ, quy trình và căn cứ để sử dụng chúng."
+ VIE_navy_fleet_training:0 "Huấn luyện hạm đội"
+ VIE_navy_fleet_training_desc:0 "Các cuộc diễn tập hải quân thường niên, phối hợp giữa tàu mặt nước, tàu ngầm và không quân hải quân."
+ VIE_navy_blue_water:0 "Hạm đội viễn dương"
+ VIE_navy_blue_water_desc:0 "Từ bỏ chiến lược phòng thủ bờ biển để xây một hạm đội có thể hoạt động xa: khu trục hạm, tiếp tế trên biển và các căn cứ ở nước ngoài. §RĐắt đỏ, và bỏ lại lợi thế phòng thủ bờ. Không thể đồng thời chọn Chống tiếp cận trên biển.§!"
+ VIE_navy_asw_capacity:0 "Năng lực chống ngầm"
+ VIE_navy_asw_capacity_desc:0 "Sonar, ngư lôi chống ngầm và máy bay tuần thám giúp phát hiện và đối phó tàu ngầm đối phương."
+ VIE_navy_forward_basing:0 "Căn cứ tiền phương"
+ VIE_navy_forward_basing_desc:0 "Mở rộng bến cảng ở Trường Sa và đồng bằng sông Cửu Long để hạm đội có thể tiếp liệu và sửa chữa gần hiện trường."
+ VIE_navy_sea_control:0 "Kiểm soát vùng biển"
+ VIE_navy_sea_control_desc:0 "Tàu ngầm, tàu mặt nước và bãi mìn phối hợp để bất kỳ đội tàu nào tiến vào vùng biển của ta đều phải cân nhắc kỹ."
+ ### Không quân
+ VIE_air_development:0 "Chương trình phát triển Không quân"
+ VIE_air_development_desc:0 "Phi công, kỹ thuật viên và sân bay là nền móng để những chiếc máy bay đắt tiền thực sự phát huy sức mạnh."
+ VIE_air_doctrine_reform:0 "Cải cách học thuyết không quân"
+ VIE_air_doctrine_reform_desc:0 "Viết lại cách không quân tác chiến, từ huấn luyện, chỉ huy đến phối hợp với phòng không và hải quân."
+ VIE_air_superiority_ops:0 "Tác chiến giành ưu thế trên không"
+ VIE_air_superiority_ops_desc:0 "Tiêm kích và radar được dồn vào việc làm chủ bầu trời phía trên bờ biển và lãnh thổ. §RKhông thể đồng thời chọn Tấn công chiều sâu.§!"
+ VIE_air_deep_strike:0 "Tấn công chiều sâu"
+ VIE_air_deep_strike_desc:0 "Không quân có thể đánh vào hậu phương và căn cứ đối phương bằng bom dẫn đường và tên lửa hành trình. §YCần tiêm kích thế hệ mới hoặc chương trình tên lửa.§! §RKhông thể đồng thời chọn Tác chiến giành ưu thế trên không.§!"
+ VIE_air_layered_sam:0 "Phòng không nhiều tầng"
+ VIE_air_layered_sam_desc:0 "Mạng phòng không được mở rộng sang miền Trung và miền núi phía Bắc, với nhiều tầng tên lửa từ tầm gần đến tầm xa."
+ VIE_air_maritime_strike:0 "Tấn công trên biển"
+ VIE_air_maritime_strike_desc:0 "Máy bay được huấn luyện và trang bị để đánh tàu, phối hợp với tên lửa bờ và tàu ngầm."
+ VIE_air_early_warning:0 "Cảnh báo sớm và trinh sát"
+ VIE_air_early_warning_desc:0 "Radar dọc bờ biển, máy bay cảnh báo sớm và dữ liệu vệ tinh giúp phát hiện mối đe dọa từ xa."
+ VIE_air_full_spectrum:0 "Không quân toàn phổ"
+ VIE_air_full_spectrum_desc:0 "Phòng không, tấn công trên biển và cảnh báo sớm hội tụ: một lực lượng không quân đủ sức hoạt động ngày đêm, mọi thời tiết."
+
+ ### Idea của các hướng phát triển binh chủng
+ VIE_expeditionary_idea:0 "Học thuyết cơ động"
+ VIE_expeditionary_idea_desc:0 "Lực lượng nhẹ, nhanh, sẵn sàng hoạt động xa căn cứ và tiếp nhận quân tình nguyện, đổi lại phòng thủ tại chỗ kém hơn."
+ VIE_iron_triangle_idea:0 "Tam giác thép"
+ VIE_iron_triangle_idea_desc:0 "Công sự, hậu cần và dự bị kết hợp thành một lá chắn vững chắc."
+ VIE_blue_water_idea:0 "Hạm đội viễn dương"
+ VIE_blue_water_idea_desc:0 "Tầm hoạt động xa, hỏa lực mạnh, nhưng đầu tư vào bờ biển bị bỏ lại phía sau."
+ VIE_sea_control_idea:0 "Kiểm soát vùng biển"
+ VIE_sea_control_idea_desc:0 "Tàu, tàu ngầm và thủy lôi phối hợp chặt, đặc biệt vào ban đêm."
+ VIE_full_spectrum_idea:0 "Không quân toàn phổ"
+ VIE_full_spectrum_idea_desc:0 "Ưu thế trên không, khả năng tác chiến ban đêm và tầm hoạt động xa, đồng thời yểm trợ lục quân."
+
+ ### Dynamic modifier và tooltip
+ VIE_armed_forces_modifier:0 "Quân đội Nhân dân Việt Nam"
+ VIE_naval_strike_attack_factor_tt:0 "$MODIFIER_NAVAL_STRIKE_ATTACK_FACTOR$: $RIGHT|+=%1$"
+ VIE_air_home_defence_factor_tt:0 "$MODIFIER_AIR_HOME_DEFENCE_FACTOR$: $RIGHT|+=%1$"
+
+ ### Chuyên mục Quyết định Quân sự
+ VIE_military_readiness_category:0 "Sẵn sàng Chiến đấu & Diễn tập Quân đội"
+ VIE_military_readiness_category_desc:0 "Kế hoạch nâng cao khả năng sẵn sàng tác chiến, các đợt diễn tập quân khu thường niên, tuần tra duyên hải và tập dượt hiệp đồng quân binh chủng của Quân đội Nhân dân Việt Nam."
+
+ ### Cờ Điều kiện Tiên quyết Quốc gia
+ VIE_democracy_path_open:0 "Đã mở đường Dân chủ hóa"
+ VIE_indochina_open:0 "Đã mở rộng Hợp tác Đông Dương"
+ VIE_apec_year:0 "Năm Đăng cai Diễn đàn APEC"
+ VIE_tariff_negotiating:0 "Đang trong Tiến trình Đàm phán Thuế quan"
+

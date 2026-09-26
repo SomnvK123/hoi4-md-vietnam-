@@ -1,0 +1,57 @@
+ideas = {
+	country = {
+		# Mạng lưới Phân phối Xăng dầu Petrolimex
+		VIE_petrolimex_idea = {
+			picture = oil_production
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.02
+				fuel_gain_factor = 0.10
+			}
+		}
+
+		# Dự trữ Xăng dầu Chiến lược Quốc gia (SPR 90 ngày)
+		VIE_strategic_fuel_reserve_idea = {
+			picture = oil_production
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				max_fuel_factor = 0.30
+				fuel_cost = -0.05
+				stability_factor = 0.01
+			}
+		}
+
+		# Cơ chế DPPA & Thị trường Bán lẻ Điện Cạnh tranh
+		VIE_dppa_reform_idea = {
+			picture = energy_preferred_renewable_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.025
+				industrial_capacity_factory = 0.02
+				trade_opinion_factor = 0.03
+			}
+		}
+
+		# Cơn sốc thiếu hụt nguồn cung xăng dầu (Tạm thời 365 ngày)
+		VIE_fuel_shortage_crisis = {
+			picture = oil_production
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.04
+				consumer_goods_factor = 0.02
+			}
+		}
+	}
+}

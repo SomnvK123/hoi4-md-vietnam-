@@ -1,0 +1,62 @@
+# Vietnam submod triggers (Phase 3: alternative regimes and collapse)
+
+VIE_corruption_high_trigger = {
+	OR = {
+		has_idea = corruption_level_07
+		has_idea = corruption_level_08
+		has_idea = corruption_level_09
+		has_idea = corruption_level_10
+	}
+}
+
+# Two or more ongoing crises (temporary "shock" ideas). Used by the collapse check.
+VIE_crisis_count_ge_2 = {
+	count_triggers = {
+		amount = 2
+		has_idea = VIE_state_debt_overhang
+		has_idea = VIE_bond_overhang
+		has_idea = VIE_high_inflation
+		has_idea = VIE_fdi_confidence_shock
+		has_idea = VIE_us_tariff_shock
+		has_idea = VIE_flood_damage
+		has_idea = VIE_public_anger
+		has_idea = VIE_sars_outbreak
+		has_idea = VIE_bubble_burst_idea
+		has_idea = VIE_china_pressure_idea
+		has_idea = VIE_import_shock_idea
+		has_idea = VIE_sez_unrest_idea
+		has_idea = VIE_civil_unrest_idea
+	}
+}
+
+# One of the "poles" that turns a crisis into a collapse.
+VIE_collapse_pole = {
+	OR = {
+		AND = {
+			has_country_flag = VIE_bop_oli_active
+			power_balance_value = { id = VIE_oligarch_balance value < -0.85 }
+		}
+		AND = {
+			has_country_flag = VIE_bop_active
+			OR = {
+				power_balance_value = { id = VIE_party_balance value < -0.85 }
+				power_balance_value = { id = VIE_party_balance value > 0.85 }
+			}
+		}
+		has_country_flag = VIE_wa_suppressed
+		has_country_flag = VIE_bubble_hit_hard
+	}
+}
+
+# Reading helpers for Balance-of-power tooltips in focuses
+VIE_bop_is_hardline = {
+	has_country_flag = VIE_bop_active
+	OR = {
+		VIE_ai_path_conservative = yes
+		power_balance_value = { id = VIE_party_balance value < -0.6 }
+		AND = {
+			VIE_ai_free = yes
+			power_balance_value = { id = VIE_party_balance value < -0.45 }
+		}
+	}
+}

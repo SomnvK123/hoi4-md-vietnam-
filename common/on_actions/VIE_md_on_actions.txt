@@ -1,0 +1,36 @@
+on_actions = {
+	# Generic monthly hook (country scope, merged with MD's own on_monthly). It is used instead of on_monthly_VIE
+	# because after a civil war the winner may be a rebel tag whose ORIGINAL tag is VIE.
+	# MD's own on_monthly_VIE (99_VIE_on_actions.txt, fires vietnam.1) is untouched.
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = VIE
+					NOT = { has_country_flag = VIE_civil_war_rebel }
+				}
+				VIE_event_scheduler = yes
+				VIE_event_scheduler_p2 = yes
+				VIE_event_scheduler_p3 = yes
+				VIE_event_scheduler_p5 = yes
+				VIE_event_scheduler_p6 = yes
+				VIE_event_scheduler_p7 = yes
+				VIE_event_scheduler_p9 = yes
+				VIE_event_scheduler_p10 = yes
+				VIE_event_scheduler_p11 = yes
+				VIE_event_scheduler_p12 = yes
+				VIE_ax_normalize = yes
+			}
+		}
+	}
+
+	# ROOT = winner, FROM = loser (annexed). MD's own handler moves debt etc.
+	on_civil_war_end = {
+		effect = {
+			if = {
+				limit = { ROOT = { original_tag = VIE } }
+				ROOT = { VIE_collapse_aftermath = yes }
+			}
+		}
+	}
+}

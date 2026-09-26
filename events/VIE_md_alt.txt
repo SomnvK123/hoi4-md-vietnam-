@@ -1,0 +1,595 @@
+add_namespace = vie_alt
+
+# Alternative-history doors and regime events (Phase 3).
+# Doors (fired once by VIE_event_scheduler_p3): vie_alt.1 (HD-981), .2 (civil society), .3 (macro crisis), .6 (zones law), .7 (bank run).
+# Every door keeps the historical option first; alternatives only appear when their conditions hold.
+
+########################################################################
+# vie_alt.1  Door D4: after HD-981
+########################################################################
+country_event = {
+	id = vie_alt.1
+	title = vie_alt.1.t
+	desc = vie_alt.1.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# Historical: return to normal, with lessons learned
+	option = {
+		name = vie_alt.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.1.a executed"
+		add_political_power = 25
+		ai_chance = { base = 100 }
+	}
+
+	# The Party takes a hard line: strategic autonomy
+	option = {
+		name = vie_alt.1.b
+		trigger = {
+			check_variable = { VIE_hd981_response = 2 }
+			VIE_scs_escalated_trigger = yes
+			has_country_flag = VIE_bop_active
+			power_balance_value = { id = VIE_party_balance value < 0.6 }
+		}
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.1.b executed"
+		set_country_flag = VIE_tc_unlocked
+		custom_effect_tooltip = VIE_gate_note_tc
+		VIE_bop_conservative_small = yes
+		add_political_power = 25
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
+		}
+	}
+}
+
+########################################################################
+# vie_alt.2  Door D2: petitions and civil society (needs Relax Press Controls)
+########################################################################
+country_event = {
+	id = vie_alt.2
+	title = vie_alt.2.t
+	desc = vie_alt.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = vie_alt.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.2.a executed"
+		add_political_power = 25
+		VIE_bop_conservative_small = yes
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = vie_alt.2.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.2.b executed"
+		set_country_flag = VIE_door_d2_open
+		add_stability = -0.01
+		add_political_power = -25
+		VIE_bop_reform_small = yes
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 150 has_global_flag = VIE_AI_PATH_REFORM }
+		}
+	}
+}
+
+########################################################################
+# vie_alt.3  Door D3: macro crisis (Vinashin, debt, inflation)
+########################################################################
+country_event = {
+	id = vie_alt.3
+	title = vie_alt.3.t
+	desc = vie_alt.3.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	# Historical: stabilise within the system
+	option = {
+		name = vie_alt.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.3.a executed"
+		add_stability = 0.02
+		ai_chance = { base = 100 }
+	}
+
+	# Order first: the security apparatus takes the lead
+	option = {
+		name = vie_alt.3.b
+		trigger = { VIE_gate_security_stability = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.3.b executed"
+		set_country_flag = VIE_security_unlocked
+		custom_effect_tooltip = VIE_gate_note_sec
+		add_stability = 0.02
+		VIE_bop_conservative_medium = yes
+		ai_chance = {
+			base = 3
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
+			modifier = { add = 100 has_global_flag = VIE_AI_PATH_NATIONALIST }
+		}
+	}
+
+	# Let the big groups sort it out
+	option = {
+		name = vie_alt.3.c
+		trigger = { VIE_corruption_high_trigger = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.3.c executed"
+		set_country_flag = VIE_oligarch_unlocked
+		custom_effect_tooltip = VIE_gate_note_oli
+		increase_corruption = yes
+		set_temp_variable = { temp_opinion = 8 }
+		change_industrial_conglomerates_opinion = yes
+		ai_chance = {
+			base = 3
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
+		}
+	}
+}
+
+########################################################################
+# vie_alt.4  Nationalisation confirmation (focus VIE_nationalize_foreign_assets)
+########################################################################
+country_event = {
+	id = vie_alt.4
+	title = vie_alt.4.t
+	desc = vie_alt.4.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	option = {
+		name = vie_alt.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.4.a executed"
+		set_temp_variable = { treasury_change = 3 }
+		modify_treasury_effect = yes
+		add_stability = -0.02
+		add_opinion_modifier = { target = USA modifier = VIE_nationalized_industry }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_nationalized_industry }
+		add_opinion_modifier = { target = JAP modifier = VIE_nationalized_industry }
+		reverse_add_opinion_modifier = { target = JAP modifier = VIE_nationalized_industry }
+		add_opinion_modifier = { target = KOR modifier = VIE_nationalized_industry }
+		reverse_add_opinion_modifier = { target = KOR modifier = VIE_nationalized_industry }
+		add_opinion_modifier = { target = SIN modifier = VIE_nationalized_industry }
+		reverse_add_opinion_modifier = { target = SIN modifier = VIE_nationalized_industry }
+		522 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		ai_chance = {
+			base = 30
+			modifier = { add = 60 has_global_flag = VIE_AI_PATH_HARDLINE }
+		}
+	}
+
+	option = {
+		name = vie_alt.4.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.4.b executed"
+		add_political_power = -25
+		ai_chance = { base = 70 }
+	}
+}
+
+########################################################################
+# vie_alt.6  Door D6: special economic zones law (Jun 2018)
+########################################################################
+country_event = {
+	id = vie_alt.6
+	title = vie_alt.6.t
+	desc = vie_alt.6.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+
+	# Historical: postpone the law
+	option = {
+		name = vie_alt.6.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.6.a executed"
+		add_stability = 0.02
+		ai_chance = { base = 100 }
+	}
+
+	# Pass it anyway
+	option = {
+		name = vie_alt.6.b
+		trigger = { VIE_bop_is_reformist = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.6.b executed"
+		set_country_flag = VIE_sez_unlocked
+		custom_effect_tooltip = VIE_gate_note_sez
+		add_timed_idea = { idea = VIE_sez_unrest_idea days = 180 }
+		VIE_bop_reform_small = yes
+		ai_chance = {
+			base = 3
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
+		}
+	}
+}
+
+########################################################################
+# vie_alt.7  Door D8: bank run (Oct 2022)
+########################################################################
+country_event = {
+	id = vie_alt.7
+	title = vie_alt.7.t
+	desc = vie_alt.7.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	# Historical: the state steps in
+	option = {
+		name = vie_alt.7.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.7.a executed"
+		set_temp_variable = { treasury_change = -3 }
+		modify_treasury_effect = yes
+		add_stability = 0.01
+		decrease_corruption = yes
+		ai_chance = { base = 100 }
+	}
+
+	# Leave it to the big groups
+	option = {
+		name = vie_alt.7.b
+		trigger = { VIE_corruption_high_trigger = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.7.b executed"
+		set_country_flag = VIE_oligarch_unlocked
+		custom_effect_tooltip = VIE_gate_note_oli
+		increase_corruption = yes
+		set_temp_variable = { temp_opinion = 5 }
+		change_industrial_conglomerates_opinion = yes
+		ai_chance = {
+			base = 3
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
+		}
+	}
+}
+
+########################################################################
+# vie_alt.8  Free Zone regime: who is leasing the land?
+########################################################################
+country_event = {
+	id = vie_alt.8
+	title = vie_alt.8.t
+	desc = vie_alt.8.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+
+	trigger = { check_variable = { ruling_party = 16 } }
+
+	# Withdraw the leases
+	option = {
+		name = vie_alt.8.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.8.a executed"
+		set_temp_variable = { treasury_change = -3 }
+		modify_treasury_effect = yes
+		add_stability = -0.02
+		add_to_variable = { VIE_sez_share = -20 }
+		clamp_variable = { var = VIE_sez_share min = 0 max = 100 }
+		add_opinion_modifier = { target = CHI modifier = VIE_nationalized_industry }
+		reverse_add_opinion_modifier = { target = CHI modifier = VIE_nationalized_industry }
+		ai_chance = { base = 50 }
+	}
+
+	# Accept it
+	option = {
+		name = vie_alt.8.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.8.b executed"
+		add_stability = -0.03
+		add_to_variable = { VIE_sez_share = 10 }
+		add_timed_idea = { idea = VIE_sez_unrest_idea days = 270 }
+		VIE_bop_reform_small = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+########################################################################
+# vie_alt.9  Free Zone regime: the investors take over
+########################################################################
+country_event = {
+	id = vie_alt.9
+	title = vie_alt.9.t
+	desc = vie_alt.9.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	trigger = { check_variable = { ruling_party = 16 } }
+
+	# Resist the takeover
+	option = {
+		name = vie_alt.9.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.9.a executed"
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		add_stability = -0.02
+		set_variable = { VIE_sez_share = 40 }
+		clr_country_flag = VIE_sez_degrade_fired
+		ai_chance = { base = 60 }
+	}
+
+	# Let the investors run the state
+	option = {
+		name = vie_alt.9.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.9.b executed"
+		set_country_flag = VIE_oligarch_unlocked
+		if = {
+			limit = { NOT = { check_variable = { ruling_party = 15 } } }
+			set_temp_variable = { party_index = 15 }
+			set_temp_variable = { party_popularity_increase = 0.20 }
+			set_temp_variable = { temp_outlook_increase = 0.20 }
+			hidden_effect = { change_relative_party_popularity = yes }
+			set_temp_variable = { rul_party_temp = 15 }
+			VIE_transition_regime = yes
+		}
+		ai_chance = { base = 40 }
+	}
+}
+
+########################################################################
+# vie_alt.10  Strategic autonomy: the import shock
+########################################################################
+country_event = {
+	id = vie_alt.10
+	title = vie_alt.10.t
+	desc = vie_alt.10.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	# Accept inflation
+	option = {
+		name = vie_alt.10.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.10.a executed"
+		add_timed_idea = { idea = VIE_import_shock_idea days = 365 }
+		ai_chance = { base = 50 }
+	}
+
+	# Accept shortages
+	option = {
+		name = vie_alt.10.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.10.b executed"
+		decrease_economic_growth = yes
+		add_stability = -0.03
+		ai_chance = { base = 50 }
+	}
+}
+
+########################################################################
+# vie_alt.11  Strategic autonomy: the independent model endures
+########################################################################
+country_event = {
+	id = vie_alt.11
+	title = vie_alt.11.t
+	desc = vie_alt.11.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = vie_alt.11.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.11.a executed"
+		add_ideas = VIE_yugoslav_model_idea
+		add_political_power = 100
+		ai_chance = { base = 100 }
+	}
+}
+
+########################################################################
+# vie_alt.12  Democratic path: hardliners react to the round-table talks
+########################################################################
+country_event = {
+	id = vie_alt.12
+	title = vie_alt.12.t
+	desc = vie_alt.12.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# Go ahead (a chance of a hardline backlash)
+	option = {
+		name = vie_alt.12.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.12.a executed"
+		random_list = {
+			85 = { add_stability = 0.01 }
+			15 = { add_stability = -0.03 }
+		}
+		ai_chance = { base = 70 }
+	}
+
+	# Slow down to reassure the hardliners
+	option = {
+		name = vie_alt.12.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.12.b executed"
+		add_political_power = -25
+		add_stability = 0.01
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_alt.13  Democratic path: the constitutional referendum
+########################################################################
+country_event = {
+	id = vie_alt.13
+	title = vie_alt.13.t
+	desc = vie_alt.13.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Put it to a referendum
+	option = {
+		name = vie_alt.13.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.13.a executed"
+		random_list = {
+			90 = {
+				add_stability = 0.03
+				set_country_flag = VIE_new_constitution_done
+			}
+			10 = { add_stability = -0.03 }
+		}
+		ai_chance = { base = 70 }
+	}
+
+	# Adopt it in the assembly
+	option = {
+		name = vie_alt.13.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.13.b executed"
+		add_stability = 0.01
+		set_country_flag = VIE_new_constitution_done
+		ai_chance = { base = 30 }
+	}
+}
+
+########################################################################
+# vie_alt.14  Democratic path: the first free election
+########################################################################
+country_event = {
+	id = vie_alt.14
+	title = vie_alt.14.t
+	desc = vie_alt.14.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	# Liberals win
+	option = {
+		name = vie_alt.14.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.14.a executed"
+		if = {
+			limit = { NOT = { check_variable = { ruling_party = 2 } } }
+			set_temp_variable = { party_index = 2 }
+			set_temp_variable = { party_popularity_increase = 0.25 }
+			set_temp_variable = { temp_outlook_increase = 0.25 }
+			hidden_effect = { change_relative_party_popularity = yes }
+			set_temp_variable = { rul_party_temp = 2 }
+			VIE_transition_regime = yes
+		}
+		set_country_flag = VIE_democracy_elected
+		country_event = { id = vie_int.6 days = 45 }
+		ai_chance = { base = 50 }
+	}
+
+	# Conservatives win
+	option = {
+		name = vie_alt.14.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.14.b executed"
+		if = {
+			limit = { NOT = { check_variable = { ruling_party = 1 } } }
+			set_temp_variable = { party_index = 1 }
+			set_temp_variable = { party_popularity_increase = 0.25 }
+			set_temp_variable = { temp_outlook_increase = 0.25 }
+			hidden_effect = { change_relative_party_popularity = yes }
+			set_temp_variable = { rul_party_temp = 1 }
+			VIE_transition_regime = yes
+		}
+		set_country_flag = VIE_democracy_elected
+		country_event = { id = vie_int.6 days = 45 }
+		ai_chance = { base = 30 }
+	}
+
+	# Socialists win
+	option = {
+		name = vie_alt.14.c
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.14.c executed"
+		if = {
+			limit = { NOT = { check_variable = { ruling_party = 3 } } }
+			set_temp_variable = { party_index = 3 }
+			set_temp_variable = { party_popularity_increase = 0.25 }
+			set_temp_variable = { temp_outlook_increase = 0.25 }
+			hidden_effect = { change_relative_party_popularity = yes }
+			set_temp_variable = { rul_party_temp = 3 }
+			VIE_transition_regime = yes
+		}
+		set_country_flag = VIE_democracy_elected
+		country_event = { id = vie_int.6 days = 45 }
+		ai_chance = { base = 20 }
+	}
+}
+
+########################################################################
+# vie_alt.20  Oligarchic regime: the property bubble bursts (tier depends on how often it was cooled)
+########################################################################
+country_event = {
+	id = vie_alt.20
+	title = vie_alt.20.t
+	desc = vie_alt.20.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { check_variable = { VIE_bubble_cools > 1 } }
+			add_timed_idea = { idea = VIE_bubble_burst_mild_idea days = 365 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_bubble_cools > 0 } }
+			add_timed_idea = { idea = VIE_bubble_burst_idea days = 540 }
+		}
+		else = {
+			add_timed_idea = { idea = VIE_bubble_burst_idea days = 730 }
+			set_country_flag = VIE_bubble_hit_hard
+		}
+	}
+
+	# Bail the banks out
+	option = {
+		name = vie_alt.20.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.20.a executed"
+		set_temp_variable = { treasury_change = -3 }
+		modify_treasury_effect = yes
+		VIE_oli_conglomerate_medium = yes
+		ai_chance = { base = 50 }
+	}
+
+	# Let it burn
+	option = {
+		name = vie_alt.20.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.20.b executed"
+		decrease_economic_growth = yes
+		VIE_oli_public_medium = yes
+		clr_country_flag = VIE_bubble_hit_hard
+		ai_chance = { base = 50 }
+	}
+}
+
+########################################################################
+# vie_alt.22  Development Council: the Democratic Summer
+########################################################################
+country_event = {
+	id = vie_alt.22
+	title = vie_alt.22.t
+	desc = vie_alt.22.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	trigger = { check_variable = { ruling_party = 0 } }
+
+	# Concede: direct elections
+	option = {
+		name = vie_alt.22.a
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.22.a executed"
+		set_country_flag = VIE_democracy_path_open
+		add_stability = -0.02
+		country_event = { id = vie_alt.14 days = 60 }
+		ai_chance = { base = 70 }
+	}
+
+	# Suppress
+	option = {
+		name = vie_alt.22.b
+		log = "[GetDateText]: [This.GetName]: Event vie_alt.22.b executed"
+		add_stability = -0.08
+		set_country_flag = VIE_wa_suppressed
+		add_timed_idea = { idea = VIE_civil_unrest_idea days = 540 }
+		add_opinion_modifier = { target = USA modifier = VIE_hd981_defiance }
+		reverse_add_opinion_modifier = { target = USA modifier = VIE_hd981_defiance }
+		ai_chance = { base = 30 }
+	}
+}
