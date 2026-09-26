@@ -190,6 +190,8 @@ Bảy focus giữ nguyên ID, phần thưởng và thứ tự: gốc `bilateral_
 | **Lao động – xã hội** | hai gốc `social_insurance_reform` (2015, Luật BHXH 2014) và `labor_code_2019` → hội tụ ở `population_policy` → `overseas_vietnamese` | Mất gốc `urbanization`. `labor_code_2019` đọc cờ `VIE_labor_convention_ratified` của event `vie_pol.27` để trao thêm thưởng, thay vì làm lại việc phê chuẩn ILO |
 | **Văn hóa – du lịch** | gốc `heritage_preservation` (**đổi cha**) → `sea_games_bid` (2003), `visa_reform` (2023) → `cultural_industry` → `tourism_powerhouse` | Giữ |
 
+> **Đã code (pha E), có một lỗi phát hiện khi thực thi.** Toàn bộ đổi cha/mốc năm ở dòng Giáo dục và Lao động – xã hội đã áp dụng, cộng focus mới `education_nq29` (x=-2, y=6, đặt trong cùng cụm tọa độ `education_reform`, xác nhận 0 va chạm). Phát hiện ngoài văn bản: `english_second_language` đang có `available = { has_completed_focus = VIE_free_tuition }` — một phụ thuộc ngược, vì `free_tuition` (2025) đứng sau `english_second_language` (2008) theo thời gian và không thể nào là điều kiện tiên quyết hợp lý. Đã sửa thành `available = { date > 2008.12.31 }` như các mốc năm khác trong nhánh, và tách `english_second_language` khỏi `vocational_training` để làm con trực tiếp của `education_reform`, đúng như bảng trên mô tả. Tên `education_reform` đã đổi thành "Chiến lược Phát triển Giáo dục 2001–2010" (QĐ 201/2001/QĐ-TTg) ở cả file loc gốc lẫn bản `replace/p2_b` đã có sẵn từ trước (giữ đồng bộ cả hai vì không xác minh được trong sandbox này file nào thắng khi trùng khóa). `labor_code_2019` đọc cờ `VIE_labor_convention_ratified` bằng khối `if` cộng thêm vào biến trục `VIE_ax_west`, không đổi lại logic phê chuẩn ILO của `vie_pol.27`.
+
 ---
 
 ## 3. Ngã rẽ lịch sử
