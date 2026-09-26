@@ -378,6 +378,8 @@ Hai option của `vie_pol.16`/`.17` hiện chỉ cho PP và ổn định, không
 
 Mất mát chấp nhận: dưới chế độ không phải Đảng, chuỗi này không hiện. Hiện nay người chơi rời chế độ Đảng vẫn sáp nhập tỉnh được qua focus. Chuyển thành decision có điều kiện `OR` với chế độ khác là việc làm thêm nếu muốn giữ.
 
+> **Đã code (pha 4 — Decision), đúng 20 decision chứ không phải 19.** Mục 0 ghi "thêm 19 decision" nhưng cộng đúng các bảng ở 6.2 (9) + 6.3 (3 CCHC + 5 PCTN) + 6.4 (3) ra 20 — đã làm đủ cả 20, không đoán bớt cái nào. `days_remove` + `remove_effect` (mục 6.1, đánh dấu `[CẦN THỬ]`) đã dùng cho 6 trong 9 decision theo nhiệm kỳ có cột "Sau:" rõ ràng; 3 decision còn lại (`rn_x_district_council_pilot`, `rn_xi_local_gov_law`, `rn_xiv_operate_apparatus`) không có "Sau:" trong văn bản nên làm hiệu ứng ngay lập tức, không trễ. Hai dòng xuyên nhiệm kỳ (CCHC, PCTN) không đóng theo cửa sổ nhiệm kỳ cứng như nhóm 6.2 — mỗi giai đoạn tự đặt cờ hoàn thành (`VIE_par1_done`, `VIE_par2_done`, ...) để giai đoạn sau đọc, đúng tinh thần "tiến hóa qua nhiều nhiệm kỳ" đã nói ở đầu mục 6.3. `VIE_rn_par_3`'s giảm chi phí decision `VIE_streamline_administrative_org` dùng cú pháp `cost = { base modifier }` — cũng là lần đầu mod dùng, đi kèm `[CẦN THỬ]`.
+
 ---
 
 ## 7. Event
