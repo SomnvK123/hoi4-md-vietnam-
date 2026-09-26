@@ -130,6 +130,8 @@ Mod đã dùng scripted effect có tham số (`VIE_boost_party = { PARTY = 20 AM
 
 Khối Đại hội XIII, XIV và HNTW 2024 nằm trong `VIE_md_effects_p2.txt`; IX–XII nằm trong `VIE_md_effects.txt`. **`VIE_md_effects_p10.txt` là file sinh tự động** (`gen_ev6.py`, không có trong repo) nên không sửa. Lịch mới (bầu cử khóa XVI) đặt vào scheduler part 13, file mới.
 
+> **Đã code (pha 1 — Nền), có hai điều chỉnh.** (1) `VIE_boost_party` **không có thật trong code** — dòng 129 chỉ là một ví dụ trong comment (`# VIE_boost_party = { PARTY = 20 AMOUNT = 0.15 }`), không phải một scripted effect đang chạy. Cả repo không có scripted effect/trigger tham số nào khác đang hoạt động; `VIE_congress_started`/`VIE_start_congress_term` là **lần đầu** cơ chế `$N$` được dùng thật trong mod, không phải mở rộng một cái đã có. Không đổi cách làm vì cú pháp tham số là tính năng chuẩn của HOI4, chỉ ghi lại để không ai tưởng có tiền lệ. (2) `VIE_start_congress_term` gỡ tinh thần nhiệm kỳ trước bằng 8 khối `if = { limit = { has_idea = X } remove_ideas = X }` (kiểm tra rồi mới gỡ), không gọi `remove_ideas` trần trụi — đúng quy ước 100% các chỗ gỡ idea khác trong `VIE_md_focus.txt` đã làm vậy, dù bản thân `remove_ideas` gỡ một idea không có sẵn vốn là no-op an toàn. Đã nối `VIE_start_congress_term` vào cả 6 khối scheduler (`vie_pol.2/.3/.4/.5/.6/.8`), đặt `VIE_congress_term = 8` trong `vie_pol.1`, và thêm suy lại biến từ cờ `VIE_sched_congress_N` trong `on_startup` cho save cũ (mục 8.3). 8 idea tinh thần + 2 idea của decision (`VIE_no_district_council_idea`, `VIE_pctn_directing_committee_idea`) đã tạo, có loc. Idea `VIE_resolution_12_dev_idea` dùng `production_speed_industrial_complex_factor` thay vì gợi ý gốc — xem mục 5.
+
 ---
 
 ## 4. Cây focus
@@ -276,7 +278,7 @@ Ba focus `merge_ministries`, `provincial_merger`, `two_tier_local_gov` **bị x�
 | `VIE_resolution_10_idea` | NQ X | Đẩy mạnh toàn diện Đổi Mới, hội nhập | `political_power_factor +0.05`, `consumer_goods_factor −0.02` |
 | `VIE_resolution_11_idea` | NQ XI | Đổi mới phương thức lãnh đạo, ba đột phá | `stability_factor +0.03`, `research_speed_factor +0.02` |
 | `VIE_resolution_12_idea` | NQ XII, `vie_pol.5.a` | Xây dựng, chỉnh đốn Đảng | `stability_factor +0.05`; **cái giá** `political_power_factor −0.05` (cán bộ e ngại, xem `vie_pol.21`) |
-| `VIE_resolution_12_dev_idea` | NQ XII, `vie_pol.5.b` | Chính phủ kiến tạo | `production_speed_buildings_factor +0.05`; **cái giá** `stability_factor −0.03` |
+| `VIE_resolution_12_dev_idea` | NQ XII, `vie_pol.5.b` | Chính phủ kiến tạo | ~~`production_speed_buildings_factor +0.05`~~ → `production_speed_industrial_complex_factor +0.05` (đã code, mục không có thật — xem chú thích pha 1 ở mục 3.1); **cái giá** `stability_factor −0.03` |
 | `VIE_resolution_13_idea` | NQ XIII | Tinh gọn, chuyển đổi số | `political_power_factor +0.05`, `research_speed_factor +0.02` |
 | `VIE_resolution_14_idea` | NQ XIV | Hoàn thiện thể chế, giai đoạn phát triển mới | `political_power_factor +0.05`, `stability_factor +0.03` |
 
