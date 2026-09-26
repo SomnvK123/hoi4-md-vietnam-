@@ -265,6 +265,8 @@ Ba focus `merge_ministries`, `provincial_merger`, `two_tier_local_gov` **bị x�
 | ID bị xóa | — | 3 |
 | ID đổi nội dung | — | 2 |
 
+> **Đã code (pha 3 — Cây), khớp gần như tuyệt đối với văn bản.** Tất cả 38 tọa độ tuyệt đối ở mục 4.2/4.3 đã được cấy đúng từng ô (đã tính lại toàn bộ chuỗi `relative_position_id` và xác nhận 0 va chạm) — hóa ra tọa độ tương đối cũ của cả hai cụm (`anti_corruption_steering` và `doi_moi_continues`) đã được chọn từ đầu rất gần với lưới mục tiêu, nên việc "dời tọa độ 28 focus" chỉ là tính lại offset, không phải rủi ro "tách cột" như đã gặp ở pha B của báo cáo kinh tế. Toàn bộ focus giờ neo thẳng vào `VIE_doi_moi_continues` (bỏ neo trung gian qua `anti_corruption_steering`, vì bản thân nó cũng phải dời sang (26,6)). Giảm tham nhũng: đúng 7 chỗ bị bỏ `decrease_corruption`, `party_discipline` giữ đúng 1 trong 2 lần gọi, ròng đúng **−3** như mục 8.2. Hai chỗ khác so với văn bản: (1) `concentration_of_power`/`institutional_opening` không thể đặt `VIE_two_tier_done` vào `prerequisite` (khối đó chỉ nhận `focus = X`, không nhận cờ) — cờ được chuyển sang `available` như văn bản đã ngụ ý qua chữ "thay". (2) `vie_pol.11` (option c, đọc `has_completed_focus = VIE_tw4_party_building`) đáng lẽ thuộc pha 2 nhưng đã dời sang đây, đúng như đã báo trước.
+
 ---
 
 ## 5. Tinh thần nhiệm kỳ
