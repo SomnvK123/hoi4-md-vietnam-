@@ -170,6 +170,8 @@ Ký hiệu: **gốc** = focus gốc của nhánh (cần `doi_moi_continues`); **
 
 **Đích 2030/2045.** Giữ nguyên năm focus.
 
+> **Đã code (pha F).** Rà toàn bộ ký hiệu **+năm** trong mục 2.2 và 2.4: phần lớn đã có mốc năm từ các pha trước (`shipbuilding_vinashin`, `dung_quat_refinery`, `viettel_global`, và toàn bộ mục 2.4 từ pha E). Còn đúng 4 chỗ thiếu, đã bổ sung `available = { date > … }`: `state_conglomerates` (2005, cộng thêm vào `available` đã có `has_completed_focus = VIE_wto_negotiations` chứ không thay); `private_champions` (đổi từ cờ chung `VIE_era_2011` — tức chỉ "sau 2011" — thành mốc thật NQ 10-NQ/TW, `date > 2017.6.30`); `universal_health_insurance` và `nature_adaptation_120` (cả hai trước đó không có khối `available` nào, nay có `date > 2008.12.31` và `date > 2017.11.30`). Không đụng tới các mốc năm đã có sẵn dù vài chỗ (`nghi_son_refinery`, `hanoi_metro`, `new_rural_development`…) lệch một năm so với văn bản — đó là quyết định của các pha trước, ngoài phạm vi "chỉ thêm chỗ còn thiếu" của pha F.
+
 ### 2.3 Hội nhập – FDI chuyển sang cây ngoại giao
 
 > **Đã code (pha C).** Khác pha B, ở đây "tách cột" áp dụng được vì đây là một cụm 7 focus tự thân (đã tách khỏi Luật Doanh nghiệp bằng đổi cha), không phải phải dịch chuyển hàng chục focus không liên quan để nhường chỗ. Vị trí tuyệt đối thật: `bilateral_trade_agreement_usa` (115,1), `fdi_attraction`/`wto_negotiations`/`wto_reforms`/`export_powerhouse` (119, 2–5), `cptpp_member` (117,6), `evfta` (121,6) — đã xác nhận 0 va chạm với focus nào khác trong x101–129.
