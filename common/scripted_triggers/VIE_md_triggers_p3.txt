@@ -33,10 +33,6 @@ VIE_crisis_count_ge_2 = {
 VIE_collapse_pole = {
 	OR = {
 		AND = {
-			has_country_flag = VIE_bop_oli_active
-			power_balance_value = { id = VIE_oligarch_balance value < -0.85 }
-		}
-		AND = {
 			has_country_flag = VIE_bop_active
 			OR = {
 				power_balance_value = { id = VIE_party_balance value < -0.85 }
@@ -44,7 +40,6 @@ VIE_collapse_pole = {
 			}
 		}
 		has_country_flag = VIE_wa_suppressed
-		has_country_flag = VIE_bubble_hit_hard
 	}
 }
 

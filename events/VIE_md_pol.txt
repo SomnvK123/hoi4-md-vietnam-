@@ -60,8 +60,6 @@ country_event = {
 		VIE_bop_conservative_medium = yes
 		add_stability = 0.03
 		add_political_power = -25
-		set_country_flag = VIE_conservative_unlocked
-		custom_effect_tooltip = VIE_gate_note_con
 		set_country_flag = VIE_congress9_phieu
 		ai_chance = {
 			base = 3
@@ -175,14 +173,12 @@ country_event = {
 		increase_economic_growth = yes
 		add_stability = -0.03
 		set_country_flag = VIE_developmental_unlocked
-		custom_effect_tooltip = VIE_gate_note_dev
 		clr_country_flag = VIE_conservative_unlocked
 		ai_chance = {
 			base = 4
 			modifier = { factor = 0 VIE_ai_historical = yes }
 			modifier = { factor = 3 VIE_ai_free = yes }
 			modifier = { add = 100 has_global_flag = VIE_AI_PATH_REFORM }
-			modifier = { add = 100 has_global_flag = VIE_AI_PATH_FREE_ZONES }
 		}
 	}
 }

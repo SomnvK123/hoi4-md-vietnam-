@@ -13,10 +13,6 @@ on_actions = {
 					set_global_flag = VIE_AI_PATH_REFORM
 				}
 				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_AUTONOMY } }
-					set_global_flag = VIE_AI_PATH_AUTONOMY
-				}
-				if = {
 					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_HARDLINE } }
 					set_global_flag = VIE_AI_PATH_HARDLINE
 				}
@@ -25,24 +21,13 @@ on_actions = {
 					set_global_flag = VIE_AI_PATH_WESTERN
 				}
 				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_NATIONALIST } }
-					set_global_flag = VIE_AI_PATH_NATIONALIST
-				}
-				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_FREE_ZONES } }
-					set_global_flag = VIE_AI_PATH_FREE_ZONES
-				}
-				if = {
 					limit = { has_game_rule = { rule = VIE_ai_behavior option = RANDOM } }
 					random_list = {
 						20 = { set_global_flag = VIE_AI_PATH_HISTORICAL }
 						15 = { set_global_flag = VIE_AI_PATH_REFORM }
-						10 = { set_global_flag = VIE_AI_PATH_AUTONOMY }
 						10 = { set_global_flag = VIE_AI_PATH_HARDLINE }
 						10 = { set_global_flag = VIE_AI_PATH_WESTERN }
-						10 = { set_global_flag = VIE_AI_PATH_NATIONALIST }
-						10 = { set_global_flag = VIE_AI_PATH_FREE_ZONES }
-						15 = { }
+						45 = { }
 					}
 				}
 				# Initialise the 9-axis state-building system at game start,

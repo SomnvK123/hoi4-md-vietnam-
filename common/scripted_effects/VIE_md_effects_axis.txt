@@ -138,18 +138,14 @@ VIE_ax_faction_check = {
 	# 1. Oligarchs: state capture when market outpaces merit or oligarch regime active
 	if = {
 		limit = {
-			OR = {
-				has_country_flag = VIE_bop_oli_active
-				has_country_flag = VIE_oligarch_active
-				AND = {
-					check_variable = { VIE_ax_market_norm > 3 }
-					check_variable = { VIE_ax_merit_norm < 3 }
-					OR = {
-						has_idea = corruption_level_07
-						has_idea = corruption_level_08
-						has_idea = corruption_level_09
-						has_idea = corruption_level_10
-					}
+			AND = {
+				check_variable = { VIE_ax_market_norm > 3 }
+				check_variable = { VIE_ax_merit_norm < 3 }
+				OR = {
+					has_idea = corruption_level_07
+					has_idea = corruption_level_08
+					has_idea = corruption_level_09
+					has_idea = corruption_level_10
 				}
 			}
 			NOT = { has_idea = oligarchs }
@@ -227,34 +223,6 @@ VIE_ax_faction_check = {
 
 # Failure and reversal event triggers (Batch 5)
 VIE_ax_events_check = {
-	# 1. Developmental state slides into Oligarchy
-	if = {
-		limit = {
-			NOT = { has_country_flag = VIE_axis_1_fired }
-			has_completed_focus = VIE_developmental_state
-			NOT = { check_variable = { ruling_party = 15 } }
-			check_variable = { VIE_ax_market_norm > 4 }
-			check_variable = { VIE_ax_merit_norm < 2 }
-		}
-		set_country_flag = VIE_axis_1_fired
-		country_event = { id = vie_axis.1 days = 14 }
-	}
-
-	# 3. Democratization stalls at competitive authoritarianism
-	if = {
-		limit = {
-			NOT = { has_country_flag = VIE_axis_3_fired }
-			has_country_flag = VIE_managed_pluralism_active
-			NOT = { has_country_flag = VIE_democracy_elected }
-			OR = {
-				check_variable = { VIE_ax_checks_norm < 4 }
-				check_variable = { VIE_ax_merit_norm < 4 }
-			}
-		}
-		set_country_flag = VIE_axis_3_fired
-		country_event = { id = vie_axis.3 days = 30 }
-	}
-
 	# 4. Multi-dimensional crisis warning
 	if = {
 		limit = {

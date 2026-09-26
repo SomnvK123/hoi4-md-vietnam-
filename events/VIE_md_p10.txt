@@ -1195,22 +1195,6 @@ country_event = {
 
 }
 
-country_event = {
-	id = vie_dip.18
-	title = vie_dip.18.t
-	desc = vie_dip.18.d
-	picture = GFX_report_event_generic_conference
-	is_triggered_only = yes
-
-	option = {
-		name = vie_dip.18.a
-		log = "[GetDateText]: [This.GetName]: Event vie_dip.18.a executed"
-		add_political_power = 75
-		add_stability = 0.02
-		ai_chance = { base = 100 }
-	}
-
-}
 
 country_event = {
 	id = vie_dip.19

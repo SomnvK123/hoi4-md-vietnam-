@@ -176,11 +176,6 @@ VIE_transition_regime = {
 			remove_power_balance = { id = VIE_party_balance }
 			clr_country_flag = VIE_bop_active
 		}
-		if = {
-			limit = { has_country_flag = VIE_bop_oli_active }
-			remove_power_balance = { id = VIE_oligarch_balance }
-			clr_country_flag = VIE_bop_oli_active
-		}
 
 		set_temp_variable = { change_leader_temp = 1 }
 		change_ruling_party_effect = yes   # MD: sets ruling_party, set_politics, runs set_leader_VIE
@@ -207,16 +202,6 @@ VIE_transition_regime = {
 			# Party rule is over: set_leader_VIE must build the leader of a later return to slot 19 itself
 			clr_country_flag = VIE_congress_controls_leader
 			set_variable = { VIE_gs = 0 }
-			if = {
-				limit = { check_variable = { ruling_party = 15 } }
-				set_power_balance = {
-					id = VIE_oligarch_balance
-					left_side = VIE_oli_conglomerate_side
-					right_side = VIE_oli_public_side
-					set_value = -0.3
-				}
-				set_country_flag = VIE_bop_oli_active
-			}
 			# Four Nos do not survive these regimes
 			if = {
 				limit = {
