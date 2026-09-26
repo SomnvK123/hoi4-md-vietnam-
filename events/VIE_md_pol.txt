@@ -13,6 +13,7 @@ country_event = {
 	immediate = {
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.1 (init)"
 		set_variable = { VIE_scs_tension = 0 }
+		set_variable = { VIE_congress_term = 8 }
 		add_ideas = VIE_non_alignment_policy
 		if = {
 			limit = { VIE_party_rule_active = yes }

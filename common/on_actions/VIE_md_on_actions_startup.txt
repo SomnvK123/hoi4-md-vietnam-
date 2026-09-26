@@ -33,6 +33,17 @@ on_actions = {
 				# Initialise the 9-axis state-building system at game start,
 				# before the first on_monthly tick fires, to prevent stack overflow.
 				VIE_ax_init = yes
+
+				# Party Congress spine (see VIE_congress_spine_redesign.md): saves from before
+				# this system existed have no VIE_congress_term variable. Re-derive it every
+				# startup from the scheduler flags already set - cheap, and self-correcting.
+				set_variable = { VIE_congress_term = 8 }
+				if = { limit = { has_country_flag = VIE_sched_congress_9 } set_variable = { VIE_congress_term = 9 } }
+				if = { limit = { has_country_flag = VIE_sched_congress_10 } set_variable = { VIE_congress_term = 10 } }
+				if = { limit = { has_country_flag = VIE_sched_congress_11 } set_variable = { VIE_congress_term = 11 } }
+				if = { limit = { has_country_flag = VIE_sched_congress_12 } set_variable = { VIE_congress_term = 12 } }
+				if = { limit = { has_country_flag = VIE_sched_congress_13 } set_variable = { VIE_congress_term = 13 } }
+				if = { limit = { has_country_flag = VIE_sched_congress_14 } set_variable = { VIE_congress_term = 14 } }
 			}
 		}
 	}

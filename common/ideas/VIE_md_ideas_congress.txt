@@ -1,0 +1,131 @@
+# Party Congress spine (see VIE_congress_spine_redesign.md).
+# Term-spirit ideas (granted by the "Nghi quyet Dai hoi N" spine focuses, removed by
+# VIE_start_congress_term when the next Congress convenes) plus two ideas used by decisions
+# added in a later phase (VIE_no_district_council_idea, VIE_pctn_directing_committee_idea).
+ideas = {
+	country = {
+
+		VIE_resolution_9_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+
+		VIE_resolution_9_cons_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = -0.05
+			}
+		}
+
+		VIE_resolution_10_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		VIE_resolution_11_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.03
+				research_speed_factor = 0.02
+			}
+		}
+
+		VIE_resolution_12_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = -0.05
+			}
+		}
+
+		VIE_resolution_12_dev_idea = {
+			picture = economic_prosperity
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				stability_factor = -0.03
+			}
+		}
+
+		VIE_resolution_13_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				research_speed_factor = 0.02
+			}
+		}
+
+		VIE_resolution_14_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.03
+			}
+		}
+
+		# Decision VIE_rn_x_district_council_pilot (term X) grants this; decision
+		# VIE_rn_xi_local_gov_law (term XI) removes it. Both added in a later phase.
+		VIE_no_district_council_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.02
+				political_power_factor = 0.03
+			}
+		}
+
+		# Decision VIE_rn_pctn_2006 (term X) grants this as a 730-day timed idea; added in a later phase.
+		VIE_pctn_directing_committee_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				political_power_factor = -0.03
+			}
+		}
+	}
+}

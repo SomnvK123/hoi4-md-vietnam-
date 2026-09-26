@@ -69,6 +69,7 @@ VIE_event_scheduler_p2 = {
 				NOT = { has_country_flag = VIE_sched_congress_13 }
 			}
 			set_country_flag = VIE_sched_congress_13
+			VIE_start_congress_term = { N = 13 }
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
@@ -99,6 +100,7 @@ VIE_event_scheduler_p2 = {
 				NOT = { has_country_flag = VIE_sched_congress_14 }
 			}
 			set_country_flag = VIE_sched_congress_14
+			VIE_start_congress_term = { N = 14 }
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
