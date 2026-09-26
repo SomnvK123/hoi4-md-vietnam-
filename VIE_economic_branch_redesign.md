@@ -353,6 +353,8 @@ Liên kết chéo giữa các nhánh (thay cho prerequisite):
 | `bank_bankruptcy` (giảm hậu quả) | đọc `deposit_insurance` | Bảo hiểm tiền gửi giảm cú sốc phá sản |
 | `solar_boom` (gỡ timed idea) | hoàn thành `500kv_grid` | Lưới truyền tải hết quá tải |
 
+> **Đã code (pha G), có một điều chỉnh.** Không đổi `cost` động (đúng như `[CẦN THỬ]` đã cảnh báo) và cũng không dùng hiệu ứng trục cho 10 chỗ "focus hưởng lợi" — mỗi chỗ chỉ cộng `add_political_power = 25` khi `has_completed_focus = VIE_resolution_congress_N` tương ứng đã xong (riêng `private_champions` được cộng hai lần, một cho NQ X một cho NQ XII; `soe_gradual_restructuring` cộng 50 PP, đúng như mục 7 nói rõ tên). Chọn PP thay vì trục để không đụng vào hồ sơ STEP6 đã hiệu chuẩn từ pha B. Hai liên kết chéo `bank_bankruptcy`/`solar_boom` hóa ra **đã có sẵn từ pha D**, không cần làm gì thêm. Khi sửa `chip_engineers` phát hiện lỗi có sẵn: focus này có **hai khối `available` riêng biệt** — Clausewitz chỉ giữ khối sau cùng, nên điều kiện `has_completed_focus = VIE_chip_design` ở khối đầu đã bị vô hiệu từ trước, không liên quan gì tới pha này. Đã gộp lại thành một khối khi thêm liên kết `university_autonomy`, tiện tay sửa luôn. `island_special_zones` giờ dùng đúng `VIE_two_tier_done` (báo cáo Đại hội, decision `VIE_rn_xiii_two_tier`) thay cho mốc ngày tạm thời của pha D.
+
 ---
 
 ## 7. Những gì `VIE_congress_spine_redesign.md` phải sửa theo
