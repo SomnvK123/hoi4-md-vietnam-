@@ -646,7 +646,13 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_sez_postpone }
 		available = {
-			date > 2025.6.30
+			OR = {
+				has_country_flag = VIE_two_tier_done
+				AND = {
+					date > 2025.6.30
+					NOT = { VIE_party_rule_active = yes }
+				}
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -749,6 +755,10 @@ focus_tree = {
 			set_temp_variable = { temp_opinion = -4 }
 			change_communist_cadres_opinion = yes
 			VIE_bop_reform_medium = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_11 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 75 }
@@ -819,6 +829,10 @@ focus_tree = {
 			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
 			VIE_bop_reform_small = yes
 			set_country_flag = VIE_wto_talks
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_10 }
+				add_political_power = 25
+			}
 			if = {
 				limit = {
 					has_completed_focus = VIE_bilateral_trade_agreement_usa
@@ -1489,6 +1503,14 @@ focus_tree = {
 			VIE_bop_reform_small = yes
 			set_temp_variable = { treasury_change = 2 }
 			modify_treasury_effect = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_10 }
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_12 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 65 }
@@ -4230,6 +4252,10 @@ focus_tree = {
 			modify_treasury_effect = yes
 			VIE_bop_reform_small = yes
 			increase_economic_growth = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_11 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 70 }
@@ -6144,6 +6170,7 @@ focus_tree = {
 
 		available = {
 			date > 2021.12.31
+			has_completed_focus = VIE_power_plan_8
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
@@ -6279,6 +6306,10 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_soe_gradual_restructuring"
 			add_political_power = 25
 			add_stability = 0.01
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_12 }
+				add_political_power = 50
+			}
 		}
 
 		ai_will_do = {
@@ -6360,6 +6391,10 @@ focus_tree = {
 				limit = { has_idea = VIE_state_debt_overhang }
 				remove_ideas = VIE_state_debt_overhang
 			}
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_12 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 65 }
@@ -6424,6 +6459,10 @@ focus_tree = {
 			add_to_variable = { VIE_ax_market = 3 tooltip = VIE_ax_market_tt }
 			add_ideas = VIE_private_engine_idea
 			VIE_bop_reform_medium = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 75 }
@@ -8555,6 +8594,10 @@ focus_tree = {
 				uses = 1
 				bonus = 0.5
 			}
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 60 }
@@ -8619,6 +8662,10 @@ focus_tree = {
 			set_temp_variable = { treasury_change = -2 }
 			modify_treasury_effect = yes
 			add_stability = 0.02
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 55 }
@@ -9479,6 +9526,10 @@ focus_tree = {
 			}
 			add_ideas = VIE_science_breakthrough_idea
 			add_political_power = 50
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 70 }
@@ -9525,10 +9576,8 @@ focus_tree = {
 
 		available = {
 			has_completed_focus = VIE_chip_design
-		}
-
-		available = {
 			date > 2023.12.31
+			has_completed_focus = VIE_university_autonomy
 		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMY }
