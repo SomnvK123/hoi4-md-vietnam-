@@ -267,6 +267,8 @@ Khác biệt với dải "Giải cứu ngân hàng" bị bỏ: dải đó là ch
 
 ## 4. Bỏ sáu dải chế độ
 
+> **Đã code (pha A).** Khi thực thi, phạm vi thật rộng hơn bảng dưới: còn **5 event lịch trình khác** bắn từ scheduler chứ không phải từ chính focus của dải (`vie_alt.9/.20/.22`, `vie_axis.1/.3`), và việc xóa file BoP đòi phải gỡ tham chiếu `VIE_oligarch_balance` khỏi `VIE_transition_regime`, trigger `VIE_collapse_pole`, và 4 effect `VIE_oli_*` (file `effects_p3b.txt` xóa hẳn vì không còn ai gọi). Đã rewire 22 focus của `round_table_talks`/`dm_*` từng đặt tọa độ tương đối vào `VIE_developmental_state` (bị xóa) sang `VIE_doi_moi_continues`, giữ nguyên vị trí tuyệt đối. `vie_alt.6/.8/.25/.26` giữ nguyên, tạm thời "ngủ" tới khi pha C nối chúng vào ngã rẽ đặc khu.
+
 ### 4.1 Dấu chân đo được
 
 **[SỰ KIỆN]**
