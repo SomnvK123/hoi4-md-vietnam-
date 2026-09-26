@@ -933,6 +933,7 @@ focus_tree = {
 
 		available = {
 			has_completed_focus = VIE_wto_negotiations
+			date > 2004.12.31
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -1194,7 +1195,7 @@ focus_tree = {
 		prerequisite = { focus = VIE_household_business }
 
 		available = {
-			VIE_era_2011 = yes
+			date > 2017.6.30
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -2458,6 +2459,10 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = { focus = VIE_doi_moi_continues }
+
+		available = {
+			date > 2008.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 
@@ -8735,6 +8740,10 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_disaster_preparedness }
 		mutually_exclusive = { focus = VIE_dutch_water_model }
+
+		available = {
+			date > 2017.11.30
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
 
