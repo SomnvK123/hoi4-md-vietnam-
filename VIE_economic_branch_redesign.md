@@ -111,6 +111,8 @@ Vì sao y tế thuộc kinh tế **[TIỀN ĐỀ KỊCH BẢN]**: nội dung c�
 
 ### 2.2 Chi tiết từng nhánh
 
+> **Đã code (pha B), có một điều chỉnh phạm vi quan trọng.** Toàn bộ thay đổi cha/`available` dưới đây đã áp dụng (22 chỗ, cộng 1 phát hiện thêm khi thực thi: `tier1_vendor_localization` thực ra đang là con của `intel_hcmc`, không phải `supporting_industries` như văn bản ngụ ý — đã sửa đúng). **"Tách cột" (đổi tọa độ x/y) không làm**, trừ 2 focus mới. Lý do: gần như toàn bộ khối kinh tế (Công nghiệp, Năng lượng, Hạ tầng, Internet — hơn 60 focus) hiện dùng chung một `relative_position_id = VIE_north_south_expressway`, và vùng tọa độ đó đã kín gần hết (x từ -22 đến +28, y 1–7, gần như không còn khe trống). Sắp xếp lại toàn bộ 130 focus theo cột sạch đòi phải dịch chuyển rất nhiều focus KHÔNG có lỗi cấu trúc gì, chỉ để nhường chỗ — rủi ro cao mà không xác minh được trong game (sandbox này không chạy được `_gen/fix_spacing.py` hay `check_static.py`). Các focus đổi cha giữ nguyên tọa độ cũ; chỉ 2 focus mới được đặt vào khe trống thật (hàng y=1–2, chưa có ai chiếm). Đây là việc cần làm thêm bằng công cụ local của bạn, không phải lỗi bỏ sót.
+
 Ký hiệu: **gốc** = focus gốc của nhánh (cần `doi_moi_continues`); **đổi cha** = prerequisite mới; **+năm** = thêm `available = { date > … }`; **★** = focus mới; **◆** = thuộc một ngã rẽ, chi tiết ở mục 3.
 
 **Doanh nghiệp.** Luật Doanh nghiệp 1999 (hiệu lực 1/1/2000) là gốc, tách thành ba nhánh con.
