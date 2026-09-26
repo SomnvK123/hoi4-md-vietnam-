@@ -485,3 +485,99 @@ country_event = {
 	}
 
 }
+
+########################################################################
+# vie_pol.28  1992 Constitution amended: 2013 Constitution adopted (28 Nov 2013)
+#  -- class A (see VIE_congress_spine_redesign.md section 7.2): always fires by date,
+#     regardless of regime, because VIE_constitution_2013_adopted gates a later focus.
+#     Content branches on whether vie_pol.15 chose the wider public consultation.
+########################################################################
+country_event = {
+	id = vie_pol.28
+	title = vie_pol.28.t
+	desc = vie_pol.28.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = VIE_constitution_2013_adopted
+	}
+
+	# Historical: Article 4 (Party leadership) kept unchanged
+	option = {
+		name = vie_pol.28.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.28.a executed"
+		add_stability = 0.02
+		ai_chance = { base = 100 }
+	}
+
+	# Only reachable if vie_pol.15 went with the wider public consultation
+	option = {
+		name = vie_pol.28.b
+		trigger = { has_country_flag = VIE_public_debate_2013 }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.28.b executed"
+		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		VIE_bop_reform_medium = yes
+		set_country_flag = VIE_constitution_2013_expanded
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_pol.29  President Tran Dai Quang dies in office (21 Sep 2018)
+#  -- only on the historical GS path (VIE_trong_third_term); class B, silent fallback
+#     VIE_fb_president_2018 below applies the historical option if the pop-up window closes
+########################################################################
+country_event = {
+	id = vie_pol.29
+	title = vie_pol.29.t
+	desc = vie_pol.29.d
+	picture = GFX_report_event_generic_communist_congress
+	is_triggered_only = yes
+
+	# Historical: acting President, then the National Assembly elects the General
+	# Secretary concurrently as President (23 Oct 2018)
+	option = {
+		name = vie_pol.29.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.29.a executed"
+		add_political_power = 50
+		add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
+		set_country_flag = VIE_dual_role_2018
+		ai_chance = { base = 100 }
+	}
+
+	# A separate President is elected instead
+	option = {
+		name = vie_pol.29.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.29.b executed"
+		add_stability = 0.01
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+########################################################################
+# vie_pol.30  Two-tier local government goes live (1 Jul 2025)
+#  -- fired from decision VIE_rn_xiii_two_tier (added in a later phase), not from a
+#     scheduler; single option, just announces the effect already applied by the decision
+########################################################################
+country_event = {
+	id = vie_pol.30
+	title = vie_pol.30.t
+	desc = vie_pol.30.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.30.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.30.a executed"
+		ai_chance = { base = 100 }
+	}
+}
