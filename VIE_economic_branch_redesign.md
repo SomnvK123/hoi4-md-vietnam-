@@ -172,6 +172,8 @@ Ký hiệu: **gốc** = focus gốc của nhánh (cần `doi_moi_continues`); **
 
 ### 2.3 Hội nhập – FDI chuyển sang cây ngoại giao
 
+> **Đã code (pha C).** Khác pha B, ở đây "tách cột" áp dụng được vì đây là một cụm 7 focus tự thân (đã tách khỏi Luật Doanh nghiệp bằng đổi cha), không phải phải dịch chuyển hàng chục focus không liên quan để nhường chỗ. Vị trí tuyệt đối thật: `bilateral_trade_agreement_usa` (115,1), `fdi_attraction`/`wto_negotiations`/`wto_reforms`/`export_powerhouse` (119, 2–5), `cptpp_member` (117,6), `evfta` (121,6) — đã xác nhận 0 va chạm với focus nào khác trong x101–129.
+
 Bảy focus giữ nguyên ID, phần thưởng và thứ tự: gốc `bilateral_trade_agreement_usa` (BTA 2000, **đổi cha** từ `enterprise_law` thành `doi_moi_continues`) → `fdi_attraction` → `wto_negotiations` → `wto_reforms` → `export_powerhouse`; nhánh bên `cptpp_member`, `evfta`.
 
 **Vị trí:** cột x 101–129, hàng 0–9. **[SỰ KIỆN]** Vùng này đang trống hoàn toàn và nằm ngay giữa khối ngoại giao (x ≤ 100) và khối kinh tế (x ≥ 130), nên các đường nối sang cả hai phía đều ngắn.
