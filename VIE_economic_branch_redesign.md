@@ -196,6 +196,8 @@ Bảy focus giữ nguyên ID, phần thưởng và thứ tự: gốc `bilateral_
 
 ### 3.1 Mẫu chung
 
+> **Đã code (pha D), với ba điều chỉnh so với văn bản.** (1) `island_special_zones` dùng `available = { date > 2025.6.30 }` thay vì cờ `VIE_two_tier_done`, vì cờ đó thuộc thiết kế báo cáo Đại hội chưa được code. (2) Phát hiện khi thực thi: 2 chỗ sót từ pha B — `rice_export_power` chưa thật sự tách khỏi Luật DN, `nghi_son_refinery` chưa nối vào Dung Quất — đã sửa cùng đợt này. (3) Sửa lỗi cân bằng AI: các option lịch sử ban đầu viết `factor = 0` khi không chơi lịch sử (tức AI không bao giờ chọn lịch sử ở chế độ tự do), đã sửa thành `factor = 0.05` đúng quy ước đã dùng trong toàn mod (ví dụ `vie_pol.2.a`).
+
 Mẫu lấy từ cặp điện hạt nhân đã có trong mod (`ninh_thuan_nuclear` → `build_nuclear_plant` / `shelve_nuclear` → `revive_nuclear`) và từ ý tưởng đặc khu của tác giả.
 
 ```text
