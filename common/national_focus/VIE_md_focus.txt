@@ -370,9 +370,12 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_wto_negotiations }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
-		available = { date > 2007.12.31 }
+		available = {
+			date > 2007.12.31
+			has_completed_focus = VIE_wto_negotiations
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -817,6 +820,35 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_dung_quat_refinery
+		icon = economic_civil_industry
+
+		x = -10
+		y = 2
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 7
+
+		prerequisite = { focus = VIE_petrovietnam_expansion }
+
+		available = {
+			date > 2007.12.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_dung_quat_refinery"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			increase_economic_growth = yes
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
 		id = VIE_nghi_son_refinery
 		icon = economic_civil_industry
 
@@ -863,7 +895,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_supporting_industries }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -887,6 +919,37 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_shipbuilding_vinashin
+		icon = economic_civil_industry
+
+		x = 6
+		y = 1
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 7
+
+		prerequisite = { focus = VIE_doi_moi_continues }
+
+		available = {
+			date > 2004.12.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_shipbuilding_vinashin"
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			increase_economic_growth = yes
+			add_to_variable = { VIE_vinashin_risk = 2 }
+			custom_effect_tooltip = VIE_vinashin_risk_tt
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = { base = 55 }
+	}
+
+	focus = {
 		id = VIE_bauxite_tay_nguyen
 		icon = economic_privatisation
 
@@ -896,7 +959,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_rare_earths }
+		prerequisite = { focus = VIE_petrovietnam_expansion }
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -929,7 +992,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_scic }
+		prerequisite = { focus = VIE_household_business }
 
 		available = {
 			VIE_era_2011 = yes
@@ -2129,7 +2192,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 
@@ -2187,7 +2250,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_cashless_payments }
+		prerequisite = { focus = VIE_internet_expansion }
 
 		available = {
 			date > 2019.12.31
@@ -2228,7 +2291,11 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_semiconductor_fab }
+		prerequisite = { focus = VIE_internet_expansion }
+
+		available = {
+			date > 2005.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -3700,7 +3767,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_vamc }
+		prerequisite = { focus = VIE_hose_exchange }
 
 		available = {
 			date > 2022.10.31
@@ -4181,7 +4248,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -4477,7 +4544,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_enterprise_law }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2000.6.30
@@ -5069,7 +5136,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_supporting_industries }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2010.12.31
@@ -5218,7 +5285,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_hoa_phat_hrc_steel }
+		prerequisite = { focus = VIE_supporting_industries }
 
 		available = {
 			date > 2018.12.31
@@ -5254,7 +5321,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_intel_hcmc }
+		prerequisite = { focus = VIE_supporting_industries }
 
 		available = {
 			date > 2014.12.31
@@ -5490,7 +5557,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_scic }
+		prerequisite = { focus = VIE_investment_law_2005 }
 
 		available = {
 			date > 2020.12.31
@@ -5526,8 +5593,7 @@ focus_tree = {
 
 		cost = 10
 
-		prerequisite = { focus = VIE_soe_governance }
-		prerequisite = { focus = VIE_household_business }
+		prerequisite = { focus = VIE_private_champions }
 
 		available = {
 			date > 2025.4.30
@@ -5582,7 +5648,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_son_la_dam }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -5723,7 +5789,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2005.12.31
@@ -5847,7 +5913,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_bauxite_tay_nguyen }
 
 		available = {
 			date > 2010.12.31
@@ -5910,7 +5976,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_north_south_expressway }
+		prerequisite = { focus = VIE_urbanization }
 
 		available = {
 			date > 2012.12.31
@@ -8044,7 +8110,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_disaster_preparedness }
+		prerequisite = { focus = VIE_power_plan_8 }
 
 		available = {
 			date > 2022.11.30
@@ -8141,7 +8207,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_internet_expansion }
+		prerequisite = { focus = VIE_state_bank_modernization }
 
 		available = {
 			date > 2016.12.31
