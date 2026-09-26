@@ -1,25 +1,35 @@
-# Tái cấu trúc nhánh kinh tế, tách nhánh xã hội, và bỏ sáu dải chế độ giả định
+# Tái cấu trúc nhánh kinh tế, ngã rẽ lịch sử, và bỏ sáu dải chế độ giả định
 
-> Đầu vào: đề xuất của tác giả (chia kinh tế theo ngành: công nghiệp nặng, công nghiệp phụ trợ, internet, khoa học, công nghệ, tài chính – ngân hàng, thiên tai, năng lượng gồm Petrolimex và điện, hạ tầng giao thông; tách giáo dục thành nhánh riêng; Luật Doanh nghiệp chia thành doanh nghiệp nhà nước và tư nhân; bỏ sáu dải chế độ). Code đo ngày 26/9/2026.
-> Đi cùng `VIE_congress_spine_redesign.md`. Mục 6 ghi những gì báo cáo đó phải sửa theo.
+> Đầu vào: đề xuất của tác giả, qua hai vòng:
+> 1. Chia kinh tế theo ngành (công nghiệp nặng, công nghiệp phụ trợ, internet, khoa học, công nghệ, tài chính – ngân hàng, thiên tai, năng lượng gồm Petrolimex và điện, hạ tầng giao thông); tách giáo dục thành nhánh riêng; Luật Doanh nghiệp chia thành doanh nghiệp nhà nước và tư nhân; bỏ sáu dải chế độ.
+> 2. Y tế thành một nhánh thuộc kinh tế; đô thị hóa về hạ tầng; **đặc khu thuộc nhánh Luật Doanh nghiệp, với ngã rẽ lịch sử 2018 (thông qua luật cho thuê đất 99 năm, hoặc hoãn) là hai lựa chọn loại trừ nhau**, và phát triển mẫu ngã rẽ đó cho các thời điểm lịch sử khác.
 >
-> Nhãn: **[SỰ KIỆN]** đo được trong code hoặc có văn bản gốc · **[TIỀN ĐỀ KỊCH BẢN]** quyết định thiết kế · **[CẦN THỬ]** chưa kiểm chứng trong game
+> Code đo ngày 26/9/2026. Đi cùng `VIE_congress_spine_redesign.md`; mục 7 ghi những gì báo cáo đó phải sửa theo.
+>
+> Nhãn: **[SỰ KIỆN]** đo được trong code hoặc có văn bản gốc · **[TIỀN ĐỀ KỊCH BẢN]** quyết định thiết kế · **[CẦN ĐỐI CHIẾU]** mốc cần kiểm tra lại với văn bản gốc trước khi viết loc · **[CẦN THỬ]** chưa kiểm chứng trong game
 
 ---
 
-## 0. Trả lời ngắn
+## 0. Kết luận
 
-**Có nên thiết kế lại nhánh kinh tế không? Có, nhưng là tái cấu trúc, không phải viết lại.** Việc thiết kế lại nhánh chính trị không bắt buộc phải sửa nhánh kinh tế, vì nhánh kinh tế chạy theo ngày và dùng được dưới mọi chế độ. Lý do thật để sửa nằm ở chính nhánh kinh tế: đo code thấy **9 lỗi cấu trúc** (mục 1.2). Ví dụ y tế, lao động và văn hóa đều nằm dưới focus giáo dục; khu vực tư nhân mọc ra từ SCIC, tức cơ quan quản lý vốn nhà nước; thép nằm dưới công nghiệp hỗ trợ.
+**Nhánh kinh tế cần tái cấu trúc, không cần viết lại.** Đo code thấy 9 lỗi cấu trúc (mục 1.2). Ví dụ y tế và đô thị hóa nằm dưới giáo dục; tư nhân mọc từ SCIC; thép nằm dưới công nghiệp hỗ trợ. Cả 127 focus kinh tế – xã hội hiện có xếp được vào cách chia theo ngành của tác giả; gần như tất cả giữ ID và phần thưởng, khoảng 30 focus đổi prerequisite.
 
-Cách chia theo ngành bạn đề xuất khớp với nội dung sẵn có: **127 focus hiện tại xếp được hết vào các nhóm đó**, khoảng 95% giữ nguyên ID và phần thưởng. Việc chính là đổi gốc, đổi cha và xếp lại cột.
+**Ý tưởng ngã rẽ lịch sử là phần có giá trị nhất của vòng này.** Tại nhiều thời điểm, lịch sử kinh tế Việt Nam thật sự đứng trước hai lựa chọn loại trừ nhau, và có tài liệu ghi lại cuộc tranh luận. Báo cáo thiết kế **6 ngã rẽ** theo cùng một mẫu (mục 3):
 
-Ba điểm tôi đề xuất khác hoặc thêm vào danh sách của bạn:
+| Năm | Ngã rẽ | Lịch sử đã chọn |
+|---|---|---|
+| 2009 | Bauxite Tây Nguyên: tiếp tục hay dừng | Tiếp tục thí điểm |
+| 2010 | Đường sắt tốc độ cao Bắc – Nam: thông qua hay bác | Quốc hội bác |
+| 2012 | Vàng miếng: Nhà nước độc quyền hay thị trường tự do | Độc quyền (NĐ 24/2012) |
+| 2015 | Ngân hàng yếu kém: mua lại 0 đồng hay cho phá sản | Mua lại 0 đồng |
+| 2018 | Luật Đặc khu, thuê đất tới 99 năm: thông qua hay hoãn | Hoãn |
+| 2021 | COVID-19: giữ "zero COVID" hay thích ứng an toàn | Thích ứng an toàn (NQ 128/NQ-CP) |
 
-1. **Giữ hai nhánh bạn chưa nhắc:** Nông nghiệp – đất đai (5 focus: xuất khẩu gạo, nông thôn mới, Luật Đất đai…) và Hội nhập – FDI (7 focus: BTA, WTO, CPTPP, EVFTA). Bỏ chúng là mất trục chính của kinh tế Việt Nam 2000–2026.
-2. **Tách giáo dục thành nhánh riêng thì phải tách luôn y tế, lao động – xã hội và văn hóa – du lịch**, vì hiện cả bốn cùng mọc từ `education_reform`. Bốn nhánh này gộp thành khối Xã hội, mỗi nhánh một gốc.
-3. **Bỏ sáu dải chế độ không có nghĩa là bỏ các event lịch sử mở ra chúng.** Dự thảo Luật Đặc khu (6/2018), làn sóng rút tiền ngân hàng, khủng hoảng giàn khoan là chuyện có thật. Chỉ bỏ lựa chọn "mở dải", giữ event.
+Một phát hiện đi kèm: **ở bốn trong sáu ngã rẽ mới, và ở cặp điện hạt nhân sẵn có, lựa chọn lịch sử trì hoãn hoặc đóng băng vấn đề, rồi vấn đề quay lại sau 7–14 năm** (điện hạt nhân 2016 → 2024, đường sắt tốc độ cao 2010 → 2024, vàng 2012 → 2025, ngân hàng 0 đồng 2015 → 2024, đặc khu 2018 → 2025). Mẫu thiết kế khai thác điều đó: nhánh lịch sử rẻ lúc đầu nhưng dẫn tới một focus "quay lại" đúng năm thật; nhánh giả định nhận lợi ích sớm hơn kèm rủi ro rõ ràng.
 
-Quy mô: nhánh kinh tế 107 → **109 focus** (+2 mới); khối Xã hội 20 → **21 focus** (+1 mới); dải chế độ 106 → **30 focus** (−76).
+**Ngã rẽ trong nhánh lịch sử thay thế một phần vai trò của các dải chế độ bị bỏ.** Bỏ các dải Kiến tạo, Đặc khu, Tài phiệt là bỏ ba mô hình kinh tế giả định. Sáu ngã rẽ trả lại lựa chọn kinh tế cho người chơi, nhưng mỗi lựa chọn đều có mốc thật, không cần đổi chế độ. Ba event của dải Đặc khu cũ được tái dùng làm hệ quả của việc thông qua luật.
+
+**Quy mô:** nhánh kinh tế 107 → **131 focus**; khối Xã hội 20 → **15 focus**; tổng 127 → **146** (+19 mới, trong đó 16 thuộc ngã rẽ). Dải chế độ giả định 106 → **30 focus**.
 
 ---
 
@@ -27,21 +37,21 @@ Quy mô: nhánh kinh tế 107 → **109 focus** (+2 mới); khối Xã hội 20 
 
 ### 1.1 Nhánh kinh tế – xã hội hiện nay
 
-**[SỰ KIỆN]** 127 focus ở cột x 130–254, hàng 0–8. Tổng chi phí 1.016 tuần. **55 focus (43%) không có mốc năm**, trong khi khối chính trị hầu như focus nào cũng có. Về đồ thị, kinh tế nằm trong một thành phần liên thông khổng lồ 101 focus, trộn chung với ngoại giao và xã hội, cộng thêm bốn cụm nhỏ (DNNN – tư nhân, năng lượng, công nghiệp, đích 2045).
+**[SỰ KIỆN]** 127 focus ở cột x 130–254, hàng 0–8, tổng chi phí **933 tuần**. **55 focus (43%) không có mốc năm**, trong khi khối chính trị hầu như focus nào cũng có. Về đồ thị, phần lớn kinh tế nằm trong một thành phần liên thông 101 focus, trộn chung với ngoại giao và xã hội. Chỉ có **một cặp loại trừ** trong toàn bộ nhánh kinh tế: điện hạt nhân (xây / gác lại).
 
 ### 1.2 Chín lỗi cấu trúc
 
 | # | Lỗi | Bằng chứng |
 |---|---|---|
-| 1 | **Xã hội mọc từ giáo dục** | `universal_health_insurance`, `urbanization`, `heritage_preservation` đều có cha là `education_reform`. Muốn làm bảo hiểm y tế phải làm cải cách giáo dục trước |
+| 1 | **Y tế, đô thị hóa, văn hóa mọc từ giáo dục** | `universal_health_insurance`, `urbanization`, `heritage_preservation` có cha là `education_reform`. Muốn làm bảo hiểm y tế phải làm cải cách giáo dục trước |
 | 2 | **Tư nhân mọc từ SCIC** | `private_champions`, `household_business` có cha là `scic` (Tổng công ty Đầu tư và Kinh doanh Vốn Nhà nước) |
-| 3 | **Công nghiệp nặng nằm dưới công nghiệp hỗ trợ** | `formosa_steel_complex` có cha `supporting_industries`; `hoa_phat_hrc_steel` nằm dưới Formosa. Thép là thượng nguồn của công nghiệp hỗ trợ, không phải ngược lại |
+| 3 | **Công nghiệp nặng nằm dưới công nghiệp hỗ trợ** | `formosa_steel_complex` có cha `supporting_industries`. Thép là đầu vào của công nghiệp hỗ trợ, không phải ngược lại |
 | 4 | **Chuyển đổi năng lượng nằm dưới thiên tai** | `jetp_partnership` có cha `disaster_preparedness`; `net_zero_2050` nằm dưới JETP |
-| 5 | **Luật Doanh nghiệp là gốc của mọi thứ** | `enterprise_law` là cha của BTA, sàn HOSE, xuất khẩu gạo, cổ phần hóa, Luật Đầu tư. Doanh nghiệp, hội nhập, tài chính và nông nghiệp trộn vào nhau |
-| 6 | **Năng lượng và giao thông đan xen** | Cùng dải cột 196–214: metro Hà Nội (206) nằm giữa Petrolimex (204) và nhà máy điện hạt nhân (204–206) |
-| 7 | **Ba focus Đồng bằng sông Cửu Long chồng nội dung** | `mekong_climate_adaptation` (nông nghiệp) và `nature_adaptation_120` + `dutch_water_model` (thiên tai) cùng mô tả cống ngăn mặn và chuyển lúa sang tôm, tức nội dung NQ 120/NQ-CP (2017) |
+| 5 | **Luật Doanh nghiệp là gốc của mọi thứ** | `enterprise_law` là cha của BTA, sàn HOSE, xuất khẩu gạo, cổ phần hóa, Luật Đầu tư |
+| 6 | **Năng lượng và giao thông đan xen** | Cùng dải cột 196–214: metro Hà Nội (206) nằm giữa Petrolimex (204) và điện hạt nhân (204–206) |
+| 7 | **Ba focus Đồng bằng sông Cửu Long chồng nội dung** | `mekong_climate_adaptation` (nông nghiệp), `nature_adaptation_120` và `dutch_water_model` (thiên tai) cùng mô tả cống ngăn mặn và chuyển lúa sang tôm, tức nội dung NQ 120/NQ-CP (2017) |
 | 8 | **Viettel ra nước ngoài nằm dưới nhà máy wafer** | `viettel_global` (mạng viễn thông ở Lào, Campuchia, Peru… từ 2006) có cha `semiconductor_fab` |
-| 9 | **NQ 57 và NQ 68 có ở hai nơi** | Đã ghi ở báo cáo Đại hội: `resolution_57_68` (chính trị) trùng `science_breakthrough` và `private_sector_engine` |
+| 9 | **Mốc năm của khoáng sản ngược** | `bauxite_tay_nguyen` cần `rare_earths` (khóa tới 2011), trong khi quyết định về bauxite là năm 2009 |
 
 ---
 
@@ -49,248 +59,313 @@ Quy mô: nhánh kinh tế 107 → **109 focus** (+2 mới); khối Xã hội 20 
 
 ### 2.1 Tổng thể
 
-`VIE_doi_moi_continues` giữ vai trò gốc chung. Mỗi nhánh có gốc riêng, cần `doi_moi_continues`. Không nhánh nào phải đi qua nhánh khác mới mở được; liên kết giữa các nhánh dùng `available` hoặc giảm chi phí (mục 5), không dùng prerequisite.
+`VIE_doi_moi_continues` giữ vai trò gốc chung. Mỗi nhánh có gốc riêng cần `doi_moi_continues`. Liên kết giữa các nhánh dùng `available`, không dùng prerequisite, để không nhánh nào phải đi qua nhánh khác mới mở được.
 
 ```text
-                                  TIẾP TỤC ĐỔI MỚI (160,0)
-                                            │
- ┌──────────┬──────────┬──────────┬─────────┼─────────┬──────────┬──────────┬──────────┬──────────┐
-DOANH      HỘI NHẬP   TÀI CHÍNH  CÔNG       NĂNG      HẠ TẦNG   NÔNG       THIÊN     INTERNET   CÔNG      KHOA
-NGHIỆP     – FDI                 NGHIỆP     LƯỢNG     GIAO       NGHIỆP     TAI       – SỐ       NGHỆ      HỌC
-│                                │          │         THÔNG                                     (bán dẫn)
-├ DNNN                ├ Ngân hàng ├ Nặng     ├ Dầu khí
-└ Tư nhân             └ Vốn và    ├ Chế tạo  ├ Petrolimex
-                        thanh toán│  – ô tô  └ Điện
-                                  └ Phụ trợ
-                                                                     ĐÍCH 2030 / 2045
+                                   TIẾP TỤC ĐỔI MỚI
+                                          │
+ ┌────────┬────────┬────────┬────────┬────┴───┬────────┬────────┬───────┬───────┬────────┬───────┬──────┐
+DOANH    HỘI      TÀI      CÔNG     NĂNG     HẠ TẦNG  Y TẾ     NÔNG    THIÊN   INTERNET CÔNG    KHOA
+NGHIỆP   NHẬP     CHÍNH    NGHIỆP   LƯỢNG             NGHIỆP  TAI     – SỐ     NGHỆ    HỌC
+│        – FDI    │        │        │        │
+├ DNNN            ├ Ngân   ├ Nặng   ├ Dầu    ├ Giao thông
+├ Tư nhân         │  hàng  ├ Chế    │  khí   │  liên vùng
+└ Đặc khu ◆       └ Vốn,   │  tạo   ├ Petro- └ Đô thị
+                    vàng ◆ └ Phụ    │  limex
+                             trợ    └ Điện
+                                                              ĐÍCH 2030 / 2045
 
- KHỐI XÃ HỘI:   GIÁO DỤC     Y TẾ     LAO ĐỘNG – XÃ HỘI     VĂN HÓA – DU LỊCH
+ KHỐI XÃ HỘI:   GIÁO DỤC     LAO ĐỘNG – XÃ HỘI     VĂN HÓA – DU LỊCH
+
+ ◆ = nhánh con có ngã rẽ lịch sử (mục 3). Ngoài ra còn ngã rẽ ở Công nghiệp nặng, Giao thông, Ngân hàng, Y tế.
 ```
 
-| Nhánh | Nhánh con | Focus | Chi phí (tuần) | Thay đổi chính |
-|---|---|---|---|---|
-| Doanh nghiệp | gốc Luật DN · DNNN · Tư nhân | 9 | 60 | Tư nhân tách khỏi SCIC |
-| Hội nhập – FDI | — | 7 | 52 | Tách khỏi Luật DN |
-| Tài chính | Ngân hàng · Vốn và thanh toán | 12 | 84 | Nhận HOSE và thanh toán không tiền mặt |
-| Công nghiệp | Nặng · Chế tạo – ô tô · Phụ trợ | 15 | 108 | Đảo thứ tự nặng/phụ trợ; Nghi Sơn chuyển sang Năng lượng; +1 focus đóng tàu |
-| Năng lượng | Dầu khí · Petrolimex · Điện | 21 | 163 | Nhận Nghi Sơn, JETP và Net Zero; +1 focus lọc dầu Dung Quất |
-| Hạ tầng giao thông | — | 8 | 68 | Tách cột khỏi năng lượng |
-| Nông nghiệp – đất đai | — | 5 | 33 | Gỡ chồng lấn ĐBSCL |
-| Thiên tai | — | 8 | 59 | Trả JETP, Net Zero cho năng lượng |
-| Internet – số | — | 8 | 59 | Nhận `viettel_global` |
-| Công nghệ (bán dẫn) | — | 5 | 41 | Gốc là `intel_hcmc` |
-| Khoa học | — | 6 | 43 | Giữ |
-| Đích 2030/2045 | — | 5 | 41 | Giữ |
-| **Kinh tế** | | **109** | **811** | 107 cũ + 2 mới |
-| Giáo dục | — | 6 | 39 | **Nhánh riêng**; +1 focus NQ 29 |
-| Y tế | — | 5 | 34 | Gốc riêng |
-| Lao động – xã hội | — | 5 | 36 | Gốc riêng |
-| Văn hóa – du lịch | — | 5 | 34 | Gốc riêng |
-| **Xã hội** | | **21** | **143** | 20 cũ + 1 mới |
+| Nhánh | Nhánh con | Focus | Chi phí (tuần) | Ngã rẽ | Thay đổi chính |
+|---|---|---|---|---|---|
+| Doanh nghiệp | Luật DN · DNNN · Tư nhân · **Đặc khu** | 14 | 95 | Đặc khu 2018 | Tư nhân tách khỏi SCIC; +5 focus đặc khu |
+| Hội nhập – FDI | — | 7 | 52 | — | Tách khỏi Luật DN |
+| Tài chính | Ngân hàng · Vốn, vàng và thanh toán | 18 | 126 | Vàng 2012, ngân hàng 2015 | Nhận HOSE, thanh toán; +6 focus |
+| Công nghiệp | Nặng · Chế tạo – ô tô · Phụ trợ | 16 | 115 | Bauxite 2009 | Đảo thứ tự nặng/phụ trợ; +đóng tàu, +dừng bauxite |
+| Năng lượng | Dầu khí · Petrolimex · Điện | 21 | 163 | Điện hạt nhân (đã có) | Nhận Nghi Sơn, JETP, Net Zero; +lọc dầu Dung Quất |
+| Hạ tầng | Giao thông liên vùng · **Đô thị** | 11 | 87 | Đường sắt cao tốc 2010 | Nhận đô thị hóa; metro chuyển sang Đô thị; +2 focus |
+| **Y tế** | — | 7 | 48 | COVID-19 2021 | **Chuyển từ khối Xã hội sang kinh tế**; +2 focus |
+| Nông nghiệp – đất đai | — | 5 | 33 | — | Gỡ chồng lấn ĐBSCL |
+| Thiên tai | — | 8 | 59 | — | Trả JETP, Net Zero cho năng lượng |
+| Internet – số | — | 8 | 59 | — | Nhận `viettel_global` |
+| Công nghệ (bán dẫn) | — | 5 | 41 | — | Gốc là `intel_hcmc` |
+| Khoa học | — | 6 | 43 | — | Giữ |
+| Đích 2030/2045 | — | 5 | 41 | — | Giữ |
+| **Kinh tế** | | **131** | **962** | 7 | 107 cũ + 6 chuyển về + 18 mới |
+| Giáo dục | — | 6 | 39 | — | Nhánh riêng; +NQ 29 |
+| Lao động – xã hội | — | 4 | 31 | — | Mất gốc đô thị hóa; hai gốc mới |
+| Văn hóa – du lịch | — | 5 | 34 | — | Gốc riêng |
+| **Xã hội** | | **15** | **104** | 0 | 20 cũ − 6 chuyển đi + 1 mới |
+
+Tổng: 146 focus, 1.066 tuần. Trong 6 cặp ngã rẽ người chơi chỉ lấy được một bên, nên tối đa đi được 1.024 tuần, khoảng 20 năm focus trên 26 năm lịch sử. Nhánh này vẫn phải cạnh tranh thời gian với chính trị, ngoại giao và quốc phòng.
+
+Vì sao y tế thuộc kinh tế **[TIỀN ĐỀ KỊCH BẢN]**: nội dung của năm focus y tế là quỹ bảo hiểm y tế, sản xuất vắc-xin trong nước, hệ thống bệnh viện và y tế cơ sở. Đó là các khu vực chi tiêu công và công nghiệp dược, và ngã rẽ COVID-19 năm 2021 thực chất là một quyết định kinh tế (mở cửa sản xuất hay tiếp tục giãn cách).
 
 ### 2.2 Chi tiết từng nhánh
 
-Ký hiệu: **gốc** = focus gốc của nhánh (cần `doi_moi_continues`); **đổi cha** = prerequisite mới; **+năm** = thêm `available = { date > … }`; **★** = focus mới.
+Ký hiệu: **gốc** = focus gốc của nhánh (cần `doi_moi_continues`); **đổi cha** = prerequisite mới; **+năm** = thêm `available = { date > … }`; **★** = focus mới; **◆** = thuộc một ngã rẽ, chi tiết ở mục 3.
 
-**Doanh nghiệp.** Luật Doanh nghiệp 1999 (hiệu lực 1/1/2000) là gốc, tách thành hai nhánh con.
+**Doanh nghiệp.** Luật Doanh nghiệp 1999 (hiệu lực 1/1/2000) là gốc, tách thành ba nhánh con.
 
 | Nhánh con | Focus theo thứ tự | Ghi chú |
 |---|---|---|
-| gốc | `enterprise_law` | Chỉ giữ hai con: DNNN và Tư nhân |
-| DNNN | `equitization_soes` → `state_conglomerates` (+năm 2005, mô hình tập đoàn QĐ 2005–2006) → `scic` (2005) → `soe_governance` (2017) | `state_conglomerates` thôi là gốc tự do. Event Vinashin gắn với nhánh này (mục 2.2, Công nghiệp) |
-| Tư nhân | `investment_law_2005` → `household_business` (2020) → `private_champions` → `private_sector_engine` (NQ 68, 2025) | **Đổi cha**: bỏ `scic`. `private_champions` +năm 2017 (NQ 10-NQ/TW về kinh tế tư nhân) |
+| gốc | `enterprise_law` | Chỉ giữ ba con: DNNN, Tư nhân, Đặc khu |
+| DNNN | `equitization_soes` → `state_conglomerates` (+năm 2005) → `scic` (2005) → `soe_governance` (2017) | `state_conglomerates` thôi là gốc tự do |
+| Tư nhân | `investment_law_2005` → `household_business` (2020) → `private_champions` (+năm 2017, NQ 10-NQ/TW) → `private_sector_engine` (NQ 68, 2025) | **Đổi cha**: bỏ `scic` ở hai focus; `private_sector_engine` bỏ prerequisite `soe_governance` |
+| **Đặc khu** | ◆ `sez_three_zones` → ngã rẽ `sez_postpone` / `sez_pass_99` → `island_special_zones` hoặc `sez_strategic_investors` | 5 focus mới. Mục 3.2 |
 
-**Hội nhập – FDI.** Gốc `bilateral_trade_agreement_usa` (BTA 2000, hiệu lực 12/2001) → `fdi_attraction` → `wto_negotiations` → `wto_reforms` → `export_powerhouse`; nhánh bên `cptpp_member`, `evfta`. BTA đổi cha từ `enterprise_law` thành `doi_moi_continues`. Có thể cân nhắc chuyển nhánh này sang cây ngoại giao; báo cáo giữ ở kinh tế vì phần thưởng chủ yếu là kinh tế.
+**Hội nhập – FDI.** Gốc `bilateral_trade_agreement_usa` (BTA 2000, **đổi cha** từ `enterprise_law`) → `fdi_attraction` → `wto_negotiations` → `wto_reforms` → `export_powerhouse`; nhánh bên `cptpp_member`, `evfta`.
 
 **Tài chính.**
 
 | Nhánh con | Focus |
 |---|---|
-| Ngân hàng | **Giữ nguyên đồ thị:** gốc `state_bank_modernization`; mạch `fight_inflation` (2008) → `deposit_insurance` và mạch `restructure_banking` (2011) → `vamc` (2013), hội tụ ở `cross_ownership_crackdown` |
-| Vốn và thanh toán | `hose_exchange` (7/2000, **đổi cha** từ Luật DN) → `corporate_bond_reform` (2022, **đổi cha** từ `vamc`) → `market_upgrade_criteria` → `international_financial_centre` → `investment_grade`; `cashless_payments` (2016, **đổi cha** từ `internet_expansion`, vì đây là chính sách của NHNN) |
+| Ngân hàng | **Giữ nguyên đồ thị:** gốc `state_bank_modernization`; mạch `fight_inflation` (2008) → `deposit_insurance`; mạch `restructure_banking` (2011) → `vamc` (2013) → ◆ ngã rẽ ngân hàng 0 đồng (2015) → `compulsory_transfer_2024`; hội tụ ở `cross_ownership_crackdown` |
+| Vốn, vàng và thanh toán | `hose_exchange` (7/2000, **đổi cha** từ Luật DN) → `corporate_bond_reform` (2022, **đổi cha** từ `vamc`) → `market_upgrade_criteria` → `international_financial_centre` → `investment_grade`; `cashless_payments` (2016, **đổi cha** từ `internet_expansion`, vì đây là chính sách của NHNN); ◆ ngã rẽ vàng (2012) → `gold_monopoly_lifted` (2025) |
 
 **Công nghiệp.** Thứ tự thượng nguồn → hạ nguồn: nặng cung cấp vật liệu cho phụ trợ, phụ trợ cung cấp linh kiện cho chế tạo.
 
 | Nhánh con | Focus | Ghi chú |
 |---|---|---|
-| Nặng | Ba mạch gốc: thép `formosa_steel_complex` (**đổi cha**: bỏ `supporting_industries`) → `hoa_phat_hrc_steel`; khoáng sản `rare_earths` (**đổi cha**: bỏ `petrovietnam_expansion`) → `bauxite_tay_nguyen`; ★ `VIE_shipbuilding_vinashin` | `nghi_son_refinery` chuyển sang Năng lượng |
-| Chế tạo – ô tô | gốc `samsung_partnership` (**đổi cha** từ WTO; cần `available` WTO) → `china_plus_one` → `manufacturing_hub`; `domestic_automotive` → `ev_revolution_batteries` → `global_auto_export` | Ô tô đặt ở chế tạo vì VinFast là doanh nghiệp lắp ráp; linh kiện nằm ở phụ trợ |
+| Nặng | Ba mạch gốc: thép `formosa_steel_complex` (**đổi cha**: bỏ `supporting_industries`) → `hoa_phat_hrc_steel`; khoáng sản ◆ `bauxite_tay_nguyen` / `bauxite_suspend` (2009) → `rare_earths` (**đổi cha**: bỏ `petrovietnam_expansion`); ★ `shipbuilding_vinashin` | Đảo thứ tự bauxite / đất hiếm cho đúng năm. `nghi_son_refinery` chuyển sang Năng lượng |
+| Chế tạo – ô tô | gốc `samsung_partnership` (**đổi cha** từ WTO, giữ `available` WTO) → `china_plus_one` → `manufacturing_hub`; `domestic_automotive` → `ev_revolution_batteries` → `global_auto_export` | VinFast là doanh nghiệp lắp ráp; linh kiện ở phụ trợ |
 | Phụ trợ | gốc `supporting_industries` → `tier1_vendor_localization`, `precision_mechanics_molds` (**đổi cha** từ thép), `integrated_auto_supplier_park` | `intel_hcmc` chuyển sang Công nghệ |
 
-★ **`VIE_shipbuilding_vinashin` — Công nghiệp đóng tàu.** Cost 7, +năm 2005 (Vinashin được đầu tư mạnh từ 2006). Thưởng công nghiệp và nhà máy đóng tàu. **Cái giá:** là điều kiện để event Vinashin đổ vỡ (2010) mang hậu quả đầy đủ. Không làm focus thì event chỉ còn hậu quả nhẹ. Như vậy lựa chọn của người chơi quyết định mức độ rủi ro, đúng tinh thần event đã có (`VIE_fb_vinashin`).
+★ **`shipbuilding_vinashin` — Công nghiệp đóng tàu.** Cost 7, +năm 2005. Thưởng công nghiệp và nhà máy đóng tàu. **Cái giá:** là điều kiện để event Vinashin đổ vỡ (2010) mang hậu quả đầy đủ. Không làm focus thì event chỉ còn hậu quả nhẹ (`VIE_fb_vinashin`).
 
 **Năng lượng.**
 
 | Nhánh con | Focus | Ghi chú |
 |---|---|---|
-| Dầu khí | gốc `petrovietnam_expansion` → ★ `VIE_dung_quat_refinery` (2009) → `nghi_son_refinery` (2018) | Dung Quất là nhà máy lọc dầu đầu tiên của Việt Nam, hiện chưa có |
-| Petrolimex | gốc `petrolimex_downstream_network` (**đổi cha** từ PVN: Petrolimex là doanh nghiệp riêng) → `strategic_petroleum_reserve`, `petrolimex_eneos_partnership` → `petrolimex_green_ev_hubs` | 4 focus, không đổi nội dung |
-| Điện | gốc `son_la_dam` → `500kv_grid` → `dppa_market_reform`; `coal_power` (**đổi cha** từ PVN thành `son_la_dam`) → `solar_boom` → `power_plan_8` → `offshore_wind` → `energy_security_2045`; `ninh_thuan_nuclear` → `shelve_nuclear` / `build_nuclear_plant` → `revive_nuclear`; `jetp_partnership` → `net_zero_2050` (**đổi cha** từ thiên tai thành `power_plan_8`) | `net_zero_2050` nhận thêm OR `sustainable_mekong_delta` như cũ để thiên tai vẫn dẫn tới |
+| Dầu khí | gốc `petrovietnam_expansion` → ★ `dung_quat_refinery` (+năm 2008, vận hành 2/2009) → `nghi_son_refinery` (2018) | Dung Quất là nhà máy lọc dầu đầu tiên, hiện chưa có |
+| Petrolimex | gốc `petrolimex_downstream_network` (**đổi cha** từ PVN) → `strategic_petroleum_reserve`, `petrolimex_eneos_partnership` → `petrolimex_green_ev_hubs` | Giữ nội dung |
+| Điện | gốc `son_la_dam` → `500kv_grid` → `dppa_market_reform`; `coal_power` (**đổi cha** từ PVN thành `son_la_dam`) → `solar_boom` → `power_plan_8` → `offshore_wind` → `energy_security_2045`; `ninh_thuan_nuclear` → `shelve_nuclear` / `build_nuclear_plant` → `revive_nuclear`; `jetp_partnership` (**đổi cha** thành `power_plan_8`) → `net_zero_2050` | Cặp điện hạt nhân là **mẫu ngã rẽ đã có sẵn** trong mod |
 
-★ **`VIE_dung_quat_refinery` — Nhà máy lọc dầu Dung Quất.** Cost 7, +năm 2008 (vận hành 2/2009). Giảm phụ thuộc nhập khẩu xăng dầu; mở `nghi_son_refinery`.
+**Hạ tầng.**
 
-**Hạ tầng giao thông.** Gốc `north_south_expressway` → `lach_huyen_port`, `cai_mep_port` → `lao_cai_haiphong_rail`, `long_thanh_airport` → `north_south_hsr`; `hanoi_metro`, `hcmc_metro`. Chỉ dời sang cột riêng, không đổi prerequisite.
+| Nhánh con | Focus | Ghi chú |
+|---|---|---|
+| Giao thông liên vùng | gốc `north_south_expressway` → `lach_huyen_port`, `cai_mep_port` → `lao_cai_haiphong_rail`, `long_thanh_airport`; ◆ ngã rẽ đường sắt tốc độ cao 2010 → `north_south_hsr` | `north_south_hsr` thêm prerequisite một trong hai bên ngã rẽ |
+| **Đô thị** | gốc `urbanization` (**đổi cha** từ `education_reform`) → `hanoi_metro` (2010), `hcmc_metro` (2012) (**đổi cha** từ cao tốc) | `urbanization` đổi tên thành "Định hướng phát triển hệ thống đô thị" (QĐ 445/QĐ-TTg, 4/2009), +năm 2009. Nội dung "đô thị thông minh" (2018) chuyển vào mô tả |
 
-**Nông nghiệp – đất đai.** Gốc `rice_export_power` (**đổi cha** từ Luật DN) → `new_rural_development` (2010) → `high_tech_agriculture` (2015); `land_law_reform` (2013) → `mekong_climate_adaptation`. **Sửa chồng lấn:** `mekong_climate_adaptation` chỉ giữ phần chuyển đổi sản xuất (lúa chịu mặn, lúa sang tôm và trái cây), cần `available` `nature_adaptation_120`. Phần cống ngăn mặn để lại cho `dutch_water_model`.
+**Y tế.** Gốc `universal_health_insurance` (**đổi cha** từ giáo dục, +năm 2008, Luật BHYT) → `grassroots_clinics` → `hospital_decongestion`, `vaccine_production` (2021) → `preventive_health`; ◆ ngã rẽ COVID-19 (2021), prerequisite `grassroots_clinics`.
 
-**Thiên tai.** Gốc `disaster_preparedness` → `military_rescue_corps` → `emergency_operations_center`; `satellite_early_warning` → `storm_resilient_islands`; `nature_adaptation_120` → `dutch_water_model` → `sustainable_mekong_delta`. Mất `jetp_partnership` và `net_zero_2050` (sang Năng lượng). **7/8 focus không có mốc năm**: `nature_adaptation_120` +năm 2017.
+**Nông nghiệp – đất đai.** Gốc `rice_export_power` (**đổi cha** từ Luật DN) → `new_rural_development` (2010) → `high_tech_agriculture` (2015); `land_law_reform` (2013) → `mekong_climate_adaptation`. **Sửa chồng lấn:** `mekong_climate_adaptation` chỉ giữ phần chuyển đổi sản xuất (lúa chịu mặn, lúa sang tôm và trái cây), thêm `available` `nature_adaptation_120`. Phần cống ngăn mặn để lại cho `dutch_water_model`.
 
-**Internet – số.** Gốc `internet_expansion` → `mobile_networks` (5G, 2023); `national_digital_transformation` (2020) → `digital_id` → `national_data_center` → `ai_strategy` → `digital_nation`; `viettel_global` (**đổi cha** từ `semiconductor_fab` thành `internet_expansion`, +năm 2006). `national_digital_transformation` đổi cha từ `cashless_payments` thành `internet_expansion`.
+**Thiên tai.** Gốc `disaster_preparedness` → `military_rescue_corps` → `emergency_operations_center`; `satellite_early_warning` → `storm_resilient_islands`; `nature_adaptation_120` (+năm 2017) → `dutch_water_model` → `sustainable_mekong_delta`.
 
-**Công nghệ (bán dẫn).** Gốc `intel_hcmc` (2010) → `semiconductor_ambition` → `chip_design`, `chip_engineers` → `semiconductor_fab`. `chip_engineers` nhận thêm `available` từ nhánh Giáo dục (mục 5).
+**Internet – số.** Gốc `internet_expansion` → `mobile_networks` (5G, 2023); `national_digital_transformation` (2020, **đổi cha** từ `cashless_payments`) → `digital_id` → `national_data_center` → `ai_strategy` → `digital_nation`; `viettel_global` (**đổi cha** từ `semiconductor_fab`, +năm 2006).
+
+**Công nghệ (bán dẫn).** Gốc `intel_hcmc` (2010) → `semiconductor_ambition` → `chip_design`, `chip_engineers` → `semiconductor_fab`.
 
 **Khoa học.** Giữ nguyên: `nafosted` → `research_universities`, `nuclear_research`, `vinasat` → `earth_observation`; `science_breakthrough` (NQ 57).
 
-**Đích 2030/2045.** Giữ nguyên: `upper_middle_income`, `green_growth`, `innovation_nation`, `high_income_2045`, `developed_nation_2045`.
+**Đích 2030/2045.** Giữ nguyên năm focus.
 
 ### 2.3 Khối Xã hội
 
 | Nhánh | Focus | Ghi chú |
 |---|---|---|
-| **Giáo dục** | gốc `education_reform` (đổi tên thành "Chiến lược phát triển giáo dục 2001–2010", QĐ 201/2001) → `english_second_language` (+năm 2008, Đề án Ngoại ngữ quốc gia QĐ 1400) → ★ `VIE_education_nq29` (+năm 2013) → `university_autonomy` (+năm 2014, NQ 77/NQ-CP) → `free_tuition` (2025); `vocational_training` (+năm 2014, Luật Giáo dục nghề nghiệp) | ★ **NQ 29-NQ/TW (11/2013) "Đổi mới căn bản, toàn diện giáo dục"**: mốc lớn nhất của giáo dục giai đoạn này, hiện chỉ có trong tên focus gốc |
-| **Y tế** | gốc `universal_health_insurance` (**đổi cha** từ giáo dục) → `grassroots_clinics` → `hospital_decongestion`, `vaccine_production` → `preventive_health` | Luật BHYT 2008 (+năm 2008) |
-| **Lao động – xã hội** | gốc `urbanization` (**đổi cha**) → `labor_code_2019`, `social_insurance_reform` → `population_policy` → `overseas_vietnamese` | `labor_code_2019` là focus; event `vie_pol.27` đã thêm là quyết định phê chuẩn ILO. Cần gộp: focus đọc cờ `VIE_labor_convention_ratified` thay vì làm lại việc đó |
+| **Giáo dục** | gốc `education_reform` (đổi tên thành "Chiến lược phát triển giáo dục 2001–2010", QĐ 201/2001) → `english_second_language` (**đổi cha** từ `vocational_training`, +năm 2008, Đề án Ngoại ngữ quốc gia) → ★ `education_nq29` (+năm 2013) → `university_autonomy` (**đổi cha**, +năm 2014, NQ 77/NQ-CP) → `free_tuition` (2025); `vocational_training` (+năm 2014, Luật Giáo dục nghề nghiệp) | Chỉ còn nội dung giáo dục. ★ NQ 29-NQ/TW (11/2013) "Đổi mới căn bản, toàn diện giáo dục và đào tạo" |
+| **Lao động – xã hội** | hai gốc `social_insurance_reform` (2015, Luật BHXH 2014) và `labor_code_2019` → hội tụ ở `population_policy` → `overseas_vietnamese` | Mất gốc `urbanization`. `labor_code_2019` đọc cờ `VIE_labor_convention_ratified` của event `vie_pol.27` để trao thêm thưởng, thay vì làm lại việc phê chuẩn ILO |
 | **Văn hóa – du lịch** | gốc `heritage_preservation` (**đổi cha**) → `sea_games_bid` (2003), `visa_reform` (2023) → `cultural_industry` → `tourism_powerhouse` | Giữ |
-
-**Tổng sau thiết kế:** kinh tế 107 + 2 mới = **109**; xã hội 20 + 1 mới = **21**; tổng **130 focus** (127 cũ + 3 mới). Chi phí thêm 21 tuần, từ 1.016 lên 1.037 tuần (khoảng 20 năm focus cho 26 năm lịch sử, cạnh tranh với chính trị, ngoại giao và quốc phòng: người chơi vẫn phải chọn).
-
-### 2.4 Ba lựa chọn loại trừ trong nhánh kinh tế (tùy chọn)
-
-Bỏ các dải Kiến tạo, Đặc khu, Tài phiệt là bỏ luôn ba mô hình kinh tế thay thế duy nhất của mod. Nhánh kinh tế lịch sử hiện chỉ có một cặp loại trừ (điện hạt nhân: xây / gác lại). Nếu muốn giữ lựa chọn kinh tế mà không cần dải chế độ, có thể thêm cặp loại trừ **bên trong** nhánh lịch sử, mỗi cặp có một bên lịch sử:
-
-| Nhánh | Lịch sử | Phương án khác | Căn cứ |
-|---|---|---|---|
-| DNNN | Giữ tập đoàn, cổ phần hóa chậm | Thoái vốn nhanh qua SCIC | Tranh luận thật quanh NQ 12-NQ/TW (2017) |
-| Điện | Theo Quy hoạch điện VII: nhiệt điện than là trụ | Chuyển nhanh sang năng lượng tái tạo trước 2020 | Quy hoạch điện VIII (2023) chính là sự điều chỉnh này |
-| Ngân hàng | NHNN mua lại ngân hàng yếu kém giá 0 đồng (2015) | Cho phá sản có kiểm soát | Luật TCTD sửa đổi 2017 đã mở khả năng phá sản |
-
-Đây là đề xuất, **không nằm trong khối lượng chính**. Cặp thứ ba khác với dải "Giải cứu ngân hàng" bạn muốn bỏ: dải đó là chế độ tài phiệt nắm quyền, còn cặp này là chính sách của NHNN.
 
 ---
 
-## 3. Bỏ sáu dải chế độ
+## 3. Ngã rẽ lịch sử
 
-### 3.1 Dấu chân đo được
+### 3.1 Mẫu chung
+
+Mẫu lấy từ cặp điện hạt nhân đã có trong mod (`ninh_thuan_nuclear` → `build_nuclear_plant` / `shelve_nuclear` → `revive_nuclear`) và từ ý tưởng đặc khu của tác giả.
+
+```text
+[CHUẨN BỊ]   focus của chính phủ, hoặc một mốc ngày / event đã có
+     │
+[TRANH LUẬN] event (nếu cần): dư luận, Quốc hội. Chỉ đặt cờ và phản ứng, KHÔNG quyết định
+     │
+     ├──────────────────────────────┐
+     ▼                              ▼
+[LỊCH SỬ]                      [GIẢ ĐỊNH]
+ mutually_exclusive             mutually_exclusive
+ thường là "gác lại"            lợi ích đến sớm hoặc lớn hơn
+ không cộng trục                cộng trục; có cơ chế rủi ro rõ ràng
+     │                              │
+     ▼                              ▼
+[QUAY LẠI] focus khóa đúng     [HỆ QUẢ] event hoặc timed idea
+ năm vấn đề trở lại thật        do focus giả định kích hoạt
+```
+
+Sáu quy tắc **[TIỀN ĐỀ KỊCH BẢN]**:
+
+1. Hai focus của một ngã rẽ có **cùng prerequisite, cùng `available`** (mốc năm của quyết định thật, cộng cờ của event tranh luận nếu có), và `mutually_exclusive` với nhau.
+2. **Bên lịch sử không cộng trục.** Hồ sơ trục đã hiệu chuẩn ở STEP6 là hồ sơ của đường lịch sử; giữ nó nguyên vẹn. Bên lịch sử dùng PP, ổn định, ngân sách.
+3. **Bên giả định mang trục và mang cái giá.** Cái giá phải là cơ chế thấy được (timed idea, event trễ), không chỉ là con số trừ ngay.
+4. Mô tả bên giả định mở đầu bằng "§Y[Giả định]§!". Tooltip của cả hai bên nói rõ lịch sử đã chọn gì.
+5. AI: bên giả định có `modifier = { factor = 0 VIE_ai_historical = yes }`.
+6. Ngã rẽ kinh tế **không cần Đảng cầm quyền**. Đây là quyết định của nhà nước dưới mọi chế độ.
+
+### 3.2 Đặc khu 2018 (nhánh Doanh nghiệp)
+
+**[SỰ KIỆN]** Chính phủ trình dự thảo Luật Đơn vị hành chính – kinh tế đặc biệt Vân Đồn, Bắc Vân Phong, Phú Quốc tại kỳ họp tháng 10/2017. Dự thảo có điều khoản cho thuê đất tới 99 năm với một số dự án, và cho phép người Việt Nam vào casino trong đặc khu. Điều khoản 99 năm gây phản ứng mạnh, kèm biểu tình ở nhiều tỉnh ngày 10–11/6/2018. Ngày 9/6/2018, Quốc hội quyết định lùi việc thông qua sang kỳ họp sau; dự luật sau đó không được đưa trở lại. Từ 1/7/2025, trong cải cách chính quyền hai cấp, "đặc khu" trở thành loại đơn vị hành chính cấp xã cho các huyện đảo (Vân Đồn, Phú Quốc, Côn Đảo và các đảo khác). **[CẦN ĐỐI CHIẾU]** danh sách đặc khu năm 2025 và phương án rút thời hạn thuê đất xuống 70 năm từng được nêu khi chỉnh lý dự thảo.
+
+| Bước | ID | Loại | Điều kiện | Nội dung |
+|---|---|---|---|---|
+| Chuẩn bị | ★ `VIE_sez_three_zones` — Đề án ba đặc khu | focus, cost 7 | prereq `enterprise_law`, `investment_law_2005`; `date > 2017.9.30` | PP −25. Đặt cờ `VIE_sez_bill_drafted`. Không làm focus này thì dự luật không tồn tại |
+| Tranh luận | `vie_alt.6` — Dự thảo Luật Đặc khu | event (đã có, **sửa**) | scheduler D6: `date > 2018.5.31` **và** `VIE_sez_bill_drafted` | Không còn quyết định luật. Hai option phản ứng với biểu tình: **a** đối thoại, tiếp thu (ổn định +0.02, PP −25); **b** giữ trật tự cứng rắn (ổn định −0.01, `civil −1`). Cả hai đặt cờ `VIE_sez_bill_debated` |
+| **Lịch sử** | ★ `VIE_sez_postpone` — Hoãn Luật Đặc khu | focus, cost 5 | prereq `sez_three_zones`; `VIE_sez_bill_debated`; mutex | Ổn định +0.02. Không cộng trục |
+| **Giả định** | ★ `VIE_sez_pass_99` — Thông qua Luật Đặc khu (thuê đất tới 99 năm) | focus, cost 7 | như trên; mutex | `market +2`, `decent +2`, `integ +1`. Idea `VIE_sez_idea` (FDI và xây dựng tăng). Timed idea `VIE_sez_unrest_idea` 180 ngày (**đã có**). Kích hoạt `vie_alt.8` sau 365 ± 90 ngày |
+| Quay lại (lịch sử) | ★ `VIE_island_special_zones` — Đặc khu trong chính quyền hai cấp | focus, cost 7 | prereq `sez_postpone`; `VIE_two_tier_done` hoặc (`date > 2025.6.30` và không Đảng cầm quyền) | Du lịch, ngân sách. Không cộng trục. Có thể kèm event Phú Quốc đăng cai APEC 2027 **[CẦN ĐỐI CHIẾU]** |
+| Hệ quả (giả định) | ★ `VIE_sez_strategic_investors` — Nhà đầu tư chiến lược vào đặc khu | focus, cost 7 | prereq `sez_pass_99` | FDI tăng. Kích hoạt `vie_alt.25` (casino và tội phạm có tổ chức); sau 2 năm `vie_alt.26` (đặc khu đòi quyền tự trị) |
+
+**Tái dùng ba event của dải Đặc khu cũ** thay vì xóa: `vie_alt.8` "Ai đang thuê đất đặc khu?" (đúng nỗi lo về hợp đồng 99 năm), `vie_alt.25` "Casino và tội phạm có tổ chức" (đúng điều khoản casino trong dự thảo), `vie_alt.26` "Đặc khu đòi quyền tự trị". Chỉ cần sửa dòng chú thích "opened by VIE_lb_…" và gỡ tham chiếu tới dải cũ trong option.
+
+### 3.3 Năm ngã rẽ còn lại
+
+| Ngã rẽ | Nhánh | Chuẩn bị / điều kiện | **Lịch sử** | **Giả định** | Quay lại / hệ quả |
+|---|---|---|---|---|---|
+| **Bauxite Tây Nguyên 2009** | Công nghiệp nặng | prereq gốc nhánh; `date > 2009.3.31`. **[SỰ KIỆN]** Tranh luận 2008–2009, có ba thư của Đại tướng Võ Nguyên Giáp; Bộ Chính trị kết luận tiếp tục thí điểm Tân Rai, Nhân Cơ | `bauxite_tay_nguyen` (**giữ ID**, thêm mutex): tiếp tục thí điểm. Giữ phần thưởng cũ | ★ `VIE_bauxite_suspend`: dừng khai thác. Ổn định +0.02, mất sản lượng nhôm, idea môi trường nhỏ | Cả hai mở `rare_earths` |
+| **Đường sắt tốc độ cao 2010** | Giao thông | prereq `north_south_expressway`; `date > 2010.4.30`. **[SỰ KIỆN]** Quốc hội bác dự án khoảng 56 tỷ USD ngày 19/6/2010 | ★ `VIE_hsr_2010_reject`: Quốc hội bác. PP +25 | ★ `VIE_hsr_2010_approve`: thông qua. Timed idea "Dự án ĐSCT đang thi công" ~10 năm: ngân sách hao hụt đều, `consumer_goods_factor` tăng (nợ công) | Lịch sử: `north_south_hsr` như cũ (`date > 2024.11.30`, NQ 172/2024/QH15). Giả định: `north_south_hsr` mở từ 2020 |
+| **Vàng miếng 2012** | Tài chính | prereq `state_bank_modernization`; `date > 2012.3.31`. **[SỰ KIỆN]** NĐ 24/2012/NĐ-CP: Nhà nước độc quyền sản xuất vàng miếng | ★ `VIE_gold_monopoly_2012`: chống "vàng hóa". Ổn định +0.02 | ★ `VIE_gold_free_market`: thả nổi. `market +1`. Timed idea áp lực tỷ giá 365 ngày | Lịch sử: ★ `VIE_gold_monopoly_lifted` (`date > 2025.8.31`, bỏ độc quyền năm 2025) **[CẦN ĐỐI CHIẾU]** số nghị định |
+| **Ngân hàng yếu kém 2015** | Tài chính | prereq `vamc`; `date > 2014.12.31`. **[SỰ KIỆN]** NHNN mua lại VNCB, OceanBank, GPBank giá 0 đồng (2015) | ★ `VIE_zero_dong_acquisition`: mua lại 0 đồng. Ổn định +0.02, ngân sách −1 | ★ `VIE_bank_bankruptcy`: cho phá sản có kiểm soát. `market +1`. Ổn định −0.05 và timed idea mất niềm tin tiền gửi; **giảm một nửa nếu đã làm `deposit_insurance`** | Lịch sử: ★ `VIE_compulsory_transfer_2024` (`date > 2024.9.30`): chuyển giao bắt buộc cho các ngân hàng lớn. Event `vie_alt.7` (rút tiền SCB, 10/2022) giữ nguyên, nặng hơn trên đường lịch sử |
+| **COVID-19 tháng 10/2021** | Y tế | prereq `grassroots_clinics`; `date > 2021.9.30`; cờ scheduler của `vie_soc.6` (đã có). **[SỰ KIỆN]** NQ 128/NQ-CP (11/10/2021) chuyển từ "zero COVID" sang thích ứng an toàn | ★ `VIE_covid_safe_adaptation`: thích ứng an toàn. Ổn định −0.02 ngắn hạn, tăng trưởng phục hồi | ★ `VIE_covid_zero_extend`: tiếp tục giãn cách. Ổn định +0.02; timed idea sản xuất đình trệ 180 ngày | — |
+
+Khác biệt với dải "Giải cứu ngân hàng" bị bỏ: dải đó là chế độ tài phiệt nắm quyền; ngã rẽ 2015 là chính sách của NHNN dưới chế độ hiện hành.
+
+### 3.4 Ứng viên ngã rẽ cho vòng sau
+
+Không nằm trong khối lượng chính. Ghi lại vì cùng mẫu và có mốc thật:
+
+| Ngã rẽ | Nhánh | Lịch sử | Phương án khác |
+|---|---|---|---|
+| Mở rộng Hà Nội (NQ 15/2008/QH12) | Đô thị | Sáp nhập Hà Tây (8/2008) | Giữ địa giới cũ |
+| Tự chủ bệnh viện công (NĐ 16/2015) | Y tế | Tự chủ tài chính | Giữ bao cấp ngân sách |
+| Tái cơ cấu DNNN (NQ 12-NQ/TW, 2017) | DNNN | Giữ tập đoàn, cổ phần hóa chậm | Thoái vốn nhanh |
+| Giá FIT điện mặt trời (QĐ 11/2017) | Điện | Giá ưu đãi cố định, bùng nổ rồi quá tải lưới | Đấu thầu cạnh tranh |
+
+---
+
+## 4. Bỏ sáu dải chế độ
+
+### 4.1 Dấu chân đo được
 
 **[SỰ KIỆN]**
 
 | Dải | Gốc | Focus | Idea | Event do focus bắn | Mở bởi | Slot đảng |
 |---|---|---|---|---|---|---|
 | Bảo vệ nền tảng | `defend_the_foundation` | 6 | 4 | `vie_alt.4` | `vie_pol.2.b` (Đại hội IX) hoặc BoP cứng rắn | 4 |
-| Tự chủ chiến lược | `tc_strategic_autonomy` | 15 | 6 | `vie_alt.10`, `.11`, `vie_dip.18`, `vie_int.1`, `.10` | `vie_alt.1` (sau giàn khoan HD-981) | — |
+| Tự chủ chiến lược | `tc_strategic_autonomy` | 15 | 6 | `vie_alt.10`, `.11`, `vie_dip.18`, `vie_int.1`, `.10` | `vie_alt.1` (sau HD-981) | — |
 | Nhà nước kiến tạo | `developmental_state` | 15 | 7 | — | `vie_pol.5.b` (Đại hội XII) hoặc BoP cải cách | — |
-| Luật Đặc khu | `lb_sez_law` | 13 | 6 | `vie_alt.8`, `.25`, `.26` | `vie_alt.6` (dự thảo Luật Đặc khu 2018) | 16 |
+| Luật Đặc khu | `lb_sez_law` | 13 | 6 | `vie_alt.8`, `.25`, `.26` | `vie_alt.6` | 16 |
 | Giải cứu ngân hàng | `ol_bailout` | 12 | 5 | `vie_alt.27`, `.28` | `vie_alt.3`, `.7`, `.9`, `vie_axis.1` | 15 |
 | Hội đồng Phát triển | `wa_development_council` | 15 | 6 | `vie_alt.29`, `.30`, `vie_int.3` | `vie_alt.31`; cần `pivot_to_the_west` | 0 |
 | **Tổng** | | **76** | **34** | **16** | | |
 
-Không dải nào có prerequisite từ ngoài dải, nên xóa focus không làm treo cây khác. Nhưng dải được nối vào 5 nơi khác: event mở cửa, event Đại hội, power balance, decision và luật chơi AI.
+Không dải nào có prerequisite từ ngoài dải, nên xóa focus không làm treo cây khác.
 
-### 3.2 Cách xử lý từng phần
+### 4.2 Cách xử lý
 
 | Thành phần | Xử lý |
 |---|---|
-| 76 focus, 34 idea và loc | **Xóa** |
-| 16 event do focus bắn | **Xóa**, sau khi kiểm tra từng event không được gọi từ nơi khác (`vie_dip.18`, `vie_int.1`, `.3`, `.10` thuộc namespace dùng chung) |
-| `vie_alt.1` Sau khủng hoảng giàn khoan | **Giữ event** (HD-981 là sự kiện thật). Bỏ option đặt `VIE_tc_unlocked` |
-| `vie_alt.6` Dự thảo Luật Đặc khu | **Giữ event.** Lịch sử: dự luật bị hoãn sau biểu tình 6/2018. Bỏ option "thông qua luật → mở dải"; nếu muốn giữ một phương án khác lịch sử thì chỉ để lại hệ quả trực tiếp (ổn định, trục `decent`) |
-| `vie_alt.3` Khủng hoảng niềm tin, `vie_alt.7` Rút tiền hàng loạt | **Giữ event** (vụ SCB 10/2022 là thật). Bỏ phần đặt `VIE_oligarch_unlocked` |
-| `vie_alt.9` Nhà đầu tư nắm quyền chi phối | **Xóa** (chuyển thẳng sang slot 15) |
-| `vie_axis.1` Kiến tạo trượt thành Tài phiệt | **Xóa** (cả hai đầu cạnh đều bị bỏ) |
-| `vie_alt.31` Rò rỉ hồ sơ giám sát | Kiểm tra: nếu chỉ dùng để mở Hội đồng Phát triển thì xóa, nếu còn nhánh sang dải An ninh thì chỉ bỏ cờ `VIE_wa_unlocked` |
-| `vie_pol.2.b`, `vie_pol.5.b` (Đại hội IX, XII) | **Giữ như biến thể đường lối trong Đảng**, bỏ phần mở dải. Xem mục 6 |
-| Power balance `VIE_md_bop_p3.txt` (Tập đoàn ↔ Dân chúng) | **Xóa** cả file và mọi lệnh dịch thanh này |
-| Decision `VIE_ol_credit_squeeze` và danh mục `VIE_oligarch_category` | **Xóa** |
-| 4 lệnh chuyển chế độ sang slot 0, 4, 15, 16 trong focus; 2 trong event | Xóa cùng focus/event chứa chúng. **Slot 4 không bị xóa**: `VIE_party_rule_active` vẫn coi slot 4 là Đảng cầm quyền |
-| Luật chơi AI | Bỏ option `VIE_AUTONOMY` và `VIE_FREE_ZONES` cùng trọng số trong `RANDOM`. `VIE_NATIONALIST` **đã rỗng từ trước** (dải `np_*`/`lh_*` không còn trong code) nên bỏ luôn. Giữ `HARDLINE` (dải An ninh dùng) và `WESTERN` (ngoại giao, quốc phòng dùng) |
-| Trigger, effect riêng của các dải (`VIE_md_effects_p3.txt`, `_axis.txt`, `_p2.txt`) | Xóa đoạn tham chiếu; giữ phần dùng chung |
+| 76 focus, loc tương ứng | **Xóa** |
+| 34 idea | **Xóa**, trừ `VIE_sez_unrest_idea` (dùng lại ở `sez_pass_99`) |
+| 16 event do focus bắn | **Xóa 13.** Giữ `vie_alt.8`, `.25`, `.26` làm hệ quả của đặc khu (mục 3.2). Kiểm tra từng event trong namespace dùng chung (`vie_dip.18`, `vie_int.1`, `.3`, `.10`) không được gọi từ nơi khác |
+| `vie_alt.6` Dự thảo Luật Đặc khu | **Giữ, sửa thành event tranh luận** của ngã rẽ đặc khu. Bỏ option mở dải. Điều kiện scheduler thêm cờ `VIE_sez_bill_drafted` |
+| `vie_alt.1` Sau khủng hoảng giàn khoan | **Giữ** (HD-981 là thật). Bỏ option đặt `VIE_tc_unlocked` |
+| `vie_alt.3` Khủng hoảng niềm tin, `vie_alt.7` Rút tiền hàng loạt | **Giữ** (vụ SCB 10/2022 là thật). Bỏ phần đặt `VIE_oligarch_unlocked` |
+| `vie_alt.9` Nhà đầu tư nắm quyền chi phối; `vie_axis.1` Kiến tạo trượt thành Tài phiệt | **Xóa** (chuyển thẳng sang slot 15; cả hai đầu cạnh đều bị bỏ) |
+| `vie_alt.31` Rò rỉ hồ sơ giám sát | Nếu chỉ dùng để mở Hội đồng Phát triển thì xóa; nếu còn dẫn sang dải An ninh thì chỉ bỏ cờ `VIE_wa_unlocked` |
+| `vie_pol.2.b`, `vie_pol.5.b` | **Giữ làm biến thể đường lối trong Đảng**, bỏ phần mở dải (mục 7) |
+| Power balance `VIE_md_bop_p3.txt` (Tập đoàn ↔ Dân chúng) | **Xóa** file và mọi lệnh dịch thanh này |
+| Decision `VIE_ol_credit_squeeze`, danh mục `VIE_oligarch_category` | **Xóa** |
+| Lệnh chuyển chế độ sang slot 0, 15, 16 | Xóa cùng focus/event chứa chúng. **Slot 4 giữ**: `VIE_party_rule_active` vẫn coi slot 4 là Đảng cầm quyền |
+| Luật chơi AI | Bỏ option `VIE_AUTONOMY`, `VIE_FREE_ZONES` và trọng số của chúng trong `RANDOM`. `VIE_NATIONALIST` **đã rỗng từ trước** (không còn focus `np_*`/`lh_*`), bỏ luôn. Giữ `HARDLINE` (dải An ninh dùng) và `WESTERN` (ngoại giao, quốc phòng dùng) |
+| Tham chiếu trong `VIE_md_effects_p3.txt`, `_axis.txt`, `_p2.txt` | Xóa đoạn riêng của dải; giữ phần dùng chung |
 
-### 3.3 Hệ quả
+### 4.3 Hệ quả
 
-Sau khi bỏ, dải chế độ giả định còn **30 focus**: Dân chủ hóa (`round_table_talks`, 22) và Nhà nước An ninh (`sec_cyber_control`, 8), cộng ngã rẽ 2026 ở khối chính trị. Không còn con đường giả định nào về mô hình kinh tế.
-
-Đây là thay đổi lớn về tính chơi lại. Nếu sau này muốn thêm con đường giả định mới, nên thiết kế lại cả dải chế độ một lần (như đã làm với nhánh dân tộc chủ nghĩa), không vá từng dải.
+Dải chế độ giả định còn **30 focus**: Dân chủ hóa (`round_table_talks`, 22) và Nhà nước An ninh (`sec_cyber_control`, 8), cộng ngã rẽ 2026 ở khối chính trị. Lựa chọn giả định về kinh tế chuyển hẳn sang **7 ngã rẽ trong nhánh lịch sử** (6 mới cộng điện hạt nhân).
 
 ---
 
-## 4. Ràng buộc phải giữ
+## 5. Ràng buộc phải giữ
 
-**Trục.** Sáu dải bị bỏ đều nằm ngoài đường lịch sử, nên hồ sơ trục lịch sử của STEP6 không đổi. Tái cấu trúc kinh tế chỉ đổi prerequisite và tọa độ; 3 focus mới không cộng trục. **Cổng trục** của các dải còn lại (Dân chủ, An ninh) không phụ thuộc các dải bị bỏ.
+**Trục.** Sáu dải bị bỏ đều nằm ngoài đường lịch sử, nên hồ sơ trục lịch sử của STEP6 không đổi. Tái cấu trúc chỉ đổi prerequisite và tọa độ. Focus mới trên đường lịch sử (đóng tàu, Dung Quất, NQ 29, các bên lịch sử và focus "quay lại" của ngã rẽ) **không cộng trục**. Chỉ bên giả định của ngã rẽ cộng trục.
 
-**Thời điểm.** Thêm mốc năm cho focus chưa có sẽ đẩy muộn một số hiệu ứng trục trong hồ sơ giai đoạn (nhiều nhất ở Giáo dục và Thiên tai). Phải chạy lại hồ sơ STEP6 bằng `_gen/axis_map.py` trên máy local.
+**Thời điểm.** Thêm mốc năm cho focus chưa có sẽ đẩy muộn một số hiệu ứng trục trong hồ sơ giai đoạn (nhiều nhất ở Giáo dục, Y tế và Thiên tai). Phải chạy lại hồ sơ STEP6 bằng `_gen/axis_map.py` trên máy local.
 
-**Save cũ.** Save đang ở một trong bốn slot bị bỏ (0, 15, 16) sẽ không còn nội dung focus cho chế độ đó. Cần một dòng trong `on_startup`: nếu `ruling_party` là 0, 15 hoặc 16 thì chuyển về chế độ Đảng qua `VIE_transition_regime`, hoặc ghi rõ trong changelog là save cũ ở các chế độ này không tương thích.
+**Save cũ.** Save đang ở slot 0, 15 hoặc 16 sẽ không còn nội dung focus cho chế độ đó. Cần một dòng trong `on_startup`: chuyển về chế độ Đảng qua `VIE_transition_regime`, hoặc ghi rõ trong changelog là không tương thích. Save đã hoàn thành `bauxite_tay_nguyen` giữ nguyên vì ID được giữ.
 
-**Tham chiếu chéo.** Sau khi bỏ ba focus 2025 ở báo cáo Đại hội và 76 focus dải chế độ, `check_static.py` phải trả 0 lỗi tham chiếu treo.
+**Tham chiếu chéo.** `check_static.py` phải trả 0 lỗi tham chiếu treo sau khi xóa 76 focus dải chế độ và 3 focus 2025 ở báo cáo Đại hội.
 
 ---
 
-## 5. Liên kết với xương sống Đại hội
+## 6. Liên kết với xương sống Đại hội
 
-Nhánh kinh tế **không** đặt dưới các nghị quyết Đại hội. Kinh tế là chức năng nhà nước dưới mọi chế độ và đang chạy theo ngày, nên khóa nó vào nghị quyết sẽ làm chế độ không phải Đảng mất cả nhánh.
-
-Thay vào đó, dùng liên kết mềm: chính sách kinh tế rẻ hơn nếu nghị quyết tương ứng đã được triển khai. Kỹ thuật: `completion_reward` của focus nghị quyết đặt cờ; focus kinh tế dùng `modifier` trong `ai_will_do` và giảm `cost` qua biến. **[CẦN THỬ]**: HOI4 không cho `cost` động dễ dàng; nếu không làm được thì dùng `completion_reward` cộng thêm khi có cờ.
+Nhánh kinh tế **không** đặt dưới các nghị quyết Đại hội, vì kinh tế là chức năng nhà nước dưới mọi chế độ. Dùng liên kết mềm: focus nghị quyết đặt cờ; focus kinh tế tương ứng nhận thêm thưởng khi có cờ (HOI4 khó đổi `cost` động **[CẦN THỬ]**).
 
 | Nghị quyết | Focus kinh tế hưởng lợi | Căn cứ |
 |---|---|---|
-| NQ Đại hội X | `wto_negotiations`, `private_champions` | Đại hội X cho đảng viên làm kinh tế tư nhân; vào WTO 1/2007 |
+| NQ Đại hội X | `wto_negotiations`, `private_champions` | Đảng viên được làm kinh tế tư nhân; vào WTO 1/2007 |
 | NQ Đại hội XI | `restructure_banking`, `equitization_soes` | HNTW3 khóa XI (10/2011): tái cơ cấu ngân hàng, DNNN, đầu tư công |
-| NQ Đại hội XII | `soe_governance`, `private_champions` | NQ 10, 11, 12-NQ/TW (6/2017) |
-| NQ Đại hội XIII | `science_breakthrough`, `private_sector_engine` | NQ 57 (12/2024), NQ 68 (5/2025) |
-| NQ Đại hội XIII | `university_autonomy`, `free_tuition` | NQ 71-NQ/TW (8/2025) về giáo dục và đào tạo |
+| NQ Đại hội XII | `soe_governance`, `private_champions` | NQ 10, 11, 12-NQ/TW (2017) |
+| NQ Đại hội XIII | `science_breakthrough`, `private_sector_engine`, `university_autonomy`, `free_tuition` | NQ 57 (12/2024), NQ 68 (5/2025), NQ 71 (8/2025) |
 
 Liên kết chéo giữa các nhánh (thay cho prerequisite):
 
 | Focus | `available` thêm | Lý do |
 |---|---|---|
-| `chip_engineers` | `has_completed_focus = VIE_university_autonomy` | Đào tạo kỹ sư cần đại học tự chủ |
-| `samsung_partnership` | `has_completed_focus = VIE_wto_negotiations` | Giữ điều kiện cũ sau khi đổi cha |
-| `ev_revolution_batteries` | `has_completed_focus = VIE_power_plan_8` | Xe điện cần lưới điện |
-| `labor_code_2019` | đọc cờ `VIE_labor_convention_ratified` để trao thêm thưởng | Gộp với `vie_pol.27` |
+| `chip_engineers` | `university_autonomy` | Đào tạo kỹ sư cần đại học tự chủ |
+| `ev_revolution_batteries` | `power_plan_8` | Xe điện cần lưới điện |
+| `island_special_zones` | `VIE_two_tier_done` (báo cáo Đại hội) | Đặc khu 2025 là một phần của cải cách chính quyền hai cấp |
+| `bank_bankruptcy` (giảm hậu quả) | đọc `deposit_insurance` | Bảo hiểm tiền gửi giảm cú sốc phá sản |
 
 ---
 
-## 6. Những gì `VIE_congress_spine_redesign.md` phải sửa theo
+## 7. Những gì `VIE_congress_spine_redesign.md` phải sửa theo
 
-| Chỗ | Hiện viết | Sửa thành |
-|---|---|---|
-| Mục 5, tinh thần `VIE_resolution_9_cons_idea` | Biến thể khi chọn `vie_pol.2.b`, cửa rẽ sang dải bảo thủ | Giữ biến thể, nhưng `vie_pol.2.b` **không còn mở dải**. Đó là biến thể đường lối trong Đảng: Đại hội IX nghiêng về ổn định |
-| Mục 5, `VIE_resolution_12_dev_idea` | Biến thể khi chọn `vie_pol.5.b`, mở dải Kiến tạo | Giữ biến thể "Chính phủ kiến tạo" như một trọng tâm nhiệm kỳ XII. Không còn dải 15 focus đi kèm. `vie_pol.6.b` giữ nguyên |
-| Mục 9.1, kịch bản thử 3 và 4 | Kiểm tra dải bảo thủ / Kiến tạo vẫn mở | Chỉ kiểm tra tinh thần biến thể |
+Đã sửa trong báo cáo đó: `vie_pol.2.b` và `vie_pol.5.b` giữ lại nhưng không mở dải nào; hai biến thể tinh thần nhiệm kỳ (`VIE_resolution_9_cons_idea`, `VIE_resolution_12_dev_idea`) là toàn bộ hệ quả của chúng. Kịch bản thử 3 và 4 đã cập nhật.
 
-Như vậy phương án giả định trong khuôn khổ Đảng vẫn còn, nhưng được thể hiện bằng trọng tâm nhiệm kỳ thay vì một cây riêng. Đúng hướng báo cáo nghiên cứu đã khuyến nghị: "biến thể đường lối trong khuôn khổ Đảng, không phải phe".
+Thêm một liên kết mới: cờ `VIE_two_tier_done` (decision cuối chuỗi cải tổ 2025 trong báo cáo Đại hội) mở `island_special_zones`.
 
 ---
 
-## 7. Kế hoạch thực hiện
+## 8. Kế hoạch thực hiện
 
-Làm **bỏ dải trước**: giảm diện tích code trước khi tái cấu trúc, và báo cáo Đại hội phụ thuộc vào việc hai event Đại hội không còn mở dải.
+Làm **bỏ dải trước**: giảm diện tích code trước khi tái cấu trúc, và vừa giải phóng ba event đặc khu để tái dùng.
 
 | Pha | Việc | File chính |
 |---|---|---|
-| **A. Bỏ sáu dải** | Xóa 76 focus, 34 idea, 16 event, BoP Tài phiệt, decision và danh mục Tài phiệt; sửa 6 event cửa (mục 3.2); sửa `vie_pol.2`, `.5`; bỏ 3 option luật chơi AI; `on_startup` cho save cũ; xóa loc | `common/national_focus/VIE_md_focus.txt` · `common/ideas/VIE_md_ideas_p2.txt` · `events/VIE_md_alt.txt`, `_axis.txt`, `_p8.txt`, `_p9.txt`, `_pol.txt` · `common/bop/VIE_md_bop_p3.txt` · `common/decisions/` · `common/game_rules/VIE_md_rules.txt` · `common/on_actions/VIE_md_on_actions_startup.txt` · `common/ai_strategy/VIE_md_ai.txt` · `common/scripted_effects/VIE_md_effects_p3.txt`, `_axis.txt`, `_p2.txt` |
-| **B. Tái cấu trúc kinh tế** | Đổi cha khoảng 22 focus theo mục 2.2 (khối Xã hội thêm 5 ở pha C); tách cột; 2 focus mới; gắn `vie_fb_vinashin` / event Vinashin với focus đóng tàu | `VIE_md_focus.txt` · event Vinashin · loc |
-| **C. Khối Xã hội** | 4 gốc riêng; 1 focus mới NQ 29; gộp `labor_code_2019` với `vie_pol.27` | `VIE_md_focus.txt` · loc |
-| **D. Mốc năm** | Thêm `available = { date > … }` cho các focus mang tên chương trình có năm (danh sách ở mục 2.2 và 2.3) | `VIE_md_focus.txt` |
-| **E. Liên kết mềm** | Mục 5, sau khi xương sống Đại hội đã có (báo cáo Đại hội, pha 3) | `VIE_md_focus.txt` |
-| **F. Kiểm tra** | `check_static.py` = 0 lỗi; `_gen/fix_spacing.py`, `_gen/overview.py`; hồ sơ trục STEP6; chạy thử trong game | local |
+| **A. Bỏ sáu dải** | Xóa 76 focus, 33 idea, 15 event (13 do focus bắn, cộng `vie_alt.9` và `vie_axis.1`), BoP Tài phiệt, decision và danh mục Tài phiệt; sửa 5 event cửa (mục 4.2); sửa `vie_pol.2`, `.5`; bỏ 3 option luật chơi AI; `on_startup` cho save cũ | `common/national_focus/VIE_md_focus.txt` · `common/ideas/VIE_md_ideas_p2.txt` · `events/VIE_md_alt.txt`, `_axis.txt`, `_p8.txt`, `_p9.txt`, `_pol.txt` · `common/bop/VIE_md_bop_p3.txt` · `common/decisions/` · `common/game_rules/VIE_md_rules.txt` · `common/on_actions/VIE_md_on_actions_startup.txt` · `common/ai_strategy/VIE_md_ai.txt` · `common/scripted_effects/VIE_md_effects_p3.txt`, `_axis.txt`, `_p2.txt` |
+| **B. Tái cấu trúc kinh tế** | Đổi cha khoảng 25 focus theo mục 2.2; tách cột; chuyển y tế và đô thị hóa; focus mới đóng tàu, Dung Quất | `VIE_md_focus.txt` · event Vinashin · loc |
+| **C. Ngã rẽ lịch sử** | 16 focus mới; sửa `vie_alt.6` và điều kiện scheduler D6; nối `vie_alt.8`, `.25`, `.26` vào đặc khu; thêm mutex cho `bauxite_tay_nguyen`; sửa prerequisite `north_south_hsr`, `rare_earths`; idea và timed idea mới | `VIE_md_focus.txt` · `events/VIE_md_alt.txt`, `_p8.txt` · `common/scripted_effects/VIE_md_effects_p3.txt` · `common/ideas/` (file mới cho ngã rẽ) · loc |
+| **D. Khối Xã hội** | Hai gốc mới cho Lao động – xã hội; focus NQ 29; gộp `labor_code_2019` với `vie_pol.27` | `VIE_md_focus.txt` · loc |
+| **E. Mốc năm** | Thêm `available = { date > … }` cho các focus mang tên chương trình có năm (mục 2.2, 2.3) | `VIE_md_focus.txt` |
+| **F. Liên kết mềm** | Mục 6, sau khi xương sống Đại hội đã có | `VIE_md_focus.txt` |
+| **G. Kiểm tra** | `check_static.py` = 0 lỗi; `_gen/fix_spacing.py`, `_gen/overview.py`; hồ sơ trục STEP6; chạy thử trong game | local |
 
-### 7.1 Kịch bản thử trong game
+Loc mới đặt ở `localisation/english/replace/` (UTF-8 BOM, header `l_english:`), theo quy ước của các file `VIE_md_vi_*`.
 
-1. AI lịch sử 2000 → 2027: không event nào gọi tới focus, idea hoặc event đã xóa (`error.log` sạch).
-2. Chọn `vie_pol.2.b` và `vie_pol.5.b`: không mở dải nào; chỉ tinh thần biến thể.
-3. Event `vie_alt.6` (2018) vẫn bắn, chỉ còn các option không mở dải.
-4. Làm bảo hiểm y tế năm 2008 mà chưa làm cải cách giáo dục: được.
-5. Làm `private_champions` mà chưa làm `scic`: được.
-6. Load một save đang ở slot 15: về chế độ Đảng (hoặc thông báo không tương thích, tùy quyết định ở mục 8).
-7. Game rule `RANDOM`: không bao giờ chọn path đã bỏ.
+### 8.1 Kịch bản thử trong game
+
+1. **AI lịch sử 2000 → 2027:** chọn đúng 6 bên lịch sử; `north_south_hsr` chỉ mở sau 11/2024; `island_special_zones` mở sau 7/2025; `error.log` không có tham chiếu tới focus, idea, event đã xóa.
+2. **Không làm `sez_three_zones`:** `vie_alt.6` không bắn năm 2018, không có ngã rẽ đặc khu.
+3. **Chọn `sez_pass_99`:** nhận `VIE_sez_unrest_idea`; khoảng một năm sau `vie_alt.8` bắn; sau `sez_strategic_investors` có `vie_alt.25` và `.26`. `sez_postpone` bị khóa.
+4. **Chọn `hsr_2010_approve`:** timed idea chạy; `north_south_hsr` mở từ 2020.
+5. **Chọn `bank_bankruptcy` khi đã và chưa làm `deposit_insurance`:** hậu quả chênh nhau một nửa.
+6. **Chọn `vie_pol.2.b` và `vie_pol.5.b`:** không mở dải nào.
+7. **Làm bảo hiểm y tế năm 2008 mà chưa làm giáo dục; làm `private_champions` mà chưa làm `scic`:** được.
+8. **Game rule `RANDOM`:** không bao giờ chọn AI path đã bỏ.
 
 ---
 
-## 8. Câu hỏi tác giả cần quyết
+## 9. Câu hỏi tác giả cần quyết
 
 1. **Giữ Nông nghiệp và Hội nhập – FDI ở nhánh kinh tế?** Báo cáo khuyến nghị giữ. Hội nhập – FDI cũng có thể chuyển sang cây ngoại giao.
-2. **Ba cặp lựa chọn loại trừ ở mục 2.4**: thêm hay không. Không thêm thì nhánh kinh tế gần như không có lựa chọn.
-3. **Save cũ ở các chế độ bị bỏ**: tự chuyển về chế độ Đảng, hay chỉ ghi không tương thích?
-4. **Event cửa `vie_alt.6`**: chỉ giữ option lịch sử (hoãn dự luật), hay giữ một option "thông qua" với hệ quả ngắn hạn không mở dải?
-5. **`vie_alt.31`**: event này có còn cần cho dải An ninh không (cần đọc kỹ trước pha A).
+2. **Không làm `sez_three_zones` thì không có dự luật.** Đây là lệch khỏi lịch sử có chủ ý: người chơi không soạn luật thì không có tranh luận. Nếu muốn lịch sử luôn xảy ra, event `vie_alt.6` phải bắn theo ngày như hiện nay và `sez_three_zones` chỉ còn là focus chuẩn bị ưu đãi.
+3. **Có thêm ngã rẽ ở mục 3.4 không**, và có muốn phương án "rút thời hạn thuê xuống 70 năm" thành option thứ ba của đặc khu không?
+4. **Save cũ ở các chế độ bị bỏ:** tự chuyển về chế độ Đảng, hay chỉ ghi không tương thích?
+5. **`vie_alt.31`:** event này còn cần cho dải An ninh không (đọc kỹ trước pha A).
