@@ -1,9 +1,3 @@
-VIE_oligarch_category = {
-	allowed = { original_tag = VIE }
-	priority = 100
-	visible = { has_country_flag = VIE_bop_oli_active }
-}
-
 VIE_military_category = {
 	allowed = { original_tag = VIE }
 	priority = 100
@@ -20,5 +14,15 @@ VIE_statebuilding_category = {
 	allowed = { original_tag = VIE }
 	priority = 90
 	visible = { has_country_flag = VIE_ax_initialized }
+}
+
+# "Thuc hien Nghi quyet": Party-Congress-term decisions (see VIE_congress_spine_redesign.md section 6).
+VIE_resolution_category = {
+	allowed = { original_tag = VIE }
+	priority = 95
+	visible = {
+		VIE_party_rule_active = yes
+		check_variable = { VIE_congress_term > 8 }
+	}
 }
 

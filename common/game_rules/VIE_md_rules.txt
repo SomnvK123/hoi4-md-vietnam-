@@ -44,11 +44,6 @@ VIE_ai_behavior = {
 		desc = "VIE_REFORM_DESC"
 	}
 	option = {
-		name = VIE_AUTONOMY
-		text = "VIE_AUTONOMY"
-		desc = "VIE_AUTONOMY_DESC"
-	}
-	option = {
 		name = VIE_HARDLINE
 		text = "VIE_HARDLINE"
 		desc = "VIE_HARDLINE_DESC"
@@ -57,16 +52,6 @@ VIE_ai_behavior = {
 		name = VIE_WESTERN
 		text = "VIE_WESTERN"
 		desc = "VIE_WESTERN_DESC"
-	}
-	option = {
-		name = VIE_NATIONALIST
-		text = "VIE_NATIONALIST"
-		desc = "VIE_NATIONALIST_DESC"
-	}
-	option = {
-		name = VIE_FREE_ZONES
-		text = "VIE_FREE_ZONES"
-		desc = "VIE_FREE_ZONES_DESC"
 	}
 	option = {
 		name = RANDOM

@@ -187,9 +187,8 @@ ideas = {
 			cancel_if_invalid = no
 
 			modifier = {
-				country_productivity_growth_modifier = 0.04
-				research_speed_factor = 0.03
-				political_power_gain = 0.021
+				political_power_factor = 0.05
+				stability_factor = 0.02
 			}
 		}
 
@@ -439,78 +438,11 @@ ideas = {
 			}
 		}
 
-		VIE_developmental_state_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				country_productivity_growth_modifier = 0.04
-				research_speed_factor = 0.02
-				stability_factor = -0.01
-			}
-		}
 
-		VIE_technocrat_cabinet_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				research_speed_factor = 0.03
-				political_power_gain = 0.02
-			}
-		}
 
-		VIE_intra_party_elections_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				stability_factor = 0.02
-				political_power_gain = -0.02
-			}
-		}
-
-		VIE_press_relaxation_idea = {
-			picture = generic_political_discourse
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				political_power_gain = 0.03
-				stability_factor = -0.01
-			}
-		}
-
-		VIE_environmental_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = 0.02
-				trade_opinion_factor = 0.02
-			}
-		}
-
-		VIE_managed_pluralism_idea = {
-			picture = generic_political_discourse
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				political_power_gain = 0.04
-				stability_factor = -0.02
-			}
-		}
 
 		VIE_democratic_consolidation = {
 			picture = generic_political_reform
@@ -536,44 +468,8 @@ ideas = {
 			}
 		}
 
-		VIE_hardline_idea = {
-			picture = generic_communist_drift_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				stability_factor = 0.03
-				drift_defence_factor = 0.04
-				political_power_gain = -0.03
-			}
-		}
 
-		VIE_state_sector_idea = {
-			picture = financial_sector_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = 0.02
-				country_productivity_growth_modifier = -0.02
-				corporate_tax_income_multiplier_modifier = 0.02
-			}
-		}
-
-		VIE_self_reliance_idea = {
-			picture = generic_communist_drift_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				drift_defence_factor = 0.05
-				trade_opinion_factor = -0.04
-				consumer_goods_factor = 0.01
-			}
-		}
 
 		VIE_china_orbit_idea = {
 			picture = generic_diplomatic_pressure
@@ -661,31 +557,7 @@ ideas = {
 			}
 		}
 
-		VIE_tc_autonomy_idea = {
-			picture = generic_neutrality
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				stability_factor = 0.02
-				drift_defence_factor = 0.03
-				trade_opinion_factor = -0.02
-			}
-		}
-
-		VIE_tc_decoupling_idea = {
-			picture = generic_neutrality
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = -0.01
-				consumer_goods_factor = 0.01
-				drift_defence_factor = 0.02
-			}
-		}
 
 		VIE_import_shock_idea = {
 			picture = financial_crisis
@@ -700,42 +572,8 @@ ideas = {
 			}
 		}
 
-		VIE_tc_self_management_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				country_productivity_growth_modifier = 0.03
-				stability_factor = -0.01
-			}
-		}
 
-		VIE_tc_global_south_idea = {
-			picture = generic_diplomatic_treaty
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				trade_opinion_factor = 0.03
-				political_power_gain = 0.03
-			}
-		}
-
-		VIE_tc_armed_neutrality_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				army_defence_factor = 0.08
-				stability_factor = 0.02
-				drift_defence_factor = 0.04
-			}
-		}
 
 		VIE_yugoslav_model_idea = {
 			picture = generic_neutrality
@@ -813,67 +651,10 @@ ideas = {
 			}
 		}
 
-		VIE_leases_idea = {
-			picture = financial_sector_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				corporate_tax_income_multiplier_modifier = 0.04
-				drift_defence_factor = -0.03
-			}
-		}
 
-		VIE_courts_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				country_productivity_growth_modifier = 0.02
-				trade_opinion_factor = 0.03
-			}
-		}
 
-		VIE_flat_tax_idea = {
-			picture = financial_sector_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				corporate_tax_income_multiplier_modifier = 0.02
-				country_productivity_growth_modifier = 0.02
-				stability_factor = -0.02
-			}
-		}
-
-		VIE_expanded_zones_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.03
-				stability_factor = -0.02
-			}
-		}
-
-		VIE_charter_state_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.05
-				trade_opinion_factor = 0.05
-				stability_factor = -0.03
-			}
-		}
 
 		VIE_sez_unrest_idea = {
 			picture = generic_political_pressure
@@ -886,55 +667,9 @@ ideas = {
 			}
 		}
 
-		VIE_bailout_idea = {
-			picture = financial_sector_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				stability_factor = 0.02
-				corporate_tax_income_multiplier_modifier = -0.02
-			}
-		}
 
-		VIE_conglomerate_council_idea = {
-			picture = financial_sector_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				country_productivity_growth_modifier = 0.03
-				corporate_tax_income_multiplier_modifier = 0.03
-				stability_factor = -0.02
-			}
-		}
-
-		VIE_media_ownership_idea = {
-			picture = financial_sector_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				political_power_gain = 0.03
-				stability_factor = 0.01
-				drift_defence_factor = -0.03
-			}
-		}
-
-		VIE_real_estate_boom_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.05
-				corporate_tax_income_multiplier_modifier = 0.05
-			}
-		}
 
 		VIE_bubble_burst_idea = {
 			picture = financial_crisis
@@ -960,78 +695,11 @@ ideas = {
 			}
 		}
 
-		VIE_oligarch_reform_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				stability_factor = 0.03
-				country_productivity_growth_modifier = -0.01
-			}
-		}
 
-		VIE_wa_council_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				country_productivity_growth_modifier = 0.03
-				stability_factor = 0.03
-				political_power_gain = -0.03
-			}
-		}
 
-		VIE_wa_champions_idea = {
-			picture = financial_sector_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				country_productivity_growth_modifier = 0.04
-				corporate_tax_income_multiplier_modifier = 0.02
-			}
-		}
-
-		VIE_wa_export_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				trade_opinion_factor = 0.05
-				country_productivity_growth_modifier = 0.03
-			}
-		}
-
-		VIE_wa_heavy_idea = {
-			picture = economic_road_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				production_speed_infrastructure_factor = 0.1
-				country_productivity_growth_modifier = 0.02
-			}
-		}
-
-		VIE_wa_labor_idea = {
-			picture = generic_political_pressure
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.03
-				stability_factor = -0.03
-			}
-		}
 
 		VIE_post_collapse_idea = {
 			picture = financial_crisis
@@ -1404,55 +1072,9 @@ ideas = {
 			}
 		}
 
-		VIE_singapore_model_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				country_productivity_growth_modifier = 0.024
-				political_power_gain = 0.021
-			}
-		}
 
-		VIE_ideological_fortress_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
 
-			modifier = {
-				stability_factor = 0.021
-				political_power_gain = 0.014
-			}
-		}
-
-		VIE_eastern_yugoslavia_idea = {
-			picture = generic_diplomatic_treaty
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = 0.021
-				trade_opinion_factor = 0.021
-				army_defence_factor = 0.024
-			}
-		}
-
-		VIE_economic_miracle_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.04
-				stability_factor = 0.014
-				research_speed_factor = 0.022
-			}
-		}
 
 		VIE_energy_security_idea = {
 			picture = energy_preferred_renewable_idea

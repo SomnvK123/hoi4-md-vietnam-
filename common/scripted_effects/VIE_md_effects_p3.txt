@@ -119,6 +119,7 @@ VIE_catch_up_schedule = {
 	VIE_event_scheduler_p6 = yes
 	VIE_event_scheduler_p7 = yes
 	VIE_event_scheduler_p10 = yes
+	VIE_event_scheduler_p13 = yes
 }
 
 VIE_collapse_aftermath = {
@@ -192,12 +193,6 @@ VIE_collapse_check = {
 ########################################################################
 # Silent fallbacks / small helpers used by regime events
 ########################################################################
-VIE_bubble_cool = {
-	add_to_variable = { VIE_bubble = -4 }
-	clamp_variable = { var = VIE_bubble min = 0 max = 30 }
-	add_to_variable = { VIE_bubble_cools = 1 }
-}
-
 ########################################################################
 # Scheduler, part 3.  Called monthly after part 1 and part 2.  Skipped in catch-up mode.
 ########################################################################
@@ -270,48 +265,6 @@ VIE_event_scheduler_p3 = {
 				set_country_flag = VIE_door_d8_done
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
 				country_event = { id = vie_alt.7 days = 20 random_days = 20 }
-			}
-		}
-
-		# ---- Free Zone regime: share of the zones that is foreign-owned creeps up
-		if = {
-			limit = {
-				check_variable = { ruling_party = 16 }
-				has_country_flag = VIE_lb_leases_done
-			}
-			add_to_variable = { VIE_sez_share = 1 }
-			if = {
-				limit = {
-					check_variable = { VIE_sez_share > 71 }
-					NOT = { has_country_flag = VIE_sez_degrade_fired }
-				}
-				set_country_flag = VIE_sez_degrade_fired
-				country_event = { id = vie_alt.9 days = 5 }
-			}
-		}
-
-		# ---- Oligarchic regime: the housing bubble
-		if = {
-			limit = { has_idea = VIE_real_estate_boom_idea }
-			add_to_variable = { VIE_bubble = 1 }
-			if = {
-				limit = { check_variable = { VIE_bubble > 23 } }
-				remove_ideas = VIE_real_estate_boom_idea
-				country_event = { id = vie_alt.20 days = 2 }
-			}
-		}
-
-		# ---- Development Council: years in power until the "Democratic Summer"
-		if = {
-			limit = { check_variable = { ruling_party = 0 } }
-			add_to_variable = { VIE_wa_months = 1 }
-			if = {
-				limit = {
-					check_variable = { VIE_wa_months > 95 }
-					NOT = { has_country_flag = VIE_wa_summer_fired }
-				}
-				set_country_flag = VIE_wa_summer_fired
-				country_event = { id = vie_alt.22 days = 5 }
 			}
 		}
 

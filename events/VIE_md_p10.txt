@@ -33,6 +33,20 @@ country_event = {
 		}
 	}
 
+	# Only reachable once the Eleventh Congress's own party-building focus is done
+	# (see VIE_congress_spine_redesign.md section 7.3): partial success, unlike history
+	option = {
+		name = vie_pol.11.c
+		trigger = { has_completed_focus = VIE_tw4_party_building }
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.11.c executed"
+		decrease_corruption = yes
+		add_political_power = 25
+		ai_chance = {
+			base = 15
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
 }
 
 country_event = {
@@ -174,6 +188,7 @@ country_event = {
 		add_political_power = 75
 		set_temp_variable = { treasury_change = 1 }
 		modify_treasury_effect = yes
+		set_country_flag = VIE_streamline_go
 		ai_chance = { base = 60 }
 	}
 
@@ -181,6 +196,8 @@ country_event = {
 		name = vie_pol.16.b
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.16.b executed"
 		add_political_power = 25
+		set_country_flag = VIE_streamline_wait_ever
+		set_country_flag = { flag = VIE_streamline_wait days = 180 }
 		ai_chance = { base = 40 }
 	}
 
@@ -199,6 +216,7 @@ country_event = {
 		add_stability = -0.01
 		increase_economic_growth = yes
 		add_political_power = 50
+		set_country_flag = VIE_merge_provinces_started
 		ai_chance = { base = 70 }
 	}
 
@@ -206,6 +224,7 @@ country_event = {
 		name = vie_pol.17.b
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.17.b executed"
 		add_political_power = 25
+		set_country_flag = VIE_merge_provinces_started
 		ai_chance = { base = 30 }
 	}
 
@@ -1195,22 +1214,6 @@ country_event = {
 
 }
 
-country_event = {
-	id = vie_dip.18
-	title = vie_dip.18.t
-	desc = vie_dip.18.d
-	picture = GFX_report_event_generic_conference
-	is_triggered_only = yes
-
-	option = {
-		name = vie_dip.18.a
-		log = "[GetDateText]: [This.GetName]: Event vie_dip.18.a executed"
-		add_political_power = 75
-		add_stability = 0.02
-		ai_chance = { base = 100 }
-	}
-
-}
 
 country_event = {
 	id = vie_dip.19

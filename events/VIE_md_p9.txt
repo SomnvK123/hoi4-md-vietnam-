@@ -1,64 +1,6 @@
 add_namespace = vie_alt
 
 ########################################################################
-# vie_alt.28  An investigative report  (opened by VIE_ol_land_bank)
-########################################################################
-country_event = {
-	id = vie_alt.28
-	title = vie_alt.28.t
-	desc = vie_alt.28.d
-	picture = GFX_report_event_Corruption_1
-	is_triggered_only = yes
-
-	# Close the newspaper
-	option = {
-		name = vie_alt.28.a
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.28.a executed"
-		add_stability = 0.01
-		VIE_oli_conglomerate_medium = yes
-		ai_chance = { base = 60 }
-	}
-
-	# Let it run
-	option = {
-		name = vie_alt.28.b
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.28.b executed"
-		VIE_oli_public_medium = yes
-		add_stability = -0.01
-		ai_chance = { base = 40 }
-	}
-}
-
-########################################################################
-# vie_alt.30  Students take to the streets  (opened by VIE_wa_technical_education)
-########################################################################
-country_event = {
-	id = vie_alt.30
-	title = vie_alt.30.t
-	desc = vie_alt.30.d
-	picture = GFX_report_event_generic_rally
-	is_triggered_only = yes
-
-	# Meet some of the demands
-	option = {
-		name = vie_alt.30.a
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.30.a executed"
-		VIE_bop_reform_small = yes
-		add_stability = -0.01
-		ai_chance = { base = 40 }
-	}
-
-	# Disperse the crowds
-	option = {
-		name = vie_alt.30.b
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.30.b executed"
-		VIE_bop_conservative_small = yes
-		add_political_power = -25
-		ai_chance = { base = 60 }
-	}
-}
-
-########################################################################
 # vie_alt.31  The surveillance leak  (opened by VIE_sec_cyber_sovereignty)
 ########################################################################
 country_event = {
@@ -82,8 +24,8 @@ country_event = {
 		name = vie_alt.31.b
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.31.b executed"
 		VIE_bop_reform_small = yes
-		set_country_flag = VIE_wa_unlocked
-		custom_effect_tooltip = VIE_gate_note_wa
+		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+		VIE_ax_normalize = yes
 		ai_chance = { base = 30 }
 	}
 }

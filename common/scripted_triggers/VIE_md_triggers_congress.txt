@@ -1,0 +1,10 @@
+# Party Congress spine (see VIE_congress_spine_redesign.md). Parameterized helper trigger.
+
+########################################################################
+# Has Congress N already convened? Reads the scheduler flag directly (not an event flag),
+# so it also reads true in catch-up mode, where the Congress events never fire.
+# Usage: VIE_congress_started = { N = 12 }
+########################################################################
+VIE_congress_started = {
+	has_country_flag = VIE_sched_congress_$N$
+}

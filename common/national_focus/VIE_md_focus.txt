@@ -133,15 +133,13 @@ focus_tree = {
 		id = VIE_grassroots_democracy
 		icon = election2
 
-		x = -6
+		x = -138
 		y = 1
-		relative_position_id = VIE_anti_corruption_steering
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 5
 
-		available = {
-			has_completed_focus = VIE_doi_moi_continues
-		}
+		prerequisite = { focus = VIE_prepare_congress_9 }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -160,15 +158,14 @@ focus_tree = {
 		id = VIE_anti_corruption_steering
 		icon = blr_anti_corruption_law
 
-		x = -132
-		y = 1
+		x = -134
+		y = 6
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
-		available = {
-			has_completed_focus = VIE_doi_moi_continues
-		}
+		prerequisite = { focus = VIE_resolution_congress_10 }
+		prerequisite = { focus = VIE_anti_corruption_law }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -177,7 +174,6 @@ focus_tree = {
 			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
 			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
 			VIE_bop_conservative_small = yes
-			decrease_corruption = yes
 			add_stability = 0.02
 			set_temp_variable = { temp_opinion = -3 }
 			change_communist_cadres_opinion = yes
@@ -185,6 +181,328 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 80 }
+	}
+
+	###############################################################
+	## CONGRESS SPINE (see VIE_congress_spine_redesign.md section 4.2/4.3)
+	###############################################################
+	focus = {
+		id = VIE_prepare_congress_9
+		icon = legislative_palace
+
+		x = -132
+		y = 1
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_doi_moi_continues }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_prepare_congress_9"
+			add_political_power = 50
+		}
+
+		ai_will_do = { base = 90 }
+	}
+
+	focus = {
+		id = VIE_resolution_congress_9
+		icon = legislative_palace
+
+		x = -132
+		y = 2
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_prepare_congress_9 }
+
+		available = {
+			VIE_congress_started = { N = 9 }
+		}
+
+		bypass = {
+			OR = {
+				NOT = { VIE_party_rule_active = yes }
+				VIE_congress_started = { N = 10 }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_resolution_congress_9"
+			if = {
+				limit = { has_country_flag = VIE_congress9_phieu }
+				add_ideas = VIE_resolution_9_cons_idea
+			}
+			else = {
+				add_ideas = VIE_resolution_9_idea
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 4 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_resolution_congress_10
+		icon = legislative_palace
+
+		x = -132
+		y = 5
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_resolution_congress_9 }
+
+		available = {
+			VIE_congress_started = { N = 10 }
+		}
+
+		bypass = {
+			OR = {
+				NOT = { VIE_party_rule_active = yes }
+				VIE_congress_started = { N = 11 }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_resolution_congress_10"
+			add_ideas = VIE_resolution_10_idea
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 4 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_resolution_congress_11
+		icon = legislative_palace
+
+		x = -132
+		y = 8
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_resolution_congress_10 }
+
+		available = {
+			VIE_congress_started = { N = 11 }
+		}
+
+		bypass = {
+			OR = {
+				NOT = { VIE_party_rule_active = yes }
+				VIE_congress_started = { N = 12 }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_resolution_congress_11"
+			add_ideas = VIE_resolution_11_idea
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 4 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_resolution_congress_12
+		icon = legislative_palace
+
+		x = -132
+		y = 11
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_resolution_congress_11 }
+
+		available = {
+			VIE_congress_started = { N = 12 }
+		}
+
+		bypass = {
+			OR = {
+				NOT = { VIE_party_rule_active = yes }
+				VIE_congress_started = { N = 13 }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_resolution_congress_12"
+			if = {
+				limit = { has_country_flag = VIE_developmental_unlocked }
+				add_ideas = VIE_resolution_12_dev_idea
+			}
+			else = {
+				add_ideas = VIE_resolution_12_idea
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 4 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_resolution_congress_13
+		icon = legislative_palace
+
+		x = -132
+		y = 14
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_resolution_congress_12 }
+
+		available = {
+			VIE_congress_started = { N = 13 }
+		}
+
+		bypass = {
+			OR = {
+				NOT = { VIE_party_rule_active = yes }
+				VIE_congress_started = { N = 14 }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_resolution_congress_13"
+			add_ideas = VIE_resolution_13_idea
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 4 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_resolution_congress_14
+		icon = legislative_palace
+
+		x = -132
+		y = 17
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_resolution_congress_13 }
+
+		available = {
+			VIE_congress_started = { N = 14 }
+		}
+
+		bypass = {
+			OR = {
+				NOT = { VIE_party_rule_active = yes }
+				VIE_congress_started = { N = 15 }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_resolution_congress_14"
+			add_ideas = VIE_resolution_14_idea
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 4 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_party_members_private_business
+		icon = economic_privatisation
+
+		x = -136
+		y = 6
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 7
+
+		prerequisite = { focus = VIE_resolution_congress_10 }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_party_members_private_business"
+			VIE_bop_reform_small = yes
+			set_temp_variable = { temp_opinion = -2 }
+			change_communist_cadres_opinion = yes
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_platform_2011
+		icon = legislative_palace
+
+		x = -132
+		y = 9
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 7
+
+		prerequisite = { focus = VIE_resolution_congress_11 }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_platform_2011"
+			VIE_bop_conservative_small = yes
+			add_political_power = 50
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_tw4_party_building
+		icon = Generic_Political_Purge
+
+		x = -136
+		y = 9
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 7
+
+		prerequisite = { focus = VIE_resolution_congress_11 }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_tw4_party_building"
+			VIE_bop_conservative_small = yes
+		}
+
+		ai_will_do = { base = 70 }
 	}
 
 	###############################################################
@@ -218,22 +536,188 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_bilateral_trade_agreement_usa
-		icon = diplomatic_treaty
+		id = VIE_sez_three_zones
+		icon = economic_privatisation
 
-		x = -6
-		y = 1
+		x = 0
+		y = 5
 		relative_position_id = VIE_enterprise_law
 
 		cost = 7
 
 		prerequisite = { focus = VIE_enterprise_law }
+		available = {
+			date > 2017.9.30
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sez_three_zones"
+			add_political_power = -25
+			set_country_flag = VIE_sez_prepared
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_sez_postpone
+		icon = generic_political_reform
+
+		x = -2
+		y = 6
+		relative_position_id = VIE_enterprise_law
+
+		cost = 5
+
+		mutually_exclusive = { focus = VIE_sez_pass_99 }
+
+		prerequisite = { focus = VIE_enterprise_law }
+		available = {
+			date > 2018.5.31
+			OR = {
+				has_country_flag = VIE_sez_bill_debated
+				NOT = { VIE_party_rule_active = yes }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sez_postpone"
+			add_stability = 0.02
+			set_country_flag = VIE_sez_law_postponed
+		}
+
+		ai_will_do = { base = 70
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } } }
+	}
+
+	focus = {
+		id = VIE_sez_pass_99
+		icon = generic_political_reform
+
+		x = 2
+		y = 6
+		relative_position_id = VIE_enterprise_law
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_sez_postpone }
+
+		prerequisite = { focus = VIE_enterprise_law }
+		available = {
+			date > 2018.5.31
+			OR = {
+				has_country_flag = VIE_sez_bill_debated
+				NOT = { VIE_party_rule_active = yes }
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sez_pass_99"
+			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
+			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			VIE_ax_normalize = yes
+			add_ideas = VIE_sez_idea
+			add_timed_idea = { idea = VIE_sez_unrest_idea days = 180 }
+			set_country_flag = VIE_sez_law_passed
+			country_event = { id = vie_alt.8 days = 365 random_days = 90 }
+		}
+
+		ai_will_do = { base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes } }
+	}
+
+	focus = {
+		id = VIE_island_special_zones
+		icon = generic_civilian_economy
+
+		x = -2
+		y = 7
+		relative_position_id = VIE_enterprise_law
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sez_postpone }
+		available = {
+			OR = {
+				has_country_flag = VIE_two_tier_done
+				AND = {
+					date > 2025.6.30
+					NOT = { VIE_party_rule_active = yes }
+				}
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_island_special_zones"
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+			if = {
+				limit = { has_country_flag = VIE_sez_prepared }
+				set_temp_variable = { treasury_change = 1 }
+				modify_treasury_effect = yes
+			}
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_sez_strategic_investors
+		icon = asian_investment
+
+		x = 2
+		y = 7
+		relative_position_id = VIE_enterprise_law
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sez_pass_99 }
+		available = {
+			has_completed_focus = VIE_sez_pass_99
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sez_strategic_investors"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			VIE_ax_normalize = yes
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+			country_event = { id = vie_alt.25 days = 30 }
+			country_event = { id = vie_alt.26 days = 730 }
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_bilateral_trade_agreement_usa
+		icon = diplomatic_treaty
+
+		x = -45
+		y = 1
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 7
+
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			has_completed_focus = VIE_enterprise_law
 		}
 
-		search_filters = { FOCUS_FILTER_ECONOMY }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_bilateral_trade_agreement_usa"
@@ -271,6 +755,10 @@ focus_tree = {
 			set_temp_variable = { temp_opinion = -4 }
 			change_communist_cadres_opinion = yes
 			VIE_bop_reform_medium = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_11 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 75 }
@@ -280,9 +768,9 @@ focus_tree = {
 		id = VIE_fdi_attraction
 		icon = focus_generic_industry_investment
 
-		x = -2
+		x = -41
 		y = 2
-		relative_position_id = VIE_enterprise_law
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -292,7 +780,7 @@ focus_tree = {
 			has_completed_focus = VIE_bilateral_trade_agreement_usa
 		}
 
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_fdi_attraction"
@@ -325,15 +813,15 @@ focus_tree = {
 		id = VIE_wto_negotiations
 		icon = wto
 
-		x = -2
+		x = -41
 		y = 3
-		relative_position_id = VIE_enterprise_law
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
 		prerequisite = { focus = VIE_fdi_attraction }
 
-		search_filters = { FOCUS_FILTER_ECONOMY }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_wto_negotiations"
@@ -341,6 +829,10 @@ focus_tree = {
 			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
 			VIE_bop_reform_small = yes
 			set_country_flag = VIE_wto_talks
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_10 }
+				add_political_power = 25
+			}
 			if = {
 				limit = {
 					has_completed_focus = VIE_bilateral_trade_agreement_usa
@@ -370,9 +862,12 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_wto_negotiations }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
-		available = { date > 2007.12.31 }
+		available = {
+			date > 2007.12.31
+			has_completed_focus = VIE_wto_negotiations
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -557,13 +1052,13 @@ focus_tree = {
 		id = VIE_mass_mobilization
 		icon = election2
 
-		x = -4
-		y = 2
-		relative_position_id = VIE_anti_corruption_steering
+		x = -136
+		y = 1
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 5
 
-		prerequisite = { focus = VIE_grassroots_democracy }
+		prerequisite = { focus = VIE_prepare_congress_9 }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -585,16 +1080,14 @@ focus_tree = {
 		id = VIE_rule_of_law_state
 		icon = legislative_palace
 
-		x = 6
-		y = 2
-		relative_position_id = VIE_anti_corruption_steering
+		x = -126
+		y = 9
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
-		available = {
-			has_completed_focus = VIE_national_assembly_role
-			VIE_era_2011 = yes
-		}
+		prerequisite = { focus = VIE_resolution_congress_11 }
+		prerequisite = { focus = VIE_national_assembly_role }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -619,17 +1112,14 @@ focus_tree = {
 		id = VIE_party_discipline
 		icon = Generic_Political_Purge
 
-		x = -4
-		y = 4
-		relative_position_id = VIE_anti_corruption_steering
+		x = -136
+		y = 12
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
-		prerequisite = { focus = VIE_asset_declaration }
-
-		available = {
-			VIE_era_2016 = yes
-		}
+		prerequisite = { focus = VIE_resolution_congress_12 }
+		prerequisite = { focus = VIE_party_inspection }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -643,7 +1133,6 @@ focus_tree = {
 				change_communist_cadres_opinion = yes
 			}
 			add_to_variable = { VIE_ax_size = -1 tooltip = VIE_ax_size_tt }
-			decrease_corruption = yes
 			decrease_corruption = yes
 			add_ideas = VIE_party_discipline_idea
 			add_timed_idea = { idea = VIE_official_caution days = 730 }
@@ -660,16 +1149,17 @@ focus_tree = {
 		id = VIE_streamline_apparatus
 		icon = Election
 
-		x = 2
-		y = 4
-		relative_position_id = VIE_anti_corruption_steering
+		x = -130
+		y = 12
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
+		prerequisite = { focus = VIE_resolution_congress_12 }
 		prerequisite = { focus = VIE_decentralization }
 
 		available = {
-			VIE_era_2021 = yes
+			date > 2017.9.30
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -696,48 +1186,17 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_provincial_merger
-		icon = focus_generic_election
-
-		x = 2
-		y = 6
-		relative_position_id = VIE_anti_corruption_steering
-
-		cost = 7
-
-		prerequisite = { focus = VIE_merge_ministries }
-
-		available = {
-			date > 2024.12.31
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_provincial_merger"
-			decrease_centralization = yes
-			set_temp_variable = { desire_change = -0.5 }
-			change_expected_bureaucracy_spending = yes
-			add_to_variable = { VIE_ax_decent = -2 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_size = -2 tooltip = VIE_ax_size_tt }
-			VIE_bop_reform_small = yes
-			add_ideas = VIE_provincial_merger_idea
-		}
-
-		ai_will_do = { base = 70 }
-	}
-
-	focus = {
 		id = VIE_era_of_rising
 		icon = economic_prosperity2
 
-		x = 0
-		y = 9
-		relative_position_id = VIE_anti_corruption_steering
+		x = -132
+		y = 19
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
-		prerequisite = { focus = VIE_two_tier_local_gov focus = VIE_clean_cadres }
+		prerequisite = { focus = VIE_resolution_congress_14 }
+		prerequisite = { focus = VIE_clean_cadres }
 		prerequisite = { focus = VIE_concentration_of_power focus = VIE_institutional_opening }
 
 		available = {
@@ -770,6 +1229,7 @@ focus_tree = {
 
 		available = {
 			has_completed_focus = VIE_wto_negotiations
+			date > 2004.12.31
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -817,6 +1277,35 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_dung_quat_refinery
+		icon = economic_civil_industry
+
+		x = -10
+		y = 2
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 7
+
+		prerequisite = { focus = VIE_petrovietnam_expansion }
+
+		available = {
+			date > 2007.12.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_dung_quat_refinery"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			increase_economic_growth = yes
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
 		id = VIE_nghi_son_refinery
 		icon = economic_civil_industry
 
@@ -826,7 +1315,7 @@ focus_tree = {
 
 		cost = 10
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_dung_quat_refinery }
 
 		available = {
 			date > 2009.12.31
@@ -863,7 +1352,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_supporting_industries }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -887,6 +1376,37 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_shipbuilding_vinashin
+		icon = economic_civil_industry
+
+		x = 6
+		y = 1
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 7
+
+		prerequisite = { focus = VIE_doi_moi_continues }
+
+		available = {
+			date > 2004.12.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_shipbuilding_vinashin"
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			increase_economic_growth = yes
+			add_to_variable = { VIE_vinashin_risk = 2 }
+			custom_effect_tooltip = VIE_vinashin_risk_tt
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = { base = 55 }
+	}
+
+	focus = {
 		id = VIE_bauxite_tay_nguyen
 		icon = economic_privatisation
 
@@ -896,7 +1416,13 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_rare_earths }
+		prerequisite = { focus = VIE_petrovietnam_expansion }
+
+		mutually_exclusive = { focus = VIE_bauxite_suspend }
+
+		available = {
+			date > 2009.3.31
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -920,6 +1446,39 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_bauxite_suspend
+		icon = generic_political_reform
+
+		x = -16
+		y = 3
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_bauxite_tay_nguyen }
+
+		prerequisite = { focus = VIE_petrovietnam_expansion }
+		available = {
+			date > 2009.3.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_bauxite_suspend"
+			add_stability = 0.02
+			add_ideas = VIE_bauxite_environmental_idea
+			set_country_flag = VIE_bauxite_done
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+
+	focus = {
 		id = VIE_private_champions
 		icon = asian_investment
 
@@ -929,10 +1488,10 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_scic }
+		prerequisite = { focus = VIE_household_business }
 
 		available = {
-			VIE_era_2011 = yes
+			date > 2017.6.30
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -944,6 +1503,14 @@ focus_tree = {
 			VIE_bop_reform_small = yes
 			set_temp_variable = { treasury_change = 2 }
 			modify_treasury_effect = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_10 }
+				add_stability = 0.01
+			}
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_12 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 65 }
@@ -990,9 +1557,9 @@ focus_tree = {
 		id = VIE_cptpp_member
 		icon = diplomatic_treaty
 
-		x = -4
+		x = -43
 		y = 6
-		relative_position_id = VIE_enterprise_law
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -1002,7 +1569,7 @@ focus_tree = {
 			date > 2018.12.31
 		}
 
-		search_filters = { FOCUS_FILTER_ECONOMY }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_cptpp_member"
@@ -1028,9 +1595,9 @@ focus_tree = {
 		id = VIE_evfta
 		icon = accept_treaty
 
-		x = 0
+		x = -39
 		y = 6
-		relative_position_id = VIE_enterprise_law
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -1040,7 +1607,7 @@ focus_tree = {
 			date > 2020.7.31
 		}
 
-		search_filters = { FOCUS_FILTER_ECONOMY }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_evfta"
@@ -1100,23 +1667,24 @@ focus_tree = {
 		id = VIE_resolution_57_68
 		icon = economic_black_market
 
-		x = 4
-		y = 5
-		relative_position_id = VIE_anti_corruption_steering
+		x = -126
+		y = 15
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
-		prerequisite = { focus = VIE_streamline_apparatus }
+		prerequisite = { focus = VIE_resolution_congress_13 }
+		prerequisite = { focus = VIE_constitution_2013 }
 
 		available = {
-			date > 2025.5.31
+			date > 2025.4.29
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_resolution_57_68"
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
+			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
 			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
 			if = {
 				limit = { has_idea = communist_cadres }
@@ -1143,9 +1711,13 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_long_thanh_airport }
 		prerequisite = { focus = VIE_lao_cai_haiphong_rail }
+		prerequisite = { focus = VIE_hsr_2010_reject focus = VIE_hsr_2010_approve }
 
 		available = {
-			date > 2024.11.30
+			OR = {
+				date > 2024.11.30
+				has_country_flag = VIE_hsr_approved_2010
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
@@ -1168,6 +1740,68 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_hsr_2010_reject
+		icon = economic_blue_print
+
+		x = -2
+		y = 8
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 5
+
+		mutually_exclusive = { focus = VIE_hsr_2010_approve }
+
+		prerequisite = { focus = VIE_north_south_expressway }
+		available = {
+			date > 2010.4.30
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_hsr_2010_reject"
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
+	}
+
+	focus = {
+		id = VIE_hsr_2010_approve
+		icon = economic_blue_print
+
+		x = 2
+		y = 8
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_hsr_2010_reject }
+
+		prerequisite = { focus = VIE_north_south_expressway }
+		available = {
+			date > 2010.4.30
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_hsr_2010_approve"
+			add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 }
+			set_country_flag = VIE_hsr_approved_2010
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
 	}
 
 	focus = {
@@ -2129,7 +2763,11 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_doi_moi_continues }
+
+		available = {
+			date > 2008.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 
@@ -2187,7 +2825,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_cashless_payments }
+		prerequisite = { focus = VIE_internet_expansion }
 
 		available = {
 			date > 2019.12.31
@@ -2228,7 +2866,11 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_semiconductor_fab }
+		prerequisite = { focus = VIE_internet_expansion }
+
+		available = {
+			date > 2005.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -2304,229 +2946,19 @@ focus_tree = {
 		ai_will_do = { base = 65 }
 	}
 
-	focus = {
-		id = VIE_developmental_state
-		icon = focus_generic_improve_roads
 
-		x = -10
-		y = 28
-		relative_position_id = VIE_doi_moi_continues
 
-		cost = 7
 
-		mutually_exclusive = { focus = VIE_defend_the_foundation }
 
-		available = {
-			custom_trigger_tooltip = { tooltip = VIE_gate_merit_ge_4 check_variable = { VIE_ax_merit_norm > 3 } }
-			OR = {
-				has_country_flag = VIE_developmental_unlocked
-				VIE_bop_is_reformist = yes
-			}
-		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_developmental_state"
-			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
-			add_to_variable = { VIE_ax_merit = 3 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_ideas = VIE_developmental_state_idea
-			increase_economic_growth = yes
-			VIE_bop_reform_medium = yes
-		}
-
-		ai_will_do = {
-			base = 40
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_REFORM }
-		}
-	}
-
-	focus = {
-		id = VIE_technocrat_cabinet
-		icon = focus_generic_improve_the_administration
-
-		x = -4
-		y = 1
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_developmental_state }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_technocrat_cabinet"
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = 3 tooltip = VIE_ax_merit_tt }
-			add_ideas = VIE_technocrat_cabinet_idea
-			set_temp_variable = { temp_opinion = -5 }
-			change_communist_cadres_opinion = yes
-		}
-
-		ai_will_do = {
-			base = 40
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_REFORM }
-		}
-	}
-
-	focus = {
-		id = VIE_intra_party_elections
-		icon = focus_generic_conspiracy
-
-		x = 0
-		y = 1
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_developmental_state }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_intra_party_elections"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_ideas = VIE_intra_party_elections_idea
-			add_political_power = -50
-			VIE_bop_reform_small = yes
-		}
-
-		ai_will_do = {
-			base = 40
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_REFORM }
-		}
-	}
-
-	focus = {
-		id = VIE_press_relaxation
-		icon = communist_purge
-
-		x = 4
-		y = 1
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_developmental_state }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_press_relaxation"
-			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 3 tooltip = VIE_ax_civil_tt }
-			add_ideas = VIE_press_relaxation_idea
-			add_political_power = 75
-			VIE_bop_reform_small = yes
-			set_country_flag = VIE_press_relaxed
-		}
-
-		ai_will_do = {
-			base = 35
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_REFORM }
-		}
-	}
-
-	focus = {
-		id = VIE_environmental_accountability
-		icon = focus_generic_currency_reforms
-
-		x = 8
-		y = 1
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_developmental_state }
-
-		available = {
-			VIE_formosa_open_tt = yes
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_environmental_accountability"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_ideas = VIE_environmental_idea
-			add_opinion_modifier = { target = GER modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = GER modifier = VIE_trade_agreement }
-			add_opinion_modifier = { target = FRA modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = FRA modifier = VIE_trade_agreement }
-		}
-
-		ai_will_do = {
-			base = 40
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_REFORM }
-		}
-	}
-
-	focus = {
-		id = VIE_managed_pluralism
-		icon = focus_generic_education
-
-		x = 2
-		y = 6
-		relative_position_id = VIE_developmental_state
-
-		cost = 10
-
-		prerequisite = { focus = VIE_loyal_opposition }
-		prerequisite = { focus = VIE_revive_democratic_party }
-		prerequisite = { focus = VIE_revive_socialist_party }
-
-		available = {
-			VIE_d2_open_tt = yes
-			has_completed_focus = VIE_intra_party_elections
-			# Slater & Wong (2013): concession from strength requires meritocratic capacity,
-			# relaxed repression, and genuine horizontal accountability.
-			custom_trigger_tooltip = { tooltip = VIE_gate_merit_ge_7 check_variable = { VIE_ax_merit_norm > 6 } }
-			custom_trigger_tooltip = { tooltip = VIE_gate_civil_ge_m6 check_variable = { VIE_ax_civil_norm > -7 } }
-			custom_trigger_tooltip = { tooltip = VIE_gate_checks_ge_5 check_variable = { VIE_ax_checks_norm > 4 } }
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_managed_pluralism"
-			add_to_variable = { VIE_ax_checks = 3 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 2 tooltip = VIE_ax_civil_tt }
-			add_ideas = VIE_managed_pluralism_idea
-			add_stability = -0.03
-			set_country_flag = VIE_managed_pluralism_active
-			set_country_flag = VIE_democracy_path_open
-		}
-
-		ai_will_do = {
-			base = 15
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_REFORM }
-		}
-	}
 
 	focus = {
 		id = VIE_round_table_talks
 		icon = align_to_asean
 
-		x = 4
-		y = 3
-		relative_position_id = VIE_developmental_state
+		x = -6
+		y = 31
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -2582,9 +3014,9 @@ focus_tree = {
 		id = VIE_legalize_parties
 		icon = focus_generic_democratic_asia
 
-		x = 4
-		y = 5
-		relative_position_id = VIE_developmental_state
+		x = -6
+		y = 33
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -2626,9 +3058,9 @@ focus_tree = {
 		id = VIE_new_constitution
 		icon = focus_generic_communist_asia
 
-		x = 0
-		y = 5
-		relative_position_id = VIE_developmental_state
+		x = -10
+		y = 33
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
@@ -2654,9 +3086,9 @@ focus_tree = {
 		id = VIE_first_free_election
 		icon = elections_01
 
-		x = 4
-		y = 6
-		relative_position_id = VIE_developmental_state
+		x = -6
+		y = 34
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
@@ -2684,9 +3116,9 @@ focus_tree = {
 		id = VIE_consolidate_democracy
 		icon = elections4
 
-		x = 4
-		y = 7
-		relative_position_id = VIE_developmental_state
+		x = -6
+		y = 35
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
@@ -2720,141 +3152,9 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = VIE_defend_the_foundation
-		icon = election3
 
-		x = -70
-		y = 28
-		relative_position_id = VIE_doi_moi_continues
 
-		cost = 7
 
-		mutually_exclusive = { focus = VIE_developmental_state }
-		mutually_exclusive = { focus = VIE_front_coalition }
-
-		available = {
-			OR = {
-				check_variable = { ruling_party = 4 }
-				AND = {
-					custom_trigger_tooltip = { tooltip = VIE_gate_market_le_m2 check_variable = { VIE_ax_market_norm < -1 } }
-					custom_trigger_tooltip = { tooltip = VIE_gate_integ_le_3 check_variable = { VIE_ax_integ_norm < 4 } }
-					OR = { has_country_flag = VIE_conservative_unlocked VIE_bop_is_hardline = yes }
-				}
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_defend_the_foundation"
-			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			if = {
-				limit = { NOT = { check_variable = { ruling_party = 4 } } }
-				set_temp_variable = { party_index = 4 }
-				set_temp_variable = { party_popularity_increase = 0.15 }
-				set_temp_variable = { temp_outlook_increase = 0.15 }
-				hidden_effect = { change_relative_party_popularity = yes }
-				set_temp_variable = { rul_party_temp = 4 }
-				VIE_transition_regime = yes
-			}
-			add_ideas = VIE_hardline_idea
-			add_stability = 0.03
-			VIE_bop_conservative_medium = yes
-		}
-
-		ai_will_do = {
-			base = 40
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
-		}
-	}
-
-	focus = {
-		id = VIE_state_sector_leading
-		icon = focus_generic_industrialists
-
-		x = 0
-		y = 1
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_defend_the_foundation }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_state_sector_leading"
-			add_to_variable = { VIE_ax_market = -3 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_state_sector_idea
-			set_temp_variable = { temp_opinion = 5 }
-			change_communist_cadres_opinion = yes
-		}
-
-		ai_will_do = {
-			base = 40
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
-		}
-	}
-
-	focus = {
-		id = VIE_self_reliance
-		icon = focus_generic_communist_industry
-
-		x = 4
-		y = 1
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_defend_the_foundation }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_self_reliance"
-			add_to_variable = { VIE_ax_integ = -3 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_self_reliance_idea
-		}
-
-		ai_will_do = {
-			base = 40
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
-		}
-	}
-
-	focus = {
-		id = VIE_nationalize_foreign_assets
-		icon = focus_generic_agricultural_subsidies
-
-		x = 0
-		y = 2
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 10
-
-		prerequisite = { focus = VIE_state_sector_leading }
-		prerequisite = { focus = VIE_self_reliance }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_nationalize_foreign_assets"
-			add_to_variable = { VIE_ax_integ = -3 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = -3 tooltip = VIE_ax_market_tt }
-			country_event = { id = vie_alt.4 days = 3 }
-		}
-
-		ai_will_do = {
-			base = 10
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
-	}
 
 	focus = {
 		id = VIE_accept_chinese_influence
@@ -3157,208 +3457,11 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = VIE_tc_strategic_autonomy
-		icon = diplomatic_treaty
 
-		x = 10
-		y = 0
-		relative_position_id = VIE_defend_the_foundation
 
-		cost = 7
 
-		available = {
-			custom_trigger_tooltip = { tooltip = VIE_gate_integ_le_4 check_variable = { VIE_ax_integ_norm < 5 } }
-			custom_trigger_tooltip = { tooltip = VIE_gate_west_le_4 check_variable = { VIE_ax_west_norm < 5 } }
-			has_country_flag = VIE_tc_unlocked
-		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_strategic_autonomy"
-			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
-			add_ideas = VIE_tc_autonomy_idea
-			VIE_bop_conservative_small = yes
-			set_country_flag = VIE_tc_active
-			add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
-			reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
-			country_event = { id = vie_int.1 days = 40 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_decouple_supply
-		icon = economic_civil_industry
-
-		x = 8
-		y = 1
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 10
-
-		prerequisite = { focus = VIE_tc_strategic_autonomy }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_decouple_supply"
-			add_to_variable = { VIE_ax_integ = -3 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_tc_decoupling_idea
-			country_event = { id = vie_alt.10 days = 180 random_days = 120 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_self_management
-		icon = economic_privatisation
-
-		x = 10
-		y = 1
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_strategic_autonomy }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_self_management"
-			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_tc_self_management_idea
-			VIE_bop_reform_medium = yes
-			set_temp_variable = { temp_opinion = -6 }
-			change_communist_cadres_opinion = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_russia_india_axis
-		icon = accept_treaty
-
-		x = 12
-		y = 1
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_strategic_autonomy }
-
-		search_filters = { FOCUS_FILTER_ARMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_russia_india_axis"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = -2 tooltip = VIE_ax_west_tt }
-			add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
-			reverse_add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
-			add_opinion_modifier = { target = RAJ modifier = VIE_arms_deal }
-			reverse_add_opinion_modifier = { target = RAJ modifier = VIE_arms_deal }
-			add_tech_bonus = {
-				name = VIE_tc_russia_india_axis
-				category = CAT_armor
-				category = CAT_missile
-				uses = 1
-				bonus = 0.5
-			}
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_global_south
-		icon = diplomatic_treaty
-
-		x = 10
-		y = 2
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_strategic_autonomy }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_global_south"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = -1 tooltip = VIE_ax_west_tt }
-			add_ideas = VIE_tc_global_south_idea
-			add_political_power = 75
-			add_opinion_modifier = { target = SIN modifier = VIE_asean_cooperation }
-			reverse_add_opinion_modifier = { target = SIN modifier = VIE_asean_cooperation }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_armed_neutrality
-		icon = focus_generic_sway_navy
-
-		x = 14
-		y = 3
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 10
-
-		prerequisite = { focus = VIE_tc_russia_india_axis }
-		prerequisite = { focus = VIE_tc_global_south }
-
-		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_armed_neutrality"
-			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
-			add_ideas = VIE_tc_armed_neutrality_idea
-			army_experience = 25
-			navy_experience = 15
-			country_event = { id = vie_alt.11 days = 730 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
 
 	focus = {
 		id = VIE_sec_cyber_control
@@ -3471,659 +3574,34 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = VIE_lb_sez_law
-		icon = asian_investment
 
-		x = 76
-		y = 28
-		relative_position_id = VIE_doi_moi_continues
 
-		cost = 7
 
-		available = {
-			OR = {
-				check_variable = { ruling_party = 16 }
-				AND = {
-					custom_trigger_tooltip = { tooltip = VIE_gate_market_ge_5 check_variable = { VIE_ax_market_norm > 4 } }
-					custom_trigger_tooltip = { tooltip = VIE_gate_decent_ge_3 check_variable = { VIE_ax_decent_norm > 2 } }
-					has_country_flag = VIE_sez_unlocked
-				}
-			}
-		}
 
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_sez_law"
-			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_market = 3 tooltip = VIE_ax_market_tt }
-			if = {
-				limit = { NOT = { check_variable = { ruling_party = 16 } } }
-				set_temp_variable = { party_index = 16 }
-				set_temp_variable = { party_popularity_increase = 0.15 }
-				set_temp_variable = { temp_outlook_increase = 0.15 }
-				hidden_effect = { change_relative_party_popularity = yes }
-				set_temp_variable = { rul_party_temp = 16 }
-				VIE_transition_regime = yes
-			}
-			add_ideas = VIE_sez_idea
-			524 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			519 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			518 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			set_country_flag = VIE_sez_active
-		}
 
-		ai_will_do = {
-			base = 15
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
 
-	focus = {
-		id = VIE_lb_99_year_leases
-		icon = economic_privatisation
 
-		x = -4
-		y = 1
-		relative_position_id = VIE_lb_sez_law
 
-		cost = 7
 
-		prerequisite = { focus = VIE_lb_sez_law }
 
-		search_filters = { FOCUS_FILTER_ECONOMY }
 
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_99_year_leases"
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_leases_idea
-			set_temp_variable = { treasury_change = 3 }
-			modify_treasury_effect = yes
-			set_country_flag = VIE_lb_leases_done
-			set_variable = { VIE_sez_share = 10 }
-			country_event = { id = vie_alt.8 days = 365 random_days = 60 }
-		}
 
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
 
-	focus = {
-		id = VIE_lb_common_law_courts
-		icon = legislative_palace
 
-		x = 0
-		y = 1
-		relative_position_id = VIE_lb_sez_law
 
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_sez_law }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_common_law_courts"
-			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_courts_idea
-			add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
-			add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement }
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_flat_tax
-		icon = economic_privatisation
-
-		x = 4
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 5
-
-		prerequisite = { focus = VIE_lb_sez_law }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_flat_tax"
-			add_to_variable = { VIE_ax_market = 3 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_flat_tax_idea
-			VIE_bop_reform_small = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_expand_zones
-		icon = asian_investment
-
-		x = 0
-		y = 2
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_99_year_leases }
-		prerequisite = { focus = VIE_lb_common_law_courts }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_expand_zones"
-			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_expanded_zones_idea
-			add_to_variable = { VIE_sez_share = 8 }
-			521 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_charter_state
-		icon = economic_prosperity2
-
-		x = 2
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 10
-
-		prerequisite = { focus = VIE_lb_flat_tax }
-		prerequisite = { focus = VIE_lb_expand_zones }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_charter_state"
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_decent = 3 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_market = 3 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_charter_state_idea
-			increase_economic_growth = yes
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_bailout
-		icon = economic_banks
-
-		x = 10
-		y = 0
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		available = {
-			OR = {
-				check_variable = { ruling_party = 15 }
-				AND = {
-					custom_trigger_tooltip = { tooltip = VIE_gate_merit_le_2 check_variable = { VIE_ax_merit_norm < 3 } }
-					custom_trigger_tooltip = { tooltip = VIE_gate_market_ge_3 check_variable = { VIE_ax_market_norm > 2 } }
-					has_country_flag = VIE_oligarch_unlocked
-				}
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_bailout"
-			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
-			add_to_variable = { VIE_ax_merit = -2 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { NOT = { check_variable = { ruling_party = 15 } } }
-				set_temp_variable = { party_index = 15 }
-				set_temp_variable = { party_popularity_increase = 0.15 }
-				set_temp_variable = { temp_outlook_increase = 0.15 }
-				hidden_effect = { change_relative_party_popularity = yes }
-				set_temp_variable = { rul_party_temp = 15 }
-				VIE_transition_regime = yes
-			}
-			add_ideas = VIE_bailout_idea
-			add_stability = 0.02
-			set_temp_variable = { treasury_change = -3 }
-			modify_treasury_effect = yes
-			set_country_flag = VIE_oligarch_active
-		}
-
-		ai_will_do = {
-			base = 15
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_conglomerate_council
-		icon = economic_banks
-
-		x = 8
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_ol_bailout }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_conglomerate_council"
-			add_to_variable = { VIE_ax_checks = -3 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
-			add_ideas = VIE_conglomerate_council_idea
-			increase_corruption = yes
-			VIE_oli_conglomerate_medium = yes
-			set_temp_variable = { temp_opinion = 10 }
-			change_industrial_conglomerates_opinion = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_media_ownership
-		icon = Generic_Political_Purge
-
-		x = 10
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_ol_bailout }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_media_ownership"
-			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_ideas = VIE_media_ownership_idea
-			VIE_oli_conglomerate_medium = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_real_estate_boom
-		icon = economic_prosperity2
-
-		x = 12
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_ol_bailout }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_real_estate_boom"
-			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
-			add_to_variable = { VIE_ax_merit = -1 tooltip = VIE_ax_merit_tt }
-			add_ideas = VIE_real_estate_boom_idea
-			set_variable = { VIE_bubble = 0 }
-			set_variable = { VIE_bubble_cools = 0 }
-			custom_effect_tooltip = VIE_bubble_tt
-			increase_economic_growth = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_reform_from_within
-		icon = Election
-
-		x = 10
-		y = 2
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 10
-
-		prerequisite = { focus = VIE_ol_bailout }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_reform_from_within"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_ideas = VIE_oligarch_reform_idea
-			VIE_oli_public_large = yes
-			decrease_corruption = yes
-			set_temp_variable = { treasury_change = -3 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_development_council
-		icon = economic_prosperity2
-
-		x = 20
-		y = 0
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 10
-
-		available = {
-			OR = {
-				check_variable = { ruling_party = 0 }
-				AND = {
-					custom_trigger_tooltip = { tooltip = VIE_gate_west_ge_6 check_variable = { VIE_ax_west_norm > 5 } }
-					custom_trigger_tooltip = { tooltip = VIE_gate_merit_ge_5 check_variable = { VIE_ax_merit_norm > 4 } }
-					custom_trigger_tooltip = { tooltip = VIE_gate_checks_le_m4 check_variable = { VIE_ax_checks_norm < -3 } }
-					OR = { has_country_flag = VIE_wa_unlocked check_variable = { ruling_party = 7 } check_variable = { ruling_party = 22 } }
-				}
-			}
-			has_completed_focus = VIE_pivot_to_the_west
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_development_council"
-			add_to_variable = { VIE_ax_checks = -3 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			if = {
-				limit = { NOT = { check_variable = { ruling_party = 0 } } }
-				set_temp_variable = { party_index = 0 }
-				set_temp_variable = { party_popularity_increase = 0.2 }
-				set_temp_variable = { temp_outlook_increase = 0.2 }
-				hidden_effect = { change_relative_party_popularity = yes }
-				set_temp_variable = { rul_party_temp = 0 }
-				VIE_transition_regime = yes
-			}
-			add_ideas = VIE_wa_council_idea
-			country_event = { id = vie_int.3 days = 60 }
-		}
-
-		ai_will_do = {
-			base = 10
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_us_alliance
-		icon = accept_treaty
-
-		x = 20
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_development_council }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_us_alliance"
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = 3 tooltip = VIE_ax_west_tt }
-			add_opinion_modifier = { target = USA modifier = VIE_western_pivot }
-			reverse_add_opinion_modifier = { target = USA modifier = VIE_western_pivot }
-			if = {
-				limit = { country_exists = USA USA = { is_faction_leader = yes } }
-				USA = { add_to_faction = ROOT }
-			}
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_national_champions
-		icon = asian_investment
-
-		x = 22
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_development_council }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_national_champions"
-			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_ideas = VIE_wa_champions_idea
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_export_drive
-		icon = trade_with_asean
-
-		x = 24
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_development_council }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_export_drive"
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_wa_export_idea
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_heavy_industry
-		icon = economic_civil_industry
-
-		x = 20
-		y = 2
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 10
-
-		prerequisite = { focus = VIE_wa_national_champions }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_heavy_industry"
-			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_wa_heavy_idea
-			521 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_suppress_labor
-		icon = communist_purge
-
-		x = 22
-		y = 2
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 5
-
-		prerequisite = { focus = VIE_wa_export_drive }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_suppress_labor"
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			add_ideas = VIE_wa_labor_idea
-			set_country_flag = VIE_wa_labor_repressed
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
 
 	focus = {
 		id = VIE_national_assembly_role
 		icon = Election
 
-		x = -6
-		y = 2
-		relative_position_id = VIE_anti_corruption_steering
+		x = -138
+		y = 3
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 5
 
+		prerequisite = { focus = VIE_resolution_congress_9 }
 		prerequisite = { focus = VIE_grassroots_democracy }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -4144,13 +3622,13 @@ focus_tree = {
 		id = VIE_ethnic_policy
 		icon = focus_generic_land_redistribution
 
-		x = -8
-		y = 2
-		relative_position_id = VIE_anti_corruption_steering
+		x = -140
+		y = 3
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 5
 
-		prerequisite = { focus = VIE_grassroots_democracy }
+		prerequisite = { focus = VIE_resolution_congress_9 }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -4171,15 +3649,15 @@ focus_tree = {
 		id = VIE_constitution_2013
 		icon = legislative_palace
 
-		x = 6
-		y = 3
-		relative_position_id = VIE_anti_corruption_steering
+		x = -126
+		y = 10
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
 		prerequisite = { focus = VIE_rule_of_law_state }
 		available = {
-			date > 2013.10.31
+			VIE_constitution_2013_adopted = yes
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
@@ -4199,12 +3677,13 @@ focus_tree = {
 		id = VIE_cybersecurity_law
 		icon = army_cyberwar
 
-		x = 6
-		y = 4
-		relative_position_id = VIE_anti_corruption_steering
+		x = -126
+		y = 12
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
+		prerequisite = { focus = VIE_resolution_congress_12 }
 		prerequisite = { focus = VIE_constitution_2013 }
 
 		available = {
@@ -4232,13 +3711,14 @@ focus_tree = {
 		id = VIE_anti_corruption_law
 		icon = blr_anti_corruption_law
 
-		x = -2
-		y = 1
-		relative_position_id = VIE_anti_corruption_steering
+		x = -134
+		y = 4
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
-		prerequisite = { focus = VIE_anti_corruption_steering }
+		prerequisite = { focus = VIE_resolution_congress_9 }
+		prerequisite = { focus = VIE_state_audit }
 
 		available = {
 			date > 2005.6.30
@@ -4267,13 +3747,13 @@ focus_tree = {
 		id = VIE_asset_declaration
 		icon = investigation
 
-		x = -4
-		y = 3
-		relative_position_id = VIE_anti_corruption_steering
+		x = -134
+		y = 7
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 5
 
-		prerequisite = { focus = VIE_anti_corruption_law }
+		prerequisite = { focus = VIE_anti_corruption_steering }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -4281,7 +3761,6 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_asset_declaration"
 			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
 			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
-			decrease_corruption = yes
 			VIE_bop_reform_small = yes
 			set_temp_variable = { temp_opinion = -4 }
 			change_communist_cadres_opinion = yes
@@ -4294,13 +3773,13 @@ focus_tree = {
 		id = VIE_state_audit
 		icon = focus_generic_financial_agreement
 
-		x = -2
+		x = -134
 		y = 3
-		relative_position_id = VIE_anti_corruption_steering
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 5
 
-		prerequisite = { focus = VIE_anti_corruption_law }
+		prerequisite = { focus = VIE_resolution_congress_9 }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
 
@@ -4313,7 +3792,6 @@ focus_tree = {
 				set_temp_variable = { temp_opinion = -1 }
 				change_communist_cadres_opinion = yes
 			}
-			decrease_corruption = yes
 			VIE_bop_reform_small = yes
 			set_temp_variable = { treasury_change = 1 }
 			modify_treasury_effect = yes
@@ -4327,13 +3805,13 @@ focus_tree = {
 		id = VIE_party_inspection
 		icon = Generic_Political_Purge
 
-		x = -4
-		y = 5
-		relative_position_id = VIE_anti_corruption_steering
+		x = -136
+		y = 10
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
-		prerequisite = { focus = VIE_party_discipline }
+		prerequisite = { focus = VIE_tw4_party_building }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -4341,7 +3819,6 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_party_inspection"
 			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
 			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			decrease_corruption = yes
 			VIE_bop_conservative_small = yes
 			add_political_power = 50
 			set_country_flag = VIE_inspection_strong
@@ -4356,9 +3833,9 @@ focus_tree = {
 		id = VIE_asset_recovery
 		icon = money
 
-		x = -2
-		y = 5
-		relative_position_id = VIE_anti_corruption_steering
+		x = -134
+		y = 13
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -4370,7 +3847,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_asset_recovery"
 			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			decrease_corruption = yes
 			VIE_bop_conservative_small = yes
 			set_temp_variable = { treasury_change = 3 }
 			modify_treasury_effect = yes
@@ -4386,13 +3862,13 @@ focus_tree = {
 		id = VIE_clean_cadres
 		icon = focus_generic_freedom_council
 
-		x = -2
-		y = 6
-		relative_position_id = VIE_anti_corruption_steering
+		x = -136
+		y = 13
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
-		prerequisite = { focus = VIE_party_inspection }
+		prerequisite = { focus = VIE_party_discipline }
 		prerequisite = { focus = VIE_asset_recovery }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
@@ -4407,7 +3883,6 @@ focus_tree = {
 			}
 			VIE_bop_conservative_small = yes
 			add_ideas = VIE_clean_cadres_idea
-			decrease_corruption = yes
 		}
 
 		ai_will_do = { base = 70 }
@@ -4417,13 +3892,13 @@ focus_tree = {
 		id = VIE_public_admin_reform
 		icon = Decentralization
 
-		x = 2
-		y = 1
-		relative_position_id = VIE_anti_corruption_steering
+		x = -130
+		y = 3
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
-		prerequisite = { focus = VIE_anti_corruption_steering }
+		prerequisite = { focus = VIE_resolution_congress_9 }
 
 		available = {
 			date > 2001.12.31
@@ -4454,9 +3929,9 @@ focus_tree = {
 		id = VIE_decentralization
 		icon = decentralized_economy
 
-		x = 2
-		y = 3
-		relative_position_id = VIE_anti_corruption_steering
+		x = -130
+		y = 4
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -4479,13 +3954,14 @@ focus_tree = {
 		id = VIE_e_government
 		icon = economic_sciencer
 
-		x = 4
-		y = 3
-		relative_position_id = VIE_anti_corruption_steering
+		x = -130
+		y = 15
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
-		prerequisite = { focus = VIE_public_admin_reform }
+		prerequisite = { focus = VIE_resolution_congress_13 }
+		prerequisite = { focus = VIE_streamline_apparatus }
 
 		available = {
 			has_completed_focus = VIE_national_digital_transformation
@@ -4515,79 +3991,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_merge_ministries
-		icon = legislative_palace
-
-		x = 2
-		y = 5
-		relative_position_id = VIE_anti_corruption_steering
-
-		cost = 7
-
-		prerequisite = { focus = VIE_streamline_apparatus }
-
-		available = {
-			date > 2024.12.31
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_merge_ministries"
-			decrease_centralization = yes
-			set_temp_variable = { desire_change = -0.5 }
-			change_expected_bureaucracy_spending = yes
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_size = -2 tooltip = VIE_ax_size_tt }
-			VIE_bop_reform_small = yes
-			add_political_power = 50
-			set_temp_variable = { treasury_change = 1 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = { base = 70 }
-	}
-
-	focus = {
-		id = VIE_two_tier_local_gov
-		icon = Decentralization
-
-		x = 2
-		y = 7
-		relative_position_id = VIE_anti_corruption_steering
-
-		cost = 10
-
-		prerequisite = { focus = VIE_provincial_merger }
-
-		available = {
-			date > 2025.6.30
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_two_tier_local_gov"
-			decrease_centralization = yes
-			set_temp_variable = { desire_change = -0.5 }
-			change_expected_bureaucracy_spending = yes
-			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_size = -2 tooltip = VIE_ax_size_tt }
-			VIE_bop_reform_small = yes
-			add_ideas = VIE_two_tier_gov_idea
-		}
-
-		ai_will_do = { base = 70 }
-	}
-
-	focus = {
 		id = VIE_institutional_bottlenecks
 		icon = focus_generic_improve_the_administration
 
-		x = 4
-		y = 6
-		relative_position_id = VIE_anti_corruption_steering
+		x = -126
+		y = 16
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -4617,9 +4026,9 @@ focus_tree = {
 		id = VIE_party_centennial_2030
 		icon = legislative_palace
 
-		x = 0
-		y = 10
-		relative_position_id = VIE_anti_corruption_steering
+		x = -132
+		y = 20
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -4683,6 +4092,97 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_gold_monopoly_2012
+		icon = economic_banks
+
+		x = -2
+		y = 7
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 5
+
+		mutually_exclusive = { focus = VIE_gold_free_market }
+
+		prerequisite = { focus = VIE_state_bank_modernization }
+		available = {
+			date > 2012.3.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_gold_monopoly_2012"
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
+	}
+
+	focus = {
+		id = VIE_gold_free_market
+		icon = economic_banks
+
+		x = 2
+		y = 7
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_gold_monopoly_2012 }
+
+		prerequisite = { focus = VIE_state_bank_modernization }
+		available = {
+			date > 2012.3.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_gold_free_market"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			VIE_ax_normalize = yes
+			add_timed_idea = { idea = VIE_gold_pressure_idea days = 365 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_gold_monopoly_lifted
+		icon = economic_banks
+
+		x = -2
+		y = 8
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 5
+
+		prerequisite = { focus = VIE_gold_monopoly_2012 }
+		available = {
+			date > 2025.8.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_gold_monopoly_lifted"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			VIE_ax_normalize = yes
+		}
+
+		ai_will_do = {
+			base = 65
+		}
 	}
 
 	focus = {
@@ -4752,6 +4252,10 @@ focus_tree = {
 			modify_treasury_effect = yes
 			VIE_bop_reform_small = yes
 			increase_economic_growth = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_11 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 70 }
@@ -4791,6 +4295,107 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_zero_dong_acquisition
+		icon = generic_banks
+
+		x = 6
+		y = 7
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_bank_bankruptcy }
+
+		prerequisite = { focus = VIE_vamc }
+		available = {
+			date > 2014.12.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_zero_dong_acquisition"
+			add_stability = 0.02
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
+	}
+
+	focus = {
+		id = VIE_bank_bankruptcy
+		icon = generic_banks
+
+		x = 10
+		y = 7
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_zero_dong_acquisition }
+
+		prerequisite = { focus = VIE_vamc }
+		available = {
+			date > 2014.12.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_bank_bankruptcy"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			VIE_ax_normalize = yes
+			if = {
+				limit = { has_completed_focus = VIE_deposit_insurance }
+				add_stability = -0.025
+				add_timed_idea = { idea = VIE_deposit_confidence_idea days = 180 }
+			}
+			else = {
+				add_stability = -0.05
+				add_timed_idea = { idea = VIE_deposit_confidence_idea days = 365 }
+			}
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_compulsory_transfer_2024
+		icon = generic_banks
+
+		x = 6
+		y = 8
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_zero_dong_acquisition }
+		available = {
+			date > 2024.9.30
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_compulsory_transfer_2024"
+			add_stability = 0.01
+			decrease_corruption = yes
+		}
+
+		ai_will_do = {
+			base = 65
+		}
 	}
 
 	focus = {
@@ -4865,7 +4470,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_vamc }
+		prerequisite = { focus = VIE_hose_exchange }
 
 		available = {
 			date > 2022.10.31
@@ -4986,7 +4591,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_enterprise_law }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -5221,7 +4826,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 
@@ -5346,7 +4951,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -5369,6 +4974,70 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_hanoi_expansion_2008
+		icon = generic_housing
+
+		x = 2
+		y = 5
+		relative_position_id = VIE_education_reform
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_hanoi_keep_boundaries }
+
+		prerequisite = { focus = VIE_urbanization }
+		available = {
+			date > 2008.4.30
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_hanoi_expansion_2008"
+			add_timed_idea = { idea = VIE_reorg_disruption days = 180 }
+			set_country_flag = VIE_hanoi_expanded
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
+	}
+
+	focus = {
+		id = VIE_hanoi_keep_boundaries
+		icon = generic_housing
+
+		x = 6
+		y = 5
+		relative_position_id = VIE_education_reform
+
+		cost = 5
+
+		mutually_exclusive = { focus = VIE_hanoi_expansion_2008 }
+
+		prerequisite = { focus = VIE_urbanization }
+		available = {
+			date > 2008.4.30
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_hanoi_keep_boundaries"
+			add_stability = 0.01
+			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
+			VIE_ax_normalize = yes
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+
+	focus = {
 		id = VIE_labor_code_2019
 		icon = labor_unions
 
@@ -5378,7 +5047,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_urbanization }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2019.11.30
@@ -5393,6 +5062,11 @@ focus_tree = {
 			add_stability = 0.02
 			set_country_flag = VIE_labor_code
 			VIE_bop_reform_small = yes
+			if = {
+				limit = { has_country_flag = VIE_labor_convention_ratified }
+				add_to_variable = { VIE_ax_west = 1 tooltip = VIE_ax_west_tt }
+				VIE_ax_normalize = yes
+			}
 		}
 
 		ai_will_do = { base = 60 }
@@ -5408,7 +5082,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_urbanization }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2014.12.31
@@ -5642,7 +5316,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_enterprise_law }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2000.6.30
@@ -5694,9 +5368,9 @@ focus_tree = {
 		id = VIE_wto_reforms
 		icon = diplomatic_treaty
 
-		x = -2
+		x = -41
 		y = 4
-		relative_position_id = VIE_enterprise_law
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -5706,7 +5380,7 @@ focus_tree = {
 			has_completed_focus = VIE_investment_law_2005
 		}
 
-		search_filters = { FOCUS_FILTER_ECONOMY }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_wto_reforms"
@@ -5730,9 +5404,9 @@ focus_tree = {
 		id = VIE_export_powerhouse
 		icon = trade_with_asean
 
-		x = -2
+		x = -41
 		y = 5
-		relative_position_id = VIE_enterprise_law
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
@@ -5742,7 +5416,7 @@ focus_tree = {
 			has_completed_focus = VIE_cptpp_member
 		}
 
-		search_filters = { FOCUS_FILTER_ECONOMY }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_export_powerhouse"
@@ -6234,7 +5908,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_supporting_industries }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2010.12.31
@@ -6383,7 +6057,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_hoa_phat_hrc_steel }
+		prerequisite = { focus = VIE_supporting_industries }
 
 		available = {
 			date > 2018.12.31
@@ -6419,7 +6093,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_intel_hcmc }
+		prerequisite = { focus = VIE_supporting_industries }
 
 		available = {
 			date > 2014.12.31
@@ -6496,6 +6170,7 @@ focus_tree = {
 
 		available = {
 			date > 2021.12.31
+			has_completed_focus = VIE_power_plan_8
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
@@ -6609,6 +6284,82 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_soe_gradual_restructuring
+		icon = focus_generic_court
+
+		x = -6
+		y = 7
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 5
+
+		mutually_exclusive = { focus = VIE_soe_rapid_divestment }
+
+		prerequisite = { focus = VIE_scic }
+		available = {
+			date > 2017.5.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_soe_gradual_restructuring"
+			add_political_power = 25
+			add_stability = 0.01
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_12 }
+				add_political_power = 50
+			}
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
+	}
+
+	focus = {
+		id = VIE_soe_rapid_divestment
+		icon = focus_generic_court
+
+		x = -10
+		y = 7
+		relative_position_id = VIE_state_bank_modernization
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_soe_gradual_restructuring }
+
+		prerequisite = { focus = VIE_scic }
+		available = {
+			date > 2017.5.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_soe_rapid_divestment"
+			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
+			VIE_ax_normalize = yes
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = -5 }
+				change_communist_cadres_opinion = yes
+			}
+			add_stability = -0.03
+			country_event = { id = vie_eco.30 days = 365 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+
+	focus = {
 		id = VIE_soe_governance
 		icon = focus_generic_court
 
@@ -6618,7 +6369,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_scic }
+		prerequisite = { focus = VIE_soe_gradual_restructuring focus = VIE_soe_rapid_divestment }
 
 		available = {
 			date > 2017.12.31
@@ -6640,6 +6391,10 @@ focus_tree = {
 				limit = { has_idea = VIE_state_debt_overhang }
 				remove_ideas = VIE_state_debt_overhang
 			}
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_12 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 65 }
@@ -6655,7 +6410,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_scic }
+		prerequisite = { focus = VIE_investment_law_2005 }
 
 		available = {
 			date > 2020.12.31
@@ -6691,8 +6446,7 @@ focus_tree = {
 
 		cost = 10
 
-		prerequisite = { focus = VIE_soe_governance }
-		prerequisite = { focus = VIE_household_business }
+		prerequisite = { focus = VIE_private_champions }
 
 		available = {
 			date > 2025.4.30
@@ -6705,6 +6459,10 @@ focus_tree = {
 			add_to_variable = { VIE_ax_market = 3 tooltip = VIE_ax_market_tt }
 			add_ideas = VIE_private_engine_idea
 			VIE_bop_reform_medium = yes
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 75 }
@@ -6747,7 +6505,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_son_la_dam }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -6774,8 +6532,10 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_coal_power }
 
+		mutually_exclusive = { focus = VIE_solar_auction }
+
 		available = {
-			date > 2018.12.31
+			date > 2017.3.31
 		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -6785,9 +6545,43 @@ focus_tree = {
 			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
 			increase_economic_growth = yes
 			set_country_flag = VIE_solar_boom_done
+			add_ideas = VIE_grid_curtailment_idea
 		}
 
 		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_solar_auction
+		icon = windmills
+
+		x = -8
+		y = 8
+		relative_position_id = VIE_north_south_expressway
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_solar_boom }
+
+		prerequisite = { focus = VIE_coal_power }
+		available = {
+			date > 2017.3.31
+		}
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_solar_auction"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			VIE_ax_normalize = yes
+			increase_economic_growth = yes
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
 	}
 
 	focus = {
@@ -6800,7 +6594,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_solar_boom }
+		prerequisite = { focus = VIE_solar_boom focus = VIE_solar_auction }
 		prerequisite = { focus = VIE_500kv_grid }
 
 		available = {
@@ -6888,7 +6682,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2005.12.31
@@ -7012,7 +6806,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_bauxite_tay_nguyen focus = VIE_bauxite_suspend }
 
 		available = {
 			date > 2010.12.31
@@ -7040,7 +6834,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_north_south_expressway }
+		prerequisite = { focus = VIE_hanoi_expansion_2008 focus = VIE_hanoi_keep_boundaries }
 
 		available = {
 			date > 2010.12.31
@@ -7075,7 +6869,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_north_south_expressway }
+		prerequisite = { focus = VIE_urbanization }
 
 		available = {
 			date > 2012.12.31
@@ -7191,6 +6985,10 @@ focus_tree = {
 			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
 			add_stability = 0.02
 			set_country_flag = VIE_grid_500kv
+			if = {
+				limit = { has_idea = VIE_grid_curtailment_idea }
+				remove_ideas = VIE_grid_curtailment_idea
+			}
 			set_temp_variable = { treasury_change = -1 }
 			modify_treasury_effect = yes
 		}
@@ -8771,7 +8569,11 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_education_nq29 }
+
+		available = {
+			date > 2014.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -8792,6 +8594,10 @@ focus_tree = {
 				uses = 1
 				bonus = 0.5
 			}
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 60 }
@@ -8808,6 +8614,10 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = { focus = VIE_education_reform }
+
+		available = {
+			date > 2014.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -8852,6 +8662,10 @@ focus_tree = {
 			set_temp_variable = { treasury_change = -2 }
 			modify_treasury_effect = yes
 			add_stability = 0.02
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 55 }
@@ -8867,10 +8681,10 @@ focus_tree = {
 
 		cost = 10
 
-		prerequisite = { focus = VIE_vocational_training }
+		prerequisite = { focus = VIE_education_reform }
 
 		available = {
-			has_completed_focus = VIE_free_tuition
+			date > 2008.12.31
 		}
 				search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMY }
 
@@ -8882,6 +8696,35 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_education_nq29
+		icon = focus_generic_education
+
+		x = -2
+		y = 6
+		relative_position_id = VIE_education_reform
+
+		cost = 7
+
+		prerequisite = { focus = VIE_english_second_language }
+
+		available = {
+			date > 2013.10.31
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_education_nq29"
+			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			increase_education_budget = yes
+			set_temp_variable = { desire_change = 0.3 }
+			change_expected_education_spending = yes
+		}
+
+		ai_will_do = { base = 65 }
 	}
 
 	focus = {
@@ -8910,6 +8753,71 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_covid_zero_extend
+		icon = generic_political_pressure
+
+		x = -2
+		y = 5
+		relative_position_id = VIE_education_reform
+
+		cost = 7
+
+		mutually_exclusive = { focus = VIE_covid_safe_adaptation }
+
+		prerequisite = { focus = VIE_grassroots_clinics }
+		available = {
+			date > 2021.9.30
+			has_country_flag = VIE_sched_covid_response
+		}
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_covid_zero_extend"
+			add_stability = 0.02
+			add_timed_idea = { idea = VIE_covid_lockdown_idea days = 180 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_covid_safe_adaptation
+		icon = generic_civilian_economy
+
+		x = 0
+		y = 5
+		relative_position_id = VIE_education_reform
+
+		cost = 5
+
+		mutually_exclusive = { focus = VIE_covid_zero_extend }
+
+		prerequisite = { focus = VIE_grassroots_clinics }
+		available = {
+			date > 2021.9.30
+			has_country_flag = VIE_sched_covid_response
+		}
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_covid_safe_adaptation"
+			add_stability = -0.02
+			increase_economic_growth = yes
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+		}
 	}
 
 	focus = {
@@ -9095,6 +9003,10 @@ focus_tree = {
 		prerequisite = { focus = VIE_disaster_preparedness }
 		mutually_exclusive = { focus = VIE_dutch_water_model }
 
+		available = {
+			date > 2017.11.30
+		}
+
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
@@ -9209,7 +9121,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_disaster_preparedness }
+		prerequisite = { focus = VIE_power_plan_8 }
 
 		available = {
 			date > 2022.11.30
@@ -9306,7 +9218,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_internet_expansion }
+		prerequisite = { focus = VIE_state_bank_modernization }
 
 		available = {
 			date > 2016.12.31
@@ -9614,6 +9526,10 @@ focus_tree = {
 			}
 			add_ideas = VIE_science_breakthrough_idea
 			add_political_power = 50
+			if = {
+				limit = { has_completed_focus = VIE_resolution_congress_13 }
+				add_political_power = 25
+			}
 		}
 
 		ai_will_do = { base = 70 }
@@ -9660,10 +9576,8 @@ focus_tree = {
 
 		available = {
 			has_completed_focus = VIE_chip_design
-		}
-
-		available = {
 			date > 2023.12.31
+			has_completed_focus = VIE_university_autonomy
 		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMY }
@@ -9712,1371 +9626,48 @@ focus_tree = {
 		ai_will_do = { base = 55 }
 	}
 
-	focus = {
-		id = VIE_meritocratic_service
-		icon = focus_generic_improve_the_administration
 
-		x = -4
-		y = 2
-		relative_position_id = VIE_developmental_state
 
-		cost = 7
-
-		prerequisite = { focus = VIE_technocrat_cabinet }
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_meritocratic_service"
-			add_to_variable = { VIE_ax_merit = 3 tooltip = VIE_ax_merit_tt }
-			decrease_corruption = yes
-			set_temp_variable = { temp_opinion = -3 }
-			change_communist_cadres_opinion = yes
-		}
 
-		ai_will_do = { base = 40 }
-	}
 
-	focus = {
-		id = VIE_judicial_reform
-		icon = focus_generic_court
 
-		x = 0
-		y = 2
-		relative_position_id = VIE_developmental_state
 
-		cost = 7
 
-		prerequisite = { focus = VIE_technocrat_cabinet }
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_judicial_reform"
-			add_to_variable = { VIE_ax_checks = 3 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_stability = 0.02
-			VIE_bop_reform_small = yes
-		}
 
-		ai_will_do = { base = 40 }
-	}
 
-	focus = {
-		id = VIE_performance_legitimacy
-		icon = economic_prosperity2
 
-		x = -4
-		y = 3
-		relative_position_id = VIE_developmental_state
 
-		cost = 7
 
-		prerequisite = { focus = VIE_meritocratic_service }
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_performance_legitimacy"
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_stability = 0.02
-			add_political_power = 50
-		}
 
-		ai_will_do = { base = 40 }
-	}
 
-	focus = {
-		id = VIE_singapore_model
-		icon = focus_generic_freedom_council
 
-		x = -4
-		y = 4
-		relative_position_id = VIE_developmental_state
 
-		cost = 10
 
-		prerequisite = { focus = VIE_judicial_reform }
-		prerequisite = { focus = VIE_performance_legitimacy }
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
 
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_singapore_model"
-			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_merit = 3 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_ideas = VIE_singapore_model_idea
-			VIE_bop_reform_medium = yes
-		}
 
-		ai_will_do = { base = 40 }
-	}
 
-	focus = {
-		id = VIE_anti_peaceful_evolution
-		icon = communist_purge
-
-		x = -4
-		y = 1
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_defend_the_foundation }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_anti_peaceful_evolution"
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_integ = -1 tooltip = VIE_ax_integ_tt }
-			add_stability = 0.02
-			VIE_bop_conservative_small = yes
-			set_country_flag = VIE_anti_pe
-		}
 
-		ai_will_do = { base = 40 }
-	}
 
-	focus = {
-		id = VIE_ideological_fortress
-		icon = communist_purge
 
-		x = 4
-		y = 2
-		relative_position_id = VIE_defend_the_foundation
 
-		cost = 10
-
-		prerequisite = { focus = VIE_self_reliance }
-		prerequisite = { focus = VIE_anti_peaceful_evolution }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ideological_fortress"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
-			add_ideas = VIE_ideological_fortress_idea
-			VIE_bop_conservative_medium = yes
-			set_temp_variable = { temp_opinion = 4 }
-			change_communist_cadres_opinion = yes
-		}
 
-		ai_will_do = { base = 40 }
-	}
 
-	focus = {
-		id = VIE_front_coalition
-		icon = election2
 
-		x = 4
-		y = 2
-		relative_position_id = VIE_developmental_state
 
-		cost = 7
-
-		prerequisite = { focus = VIE_press_relaxation }
-		mutually_exclusive = { focus = VIE_defend_the_foundation }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_front_coalition"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_stability = 0.01
-			add_political_power = 25
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_vetted_elections
-		icon = Election
-
-		x = 0
-		y = 3
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_front_coalition }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_vetted_elections"
-			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
-			VIE_bop_reform_small = yes
-			add_political_power = 25
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_loyal_opposition
-		icon = election2
-
-		x = 4
-		y = 4
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_vetted_elections }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_loyal_opposition"
-			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			add_political_power = 50
-			add_stability = -0.01
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_revive_democratic_party
-		icon = election2
-
-		x = 2
-		y = 4
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_vetted_elections }
-
-		available = {
-			VIE_d2_open_tt = yes
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_revive_democratic_party"
-			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			set_temp_variable = { party_index = 2 }
-			unban_party_scripted_call = yes
-			set_temp_variable = { party_index = 2 }
-			set_temp_variable = { party_popularity_increase = 0.05 }
-			set_temp_variable = { temp_outlook_increase = 0.05 }
-			hidden_effect = { change_relative_party_popularity = yes }
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_revive_socialist_party
-		icon = election2
-
-		x = 6
-		y = 4
-		relative_position_id = VIE_developmental_state
-
-		cost = 7
-
-		prerequisite = { focus = VIE_vetted_elections }
-
-		available = {
-			VIE_d2_open_tt = yes
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_revive_socialist_party"
-			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			set_temp_variable = { party_index = 3 }
-			unban_party_scripted_call = yes
-			set_temp_variable = { party_index = 3 }
-			set_temp_variable = { party_popularity_increase = 0.05 }
-			set_temp_variable = { temp_outlook_increase = 0.05 }
-			hidden_effect = { change_relative_party_popularity = yes }
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_import_substitution
-		icon = economic_civil_industry
-
-		x = 8
-		y = 3
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_decouple_supply }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_import_substitution"
-			add_to_variable = { VIE_ax_integ = -3 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
-			if = {
-				limit = { has_idea = VIE_import_shock_idea }
-				remove_ideas = VIE_import_shock_idea
-			}
-			add_stability = 0.01
-			set_temp_variable = { treasury_change = -1 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_nonaligned_summit
-		icon = focus_generic_conference
-
-		x = 10
-		y = 3
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_global_south }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_nonaligned_summit"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_political_power = 75
-			add_stability = 0.02
-			country_event = { id = vie_dip.18 days = 10 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_workers_councils
-		icon = Generic_Workers_Democracy
-
-		x = 12
-		y = 3
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_self_management }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_workers_councils"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
-			add_stability = 0.02
-			set_temp_variable = { temp_opinion = 3 }
-			change_farmers_opinion = yes
-			VIE_bop_reform_small = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_arms_diversification
-		icon = focus_generic_diverse_army
-
-		x = 16
-		y = 3
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_russia_india_axis }
-
-		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_arms_diversification"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_opinion_modifier = { target = RAJ modifier = VIE_arms_deal }
-			reverse_add_opinion_modifier = { target = RAJ modifier = VIE_arms_deal }
-			add_tech_bonus = {
-				name = VIE_tc_arms_diversification
-				category = CAT_armor
-				category = CAT_missile
-				uses = 1
-				bonus = 0.5
-			}
-			country_event = { id = vie_int.10 days = 20 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_asean_bloc
-		icon = align_to_asean
-
-		x = 8
-		y = 4
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_nonaligned_summit }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_asean_bloc"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			set_rule = { can_create_factions = yes }
-			create_faction_from_template = faction_template_generic_non_aligned_movement
-			add_political_power = 50
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_market_socialism
-		icon = focus_generic_communist_industry
-
-		x = 10
-		y = 4
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_import_substitution }
-		prerequisite = { focus = VIE_tc_workers_councils }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_market_socialism"
-			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
-			increase_economic_growth = yes
-			add_stability = 0.01
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_rare_earth_leverage
-		icon = economic_civil_industry
-
-		x = 12
-		y = 4
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_arms_diversification }
-
-		available = {
-			has_completed_focus = VIE_rare_earths
-		}
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_rare_earth_leverage"
-			add_to_variable = { VIE_ax_integ = -1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
-			set_temp_variable = { treasury_change = 3 }
-			modify_treasury_effect = yes
-			add_political_power = 50
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_mekong_leadership
-		icon = treaty2
-
-		x = 10
-		y = 5
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 7
-
-		prerequisite = { focus = VIE_tc_asean_bloc }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_mekong_leadership"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_opinion_modifier = { target = LAO modifier = historic_friends }
-			reverse_add_opinion_modifier = { target = LAO modifier = historic_friends }
-			add_opinion_modifier = { target = CBD modifier = historic_friends }
-			reverse_add_opinion_modifier = { target = CBD modifier = historic_friends }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_tc_eastern_yugoslavia
-		icon = focus_generic_armed_neutrality
-
-		x = 12
-		y = 5
-		relative_position_id = VIE_defend_the_foundation
-
-		cost = 10
-
-		prerequisite = { focus = VIE_tc_market_socialism }
-		prerequisite = { focus = VIE_tc_armed_neutrality }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_tc_eastern_yugoslavia"
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_integ = -1 tooltip = VIE_ax_integ_tt }
-			add_ideas = VIE_eastern_yugoslavia_idea
-			add_political_power = 100
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_AUTONOMY }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_van_don
-		icon = asian_investment
-
-		x = -4
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_99_year_leases }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_van_don"
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			524 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			set_temp_variable = { treasury_change = 1 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_bac_van_phong
-		icon = asian_investmentnew
-
-		x = -2
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_99_year_leases }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_bac_van_phong"
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			519 = {  # Bac Van Phong (Khanh Hoa) is in MD state 519
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			set_temp_variable = { treasury_change = 1 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_phu_quoc
-		icon = economic_tourism
-
-		x = 0
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_common_law_courts }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_phu_quoc"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			set_temp_variable = { treasury_change = 2 }
-			modify_treasury_effect = yes
-			increase_economic_growth = yes
-			country_event = { id = vie_alt.26 days = 45 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_free_port
-		icon = maritime_trade
-
-		x = 4
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_flat_tax }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_free_port"
-			add_to_variable = { VIE_ax_integ = 3 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			increase_economic_growth = yes
-			set_temp_variable = { treasury_change = 1 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_casino_resorts
-		icon = money
-
-		x = -2
-		y = 4
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 5
-
-		prerequisite = { focus = VIE_lb_van_don }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_casino_resorts"
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			add_to_variable = { VIE_ax_merit = -1 tooltip = VIE_ax_merit_tt }
-			set_temp_variable = { treasury_change = 3 }
-			modify_treasury_effect = yes
-			increase_corruption = yes
-			country_event = { id = vie_alt.25 days = 60 }
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_digital_assets
-		icon = economic_avia_industry
-
-		x = 4
-		y = 4
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_free_port }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_digital_assets"
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = 2 tooltip = VIE_ax_market_tt }
-			set_temp_variable = { treasury_change = 2 }
-			modify_treasury_effect = yes
-			add_tech_bonus = {
-				name = VIE_lb_digital_assets
-				category = CAT_internet_tech
-				uses = 1
-				bonus = 0.5
-			}
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_lb_sovereignty_safeguards
-		icon = focus_generic_court
-
-		x = 0
-		y = 4
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lb_expand_zones }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lb_sovereignty_safeguards"
-			add_stability = 0.02
-			add_political_power = 50
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_bank_capture
-		icon = economic_banks
-
-		x = 8
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_ol_conglomerate_council }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_bank_capture"
-			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
-			set_temp_variable = { treasury_change = 3 }
-			modify_treasury_effect = yes
-			VIE_oli_conglomerate_medium = yes
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_land_bank
-		icon = generic_housing
-
-		x = 10
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_ol_conglomerate_council }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_land_bank"
-			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_merit = -2 tooltip = VIE_ax_merit_tt }
-			increase_economic_growth = yes
-			set_temp_variable = { temp_opinion = -4 }
-			change_farmers_opinion = yes
-			country_event = { id = vie_alt.28 days = 40 }
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_political_donations
-		icon = money
-
-		x = 12
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 5
-
-		prerequisite = { focus = VIE_ol_media_ownership }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_political_donations"
-			add_to_variable = { VIE_ax_checks = -3 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
-			add_political_power = 75
-			increase_corruption = yes
-			country_event = { id = vie_alt.27 days = 45 }
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_private_security
-		icon = border_guard_nss
-
-		x = 14
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 5
-
-		prerequisite = { focus = VIE_ol_real_estate_boom }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_private_security"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_merit = -2 tooltip = VIE_ax_merit_tt }
-			add_stability = 0.02
-			VIE_oli_conglomerate_medium = yes
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_offshore_wealth
-		icon = economic_black_market
-
-		x = 10
-		y = 4
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 5
-
-		prerequisite = { focus = VIE_ol_bank_capture }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_offshore_wealth"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
-			set_temp_variable = { treasury_change = -3 }
-			modify_treasury_effect = yes
-			increase_corruption = yes
-		}
-
-		ai_will_do = {
-			base = 15
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_golden_visa
-		icon = diaspora_influence
-
-		x = 12
-		y = 4
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 5
-
-		prerequisite = { focus = VIE_ol_political_donations }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_golden_visa"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_merit = -1 tooltip = VIE_ax_merit_tt }
-			set_temp_variable = { treasury_change = 3 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_ol_tycoon_diplomacy
-		icon = trade
-
-		x = 10
-		y = 5
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_ol_offshore_wealth }
-		prerequisite = { focus = VIE_ol_golden_visa }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ol_tycoon_diplomacy"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_merit = -2 tooltip = VIE_ax_merit_tt }
-			add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
-			add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement }
-			add_political_power = 25
-		}
-
-		ai_will_do = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_FREE_ZONES }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_five_year_plans
-		icon = focus_generic_central_planning
-
-		x = 18
-		y = 1
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_development_council }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_five_year_plans"
-			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
-			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			increase_economic_growth = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_japan_capital
-		icon = trade_with_japan
-
-		x = 18
-		y = 2
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_us_alliance }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_japan_capital"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = 2 tooltip = VIE_ax_west_tt }
-			add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement }
-			set_temp_variable = { treasury_change = 3 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_cam_ranh_access
-		icon = trade_with_america
-
-		x = 16
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_us_alliance }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_NAVY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_cam_ranh_access"
-			add_to_variable = { VIE_ax_west = 3 tooltip = VIE_ax_west_tt }
-			add_opinion_modifier = { target = USA modifier = VIE_western_pivot }
-			reverse_add_opinion_modifier = { target = USA modifier = VIE_western_pivot }
-			add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
-			reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_defiance }
-			navy_experience = 10
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_technical_education
-		icon = focus_generic_education
-
-		x = 18
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_heavy_industry }
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_technical_education"
-			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_tech_bonus = {
-				name = VIE_wa_technical_education
-				category = CAT_computing_tech
-				category = CAT_industry
-				uses = 1
-				bonus = 0.5
-			}
-			country_event = { id = vie_alt.30 days = 60 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_korea_partnership
-		icon = trade_with_east_timor
-
-		x = 20
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_export_drive }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_korea_partnership"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = 2 tooltip = VIE_ax_west_tt }
-			add_opinion_modifier = { target = KOR modifier = VIE_trade_agreement }
-			reverse_add_opinion_modifier = { target = KOR modifier = VIE_trade_agreement }
-			country_event = { id = vie_alt.29 days = 20 }
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_new_countryside
-		icon = agriculture
-
-		x = 22
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_suppress_labor }
-
-		search_filters = { FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_new_countryside"
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_stability = 0.02
-			set_temp_variable = { temp_opinion = 5 }
-			change_farmers_opinion = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_anti_corruption_purge
-		icon = Generic_Political_Purge
-
-		x = 24
-		y = 3
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 7
-
-		prerequisite = { focus = VIE_wa_suppress_labor }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_anti_corruption_purge"
-			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			decrease_corruption = yes
-			add_political_power = 25
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_prepare_transition
-		icon = election2
-
-		x = 22
-		y = 4
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 10
-
-		prerequisite = { focus = VIE_wa_new_countryside }
-		prerequisite = { focus = VIE_wa_anti_corruption_purge }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_prepare_transition"
-			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 2 tooltip = VIE_ax_civil_tt }
-			VIE_bop_reform_medium = yes
-			add_stability = 0.01
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_wa_economic_miracle
-		icon = economic_prosperity2
-
-		x = 20
-		y = 4
-		relative_position_id = VIE_lb_sez_law
-
-		cost = 10
-
-		prerequisite = { focus = VIE_wa_technical_education }
-		prerequisite = { focus = VIE_wa_korea_partnership }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_wa_economic_miracle"
-			add_ideas = VIE_economic_miracle_idea
-			set_temp_variable = { treasury_change = 3 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
+
+
+
+
+
+
+
+
 
 	focus = {
 		id = VIE_sec_public_order
@@ -11236,9 +9827,9 @@ focus_tree = {
 		id = VIE_dm_truth_reconciliation
 		icon = focus_generic_court
 
-		x = 2
-		y = 7
-		relative_position_id = VIE_developmental_state
+		x = -8
+		y = 35
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11266,9 +9857,9 @@ focus_tree = {
 		id = VIE_dm_lib_market_opening
 		icon = economic_privatisation
 
-		x = -6
-		y = 8
-		relative_position_id = VIE_developmental_state
+		x = -16
+		y = 36
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11300,9 +9891,9 @@ focus_tree = {
 		id = VIE_dm_lib_independent_anticorruption
 		icon = blr_anti_corruption_law
 
-		x = -8
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -18
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11335,9 +9926,9 @@ focus_tree = {
 		id = VIE_dm_lib_free_trade
 		icon = trade_with_america
 
-		x = -6
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -16
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11369,9 +9960,9 @@ focus_tree = {
 		id = VIE_dm_lib_eu_alignment
 		icon = trade_with_europe
 
-		x = -4
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -14
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11401,9 +9992,9 @@ focus_tree = {
 		id = VIE_dm_soc_welfare_state
 		icon = housing_secured
 
-		x = -2
-		y = 8
-		relative_position_id = VIE_developmental_state
+		x = -12
+		y = 36
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11440,9 +10031,9 @@ focus_tree = {
 		id = VIE_dm_soc_labor_rights
 		icon = labor_unions
 
-		x = -2
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -12
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11471,9 +10062,9 @@ focus_tree = {
 		id = VIE_dm_soc_public_healthcare
 		icon = generic_housing
 
-		x = 0
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -10
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11501,9 +10092,9 @@ focus_tree = {
 		id = VIE_dm_soc_progressive_tax
 		icon = economic_banks
 
-		x = 2
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -8
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11532,9 +10123,9 @@ focus_tree = {
 		id = VIE_dm_con_fiscal_discipline
 		icon = economic_banks
 
-		x = 4
-		y = 8
-		relative_position_id = VIE_developmental_state
+		x = -6
+		y = 36
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11568,9 +10159,9 @@ focus_tree = {
 		id = VIE_dm_con_us_alignment
 		icon = trade_with_america
 
-		x = 4
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -6
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11599,9 +10190,9 @@ focus_tree = {
 		id = VIE_dm_con_community_institutions
 		icon = family
 
-		x = 6
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -4
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11627,9 +10218,9 @@ focus_tree = {
 		id = VIE_dm_con_strong_defense
 		icon = army_defence1
 
-		x = 8
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = -2
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11655,9 +10246,9 @@ focus_tree = {
 		id = VIE_dm_tra_cultural_heritage
 		icon = culture_cossak_party
 
-		x = 10
-		y = 8
-		relative_position_id = VIE_developmental_state
+		x = 0
+		y = 36
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11687,9 +10278,9 @@ focus_tree = {
 		id = VIE_dm_tra_religious_freedom
 		icon = focus_generic_freedom_council
 
-		x = 10
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = 0
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11716,9 +10307,9 @@ focus_tree = {
 		id = VIE_dm_tra_rural_first
 		icon = farming
 
-		x = 12
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = 2
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -11746,9 +10337,9 @@ focus_tree = {
 		id = VIE_dm_tra_balanced_neutrality
 		icon = focus_generic_armed_neutrality
 
-		x = 14
-		y = 9
-		relative_position_id = VIE_developmental_state
+		x = 4
+		y = 37
+		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
@@ -16201,14 +14792,16 @@ focus_tree = {
 		icon = Generic_Political_Purge
 
 		x = -134
-		y = 9
+		y = 18
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
-		prerequisite = { focus = VIE_two_tier_local_gov focus = VIE_clean_cadres }
+		prerequisite = { focus = VIE_resolution_congress_14 }
+		prerequisite = { focus = VIE_clean_cadres focus = VIE_e_government }
 		mutually_exclusive = { focus = VIE_institutional_opening }
 		available = {
+			has_country_flag = VIE_two_tier_done
 			custom_trigger_tooltip = {
 				tooltip = VIE_tt_concentration_avail
 				OR = {
@@ -16243,14 +14836,16 @@ focus_tree = {
 		icon = election2
 
 		x = -130
-		y = 9
+		y = 18
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 10
 
-		prerequisite = { focus = VIE_two_tier_local_gov focus = VIE_clean_cadres }
+		prerequisite = { focus = VIE_resolution_congress_14 }
+		prerequisite = { focus = VIE_clean_cadres focus = VIE_e_government }
 		mutually_exclusive = { focus = VIE_concentration_of_power }
 		available = {
+			has_country_flag = VIE_two_tier_done
 			custom_trigger_tooltip = {
 				tooltip = VIE_tt_collective_avail
 				has_country_flag = VIE_collective_leadership_2026
@@ -16278,7 +14873,7 @@ focus_tree = {
 		icon = communist_purge
 
 		x = -138
-		y = 6
+		y = 13
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
@@ -16289,7 +14884,6 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_cadre_accountability"
-			decrease_corruption = yes
 			add_stability = -0.02
 			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
 			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
@@ -16309,12 +14903,17 @@ focus_tree = {
 		icon = GFX_focus_generic_freedom_council
 
 		x = -138
-		y = 4
+		y = 15
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
+		prerequisite = { focus = VIE_resolution_congress_13 }
 		prerequisite = { focus = VIE_national_assembly_role }
+
+		available = {
+			date > 2022.11.9
+		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -16333,12 +14932,13 @@ focus_tree = {
 		id = VIE_digital_anticorruption
 		icon = army_cyberwar
 
-		x = -138
-		y = 8
+		x = -134
+		y = 15
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
+		prerequisite = { focus = VIE_resolution_congress_13 }
 		prerequisite = { focus = VIE_clean_cadres }
 		available = {
 			has_completed_focus = VIE_e_government

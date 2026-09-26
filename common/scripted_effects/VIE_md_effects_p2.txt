@@ -50,6 +50,11 @@ VIE_fb_viet_a = {
 VIE_fb_vtp = {
 	decrease_corruption = yes
 }
+VIE_fb_labor_code = {
+	add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+	VIE_ax_normalize = yes
+	set_country_flag = VIE_labor_convention_ratified
+}
 
 ########################################################################
 # Scheduler, part 2 (2003 onwards). Order = priority when the 45 day cooldown is contested.
@@ -64,6 +69,7 @@ VIE_event_scheduler_p2 = {
 				NOT = { has_country_flag = VIE_sched_congress_13 }
 			}
 			set_country_flag = VIE_sched_congress_13
+			VIE_start_congress_term = { N = 13 }
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
@@ -94,6 +100,7 @@ VIE_event_scheduler_p2 = {
 				NOT = { has_country_flag = VIE_sched_congress_14 }
 			}
 			set_country_flag = VIE_sched_congress_14
+			VIE_start_congress_term = { N = 14 }
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				set_country_flag = { flag = VIE_popup_cd days = 45 }
@@ -440,6 +447,27 @@ VIE_event_scheduler_p2 = {
 			limit = { date > 2019.12.31 }
 			set_country_flag = VIE_sched_vanguard
 			VIE_fb_none = yes
+		}
+	}
+	if = {
+		limit = {
+			date > 2019.11.30
+			NOT = { has_country_flag = VIE_sched_labor_code }
+		}
+		if = {
+			limit = { check_variable = { VIE_catch_up = 1 } }
+			set_country_flag = VIE_sched_labor_code
+		}
+		else_if = {
+			limit = { NOT = { has_country_flag = VIE_popup_cd } }
+			set_country_flag = VIE_sched_labor_code
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_pol.27 days = 3 random_days = 20 }
+		}
+		else_if = {
+			limit = { date > 2020.6.30 }
+			set_country_flag = VIE_sched_labor_code
+			VIE_fb_labor_code = yes
 		}
 	}
 	if = {

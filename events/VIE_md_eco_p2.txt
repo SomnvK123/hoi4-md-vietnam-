@@ -336,3 +336,33 @@ country_event = {
 		ai_chance = { base = 20 }
 	}
 }
+
+########################################################################
+# vie_eco.30  Selling the family silver?  (delayed reaction to VIE_soe_rapid_divestment)
+########################################################################
+country_event = {
+	id = vie_eco.30
+	title = vie_eco.30.t
+	desc = vie_eco.30.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	# Publish the sale terms
+	option = {
+		name = vie_eco.30.a
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.30.a executed"
+		add_stability = 0.01
+		set_temp_variable = { temp_opinion = -3 }
+		change_communist_cadres_opinion = yes
+		ai_chance = { base = 50 }
+	}
+
+	# Keep the buyers and prices confidential
+	option = {
+		name = vie_eco.30.b
+		log = "[GetDateText]: [This.GetName]: Event vie_eco.30.b executed"
+		add_political_power = 25
+		increase_corruption = yes
+		ai_chance = { base = 50 }
+	}
+}

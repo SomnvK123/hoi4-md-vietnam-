@@ -8,33 +8,6 @@ add_namespace = vie_col
 # vie_int.7 China offers to "stabilise"   .8 ASEAN and refugees (both during the collapse)
 ########################################################################
 
-country_event = {
-	id = vie_int.1
-	title = vie_int.1.t
-	desc = vie_int.1.d
-	picture = GFX_report_event_generic_shanghai_clash
-	is_triggered_only = yes
-
-	# Endure the pressure
-	option = {
-		name = vie_int.1.a
-		log = "[GetDateText]: [This.GetName]: Event vie_int.1.a executed"
-		add_timed_idea = { idea = VIE_china_pressure_idea days = 365 }
-		add_stability = 0.01
-		ai_chance = { base = 60 }
-	}
-
-	# Look for other suppliers and buyers
-	option = {
-		name = vie_int.1.b
-		log = "[GetDateText]: [This.GetName]: Event vie_int.1.b executed"
-		set_temp_variable = { treasury_change = -1 }
-		modify_treasury_effect = yes
-		add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
-		reverse_add_opinion_modifier = { target = SOV modifier = VIE_arms_deal }
-		ai_chance = { base = 40 }
-	}
-}
 
 country_event = {
 	id = vie_int.2
@@ -65,32 +38,6 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = vie_int.3
-	title = vie_int.3.t
-	desc = vie_int.3.d
-	picture = GFX_report_event_generic_shanghai_clash
-	is_triggered_only = yes
-
-	# Treat it as a security problem
-	option = {
-		name = vie_int.3.a
-		log = "[GetDateText]: [This.GetName]: Event vie_int.3.a executed"
-		army_experience = 10
-		add_timed_idea = { idea = VIE_china_pressure_idea days = 365 }
-		ai_chance = { base = 50 }
-	}
-
-	# Reassure Beijing
-	option = {
-		name = vie_int.3.b
-		log = "[GetDateText]: [This.GetName]: Event vie_int.3.b executed"
-		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
-		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
-		add_stability = -0.01
-		ai_chance = { base = 50 }
-	}
-}
 
 country_event = {
 	id = vie_int.4
