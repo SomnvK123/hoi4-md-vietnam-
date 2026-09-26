@@ -4580,7 +4580,7 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_STABILITY }
 
@@ -4801,7 +4801,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_urbanization }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2019.11.30
@@ -4816,6 +4816,11 @@ focus_tree = {
 			add_stability = 0.02
 			set_country_flag = VIE_labor_code
 			VIE_bop_reform_small = yes
+			if = {
+				limit = { has_country_flag = VIE_labor_convention_ratified }
+				add_to_variable = { VIE_ax_west = 1 tooltip = VIE_ax_west_tt }
+				VIE_ax_normalize = yes
+			}
 		}
 
 		ai_will_do = { base = 60 }
@@ -4831,7 +4836,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_urbanization }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		available = {
 			date > 2014.12.31
@@ -8305,7 +8310,11 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_education_reform }
+		prerequisite = { focus = VIE_education_nq29 }
+
+		available = {
+			date > 2014.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -8342,6 +8351,10 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = { focus = VIE_education_reform }
+
+		available = {
+			date > 2014.12.31
+		}
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -8401,10 +8414,10 @@ focus_tree = {
 
 		cost = 10
 
-		prerequisite = { focus = VIE_vocational_training }
+		prerequisite = { focus = VIE_education_reform }
 
 		available = {
-			has_completed_focus = VIE_free_tuition
+			date > 2008.12.31
 		}
 				search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMY }
 
@@ -8416,6 +8429,35 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_education_nq29
+		icon = focus_generic_education
+
+		x = -2
+		y = 6
+		relative_position_id = VIE_education_reform
+
+		cost = 7
+
+		prerequisite = { focus = VIE_english_second_language }
+
+		available = {
+			date > 2013.10.31
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_education_nq29"
+			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			increase_education_budget = yes
+			set_temp_variable = { desire_change = 0.3 }
+			change_expected_education_spending = yes
+		}
+
+		ai_will_do = { base = 65 }
 	}
 
 	focus = {
