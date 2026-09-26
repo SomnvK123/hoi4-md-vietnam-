@@ -470,6 +470,17 @@ Mỗi pha chạy được độc lập; sau mỗi pha phải chạy `tools/check
 
 Pha 1 và 2 không đổi gì người chơi nhìn thấy trong cây, nên là điểm dừng an toàn để thử trong game trước khi làm pha 3.
 
+> **Đã code (pha 5 — Loc): không thiếu chỗ nào.** Loc được viết ngay trong từng pha 1–4 (không dồn lại), tất cả vào `VIE_md_vi_congress_l_english.yml`. Quét lại toàn bộ file loc của mod (không chỉ file mới) sau khi xong pha 4: cả 38 focus, 10 idea, 3 event mới + các option (kể cả `vie_pol.11.c`), danh mục và 20 decision đều có đủ tên + mô tả. 0 thiếu.
+>
+> **Đã làm (pha 6 — Kiểm tra), trong giới hạn không có game thật.** Không chạy được `check_static.py`, `_gen/fix_spacing.py`, `_gen/overview.py` hay hồ sơ trục STEP6 thật (không có bản cài Windows của HOI4 trong môi trường này — như pha 3 đã nói). Đã làm bản thay thế bằng tay, quét toàn bộ repo (không chỉ khối chính trị):
+> 1. **Cân bằng ngoặc và tham chiếu treo** — lặp lại phép quét đã dùng sau mỗi pha, lần này trên toàn bộ cây (410 focus), toàn bộ idea, toàn bộ event, và khối decision mới: 0 lỗi.
+> 2. **"Con nằm trên cha"** (mô phỏng một phần việc của `fix_spacing.py`): viết script tính tọa độ tuyệt đối và so `y` của mọi cặp cha/con theo `prerequisite`. Phát hiện **11 chỗ vi phạm — nhưng cả 11 đều thuộc khối kinh tế** (`private_champions`, `north_south_hsr`, `soe_governance`, `power_plan_8`, `rare_earths`, `hanoi_metro`, `university_autonomy`), có từ các pha D/E/F của `VIE_economic_branch_redesign.md`, không phải do báo cáo Đại hội. **0 vi phạm trong khối chính trị/xương sống Đại hội.** Đây là việc của báo cáo kia (mục "Pha H: Kiểm tra"), không sửa ở đây — chỉ báo lại để bạn biết khi chạy `fix_spacing.py` thật.
+> 3. **Không có cặp dưới 2 ô** — không mô phỏng chính xác được thuật toán thật của `fix_spacing.py` (không có bản gốc), bỏ qua, cần bạn chạy thật.
+> 4. **Hồ sơ trục STEP6** (mục 8.1): tính lại tổng 7 trục trên 35 focus luôn có mặt (bỏ đúng một trong hai nhánh loại trừ 2026, đúng cách báo cáo tự làm ở bảng "Trước") cộng với hiệu ứng trục đã chuyển vào 3 decision chuỗi 2025. Kết quả khớp **tuyệt đối cả 7 trục** với bảng mục 8.1: `size −12, merit +23, decent +3, checks +11, market +1, civil −3, mob +1`. Tham nhũng ròng đúng **−3** (đã xác nhận lại). Tổng số focus khối chính trị đúng **38**, tổng cost đúng **258 tuần** — khớp mục 4.4.
+> 5. **Không kiểm được**: hành vi thật của `bypass` (lần đầu mod dùng — pha 3), `days_remove`/`remove_effect` và `cost = { base modifier }` (lần đầu dùng — pha 4), và toàn bộ 8 kịch bản ở mục 9.1. Cả năm điều này cần bạn chạy trong game.
+>
+> Có vài file `.bak*` không được git theo dõi nằm sẵn trong `common/national_focus/` (từ trước phiên làm việc này, không phải do báo cáo Đại hội tạo ra) — không đụng tới, không ảnh hưởng gì tới build.
+
 ### 9.1 Kịch bản thử trong game
 
 1. **Đường lịch sử, AI** (`VIE_ai_historical`) chạy 2000 → 2027: đủ 6 tinh thần nối nhau; mỗi Đại hội gỡ tinh thần cũ; chuỗi 2025 hoàn tất trước 2025.12; tham nhũng cuối ván trong khoảng `level_04`–`level_06`.
