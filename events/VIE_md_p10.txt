@@ -1214,7 +1214,6 @@ country_event = {
 
 }
 
-
 country_event = {
 	id = vie_dip.19
 	title = vie_dip.19.t
@@ -1608,20 +1607,6 @@ news_event = {
 	option = {
 		name = vie_news.5.a
 		log = "[GetDateText]: [This.GetName]: Event vie_news.5.a executed"
-	}
-
-}
-
-news_event = {
-	id = vie_news.8
-	title = vie_news.8.t
-	desc = vie_news.8.d
-	picture = GFX_news_event_generic_parliament
-	is_triggered_only = yes
-
-	option = {
-		name = vie_news.8.a
-		log = "[GetDateText]: [This.GetName]: Event vie_news.8.a executed"
 	}
 
 }

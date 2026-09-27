@@ -1,25 +1,3 @@
-# Scheduler, part 9 (plan v6 batch 5): the random coalition crisis of a young democracy (vie_alt.36).
-# 2 % per month once the first free election has been held, at least ~4 years apart, never during the pop-up cooldown.
+# Scheduler, part 9: the round_table_talks / democratic-transition branch was removed; kept as a no-op since on_actions still calls it.
 VIE_event_scheduler_p9 = {
-	if = {
-		limit = {
-			has_completed_focus = VIE_first_free_election
-			NOT = { check_variable = { VIE_catch_up = 1 } }
-			NOT = { has_country_flag = VIE_coalition_cd }
-			NOT = { has_country_flag = VIE_popup_cd }
-			OR = {
-				check_variable = { ruling_party = 1 }
-				check_variable = { ruling_party = 2 }
-				check_variable = { ruling_party = 3 }
-				check_variable = { ruling_party = 14 }
-				check_variable = { ruling_party = 18 }
-			}
-		}
-		random = {
-			chance = 2
-			set_country_flag = { flag = VIE_coalition_cd days = 1500 }
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
-			country_event = { id = vie_alt.36 days = 3 random_days = 20 }
-		}
-	}
 }

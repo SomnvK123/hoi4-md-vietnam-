@@ -1154,17 +1154,6 @@ VIE_event_scheduler_p10 = {
 	}
 	if = {
 		limit = {
-			NOT = { has_country_flag = VIE_news_democracy }
-			has_completed_focus = VIE_legalize_parties
-		}
-		set_country_flag = VIE_news_democracy
-		if = {
-			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-			news_event = { id = vie_news.8 hours = 6 }
-		}
-	}
-	if = {
-		limit = {
 			NOT = { has_country_flag = VIE_news_civil_war }
 			has_country_flag = VIE_civil_war_clock
 		}

@@ -51,8 +51,6 @@
  VIE_scs_deescalate_desc:0 "Rút bớt tàu, tăng liên lạc qua kênh ngoại giao và đường dây nóng quốc phòng. Nấc căng thẳng giảm một bậc."
 
  ### Lục quân
- VIE_army_development:0 "Chương trình phát triển Lục quân"
- VIE_army_development_desc:0 "Nâng cấp tổ chức, đào tạo và chỉ huy của lục quân, nền móng cho các hướng chuyên biệt phía sau."
  VIE_army_combined_arms:0 "Hiệp đồng binh chủng"
  VIE_army_combined_arms_desc:0 "Bộ binh, thiết giáp, pháo binh và công binh tập luyện chung dưới một bộ chỉ huy, thay vì mỗi binh chủng một kế hoạch."
  VIE_army_expeditionary:0 "Lữ đoàn cơ động"
@@ -64,21 +62,15 @@
  VIE_army_iron_triangle:0 "Tam giác thép"
  VIE_army_iron_triangle_desc:0 "Phòng ngự vững, hậu cần trơn tru và lực lượng dự bị dày: ba trụ cột làm nên một lục quân khó bị lật đổ."
  ### Hải quân
- VIE_navy_development:0 "Chương trình phát triển Hải quân"
- VIE_navy_development_desc:0 "Mua tàu mới chưa đủ. Hải quân cần thủy thủ, quy trình và căn cứ để sử dụng chúng."
  VIE_navy_fleet_training:0 "Huấn luyện hạm đội"
  VIE_navy_fleet_training_desc:0 "Các cuộc diễn tập hải quân thường niên, phối hợp giữa tàu mặt nước, tàu ngầm và không quân hải quân."
  VIE_navy_blue_water:0 "Hạm đội viễn dương"
  VIE_navy_blue_water_desc:0 "Từ bỏ chiến lược phòng thủ bờ biển để xây một hạm đội có thể hoạt động xa: khu trục hạm, tiếp tế trên biển và các căn cứ ở nước ngoài. §RĐắt đỏ, và bỏ lại lợi thế phòng thủ bờ. Không thể đồng thời chọn Chống tiếp cận trên biển.§!"
  VIE_navy_asw_capacity:0 "Năng lực chống ngầm"
  VIE_navy_asw_capacity_desc:0 "Sonar, ngư lôi chống ngầm và máy bay tuần thám giúp phát hiện và đối phó tàu ngầm đối phương."
- VIE_navy_forward_basing:0 "Căn cứ tiền phương"
- VIE_navy_forward_basing_desc:0 "Mở rộng bến cảng ở Trường Sa và đồng bằng sông Cửu Long để hạm đội có thể tiếp liệu và sửa chữa gần hiện trường."
  VIE_navy_sea_control:0 "Kiểm soát vùng biển"
  VIE_navy_sea_control_desc:0 "Tàu ngầm, tàu mặt nước và bãi mìn phối hợp để bất kỳ đội tàu nào tiến vào vùng biển của ta đều phải cân nhắc kỹ."
  ### Không quân
- VIE_air_development:0 "Chương trình phát triển Không quân"
- VIE_air_development_desc:0 "Phi công, kỹ thuật viên và sân bay là nền móng để những chiếc máy bay đắt tiền thực sự phát huy sức mạnh."
  VIE_air_doctrine_reform:0 "Cải cách học thuyết không quân"
  VIE_air_doctrine_reform_desc:0 "Viết lại cách không quân tác chiến, từ huấn luyện, chỉ huy đến phối hợp với phòng không và hải quân."
  VIE_air_superiority_ops:0 "Tác chiến giành ưu thế trên không"
@@ -86,7 +78,6 @@
  VIE_air_deep_strike:0 "Tấn công chiều sâu"
  VIE_air_deep_strike_desc:0 "Không quân có thể đánh vào hậu phương và căn cứ đối phương bằng bom dẫn đường và tên lửa hành trình. §YCần tiêm kích thế hệ mới hoặc chương trình tên lửa.§! §RKhông thể đồng thời chọn Tác chiến giành ưu thế trên không.§!"
  VIE_air_layered_sam:0 "Phòng không nhiều tầng"
- VIE_air_layered_sam_desc:0 "Mạng phòng không được mở rộng sang miền Trung và miền núi phía Bắc, với nhiều tầng tên lửa từ tầm gần đến tầm xa."
  VIE_air_maritime_strike:0 "Tấn công trên biển"
  VIE_air_maritime_strike_desc:0 "Máy bay được huấn luyện và trang bị để đánh tàu, phối hợp với tên lửa bờ và tàu ngầm."
  VIE_air_early_warning:0 "Cảnh báo sớm và trinh sát"

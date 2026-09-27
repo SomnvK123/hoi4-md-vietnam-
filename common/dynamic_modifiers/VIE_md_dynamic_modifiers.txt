@@ -29,12 +29,10 @@ VIE_armed_forces_modifier = {
 	air_strategic_bomber_bombing_factor = VIE_af_air_strategic_bomber_bombing_factor
 	recon_factor = VIE_af_recon_factor
 	# GEN:vars begin
-	army_attack_factor = VIE_af_army_attack_factor
 	army_defence_factor = VIE_af_army_defence_factor
 	army_armor_attack_factor = VIE_af_army_armor_attack_factor
 	army_armor_defence_factor = VIE_af_army_armor_defence_factor
 	army_artillery_attack_factor = VIE_af_army_artillery_attack_factor
-	army_infantry_defence_factor = VIE_af_army_infantry_defence_factor
 	army_speed_factor = VIE_af_army_speed_factor
 	land_reinforce_rate = VIE_af_land_reinforce_rate
 	dig_in_speed_factor = VIE_af_dig_in_speed_factor
@@ -47,9 +45,6 @@ VIE_armed_forces_modifier = {
 	naval_speed_factor = VIE_af_naval_speed_factor
 	naval_invasion_capacity = VIE_af_naval_invasion_capacity
 	naval_invasion_planning_bonus_speed = VIE_af_naval_invasion_planning_bonus_speed
-	navy_capital_ship_attack_factor = VIE_af_navy_capital_ship_attack_factor
-	navy_capital_ship_defence_factor = VIE_af_navy_capital_ship_defence_factor
-	convoy_raiding_efficiency_factor = VIE_af_convoy_raiding_efficiency_factor
 	navy_anti_air_attack_factor = VIE_af_navy_anti_air_attack_factor
 	naval_mines_effect_reduction = VIE_af_naval_mines_effect_reduction
 	mines_planting_by_fleets_factor = VIE_af_mines_planting_by_fleets_factor
@@ -57,13 +52,11 @@ VIE_armed_forces_modifier = {
 	air_range_factor = VIE_af_air_range_factor
 	air_cas_efficiency = VIE_af_air_cas_efficiency
 	air_mission_efficiency = VIE_af_air_mission_efficiency
-	air_escort_efficiency = VIE_af_air_escort_efficiency
 	air_night_penalty = VIE_af_air_night_penalty
 	air_weather_penalty = VIE_af_air_weather_penalty
 	air_ace_generation_chance_factor = VIE_af_air_ace_generation_chance_factor
 	air_defence_factor = VIE_af_air_defence_factor
 	air_cas_present_factor = VIE_af_air_cas_present_factor
 	naval_strike_targetting_factor = VIE_af_naval_strike_targetting_factor
-	air_strategic_bomber_defence_factor = VIE_af_air_strategic_bomber_defence_factor
 	# GEN:vars end
 }

@@ -1,0 +1,61 @@
+# Military-redesign gauges (Dot 3-4): 0-100 country variables, drift once a month via VIE_mil_gauges_monthly.
+VIE_mil_gauges_monthly = {
+	if = {
+		limit = { check_variable = { VIE_carrier_readiness > 0 } }
+		add_to_variable = { VIE_carrier_readiness = -3 }
+		clamp_variable = { var = VIE_carrier_readiness min = 0 max = 100 }
+		if = {
+			limit = { check_variable = { VIE_carrier_readiness < 30 } NOT = { has_country_flag = VIE_carrier_idle_fired } }
+			set_country_flag = VIE_carrier_idle_fired
+			country_event = { id = vie_mil.2 days = 3 }
+		}
+		if = {
+			limit = { check_variable = { VIE_carrier_readiness >= 30 } }
+			clr_country_flag = VIE_carrier_idle_fired
+		}
+	}
+	if = {
+		limit = { check_variable = { VIE_mandate_legitimacy > 0 } }
+		clamp_variable = { var = VIE_mandate_legitimacy min = 0 max = 100 }
+	}
+}
+VIE_mil_gauge_maintain_carrier = {
+	add_to_variable = { VIE_carrier_readiness = 15 }
+	clamp_variable = { var = VIE_carrier_readiness min = 0 max = 100 }
+}
+
+VIE_mil_gauges_monthly_p2 = {
+	if = {
+		limit = { check_variable = { VIE_air_interop > 0 } }
+		clamp_variable = { var = VIE_air_interop min = 0 max = 100 }
+	}
+	if = {
+		limit = { check_variable = { VIE_nuc_exposure > 0 } }
+		add_to_variable = { VIE_nuc_exposure = 2 }
+		clamp_variable = { var = VIE_nuc_exposure min = 0 max = 100 }
+	}
+	clamp_variable = { var = VIE_nuc_progress min = 0 max = 3 }
+}
+VIE_nuc_expand_facility = {
+	add_to_variable = { VIE_nuc_progress = 1 }
+	add_to_variable = { VIE_nuc_exposure = 15 }
+	clamp_variable = { var = VIE_nuc_progress min = 0 max = 3 }
+	clamp_variable = { var = VIE_nuc_exposure min = 0 max = 100 }
+}
+VIE_nuc_underground_facility = {
+	add_to_variable = { VIE_nuc_exposure = -20 }
+	clamp_variable = { var = VIE_nuc_exposure min = 0 max = 100 }
+}
+VIE_nuc_iaea_cooperate = {
+	add_to_variable = { VIE_nuc_exposure = -25 }
+	clamp_variable = { var = VIE_nuc_exposure min = 0 max = 100 }
+	add_opinion_modifier = { target = USA modifier = small_increase }
+}
+VIE_nuc_rollback_effect = {
+	set_variable = { VIE_nuc_progress = 0 }
+	set_variable = { VIE_nuc_exposure = 0 }
+	remove_ideas = VIE_nuclear_ambiguity
+	if = { limit = { has_idea = VIE_minimum_deterrent_idea } remove_ideas = VIE_minimum_deterrent_idea }
+	add_stability = 0.02
+	country_event = { id = vie_mil.40 days = 30 }
+}

@@ -26,3 +26,20 @@ VIE_resolution_category = {
 	}
 }
 
+VIE_carrier_fleet_category = {
+	allowed = { original_tag = VIE }
+	priority = 100
+	visible = { has_idea = VIE_blue_water_idea }
+}
+
+VIE_overseas_mission_category = {
+	allowed = { original_tag = VIE }
+	priority = 100
+	visible = { has_idea = VIE_expeditionary_idea }
+}
+
+VIE_nuclear_program_category = {
+	allowed = { original_tag = VIE }
+	priority = 100
+	visible = { check_variable = { VIE_nuc_progress >= 1 } }
+}
