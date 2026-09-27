@@ -1,25 +1,54 @@
 # md_vietnam: how to test (the game loads the mod with a clean error.log since 2026-09-19; content not yet playtested)
 
+> This file grew into a build log as well as a test script. The top section (through "Balance sanity" below) is
+> the live "how to test today" guide and is kept accurate. Everything from "Batch 1 additions" onward is a dated
+> changelog of what was added or fixed at the time — a later dated entry can delete content an earlier one
+> describes, and that deletion is not always logged as its own entry (see the note added to "Batch 4"/"Batch 5").
+> The "## Removed: ..." headings are the authoritative record of what is gone. Grep an id in `common/` or
+> `events/` before typing it into the console; if it is not there, the entry you read is history, not a live test.
+
 0. Launcher: add "Millennium Dawn - Vietnam" to the playset **after** Millennium Dawn. Start the game once,
    then open `Documents/Paradox Interactive/Hearts of Iron IV/logs/error.log` and search for `VIE`, `vie_`,
    `power_balance`, `on_action`, `game_rule`, `md_vietnam`. Fix these before playing.
-1. Before each session: `powershell -File tools\check_vie.ps1` (static check, no game needed).
+1. Before each session: `python3 tools/verify_all_loc.py` (portable, no local paths to edit; checks loc keys/BOM
+   and prints the current focus count). `tools/check_static.py` and `tools/audit_mod.py` do deeper checks (focus
+   grid, dangling effect/trigger calls, GFX refs) but hardcode a Windows path to a local Millennium Dawn workshop
+   install and a local HOI4 install (`check_static.py` lines 7, 69, 145, 224), or to the checkout itself
+   (`audit_mod.py` line 12, `unify.py` line 5); edit those constants for your machine first, or they raise
+   `FileNotFoundError` before running any check. There is no `check_vie.ps1` in this repo.
 
 ## Smoke test (10 minutes)
 | Step | Expected |
 |---|---|
 | Start 2000, play as VIE, unpause one month | leader changes to Le Kha Phieu, a balance-of-power widget "Direction of the Party" appears, idea "Independence and Self-Reliance" |
-| Open the focus tree | 389 focuses, all visible; the 12 alternative-regime roots are greyed out (tooltip shows the unlock condition) until a flag/regime unlocks them |
+| Open the focus tree | 381 focuses, all visible; the one remaining alternative-regime root, `VIE_sec_cyber_control` (the security-state door), is greyed out until `ruling_party = 7`, or both `VIE_ax_civil_norm < -7` and `VIE_ax_checks_norm < -1` plus `VIE_security_unlocked` |
 | Do the first focuses (`focus.autocomplete` for speed) | no errors; `VIE_doi_moi_continues` first |
 | Mid-April 2001 | event "The Ninth Party Congress" |
 | 2014 May | HD-981 chain (3 events); afterwards the door event `vie_alt.1` (20-40 days after the rig leaves) |
 | Game rules screen | "Vietnam: Alternative History" (Plausible / Historical / Free) |
 
 ## Console shortcuts (use a save copy, enable `debug` first)
-* `tag VIE`, then `event vie_alt.15` (populist crisis), `event vie_alt.14` (first free election), `event vie_col.2` (collapse and civil war).
-* `effect set_country_flag = VIE_tc_unlocked` (also `VIE_np_unlocked`, `VIE_junta_unlocked`, `VIE_sez_unlocked`, `VIE_oligarch_unlocked`, `VIE_security_unlocked`, `VIE_monarchy_unlocked`, `VIE_democracy_path_open`, `VIE_developmental_unlocked`) to make the matching branch appear.
-* `effect VIE_enter_regime = { PARTY = 20 AMOUNT = 0.2 }` tests one regime transition; then check: ruling party, leader (must be fictional), balance-of-power widget, Four Nos idea state.
-* `effect add_stability = -0.9`, then wait a month, to test the collapse check (needs two crisis ideas, e.g. `effect add_ideas = VIE_state_debt_overhang`, `effect add_ideas = VIE_bond_overhang`, and a pole such as `effect set_country_flag = VIE_lac_hong_active`).
+* `tag VIE`, then `event vie_alt.14` (first free election: options a/b/c switch the ruling party to 2/liberalism,
+  1/conservatism or 3/socialism), `event vie_col.2` (collapse and civil war; the rebel party is picked by
+  `VIE_col_pick_rebel` — 13 with `VIE_reform_mandate`/`VIE_press_relaxed`, 5 with `VIE_wk_grievance`/
+  `VIE_wa_labor_repressed`, else 22).
+* `effect set_country_flag = VIE_security_unlocked` opens the one alternative-regime root left in the tree
+  (`VIE_sec_cyber_control`). `VIE_tc_unlocked`, `VIE_np_unlocked`, `VIE_junta_unlocked`, `VIE_sez_unlocked`,
+  `VIE_oligarch_unlocked` and `VIE_monarchy_unlocked` no longer gate anything — those bands were deleted (see the
+  "Removed:" entries near the end of this file). `VIE_democracy_path_open` and `VIE_developmental_unlocked` still
+  exist but only swap an idea or an internal-faction reward, not a focus band any more.
+* There is no `VIE_enter_regime` effect — that name is dead, left over in a comment at
+  `common/scripted_effects/VIE_md_effects_p3.txt:6`. To force a regime change from the console, call the real
+  gateway directly: `effect { set_temp_variable = { rul_party_temp = 22 } VIE_transition_regime = yes }`. Party
+  indices this mod actually drives: 1 conservatism, 2 liberalism, 3 socialism, 7 autocracy/security state, 13
+  reformist, 19 the Party (default). Slots 20/21/22 (nationalist populist/fascist/military-junta, MD-defined) have
+  no focus content beyond the civil-war rebel outcome, but `VIE_transition_regime` still switches to them cleanly.
+  After the call, check: ruling party, leader (must be fictional for any slot other than 19), balance-of-power
+  widget, Four Nos idea state.
+* `effect add_stability = -0.9`, then wait a month, to test the collapse check (needs two crisis ideas, e.g.
+  `effect add_ideas = VIE_state_debt_overhang`, `effect add_ideas = VIE_bond_overhang`, and a pole such as an
+  extreme `VIE_party_balance` value or `effect set_country_flag = VIE_wa_suppressed`; `VIE_lac_hong_active` no
+  longer exists — see `VIE_collapse_pole` in `common/scripted_triggers/VIE_md_triggers_p3.txt`).
 
 ## Civil-war checklist (run once, on a copy of a save)
 - [ ] Units: totals before/after; no units stuck in provinces of the other side (search error.log for `Could not find province` or `unit`).
@@ -62,6 +91,10 @@
 | Events | `vie_soc.14` random Hanoi smog (silenced by `VIE_hanoi_air_quality`), `vie_soc.18` 2024-25, `vie_eco.29` 2021-23 (needs `VIE_domestic_automotive`) |
 
 ## Batch 4 additions (Tier A bands finished)
+**Superseded, kept for history only:** every band this table describes (Autonomy/`tc_*`, Populist/`np_*`,
+Free zones/`lb_*`, Oligarchs/`ol_*`, Development council/`wa_*`) has since been deleted from the tree; none of
+the focus ids below exist any more and this deletion was never logged as its own dated entry in this file
+(`grep -c "id = VIE_tc_asean_bloc" common/national_focus/VIE_md_focus.txt` is 0, same for the others named here).
 | Band (x from root, rows 13..17) | New focuses | Check |
 |---|---|---|
 | Autonomy x -2..4 | import substitution, non-aligned summit, workers' councils, arms diversification, ASEAN bloc, market socialism, rare-earth leverage, Mekong leadership, capstone | `VIE_tc_asean_bloc` creates a non-aligned faction (`create_faction_from_template`), check the log for faction errors; `VIE_tc_arms_diversification` opens `vie_int.10` |
@@ -69,18 +102,21 @@
 | Free zones x 28..34 | Van Don, Bac Van Phong, Phu Quoc, free port, casinos, digital assets, safeguards | Phu Quoc opens `vie_alt.26`, casinos `vie_alt.25` |
 | Oligarchs x 36..42 | bank capture, land bank, donations, private security, offshore wealth, golden visa, tycoon diplomacy | donations open `vie_alt.27` |
 | Development council x -23..-13 | five-year plans, Japanese capital, Cam Ranh access, technical education, Korea, new countryside, purge, transition, capstone | `VIE_wa_korea_partnership` opens `vie_alt.29` |
-Use `effect set_country_flag = VIE_tc_unlocked` etc. (see above) to open a band, then `focus.autocomplete`.
+None of these flags open anything today; see the superseded note above instead of running `effect set_country_flag = VIE_tc_unlocked` etc.
 
 ## Batch 5 additions (Tier B/C, democracy packages, party names)
+**Partly superseded:** the Junta/unity/monarchy row, the Green band row and the Democracy row describe the
+round-table branch and the Junta/Caretaker/Monarchy/Green bands, all removed later (see "Removed: nationalist /
+street hypothetical branches", "Removed: Junta, Caretaker government, Monarchy, Green coalition", and the
+`round_table_talks` removal under "Trunk redesign", further down this file) — none of their ids exist today.
+The Lac Hong/workers row is also dead (slot 21 has no focus content, and `VIE_wk_unlocked` never gated anything
+after the workers band was cut). In the party-slots row, slot 17's leader branch was removed with the Green band;
+only 5, 14 and 18 still have a fictional leader in `VIE_political_leaders.txt`. Only these two rows are still
+testable:
 | Item | Expected |
 |---|---|
-| Security x 22..26 | `VIE_sec_managed_opening` sets `VIE_wa_unlocked` (opens the development council band); `VIE_sec_cyber_sovereignty` opens `vie_alt.31` |
-| Junta x 13..21, unity x 45..49, monarchy x 51..55 | new focuses; `VIE_jn_border_mobilization` -> `vie_alt.33`, `VIE_ng_ceasefire` -> `vie_alt.34`, `VIE_mn_royal_charter` -> `vie_alt.35` |
-| Green band x 59..63, rows 12..16 | root needs `VIE_formosa_open_tt` and `VIE_d2_open_tt`, or `VIE_green_unlocked`, or ruling party 17; `effect set_country_flag = VIE_green_unlocked` to test; `VIE_gr_coal_phaseout` -> `vie_alt.32` |
-| Lac Hong x 66..68 / workers x 70..72 | roots only available when `ruling_party` is 21 / 5 (or `VIE_wk_unlocked`); test with `effect VIE_enter_regime = { PARTY = 21 AMOUNT = 0.2 }` (leader must be fictional) |
-| Party slots 5, 14, 17, 18 | new fictional leaders in `VIE_political_leaders.txt`; regime change to 14 or 18 enables elections; check `change_ruling_party_effect` works for these slots |
-| Democracy | `VIE_dm_truth_reconciliation` (x -9, row 18) -> `vie_alt.37`; four packages in rows 20..21 (x -14..3) need the matching ruling party AND `VIE_first_free_election`; random `vie_alt.36` afterwards |
-| Party names | `localisation/english/replace/VIE_md_parties_l_english.yml`: liberalism, socialism, Western_Autocracy and anarchist_communism must show the new names in the politics screen |
+| Security x 22..26 | `VIE_sec_managed_opening` still exists and still sets `VIE_wa_unlocked`, but nothing reads that flag any more (the development council band it used to open is gone); `VIE_sec_cyber_sovereignty` still opens `vie_alt.31` |
+| Party slots 5, 14, 18 | fictional leaders in `VIE_political_leaders.txt`; regime change to 14 or 18 enables elections; check `change_ruling_party_effect` works for these slots |
 
 ## Branch restructure (v6.1)
 Layout changed: East block rows 1..6 now hold D3 (x 33..39), D4 (x 40..44), D5 (x 46..53), D6 (x 59..66), E6 (x 69..73); E1..E4 sit in rows 8..11 (x 32..71) and E5 in rows 5..8 (x 73..77). New focuses: `VIE_new_rural_development`, `VIE_energy_security_2045`, `VIE_us_engagement`. Check in game: no prerequisite line longer than about 16 cells; `VIE_assert_maritime_rights` hangs from `VIE_law_of_the_sea` next to `VIE_legal_warfare`; `VIE_era_of_rising` has two alternative parents; `VIE_managed_pluralism` needs the three C7 focuses.
@@ -90,17 +126,23 @@ Layout changed: East block rows 1..6 now hold D3 (x 33..39), D4 (x 40..44), D5 (
 |---|---|
 | `VIE_md_p10.txt` | 71 events load (`setup.log`: `Events loaded events/VIE_md_p10.txt' #71`); no `Unknown effect` in error.log |
 | News | `vie_news.1` (WTO) on 11 Jan 2007, `vie_news.3` on 10 May 2014; other news fire once when the regime flag / focus / war condition is true (`effect set_country_flag = VIE_tc_active` to test `vie_news.4`) |
-| Focus-linked | `VIE_asset_recovery` -> `vie_cor.8`, `VIE_spratly_fortification` -> `vie_scs.14`, `VIE_code_of_conduct` -> `vie_scs.18`, `VIE_us_carrier_visit` -> `vie_dip.10`, `VIE_tc_nonaligned_summit` -> `vie_dip.18`, `VIE_overseas_vietnamese` -> `vie_dip.19`, `VIE_sea_games_bid` -> `vie_soc.8` |
+| Focus-linked | `VIE_asset_recovery` -> `vie_cor.8`, `VIE_spratly_fortification` -> `vie_scs.14`, `VIE_code_of_conduct` -> `vie_scs.18`, `VIE_us_carrier_visit` -> `vie_dip.10`, `VIE_overseas_vietnamese` -> `vie_dip.19`, `VIE_sea_games_bid` -> `vie_soc.8` (the `VIE_tc_nonaligned_summit` -> `vie_dip.18` link this row used to have no longer applies: that focus was part of the deleted Autonomy/`tc_*` band) |
 | Pop-up budget | run 2000-2026 in observe mode: never two pop-ups within 45 days except chained events |
 
 ## Batch 7
 * `vie_alt.23` needs a party-ruled VIE with stability under 35% after Sept 2021 (`effect add_stability = -0.5`).
 * `vie_scs.16`: `effect set_variable = { VIE_scs_tension = 3 }`; option B needs CHI to exist and no war. `vie_scs.17` follows 120 days after option B while at war with CHI.
-* Workers as civil-war rebel: `effect set_country_flag = VIE_wk_grievance`, then `event vie_col.2`; rebel takes states 519 and 524; if the rebel wins, ruling party 5 and flag `VIE_wk_unlocked` (workers band opens).
+* Workers as civil-war rebel: `effect set_country_flag = VIE_wk_grievance`, then `event vie_col.2`; rebel takes states 519 and 524; if the rebel wins, ruling party 5 and flag `VIE_wk_unlocked` are still set, but `VIE_wk_unlocked` no longer opens anything — the workers band (`wk_*`) was removed (see "Removed: nationalist / street hypothetical branches" below).
 * `vie_col.8`: appears once during the civil war (20% per month).
 
 ## Shortcut menu
-The left-hand buttons (11) jump to: Doi Moi root, anti-corruption, WTO, banks, state groups, roads, army, East Sea, ASEAN, digital, alternative paths. Click each and check the view lands on the right focus.
+The left-hand buttons are 17, not 11: Doi Moi root, anti-corruption, WTO, banks, state groups, roads, army,
+East Sea, ASEAN, digital, alternative paths, and one per military column (army/navy/air/defence-industry) plus
+rule-of-law and bilateral-diplomacy (`common/national_focus/VIE_md_focus.txt`, the `shortcut = { ... }` blocks
+right after `focus_tree = {`). Click each and check the view lands on the right focus. The "alternative paths"
+button (`VIE_alt_paths_shortcut`) is currently broken: its target, `VIE_developmental_state`, does not exist in
+the tree any more (a leftover from one of the deleted alt-regime bands) — clicking it should either do nothing or
+log an error; either way this is a known game-file bug, not a TESTING.md error, and is not fixed here.
 
 ## Leader lifecycle (2026-09-20)
 Code: `VIE_create_leader_*`, `VIE_new_leader_*`, `VIE_recreate_general_secretary`, `VIE_create_leader_restored_party`
@@ -310,7 +352,7 @@ Check in game: icons show (else `error.log` has a texture/sprite error), gauge l
 - Events removed: `vie_alt.15-18, 24, 38, 39`, `vie_int.11`, `vie_news.6`, `vie_axis.2` (+ the axis entropy check #2), option `vie_alt.1.c` (street door). `vie_scs.2.b` keeps its effects minus the dead `VIE_riots_tolerated` flag; `vie_int.2.b` loses the populist-balance call.
 - Kept deliberately: the `VIE_NATIONALIST` AI path (drives SCS escalation, Junta gates and military focus weights; description reworded), rebel party 5 logic and `VIE_wk_grievance`, party slots 20/21 (MD defines them).
 - Gap left in the alt band where `np_*` stood (x ~ 196-205) and at the right edge; not compacted.
-- Check in game: no `error.log` line naming `VIE_np_`, `VIE_lh_`, `VIE_pop_`, `VIE_populist`, `vie_alt.15..18`; the Junta focus tree still opens (its gate `VIE_junta_unlocked` is still set by the security-state door in `VIE_md_alt.txt`); the game rule "Phong trao Dan toc Chu nghia" still works; decision list has no Populist category.
+- Check in game: no `error.log` line naming `VIE_np_`, `VIE_lh_`, `VIE_pop_`, `VIE_populist`, `vie_alt.15..18`; the Junta focus tree still opens (its gate `VIE_junta_unlocked` is still set by the security-state door in `VIE_md_alt.txt`); the game rule "Phong trao Dan toc Chu nghia" still works; decision list has no Populist category. **This was true when written; the Junta tree itself was removed in the very next dated entry below, so `VIE_junta_unlocked` no longer gates anything.**
 
 ## Removed: Junta, Caretaker government, Monarchy, Green coalition (2026-09-26, `_gen/delete_branches2.py`; backup `_backup_v5/pre_delete_alt2/`)
 - Focuses: Junta 8 (`national_salvation_council`, `martial_law`, `military_economy`, `restore_civilian_rule`, `jn_*`), Caretaker `ng_*` 6, Monarchy `mn_*` 10, Green `gr_*` 9 = 33. Tree = 454 focuses; the alt band keeps 8 branches / 106 focuses (defend_the_foundation, tc, developmental_state, round_table_talks, sec, lb, ol, wa).
