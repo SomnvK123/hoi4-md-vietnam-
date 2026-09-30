@@ -378,17 +378,17 @@ Mọi idea có `allowed = { always = no }`, `allowed_civil_war = { always = no }
 | `VIE_nat_charter_guardian` | charter | `stability_factor 0.05`, `army_org_factor 0.02`, `political_power_factor −0.03` | N8 khi slot 22 |
 | `VIE_nat_charter_totalist` | charter | `political_power_factor 0.10`, `war_support_factor 0.05`, `stability_factor −0.03` | N8 khi slot 21 |
 | `VIE_nat_self_reliance` | vĩnh viễn trong chế độ | `production_speed_arms_factory_factor 0.05`, `receiving_investment_cost_modifier 0.10`, `trade_opinion_factor −0.05` | N7 |
-| `VIE_nat_peoples_nationalism` | capstone V1 | `stability_factor 0.05`, `political_power_factor 0.05`, `war_support_factor 0.05` | V1-6 |
-| `VIE_nat_fortress_state` | capstone V2 | `army_org_factor 0.05`, `production_speed_arms_factory_factor 0.05`, `stability_factor 0.03` | V2-6 |
-| `VIE_nat_totalist_state` | capstone V3 | `war_support_factor 0.15`, `conscription_factor 0.10`, `stability_factor −0.05`, `receiving_investment_cost_modifier 0.20` | V3-6 |
-| `VIE_nat_armed_neutrality` | ngoại giao | `foreign_influence_defense_modifier 0.15`, `army_org_factor 0.03` | D4 |
+| `VIE_nat_peoples_nationalism_idea` | capstone V1 | `stability_factor 0.05`, `political_power_factor 0.05`, `war_support_factor 0.05` | V1-6 (`add_ideas`; focus giữ id `VIE_nat_peoples_nationalism`, idea đổi tên tránh trùng — 7.8.9) |
+| `VIE_nat_fortress_state_idea` | capstone V2 | `army_org_factor 0.05`, `production_speed_arms_factory_factor 0.05`, `stability_factor 0.03` | V2-6 (focus giữ id `VIE_nat_fortress_state`) |
+| `VIE_nat_totalist_state_idea` | capstone V3 | `war_support_factor 0.15`, `conscription_factor 0.10`, `stability_factor −0.05`, `receiving_investment_cost_modifier 0.20` | V3-6 (focus giữ id `VIE_nat_totalist_state`) |
+| `VIE_nat_armed_neutrality_idea` | ngoại giao | `foreign_influence_defense_modifier 0.15`, `army_org_factor 0.03` | D4 (focus giữ id `VIE_nat_armed_neutrality`) |
 | `VIE_nat_sovereignty_secured` | kìm hãm | `stability_factor 0.05`, BoP trôi −0,01/tháng (mục 7.3) | T1 |
-| `VIE_nat_conventional_deterrent` | quân sự | `war_support_factor 0.05`, `army_org_factor 0.03` | M4 |
+| `VIE_nat_conventional_deterrent_idea` | quân sự | `war_support_factor 0.05`, `army_org_factor 0.03` | M4 (focus giữ id `VIE_nat_conventional_deterrent`) |
 | `VIE_nat_militia_mobilized` | timed 180 ngày | `conscription_factor 0.05`, `production_speed_buildings_factor −0.05` | decision `VIE_nat_mobilize_militia` |
 | `VIE_nat_capital_controls` | timed 365 ngày | `tax_gain_multiplier_modifier −0.02`, `receiving_investment_cost_modifier 0.05` | `vie_nat.11.a` |
-| `VIE_nat_sanctions_evasion` | timed 365 ngày | `trade_opinion_factor 0.15` (bù một phần), `stability_factor −0.01` | decision `VIE_nat_sanctions_evasion` |
+| `VIE_nat_sanctions_evasion_idea` | timed 365 ngày | `trade_opinion_factor 0.15` (bù một phần), `stability_factor −0.01` | decision `VIE_nat_sanctions_evasion` (decision giữ id gốc, idea đổi tên tránh trùng) |
 
-**Danh sách "idea chế độ"** bị `VIE_nat_regime_exit` gỡ: `VIE_nat_emergency_rule`, ba charter, ba capstone, `VIE_nat_self_reliance`, `VIE_nat_armed_neutrality`, `VIE_nat_militia_mobilized`. Giữ lại: `VIE_nat_sovereignty_secured`, `VIE_nat_conventional_deterrent`.
+**Danh sách "idea chế độ"** bị `VIE_nat_regime_exit` gỡ: `VIE_nat_emergency_rule`, ba charter, ba capstone (`VIE_nat_peoples_nationalism_idea`, `VIE_nat_fortress_state_idea`, `VIE_nat_totalist_state_idea`), `VIE_nat_self_reliance`, `VIE_nat_armed_neutrality_idea`, `VIE_nat_militia_mobilized`. Giữ lại: `VIE_nat_sovereignty_secured`, `VIE_nat_conventional_deterrent_idea`.
 
 #### 7.4.2 Idea và hệ thống tái sử dụng (không định nghĩa lại)
 
@@ -533,14 +533,18 @@ Mọi `random` trong effect chạy mỗi tháng. Các event pop-up tôn trọng 
 
 #### 7.8.0 Quy ước chung
 
-- **Vị trí.** Gốc `VIE_nat_salvation_government` đặt `relative_position_id = VIE_doi_moi_continues`, ở vùng trống bên phải dải An ninh (dải An ninh dùng x 216–232, y 28–29, ✅ `mod:…/VIE_md_focus.txt:3436`). Tọa độ tuyệt đối do `tools/layout_applier.py` chốt (❗N-14). Mọi focus khác dùng `relative_position_id` theo tọa độ tương đối trong bảng 7.8.8.
-- **Một gốc duy nhất.** Mọi focus của dải đều nối về N1, để một dòng `shared_focus` là đủ kéo cả dải vào cây (N-01).
+- **Vị trí.** *(Sửa 2026-09-27, xem 7.8.9)* Dải An ninh thật sự chiếm x 856–872, y 28–31 (kiểm lại trực tiếp trong file sống, không phải 216–232/28–29 như bản gốc — con số đó đã lệch từ khi cây được tái cấu trúc). Gốc `VIE_nat_salvation_government` (N1) đặt `relative_position_id = VIE_doi_moi_continues`, tại một ô trống hẳn, ví dụ tuyệt đối `x = 900 y = 33` (một hàng mới, không chồng lên dải An ninh hay nhánh quân sự ở y ≤ 32). Toàn bộ 48 focus còn lại của dải dùng `relative_position_id = VIE_nat_salvation_government` (N1), **không** trỏ thẳng về `VIE_doi_moi_continues` — tọa độ x/y của chúng trong bảng 7.8.8 là offset tương đối so với N1. Tọa độ trong 7.8.8 chỉ là bản nháp đã tự kiểm (không còn ô trùng, không còn con nằm cùng hàng hoặc trên cha); giống mọi đợt trước của mod (`trunk_redesign.py`, `fix_spacing.py`…), nên chạy lại một script layout để tinh chỉnh trước khi merge (❗N-14).
+- **Một gốc duy nhất.** Mọi focus của dải đều nối về N1 qua chuỗi `prerequisite` (không phải qua `relative_position_id`, hai việc khác nhau), để một dòng `shared_focus` là đủ kéo cả dải vào cây (N-01).
 - **`available`.** Mọi focus có `VIE_nat_regime_active = yes`. Focus cột V dùng thêm `VIE_nat_is_populist/radical/junta`.
+- **Nguyên tắc prerequisite/available** (giống toàn bộ đợt dọn `VIE_md_focus.txt` ngày 2026-09-27): mỗi focus chỉ giữ **prerequisite thiết yếu về mặt chủ đề** (thường là focus liền trước trong cùng nhánh). Điều kiện phụ tham chiếu sang nhánh khác — dù thật sự cần để unlock — chuyển thành `available = { has_completed_focus = … }`, để không vẽ dây nối chéo dài qua các khối khác. Ba chỗ trong bảng gốc đã sửa theo nguyên tắc này: N9 (bỏ prerequisite N3 và N6/N7, giữ trong `available`), M4 (bỏ prerequisite N9, giữ trong `available`), D6 (bỏ prerequisite V3-6, giữ trong `available`). Xem 7.8.9 để biết vì sao.
 - **Cost.** MD tính 1 đơn vị = 7 ngày; mặc định 10 và không ghi. Dải này dùng 3–7 cho focus thường, 10 cho capstone, vì chế độ khủng hoảng cần nhịp nhanh.
-- **Chuẩn MD** (✅ `MD:.claude/docs/focus-tree-reference.md`): thứ tự thuộc tính cố định, `log` trong `completion_reward`, `ai_will_do` đặt cuối, `search_filters` hai lớp, tối đa 5 hiệu ứng vĩnh viễn, bankruptcy guard cho focus tiêu tiền.
+- **Format file** (theo đúng mẫu Xiêm mà cả cây `VIE_md_focus.txt` đã dùng từ đợt format 2026-09-27, xem `[[feedback-focus-format]]`): mỗi `focus = { }` viết theo đúng thứ tự `id, icon` / `x, y, relative_position_id` / `cost` / `prerequisite, mutually_exclusive` / `search_filters` / `bypass, available` / `completion_reward` (dòng đầu luôn là `log = "[GetDateText]: [Root.GetName]: Focus <id>"`) / `ai_will_do`, mỗi nhóm cách nhau đúng một dòng trống. Dải viết **trực tiếp trong `VIE_md_focus.txt`** (không phải file `shared_focus` riêng — xem lý do ở 7.8.9), thành một khối liền cuối file. Toàn dải nằm trong một header duy nhất `## CHINH TRI` (băng này gắn thẳng vào root chính trị, giống cách phân loại 3 nhóm CHINH TRI/QUAN SU/KINH TE hiện có); tên các khối con (N, V1, V2, V3, S, M, D, T) chỉ ghi bằng comment một dấu `#` thường (không phải `###`/`##`/`###`), vì script chuẩn hoá header của mod xoá mọi khối 3 dòng `###`.
+- **Shortcut.** Thêm một `shortcut = { name = VIE_nat_shortcut target = VIE_nat_salvation_government scroll_wheel_factor = 0.60 }` vào đầu `focus_tree`, theo đúng mẫu 16 shortcut đã có. (`VIE_alt_paths_shortcut` đã được trỏ lại sang `VIE_sec_cyber_control` trong đợt sửa 2026-09-27 — không đụng lại.)
+- **Chuẩn MD** (✅ `MD:.claude/docs/focus-tree-reference.md`): `log` trong `completion_reward`, `ai_will_do` đặt cuối, `search_filters` hai lớp, tối đa 5 hiệu ứng vĩnh viễn, bankruptcy guard cho focus tiêu tiền.
 - **Nhãn.** Mô tả của mọi focus kết thúc bằng `$VIE_nat_ah_note$` (dòng "Lịch sử giả định"). Focus có tham chiếu lịch sử thật thêm `$VIE_nat_ls_note_<id>$`.
 - **Ký hiệu hiệu ứng.** `BoP ±n` = helper 7.3. `mil ±n` = `temp_opinion` + `change_the_military_opinion`; lưu ý MD **nhân đôi** giá trị dương khi slot là 21 hoặc 22 (✅ `MD:…/00_internal_faction_effects.txt:1001`), nên cột "mil" ghi giá trị trước khi nhân. `ax.<trục> ±n` = `add_to_variable` trên `VIE_ax_*` với tooltip `VIE_ax_<trục>_tt` (mẫu có sẵn trong cây). `af.<khóa> +n` = biến `VIE_af_*` của `VIE_armed_forces_modifier` với tooltip `modifies_dynamic_modifier_tt`. `TREAS ±n` = `treasury_change` + `modify_treasury_effect`.
 - **AI.** Cột AI ghi `base`, sau dấu chấm phẩy là modifier (`slot 21 → 90` nghĩa là `base` thành 90 khi ở slot 21; `+50` nghĩa là `add = 50`). Mọi focus tiêu tiền có `factor = 0` khi `has_active_mission = bankruptcy_incoming_collapse`.
+- **Không trùng ID với idea.** Bản gốc có 6 chỗ focus/decision trùng tên với idea (`VIE_nat_peoples_nationalism`, `VIE_nat_fortress_state`, `VIE_nat_totalist_state`, `VIE_nat_armed_neutrality`, `VIE_nat_conventional_deterrent`, `VIE_nat_sanctions_evasion`). MD yêu cầu loc riêng cho idea (mô tả phải nói cách gỡ) khác loc của focus/decision, nên 6 idea này đã đổi tên thêm hậu tố `_idea` ở mục 7.4.1 — xem 7.8.9.
 
 #### 7.8.1 Trunk N: Nắm quyền và củng cố (9)
 
@@ -553,8 +557,8 @@ Mọi `random` trong effect chạy mỗi tháng. Các event pop-up tôn trọng 
 | N5 | `VIE_nat_emergency_economy` | Emergency Economic Measures / Biện pháp kinh tế khẩn cấp | 5 | N1 | `TREAS +4` (thu khẩn cấp) *(treasury)*; `STAB −0.02`; mở ngã rẽ N6/N7 | 80 |
 | N6 | `VIE_nat_reassure_foreign_capital` | Reassure Foreign Capital / Trấn an vốn ngoại | 5 | N5 · ME N7 | Gỡ `VIE_fdi_confidence_shock` nếu có; `VIE_nat_sanction_down` *(ngoại giao)*; `BoP −0.10`; `small_increase` opinion với JAP, KOR, SIN, TAI. Nếu làm trước ngày 30, `vie_nat.11` không nổ (trigger của event) | 60; slot 22 → 80 |
 | N7 | `VIE_nat_economic_self_reliance` | Economic Self-Reliance / Tự lực kinh tế | 5 | N5 · ME N6 | `add_ideas VIE_nat_self_reliance` *(idea)*; `one_random_arms_factory` *(công trình, trừ 7,5)*; `ax.integ −2`; `ax.market −1`; `BoP +0.05` | 40; slot 21 → 90. Bankruptcy guard |
-| N8 | `VIE_nat_national_charter` | The National Charter / Hiến chương Quốc gia | 7 | N2 và N4 | Swap `VIE_nat_emergency_rule` sang charter theo slot (nếu idea khẩn cấp đã hết hạn thì add) *(idea swap)*; `ax.checks −1`; `STAB +0.02`. Là gốc của cả ba cột V | 90 |
-| N9 | `VIE_nat_regime_consolidated` | The Regime Consolidated / Chế độ được củng cố | 7 | N8, N3, và (N6 hoặc N7) | Hoàn thành mission `VIE_nat_consolidation_deadline` *(mission)*; `STAB +0.05`; `PP +75`; nếu đã làm `VIE_assert_maritime_rights` thì `country_event vie_nat.50` *(event)*. Là gốc của nhánh M4, D và T | 90 |
+| N8 | `VIE_nat_national_charter` | The National Charter / Hiến chương Quốc gia | 7 | N4 *(N2 bỏ: đã ngầm bắt buộc qua N4)* | Swap `VIE_nat_emergency_rule` sang charter theo slot (nếu idea khẩn cấp đã hết hạn thì add) *(idea swap)*; `ax.checks −1`; `STAB +0.02`. Là gốc của cả ba cột V | 90 |
+| N9 | `VIE_nat_regime_consolidated` | The Regime Consolidated / Chế độ được củng cố | 7 | N8 · `available` thêm: đã làm N3, và (N6 hoặc N7) | `available` bọc trong `custom_trigger_tooltip` để người chơi thấy lý do khoá. Không còn prerequisite trực tiếp tới N3/N6/N7 để tránh dây nối vắt qua khối M và khối N6/N7 (xem 7.8.9). Hoàn thành mission `VIE_nat_consolidation_deadline` *(mission)*; `STAB +0.05`; `PP +75`; nếu đã làm `VIE_assert_maritime_rights` thì `country_event vie_nat.50` *(event)*. Là gốc của nhánh M4, D và T | 90 |
 
 #### 7.8.2 Cột V1: Dân tộc dân túy, slot 20 (7) [AH]
 
@@ -568,7 +572,7 @@ Cơ chế riêng: **bầu cử**. Đây là biến thể duy nhất có thể t�
 | V1-4 | `VIE_nat_welfare_for_the_people` | Welfare for the People / An sinh cho nhân dân | 5 | V1-2 | `increase_social_spending` *(luật ngân sách)*; `STAB +0.03`; `ax.mob +1`; `farmers` opinion +10 nếu có | 70 |
 | V1-5a | `VIE_nat_keep_managed_elections` | Keep Managed Elections / Giữ bầu cử có kiểm soát *(kìm hãm)* | 5 | V1-3 và V1-4 · ME V1-5b | Bật bầu cử bằng `set_elections_with_frequency` với chu kỳ 60 tháng tính từ năm hiện tại (✅ `MD:common/scripted_effects/00_MD_politicsview_scripted_effects.txt:2165`). Không dùng `set_politics` trần: lịch sử VIE có `last_election = 1932.11.8`, nên bật bầu cử mà không đặt lại ngày có thể gây bầu cử ngay lập tức; gỡ cấm đảng 13 (đối lập kỹ trị, có thể thắng) *(chính trị)*; `BoP −0.10`; `VIE_nat_sanction_down`; `ax.checks +2` | 50; +30 khi BoP > 0,4 |
 | V1-5b | `VIE_nat_postpone_elections` | Postpone the Elections / Hoãn bầu cử | 5 | V1-3 và V1-4 · ME V1-5a | `set_politics = { elections_allowed = no }`; `PP +75`; `mil +5`; `BoP +0.10`; `ax.checks −2` | 50 |
-| V1-6 | `VIE_nat_peoples_nationalism` | People's Nationalism / Chủ nghĩa dân tộc nhân dân | 10 | V1-5a hoặc V1-5b | `add_ideas VIE_nat_peoples_nationalism` *(idea)*; mở decision `VIE_nat_patriotic_bonds` *(decision)*. Nếu đã làm V1-5a: popularity đảng 20 +0,10 | 70 |
+| V1-6 | `VIE_nat_peoples_nationalism` | People's Nationalism / Chủ nghĩa dân tộc nhân dân | 10 | V1-5a hoặc V1-5b | `add_ideas VIE_nat_peoples_nationalism_idea` *(idea)*; mở decision `VIE_nat_patriotic_bonds` *(decision)*. Nếu đã làm V1-5a: popularity đảng 20 +0,10 | 70 |
 
 #### 7.8.3 Cột V2: Quân quản dân tộc, slot 22 (7) [AH]
 
@@ -582,7 +586,7 @@ Cơ chế riêng: **lộ trình dân sự** (mission). Theo Geddes, chế độ 
 | V2-4 | `VIE_nat_defense_conglomerates` | Defense-Industrial Conglomerates / Tập đoàn công nghiệp quốc phòng | 7 | V2-2 | `one_random_arms_factory` ×2 *(công trình, trừ 15)*; `industrial_conglomerates` opinion +10 nếu có | 70. Bankruptcy guard |
 | V2-5a | `VIE_nat_promise_civilian_rule` | Promise a Return to Civilian Rule / Hứa trao quyền dân sự *(kìm hãm)* | 5 | V2-3 và V2-4 · ME V2-5b | `activate_mission VIE_nat_civilian_roadmap` *(mission)*; `VIE_nat_sanction_down`; `BoP −0.10`; `mil −5`; `small_increase` opinion với USA, JAP | 50 |
 | V2-5b | `VIE_nat_indefinite_guardianship` | Indefinite Guardianship / Giám hộ vô thời hạn | 5 | V2-3 và V2-4 · ME V2-5a | `mil +10` (thành +20); `PP +50`; `ax.checks −2`; `BoP +0.05` | 50 |
-| V2-6 | `VIE_nat_fortress_state` | The Fortress State / Nhà nước pháo đài | 10 | V2-5a hoặc V2-5b | `add_ideas VIE_nat_fortress_state` *(idea)*; `522 = { one_state_anti_air }` và `519 = { one_state_anti_air }` *(công trình, trừ 6,5)* | 70. Bankruptcy guard |
+| V2-6 | `VIE_nat_fortress_state` | The Fortress State / Nhà nước pháo đài | 10 | V2-5a hoặc V2-5b | `add_ideas VIE_nat_fortress_state_idea` *(idea)*; `522 = { one_state_anti_air }` và `519 = { one_state_anti_air }` *(công trình, trừ 6,5)* | 70. Bankruptcy guard |
 
 #### 7.8.4 Cột V3: Cực đoan, slot 21 (6) [AH]
 
@@ -595,33 +599,35 @@ Cơ chế riêng: **lộ trình dân sự** (mission). Theo Geddes, chế độ 
 | V3-3 | `VIE_nat_youth_vanguard` | The Youth Vanguard / Đội tiên phong thanh niên | 5 | V3-1 | `af.training_time_factor −0.10`; `WS +0.03`; `mil −5` (quân đội ghét lực lượng song song) *(faction)* | 70 |
 | V3-4 | `VIE_nat_purge_the_moderates` | Purge the Moderates / Thanh trừng phe ôn hòa | 5 | V3-2 | `mil −15`; `PP +75`; `STAB −0.03`; `BoP +0.10`; `country_event vie_nat.22` sau 90 ngày *(event)* | 60 |
 | V3-5 | `VIE_nat_war_economy` | The War Economy / Kinh tế thời chiến | 7 | V3-3 và V3-4 | `increase_military_spending`; `decrease_social_spending` (✅ `MD:common/scripted_effects/00_budget_effects.txt:323`) *(luật ngân sách)*; `one_random_arms_factory` *(trừ 7,5)*; `ax.market −2` | 60. Bankruptcy guard |
-| V3-6 | `VIE_nat_totalist_state` | The Totalist State / Nhà nước toàn trị | 10 | V3-4 và V3-5 | `add_ideas VIE_nat_totalist_state` *(idea)*; `VIE_nat_sanction_up` *(ngoại giao)*. Là điều kiện của T3 và D6 | 50 |
+| V3-6 | `VIE_nat_totalist_state` | The Totalist State / Nhà nước toàn trị | 10 | V3-4 và V3-5 | `add_ideas VIE_nat_totalist_state_idea` *(idea)*; `VIE_nat_sanction_up` *(ngoại giao)*. Là điều kiện của T3 và D6 (qua `available`, xem 7.8.9) | 50 |
 
 *Không dùng tên học thuyết "Dân tộc Sinh tồn" của Đại Việt Quốc dân Đảng cho focus nào.* Báo cáo gắn nó với biến thể cực đoan và tự đánh dấu mức ảnh hưởng là [D] (còn tranh cãi). Gắn học thuyết của một đảng có thật vào capstone toàn trị là quy kết mà nguồn chưa đủ chắc.
 
-#### 7.8.5 Nhánh S: Thiết chế chung, gồm các lựa chọn kìm hãm (6)
+#### 7.8.5 Nhánh S: Thiết chế chung, gồm các lựa chọn kìm hãm (5)
+
+*(Sửa 2026-09-27: S3 dời sang khối M — xem 7.8.6 — vì prerequisite N3 của nó kéo một dây nối dài vắt ngang từ khối S bên trái sang N3 bên phải; đặt S3 ngay dưới N3 giải quyết dứt điểm mà không đổi ý nghĩa gameplay.)*
 
 | # | ID | Tên EN / VI | Cost | Prereq | Phần thưởng (loại) | AI |
 |---|---|---|---|---|---|---|
 | S1 | `VIE_nat_patriotic_education` | Patriotic Education / Giáo dục yêu nước | 5 | N4 | `increase_education_budget` *(luật ngân sách)*; `ax.mob +1`; `WS +0.02` | 70 |
 | S2 | `VIE_nat_call_the_diaspora` | A New Dong Du: Call on the Diaspora / Đông Du mới: Kêu gọi kiều bào | 5 | S1 | `country_event vie_nat.13` *(event có lựa chọn)*. Tên gợi phong trào Đông Du 1905–1908 **[LS]** | 50 |
-| S3 | `VIE_nat_veterans_associations` | Mobilize the Veterans' Associations / Huy động Hội Cựu chiến binh | 5 | N3 | `mil +5`; `WS +0.02`; `ax.mob +1`; `STAB +0.02` | 70 |
 | S4 | `VIE_nat_protect_every_citizen` | Protect Every Citizen / Bảo vệ mọi công dân *(kìm hãm)* | 5 | N4 | `BoP −0.20`; `WS −0.03`; `ax.civil +1`; giảm một nửa xác suất `vie_nat.30` và làm option A của nó mạnh hơn *(cơ chế)* | 60; slot 21 → 10 |
 | S5 | `VIE_nat_unity_of_54_peoples` | Unity of the 54 Peoples / Đoàn kết 54 dân tộc *(kìm hãm)* | 5 | S4 | `BoP −0.10`; `STAB +0.03`; `ax.decent +1` | 60; slot 21 → 10 |
 | S6 | `VIE_nat_reconciliation_commission` | A National Reconciliation Commission / Ủy ban Hòa giải Dân tộc *(kìm hãm)* | 7 | S5 | Gỡ cấm đảng 19 (đối lập hợp pháp) *(chính trị)*; `clr_country_flag = VIE_nat_elite_split` *(cơ chế: gỡ một điều kiện cấu trúc của slot 21)*; `BoP −0.05`; `STAB +0.02`; `mil −5` | 40; slot 21 → 0 |
 
 Bỏ focus "New National Symbols" của báo cáo: cosmetic tag được đặt tự động khi vào chế độ (7.6), nên focus đó không còn việc gì để làm.
 
-#### 7.8.6 Nhánh M: Quân sự riêng của chế độ (4)
+#### 7.8.6 Nhánh M: Quân sự riêng của chế độ (5, gồm S3 dời từ nhánh S)
 
 Nhánh này **không** nhân đôi nhánh quân sự hiện có. Capstone M4 thưởng cho việc đã đi nhánh đó.
 
 | # | ID | Tên EN / VI | Cost | Prereq | `available` thêm | Phần thưởng (loại) | AI |
 |---|---|---|---|---|---|---|---|
 | M1 | `VIE_nat_modern_peoples_war` | A Modernized People's War / Chiến tranh nhân dân hiện đại | 7 | N3 | — | `army_experience = 25`; `af.army_defence_factor +0.03`; `af.dig_in_speed_factor +0.10`; `mil +3` | 90 |
+| S3 | `VIE_nat_veterans_associations` | Mobilize the Veterans' Associations / Huy động Hội Cựu chiến binh | 5 | N3 | — | `mil +5`; `WS +0.02`; `ax.mob +1`; `STAB +0.02`. *(Dời từ nhánh S 2026-09-27, cùng cha N3 với M1 nên đặt cạnh nhau — xem 7.8.5)* | 70 |
 | M2 | `VIE_nat_militia_self_defense` | Militia and Self-Defense Forces / Dân quân tự vệ | 5 | M1 | — | Mở decision `VIE_nat_mobilize_militia` *(decision)*; `ax.mob +1`; `WS +0.03`; tính là điều kiện cấu trúc (3) | 70 |
 | M3 | `VIE_nat_northern_border_fortification` | Fortify the Northern Border / Công sự hóa biên giới phía Bắc | 5 | M1 | — | `add_building_construction` loại `bunker` (✅ `MD:common/buildings/00_buildings.txt:285`) cấp 2 tại các province giáp CHI của 523 và 524 (❗N-13: danh sách province) *(công trình)*; `TREAS −2` ghi rõ, vì `add_building_construction` thô không tự trừ tiền | 60. Bankruptcy guard |
-| M4 | `VIE_nat_conventional_deterrent` | A Conventional Deterrent / Răn đe quy ước | 10 | N9 và M1 | `count_triggers` ≥ 3 trong: `VIE_kilo_submarines`, `VIE_bastion_p_coastal_defence`, `VIE_integrated_air_defense`, `VIE_uav_program`, `VIE_su30mk2_fleet`, `VIE_z_factories` (`has_completed_focus`), bọc trong `custom_trigger_tooltip` | `add_ideas VIE_nat_conventional_deterrent` *(idea)*; `mil +5` | 50 |
+| M4 | `VIE_nat_conventional_deterrent` | A Conventional Deterrent / Răn đe quy ước | 10 | M1 *(N9 bỏ khỏi prerequisite: chuyển xuống `available`, xem 7.8.0)* | `count_triggers` ≥ 3 trong: `VIE_kilo_submarines`, `VIE_bastion_p_coastal_defence`, `VIE_integrated_air_defense`, `VIE_uav_program`, `VIE_su30mk2_fleet`, `VIE_z_factories` (`has_completed_focus`); **thêm** `has_completed_focus = VIE_nat_regime_consolidated` (N9), bọc chung trong `custom_trigger_tooltip` | `add_ideas VIE_nat_conventional_deterrent_idea` *(idea)*; `mil +5` | 50 |
 
 **Không có focus vũ khí hạt nhân.** Mod đã có chuỗi `VIE_nuc_*` trong cây chính. Dải này không đụng tới và không thêm gì vào đó.
 
@@ -632,12 +638,12 @@ Nhánh này **không** nhân đôi nhánh quân sự hiện có. Capstone M4 th�
 | D1 | `VIE_nat_foreign_policy_review` | A Foreign Policy Review / Rà soát chính sách đối ngoại | 3 | N9 | — | `PP +25`; `ax.integ −1`. Mô tả đối chiếu chính sách "Bốn không" có thật trong Sách trắng Quốc phòng 2019 **[LS]** | 90 |
 | D2 | `VIE_nat_front_against_hegemony` | A Front against Hegemony / Mặt trận chống bá quyền | 5 | D1 · ME D3, D4 | `power_balance_value < 0.4`; không phải slot 21 | Opinion `VIE_nat_common_threat` hai chiều với USA, JAP, RAJ, PHI, AST; `VIE_nat_hegemony_rhetoric` từ CHI; `VIE_nat_sanction_down`; `USA = { country_event vie_nat.60 }` với `TT_IF_THEY_ACCEPT` *(event chéo nước)*; `ax.west +2` | 50; slot 22 → 70 |
 | D3 | `VIE_nat_eurasian_partnership` | A Eurasian Partnership / Đối tác Á–Âu | 5 | D1 · ME D2, D4 | `country_exists = SOV` | `SOV = { country_event vie_nat.61 }` với `TT_IF_THEY_ACCEPT` *(event chéo nước)*; `small_increase` opinion với SOV, RAJ; `ax.west −2` | 40; slot 20 → 60 |
-| D4 | `VIE_nat_armed_neutrality` | Armed Neutrality / Trung lập vũ trang | 5 | D1 · ME D2, D3 | — | `add_ideas VIE_nat_armed_neutrality` *(idea)*; `WS +0.05`; `BoP +0.05` | 20; slot 21 → 90 |
+| D4 | `VIE_nat_armed_neutrality` | Armed Neutrality / Trung lập vũ trang | 5 | D1 · ME D2, D3 | — | `add_ideas VIE_nat_armed_neutrality_idea` *(idea)*; `WS +0.05`; `BoP +0.05` | 20; slot 21 → 90 |
 | D5 | `VIE_nat_lead_the_mainland_bloc` | Lead the Mainland Bloc / Dẫn dắt khối lục địa | 5 | D1 | `country_exists = LAO` | `change_influence_percentage` +10 lên LAO và CBD, gọi **bên trong** scope của từng nước (✅ `MD:.claude/docs/scripting-edge-cases.md:41`) *(influence)*; nếu chưa trong faction: `create_faction_from_template = faction_template_generic_regional_security` *(faction)*; `LAO = { country_event vie_nat.56 }`. Mô tả nhắc Hiệp ước Hữu nghị và Hợp tác Việt–Lào 1977 **[LS]** | 70 |
-| D6 | `VIE_nat_leave_asean` | Leave ASEAN / Rời ASEAN | 5 | D4 và V3-6 | Slot 21; `has_idea = ASEAN_Member` | `remove_ideas = ASEAN_Member` (tiền lệ `BRM_leave_asean`) *(ngoại giao)*; mọi nước trong `global.ASEAN_Member` −40 opinion (N-09); `WS +0.05`; `BoP +0.05`; `news_event vie_nat_news.6` | 30; `VIE_AI_PATH_NAT_RADICAL` → +50 |
+| D6 | `VIE_nat_leave_asean` | Leave ASEAN / Rời ASEAN | 5 | D4 *(V3-6 bỏ khỏi prerequisite: chuyển xuống `available`, xem 7.8.0)* | Slot 21; `has_idea = ASEAN_Member`; **thêm** `has_completed_focus = VIE_nat_totalist_state` (V3-6) | `remove_ideas = ASEAN_Member` (tiền lệ `BRM_leave_asean`) *(ngoại giao)*; mọi nước trong `global.ASEAN_Member` −40 opinion (N-09); `WS +0.05`; `BoP +0.05`; `news_event vie_nat_news.6` | 30; `VIE_AI_PATH_NAT_RADICAL` → +50 |
 | T1 | `VIE_nat_stop_at_sovereignty` | Stop at Sovereignty / Dừng ở chủ quyền *(kìm hãm)* | 5 | N9 · ME T3 | — | `add_ideas VIE_nat_sovereignty_secured` *(idea)*; `BoP −0.20`; `VIE_nat_sanction_down`; `WS −0.05` | 70; slot 21 → 20 |
 | T2 | `VIE_nat_victors_peace` | The Victor's Peace / Hòa bình của kẻ thắng | 5 | N9 | Sở hữu 813 | Mở decision core 813 và các state Trường Sa *(decision)*; `STAB +0.05`; `WS +0.05` | 80 |
-| T3 | `VIE_nat_consolidate_the_spratlys` | Consolidate the Spratlys / Thống nhất Trường Sa | 7 | N9 và (V3-6 hoặc D4) · ME T1 | `has_war = no` | Mở decision nhắm mục tiêu `VIE_nat_press_spratly_claim` *(decision)*; `BoP +0.10`; `VIE_nat_sanction_up` | 10; `VIE_AI_PATH_NAT_RADICAL` → +40 |
+| T3 | `VIE_nat_consolidate_the_spratlys` | Consolidate the Spratlys / Thống nhất Trường Sa | 7 | N9 · ME T1 *(V3-6/D4 bỏ khỏi prerequisite: chuyển xuống `available`, N9 giữ lại vì là prerequisite trực tiếp và thiết yếu của cả khối T)* | `has_war = no`; **thêm** `OR = { has_completed_focus = VIE_nat_totalist_state has_completed_focus = VIE_nat_armed_neutrality }` (V3-6 hoặc D4) | Mở decision nhắm mục tiêu `VIE_nat_press_spratly_claim` *(decision)*; `BoP +0.10`; `VIE_nat_sanction_up` | 10; `VIE_AI_PATH_NAT_RADICAL` → +40 |
 | T4 | `VIE_nat_indochinese_sphere` | An Indochinese Sphere / Vùng ảnh hưởng Đông Dương | 7 | D5 | — | Mở decision nhắm mục tiêu `VIE_nat_offer_protectorate` *(decision)*; `ax.integ −1`. Nhãn: "tiền lệ ảnh hưởng thập niên 1980 **[LS]**; bảo hộ là **[AH]**" | 30 |
 
 **Hoàng Sa.** Chiến dịch Hoàng Sa của báo cáo (T02) chính là focus có sẵn `VIE_paracel_ultimatum` (claim 813, wargoal `take_state_focus`, ✅ `mod:…/VIE_md_focus.txt:1021`). Dải không lặp lại nó. T2 xử lý phần hậu chiến.
@@ -646,20 +652,39 @@ Nhánh này **không** nhân đôi nhánh quân sự hiện có. Capstone M4 th�
 
 #### 7.8.8 Tọa độ tương đối (gợi ý cho layout)
 
-Tất cả tương đối với N1 (x, y). Chỉ là bố cục khởi điểm; công cụ layout của mod chốt cuối.
+*(Bảng đã sửa lại hoàn toàn 2026-09-27 — xem lý do ở 7.8.9. Bảng cũ có 1 lỗi cứng (V3-5 cùng hàng với cha V3-4) và 8 cặp focus sát nhau dưới 2 ô, nên không dùng được nữa.)*
+
+Tất cả tương đối với N1 (x, y), theo đúng nguyên tắc: mỗi hàng cách nhau tối thiểu 2 ô, con luôn nằm dưới cha. Bảng đã tự kiểm bằng script (49 focus, 0 lỗi hàng-trùng, 0 lỗi con-ngang-hàng-cha), nhưng vẫn chỉ là bố cục khởi điểm — công cụ layout của mod (`tools/layout_applier.py`, hoặc một script `fix_spacing.py`-kiểu mới) nên chạy lại trước khi merge để tối ưu đường nối, đúng quy trình mọi đợt trước của mod.
 
 | Khối | Focus và tọa độ |
 |---|---|
-| N | N1 (0,0) · N2 (−1,1) · N3 (2,1) · N5 (1,1) · N4 (−1,2) · N6 (0,2) · N7 (2,2) · N8 (−1,3) · N9 (0,4) |
-| V1 | V1-1 (−7,4) · V1-2 (−8,5) · V1-3 (−6,5) · V1-4 (−8,6) · V1-5a (−8,7) · V1-5b (−6,7) · V1-6 (−7,8) |
-| V2 | V2-1 (−3,4) · V2-2 (−4,5) · V2-3 (−2,5) · V2-4 (−4,6) · V2-5a (−4,7) · V2-5b (−2,7) · V2-6 (−3,8) |
-| V3 | V3-1 (1,5) · V3-2 (0,6) · V3-3 (2,6) · V3-4 (0,7) · V3-5 (2,7) · V3-6 (1,8) |
-| S | S1 (−11,3) · S2 (−11,4) · S3 (−12,2) · S4 (−10,3) · S5 (−10,4) · S6 (−10,5) |
-| M | M1 (5,2) · M2 (4,3) · M3 (6,3) · M4 (5,5) |
-| D | D1 (8,5) · D2 (7,6) · D3 (8,6) · D4 (9,6) · D5 (10,6) · D6 (9,9) |
-| T | T1 (4,6) · T2 (5,6) · T3 (6,9) · T4 (10,7) |
+| N (9) | N1 (0,0) · N2 (−2,1) · N5 (1,1) · N3 (4,1) · N4 (−2,2) · N6 (0,2) · N7 (2,2) · N8 (−2,3) · N9 (0,4) |
+| V1 (7) | V1-1 (−8,5) · V1-2 (−10,6) · V1-3 (−6,6) · V1-4 (−10,7) · V1-5a (−9,8) · V1-5b (−7,8) · V1-6 (−8,9) |
+| V2 (7) | V2-1 (0,5) · V2-2 (−2,6) · V2-3 (2,6) · V2-4 (−2,7) · V2-5a (−1,8) · V2-5b (1,8) · V2-6 (0,9) |
+| V3 (6) | V3-1 (7,5) · V3-2 (6,6) · V3-3 (8,6) · V3-4 (6,7) · V3-5 (8,8) · V3-6 (7,9) |
+| S (5) | S1 (−6,3) · S4 (−10,3) · S2 (−6,4) · S5 (−10,4) · S6 (−10,5) |
+| M (5, gồm S3) | M1 (6,2) · S3 (9,2) · M2 (6,3) · M3 (9,3) · M4 (7,4) |
+| D (6) | D1 (11,5) · D2 (10,6) · D3 (12,6) · D4 (14,6) · D5 (16,6) · D6 (14,7) |
+| T (4) | T1 (18,5) · T2 (20,5) · T3 (18,6) · T4 (16,7) |
 
-S3 nối về N3 bằng đường chéo dài. Nếu layout rối, chuyển S3 sang khối M.
+Canh (span): x từ −10 đến 20 (31 ô), y từ 0 đến 9 (10 hàng). N1 đặt tuyệt đối khoảng `x = 900 y = 33` (7.8.0) để không chồng lên dải An ninh (x 856–872, y 28–31) hay nhánh quân sự (y ≤ 32).
+
+#### 7.8.9 Nhật ký sửa mục 7.8 (2026-09-27)
+
+So với bản TDD gốc cùng ngày, mục 7.8 đã sửa các điểm sau, sau khi đối chiếu bảng 7.8.8 gốc với các quy tắc layout mà cây `VIE_md_focus.txt` đang tuân theo (không hàng nào có hai focus cách nhau dưới 2 ô, con luôn nằm dưới cha) và với nguyên tắc "prerequisite thứ hai không thiết yếu thì chuyển thành `available`" mà người dùng đã áp dụng cho toàn cây chính ngày 2026-09-27 ([[feedback-focus-format]]):
+
+1. **N8**: bỏ prerequisite N2 (thừa, vì N4 — prerequisite còn lại — đã tự đòi N2).
+2. **N9**: bỏ prerequisite N3 và (N6 hoặc N7); giữ chúng trong `available`. Lý do: N9 ở giữa cây còn N3/N6/N7 nằm ở hai khối khác nhau, vẽ dây tới cả ba làm đường nối cắt qua chính khối N6/N7.
+3. **M4**: bỏ prerequisite N9 (xa, khác nhánh); giữ trong `available`.
+4. **D6**: bỏ prerequisite V3-6 (khác nhánh V, xa); giữ trong `available`.
+5. **T3**: bỏ phần (V3-6 hoặc D4) khỏi prerequisite; giữ trong `available`. Giữ nguyên N9 làm prerequisite vì đó là cha trực tiếp và thiết yếu của cả khối T.
+6. **S3** dời từ nhánh S sang nhánh M (đứng cạnh M1, cùng cha N3), vì trong bảng gốc S3 là focus duy nhất của nhánh S không có cha N4 — nó khiến dây nối phải chạy từ N3 (bên phải) sang tít bên trái nơi cả nhánh S nằm.
+7. **6 idea trùng ID với focus hoặc decision** (`VIE_nat_peoples_nationalism`, `VIE_nat_fortress_state`, `VIE_nat_totalist_state`, `VIE_nat_armed_neutrality`, `VIE_nat_conventional_deterrent`, `VIE_nat_sanctions_evasion`) đổi tên idea thêm hậu tố `_idea`; focus và decision giữ nguyên ID gốc.
+8. **Toàn bộ bảng tọa độ 7.8.8** vẽ lại từ đầu theo cùng nguyên tắc trên, đã tự kiểm 0 lỗi (script kiểm tra ở scratchpad phiên 2026-09-27, có thể đã bị dọn — chạy lại logic tương tự `tools/fix_spacing.py`/`trunk_redesign.py` nếu cần kiểm lại).
+9. Thêm mục 7.8.0 phần **format file** (thứ tự field theo mẫu Xiêm, quy ước header, shortcut) và mục **không trùng ID với idea**, vì bản TDD gốc chỉ nói "thứ tự thuộc tính cố định" mà không nêu cụ thể thứ tự nào.
+10. Sửa mô tả vị trí dải An ninh trong 7.8.0 từ "x 216–232, y 28–29" (đã lệch) thành tọa độ thật hiện tại "x 856–872, y 28–31".
+
+**Không đổi:** mọi gameplay, mọi effect, mọi trigger, mọi giới hạn nội dung ở mục 7.13 — các sửa trên chỉ là cấu trúc dây nối/tọa độ và tên ID nội bộ, không đổi điều kiện unlock nào theo nghĩa gameplay (chỉ đổi cách vẽ, không đổi việc focus có mở được hay không).
 
 ### 7.9 Event (36: 29 trong `vie_nat`, 7 trong `vie_nat_news`)
 
@@ -780,7 +805,7 @@ Mỗi news có ba option theo trigger loại trừ lẫn nhau: VIE; nước ở 
 | 7 | `VIE_nat_purge_disloyal` | regime | Slot 21 | 50 PP | `BoP +0.10`; `mil −8`; `STAB −0.02` | 180 ngày | 20; `VIE_AI_PATH_NAT_RADICAL` → 50 |
 | 8 | `VIE_nat_amnesty` *(kìm hãm)* | regime | — | 60 PP | `STAB +0.03`; `BoP −0.05`; gỡ `VIE_civil_unrest_idea` nếu có | 365 ngày | 40 |
 | 9 | `VIE_nat_charm_offensive` | regime | `VIE_nat_has_sanctions`; available BoP < 0,6 | 100 PP | `VIE_nat_sanction_down` | 365 ngày | 60 |
-| 10 | `VIE_nat_sanctions_evasion` | regime | Có `Western_Sanctions` trở lên | 50 PP, `custom_cost_trigger` `treasury > 1` | `TREAS −1`; `add_timed_idea VIE_nat_sanctions_evasion` 365 ngày; `BoP +0.02` | 365 ngày | 50 |
+| 10 | `VIE_nat_sanctions_evasion` | regime | Có `Western_Sanctions` trở lên | 50 PP, `custom_cost_trigger` `treasury > 1` | `TREAS −1`; `add_timed_idea VIE_nat_sanctions_evasion_idea` 365 ngày; `BoP +0.02` | 365 ngày | 50 |
 | 11 | `VIE_nat_core_paracels` | sphere | Đã làm T2; sở hữu và kiểm soát 813; `813 = { compliance > 79 }` (❗N-03) | 100 PP | `813 = { add_core_of = ROOT }` | Một lần | 100 |
 | 12 | `VIE_nat_core_spratly_state` | sphere | `state_target = yes`; `target_array = owned_states`; `target_trigger`: FROM là 526, 802 hoặc 816, do ROOT sở hữu, `compliance > 79` | 100 PP | `FROM = { add_core_of = ROOT }` | Một lần mỗi state | 100 |
 | 13 | `VIE_nat_press_spratly_claim` | sphere | Đã làm T3; `targets = { CHI PHI MAY TAI }`; `target_trigger`: FROM sở hữu 526, 802 hoặc 816; không đang có chiến tranh với FROM | 50 PP | `set_temp_variable = { wargoal_on = FROM }`; `add_threat_from_wargoal_effect`; `create_wargoal` loại `take_state_focus`, `generator = { 526 802 816 }` (❗N-06); `VIE_nat_sanction_up`. Nếu FROM có `ASEAN_Member`: mọi nước trong `global.ASEAN_Member` −25 opinion với ROOT; `news_event vie_nat_news.7` | 365 ngày mỗi mục tiêu | 0; `VIE_AI_PATH_NAT_RADICAL` → 20 nếu (FROM là PHI hoặc MAY và `strength_ratio` > 1,5) hoặc (FROM là CHI và `strength_ratio` > 0,4) |

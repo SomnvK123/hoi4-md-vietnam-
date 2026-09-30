@@ -78,7 +78,7 @@ country_event = {
 		name = vie_dip.16.c
 		log = "[GetDateText]: [This.GetName]: Event vie_dip.16.c executed"
 		if = {
-			limit = { has_completed_focus = VIE_dual_use_industry }
+			limit = { has_completed_focus = VIE_modernize_vpa }
 			air_experience = 25
 			add_tech_bonus = {
 				name = VIE_home_fighter

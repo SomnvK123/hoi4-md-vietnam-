@@ -1,13 +1,7 @@
-VIE_military_category = {
-	allowed = { original_tag = VIE }
-	priority = 100
-	visible = { has_idea = VIE_maritime_denial_idea }
-}
-
 VIE_military_readiness_category = {
 	allowed = { original_tag = VIE }
 	priority = 100
-	visible = { has_completed_focus = VIE_defence_strategy_review }
+	visible = { has_completed_focus = VIE_modernize_vpa }
 }
 
 VIE_statebuilding_category = {
@@ -24,22 +18,4 @@ VIE_resolution_category = {
 		VIE_party_rule_active = yes
 		check_variable = { VIE_congress_term > 8 }
 	}
-}
-
-VIE_carrier_fleet_category = {
-	allowed = { original_tag = VIE }
-	priority = 100
-	visible = { has_idea = VIE_blue_water_idea }
-}
-
-VIE_overseas_mission_category = {
-	allowed = { original_tag = VIE }
-	priority = 100
-	visible = { has_idea = VIE_expeditionary_idea }
-}
-
-VIE_nuclear_program_category = {
-	allowed = { original_tag = VIE }
-	priority = 100
-	visible = { check_variable = { VIE_nuc_progress >= 1 } }
 }

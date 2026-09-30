@@ -1,7 +1,7 @@
-# Scheduler, part 12 (military deliveries): ships from the Russian contracts and the arms-export income.
+# Scheduler, part 12 (military deliveries): ships from the Russian contracts.
 # Class C of the scheduler (silent, one flag per delivery). Skipped in catch-up mode (a civil-war winner takes over the
 # VIE lineage without the hardware).
-# The focuses only sign the contract (VIE_gepard_contract, VIE_kilo_contract, VIE_arms_export_active); the hulls arrive on
+# The focuses only sign the contract (VIE_gepard_contract, VIE_kilo_contract); the hulls arrive on
 # the historical dates, or the month after the focus is finished if the date has already passed.
 # MD builds its naval OOB (VIE_2000_naval_mtg) without a DLC check, so create_ship is not gated either.
 VIE_event_scheduler_p12 = {
@@ -75,19 +75,6 @@ VIE_event_scheduler_p12 = {
 				set_country_flag = VIE_kilo_flotilla_done
 				add_ideas = VIE_kilo_flotilla_idea
 			}
-		}
-
-		# ---- Arms export: one payment a year, for five years
-		if = {
-			limit = {
-				has_country_flag = VIE_arms_export_active
-				NOT = { has_country_flag = VIE_arms_export_cd }
-				NOT = { check_variable = { VIE_arms_export_years > 4 } }
-			}
-			set_country_flag = { flag = VIE_arms_export_cd days = 365 }
-			add_to_variable = { VIE_arms_export_years = 1 }
-			set_temp_variable = { treasury_change = 1 }
-			modify_treasury_effect = yes
 		}
 	}
 }

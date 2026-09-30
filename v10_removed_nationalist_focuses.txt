@@ -1,0 +1,972 @@
+## BLOCK DA GO KHOI VIE_md_focus_fixed_v9.txt (v10, 29/09/2026) - LUU TRU DE XAY DUNG LAI.
+## Nguon: dong 13718-14681 (1-based) cua v9. Gom 28 focus VIE_nat_* trong 964 dong.
+## Cau truc: N Trunk (9) + S Shared institutions/kim ham (5) + V1 Dan toc dan tuy slot 20 (7) + V2 Quan quan dan toc slot 22 (7).
+## KHI GAN LAI VAO CAY can them lai shortcut o menu trai:
+##   shortcut = { name = VIE_nat_shortcut  target = VIE_nat_salvation_government  scroll_wheel_factor = 0.60 }
+## Va can ton tai o file ngoai: scripted_triggers VIE_nat_regime_active/is_populist/is_junta; scripted_effects
+##   VIE_nat_bop_* + VIE_nat_sanction_down; power balance VIE_nat_balance; mission VIE_nat_civilian_roadmap;
+##   7 idea VIE_nat_*; event vie_nat.1-14; loc VIE_nat_*_tt + ten/mo ta 28 focus.
+
+	###############################
+	## NATIONALIST REGIME BAND (alt-history, TDD 7.8)
+	###############################
+
+	# N: Trunk (9 focuses)
+	focus = {
+		id = VIE_nat_salvation_government
+		icon = focus_generic_military_dictatorship
+
+		x = 192
+		y = 28
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_salvation_government"
+			add_timed_idea = { idea = VIE_nat_emergency_rule days = 365 }
+			add_political_power = 50
+			custom_effect_tooltip = VIE_nat_cat_regime_unlock_tt
+		}
+
+		ai_will_do = { base = 100 }
+	}
+
+	focus = {
+		id = VIE_nat_dissolve_old_institutions
+		icon = Generic_Political_Purge
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_salvation_government }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_dissolve_old_institutions"
+			set_temp_variable = { party_index = 19 }
+			ban_party_scripted_call = yes
+			add_to_variable = { VIE_ax_checks_norm = -2 }
+			custom_effect_tooltip = VIE_ax_checks_tt
+			add_stability = -0.03
+			add_political_power = 75
+			country_event = { id = vie_nat.12 days = 60 }
+		}
+
+		ai_will_do = { base = 90 }
+	}
+
+	focus = {
+		id = VIE_nat_emergency_economy
+		icon = economic_crisis
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_salvation_government }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_emergency_economy"
+			set_temp_variable = { treasury_change = 4 }
+			modify_treasury_effect = yes
+			add_stability = -0.02
+		}
+
+		ai_will_do = {
+			base = 80
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_nat_secure_armed_forces
+		icon = army_reform
+
+		x = 4
+		y = 1
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_salvation_government }
+
+		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_secure_armed_forces"
+			set_temp_variable = { temp_opinion = 10 }
+			change_the_military_opinion = yes
+			increase_military_spending = yes
+			add_to_variable = { VIE_af_army_org_factor = 0.02 }
+			custom_effect_tooltip = modifies_dynamic_modifier_tt
+		}
+
+		ai_will_do = { base = 90 }
+	}
+
+	focus = {
+		id = VIE_nat_new_national_front
+		icon = legislative_palace
+
+		x = -2
+		y = 2
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_dissolve_old_institutions }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_new_national_front"
+			add_stability = 0.03
+			add_war_support = 0.03
+			add_to_variable = { VIE_ax_mob_norm = 1 }
+			custom_effect_tooltip = VIE_ax_mob_tt
+			custom_effect_tooltip = VIE_nat_mass_rally_unlock_tt
+		}
+
+		ai_will_do = { base = 80 }
+	}
+
+	focus = {
+		id = VIE_nat_reassure_foreign_capital
+		icon = asian_investment
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_emergency_economy }
+		mutually_exclusive = { focus = VIE_nat_economic_self_reliance }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_reassure_foreign_capital"
+			if = { limit = { has_idea = VIE_fdi_confidence_shock } remove_ideas = VIE_fdi_confidence_shock }
+			VIE_nat_sanction_down = yes
+			VIE_nat_bop_order_medium = yes
+			if = {
+				limit = { country_exists = JAP }
+				JAP = { add_opinion_modifier = { target = ROOT modifier = small_increase } }
+			}
+			if = {
+				limit = { country_exists = KOR }
+				KOR = { add_opinion_modifier = { target = ROOT modifier = small_increase } }
+			}
+			if = {
+				limit = { country_exists = SIN }
+				SIN = { add_opinion_modifier = { target = ROOT modifier = small_increase } }
+			}
+			if = {
+				limit = { country_exists = TAI }
+				TAI = { add_opinion_modifier = { target = ROOT modifier = small_increase } }
+			}
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { add = 20 check_variable = { ruling_party = 22 } }
+		}
+	}
+
+	focus = {
+		id = VIE_nat_economic_self_reliance
+		icon = economic_civil_industry
+
+		x = 2
+		y = 2
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_emergency_economy }
+		mutually_exclusive = { focus = VIE_nat_reassure_foreign_capital }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_economic_self_reliance"
+			add_ideas = VIE_nat_self_reliance
+			one_random_arms_factory = yes
+			add_to_variable = { VIE_ax_integ_norm = -2 }
+			custom_effect_tooltip = VIE_ax_integ_tt
+			add_to_variable = { VIE_ax_market_norm = -1 }
+			custom_effect_tooltip = VIE_ax_market_tt
+			VIE_nat_bop_movement_small = yes
+		}
+
+		ai_will_do = {
+			base = 40
+			modifier = { add = 50 check_variable = { ruling_party = 21 } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 can_staff_an_arms_industry = no }
+		}
+	}
+
+	focus = {
+		id = VIE_nat_national_charter
+		icon = focus_generic_court
+
+		x = -2
+		y = 3
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 7
+
+		prerequisite = { focus = VIE_nat_new_national_front }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_national_charter"
+			if = {
+				limit = { has_idea = VIE_nat_emergency_rule }
+				if = {
+					limit = { check_variable = { ruling_party = 20 } }
+					swap_ideas = { remove_idea = VIE_nat_emergency_rule add_idea = VIE_nat_charter_populist }
+				}
+				else_if = {
+					limit = { check_variable = { ruling_party = 21 } }
+					swap_ideas = { remove_idea = VIE_nat_emergency_rule add_idea = VIE_nat_charter_totalist }
+				}
+				else = {
+					swap_ideas = { remove_idea = VIE_nat_emergency_rule add_idea = VIE_nat_charter_guardian }
+				}
+			}
+			else = {
+				if = {
+					limit = { check_variable = { ruling_party = 20 } }
+					add_ideas = VIE_nat_charter_populist
+				}
+				else_if = {
+					limit = { check_variable = { ruling_party = 21 } }
+					add_ideas = VIE_nat_charter_totalist
+				}
+				else = {
+					add_ideas = VIE_nat_charter_guardian
+				}
+			}
+			add_to_variable = { VIE_ax_checks_norm = -1 }
+			custom_effect_tooltip = VIE_ax_checks_tt
+			add_stability = 0.02
+		}
+
+		ai_will_do = { base = 90 }
+	}
+
+	focus = {
+		id = VIE_nat_regime_consolidated
+		icon = focus_generic_full_employment
+
+		x = 0
+		y = 4
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 7
+
+		prerequisite = { focus = VIE_nat_national_charter }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			custom_trigger_tooltip = {
+				tooltip = VIE_nat_consolidated_tt
+				has_completed_focus = VIE_nat_secure_armed_forces
+				OR = {
+					has_completed_focus = VIE_nat_reassure_foreign_capital
+					has_completed_focus = VIE_nat_economic_self_reliance
+				}
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_regime_consolidated"
+			add_stability = 0.05
+			add_political_power = 75
+		}
+
+		ai_will_do = { base = 90 }
+	}
+
+	# S: Shared institutions / kìm hãm (5 focuses)
+	focus = {
+		id = VIE_nat_patriotic_education
+		icon = focus_generic_education
+
+		x = -4
+		y = 3
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_new_national_front }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_patriotic_education"
+			increase_education_budget = yes
+			add_to_variable = { VIE_ax_mob_norm = 1 }
+			custom_effect_tooltip = VIE_ax_mob_tt
+			add_war_support = 0.02
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_nat_protect_every_citizen
+		icon = family
+
+		x = -8
+		y = 3
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_new_national_front }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_protect_every_citizen"
+			VIE_nat_bop_order_large = yes
+			add_war_support = -0.03
+			add_to_variable = { VIE_ax_civil_norm = 1 }
+			custom_effect_tooltip = VIE_ax_civil_tt
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0.17 check_variable = { ruling_party = 21 } }
+		}
+	}
+
+	focus = {
+		id = VIE_nat_call_the_diaspora
+		icon = diplomacy
+
+		x = -4
+		y = 4
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_patriotic_education }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_call_the_diaspora"
+			country_event = { id = vie_nat.13 }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_nat_unity_of_54_peoples
+		icon = focus_generic_workers_and_farmers_rise
+
+		x = -8
+		y = 4
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_protect_every_citizen }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_unity_of_54_peoples"
+			VIE_nat_bop_order_medium = yes
+			add_stability = 0.03
+			add_to_variable = { VIE_ax_decent_norm = 1 }
+			custom_effect_tooltip = VIE_ax_decent_tt
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0.17 check_variable = { ruling_party = 21 } }
+		}
+	}
+
+	focus = {
+		id = VIE_nat_reconciliation_commission
+		icon = focus_generic_conference
+
+		x = -8
+		y = 5
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 7
+
+		prerequisite = { focus = VIE_nat_unity_of_54_peoples }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { VIE_nat_regime_active = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_reconciliation_commission"
+			set_temp_variable = { party_index = 19 }
+			unban_party_scripted_call = yes
+			clr_country_flag = VIE_nat_elite_split
+			VIE_nat_bop_order_small = yes
+			add_stability = 0.02
+			set_temp_variable = { temp_opinion = -5 }
+			change_the_military_opinion = yes
+		}
+
+		ai_will_do = {
+			base = 40
+			modifier = { factor = 0 check_variable = { ruling_party = 21 } }
+		}
+	}
+
+	# V1: Dân tộc dân túy / Nationalist-Populist (slot 20)
+
+	focus = {
+		id = VIE_nat_voice_of_the_nation
+		icon = election2
+
+		x = -6
+		y = 5
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_national_charter }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_populist = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_voice_of_the_nation"
+			add_political_power = 50
+			set_temp_variable = { party_index = 20 }
+			set_temp_variable = { party_popularity_increase = 0.05 }
+			change_relative_party_popularity = yes
+			VIE_nat_bop_movement_small = yes
+		}
+
+		ai_will_do = { base = 90 }
+	}
+
+	focus = {
+		id = VIE_nat_special_tribunals
+		icon = investigation
+
+		x = -8
+		y = 6
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_voice_of_the_nation }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_populist = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_special_tribunals"
+			decrease_corruption = yes
+			set_temp_variable = { treasury_change = 3 }
+			modify_treasury_effect = yes
+			if = {
+				limit = { has_idea = the_military }
+				set_temp_variable = { temp_opinion = -5 }
+				change_the_military_opinion = yes
+			}
+			if = {
+				limit = { has_idea = industrial_conglomerates }
+				set_temp_variable = { temp_opinion = -10 }
+				change_industrial_conglomerates_opinion = yes
+			}
+			VIE_nat_bop_movement_small = yes
+		}
+
+		ai_will_do = { base = 80 }
+	}
+
+	focus = {
+		id = VIE_nat_sovereignty_referendum
+		icon = Election
+
+		x = -4
+		y = 6
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_voice_of_the_nation }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_populist = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_sovereignty_referendum"
+			country_event = { id = vie_nat.14 }
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_nat_welfare_for_the_people
+		icon = labor_unions
+
+		x = -8
+		y = 7
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_special_tribunals }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_populist = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_welfare_for_the_people"
+			increase_social_spending = yes
+			add_stability = 0.03
+			add_to_variable = { VIE_ax_mob_norm = 1 }
+			custom_effect_tooltip = VIE_ax_mob_tt
+			if = {
+				limit = { has_idea = farmers }
+				set_temp_variable = { temp_opinion = 10 }
+				change_farmers_opinion = yes
+			}
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_nat_keep_managed_elections
+		icon = focus_generic_freedom_council
+
+		x = -7
+		y = 8
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_sovereignty_referendum }
+		prerequisite = { focus = VIE_nat_welfare_for_the_people }
+		mutually_exclusive = { focus = VIE_nat_postpone_elections }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_populist = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_keep_managed_elections"
+			set_elections_60_months = yes
+			set_temp_variable = { party_index = 13 }
+			unban_party_scripted_call = yes
+			VIE_nat_bop_order_medium = yes
+			VIE_nat_sanction_down = yes
+			add_to_variable = { VIE_ax_checks_norm = 2 }
+			custom_effect_tooltip = VIE_ax_checks_tt
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = {
+				add = 30
+				power_balance_value = {
+					id = VIE_nat_balance
+					value > 0.4
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = VIE_nat_postpone_elections
+		icon = the_last_purge
+
+		x = -5
+		y = 8
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_sovereignty_referendum }
+		prerequisite = { focus = VIE_nat_welfare_for_the_people }
+		mutually_exclusive = { focus = VIE_nat_keep_managed_elections }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_populist = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_postpone_elections"
+			set_politics = { elections_allowed = no }
+			add_political_power = 75
+			if = {
+				limit = { has_idea = the_military }
+				set_temp_variable = { temp_opinion = 5 }
+				change_the_military_opinion = yes
+			}
+			VIE_nat_bop_movement_medium = yes
+			add_to_variable = { VIE_ax_checks_norm = -2 }
+			custom_effect_tooltip = VIE_ax_checks_tt
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_nat_peoples_nationalism
+		icon = focus_generic_workers_and_farmers_rise
+
+		x = -6
+		y = 9
+		relative_position_id = VIE_nat_salvation_government
+
+
+		prerequisite = { focus = VIE_nat_keep_managed_elections focus = VIE_nat_postpone_elections }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_populist = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_peoples_nationalism"
+			add_ideas = VIE_nat_peoples_nationalism_idea
+			custom_effect_tooltip = VIE_nat_patriotic_bonds_unlock_tt
+			if = {
+				limit = { has_completed_focus = VIE_nat_keep_managed_elections }
+				set_temp_variable = { party_index = 20 }
+				set_temp_variable = { party_popularity_increase = 0.10 }
+				change_relative_party_popularity = yes
+			}
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	# V2: Quân quản dân tộc / Nationalist-Junta (slot 22)
+
+	focus = {
+		id = VIE_nat_supreme_defense_council
+		icon = army_planning
+
+		x = 0
+		y = 5
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_national_charter }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MILITARY_LAWS }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_junta = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_supreme_defense_council"
+			if = {
+				limit = { has_idea = the_military }
+				set_temp_variable = { temp_opinion = 5 }
+				change_the_military_opinion = yes
+			}
+			add_political_power = 40
+			add_to_variable = { VIE_af_planning_speed = 0.05 }
+			custom_effect_tooltip = modifies_dynamic_modifier_tt
+			add_to_variable = { VIE_ax_checks_norm = -1 }
+			custom_effect_tooltip = VIE_ax_checks_tt
+		}
+
+		ai_will_do = { base = 90 }
+	}
+
+	focus = {
+		id = VIE_nat_technocratic_cabinet
+		icon = focus_generic_improve_the_administration
+
+		x = -2
+		y = 6
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_supreme_defense_council }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_junta = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_technocratic_cabinet"
+			add_tech_bonus = {
+				name = VIE_nat_technocratic_cabinet_bonus
+				bonus = 0.5
+				uses = 1
+				category = CAT_industry
+			}
+			add_to_variable = { VIE_ax_merit_norm = 2 }
+			custom_effect_tooltip = VIE_ax_merit_tt
+			VIE_nat_sanction_down = yes
+			VIE_nat_bop_order_small = yes
+		}
+
+		ai_will_do = { base = 80 }
+	}
+
+	focus = {
+		id = VIE_nat_order_and_discipline
+		icon = army_defence1
+
+		x = 2
+		y = 6
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_supreme_defense_council }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_junta = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_order_and_discipline"
+			increase_policing_budget = yes
+			add_stability = 0.04
+			add_war_support = -0.03
+			add_to_variable = { VIE_ax_civil_norm = -2 }
+			custom_effect_tooltip = VIE_ax_civil_tt
+			VIE_nat_bop_order_medium = yes
+		}
+
+		ai_will_do = { base = 80 }
+	}
+
+	focus = {
+		id = VIE_nat_defense_conglomerates
+		icon = focus_generic_industrialists
+
+		x = -2
+		y = 7
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 7
+
+		prerequisite = { focus = VIE_nat_technocratic_cabinet }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_MILITARY_LAWS }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_junta = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_defense_conglomerates"
+			one_random_arms_factory = yes
+			one_random_arms_factory = yes
+			if = {
+				limit = { has_idea = industrial_conglomerates }
+				set_temp_variable = { temp_opinion = 10 }
+				change_industrial_conglomerates_opinion = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 can_staff_an_arms_industry = no }
+		}
+	}
+
+	focus = {
+		id = VIE_nat_promise_civilian_rule
+		icon = diplomatic_treaty
+
+		x = -1
+		y = 8
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_order_and_discipline }
+		prerequisite = { focus = VIE_nat_defense_conglomerates }
+		mutually_exclusive = { focus = VIE_nat_indefinite_guardianship }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_junta = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_promise_civilian_rule"
+			activate_mission = VIE_nat_civilian_roadmap
+			VIE_nat_sanction_down = yes
+			VIE_nat_bop_order_medium = yes
+			if = {
+				limit = { has_idea = the_military }
+				set_temp_variable = { temp_opinion = -5 }
+				change_the_military_opinion = yes
+			}
+			if = {
+				limit = { country_exists = USA }
+				USA = { add_opinion_modifier = { target = ROOT modifier = small_increase } }
+			}
+			if = {
+				limit = { country_exists = JAP }
+				JAP = { add_opinion_modifier = { target = ROOT modifier = small_increase } }
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_nat_indefinite_guardianship
+		icon = army_marching
+
+		x = 1
+		y = 8
+		relative_position_id = VIE_nat_salvation_government
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nat_order_and_discipline }
+		prerequisite = { focus = VIE_nat_defense_conglomerates }
+		mutually_exclusive = { focus = VIE_nat_promise_civilian_rule }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MILITARY_LAWS }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_junta = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_indefinite_guardianship"
+			if = {
+				limit = { has_idea = the_military }
+				set_temp_variable = { temp_opinion = 10 }
+				change_the_military_opinion = yes
+			}
+			add_political_power = 50
+			add_to_variable = { VIE_ax_checks_norm = -2 }
+			custom_effect_tooltip = VIE_ax_checks_tt
+			VIE_nat_bop_movement_small = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_nat_fortress_state
+		icon = army_radar
+
+		x = 0
+		y = 9
+		relative_position_id = VIE_nat_salvation_government
+
+
+		prerequisite = { focus = VIE_nat_promise_civilian_rule focus = VIE_nat_indefinite_guardianship }
+
+		search_filters = { FOCUS_FILTER_MILITARY_LAWS FOCUS_FILTER_ECONOMY }
+
+		available = {
+			VIE_nat_regime_active = yes
+			VIE_nat_is_junta = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nat_fortress_state"
+			add_ideas = VIE_nat_fortress_state_idea
+			522 = { one_state_anti_air = yes }
+			519 = { one_state_anti_air = yes }
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
