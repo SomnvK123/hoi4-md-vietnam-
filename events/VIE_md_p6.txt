@@ -155,7 +155,7 @@ country_event = {
 		modify_treasury_effect = yes
 		add_political_power = 75
 		add_stability = 0.02
-		set_country_flag = { flag = VIE_apec_year days = 365 }
+		set_country_flag = { flag = VIE_apec_year value = 1 days = 365 }
 		ai_chance = { base = 70 }
 	}
 
@@ -164,7 +164,7 @@ country_event = {
 		name = vie_dip.5.b
 		log = "[GetDateText]: [This.GetName]: Event vie_dip.5.b executed"
 		add_political_power = 25
-		set_country_flag = { flag = VIE_apec_year days = 365 }
+		set_country_flag = { flag = VIE_apec_year value = 1 days = 365 }
 		ai_chance = { base = 30 }
 	}
 }

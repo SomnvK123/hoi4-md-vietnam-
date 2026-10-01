@@ -59,4 +59,10 @@ VIE_armed_forces_modifier = {
 	air_cas_present_factor = VIE_af_air_cas_present_factor
 	naval_strike_targetting_factor = VIE_af_naval_strike_targetting_factor
 	# GEN:vars end
+	# Truc 3 (VIE_truc3_review_and_plan.md muc 5.5): 4 modifier ma 61 dong tren chua co.
+	# Nam ngoai khoi GEN de generator khong ghi de.
+	army_attack_factor = VIE_af_army_attack_factor
+	conscription_factor = VIE_af_conscription_factor
+	army_personnel_cost_multiplier_modifier = VIE_af_army_personnel_cost_multiplier_modifier
+	equipment_cost_multiplier_modifier = VIE_af_equipment_cost_multiplier_modifier
 }

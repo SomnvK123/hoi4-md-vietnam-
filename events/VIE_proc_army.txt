@@ -67,6 +67,7 @@ add_namespace = vie_proc_army
 # Khong con placeholder, khong con key loc tam ("cho viet").
 ########################################################################
 
+# Truc 3 (buoc 8): nghieng AI theo huong luc luong da chon, chi tang trong so. Xem VIE_truc3_review_and_plan.md muc 6.3.
 
 ########################################################################
 # CHUOI 1 - Xe tang cu chau Au (2005-2006)
@@ -103,7 +104,6 @@ country_event = {
 	# B - Tu choi, chi giu so T-54/55 cua Phan Lan.
 	option = {
 		name = vie_proc_army.1.b
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.1.b executed"
 		ai_chance = {
 			base = 30
 			# Tu choi de nghi Ba Lan la huong di chong lai lich su -> chi AI "free"
@@ -223,7 +223,6 @@ country_event = {
 	# C - Khong, giu nguyen dan xe T-54/55.
 	option = {
 		name = vie_proc_army.5.c
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.5.c executed"
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -268,6 +267,7 @@ country_event = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_depth }
 		}
 	}
 
@@ -286,7 +286,6 @@ country_event = {
 	# C - Khong mua.
 	option = {
 		name = vie_proc_army.8.c
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.8.c executed"
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -425,7 +424,6 @@ country_event = {
 
 	option = {
 		name = vie_proc_army.15.a
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.15.a executed"
 		ai_chance = { base = 100 }
 	}
 }
@@ -444,7 +442,6 @@ country_event = {
 
 	option = {
 		name = vie_proc_army.16.a
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.16.a executed"
 		ai_chance = { base = 100 }
 	}
 }
@@ -487,6 +484,7 @@ country_event = {
 			modifier = { add = 100 VIE_ai_historical = yes }
 			modifier = { add = 30 has_opinion = { target = KOR value > 75 } }
 			modifier = { factor = 0.5 has_opinion = { target = KOR value < 25 } }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
 		}
 	}
 
@@ -526,6 +524,7 @@ country_event = {
 			base = 10
 			modifier = { add = 200 VIE_ai_historical = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
 		}
 	}
 
@@ -539,6 +538,7 @@ country_event = {
 			base = 30
 			modifier = { factor = 0 VIE_ai_historical = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
 		}
 	}
 
@@ -570,7 +570,6 @@ country_event = {
 
 	option = {
 		name = vie_proc_army.20.a
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.20.a executed"
 		ai_chance = { base = 100 }
 	}
 }
@@ -611,7 +610,6 @@ country_event = {
 	# C - Giu nguyen.
 	option = {
 		name = vie_proc_army.21.c
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.21.c executed"
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -647,8 +645,10 @@ country_event = {
 	# B - Khong nhan, dong chuoi.
 	option = {
 		name = vie_proc_army.30.b
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.30.b executed"
-		ai_chance = { base = 20 }
+		ai_chance = {
+			base = 20
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
+		}
 	}
 }
 
@@ -666,7 +666,6 @@ country_event = {
 
 	option = {
 		name = vie_proc_army.31.a
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.31.a executed"
 		ai_chance = { base = 100 }
 	}
 }
@@ -725,6 +724,7 @@ country_event = {
 		ai_chance = {
 			base = 30
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
 		}
 	}
 
@@ -755,14 +755,16 @@ country_event = {
 		name = vie_proc_army.38.a
 		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.38.a executed"
 		country_event = { id = vie_proc_army.39 days = 180 random_days = 30 }
-		ai_chance = { base = 80 }
+		ai_chance = {
+			base = 80
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
+		}
 	}
 
 	# B - Khong quan tam, dong chuoi. KHONG dat VIE_155mm_study vi khong co gi
 	#     day VN di tim hieu chuan 155mm.
 	option = {
 		name = vie_proc_army.38.b
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.38.b executed"
 		ai_chance = { base = 20 }
 	}
 }
@@ -781,7 +783,6 @@ country_event = {
 
 	option = {
 		name = vie_proc_army.39.a
-		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.39.a executed"
 		ai_chance = { base = 100 }
 	}
 }

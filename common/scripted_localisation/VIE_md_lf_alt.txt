@@ -1,0 +1,42 @@
+# Truc 3: nhan [ALT-HISTORY] theo ngay (VIE_truc3_review_and_plan.md G8). Goi trong _desc bang [VIE_lf_alt_n1] v.v.
+# Moc: N1 17/1/2022, N3 20/12/2022, CR2 2/12/2023, N2 5/2/2025.
+defined_text = {
+	name = VIE_lf_alt_n1
+	text = {
+		trigger = { date < 2022.1.17 }
+		localization_key = VIE_lf_alt_early
+	}
+	text = {
+		localization_key = VIE_lf_alt_none
+	}
+}
+defined_text = {
+	name = VIE_lf_alt_n2
+	text = {
+		trigger = { date < 2025.2.5 }
+		localization_key = VIE_lf_alt_early
+	}
+	text = {
+		localization_key = VIE_lf_alt_none
+	}
+}
+defined_text = {
+	name = VIE_lf_alt_n3
+	text = {
+		trigger = { date < 2022.12.20 }
+		localization_key = VIE_lf_alt_early
+	}
+	text = {
+		localization_key = VIE_lf_alt_none
+	}
+}
+defined_text = {
+	name = VIE_lf_alt_cr2
+	text = {
+		trigger = { date < 2023.12.2 }
+		localization_key = VIE_lf_alt_early
+	}
+	text = {
+		localization_key = VIE_lf_alt_none
+	}
+}

@@ -41,7 +41,7 @@ VIE_col_pick_rebel = {
 
 VIE_col_start_civil_war = {
 	VIE_col_pick_rebel = yes
-	set_country_flag = { flag = VIE_civil_war_clock days = 180 }
+	set_country_flag = { flag = VIE_civil_war_clock value = 1 days = 180 }
 	hidden_effect = {
 		if = {
 			limit = { check_variable = { VIE_col_rebel = 13 } }
@@ -122,6 +122,7 @@ VIE_catch_up_schedule = {
 	VIE_event_scheduler_p13 = yes
 	VIE_event_scheduler_p14 = yes
 	VIE_event_scheduler_p15 = yes
+	VIE_event_scheduler_p17 = yes
 }
 
 VIE_collapse_aftermath = {
@@ -129,7 +130,7 @@ VIE_collapse_aftermath = {
 	VIE_catch_up_schedule = yes
 	set_country_flag = VIE_collapse_done
 	set_country_flag = VIE_post_collapse
-	set_country_flag = { flag = VIE_collapse_immunity days = 1095 }
+	set_country_flag = { flag = VIE_collapse_immunity value = 1 days = 1095 }
 	# the winner needs the balance of power that matches its regime
 	if = {
 		limit = {
@@ -171,7 +172,7 @@ VIE_collapse_check = {
 		if = {
 			limit = { NOT = { has_country_flag = VIE_winter_used } }
 			set_country_flag = VIE_winter_used
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_col.1 days = 2 }
 		}
 		else = {
@@ -212,7 +213,7 @@ VIE_event_scheduler_p3 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d4_done } }
 				set_country_flag = VIE_door_d4_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_alt.1 days = 20 random_days = 20 }
 			}
 		}
@@ -225,7 +226,7 @@ VIE_event_scheduler_p3 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d2_done } }
 				set_country_flag = VIE_door_d2_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_alt.2 days = 20 random_days = 20 }
 			}
 		}
@@ -241,7 +242,7 @@ VIE_event_scheduler_p3 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d3_done } }
 				set_country_flag = VIE_door_d3_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_alt.3 days = 20 random_days = 20 }
 			}
 		}
@@ -253,7 +254,7 @@ VIE_event_scheduler_p3 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d6_done } }
 				set_country_flag = VIE_door_d6_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_alt.6 days = 20 random_days = 20 }
 			}
 		}
@@ -265,7 +266,7 @@ VIE_event_scheduler_p3 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d8_done } }
 				set_country_flag = VIE_door_d8_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_alt.7 days = 20 random_days = 20 }
 			}
 		}

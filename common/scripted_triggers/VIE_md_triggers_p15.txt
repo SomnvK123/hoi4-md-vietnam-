@@ -1,3 +1,5 @@
+# NB: check_variable khong nhan ">=" inline (MD validator: "silently mis-parsed"). Bien la so nguyen nen
+# "X >= N" duoc viet thanh "X > N-1". Ten trigger (_ge_N) giu nguyen.
 ########################################################################
 # Truc 2 (CNQP Luc quan) - cac gate dung chung.
 #
@@ -86,7 +88,7 @@ VIE_def_ind_bankrupt = {
 # = 3.25 ty mien phi, bang 1/10 tong chi Truc 2 (30.25 ty).
 # ---------------------------------------------------------------------
 VIE_def_ind_export_open = {
-	check_variable = { VIE_def_industry_level >= 6 }
+	check_variable = { VIE_def_industry_level > 5 }
 	date > 2021.12.31
 	check_variable = { VIE_def_ind_export_count < 5 }
 }
@@ -103,13 +105,13 @@ VIE_def_ind_export_open = {
 #   >= 8  capstone VIE_path_self_reliant_deterrence (kem da chon nga re)
 # ---------------------------------------------------------------------
 VIE_def_ind_level_ge_4 = {
-	check_variable = { VIE_def_industry_level >= 4 }
+	check_variable = { VIE_def_industry_level > 3 }
 }
 VIE_def_ind_level_ge_8 = {
-	check_variable = { VIE_def_industry_level >= 8 }
+	check_variable = { VIE_def_industry_level > 7 }
 }
 VIE_def_ind_level_ge_2 = {
-	check_variable = { VIE_def_industry_level >= 2 }
+	check_variable = { VIE_def_industry_level > 1 }
 }
 
 # ---------------------------------------------------------------------

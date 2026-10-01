@@ -1,0 +1,62 @@
+# Truc 3 (xay dung luc luong Luc quan): 6 y tuong TAM cho 6 decision (VIE_md_decisions_lf.txt).
+# Cap bang add_timed_idea (tien le: VIE_md_decisions.txt:295). Gia tri: VIE_truc3_review_and_plan.md muc 5.8.
+# urban_attack_factor: chua xac minh ten modifier (phu luc C cua plan). Neu game bao loi, doi sang
+# terrain_penalty_reduction nhu y tuong dau tien.
+ideas = {
+	country = {
+
+		VIE_lf_idea_terrain_drill = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				terrain_penalty_reduction = 0.05
+			}
+		}
+
+		VIE_lf_idea_urban_drill = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				urban_attack_factor = 0.05
+			}
+		}
+
+		VIE_lf_idea_joint_arms = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				army_org_factor = 0.02
+			}
+		}
+
+		VIE_lf_idea_rapid_response = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				army_speed_factor = 0.05
+			}
+		}
+
+		VIE_lf_idea_mobilized_people = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				max_dig_in_factor = 0.025
+			}
+		}
+
+		VIE_lf_idea_total_mobilization = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				max_dig_in_factor = 0.05
+			}
+		}
+	}
+}

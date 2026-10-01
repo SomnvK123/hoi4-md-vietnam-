@@ -12,7 +12,7 @@ VIE_event_scheduler_p7 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_birth_rate
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.18 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -35,7 +35,7 @@ VIE_event_scheduler_p7 = {
 			else_if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_sched_car_maker
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_eco.29 days = 3 random_days = 20 }
 			}
 			else_if = {
@@ -57,8 +57,8 @@ VIE_event_scheduler_p7 = {
 		}
 		random = {
 			chance = 3
-			set_country_flag = { flag = VIE_smog_cd days = 900 }
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_smog_cd value = 1 days = 900 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.14 days = 3 random_days = 20 }
 		}
 	}

@@ -13,7 +13,7 @@ VIE_event_scheduler_p11 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d7_done } }
 				set_country_flag = VIE_door_d7_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_alt.23 days = 20 random_days = 20 }
 			}
 		}
@@ -26,7 +26,7 @@ VIE_event_scheduler_p11 = {
 				NOT = { has_country_flag = VIE_popup_cd }
 			}
 			set_country_flag = VIE_paracel_clash_seen
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_scs.16 days = 3 }
 		}
 

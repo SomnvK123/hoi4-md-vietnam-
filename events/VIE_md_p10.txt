@@ -197,7 +197,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.16.b executed"
 		add_political_power = 25
 		set_country_flag = VIE_streamline_wait_ever
-		set_country_flag = { flag = VIE_streamline_wait days = 180 }
+		set_country_flag = { flag = VIE_streamline_wait value = 1 days = 180 }
 		ai_chance = { base = 40 }
 	}
 

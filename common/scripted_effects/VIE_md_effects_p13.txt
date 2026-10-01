@@ -28,7 +28,7 @@ VIE_event_scheduler_p13 = {
 		set_country_flag = VIE_constitution_2013_adopted
 		if = {
 			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_pol.28 days = 3 random_days = 15 }
 		}
 	}
@@ -51,7 +51,7 @@ VIE_event_scheduler_p13 = {
 				else_if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
 					set_country_flag = VIE_sched_president2018
-					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 					country_event = { id = vie_pol.29 days = 3 random_days = 15 }
 				}
 				else_if = {
@@ -76,7 +76,7 @@ VIE_event_scheduler_p13 = {
 			else_if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_sched_na26
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_pol.14 days = 3 random_days = 20 }
 			}
 			else_if = {

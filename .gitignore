@@ -14,3 +14,6 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Focus icon search candidates (re-created by tools/build_vie_focus_icons.py search)
+assets/focus_icons/candidates/

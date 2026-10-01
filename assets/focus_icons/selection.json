@@ -1,0 +1,114 @@
+{
+ "lf_army_reform": {
+  "pick": 1
+ },
+ "lf_logistics_merge": {
+  "pick": 3
+ },
+ "lf_basic_training": {
+  "pick": 3
+ },
+ "lf_arm_infantry_org": {
+  "pick": 3
+ },
+ "lf_arm_infantry_train": {
+  "pick": 2
+ },
+ "lf_arm_armor_org": {
+  "pick": 1
+ },
+ "lf_arm_armor_train": {
+  "pick": 1
+ },
+ "lf_arm_arty_org": {
+  "pick": 1
+ },
+ "lf_arm_arty_train": {
+  "pick": 3
+ },
+ "lf_arm_engineers": {
+  "pick": 1
+ },
+ "lf_combined_arms": {
+  "from": "lf_arm_infantry_org",
+  "pick": 1
+ },
+ "lf_command_reform_1": {
+  "pick": 2
+ },
+ "lf_fs_mobile_force": {
+  "pick": 1
+ },
+ "lf_fs_mobile_corps": {
+  "pick": 2
+ },
+ "lf_fs_main_corps": {
+  "from": "lf_fs_lean_corps",
+  "pick": 2
+ },
+ "lf_fs_lean_corps": {
+  "from": "lf_dev_territorial",
+  "pick": 2
+ },
+ "lf_fs_depth_defence": {
+  "pick": 1
+ },
+ "lf_fs_militia_units": {
+  "pick": 1
+ },
+ "lf_dev_strategic": {
+  "from": "lf_cap_ad_coord",
+  "pick": 3
+ },
+ "lf_dev_territorial": {
+  "pick": 3
+ },
+ "lf_command_reform_2": {
+  "pick": 1
+ },
+ "lf_cap_border_urban": {
+  "pick": 2
+ },
+ "lf_cap_area_control": {
+  "pick": 3
+ },
+ "lf_cap_army_ad": {
+  "from": "lf_logistics_merge",
+  "pick": 2
+ },
+ "lf_cap_ad_coord": {
+  "pick": 2
+ },
+ "lf_cap_cyber_ew": {
+  "pick": 1
+ },
+ "lf_cap_info_ops": {
+  "pick": 3
+ },
+ "lf_selective_modernization": {
+  "from": "lf_arm_arty_org",
+  "pick": 4
+ },
+ "lf_command_reform_3": {
+  "from": "lf_selective_modernization",
+  "pick": 2
+ },
+ "lf_force_complete": {
+  "pick": 1
+ },
+ "modernize_vpa": {
+  "pick": 1
+ },
+ "def_industry_law": {
+  "pick": 2
+ },
+ "military_enterprises_core": {
+  "pick": 1
+ },
+ "military_enterprises_divest": {
+  "pick": 1
+ },
+ "path_self_reliant_deterrence": {
+  "pick": 1
+ }
+}

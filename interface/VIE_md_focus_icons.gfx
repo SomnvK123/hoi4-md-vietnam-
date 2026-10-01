@@ -1,0 +1,142 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_VIE_lf_army_reform"
+		texturefile = "gfx/interface/goals/lf_army_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_logistics_merge"
+		texturefile = "gfx/interface/goals/lf_logistics_merge.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_basic_training"
+		texturefile = "gfx/interface/goals/lf_basic_training.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_arm_infantry_org"
+		texturefile = "gfx/interface/goals/lf_arm_infantry_org.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_arm_infantry_train"
+		texturefile = "gfx/interface/goals/lf_arm_infantry_train.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_arm_armor_org"
+		texturefile = "gfx/interface/goals/lf_arm_armor_org.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_arm_armor_train"
+		texturefile = "gfx/interface/goals/lf_arm_armor_train.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_arm_arty_org"
+		texturefile = "gfx/interface/goals/lf_arm_arty_org.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_arm_arty_train"
+		texturefile = "gfx/interface/goals/lf_arm_arty_train.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_arm_engineers"
+		texturefile = "gfx/interface/goals/lf_arm_engineers.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_combined_arms"
+		texturefile = "gfx/interface/goals/lf_combined_arms.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_command_reform_1"
+		texturefile = "gfx/interface/goals/lf_command_reform_1.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_fs_mobile_force"
+		texturefile = "gfx/interface/goals/lf_fs_mobile_force.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_fs_mobile_corps"
+		texturefile = "gfx/interface/goals/lf_fs_mobile_corps.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_fs_main_corps"
+		texturefile = "gfx/interface/goals/lf_fs_main_corps.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_fs_lean_corps"
+		texturefile = "gfx/interface/goals/lf_fs_lean_corps.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_fs_depth_defence"
+		texturefile = "gfx/interface/goals/lf_fs_depth_defence.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_fs_militia_units"
+		texturefile = "gfx/interface/goals/lf_fs_militia_units.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_dev_strategic"
+		texturefile = "gfx/interface/goals/lf_dev_strategic.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_dev_territorial"
+		texturefile = "gfx/interface/goals/lf_dev_territorial.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_command_reform_2"
+		texturefile = "gfx/interface/goals/lf_command_reform_2.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_cap_border_urban"
+		texturefile = "gfx/interface/goals/lf_cap_border_urban.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_cap_area_control"
+		texturefile = "gfx/interface/goals/lf_cap_area_control.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_cap_army_ad"
+		texturefile = "gfx/interface/goals/lf_cap_army_ad.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_cap_ad_coord"
+		texturefile = "gfx/interface/goals/lf_cap_ad_coord.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_cap_cyber_ew"
+		texturefile = "gfx/interface/goals/lf_cap_cyber_ew.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_cap_info_ops"
+		texturefile = "gfx/interface/goals/lf_cap_info_ops.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_selective_modernization"
+		texturefile = "gfx/interface/goals/lf_selective_modernization.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_command_reform_3"
+		texturefile = "gfx/interface/goals/lf_command_reform_3.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_lf_force_complete"
+		texturefile = "gfx/interface/goals/lf_force_complete.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_modernize_vpa"
+		texturefile = "gfx/interface/goals/modernize_vpa.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_def_industry_law"
+		texturefile = "gfx/interface/goals/def_industry_law.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_military_enterprises_core"
+		texturefile = "gfx/interface/goals/military_enterprises_core.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_military_enterprises_divest"
+		texturefile = "gfx/interface/goals/military_enterprises_divest.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_path_self_reliant_deterrence"
+		texturefile = "gfx/interface/goals/path_self_reliant_deterrence.dds"
+	}
+}

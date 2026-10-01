@@ -59,10 +59,8 @@ VIE_def_industry_category = {
 			# Day KHONG phai tooltip thua: visible khong che hai dieu kien nay.
 			custom_trigger_tooltip = {
 				tooltip = VIE_dec_z_factories_avail_tt
-				AND = {
-					VIE_def_ind_can_staff_arms = yes
-					VIE_def_ind_has_factory_slot = yes
-				}
+				VIE_def_ind_can_staff_arms = yes
+				VIE_def_ind_has_factory_slot = yes
 			}
 		}
 
@@ -284,6 +282,7 @@ VIE_def_industry_category = {
 		ai_will_do = {
 			base = 50
 			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
 		}
 	}
 
@@ -451,6 +450,7 @@ VIE_def_industry_category = {
 		ai_will_do = {
 			base = 50
 			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
 		}
 	}
 
@@ -497,6 +497,7 @@ VIE_def_industry_category = {
 		ai_will_do = {
 			base = 50
 			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_regular }
 		}
 	}
 
@@ -551,6 +552,7 @@ VIE_def_industry_category = {
 		ai_will_do = {
 			base = 50
 			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 1.3 has_country_flag = VIE_lf_depth }
 		}
 	}
 

@@ -27,6 +27,26 @@
 | 2014 May | HD-981 chain (3 events); afterwards the door event `vie_alt.1` (20-40 days after the rig leaves) |
 | Game rules screen | "Vietnam: Alternative History" (Plausible / Historical / Free) |
 
+## Land force building (Truc 3, 30 focuses VIE_lf_*), not yet run in game
+Design, deviations from the report and the 9 build steps: `VIE_truc3_review_and_plan.md`. Balance numbers: `python tools/audit/lf_balance.py` (must print PASS).
+On a save copy with `debug` on:
+- [ ] `error.log`: grep `VIE_lf_`, `vie_lf`, `VIE_dec_lf_`, `reduce_focus_completion_cost`, `force_update_dynamic_modifier`, `urban_attack_factor`, `army_personnel_cost`, `Cum Co dong`, `Dan quan Khu vuc`.
+- [ ] **Reload bug (Truc 2, fixed in step 0):** play to 2015, finish a Truc 2 decision, save, reload: `VIE_def_industry_level` and `VIE_lf_arm_count` are NOT reset to 0.
+- [ ] Number of focus slots in MD is 1 (the plan assumes it). If 2 or more, rerun the simulation of report section 8.12.
+- [ ] Gate: `VIE_lf_army_reform` is greyed before 11/2/2019 on `plausible`/`historical`; on `free` it opens after 2012 once `VIE_def_industry_level >= 2`.
+- [ ] Arms limit: after BB1, TG1, PB1 the Engineers node is greyed; BB2/TG2/PB2 still clickable; `VIE_lf_combined_arms` greyed until `arm_done >= 3`; every 3-of-4 combination reaches it (especially BB + TG + Engineers).
+- [ ] First Force Structure: picking `VIE_lf_fs_main_corps` greys the mobile and depth roots; `VIE_lf_dev_strategic` and `VIE_lf_dev_territorial` exclude each other and both open from any of the three second nodes.
+- [ ] Capability limit: after two roots the third is greyed; `VIE_lf_selective_modernization` greyed until `cap_done >= 2`; any two areas open it.
+- [ ] Favoured area: after FR1 the Army-AD root is 14 days cheaper than the other two roots (checks the unit of `reduce_focus_completion_cost`).
+- [ ] Tooltips of `VIE_armed_forces_modifier` change right after each node (if not, `force_update_dynamic_modifier` is needed). The two MD cost modifiers: is +2% really +2%?
+- [ ] Division templates "Cum Co dong" (FM2) and "Dan quan Khu vuc" (FD2) appear, no regiment errors.
+- [ ] Six decisions appear in `VIE_military_readiness_category` next to the four old ones (same category block in two files merges?). Cooldown starts when? Timed ideas expire after 180/90 days.
+- [ ] Events: `event vie_lf.1` ... `.5`; 2022-01-17, 2022-12-20 (hidden), 2023-12-02, 2024-12-15 (hidden), 2025-02-05; never two pop-ups within 45 days; the milestone halves the cost of the matching focus if it is not done yet.
+- [ ] Re-count pop-ups per year for 2022-2025 (rule: at most 7; 2024 may already be over because of Truc 2).
+- [ ] AI observe run: after 2019 the AI takes Truc 3, direction follows the AI path, nothing gets stuck on `bankruptcy_incoming_collapse`.
+- [ ] Step 8 (AI soft-links): with `VIE_lf_regular` the AI buys K9/BMP-3/TOS-1A/CAESAR options more often; with `VIE_lf_depth` Igla option A. Nothing opens or closes differently.
+- [ ] Focus icons: the 35 army-branch focuses (30 `VIE_lf_*`, `VIE_modernize_vpa`, 4 Truc 2) show their own `GFX_focus_VIE_*` icon (93x91, `gfx/interface/goals/`); no `texture` / `GFX_focus_VIE_` errors in `error.log`; icons stay readable at game size.
+
 ## Army commander roster (2000-2014 / 2015-now / 2026), not yet run in game
 Design and the 4 experiments (E1-E4) behind it: `VIE_land_forces_implementation_plan_v2.md`. On a save copy with `debug` on:
 - [ ] `error.log` after loading: no `VIE_army_`, `portrait` or `trait` errors. Placeholder portraits are flat silhouettes

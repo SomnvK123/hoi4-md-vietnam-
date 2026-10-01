@@ -485,7 +485,7 @@ VIE_event_scheduler_p14 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_proc_1_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_proc_army.1 days = 3 random_days = 15 }
 			}
 			else_if = {
@@ -504,7 +504,7 @@ VIE_event_scheduler_p14 = {
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_proc_2_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_proc_army.2 days = 3 random_days = 15 }
 			}
 			else_if = {
@@ -529,7 +529,7 @@ VIE_event_scheduler_p14 = {
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
 				set_country_flag = VIE_proc_5_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_proc_army.5 days = 3 random_days = 15 }
 			}
 			else_if = {
@@ -561,7 +561,7 @@ VIE_event_scheduler_p14 = {
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
 				set_country_flag = VIE_proc_8_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_proc_army.8 days = 3 random_days = 15 }
 			}
 			else_if = {
@@ -593,7 +593,7 @@ VIE_event_scheduler_p14 = {
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
 				set_country_flag = VIE_proc_11_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_proc_army.11 days = 3 random_days = 15 }
 			}
 			else_if = {
@@ -627,7 +627,7 @@ VIE_event_scheduler_p14 = {
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
 				set_country_flag = VIE_proc_14_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_proc_army.14 days = 3 random_days = 15 }
 			}
 			else_if = {
@@ -666,7 +666,7 @@ VIE_event_scheduler_p14 = {
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
 				set_country_flag = VIE_proc_18_done
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_proc_army.18 days = 3 random_days = 15 }
 			}
 			else_if = {
@@ -701,7 +701,7 @@ VIE_event_scheduler_p14 = {
 						NOT = { has_country_flag = VIE_popup_cd }
 					}
 					set_country_flag = VIE_proc_30_done
-					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 					country_event = { id = vie_proc_army.30 days = 3 random_days = 15 }
 				}
 				else_if = {
@@ -723,7 +723,7 @@ VIE_event_scheduler_p14 = {
 						NOT = { has_country_flag = VIE_popup_cd }
 					}
 					set_country_flag = VIE_proc_35_done
-					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 					country_event = { id = vie_proc_army.35 days = 3 random_days = 15 }
 				}
 				else_if = {
@@ -745,7 +745,7 @@ VIE_event_scheduler_p14 = {
 						NOT = { has_country_flag = VIE_popup_cd }
 					}
 					set_country_flag = VIE_proc_38_done
-					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 					country_event = { id = vie_proc_army.38 days = 3 random_days = 15 }
 				}
 				else_if = {

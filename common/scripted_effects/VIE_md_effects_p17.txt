@@ -1,0 +1,596 @@
+########################################################################
+# Scheduler, part 17 - Truc 3: Xay dung luc luong Luc quan (namespace vie_lf).
+# Nguon thiet ke: "Bao cao Luc quan VIE - Truc 1, 2, 3.md" muc VIII, da sua theo
+# VIE_truc3_review_and_plan.md (Q10-Q17, mac dinh ghi o muc 5.0).
+#
+# Called from on_monthly (VIE_md_on_actions.txt) and from VIE_catch_up_schedule
+# (VIE_md_effects_p3.txt).
+#
+# Buoc 1: khung (helper, scheduler RONG). Buoc 2-4: phan thuong 30 node. event moc va scheduler
+# day du o buoc 6.
+#
+# Hai nguyen tac lay tu Truc 1 va 2 (xem VIE_md_effects_p14.txt, _p15.txt):
+# 1. KHONG dung trigger_year_* cua MD (trung ten -> ghi de event moi nuoc khac). Dung
+#    scheduler rieng.
+# 2. Co "da lam" chi dat khi event THUC SU fire (trong immediate) hoac khi da fallback,
+#    khong dat ngay khi goi event: trigger cua event co chan country_event.
+########################################################################
+
+########################################################################
+# Cap nhat modifier dong. Moi phan thuong node cong vao bien VIE_af_* roi goi effect nay
+# o cuoi (VIE_truc3_review_and_plan.md muc 6.5). Repo chua dung force_update_dynamic_modifier
+# o cho nao khac - neu tooltip tu cap nhat khong can no thi bo dong nay di (checklist muc 7).
+########################################################################
+VIE_lf_refresh = {
+	force_update_dynamic_modifier = yes
+}
+
+########################################################################
+# XP luc quan. Dung dung mau cua repo: neu da chon hoc thuyet bo binh tong the thi cong
+# mastery, nguoc lai cong kinh nghiem thuong (VIE_limited_war_doctrine, VIE_un_peacekeeping,
+# VIE_cyber_command trong VIE_md_focus.txt). Viet 4 muc co dinh thay vi 1 effect nhan bien,
+# vi chua xac minh add_mastery nhan bien o amount.
+########################################################################
+VIE_lf_xp_10 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = {
+			amount = 10
+			folder = land
+		}
+	}
+	else = {
+		army_experience = 10
+	}
+}
+VIE_lf_xp_15 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = {
+			amount = 15
+			folder = land
+		}
+	}
+	else = {
+		army_experience = 15
+	}
+}
+VIE_lf_xp_20 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = {
+			amount = 20
+			folder = land
+		}
+	}
+	else = {
+		army_experience = 20
+	}
+}
+
+########################################################################
+# PHAN THUONG NODE - buoc 2 (nen tang, binh chung, HD, CR1). Gia tri: VIE_truc3_review_and_plan.md muc 5.4.
+# Bien am o supply_consumption = hau can tot hon. Dem count/done do focus xu ly (guard o focus).
+########################################################################
+VIE_lf_n1_reward = {
+	add_political_power = 25
+	VIE_lf_xp_10 = yes
+}
+VIE_lf_n2_reward = {
+	add_command_power = 15
+}
+VIE_lf_n3_reward = {
+	VIE_lf_xp_10 = yes
+}
+VIE_lf_bb1_reward = {
+	add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_bb2_reward = {
+	add_to_variable = { VIE_af_army_defence_factor = 0.015 tooltip = VIE_tt_army_defence_factor }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.01 tooltip = VIE_tt_supply_consumption_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_tg1_reward = {
+	add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_tg2_reward = {
+	add_to_variable = { VIE_af_army_attack_factor = 0.015 tooltip = VIE_tt_army_attack_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_pb1_reward = {
+	add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_pb2_reward = {
+	add_to_variable = { VIE_af_army_artillery_attack_factor = 0.015 tooltip = VIE_tt_army_artillery_attack_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_cb_reward = {
+	add_to_variable = { VIE_af_max_dig_in_factor = 0.025 tooltip = VIE_tt_max_dig_in_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_hd_reward = {
+	add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_cr1_reward = {
+	add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.02 tooltip = VIE_tt_supply_consumption_factor }
+	VIE_lf_refresh = yes
+}
+
+########################################################################
+# PHAN THUONG NODE - buoc 3 (First Force Structure, huong phat trien, CR2). Gia tri: muc 5.4.
+# Co huong dat O DAY; node dau cua huong con ap "cai gia" (cac so am/duong xau o FM1, FR1, FD1, PS, PT).
+# Mau su doan: add_division_template, co VIE_lf_tpl_* de khong tao lai (ten ASCII).
+########################################################################
+VIE_lf_fm1_reward = {
+	set_country_flag = VIE_lf_mobile
+	add_to_variable = { VIE_af_army_speed_factor = 0.03 tooltip = VIE_tt_army_speed_factor }
+	add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+	add_to_variable = { VIE_af_conscription_factor = -0.015 tooltip = VIE_tt_conscription_factor }
+	add_to_variable = { VIE_af_equipment_cost_multiplier_modifier = 0.02 tooltip = VIE_tt_equipment_cost }
+	add_to_variable = { VIE_af_max_dig_in_factor = -0.02 tooltip = VIE_tt_max_dig_in_factor }
+	VIE_lf_fav_discount = yes
+	VIE_lf_refresh = yes
+}
+VIE_lf_fm2_reward = {
+	add_to_variable = { VIE_af_army_speed_factor = 0.025 tooltip = VIE_tt_army_speed_factor }
+	add_to_variable = { VIE_af_army_attack_factor = 0.02 tooltip = VIE_tt_army_attack_factor }
+	if = {
+		limit = { NOT = { has_country_flag = VIE_lf_tpl_mobile } }
+		set_country_flag = VIE_lf_tpl_mobile
+		add_division_template = {
+			name = "Cum Co dong"
+			regiments = {
+				armor_Bat = { x = 0 y = 0 }
+				armor_Bat = { x = 0 y = 1 }
+				Mech_Inf_Bat = { x = 1 y = 0 }
+				Mech_Inf_Bat = { x = 1 y = 1 }
+				Mech_Inf_Bat = { x = 1 y = 2 }
+				Mech_Inf_Bat = { x = 2 y = 0 }
+				SP_Arty_Bat = { x = 2 y = 1 }
+				SP_Arty_Bat = { x = 2 y = 2 }
+			}
+			regimental_support = {
+				armor_Recce_Comp = { x = 0 y = 0 }
+			}
+			support = {
+				SP_AA_Battery = { x = 0 y = 0 }
+			}
+		}
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_fr1_reward = {
+	set_country_flag = VIE_lf_regular
+	add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
+	add_to_variable = { VIE_af_army_defence_factor = 0.015 tooltip = VIE_tt_army_defence_factor }
+	add_to_variable = { VIE_af_army_personnel_cost_multiplier_modifier = 0.02 tooltip = VIE_tt_army_personnel_cost }
+	add_to_variable = { VIE_af_experience_gain_army_factor = -0.01 tooltip = VIE_tt_experience_gain_army_factor }
+	VIE_lf_fav_discount = yes
+	VIE_lf_refresh = yes
+}
+VIE_lf_fr2_reward = {
+	add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.04 tooltip = VIE_tt_supply_consumption_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_fd1_reward = {
+	set_country_flag = VIE_lf_depth
+	add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
+	add_to_variable = { VIE_af_army_defence_factor = 0.015 tooltip = VIE_tt_army_defence_factor }
+	add_to_variable = { VIE_af_army_attack_factor = -0.015 tooltip = VIE_tt_army_attack_factor }
+	add_to_variable = { VIE_af_army_speed_factor = -0.01 tooltip = VIE_tt_army_speed_factor }
+	VIE_lf_fav_discount = yes
+	VIE_lf_refresh = yes
+}
+VIE_lf_fd2_reward = {
+	add_to_variable = { VIE_af_conscription_factor = 0.05 tooltip = VIE_tt_conscription_factor }
+	if = {
+		limit = { NOT = { has_country_flag = VIE_lf_tpl_militia } }
+		set_country_flag = VIE_lf_tpl_militia
+		add_division_template = {
+			name = "Dan quan Khu vuc"
+			regiments = {
+				L_Inf_Bat = { x = 0 y = 0 }
+				L_Inf_Bat = { x = 0 y = 1 }
+				L_Inf_Bat = { x = 0 y = 2 }
+				L_Inf_Bat = { x = 1 y = 0 }
+				L_Inf_Bat = { x = 1 y = 1 }
+				L_Inf_Bat = { x = 1 y = 2 }
+			}
+		}
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_ps_reward = {
+	add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
+	add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.02 tooltip = VIE_tt_supply_consumption_factor }
+	add_to_variable = { VIE_af_equipment_cost_multiplier_modifier = 0.01 tooltip = VIE_tt_equipment_cost }
+	VIE_lf_refresh = yes
+}
+VIE_lf_pt_reward = {
+	set_country_flag = VIE_lf_dev_territorial
+	add_to_variable = { VIE_af_conscription_factor = 0.035 tooltip = VIE_tt_conscription_factor }
+	add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
+	add_to_variable = { VIE_af_army_personnel_cost_multiplier_modifier = 0.01 tooltip = VIE_tt_army_personnel_cost }
+	VIE_lf_refresh = yes
+}
+VIE_lf_cr2_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+		add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+		add_to_variable = { VIE_af_army_defence_factor = 0.005 tooltip = VIE_tt_army_defence_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+		add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+		add_to_variable = { VIE_af_army_speed_factor = 0.01 tooltip = VIE_tt_army_speed_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+		add_to_variable = { VIE_af_army_defence_factor = 0.015 tooltip = VIE_tt_army_defence_factor }
+		add_to_variable = { VIE_af_max_dig_in_factor = 0.01 tooltip = VIE_tt_max_dig_in_factor }
+	}
+	VIE_lf_refresh = yes
+}
+
+# Giam 14 ngay cost goc linh vuc so truong (muc 5.4 / G6). Don vi cua reduce_focus_completion_cost
+# suy ra la NGAY tu tien le events/VIE_md_p11.txt:193 - phai test (checklist muc 7).
+# Chieu sau -> Bien gioi & Do thi, Chinh quy -> Phong khong, Co dong -> Mang & Dien tu.
+VIE_lf_fav_discount = {
+	if = {
+		limit = {
+			has_country_flag = VIE_lf_depth
+			NOT = { has_completed_focus = VIE_lf_cap_border_urban }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_lf_cap_border_urban
+			cost = 14
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_lf_regular
+			NOT = { has_completed_focus = VIE_lf_cap_army_ad }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_lf_cap_army_ad
+			cost = 14
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_lf_mobile
+			NOT = { has_completed_focus = VIE_lf_cap_cyber_ew }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_lf_cap_cyber_ew
+			cost = 14
+		}
+	}
+}
+
+########################################################################
+# PHAN THUONG NODE - buoc 4 (nang luc, MOD, CR3, CAP). Gia tri: muc 5.4.
+# L1/A1/Y1 = goc, L2/A2/Y2 = cuoi. O so truong (Chieu sau-land, Chinh quy-ad, Co dong-cyber) dung gia tri
+# cuoi x1,5 da lam tron: viet thang vao nhanh huong do. VIE_lf_done la co CHO (chua ai doc).
+# L2 chi dat co linh vuc o focus; phan thuong chi ap khi cap_done < 2 (bao hiem).
+########################################################################
+VIE_lf_l1_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+			add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+			add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.005 tooltip = VIE_tt_army_defence_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.005 tooltip = VIE_tt_army_defence_factor }
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_l2_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+			add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+			add_to_variable = { VIE_af_army_attack_factor = 0.02 tooltip = VIE_tt_army_attack_factor }
+			add_to_variable = { VIE_af_army_speed_factor = 0.025 tooltip = VIE_tt_army_speed_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.06 tooltip = VIE_tt_max_dig_in_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.025 tooltip = VIE_tt_army_defence_factor }
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_a1_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+			add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+			add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
+			add_to_variable = { VIE_af_army_speed_factor = 0.01 tooltip = VIE_tt_army_speed_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.005 tooltip = VIE_tt_army_defence_factor }
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_a2_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+			add_to_variable = { VIE_af_army_org_factor = 0.03 tooltip = VIE_tt_army_org_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.03 tooltip = VIE_tt_army_defence_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+			add_to_variable = { VIE_af_army_org_factor = 0.03 tooltip = VIE_tt_army_org_factor }
+			add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+			add_to_variable = { VIE_af_army_defence_factor = 0.03 tooltip = VIE_tt_army_defence_factor }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_y1_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+			add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+			add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
+			add_to_variable = { VIE_af_army_org_factor = 0.005 tooltip = VIE_tt_army_org_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_y2_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+			add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+			add_to_variable = { VIE_af_army_attack_factor = 0.03 tooltip = VIE_tt_army_attack_factor }
+			add_to_variable = { VIE_af_army_speed_factor = 0.04 tooltip = VIE_tt_army_speed_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+			add_to_variable = { VIE_af_army_defence_factor = 0.03 tooltip = VIE_tt_army_defence_factor }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_mod_reward = {
+	if = {
+		limit = { has_completed_focus = VIE_lf_cap_area_control }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.015 tooltip = VIE_tt_max_dig_in_factor }
+	}
+	if = {
+		limit = { has_completed_focus = VIE_lf_cap_ad_coord }
+			add_to_variable = { VIE_af_army_defence_factor = 0.01 tooltip = VIE_tt_army_defence_factor }
+	}
+	if = {
+		limit = { has_completed_focus = VIE_lf_cap_info_ops }
+			add_to_variable = { VIE_af_army_org_factor = 0.01 tooltip = VIE_tt_army_org_factor }
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_cr3_reward = {
+	add_to_variable = { VIE_af_army_org_factor = 0.01 tooltip = VIE_tt_army_org_factor }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.03 tooltip = VIE_tt_supply_consumption_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_cap_reward = {
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+			add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
+			add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
+			if = {
+				limit = { has_completed_focus = VIE_lf_cap_ad_coord }
+					add_to_variable = { VIE_af_army_personnel_cost_multiplier_modifier = -0.02 tooltip = VIE_tt_army_personnel_cost }
+			}
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_mobile }
+			add_to_variable = { VIE_af_army_speed_factor = 0.035 tooltip = VIE_tt_army_speed_factor }
+			add_to_variable = { VIE_af_army_attack_factor = 0.015 tooltip = VIE_tt_army_attack_factor }
+	}
+	else_if = {
+		limit = { has_country_flag = VIE_lf_depth }
+			add_to_variable = { VIE_af_conscription_factor = 0.035 tooltip = VIE_tt_conscription_factor }
+			add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
+	}
+	set_country_flag = VIE_lf_done
+	VIE_lf_refresh = yes
+}
+
+########################################################################
+# HIEU UNG EVENT MOC (muc 5.7). Moi event va fallback im lang cua scheduler goi CUNG mot effect.
+# reduce_focus_completion_cost: cost tinh bang NGAY (suy tu events/VIE_md_p11.txt:193) - test o checklist muc 7.
+# Mot nua cost goc: N1 10 tuan = 70 ngay -> 35; N3, N2 7 tuan = 49 ngay -> 24; CR2 10 tuan -> 35.
+# Neu focus da xong thi thay giam cost bang mot khoan thuong nho.
+########################################################################
+VIE_lf_ms1_apply = {
+	if = {
+		limit = { has_completed_focus = VIE_lf_army_reform }
+		add_political_power = 25
+		VIE_lf_xp_15 = yes
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_lf_army_reform
+			cost = 35
+		}
+	}
+}
+VIE_lf_ms2_apply = {
+	if = {
+		limit = { has_completed_focus = VIE_lf_basic_training }
+		VIE_lf_xp_10 = yes
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_lf_basic_training
+			cost = 24
+		}
+	}
+}
+# Quan doan 12: +1% to chuc cho moi nguoi choi, +0,5% nua neu huong Chinh quy (nen la quan doan chu luc that).
+VIE_lf_ms3_apply = {
+	add_to_variable = { VIE_af_army_org_factor = 0.01 tooltip = VIE_tt_army_org_factor }
+	if = {
+		limit = { has_country_flag = VIE_lf_regular }
+		add_to_variable = { VIE_af_army_org_factor = 0.005 tooltip = VIE_tt_army_org_factor }
+	}
+	if = {
+		limit = { NOT = { has_completed_focus = VIE_lf_command_reform_2 } }
+		reduce_focus_completion_cost = {
+			focus = VIE_lf_command_reform_2
+			cost = 35
+		}
+	}
+	VIE_lf_refresh = yes
+}
+VIE_lf_ms4_apply = {
+	add_to_variable = { VIE_af_army_org_factor = 0.005 tooltip = VIE_tt_army_org_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_ms5_apply = {
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.02 tooltip = VIE_tt_supply_consumption_factor }
+	if = {
+		limit = { has_completed_focus = VIE_lf_logistics_merge }
+		add_command_power = 10
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_lf_logistics_merge
+			cost = 24
+		}
+	}
+	VIE_lf_refresh = yes
+}
+
+########################################################################
+# Scheduler (buoc 6). Khuon VIE_event_scheduler_p15: ngay -> VIE_popup_cd -> fallback im lang sau 6 thang
+# (ap hieu ung khong pop-up). Event an (.2, .4) khong can popup_cd. Catch-up (VIE_catch_up = 1, sau noi chien):
+# chi dat co moc cho nhung moc da qua, khong ban event, khong ap hieu ung.
+########################################################################
+VIE_event_scheduler_p17 = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+		if = {
+			limit = {
+				date > 2022.1.16
+				NOT = { has_country_flag = VIE_lf_ms_nq05 }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_lf_ms_nq05
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_lf.1 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2022.7.31 }
+				set_country_flag = VIE_lf_ms_nq05
+				VIE_lf_ms1_apply = yes
+			}
+		}
+		if = {
+			limit = {
+				date > 2022.12.19
+				NOT = { has_country_flag = VIE_lf_ms_nq1657 }
+			}
+			set_country_flag = VIE_lf_ms_nq1657
+			country_event = { id = vie_lf.2 days = 3 random_days = 15 }
+		}
+		if = {
+			limit = {
+				date > 2023.12.1
+				NOT = { has_country_flag = VIE_lf_ms_corps12 }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_lf_ms_corps12
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_lf.3 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2024.5.31 }
+				set_country_flag = VIE_lf_ms_corps12
+				VIE_lf_ms3_apply = yes
+			}
+		}
+		if = {
+			limit = {
+				date > 2024.12.14
+				NOT = { has_country_flag = VIE_lf_ms_corps34 }
+			}
+			set_country_flag = VIE_lf_ms_corps34
+			country_event = { id = vie_lf.4 days = 3 random_days = 15 }
+		}
+		if = {
+			limit = {
+				date > 2025.2.4
+				NOT = { has_country_flag = VIE_lf_ms_logistics }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_lf_ms_logistics
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_lf.5 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2025.8.31 }
+				set_country_flag = VIE_lf_ms_logistics
+				VIE_lf_ms5_apply = yes
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { date > 2022.1.16 }
+			set_country_flag = VIE_lf_ms_nq05
+		}
+		if = {
+			limit = { date > 2022.12.19 }
+			set_country_flag = VIE_lf_ms_nq1657
+		}
+		if = {
+			limit = { date > 2023.12.1 }
+			set_country_flag = VIE_lf_ms_corps12
+		}
+		if = {
+			limit = { date > 2024.12.14 }
+			set_country_flag = VIE_lf_ms_corps34
+		}
+		if = {
+			limit = { date > 2025.2.4 }
+			set_country_flag = VIE_lf_ms_logistics
+		}
+	}
+}

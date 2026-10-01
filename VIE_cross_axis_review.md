@@ -262,3 +262,30 @@ có trục Hải quân. Chỗ sửa duy nhất đã chuẩn bị: `VIE_proc_gate
 3 file archive ở gốc mod · layout cây focus chưa nén (2 dải trống 52 và 38 unit) ·
 4 root mồ côi (giờ còn 3 vì `VIE_modernize_vpa` đã có con) ·
 tools hardcode `D:\` · không có README/LICENSE · 38 MB font.
+
+---
+
+## PHỤ LỤC (1/10/2026) — TRỤC 3 VÀ LIÊN KẾT VỚI TRỤC 1, 2
+
+Thiết kế và plan: `VIE_truc3_review_and_plan.md`. Trục 3 (30 focus `VIE_lf_*`, 6 decision, 5 event `vie_lf`) **không có prerequisite chéo** sang Trục 1 hay 2.
+
+**Trục 3 đọc từ Trục 2 (một thứ duy nhất)**
+
+| Đọc | Ở đâu | Điều kiện |
+|---|---|---|
+| `VIE_def_ind_level_ge_2` | `VIE_lf_gate_open` (cổng của `VIE_lf_army_reform`) | chỉ ở game rule `VIE_alt_history = free`, sau 2012 |
+
+**Trục 3 đặt, Trục 1 và 2 đọc (bước 8, chỉ chỉnh trọng số AI)**
+
+| Cờ Trục 3 | Đặt bởi | Đọc ở | Hiệu lực |
+|---|---|---|---|
+| `VIE_lf_regular` | `VIE_lf_fs_main_corps` | `vie_proc_army.18.a`, `.19.a`, `.19.b`, `.30.b`, `.35.a`, `.38.a`; `VIE_dec_pth`, `VIE_dec_xcb01`, `VIE_dec_xcb01_fast` | `ai_chance` / `ai_will_do` ×1,3 |
+| `VIE_lf_depth` | `VIE_lf_fs_depth_defence` | `vie_proc_army.8.a` (Igla kèm quyền sản xuất); `VIE_dec_tl01` | ×1,3 |
+| `VIE_lf_mobile` | `VIE_lf_fs_mobile_force` | không ai ở Trục 1, 2 | — |
+
+**Cờ chờ có chủ đích (như `VIE_ev_t90_tanks`, đừng xoá):** `VIE_lf_done` (do `VIE_lf_force_complete` đặt, chưa ai đọc; dành cho nhánh Chính trị/Đối ngoại sau này).
+
+**Nợ thiết kế đã ghi:** `VIE_mechanization`, `VIE_army_c4isr`, `VIE_army_short_range_ad` không còn (v11) và không được dựng lại; Trục 3 chỉ cho modifier thuần (plan, B1, Q12).
+
+**Lỗi cũ của Trục 2 tìm thấy và đã vá khi làm Trục 3 (bước 0):** `on_startup` đặt lại `VIE_def_industry_level` và `VIE_def_ind_export_count` về 0 mỗi lần load save; nay bọc bằng cờ `VIE_def_ind_vars_init`.
+

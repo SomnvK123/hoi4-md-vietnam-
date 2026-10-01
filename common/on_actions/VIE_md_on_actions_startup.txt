@@ -75,8 +75,29 @@ on_actions = {
 				# chinh repo nay da nhac: "Dat ro ... = 0, du bien chua dat mac dinh bang 0".
 				# Dat tu dau de check_variable >= 4 / >= 8 khong bao gio doc gia tri rac,
 				# va de save cu tai lai van dung.
-				set_variable = { VIE_def_industry_level = 0 }
-				set_variable = { VIE_def_ind_export_count = 0 }
+				#
+				# on_startup chay lai MOI LAN LOAD SAVE (xem comment dau file nay), nen cac
+				# set_variable = 0 phai co guard - neu khong moi lan mo save giua chung se dat
+				# VIE_def_industry_level ve 0 va khoa lai nga re Core/Divest (>= 4) va capstone (>= 8).
+				# VIE_truc3_review_and_plan.md muc X1. Neu on_startup thuc ra khong chay lai khi
+				# load thi guard nay vo hai.
+				if = {
+					limit = { NOT = { has_country_flag = VIE_def_ind_vars_init } }
+					set_variable = { VIE_def_industry_level = 0 }
+					set_variable = { VIE_def_ind_export_count = 0 }
+					set_country_flag = VIE_def_ind_vars_init
+				}
+
+				# Truc 3 (xay dung luc luong Luc quan): 4 bien dem cho gioi han 3/4 binh chung va
+				# 2/3 linh vuc. Cung khuon guard nhu tren.
+				if = {
+					limit = { NOT = { has_country_flag = VIE_lf_vars_init } }
+					set_variable = { VIE_lf_arm_count = 0 }
+					set_variable = { VIE_lf_arm_done = 0 }
+					set_variable = { VIE_lf_cap_count = 0 }
+					set_variable = { VIE_lf_cap_done = 0 }
+					set_country_flag = VIE_lf_vars_init
+				}
 
 				# Party Congress spine (see VIE_congress_spine_redesign.md): saves from before
 				# this system existed have no VIE_congress_term variable. Re-derive it every

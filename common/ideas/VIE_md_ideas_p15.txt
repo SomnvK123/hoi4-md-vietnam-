@@ -1,7 +1,6 @@
 ########################################################################
 # Truc 2 (CNQP Luc quan) - idea cap boi decision D6 va D8.
-# Pattern lay tu common/ideas/VIE_md_ideas_p3B.txt: allowed = { always = no }
-# (chi co bang add_ideas tu script), cancel_if_invalid = no (giu qua noi chien).
+# Pattern lay tu common/ideas/VIE_md_ideas_p3B.txt:# (chi co bang add_ideas tu script), cancel_if_invalid = no (giu qua noi chien).
 #
 # D6 va D8 deu la san pham noi dia hoa, khong phai idea che do, nen khong co
 # cancel theo focus hay flag.
@@ -15,8 +14,6 @@ ideas = {
 		# medium_tank_flame_chassis (VIE_variant_research.md muc 2).
 		VIE_xcb01_mechanized_idea = {
 			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
 
 			modifier = {
@@ -43,8 +40,6 @@ ideas = {
 		# Nga re Core: giu doanh nghiep quan doi lam nong cot.
 		VIE_def_ind_core_idea = {
 			picture = generic_central_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
 
 			modifier = {
@@ -57,8 +52,6 @@ ideas = {
 		# Nga re Divest: co phan hoa, thoai von khoi doanh nghiep khong thiet yeu.
 		VIE_def_ind_divest_idea = {
 			picture = generic_privatisation
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
 
 			modifier = {
@@ -71,8 +64,6 @@ ideas = {
 		# Capstone: tu chu ve cong nghe quoc phong, ran de bang nang luc noi dia.
 		VIE_self_reliant_deterrence_idea = {
 			picture = generic_military_mission
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
 
 			modifier = {
@@ -112,8 +103,6 @@ ideas = {
 		# + VIE_k9_purchased + VIE_k9_localization) nen khong som duoc.
 		VIE_k9_localization_idea = {
 			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
 
 			# CAT_self_propelled_artillery KHONG ton tai trong common/technologies/

@@ -1,0 +1,94 @@
+add_namespace = vie_lf
+
+########################################################################
+# Truc 3: xay dung luc luong Luc quan - 5 event moc lich su (VIE_truc3_review_and_plan.md muc 5.7).
+# Dat lich boi VIE_event_scheduler_p17 (VIE_md_effects_p17.txt), KHONG dung trigger_year_* cua MD.
+# No cho MOI nguoi choi, khong phu thuoc da di N1 hay chua. Phan hieu ung nam o VIE_lf_ms*_apply
+# (de event va fallback im lang cua scheduler khong lech nhau) va chay trong immediate, nhu vie_def_ind.1.
+#
+# .1  Nghi quyet 05-NQ/TW           17/1/2022        pop-up   (giam cost N1 hoac thuong)
+# .2  Nghi quyet 1657-NQ/QUTW       20/12/2022       AN       (giam cost N3 hoac thuong)
+# .3  Cong bo Quan doan 12          2/12/2023        pop-up   (giam cost CR2; +to chuc cho moi nguoi)
+# .4  Cong bo Quan doan 34          15/12/2024       AN       (de khong tang pop-up nam 2024)
+# .5  Hop nhat Hau can - Ky thuat   5/2/2025         pop-up   (giam cost N2; hau can cho moi nguoi)
+#
+# Anh: dung TAM anh co san trong gfx/event_pictures; them 5 muc vao tools/build_vie_event_pictures.py sau.
+########################################################################
+
+# .1  Nghi quyet 05-NQ/TW cua Bo Chinh tri (17/1/2022)
+country_event = {
+	id = vie_lf.1
+	title = vie_lf.1.t
+	desc = vie_lf.1.d
+	picture = GFX_VIE_report_event_vie_proc_army_11
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_lf_ms1_apply = yes
+	}
+
+	option = {
+		name = vie_lf.1.a
+		ai_chance = { base = 100 }
+	}
+}
+
+# .2  Nghi quyet 1657-NQ/QUTW ve giao duc, dao tao trong quan doi (20/12/2022). Class C, an.
+country_event = {
+	id = vie_lf.2
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_lf.2 executed"
+		VIE_lf_ms2_apply = yes
+	}
+}
+
+# .3  Cong bo thanh lap Quan doan 12 (2/12/2023)
+country_event = {
+	id = vie_lf.3
+	title = vie_lf.3.t
+	desc = vie_lf.3.d
+	picture = GFX_VIE_report_event_vie_proc_army_21
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_lf_ms3_apply = yes
+	}
+
+	option = {
+		name = vie_lf.3.a
+		ai_chance = { base = 100 }
+	}
+}
+
+# .4  Cong bo thanh lap Quan doan 34 (15/12/2024). Class C, an.
+country_event = {
+	id = vie_lf.4
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_lf.4 executed"
+		VIE_lf_ms4_apply = yes
+	}
+}
+
+# .5  Cong bo hop nhat Tong cuc Hau can - Ky thuat (5/2/2025)
+country_event = {
+	id = vie_lf.5
+	title = vie_lf.5.t
+	desc = vie_lf.5.d
+	picture = GFX_VIE_report_event_vie_proc_army_20
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_lf_ms5_apply = yes
+	}
+
+	option = {
+		name = vie_lf.5.a
+		ai_chance = { base = 100 }
+	}
+}

@@ -1,0 +1,88 @@
+# NB: check_variable khong nhan ">=" inline (MD validator: "silently mis-parsed"). Bien la so nguyen nen
+# "X >= N" duoc viet thanh "X > N-1". Ten trigger (_ge_N) giu nguyen.
+########################################################################
+# Truc 3 (Xay dung luc luong Luc quan) - cac gate dung chung.
+#
+# Nhu VIE_md_triggers_p14.txt (Truc 1) va _p15.txt (Truc 2): moi quyet dinh thiet ke
+# duoc gom vao day de khi doi thi sua mot dong thay vi sua muoi cho. Tham chieu:
+# VIE_truc3_review_and_plan.md (Q10-Q17, mac dinh ghi o muc 5.0).
+#
+# Dung cho:
+#   common/national_focus/VIE_md_focus.txt   (30 focus VIE_lf_*, buoc 2-4)
+#   common/decisions/VIE_md_decisions_lf.txt (6 decision, buoc 5)
+#   common/scripted_effects/VIE_md_effects_p17.txt
+#
+# Tien to VIE_lf_ (land force) tranh dung VIE_force_47 va VIE_cap_* cua bao cao hai quan.
+########################################################################
+
+# ---------------------------------------------------------------------
+# Q10 = khoa mem. N1 (VIE_lf_army_reform) chi mo khi:
+#   - sau 11/2/2019 (Nghi quyet 109-NQ/QUTW, bao cao 9.2), hoac
+#   - che do game rule VIE_alt_history = free, sau 2012 va Truc 2 da dat level >= 2
+#     (day chinh la "cong mem 8.3" cua bao cao, chi o che do free).
+# Phan con lai cua cay KHONG khoa ngay them: di theo N1 (bao cao 8.13).
+# VIE_ai_free (VIE_md_triggers_p4.txt) va VIE_def_ind_level_ge_2
+# (VIE_md_triggers_p15.txt) la hai trigger co san.
+# ---------------------------------------------------------------------
+VIE_lf_gate_open = {
+	OR = {
+		date > 2019.2.10
+		AND = {
+			VIE_ai_free = yes
+			date > 2012.12.31
+			VIE_def_ind_level_ge_2 = yes
+		}
+	}
+}
+
+# ---------------------------------------------------------------------
+# Gioi han "3 trong 4 binh chung" va "2 trong 3 linh vuc" (bao cao 8.5, 3.3).
+# Chi 7 node dau dung dieu kien count: BB1, TG1, PB1, CB (< 3) va L1, A1, Y1 (< 2).
+# Node giua va node cuoi KHONG dung count: neu dung, hai linh vuc da chon se tu khoa nhau.
+# Bien duoc dat = 0 o on_startup (co guard VIE_lf_vars_init).
+# ---------------------------------------------------------------------
+VIE_lf_arm_slot_free = {
+	check_variable = { VIE_lf_arm_count < 3 }
+}
+VIE_lf_cap_slot_free = {
+	check_variable = { VIE_lf_cap_count < 2 }
+}
+
+# HD can du 3 binh chung da hoan tat phan dao tao; MOD can du 2 linh vuc da hoan tat node cuoi.
+VIE_lf_arm_done_3 = {
+	check_variable = { VIE_lf_arm_done > 2 }
+}
+VIE_lf_cap_done_2 = {
+	check_variable = { VIE_lf_cap_done > 1 }
+}
+
+# ---------------------------------------------------------------------
+# Linh vuc so truong cua tung huong (bao cao 8.6). Khong co co rieng: suy ra tu
+# co huong First Force Structure.
+#   Chieu sau (VIE_lf_depth)    -> Bien gioi & Do thi
+#   Chinh quy (VIE_lf_regular)  -> Phong khong luc quan
+#   Co dong   (VIE_lf_mobile)   -> Mang & Dien tu
+# ---------------------------------------------------------------------
+VIE_lf_fav_land = {
+	has_country_flag = VIE_lf_depth
+}
+VIE_lf_fav_ad = {
+	has_country_flag = VIE_lf_regular
+}
+VIE_lf_fav_cyber = {
+	has_country_flag = VIE_lf_mobile
+}
+
+# ---------------------------------------------------------------------
+# Decision "Tong dong vien" (bao cao 8.7): Chieu sau, hoac Phong thu khu vuc va du bi,
+# hoac dang co chien tranh, hoac cang thang cao. "Cang thang cao" dung trigger co that
+# cua repo (VIE_md_triggers.txt:15), bao cao khong neu ten.
+# ---------------------------------------------------------------------
+VIE_lf_mobilize_gate = {
+	OR = {
+		has_country_flag = VIE_lf_depth
+		has_country_flag = VIE_lf_dev_territorial
+		has_war = yes
+		VIE_scs_escalated_trigger = yes
+	}
+}

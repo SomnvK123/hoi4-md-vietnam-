@@ -94,10 +94,10 @@ country_event = {
 		set_country_flag = VIE_paracel_clash
 		if = {
 			limit = { has_completed_focus = VIE_limited_war_doctrine }
-			set_country_flag = { flag = VIE_war_clock days = 60 }
+			set_country_flag = { flag = VIE_war_clock value = 1 days = 60 }
 		}
 		else = {
-			set_country_flag = { flag = VIE_war_clock days = 120 }
+			set_country_flag = { flag = VIE_war_clock value = 1 days = 120 }
 		}
 		ai_chance = {
 			base = 10

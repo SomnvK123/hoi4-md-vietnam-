@@ -72,7 +72,7 @@ VIE_event_scheduler_p2 = {
 			VIE_start_congress_term_13 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_pol.6 days = 3 random_days = 15 }
 			}
 		}
@@ -89,7 +89,7 @@ VIE_event_scheduler_p2 = {
 				set_country_flag = VIE_sched_plenum_2024
 				if = {
 					limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 					country_event = { id = vie_pol.7 days = 3 random_days = 15 }
 				}
 			}
@@ -103,7 +103,7 @@ VIE_event_scheduler_p2 = {
 			VIE_start_congress_term_14 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_pol.8 days = 3 random_days = 15 }
 			}
 		}
@@ -117,7 +117,7 @@ VIE_event_scheduler_p2 = {
 				set_country_flag = VIE_sched_president_2026
 				if = {
 					limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 					country_event = { id = vie_pol.9 days = 3 random_days = 15 }
 				}
 			}
@@ -131,7 +131,7 @@ VIE_event_scheduler_p2 = {
 		set_country_flag = VIE_sched_pca
 		if = {
 			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_scs.6 days = 3 random_days = 15 }
 		}
 	}
@@ -143,7 +143,7 @@ VIE_event_scheduler_p2 = {
 		set_country_flag = VIE_sched_tariff
 		if = {
 			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.11 days = 3 random_days = 15 }
 		}
 	}
@@ -161,7 +161,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_sars
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.1 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -182,7 +182,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_h5n1
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.2 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -203,7 +203,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_pmu18
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.3 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -224,7 +224,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_inflation08
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.4 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -245,7 +245,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_vinashin
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.5 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -266,7 +266,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_binh_minh
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_scs.4 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -287,7 +287,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_bad_debt
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.7 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -308,7 +308,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_sea_law
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_scs.5 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -329,7 +329,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_salinity16
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.4 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -350,7 +350,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_embargo
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_dip.1 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -373,7 +373,7 @@ VIE_event_scheduler_p2 = {
 			else_if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_sched_formosa
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_eco.6 days = 3 random_days = 20 }
 			}
 			else_if = {
@@ -397,7 +397,7 @@ VIE_event_scheduler_p2 = {
 			else_if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_sched_oil_blocks
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_scs.7 days = 3 random_days = 20 }
 			}
 			else_if = {
@@ -419,7 +419,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_hanoi_summit
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_dip.2 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -440,7 +440,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_vanguard
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_scs.8 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -461,7 +461,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_labor_code
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_pol.27 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -482,7 +482,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_salinity20
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.5 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -505,7 +505,7 @@ VIE_event_scheduler_p2 = {
 			else_if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_sched_covid_response
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_soc.6 days = 3 random_days = 20 }
 			}
 			else_if = {
@@ -527,7 +527,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_viet_a
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.8 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -548,7 +548,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_bond_crisis
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.9 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -569,7 +569,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_csp_us
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_dip.3 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -590,7 +590,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_vtp_verdict
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_eco.10 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -613,7 +613,7 @@ VIE_event_scheduler_p2 = {
 			else_if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
 				set_country_flag = VIE_sched_funan
-				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 				country_event = { id = vie_dip.4 days = 3 random_days = 20 }
 			}
 			else_if = {
@@ -635,7 +635,7 @@ VIE_event_scheduler_p2 = {
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
 			set_country_flag = VIE_sched_yagi
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.7 days = 3 random_days = 20 }
 		}
 		else_if = {
@@ -655,8 +655,8 @@ VIE_event_scheduler_p2 = {
 		}
 		random = {
 			chance = 4
-			set_country_flag = { flag = VIE_flood_cd days = 1000 }
-			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			set_country_flag = { flag = VIE_flood_cd value = 1 days = 1000 }
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
 			country_event = { id = vie_soc.3 days = 3 random_days = 20 }
 		}
 	}

@@ -213,7 +213,7 @@ country_event = {
 		set_temp_variable = { treasury_change = -3 }
 		modify_treasury_effect = yes
 		add_stability = 0.10
-		set_country_flag = { flag = VIE_collapse_immunity days = 730 }
+		set_country_flag = { flag = VIE_collapse_immunity value = 1 days = 730 }
 		ai_chance = { base = 95 }
 	}
 

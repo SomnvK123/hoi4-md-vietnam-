@@ -1,0 +1,168 @@
+########################################################################
+# Truc 3 (xay dung luc luong Luc quan): 6 decision, VIE_truc3_review_and_plan.md muc 5.8.
+# Dung category CO SAN VIE_military_readiness_category (khoi trung ten voi VIE_md_decisions.txt;
+# neu game khong gop thi chuyen 6 decision vao file do - phu luc C cua plan).
+#
+# Mau: khong co complete_effect (chi log thi MD coi la khoi chet); phan thuong va log o remove_effect sau days_remove.
+# Lap lai duoc (khong fire_only_once): days_re_enable la cooldown. PP la so nguyen, neo theo
+# VIE_exercise_military_region (40 PP, +15 XP) va VIE_extended_conscription (75 PP) - Q13.
+# Thieu tien khong chan decision; VIE_def_ind_bankrupt (VIE_md_triggers_p15.txt) chi dung trong ai_will_do.
+########################################################################
+
+VIE_military_readiness_category = {
+
+	# Huan luyen tac chien rung nui: mo tu CR1
+	VIE_dec_lf_train_terrain = {
+		icon = GFX_decision_generic_army_support
+		cost = 35
+		days_re_enable = 545
+
+		visible = { has_completed_focus = VIE_lf_command_reform_1 }
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_lf_train_terrain (complete)"
+			VIE_lf_xp_10 = yes
+			add_timed_idea = { idea = VIE_lf_idea_terrain_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	# Huan luyen tac chien do thi: mo tu CR1
+	VIE_dec_lf_train_urban = {
+		icon = GFX_decision_generic_army_support
+		cost = 35
+		days_re_enable = 545
+
+		visible = { has_completed_focus = VIE_lf_command_reform_1 }
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_lf_train_urban (complete)"
+			VIE_lf_xp_10 = yes
+			add_timed_idea = { idea = VIE_lf_idea_urban_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	# Dien tap hiep dong binh chung: mo tu CR1. 15 XP neu huong Chinh quy va da xong CAP (doc trang thai focus, khong dung bien rieng).
+	VIE_dec_lf_joint_arms = {
+		icon = GFX_decision_generic_army_support
+		cost = 35
+		days_re_enable = 545
+
+		visible = { has_completed_focus = VIE_lf_command_reform_1 }
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_lf_joint_arms (complete)"
+			if = {
+				limit = {
+					has_country_flag = VIE_lf_regular
+					has_completed_focus = VIE_lf_force_complete
+				}
+				VIE_lf_xp_15 = yes
+			}
+			else = {
+				VIE_lf_xp_10 = yes
+			}
+			add_timed_idea = { idea = VIE_lf_idea_joint_arms days = 90 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	# Phan ung nhanh: mo tu PS (Co dong chien luoc)
+	VIE_dec_lf_rapid_response = {
+		icon = GFX_decision_generic_army_support
+		cost = 50
+		days_re_enable = 545
+
+		visible = { has_completed_focus = VIE_lf_dev_strategic }
+		available = { has_war = no }
+
+		days_remove = 60
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_lf_rapid_response (complete)"
+			VIE_lf_xp_20 = yes
+			add_timed_idea = { idea = VIE_lf_idea_rapid_response days = 90 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	# Dong vien toan dan: mo tu PT (Phong thu khu vuc va du bi). 40 000 nhan luc (VIE_extended_conscription: 25 000).
+	VIE_dec_lf_mobilize_people = {
+		icon = GFX_decision_generic_army_support
+		cost = 40
+		days_re_enable = 730
+
+		visible = { has_completed_focus = VIE_lf_dev_territorial }
+		available = { has_war = no }
+
+		days_remove = 120
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_lf_mobilize_people (complete)"
+			add_manpower = 40000
+			add_timed_idea = { idea = VIE_lf_idea_mobilized_people days = 180 }
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	# Tong dong vien: mo tu CR1, bam duoc khi Chieu sau, hoac Phong thu khu vuc va du bi, hoac dang co chien tranh,
+	# hoac cang thang cao (VIE_lf_mobilize_gate). 100 000 nhan luc, -5% on dinh mot lan.
+	VIE_dec_lf_total_mobilization = {
+		icon = GFX_decision_generic_army_support
+		cost = 65
+		days_re_enable = 1095
+
+		visible = { has_completed_focus = VIE_lf_command_reform_1 }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_dec_lf_mobilize_gate_tt
+				VIE_lf_mobilize_gate = yes
+			}
+		}
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_lf_total_mobilization (complete)"
+			add_manpower = 100000
+			add_stability = -0.05
+			add_timed_idea = { idea = VIE_lf_idea_total_mobilization days = 180 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_war = no }
+		}
+	}
+}

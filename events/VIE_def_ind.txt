@@ -62,7 +62,6 @@ country_event = {
 
 	option = {
 		name = vie_def_ind.2.a
-		log = "[GetDateText]: [This.GetName]: Event vie_def_ind.2.a executed"
 		ai_chance = { base = 100 }
 	}
 }
@@ -124,7 +123,6 @@ country_event = {
 
 	option = {
 		name = vie_def_ind.4.a
-		log = "[GetDateText]: [This.GetName]: Event vie_def_ind.4.a executed"
 		ai_chance = { base = 100 }
 	}
 }
