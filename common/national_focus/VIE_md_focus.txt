@@ -1129,14 +1129,24 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_paracel_ultimatum"
 			add_to_variable = { VIE_ax_integ = -1 tooltip = VIE_ax_integ_tt }
 			add_to_variable = { VIE_ax_mob = 2 tooltip = VIE_ax_mob_tt }
-			# MD4 main khong co state Hoang Sa rieng; claim huong ve 526 (Northern Spratlys - VIE co san claim)
-			add_state_claim = 526
+			# FIX D-4 (2026-09-30): 526 -> 813.
+			# Comment cu ghi "MD4 main khong co state Hoang Sa rieng" - SAI. MD main
+			# CO history/states/813-Paracel.txt: owner = CHI, add_claim_by = VIE,
+			# add_claim_by = TAI, province 11131 (Woody Island / dao Phu Lam) va
+			# 14409 (Robert Island / dao Huu Nhat), naval_base 2 + air_base 1.
+			# 526 la Bac Truong Sa (Subi, Vanh Khan, Chu Thap, Chau Vien) - khac quan
+			# the dao, nen focus ten "Paracel ultimatum" ma wargoal lai nhan Truong
+			# Sa la sai chu de.
+			# add_state_claim = 813 giu lai du VIE da claim san tu dau game: no van
+			# dung (khong loi), va neu nguoi choi da mat claim qua event/hoa uoc thi
+			# day la cho lay lai. events/VIE_md_p11.txt:80 (vie_scs.16.b) lam y het.
+			add_state_claim = 813
 			set_temp_variable = { wargoal_on = CHI }
 			add_threat_from_wargoal_effect = yes
 			create_wargoal = {
 				type = take_state_focus
 				target = CHI
-				generator = { 526 }
+				generator = { 813 }
 			}
 		}
 
@@ -2205,7 +2215,16 @@ focus_tree = {
 			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
 			add_ideas = VIE_provincial_defence_idea
 			# Bunkers are province buildings: build them on the provinces that touch a neighbour's border
-			# (China in 523/524, Laos and Cambodia in 520)
+			# FIX D-6 (2026-09-30): comment cu ghi "(China in 523/524, Laos and
+			# Cambodia in 520)" - dung nhung THIEU. Doi chieu history/states cua MD:
+			#   523 Northern Vietnam (Ha Long, Lao Cai, Lang Son)  -> giap TQ
+			#   524 Northwest Vietnam (Dien Bien, Son La, Yen Bai) -> giap TQ + Lao
+			#   520 Vietnamese Highlands (Pleiku, Buon Ma Thuot)   -> giap Lao + Campuchia
+			#   521 Central Vietnam (Thanh Hoa, Vinh, Hue)         -> giap LAO
+			# 521 bi bo sot nen toan bo bien gioi Lao cua Bac Trung Bo khong co bunker.
+			# Them 521 vao. Chi phi -3 ty giu nguyen: bunker limit_to_border chi dung
+			# o province giap bien, va day la focus phong thu lanh tho nen phu het
+			# duong bien gioi moi dung y.
 			523 = {
 				add_building_construction = {
 					type = bunker
@@ -2229,6 +2248,18 @@ focus_tree = {
 				}
 			}
 			520 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			# FIX D-6: 521 Central Vietnam giap Lao (Thanh Hoa -> Thua Thien-Hue)
+			521 = {
 				add_building_construction = {
 					type = bunker
 					level = 1
@@ -2336,7 +2367,15 @@ focus_tree = {
 			}
 			set_country_flag = VIE_spratly_fortified
 			country_event = { id = vie_scs.14 days = 15 }
-			526 = {
+			# FIX D-1 (2026-09-30): doi 526 -> 801.
+			# 526 = Northern Spratlys, MD: owner = CHI (Trung Quoc giu). Ca 3 province
+			# dung o day (11168 Southwest Cay, 11149 Collins Reef, 11134 Spratly Is)
+			# deu thuoc 801 = Western Spratlys, owner = VIE. Nguyen van viet 526 nen:
+			# 3 lenh add_building_construction fail (province khong thuoc state), va
+			# one_state_air_base / anti_air / radar roi vao state TQ dang so huu.
+			# Nguoi choi tra cost 16 (80 ngay) + 9.5 ty USD ma khong nhan duoc gi.
+			# Dong thoi bo 1 lenh one_state_anti_air trung (bi goi 2 lan lien tiep).
+			801 = {
 				add_building_construction = {
 					type = coastal_bunker
 					level = 2
@@ -2353,8 +2392,7 @@ focus_tree = {
 				one_state_anti_air = yes
 			}
 		
-			526 = { one_state_radar_station = yes }
-			526 = { one_state_anti_air = yes }
+			801 = { one_state_radar_station = yes }
 			custom_effect_tooltip = {
 				localization_key = modifies_dynamic_modifier_tt
 				MODIFIER = VIE_armed_forces_modifier
@@ -2373,7 +2411,7 @@ focus_tree = {
 			}
 		
 		
-			526 = {
+			801 = {
 				add_building_construction = {
 					type = naval_base
 					level = 1
@@ -2381,12 +2419,15 @@ focus_tree = {
 					province = 11134
 				}
 			}
+			# FIX D-5b: province 4223 = Long Xuyen (An Giang), KHONG giap bien ->
+			# naval_base build fail. Doi sang 4284 = Rach Gia, chinh la cho MD dat
+			# san naval_base = 4 trong 518-Mekong Delta.txt.
 			518 = {
 				add_building_construction = {
 					type = naval_base
 					level = 1
 					instant_build = yes
-					province = 4223
+					province = 4284
 				}
 			}
 			custom_effect_tooltip = {
@@ -6809,12 +6850,21 @@ focus_tree = {
 			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
 			add_ideas = VIE_coast_guard_idea
 			set_country_flag = VIE_coast_guard_done
+			# FIX D-5a (2026-09-30): province 1423 -> 14178.
+			# 1423 = Vinh Long, tinh NOI DIA (giua Can Tho va My Tho, tren song Co
+			# Chien, cach bien ~50 km) -> naval_base build fail. Dung loai loi ma
+			# tools/TESTING.md tung ghi nhan cho state 524: "State 524 has no coastal
+			# province, so the old dockyard could never build."
+			# Doi sang 14178 = Phu Quoc (dao, chac chan giap bien). Khong dung 4284
+			# (Rach Gia) vi MD da dat san naval_base = 4 o do va VIE_spratly_fortification
+			# (da sua o D-5b) cung dung 4284 -> tranh cong don hai naval_base mot cho.
+			# Phu Quoc hop ngu canh canh bien: day la can cu canh sat bien thuc te.
 			518 = {
 				add_building_construction = {
 					type = naval_base
 					level = 1
 					instant_build = yes
-					province = 1423
+					province = 14178
 				}
 			}
 		
@@ -6868,7 +6918,11 @@ focus_tree = {
 				navy_experience = 15
 			}
 			set_country_flag = VIE_dk1_built
-			526 = {
+			# FIX D-2 (2026-09-30): 526 -> 801.
+			# DK1 la chuoi nha gian cua VIET NAM (Tay Truong Sa = 801, owner VIE).
+			# 526 = Bac Truong Sa do Trung Quoc giu. tools/TESTING.md van ghi dung
+			# ky vong: "801 radar (DK1)".
+			801 = {
 				one_state_radar_station = yes
 			}
 		}
@@ -7667,10 +7721,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_storm_resilient_islands"
-			# v3: 524 (Dong Bac bo, khong giap bien) -> 526 Northern Spratlys; them province + thu ngan kh (pattern SIA_kra_militarize)
+			# v3: 524 (khong giap bien) -> 526. v12 (2026-09-30): 526 -> 801.
+			# FIX D-3: comment v3 sai hai cho.
+			#   (1) 524 la TAY Bac bo (Dien Bien Phu, Son La, Yen Bai), khong phai
+			#       DONG Bac. Dong Bac la 523 va 523 CO bien (Ha Long, province 1157).
+			#       Nhan xet "524 khong giap bien" thi dung.
+			#   (2) Dich den cu 526 = Northern Spratlys, MD: owner = CHI. Province
+			#       filter limit_to_naval_base se khop 4 naval_base cua TRUNG QUOC
+			#       -> build fail, nguoi choi mat 3 ty USD.
+			# 801 = Western Spratlys (owner VIE) co san naval_base tai ca 4 province
+			# 11134/11140/11149/11168 -> limit_to_naval_base chay dung.
 			set_temp_variable = { treasury_change = -3 }
 			modify_treasury_effect = yes
-			526 = {
+			801 = {
 				add_building_construction = {
 					type = naval_base
 					level = 1
@@ -8678,5 +8741,177 @@ focus_tree = {
 		ai_will_do = { base = 60 }
 	}
 	# ==== GEN:R end ====
+
+	###############################
+	## TRUC 2 - CONG NGHIEP QUOC PHONG LUC QUAN
+	###############################
+	# Q6 = (a) (chot 2026-09-30, xem VIE_truc2_review_and_plan.md phan 5): dung lai
+	# 4 focus ma v11 (commit f05cfa1) da xoa, treo duoi VIE_modernize_vpa - root
+	# quan su duy nhat con song va dang mo coi (0 con). He VIE_def_industry_level
+	# song tren cay nay.
+	#
+	# Layout: VIE_modernize_vpa o abs (266,1). Bon focus moi chiem (266,2),
+	# (264,3), (268,3), (266,4) - da kiem tra ca 4 o deu TRONG va x >= 240 chi co
+	# mot minh VIE_modernize_vpa (tools/audit/audit.py). Gap >= 2 dung quy tac v5.
+	# relative_position_id chi tro focus khai bao TRUOC trong file -> 0 forward-ref.
+	#
+	# Level: +1 Phap lenh, +1 moi decision D1-D7 va D9 (8 cai), +2 Core / +1 Divest
+	# => toi da 11 (Core) hoac 10 (Divest). Nga re mo khi level >= 4 (som nhat
+	# 01/2015). Capstone can level >= 8 + da chon nga re.
+
+	focus = {
+		id = VIE_def_industry_law
+		icon = focus_generic_court
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_modernize_vpa
+
+		cost = 5
+
+		prerequisite = { focus = VIE_modernize_vpa }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+
+		# Bao cao muc 2.1: "available = { date > 2008.6.30 }; khong con la cong mo".
+		# Moc theo NGAY HIEU LUC 01/07/2008, khong theo ngay ky 26/01/2008 - bao cao
+		# ghi dung, giu nguyen.
+		available = {
+			date > 2008.6.30
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_def_industry_law"
+			# +1 level (bao cao muc 2.4: "Phap lenh CNQP +1")
+			VIE_def_ind_add_level = yes
+			add_political_power = 50
+			custom_effect_tooltip = VIE_def_ind_law_tt
+		}
+
+		ai_will_do = {
+			base = 80
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# Nga re: giu doanh nghiep quan doi lam nong cot (Core) hay co phan hoa va
+	# thoai von (Divest). Hai focus mutually_exclusive HAI CHIEU va chung mot
+	# relative_position_id de engine ve duoc (L6).
+	focus = {
+		id = VIE_military_enterprises_core
+		icon = focus_generic_central_planning
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_def_industry_law
+
+		cost = 7
+
+		prerequisite = { focus = VIE_def_industry_law }
+		mutually_exclusive = { focus = VIE_military_enterprises_divest }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+
+		available = {
+			VIE_def_ind_level_ge_4 = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_military_enterprises_core"
+			# +2 level (bao cao muc 2.4)
+			add_to_variable = { VIE_def_industry_level = 2 tooltip = VIE_tt_def_industry_level }
+			add_stability = 0.03
+			add_ideas = VIE_def_ind_core_idea
+			custom_effect_tooltip = VIE_def_ind_core_tt
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 3 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_military_enterprises_divest
+		icon = economic_privatisation
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_def_industry_law
+
+		cost = 7
+
+		prerequisite = { focus = VIE_def_industry_law }
+		mutually_exclusive = { focus = VIE_military_enterprises_core }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMY }
+
+		available = {
+			VIE_def_ind_level_ge_4 = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_military_enterprises_divest"
+			# +1 level (bao cao muc 2.4)
+			VIE_def_ind_add_level = yes
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			add_ideas = VIE_def_ind_divest_idea
+			custom_effect_tooltip = VIE_def_ind_divest_tt
+		}
+
+		ai_will_do = {
+			base = 40
+			modifier = { factor = 3 VIE_ai_free = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# Capstone. Bao cao muc 2.4: "Da chon nga re, level >= 8, Four Nos hoac
+	# Non-alignment". prerequisite chi can mot trong hai focus nga re (OR trong
+	# mot khoi prerequisite); dieu kien con lai nam o available.
+	focus = {
+		id = VIE_path_self_reliant_deterrence
+		icon = GFX_focus_generic_military_mission
+
+		# Anchor vao VIE_def_industry_law (266,2) chu khong phai mot trong hai
+		# focus nga re: neu anchor vao core (264,3) thi capstone roi xuong (264,4),
+		# lech khoi truc giua cua nhanh. Anchor vao cha chung cho (266,3) -> (266,4),
+		# thang hang voi Phap lenh va VIE_modernize_vpa.
+		# Van hop le vi VIE_def_industry_law khai bao TRUOC trong file (0 forward-ref).
+		x = 0
+		y = 2
+		relative_position_id = VIE_def_industry_law
+
+		cost = 10
+
+		prerequisite = {
+			focus = VIE_military_enterprises_core
+			focus = VIE_military_enterprises_divest
+		}
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_INDUSTRY }
+
+		available = {
+			VIE_def_ind_level_ge_8 = yes
+			VIE_def_ind_fork_chosen = yes
+			VIE_def_ind_capstone_doctrine = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_path_self_reliant_deterrence"
+			add_ideas = VIE_self_reliant_deterrence_idea
+			add_war_support = 0.05
+			army_experience = 25
+			custom_effect_tooltip = VIE_def_ind_capstone_tt
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
 
 }

@@ -1,0 +1,538 @@
+########################################################################
+# Scheduler, part 15 - Truc 2: Cong nghiep quoc phong Luc quan (vie_def_ind).
+# Nguon thiet ke: "Bao cao Luc quan VIE - Truc 1, 2, 3.docx" muc II, da sua theo
+# VIE_truc2_review_and_plan.md. Q6-Q9 da chot = (a), xem phan 5 cua tai lieu do.
+#
+# Called from on_monthly (VIE_md_on_actions.txt) and from VIE_catch_up_schedule
+# (VIE_md_effects_p3.txt).
+#
+# ---------------------------------------------------------------------
+# HAI NGUYEN TAC LAY TU TRUC 1 (VIE_md_effects_p14.txt), ap dung lai o day
+# ---------------------------------------------------------------------
+# 1. KHONG dung trigger_year_* cua MD. MD goi no bang meta_effect trong on_monthly
+#    thang 1 (MD_on_actions.txt:904) va do la mot scripted effect PHANG chua event
+#    cua ~25 nuoc. Trung ten thi GHI DE -> xoa sach event nam do cua moi nuoc khac.
+#    Dung scheduler rieng theo mau p1-p14.
+# 2. Co "da lam" dat khi event THUC SU fire (trong immediate) hoac khi da fallback,
+#    KHONG dat "ngay khi goi event": trigger cua event CO chan country_event
+#    (HOI4 wiki, Event modding -> Effect), nen dat co som se mat chuoi vinh vien.
+#
+# ---------------------------------------------------------------------
+# Q8 = (a): MIO CHI dung add_mio_size, khong dung add_mio_funds trong decision.
+# ---------------------------------------------------------------------
+# hoi4doc.dev: add_mio_funds "If the new total funds go over the Size Up limit,
+# the MIO will gain size(s)". Bao cao muc 2.2 cho moi decision ca "+size" lan
+# "+funds" -> len size HAI LAN. Q8 = (a) chot: decision chi cong size, khop bang
+# muc V (+9 size tong). Funds chi cap qua vie_def_ind.* ( trien lam, luat 2024).
+# add_mio_size KHONG nhan gia tri am (hoi4doc.dev).
+#
+# Cu phap lay tu MD 00_mio_scripted_effects.txt:218 va 00_startup_effects.txt:69:
+#   mio:<org> = { add_mio_size = N }
+########################################################################
+
+########################################################################
+# MIO helpers. Cay trait VIE_gdt_manufacturer DA CO SAN trong
+# common/military_industrial_organization/organizations/VIE_md_organizations.txt:175
+# (8 trait, co all_parents / any_parent / mutually_exclusive
+#  stv_family <-> mass_production / relative_position_id / on_complete).
+# KHONG tao trait moi, va KHONG "mo trait" tu decision: HOI4 khong co effect nao
+# unlock trait tu script (da tra toan bo md_ref), trait do nguoi choi tu mua bang
+# funds. Bao cao ghi "+2 trait" la khong lam duoc (loi B3).
+########################################################################
+VIE_gdt_mio_size_2 = {
+	mio:VIE_gdt_manufacturer = { add_mio_size = 2 }
+}
+VIE_gdt_mio_size_1 = {
+	mio:VIE_gdt_manufacturer = { add_mio_size = 1 }
+}
+
+# Funds chi dung cho event (Q8 = a). vie_def_ind.1 trien lam = +100,
+# vie_def_ind.4 Luat 38/2024/QH15 = +150 cho ca 4 MIO.
+VIE_gdt_mio_funds_100 = {
+	mio:VIE_gdt_manufacturer = { add_mio_funds = 100 }
+}
+VIE_gdt_mio_funds_150 = {
+	mio:VIE_gdt_manufacturer = { add_mio_funds = 150 }
+}
+VIE_all_mio_funds_150 = {
+	mio:VIE_gdt_manufacturer = { add_mio_funds = 150 }
+	mio:VIE_viettel_manufacturer = { add_mio_funds = 150 }
+	mio:VIE_ba_son_manufacturer = { add_mio_funds = 150 }
+	mio:VIE_vaeco_manufacturer = { add_mio_funds = 150 }
+}
+
+########################################################################
+# Nha may. Q7 = (a): dung one_state_arms_factory cua MD, KHONG tru tien tay.
+# MD tu tru 7.5 ty / lan goi, tu cong slot, tu fallback khi het slot.
+# D1 goi 2 lan = 15 ty, D2 goi 1 lan = 7.5 ty -> tong 22.5 ty, khop bao cao.
+#
+# Effect nay phai duoc goi TRONG SCOPE STATE (518 = { VIE_build_one_arms_factory = yes })
+# vi one_state_arms_factory doc free_building_slots cua state hien hanh.
+########################################################################
+VIE_build_one_arms_factory = {
+	one_state_arms_factory = yes
+}
+
+# Chon state con slot roi xay. Dung khi decision khong muon chi dinh state nao
+# (bao cao muc 7.1: "khong dung ID state co dinh ma chon state VIE con slot").
+# limit tu loai 801 (state_inhospitable, 0 slot) - xem VIE_md_triggers_p15.txt.
+VIE_build_arms_factory_auto = {
+	random_owned_controlled_state = {
+		limit = {
+			free_building_slots = {
+				building = arms_factory
+				size > 0
+				include_locked = yes
+			}
+		}
+		VIE_build_one_arms_factory = yes
+	}
+}
+
+########################################################################
+# Level. Q6 = (a): he VIE_def_industry_level song tren focus tree.
+# Bien duoc dat = 0 o on_startup (VIE_md_on_actions_startup.txt) theo dung
+# nguyen tac ma VIE_nationalist_regime_TDD.md muc 7.3 cua repo da tu nhac.
+########################################################################
+VIE_def_ind_add_level = {
+	add_to_variable = { VIE_def_industry_level = 1 tooltip = VIE_tt_def_industry_level }
+}
+
+########################################################################
+# PHAN THUONG CUA 9 DECISION. Tach ra effect rieng de:
+#   - decision co 2 bien thoi gian (D2, D6) goi chung mot phan thuong, khong lech
+#   - focus/event sau nay neu can thi tai dung dung cai do
+# Bao cao muc 6.4 da nghi dung dieu nay ("VIE_stv_reward la scripted effect chung
+# de hai ban khong lech phan thuong") - giu nguyen y, doi ten theo quy uoc p14/p15.
+########################################################################
+
+# D1 - Hien dai hoa nha may Z luc quan. 2 nha may (15 ty, MD tu tru), +2 level?
+# KHONG: bao cao muc 2.2 ghi D1 cong +1 level, con 22.5 ty la tien 3 nha may
+# (D1 2 cai + D2 1 cai). MIO +2 size, +500 funds -> Q8 = (a) nen CHI +2 size.
+VIE_d1_reward = {
+	VIE_build_arms_factory_auto = yes
+	VIE_build_arms_factory_auto = yes
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_2 = yes
+	set_country_flag = VIE_dec_z_factories_done
+}
+
+# D2 - Sung STV (Z111). 1 nha may (7.5 ty), 3000 sung, +1 level, MIO +1 size.
+# Thoi gian 730 (co VIE_iwi_license) hoac 1095 (khong) - hai decision rieng,
+# phan thuong chung mot cho nay.
+VIE_d2_reward = {
+	VIE_build_arms_factory_auto = yes
+	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 3000 }
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_stv_done
+}
+
+# D3 - Phao tu hanh banh lop dong PTH (Z751, VDI). 24 phao, +1 level, MIO +1 size.
+# K9A1 dung medium_tank_artillery_chassis_2 + variant "K9 Thunder" cua KOR;
+# PTH la thiet ke VIET NAM nen phai tu tao variant (VIE co 0 variant trong MD -
+# xem VIE_variant_research.md muc 4.3). TIER: PTH ra mat ~2017 -> chassis_2 (2005)
+# gan hon chassis_3 (2015)? Khong: MD medium_tank_artillery_chassis_2 = 2005,
+# _3 = 2025. PTH-152 ra mat 2025 theo Asian Military Review -> dung chassis_2
+# vi do la tier MD dung cho K9 (1999) va la tier gan nhat ma khong vuot qua nam
+# ra mat. Non-NSB: SP_arty_2 (2005).
+VIE_d3_reward = {
+	VIE_proc_create_pth_variant = yes
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		add_equipment_to_stockpile = {
+			type = medium_tank_artillery_chassis_2
+			variant_name = "PTH-152"
+			amount = 24
+			producer = VIE
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = { type = SP_arty_2 amount = 24 producer = VIE }
+	}
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_pth_done
+}
+
+# D4 - Dan phao noi dia (122/130/152mm). attrition -10%, +1 level, MIO +1 size.
+VIE_d4_reward = {
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+	# attrition_tt (ma ban v11 da xoa tung dung) KHONG ton tai trong MD lan repo ->
+	# dung VIE_tt_attrition, key moi trong replace/VIE_md_vi_tt_l_english.yml
+	add_to_variable = { VIE_af_attrition = -0.10 tooltip = VIE_tt_attrition }
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_ammo_done
+}
+
+# D5 - T-54M noi dia (Z153; FCS Indra, ERA trong nuoc). Can VIE_t54m3_prototype
+# tu .5 option A cua Truc 1. TAI DUNG VIE_proc_convert_t54m3 cua Truc 1: cung mot
+# viec (doi 100 T-54/55 -> T-54M), cung mot variant, cung mot modifier. Khong
+# viet lai de khoi lech. +1 level, MIO +1 size.
+VIE_d5_reward = {
+	VIE_proc_convert_t54m3 = yes
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_t54m_done
+}
+
+# D6 - XCB-01. 50 xe, mechanized_attack_factor +5%, flame chassis -5% build cost.
+# Thoi gian 1460 (hoac 1095 neu co VIE_bmp3_lessons tu .32 option A, Truc 1).
+# XCB-01 ra mat 2025 -> IFV_7 (2025). Bao cao ghi IFV_5 (2005) la qua cu
+# (VIE_variant_research.md muc 3). NSB: medium_tank_flame_chassis_4 = tier 2035,
+# xa qua; flame_chassis_2 (1985) gan hon nhung la the he BMP-3. Chon chassis_4
+# vi XCB-01 la thiet ke MOI cua VIE nam 2025, khong phai ban nang cap.
+# equipment_bonus phai viet dung ho: buff MBT khong tu ap cho IFV (bao cao canh bao).
+VIE_d6_reward = {
+	VIE_proc_create_xcb01_variant = yes
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		add_equipment_to_stockpile = {
+			type = medium_tank_flame_chassis_4
+			variant_name = "XCB-01"
+			amount = 50
+			producer = VIE
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = { type = IFV_7 amount = 50 producer = VIE }
+	}
+	add_ideas = VIE_xcb01_mechanized_idea
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_xcb01_done
+}
+
+# D7 - Hien dai hoa BM-21, dan rocket 122mm. Chuyen doi 36 BM-21 sang ban so hoa.
+# BM-21 (1963) -> SP_R_arty_0 / medium_tank_rocket_chassis_0. +1 level, MIO +1 size.
+# Chuyen doi dung cung co che .6 cua Truc 1 (tru roi cong) - xem TODO o
+# VIE_proc_convert_t54m3: ca amount am lan destroy_equipment deu chua xac minh
+# duoc ngoai may co HOI4.
+VIE_d7_reward = {
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		# Tao variant TRUOC khi cap xe: neu cap truoc ma variant chua ton tai thi
+		# xe nam trong kho khong lap duoc vao su doan.
+		VIE_proc_create_bm21m_variant = yes
+		add_equipment_to_stockpile = { type = medium_tank_rocket_chassis_0 amount = -36 }
+		add_equipment_to_stockpile = {
+			type = medium_tank_rocket_chassis_0
+			variant_name = "BM-21M"
+			amount = 36
+			producer = VIE
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = { type = SP_R_arty_0 amount = -36 }
+		add_equipment_to_stockpile = { type = SP_R_arty_0 amount = 36 producer = VIE }
+	}
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+	add_to_variable = { VIE_af_army_artillery_attack_factor = 0.05 tooltip = VIE_tt_army_artillery_attack_factor }
+	army_experience = 10
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_bm21_done
+}
+
+# D8 - Noi dia hoa bao duong va dan K9. +50% CAT_artillery, MIO +1 size.
+# KHONG cong level (bao cao muc 2.2 ghi ro: "D8 khong cong").
+# Can D3 xong + VIE_k9_purchased + VIE_k9_localization (ca hai tu Truc 1).
+VIE_d8_reward = {
+	add_ideas = VIE_k9_localization_idea
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_k9_localization_done
+}
+
+# D9 - Ten lua vac vai TL-01 (Z131). Can VIE_igla_license tu .8 option A (Truc 1).
+# MANPADS khong cap equipment (bao cao muc 6.5) - tac dung nam o modifier.
+# Truc 1 dung VIE_af_air_defence_factor +0.05 cho Igla; TL-01 la ban noi dia hoa
+# nen +0.03 nua, tong +0.08. +1 level, MIO +1 size.
+VIE_d9_reward = {
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+	add_to_variable = { VIE_af_air_defence_factor = 0.03 tooltip = VIE_tt_air_defence_factor }
+	VIE_def_ind_add_level = yes
+	VIE_gdt_mio_size_1 = yes
+	set_country_flag = VIE_dec_tl01_done
+}
+
+########################################################################
+# Variant VIE tu tao. MD history/countries/VIE - Vietnam.txt co 0
+# create_equipment_variant, nen moi thiet ke noi dia deu phai tu tao.
+# Moi cai co guard co de khong tao trung: create_equipment_variant trung ten se
+# sinh version 2, 3... lam roi danh sach variant.
+# Module lay theo mau that cua MD trong history/countries/SOV - Russia.txt:
+#   BMP-3  -> afv_assault_gun_2, afv_coax_autocannon_2, anti_infantry_main_ammo_2,
+#             afv_alum_armor_gen2, tank_base_tank_turret
+#   TOS-1  -> art_med_rocket_gen2, thirty_two_missile_pack, artillery_heavy_ammo_2
+#   K9 Thunder (KOR) -> art_med_gun_gen2, artillery_medium_ammo_2,
+#             tank_pneumatic_suspension_medium, laser_guided_ammo_1
+# Da xac minh 23/23 module va 2/2 upgrade ton tai trong
+# tools/audit/md_ref/MD_tank_modules.txt (295 module) + MD_arty_modules.txt
+# (170 module) + MD_land_upgrades.txt.
+# BA module luc dau viet SAI va da sua: afv_autocannon_3 (dung: afv_assault_gun_3
+# + afv_coax_autocannon_3), rocket_launcher_gen1 (dung: art_med_rocket_gen1),
+# rocket_ammo_1 (dung: artillery_heavy_ammo_1). Ca ba khong ton tai trong MD.
+# design_team = mio:VIE_gdt_manufacturer hop le vi org nay co mio_cat_all_armor
+# trong equipment_type (VIE_md_organizations.txt:182).
+# KHONG dung allow_using_required_premium_dlc: MD khong dung tham so nay
+# (0 lan trong SOV/KOR/POL/CHI).
+########################################################################
+
+VIE_proc_create_pth_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_pth_variant }
+		}
+		set_country_flag = VIE_pth_variant
+		create_equipment_variant = {
+			name = "PTH-152"
+			type = medium_tank_artillery_chassis_2
+			parent_version = 0
+			modules = {
+				main_armament_slot = art_med_gun_gen2
+				reload_type_slot = automatic_loading
+				ammunition_load_slot = artillery_medium_ammo_2
+				turret_type_slot = tank_base_tank_turret
+				suspension_type_slot = tank_wheeled_suspension_medium
+				engine_type_slot = tank_diesel_engine_gen3
+				special_type_slot_1 = smoke_launchers
+				special_type_slot_2 = additional_mg
+				special_type_slot_4 = tank_battlestation_2
+			}
+			upgrades = {
+				tank_nsb_fire_upgrade = 2
+			}
+			# KHONG dat model: VIE khong co entity rieng, va model sai se loi.
+			# MD dat model = "SOV_T55A_entity" cho T-55 vi entity do co that;
+			# PTH la thiet ke VIE nen bo trong de engine dung model mac dinh.
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_create_xcb01_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_xcb01_variant }
+		}
+		set_country_flag = VIE_xcb01_variant
+		create_equipment_variant = {
+			name = "XCB-01"
+			type = medium_tank_flame_chassis_4
+			parent_version = 0
+			modules = {
+				main_armament_slot = afv_assault_gun_3
+				secondary_armament_slot = afv_coax_autocannon_3
+				ammunition_load_slot = anti_infantry_main_ammo_3
+				turret_type_slot = ifv_soviet_turret
+				suspension_type_slot = tank_torsion_bar_suspension_medium
+				armor_type_slot = afv_composite_armor_gen2
+				engine_type_slot = tank_diesel_engine_gen4
+				reload_type_slot = automatic_loading
+				special_type_slot_1 = smoke_launchers_2
+				special_type_slot_2 = additional_mg
+				special_type_slot_3 = afv_troop_capacity
+				special_type_slot_4 = tank_battlestation_3
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 2
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_create_bm21m_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_bm21m_variant }
+		}
+		set_country_flag = VIE_bm21m_variant
+		create_equipment_variant = {
+			name = "BM-21M"
+			type = medium_tank_rocket_chassis_0
+			parent_version = 0
+			modules = {
+				main_armament_slot = art_med_rocket_gen1
+				reload_type_slot = thirty_two_missile_pack
+				ammunition_load_slot = artillery_heavy_ammo_1
+				turret_type_slot = tank_base_tank_turret
+				suspension_type_slot = tank_wheeled_suspension_medium
+				engine_type_slot = tank_diesel_engine_gen2
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+				special_type_slot_4 = tank_battlestation_1
+			}
+			upgrades = {
+				tank_nsb_fire_upgrade = 1
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+########################################################################
+# Catch-up: nguoi thang noi chien tiep quan dong VIE. Chi dat co, khong cap tien,
+# khong cap xe, khong xay nha may - dung quy uoc cua p12 ("a civil-war winner
+# takes over the VIE lineage without the hardware").
+# Level va co "done" van phai dat vi chung gate focus nga re va capstone.
+########################################################################
+VIE_def_ind_catch_up = {
+	set_variable = { VIE_def_industry_level = 9 }
+	set_country_flag = VIE_dec_z_factories_done
+	set_country_flag = VIE_dec_stv_done
+	set_country_flag = VIE_dec_pth_done
+	set_country_flag = VIE_dec_ammo_done
+	set_country_flag = VIE_dec_t54m_done
+	set_country_flag = VIE_dec_bm21_done
+	set_country_flag = VIE_dec_tl01_done
+	set_country_flag = VIE_def_ind_sched_1_done
+	set_country_flag = VIE_def_ind_sched_2_done
+	set_country_flag = VIE_def_ind_sched_4_done
+	set_variable = { VIE_def_ind_export_count = 5 }
+}
+
+########################################################################
+# Scheduler
+########################################################################
+VIE_event_scheduler_p15 = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+
+		# vie_def_ind.1 - Trien lam Quoc phong quoc te Viet Nam.
+		# Bao cao muc 2.3: "ETD thang 12 cac nam 2022, 2024 va moi 2 nam sau do;
+		# level >= 2". "Moi 2 nam sau do" la VO HAN (loi L7) -> TRAN o 2026, vi
+		# mod chay 2000-2026 la chinh, 2030/2035 chi co 2 event va chinh tri.
+		# Moi lan no: MIO GDT +100 funds, +10 opinion voi 2 doi tac da mua hang.
+		if = {
+			limit = {
+				date > 2022.11.30
+				NOT = { has_country_flag = VIE_def_ind_sched_1_done }
+			}
+			if = {
+				limit = {
+					VIE_def_ind_level_ge_2 = yes
+					NOT = { has_country_flag = VIE_popup_cd }
+				}
+				set_country_flag = VIE_def_ind_sched_1_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_def_ind.1 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2023.6.30 }
+				set_country_flag = VIE_def_ind_sched_1_done
+				VIE_gdt_mio_funds_100 = yes
+			}
+		}
+		if = {
+			limit = {
+				date > 2024.11.30
+				NOT = { has_country_flag = VIE_def_ind_sched_2_done }
+			}
+			if = {
+				limit = {
+					VIE_def_ind_level_ge_2 = yes
+					NOT = { has_country_flag = VIE_popup_cd }
+				}
+				set_country_flag = VIE_def_ind_sched_2_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_def_ind.1 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2025.6.30 }
+				set_country_flag = VIE_def_ind_sched_2_done
+				VIE_gdt_mio_funds_100 = yes
+			}
+		}
+
+		# vie_def_ind.2 - Chuyen giao bao duong T-90.
+		# Can VIE_t90_purchased (Truc 1 .15 da dat) va D1 xong.
+		#
+		# KHOI NAY CO Y KHONG CO FALLBACK va khong co han chot, khac voi .1 va .4.
+		# Ly do: dieu kien cua no la HAI CO (khong phai ngay), va ca hai co nay mot
+		# khi da dat thi khong bao gio mat. Nen neu VIE_popup_cd dang ban, khoi nay
+		# chi viec cho tick thang sau roi thu lai - tu nhien thanh vong lap cho toi
+		# khi no duoc. Khong the "mat" nhu cac chuoi co cua so thoi gian.
+		# Them fallback o day se cap funds som hon nguoi choi dang le duoc thay,
+		# va them mot han chot tuy y cho mot su kien von khong co han trong lich su.
+		if = {
+			limit = {
+				has_country_flag = VIE_t90_purchased
+				has_country_flag = VIE_dec_z_factories_done
+				NOT = { has_country_flag = VIE_def_ind_t90_transfer_done }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_def_ind_t90_transfer_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_def_ind.2 days = 3 random_days = 20 }
+			}
+		}
+
+		# vie_def_ind.3 - Xuat khau vu khi. Q9 = (a): TRAN 5 LAN.
+		# +0.25bn moi lan, +opinion ASEAN. Chay moi 365 ngay, khong theo ETD.
+		#
+		# HAI CHO DA SUA so voi ban nhap buoc 1:
+		# 1. Them VIE_popup_cd. Ban nhap khong ton trong no, trong khi .1 .2 .4 deu
+		#    ton trong -> .3 co the no sat ngay mot event khac, pha luat "khong hai
+		#    pop-up trong 45 ngay" cua mod (tools/TESTING.md, muc Balance sanity).
+		# 2. Khong tang VIE_def_ind_export_count o day nua. Ban nhap tang TRUOC khi
+		#    event fire; neu event bi chan (vi popup_cd) thi van mat mot lan trong
+		#    tran 5 -> nguoi choi chi duoc 4 lan that. Bien gio duoc tang trong
+		#    immediate cua vie_def_ind.3, dung nguyen tac "co/bien chi dat khi event
+		#    THUC SU fire" ma Truc 1 da ap dung (xem header VIE_md_effects_p14.txt).
+		#
+		# Khong co fallback: day la event dinh ky lap lai, khong phai buoc ngoat mot
+		# lan. Neu bi chan thi thang sau thu lai, khong mat gi.
+		if = {
+			limit = {
+				VIE_def_ind_export_open = yes
+				NOT = { has_country_flag = VIE_def_ind_export_clock }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = { flag = VIE_def_ind_export_clock days = 365 }
+			set_country_flag = { flag = VIE_popup_cd days = 45 }
+			country_event = { id = vie_def_ind.3 days = 3 random_days = 20 }
+		}
+
+		# vie_def_ind.4 - Quoc hoi thong qua Luat 38/2024/QH15 (27/06/2024).
+		# Bao cao ghi trigger "da co VIE_def_industry_law" - focus do bi v11 xoa,
+		# Q6 = (a) dung lai nen trigger gio DUNG (loi L7d tu dong het).
+		# Buoc 2 da dung focus VIE_def_industry_law, nen khoi nay DA chay duoc.
+		# (O buoc 0-1 focus chua ton tai va khoi nay bi treo - da ghi chu luc do.)
+		if = {
+			limit = {
+				date > 2024.6.26
+				has_completed_focus = VIE_def_industry_law
+				NOT = { has_country_flag = VIE_def_ind_sched_4_done }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_def_ind_sched_4_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_def_ind.4 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2025.6.30 }
+				set_country_flag = VIE_def_ind_sched_4_done
+				VIE_all_mio_funds_150 = yes
+			}
+		}
+	}
+	else = {
+		VIE_def_ind_catch_up = yes
+	}
+}

@@ -1,0 +1,141 @@
+﻿l_english:
+
+ ### ============================================================
+ ### Trục 2: Công nghiệp quốc phòng Lục quân (namespace vie_def_ind)
+ ### Bước 1: 4 event nền. Loc của 11 decision D1–D9 thêm ở bước 3–6.
+ ### ============================================================
+
+ ### Tooltip cho biến VIE_def_industry_level (Q6 = a: level sống trên focus tree)
+ VIE_tt_def_industry_level:0 "§YCấp độ công nghiệp quốc phòng§!: $RIGHT|+0$"
+
+ ### vie_def_ind.1 — Triển lãm Quốc phòng quốc tế Việt Nam (12/2022, 12/2024)
+ vie_def_ind.1.t:0 "Triển lãm Quốc phòng quốc tế Việt Nam"
+ vie_def_ind.1.d:0 "Triển lãm Quốc phòng quốc tế Việt Nam khai mạc tại Hà Nội. Đây là lần đầu Việt Nam tổ chức một triển lãm vũ khí quy mô quốc tế ngay trên lãnh thổ của mình, thay vì chỉ cử đoàn đi dự các triển lãm ở nước ngoài.\n\nCác gian hàng trưng bày sản phẩm của Tổng cục Công nghiệp Quốc phòng: súng trường họ STV, đạn pháo, khí tài quang học, radar, cùng một số mẫu xe bọc thép. Bên cạnh đó là gian hàng của các nhà sản xuất nước ngoài đã hoặc đang đàm phán với phía Việt Nam.\n\nGiá trị trực tiếp của triển lãm không nằm ở hợp đồng ký được, mà ở chỗ nó cho thấy công nghiệp quốc phòng trong nước đã có sản phẩm đủ tiêu chuẩn để trưng bày cạnh hàng ngoại nhập. Với các đối tác, đây là tín hiệu Việt Nam đang chuyển từ người mua thành người vừa mua vừa bán."
+ vie_def_ind.1.a:0 "Ký các biên bản ghi nhớ với đối tác tham dự"
+
+ ### vie_def_ind.2 — Chuyển giao bảo dưỡng T-90
+ vie_def_ind.2.t:0 "Tiếp nhận công nghệ bảo dưỡng T-90"
+ vie_def_ind.2.d:0 "Theo điều khoản đi kèm hợp đồng T-90, phía Nga chuyển giao cho Nhà máy Z153 quy trình bảo dưỡng cấp trung tu và đại tu dòng xe này. Đây là phần giá trị nhất của hợp đồng mà ít ai nhìn thấy: không có nó, mỗi lần xe cần sửa chữa lớn đều phải chờ chuyên gia nước ngoài hoặc gửi linh kiện về Nga, kéo dài hàng tháng.\n\nChuyển giao gồm tài liệu kỹ thuật đầy đủ, dụng cụ chuyên dụng, và ba đợt tập huấn cho kỹ sư Việt Nam tại nhà máy ở Nizhny Tagil. Đổi lại, phía Việt Nam cam kết không tái xuất công nghệ.\n\nTừ nay Z153 tự thực hiện được bảo dưỡng cấp 2 và cấp 3, và có nền tảng để từng bước nội địa hóa một số chi tiết hao mòn."
+ vie_def_ind.2.a:0 "Tiếp nhận đầy đủ tài liệu và dụng cụ"
+
+ ### vie_def_ind.3 — Xuất khẩu vũ khí (Q9 = a: tối đa 5 lần)
+ vie_def_ind.3.t:0 "Đơn hàng xuất khẩu quốc phòng"
+ vie_def_ind.3.d:0 "Một đối tác trong khu vực đặt mua sản phẩm quốc phòng do Việt Nam sản xuất. Giá trị đơn hàng không lớn so với kim ngạch xuất khẩu chung, nhưng ý nghĩa thì khác hẳn: đây là bằng chứng công nghiệp quốc phòng trong nước đã vượt qua ngưỡng tự trang bị để bán được cho nước khác.\n\nXuất khẩu vũ khí còn là công cụ ngoại giao. Nước mua phụ thuộc vào nguồn cung phụ tùng và đạn dược trong nhiều năm, nên quan hệ hai bên có thêm một lớp ràng buộc thực chất ngoài các tuyên bố chung.\n\nTuy nhiên năng lực sản xuất vẫn có hạn: mỗi đơn hàng xuất khẩu là một lô trang bị không dành cho quân đội trong nước. Bộ Quốc phòng và Bộ Ngoại giao cần thống nhất mức độ ưu tiên."
+ vie_def_ind.3.a:0 "Thực hiện đơn hàng"
+
+ ### vie_def_ind.4 — Luật 38/2024/QH15 (27/06/2024)
+ vie_def_ind.4.t:0 "Luật Công nghiệp quốc phòng, an ninh và động viên công nghiệp"
+ vie_def_ind.4.d:0 "Quốc hội thông qua Luật Công nghiệp quốc phòng, an ninh và động viên công nghiệp số 38/2024/QH15 ngày 27 tháng 6 năm 2024, có hiệu lực từ 1 tháng 7 năm 2025.\n\nLuật này thay thế khung pháp lý cũ vốn dựa trên Pháp lệnh năm 2008, và giải quyết ba điểm nghẽn kéo dài. Thứ nhất là cơ chế tài chính: các cơ sở công nghiệp quốc phòng được phép giữ lại một phần lợi nhuận để tái đầu tư thay vì nộp toàn bộ về ngân sách. Thứ hai là huy động nguồn lực dân sự: doanh nghiệp tư nhân đủ điều kiện được tham gia chuỗi cung ứng quốc phòng, không còn giới hạn trong các nhà máy của Bộ Quốc phòng. Thứ ba là động viên công nghiệp: quy định rõ quy trình chuyển đổi dây chuyền dân sự sang sản xuất quốc phòng khi có tình trạng khẩn cấp.\n\nVới các nhà máy Z và các viện nghiên cứu, đây là cơ sở pháp lý để ký hợp đồng dài hạn và thuê nhân lực dân sự."
+ vie_def_ind.4.a:0 "Triển khai thi hành luật"
+
+ ### ============================================================
+ ### Bước 2: 4 focus Trục 2 + 3 idea + tooltip
+ ### ============================================================
+
+ ### Focus — Pháp lệnh Công nghiệp quốc phòng
+ VIE_def_industry_law:0 "Pháp lệnh Công nghiệp Quốc phòng"
+ VIE_def_industry_law_desc:0 "Pháp lệnh số 02/2008/PL-UBTVQH12, ký ngày 26 tháng 1 năm 2008 và có hiệu lực từ ngày 1 tháng 7 năm 2008, lần đầu tiên đặt công nghiệp quốc phòng Việt Nam vào một khung pháp lý riêng thay vì chỉ dựa trên các quyết định hành chính nội bộ của Bộ Quốc phòng.\n\nPháp lệnh xác định rõ vai trò của Tổng cục Công nghiệp Quốc phòng, quy định cơ chế đầu tư cho các nhà máy Z, và mở ra khả năng huy động năng lực sản xuất dân sự khi cần. Đây là nền pháp lý để các chương trình dài hạn — súng bộ binh, pháo, xe bọc thép — có thể ký hợp đồng nhiều năm thay vì xin cấp vốn từng đợt."
+ VIE_def_ind_law_tt:0 "Mở nhóm quyết định §YCông nghiệp Quốc phòng Lục quân§! và tăng §YCấp độ công nghiệp quốc phòng§! thêm §G1§!."
+
+ ### Focus — ngã rẽ Core
+ VIE_military_enterprises_core:0 "Giữ doanh nghiệp quân đội làm nòng cốt"
+ VIE_military_enterprises_core_desc:0 "Tranh luận về số phận các doanh nghiệp quốc phòng kéo dài nhiều năm. Một phía lập luận rằng các nhà máy Z và doanh nghiệp quân đội là tài sản chiến lược: chúng không chỉ sản xuất mà còn là nơi tích lũy tay nghề, giữ kỹ sư giỏi và bảo đảm năng lực động viên khi có tình huống. Giao cho tư nhân thì lợi nhuận ngắn hạn sẽ thắng nhu cầu dài hạn của quốc phòng.\n\nPhía kia chỉ ra rằng cơ chế bao cấp khiến nhiều cơ sở sản xuất kém hiệu quả, thiết bị cũ, và không có động lực cải tiến.\n\nHướng thứ nhất được chọn: giữ doanh nghiệp quân đội làm nòng cốt, đầu tư tập trung, và chấp nhận chi phí cao hơn để đổi lấy quyền tự chủ."
+ VIE_def_ind_core_tt:0 "§YCấp độ công nghiệp quốc phòng§! tăng thêm §G2§!. Sản xuất hiệu quả hơn và năng lực nhà máy cao hơn, đổi lại tiêu dùng dân sự giảm."
+
+ ### Focus — ngã rẽ Divest
+ VIE_military_enterprises_divest:0 "Cổ phần hóa và thoái vốn"
+ VIE_military_enterprises_divest_desc:0 "Hướng thứ hai: giữ lại những cơ sở thực sự thiết yếu — đạn dược, thuốc phóng, khí tài quang học, sửa chữa lớn — và cổ phần hóa hoặc thoái vốn khỏi phần còn lại, đặc biệt là các mảng xây dựng, dịch vụ và sản xuất hàng dân dụng mà doanh nghiệp quốc phòng không có lợi thế.\n\nLập luận là nguồn lực có hạn: mỗi đồng giữ lại ở một nhà máy kém hiệu quả là một đồng không dành được cho nghiên cứu và dây chuyền mới. Thoái vốn cũng mang lại một khoản thu ngân sách ngay, và buộc các cơ sở còn lại phải cạnh tranh bằng chất lượng.\n\nRủi ro là mất năng lực động viên: dây chuyền đã bán thì không lấy lại được nhanh, và công nhân lành nghề sẽ chuyển sang khu vực tư."
+ VIE_def_ind_divest_tt:0 "§YCấp độ công nghiệp quốc phòng§! tăng thêm §G1§!. Ngân khố §G+2 tỷ§! từ thoái vốn, xây nhà máy vũ khí nhanh hơn, nhưng ổn định giảm."
+
+ ### Focus — capstone
+ VIE_path_self_reliant_deterrence:0 "Con đường răn đe tự chủ"
+ VIE_path_self_reliant_deterrence_desc:0 "Sau gần hai thập kỷ đầu tư, công nghiệp quốc phòng trong nước đã vượt qua ngưỡng lắp ráp theo giấy phép. Các nhà máy Z tự sản xuất được súng bộ binh, đạn pháo, thuốc phóng; sửa chữa lớn được xe tăng và tàu chiến; và bắt đầu đưa ra thiết kế của riêng mình.\n\nÝ nghĩa chiến lược của năng lực này không nằm ở số lượng trang bị. Nó nằm ở chỗ trong một cuộc khủng hoảng kéo dài, quân đội không phụ thuộc vào việc một nhà cung cấp nước ngoài có sẵn lòng tiếp tục bán hay không. Đó là nền tảng của chính sách quốc phòng hòa bình và tự vệ: đủ năng lực bảo vệ lãnh thổ để không ai thấy có lợi khi thử, và đủ tự chủ để không bị sức ép từ bên ngoài chi phối quyết định.\n\nĐây là mốc mà Chiến lược Quốc phòng đặt ra cho năm 2030: quân đội hiện đại, với một số lĩnh vực tiến thẳng lên hiện đại."
+ VIE_def_ind_capstone_tt:0 "Mở §YNền quốc phòng tự chủ§!: phòng thủ toàn quân, tổ chức, tinh thần chiến đấu và hiệu quả sản xuất đều tăng."
+
+ ### Idea
+ VIE_def_ind_core_idea:0 "Doanh nghiệp quân đội làm nòng cốt"
+ VIE_def_ind_core_idea_desc:0 "Các cơ sở công nghiệp quốc phòng thuộc Bộ Quốc phòng được đầu tư tập trung và giữ vai trò chủ đạo. Hiệu quả sản xuất và năng lực nhà máy cao hơn, nhưng chi phí cho khu vực dân sự lớn hơn."
+ VIE_def_ind_divest_idea:0 "Cơ cấu lại doanh nghiệp quốc phòng"
+ VIE_def_ind_divest_idea_desc:0 "Nhà nước chỉ giữ các cơ sở thiết yếu; phần còn lại đã cổ phần hóa hoặc thoái vốn. Xây dựng nhà máy vũ khí nhanh hơn và có thêm nguồn thu, nhưng năng lực động viên mỏng hơn và ổn định xã hội giảm."
+ VIE_self_reliant_deterrence_idea:0 "Nền quốc phòng tự chủ"
+ VIE_self_reliant_deterrence_idea_desc:0 "Công nghiệp quốc phòng trong nước đủ năng lực trang bị, sửa chữa và tiếp tế cho quân đội trong một cuộc xung đột kéo dài mà không phụ thuộc nguồn cung nước ngoài. Đây là nền tảng vật chất của chính sách quốc phòng hòa bình, tự vệ và chính sách bốn không."
+
+ ### ============================================================
+ ### Bước 3: decision D1 và D7
+ ### ============================================================
+
+ VIE_def_industry_category:0 "Công nghiệp Quốc phòng Lục quân"
+ VIE_def_industry_category_desc:0 "Các chương trình sản xuất và hiện đại hóa trang bị của Tổng cục Công nghiệp Quốc phòng: nhà máy Z, súng bộ binh, pháo, xe chiến đấu và tên lửa vác vai.\n\n§YCấp độ công nghiệp quốc phòng:§! [?VIE_def_industry_level|0]\n§gMỗi chương trình hoàn thành tăng một cấp. Đạt cấp 4 thì mở ngã rẽ về doanh nghiệp quốc phòng; đạt cấp 8 và đã chọn ngã rẽ thì mở con đường răn đe tự chủ.§!"
+
+ ### D1
+ VIE_dec_z_factories:0 "Hiện đại hóa nhà máy Z lục quân"
+ VIE_dec_z_factories_desc:0 "Hệ thống nhà máy Z của Tổng cục Công nghiệp Quốc phòng được xây dựng từ thập niên 1960 và đã qua nhiều lần chắp vá. Dây chuyền súng bộ binh, xưởng đạn và phân xưởng cơ khí đều dùng thiết bị cũ, dung sai lớn, tỷ lệ phế phẩm cao, và phụ thuộc vào thợ bậc cao sắp đến tuổi nghỉ.\n\nChương trình này đầu tư hai nhà máy mới và thay thế thiết bị gia công chính ở các xưởng then chốt: máy công cụ điều khiển số, dây chuyền nhiệt luyện, hệ thống kiểm tra chất lượng bằng quang học. Đây là điều kiện tiên quyết cho mọi chương trình sản xuất về sau — súng STV, pháo PTH, xe XCB-01 đều cần một nền công nghiệp có dung sai đạt chuẩn.\n\nChi phí khoảng 15 tỷ, gồm hai nhà máy vũ khí."
+
+ ### D7
+ VIE_dec_bm21:0 "Hiện đại hóa BM-21 và đạn rocket 122mm"
+ VIE_dec_bm21_desc:0 "BM-21 Grad là hệ pháo phản lực chủ lực của lục quân từ sau chiến tranh: 40 ống phóng 122mm đặt trên khung gầm xe tải, bắn loạt rồi cơ động. Ưu điểm là hỏa lực dồn dập và rẻ; nhược điểm là độ chính xác thấp và hệ thống ngắm hoàn toàn cơ khí, phụ thuộc vào tính toán thủ công của pháo thủ.\n\nChương trình này số hóa 36 xe hiện có: thay hệ thống ngắm cơ khí bằng khí tài số có kết nối định vị vệ tinh, thêm máy tính đường đạn, và cải tiến dây chuyền sản xuất đạn 122mm trong nước để tăng độ đồng đều giữa các lô. Thời gian từ lúc dừng xe đến phát bắn đầu tiên giảm mạnh, và sai số vòng tròn thu hẹp.\n\nChi phí chương trình khoảng 0,5 tỷ. Không mua xe mới — đây là nâng cấp số đang có."
+
+ ### name của add_tech_bonus là LOC KEY (repo dùng tên focus, vốn đã có loc).
+ ### Hai tên mới ở D1 cần key riêng, nếu không sẽ hiện raw key trên UI nghiên cứu.
+ VIE_dec_z_factories_art:0 "Hiện đại hóa nhà máy Z — công nghệ pháo"
+ VIE_dec_z_factories_inf:0 "Hiện đại hóa nhà máy Z — công nghệ vũ khí bộ binh"
+
+ ### ============================================================
+ ### Bước 4: decision D2 (2 biến thể), D3, D4
+ ### ============================================================
+
+ ### D2 — bản chậm (chưa có license IWI)
+ VIE_dec_stv:0 "Sản xuất súng trường STV tại Z111"
+ VIE_dec_stv_desc:0 "Z111 là nhà máy súng bộ binh chủ lực của Tổng cục Công nghiệp Quốc phòng, từ lâu sản xuất theo giấy phép nước ngoài. Chương trình STV chuyển sang thiết kế trong nước: họ súng trường tấn công dùng cỡ đạn 7,62×39mm, có ray gắn phụ kiện theo chuẩn quốc tế để lắp khí tài ngắm, đèn và ống phóng lựu.\n\nKhông có giấy phép chuyển giao công nghệ từ Israel nên Z111 phải tự giải quyết phần dung sai nòng, xử lý nhiệt và độ tin cậy của cơ cấu nạp đạn. Chậm hơn, nhưng đổi lại toàn bộ quy trình thuộc về mình.\n\nChi phí chương trình 0,5 tỷ, cộng 7,5 tỷ cho một nhà máy mới. Thời gian 1095 ngày."
+
+ ### D2 — bản nhanh (đã ký license Galil ACE)
+ VIE_dec_stv_fast:0 "Sản xuất súng trường STV tại Z111"
+ VIE_dec_stv_fast_desc:0 "Z111 đã nhận chuyển giao license dòng Galil ACE từ Israeli Weapon Industries, kèm quy trình công nghệ đầy đủ: dung sai, nhiệt luyện, kiểm tra chất lượng nòng và bộ gá lắp. Đây là phần không thể mua bằng bản vẽ.\n\nNhờ đó chương trình STV rút ngắn được một năm. Súng vẫn mang thiết kế và thương hiệu Việt Nam, nhưng nền công nghệ bên dưới đã được kiểm chứng qua thực chiến.\n\nChi phí chương trình 0,5 tỷ, cộng 7,5 tỷ cho một nhà máy mới. Thời gian 730 ngày."
+ VIE_dec_stv_tech:0 "Sản xuất súng trường STV — công nghệ vũ khí bộ binh"
+
+ ### D3
+ VIE_dec_pth:0 "Pháo tự hành bánh lốp dòng PTH"
+ VIE_dec_pth_desc:0 "Pháo binh Việt Nam hiện dùng pháo kéo xe là chính: 122mm, 130mm và 152mm. Ưu điểm là rẻ và bền; nhược điểm chí mạng là sau khi bắn phải mất nhiều phút mới kéo được xe đi, trong khi phản pháo hiện đại chỉ cần vài chục giây để khóa mục tiêu.\n\nTổng cục Công nghiệp Quốc phòng và Viện Vũ khí (Z751, VDI) đề xuất dòng pháo tự hành bánh lốp PTH: pháo 152mm đặt trên khung gầm xe tải việt dã, có chân chống thủy lực, nạp đạn bán tự động, và hệ thống tính toán đường đạn số. Bánh lốp thay vì bánh xích để phù hợp với mạng đường bộ Việt Nam và giảm chi phí bảo dưỡng.\n\nChương trình kéo dài bốn năm từ thiết kế đến loạt đầu tiên, gồm 24 xe. Chi phí 2 tỷ."
+ VIE_dec_pth_tt:0 "Ngân khố trên §Y2 tỷ§!"
+ VIE_dec_pth_tech:0 "Pháo tự hành PTH — công nghệ pháo tự hành"
+
+ ### D4
+ VIE_dec_ammo:0 "Sản xuất đạn pháo trong nước"
+ VIE_dec_ammo_desc:0 "Đạn pháo là thứ tiêu hao nhanh nhất trong chiến tranh, và cũng là thứ khó tích trữ nhất: thuốc phóng xuống cấp theo thời gian, ngòi nổ cần bảo quản trong điều kiện riêng, và mỗi lô sản xuất phải qua kiểm tra độ đồng đều.\n\nHiện phần lớn đạn 122mm, 130mm và 152mm vẫn dựa vào nguồn dự trữ cũ và nhập khẩu. Khi nguồn cung bị gián đoạn, pháo binh sẽ cạn đạn trước khi cạn pháo.\n\nChương trình này xây dây chuyền thuốc phóng, xưởng sản xuất vỏ đạn và ngòi, cùng phòng thử nghiệm đạn đạo trong nước. Kết quả không phải là thêm vũ khí, mà là giảm tổn thất do phải kéo dài tuyến hậu cần và dùng đạn không đồng đều.\n\nChi phí 1 tỷ, thời gian 730 ngày."
+ VIE_dec_ammo_tech:0 "Đạn pháo nội địa — công nghệ đạn pháo"
+
+ ### ============================================================
+ ### Bước 5: decision D5, D6 (2 biến thể), D9
+ ### ============================================================
+
+ ### D5
+ VIE_dec_t54m:0 "Nâng cấp T-54M trong nước"
+ VIE_dec_t54m_desc:0 "Nhà máy Z153 đã tiếp nhận mẫu thử T-54M3 và bộ kit từ Israel năm 2009. Sau ba năm nghiên cứu ngược và chạy thử, các kỹ sư Việt Nam đã nắm được quy trình: thay pháo chính, lắp hệ thống điều khiển hỏa lực Indra TIFCS-3BU, gắn giáp phản ứng nổ sản xuất trong nước, và đại tu động cơ.\n\nĐiểm quan trọng là toàn bộ quy trình này thuộc về Việt Nam. Không phải trả phí bản quyền cho mỗi xe nâng cấp, và không phải chờ linh kiện từ nước ngoài. Chi phí mỗi xe chỉ khoảng nửa triệu đô la — bằng một phần ba gói nâng cấp trọn gói của Israel.\n\nChương trình chuyển đổi 100 xe T-54/55 hiện có thành chuẩn T-54M. Số xe này không sánh được T-90, nhưng với vai trò phòng ngự cố định và hỗ trợ bộ binh thì vẫn hữu dụng thêm hai thập kỷ nữa.\n\nChi phí 0,25 tỷ, thời gian 1095 ngày."
+ VIE_dec_t54m_tech:0 "T-54M nội địa — công nghệ xe tăng chủ lực"
+
+ ### D6 — bản chậm (không có bài học BMP-3)
+ VIE_dec_xcb01:0 "Xe chiến đấu bộ binh XCB-01"
+ VIE_dec_xcb01_desc:0 "Lục quân đang dùng BMP-1 và BMP-2 mua từ thời Liên Xô, cùng một số BTR-60. Tất cả đều đã hết hạn phục vụ, giáp mỏng trước vũ khí chống tăng cá nhân hiện đại, và không còn nguồn phụ tùng ổn định.\n\nTổng cục Công nghiệp Quốc phòng đề xuất XCB-01: xe chiến đấu bộ binh thiết kế mới hoàn toàn trong nước, giáp composite, pháo tự động, có khả năng chở theo tổ bộ binh và bơi được. Mục tiêu không phải tạo ra một loại xe vượt trội về thông số, mà là một loại xe Việt Nam tự sản xuất được hàng loạt, tự sửa chữa được, và không phụ thuộc lệnh cấm vận.\n\nVì chưa từng thử nghiệm một khung gầm IFV hiện đại nào, chương trình phải bắt đầu từ nghiên cứu cơ bản: bố trí động cơ, góc nghiêng giáp, hệ thống treo, cách bố trí cửa đổ bộ. Đó là lý do nó kéo dài bốn năm.\n\nChi phí 3 tỷ cho 50 xe đầu tiên."
+
+ ### D6 — bản nhanh (đã thử nghiệm BMP-3)
+ VIE_dec_xcb01_fast:0 "Xe chiến đấu bộ binh XCB-01"
+ VIE_dec_xcb01_fast_desc:0 "Lục quân đang dùng BMP-1 và BMP-2 mua từ thời Liên Xô, cùng một số BTR-60. Tất cả đều đã hết hạn phục vụ, giáp mỏng trước vũ khí chống tăng cá nhân hiện đại, và không còn nguồn phụ tùng ổn định.\n\nTổng cục Công nghiệp Quốc phòng đề xuất XCB-01: xe chiến đấu bộ binh thiết kế mới hoàn toàn trong nước, giáp composite, pháo tự động, có khả năng chở theo tổ bộ binh và bơi được.\n\nChương trình này rút ngắn được một năm nhờ đợt thử nghiệm BMP-3 năm 2010. Dù không mua loại xe đó, sáu tháng vận hành thử đã cho các kỹ sư Việt Nam dữ liệu thực tế về hệ thống điều khiển hỏa lực, cách bố trí động cơ phía sau, yêu cầu bảo dưỡng và giới hạn cơ động trên địa hình Việt Nam. Đó là những thứ không đọc được từ tài liệu.\n\nChi phí 3 tỷ cho 50 xe đầu tiên, thời gian 1095 ngày thay vì 1460."
+ VIE_dec_xcb01_tt:0 "Ngân khố trên §Y3 tỷ§!"
+ VIE_dec_xcb01_tech:0 "XCB-01 — công nghệ xe chiến đấu bộ binh"
+
+ ### D9
+ VIE_dec_tl01:0 "Tên lửa vác vai TL-01"
+ VIE_dec_tl01_desc:0 "Năm 2009 Việt Nam ký thỏa thuận với Nga về tổ hợp tên lửa phòng không vác vai Igla, kèm quyền lắp ráp trong nước với linh kiện do Nga cung cấp. Nhà máy Z131 đã vận hành dây chuyền lắp ráp đó hơn bảy năm.\n\nChương trình TL-01 là bước tiếp theo: thay linh kiện nhập bằng linh kiện tự sản xuất, từ đầu dò hồng ngoại đến thuốc phóng động cơ, và từng bước chuyển sang thiết kế của riêng mình. Đây là con đường mà nhiều nước đã đi — bắt đầu bằng lắp ráp theo giấy phép, kết thúc bằng sản phẩm nội địa.\n\nGiá trị của MANPADS không nằm ở số tên lửa. Nó nằm ở chỗ buộc máy bay đối phương phải bay cao hơn, và khi bay cao hơn thì độ chính xác của vũ khí dẫn đường giảm mạnh. Đó là cách phòng không rẻ nhất để chống lại ưu thế không quân vượt trội.\n\nChi phí 0,5 tỷ, thời gian 730 ngày."
+ VIE_dec_tl01_tech:0 "TL-01 — công nghệ phòng không"
+
+ ### ============================================================
+ ### Bước 6: decision D8 (decision cuối của Trục 2)
+ ### ============================================================
+
+ VIE_dec_k9_localization:0 "Nội địa hóa bảo dưỡng và đạn K9"
+ VIE_dec_k9_localization_desc:0 "Sau một năm vận hành, điểm nghẽn của pháo tự hành K9A1 đã rõ: mọi hạng mục bảo dưỡng vượt mức thường xuyên đều phải chờ chuyên gia Hàn Quốc hoặc gửi linh kiện về nước, và đạn 155mm vẫn nhập hoàn toàn. Hệ số sẵn sàng của đơn vị vì thế thấp hơn nhiều so với thông số kỹ thuật của xe.\n\nChương trình này chuyển giao hai mảng. Thứ nhất là bảo dưỡng cấp 2 và cấp 3: tài liệu kỹ thuật, dụng cụ chuyên dụng, và đào tạo kỹ sư tại Nhà máy Z751. Thứ hai là sản xuất đạn 155mm trong nước — vỏ đạn, thuốc phóng và ngòi, dùng lại dây chuyền vừa xây cho chương trình đạn pháo nội địa.\n\nĐây là bước cuối của chuỗi công nghiệp quốc phòng lục quân: từ sửa chữa theo giấy phép, sang lắp ráp, sang sản xuất đạn, và cuối cùng là tự bảo dưỡng được trang bị hiện đại nhất trong biên chế.\n\nChi phí 0,5 tỷ, thời gian 730 ngày."
+ VIE_dec_k9_localization_tech:0 "Nội địa hóa K9 — công nghệ đạn pháo"
+
+ ### D1 available tooltip — can_staff_an_arms_industry và free_building_slots là
+ ### trigger phức, engine không tự sinh tooltip rõ nghĩa nên phải bọc thủ công.
+ VIE_dec_z_factories_avail_tt:0 "Có đủ nhân lực kỹ thuật để vận hành nhà máy vũ khí, và còn ít nhất một tỉnh có chỗ xây dựng"

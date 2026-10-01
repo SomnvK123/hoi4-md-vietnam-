@@ -1,0 +1,811 @@
+add_namespace = vie_proc_army
+
+########################################################################
+# Truc 1: MUA SAM LUC QUAN (bao cao muc I, da sua theo audit/REVIEW_TRUC1_MAUSAM.md)
+#
+# ---------------------------------------------------------------------
+# 4.1 - BANG ID EVENT (dat cho toan bo, khong de lo khoang trong)
+# ---------------------------------------------------------------------
+#   .1   Chuoi 1  Xe tang cu chau Au - Phan Lan giao ~70 T-54/55 (2005)   [XONG buoc 2]
+#   .2   Chuoi 1  T-72 Ba Lan: huy hay giu (2006)                        [XONG buoc 2]
+#   .3   (trong - du phong chuoi 1)
+#   .4   (trong - du phong chuoi 1)
+#   .5   Chuoi 2  T-54M3, mau thu Israel (2009)
+#   .6   Chuoi 2  nhanh B: chuyen doi 100 T-54/55 sau 1095 ngay
+#   .7   (trong - du phong chuoi 2)
+#   .8   Chuoi 3  Igla kem quyen san xuat (2009)
+#   .9   .10  (trong - du phong chuoi 3)
+#   .11  Chuoi 4  License Galil ACE cho Z111 (~2014)
+#   .12  .13  (trong - du phong chuoi 4)
+#   .14  Chuoi 5  T-90S/SK - hop dong (ky 2016)
+#   .15  Chuoi 5  GIAO DOT 1  (class C, im lang)
+#   .16  Chuoi 5  GIAO DOT 2  (class C, im lang) - MOI, bao cao bo trong so nay
+#   .17  (trong - du phong chuoi 5)
+#   .18  Chuoi 6  K9A1 - danh gia (2023, hoac 2021 neu co VIE_155mm_study)
+#   .19  Chuoi 6  K9A1 - quyet dinh mua 20 / 40 / khong
+#   .20  Chuoi 6  GIAO K9A1 (class C, im lang)
+#   .21  Chuoi 6  Noi dia hoa / dan dan huong / giu nguyen
+#   .22 -.29  (trong - du phong chuoi 6)
+#   .30  Chuoi 7  BMP-3 (alt-history, 2010)
+#   .31  Chuoi 7  bao cao danh gia
+#   .32  Chuoi 7  khong mua (rut kinh nghiem) hay mua 1 tieu doan
+#   .33  .34  (trong)
+#   .35  Chuoi 8  TOS-1A (alt-history, 2016)
+#   .36  .37  (trong)
+#   .38  Chuoi 9  CAESAR (alt-history, 2015)
+#   .39  Chuoi 9  gia cao, dieu kien chuyen giao khat khe
+#   .40  Chuoi 9  khong ky duoc -> co VIE_155mm_study
+#   .41 -.49  (trong)
+#   .50 -.59  DU PHONG Truc 1b (mua sam HAI QUAN) - xem Q1(c). Hai event o day
+#             se set VIE_ev_kilo_submarines va VIE_ev_bastion_p_coastal_defence
+#             de go soft-lock cho VIE_paracel_ultimatum (loi A2).
+#   .60 -.89  (trong)
+#   .90 -.99  KHONG DUNG. Bao cao muc 1.6 de xuat 5-8 event an de thu lai moi
+#             90 ngay. Khong can: tick thang cua on_monthly chinh la vong thu
+#             lai (mau VIE_event_scheduler_p13).Xem ghi chu o VIE_md_effects_p14.txt.
+#
+# ---------------------------------------------------------------------
+# TRANG THAI (cap nhat sau buoc 6 - HOAN TAT)
+# ---------------------------------------------------------------------
+# 19/20 EVENT DA VIET THAT, co title/desc/picture/option va localisation tieng
+# Viet day du trong localisation/english/VIE_md_events_p14_l_english.yml:
+#   chuoi 1  .1  .2                    xe tang cu chau Au / T-72 Ba Lan
+#   chuoi 2  .5  (.6)                  T-54M3 Israel
+#   chuoi 3  .8                        Igla kem quyen san xuat
+#   chuoi 4  .11                       license Galil ACE
+#   chuoi 5  .14 .15 .16               T-90S/SK + hai dot giao hang
+#   chuoi 6  .18 .19 .20 .21           K9A1 Thunder
+#   chuoi 7  .30 .31 .32               BMP-3        (alt-history)
+#   chuoi 8  .35                       TOS-1A       (alt-history)
+#   chuoi 9  .38 .39 .40               CAESAR       (alt-history)
+#
+# .6 la CLASS C CO Y AN (hidden = yes, 0 option): giao hang chuyen doi 100
+# T-54/55 thanh T-54M3, khong co lua chon nao de bam. Dung convention cua
+# VIE_event_scheduler_p12 (giao tau Gepard/Kilo) - "silent, one flag per delivery".
+# Q5 da chot: .15 / .16 / .20 CO pop-up, khong de im lang.
+#
+# Khong con placeholder, khong con key loc tam ("cho viet").
+########################################################################
+
+
+########################################################################
+# CHUOI 1 - Xe tang cu chau Au (2005-2006)
+########################################################################
+
+# .1  Phan Lan chuyen giao ~70 T-54/55 (02/2005). Phan giao xe la TU DONG
+#     (immediate) vi day la chuyen giao da dien ra, khong phai lua chon; hai
+#     option chi quyet dinh vu Ba Lan. Bao cao khong noi ro diem nay (loi C12).
+#     Class B: co VIE_popup_cd, het cua so thi fallback im lang.
+country_event = {
+	id = vie_proc_army.1
+	title = vie_proc_army.1.t
+	desc = vie_proc_army.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_proc_reward_t54_finland = yes
+	}
+
+	# A - Nhan loi Ba Lan (lich su): 150 T-72 cho huan luyen va bao duong.
+	#     Khong mua ngay, chi mo chuoi 2 de nam sau quyet dinh huy hay giu.
+	option = {
+		name = vie_proc_army.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.1.a executed"
+		set_country_flag = VIE_pl_t72_deal
+		custom_effect_tooltip = VIE_proc_t72_offer_tt
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - Tu choi, chi giu so T-54/55 cua Phan Lan.
+	option = {
+		name = vie_proc_army.1.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.1.b executed"
+		ai_chance = {
+			base = 30
+			# Tu choi de nghi Ba Lan la huong di chong lai lich su -> chi AI "free"
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .2  T-72 Ba Lan: huy (lich su) hay giu (alt-history). Chi ton tai neu .1 chon A;
+#     .1 tu hen qua scheduler. Event chuan (chained) nen duoc mien VIE_popup_cd
+#     theo luat cua chinh mod ("except chained events").
+country_event = {
+	id = vie_proc_army.2
+	title = vie_proc_army.2.t
+	desc = vie_proc_army.2.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# A - Huy, don ngan sach cho hai quan va khong quan (lich su).
+	#     KHONG co guard pha san: huy hop dong la TIET KIEM tien, khong phai chi.
+	#     Guard bankruptcy_incoming_collapse chi dat o option nao tru ngan kh hoac
+	#     tang no (bao cao muc 6.1). Dat nguoc o day se khien AI tu choi huy khi
+	#     dang sap pha san - dung luc can huy nhat.
+	option = {
+		name = vie_proc_army.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.2.a executed"
+		navy_experience = 10
+		air_experience = 10
+		if = {
+			limit = { country_exists = POL }
+			add_opinion_modifier = { target = POL modifier = small_decrease }
+		}
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+			# Huy hop dong la TIET KIEM tien, nen khong co factor = 0 khi sap pha san;
+			# nguoc lai, day la lua chon duy nhat hop ly nen nang trong so len.
+			modifier = { add = 100 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# B - Giu hop dong (alt-history): 150 T-72, -0.40bn (uoc tinh, gia khong cong bo).
+	#     T-72 = the he 1975 -> MBT_2 / medium_tank_chassis_1 (xem audit B4).
+	option = {
+		name = vie_proc_army.2.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.2.b executed"
+		set_temp_variable = { treasury_change = -0.40 }
+		modify_treasury_effect = yes
+		# POL co san variant "T-72M1" va "PT-91" (medium_tank_chassis_1) trong
+		# history/countries/POL - Poland.txt -> producer = POL dung, khong can tao
+		# variant moi. Dung T-72M1: dung ban Ba Lan xuat khau thoi ky do.
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			add_equipment_to_stockpile = {
+				type = medium_tank_chassis_1
+				variant_name = "T-72M1"
+				amount = 150
+				producer = POL
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = { type = MBT_2 amount = 150 producer = POL }
+		}
+		army_experience = 5
+		ai_chance = {
+			base = 30
+			# Giu hop dong T-72 la huong di chong lai lich su -> chi AI che do "free"
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+########################################################################
+# CHUOI 2 - T-54M3, mau thu Israel (2009-2010)
+########################################################################
+
+# .5  T-54M3, mau thu Israel (2009-2010). Cua so 2009-2012 (xem scheduler).
+#     De xuat nam 2009, mau thu 2010; khong dat hang loat vi gia.
+#     A re nhung cham vi phai chay D5; B nhanh nhung dat, dung ly do VN da tu choi
+#     goi Israel. B THAY THE D5 chu khong di cung, nen B khong dat co
+#     VIE_t54m3_prototype (D5 khoa).
+country_event = {
+	id = vie_proc_army.5
+	title = vie_proc_army.5.t
+	desc = vie_proc_army.5.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	# A - Nhan mau thu va bo kit, tu nang cap trong nuoc (lich su), -0.05bn.
+	#     Dat co VIE_t54m3_prototype -> mo D5 (T-54M noi dia, Truc 2).
+	option = {
+		name = vie_proc_army.5.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.5.a executed"
+		VIE_proc_reward_t54m3_prototype = yes
+		custom_effect_tooltip = VIE_proc_t54m3_prototype_tt
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - Nang cap hang loat 100 xe theo goi Israel, -0.75bn (uoc tinh).
+	#     KHONG dat VIE_t54m3_prototype -> D5 khoa; .6 chuyen doi xe sau 1095 ngay.
+	option = {
+		name = vie_proc_army.5.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.5.b executed"
+		VIE_proc_reward_t54m3_israeli_package = yes
+		custom_effect_tooltip = VIE_proc_t54m3_package_tt
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# C - Khong, giu nguyen dan xe T-54/55.
+	option = {
+		name = vie_proc_army.5.c
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.5.c executed"
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+# .6  Chi o nhanh B cua .5: chuyen doi 100 T-54/55 thanh T-54M3 sau 1095 ngay.
+#     Class C: giao hang, khong phai lua chon -> hidden = yes la CO Y, giu nguyen.
+country_event = {
+	id = vie_proc_army.6
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_proc_convert_t54m3 = yes
+	}
+}
+
+
+########################################################################
+# CHUOI 3 - Igla kem quyen san xuat (2009)
+########################################################################
+
+# .8  Igla (2009). Cua so 2009-2013. Nga cap linh kien lap rap trong nuoc.
+#     A kem quyen san xuat (lich su) -> co VIE_igla_license, mo D9 (TL-01, Truc 2).
+#     Ca A va B deu cho modifier phong khong; A dat hon 0.10bn de co quyen san xuat.
+country_event = {
+	id = vie_proc_army.8
+	title = vie_proc_army.8.t
+	desc = vie_proc_army.8.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	# A - Mua kem quyen san xuat trong nuoc (lich su), -0.35bn.
+	option = {
+		name = vie_proc_army.8.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.8.a executed"
+		VIE_proc_reward_igla_license = yes
+		custom_effect_tooltip = VIE_proc_igla_license_tt
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# B - Chi mua thanh pham, -0.25bn. D9 khoa vi thieu quyen san xuat.
+	option = {
+		name = vie_proc_army.8.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.8.b executed"
+		VIE_proc_reward_igla_purchase_only = yes
+		custom_effect_tooltip = VIE_proc_igla_purchase_tt
+		ai_chance = {
+			base = 40
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	# C - Khong mua.
+	option = {
+		name = vie_proc_army.8.c
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.8.c executed"
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+
+########################################################################
+# CHUOI 4 - License Galil ACE cho Z111 (~2014)
+########################################################################
+
+# .11  License Galil ACE cho Z111 (ETD 2013, san xuat tu ~2014). Cua so 2013-2015.
+#      Bao cao muc 1.4: "Trigger: D1 da xong, ISR ton tai".
+#      Q3 DA TRA NO (Truc 2 buoc 7): VIE_proc_gate_z_factories_done gio doc co that
+#      has_country_flag = VIE_dec_z_factories_done, khong con la gate tam theo ngay.
+#      Xem comment trong VIE_md_triggers_p14.txt ve he qua (gate chat hon truoc).
+#      A: ky license -> co VIE_iwi_license -> D2 (STV) con 730 ngay thay vi 1095.
+#      B: khong ky -> D2 van mo, ban 1095 ngay. Khong co nhanh "mat" vi D2 khong bi
+#      khoa, chi cham hon.
+country_event = {
+	id = vie_proc_army.11
+	title = vie_proc_army.11.t
+	desc = vie_proc_army.11.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+
+	# A - Ky license Galil ACE cho Z111 (lich su), -0.10bn (uoc tinh, gia khong cong bo).
+	option = {
+		name = vie_proc_army.11.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.11.a executed"
+		VIE_proc_reward_iwi_license = yes
+		custom_effect_tooltip = VIE_proc_iwi_license_tt
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# B - Khong ky, tu thiet ke. D2 van mo nhung mat 1095 ngay thay vi 730.
+	option = {
+		name = vie_proc_army.11.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.11.b executed"
+		custom_effect_tooltip = VIE_proc_iwi_decline_tt
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+########################################################################
+# CHUOI 5 - T-90S/SK (ky 2016, giao 12/2018 va 02/2019)
+########################################################################
+
+# .14  T-90S/SK (ky 2016, cong bo 07/2017). Cua so 2016-2018.
+#      Bon option, khac nhau o so xe va cach tra tien (bao cao muc 1.4).
+#      A = 64 xe vay tin dung Nga (lich su) -> ghi vao NO, khong tru ngan kh.
+#      Giao hang: A/B hai dot (.15 + .16), C mot dot (.15).
+country_event = {
+	id = vie_proc_army.14
+	title = vie_proc_army.14.t
+	desc = vie_proc_army.14.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	# A - 64 xe, vay tin dung Nga (lich su). No +1.25bn; giao 12/2018 va 02/2019.
+	option = {
+		name = vie_proc_army.14.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.14.a executed"
+		VIE_proc_reward_t90_credit = yes
+		custom_effect_tooltip = VIE_proc_t90_credit_tt
+		ai_chance = {
+			base = 10
+			modifier = { add = 200 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - 128 xe, tra thang 2.50bn; hai dot moi dot 64.
+	option = {
+		name = vie_proc_army.14.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.14.b executed"
+		VIE_proc_reward_t90_128 = yes
+		custom_effect_tooltip = VIE_proc_t90_128_tt
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# C - 32 xe, tra thang 0.65bn; mot dot duy nhat.
+	option = {
+		name = vie_proc_army.14.c
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.14.c executed"
+		VIE_proc_reward_t90_32 = yes
+		custom_effect_tooltip = VIE_proc_t90_32_tt
+		ai_chance = {
+			base = 40
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	# D - Khong mua.
+	# Ten option la ".d_opt" chu khong phai ".d": event nay co 4 option, ma HOI4
+	# dung cung hau to ".d" cho ca desc va option thu tu -> trung loc key.
+	# MD lam dung vay: events/05_china.txt, sino_indian.39 co desc .d va option
+	# thu tu dat la sino_indian.39.d_opt.
+	option = {
+		name = vie_proc_army.14.d_opt
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.14.d_opt executed"
+		custom_effect_tooltip = VIE_proc_t90_decline_tt
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+# .15  Giao T-90 dot 1. CO POP-UP (Q5 da chot: hien cua so de nguoi choi thay xe ve).
+#      Cap xe + modifier + XP + co hop dong, CHI MOT LAN cho ca chuoi: goi
+#      VIE_proc_reward_t90_in_service, ben trong co guard NOT has_flag nen du .15
+#      co chay lai cung khong cong don (loi C1 trong audit).
+country_event = {
+	id = vie_proc_army.15
+	title = vie_proc_army.15.t
+	desc = vie_proc_army.15.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_proc_deliver_t90_batch = yes
+		VIE_proc_reward_t90_in_service = yes
+	}
+
+	option = {
+		name = vie_proc_army.15.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.15.a executed"
+		ai_chance = { base = 100 }
+	}
+}
+
+# .16  Giao T-90 dot 2. CO POP-UP. Chi cap xe, KHONG lap lai modifier va XP.
+country_event = {
+	id = vie_proc_army.16
+	title = vie_proc_army.16.t
+	desc = vie_proc_army.16.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_proc_deliver_t90_batch = yes
+	}
+
+	option = {
+		name = vie_proc_army.16.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.16.a executed"
+		ai_chance = { base = 100 }
+	}
+}
+
+
+########################################################################
+# CHUOI 6 - K9A1 Thunder (danh gia 02/2023, xac nhan 08/2025)
+########################################################################
+
+# .18  K9A1 Thunder - danh gia (02/2023; 02/2021 neu co VIE_155mm_study).
+#      Cua so 2023-2026 (2021-2026 neu co co). Bao cao muc 1.4: opinion KOR chi
+#      chinh ai_chance (>75 cao, 25-75 binh thuong, <25 thap), khong chan option.
+country_event = {
+	id = vie_proc_army.18
+	title = vie_proc_army.18.t
+	desc = vie_proc_army.18.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# KHONG hen .19 o immediate: option B (tu choi) dat co VIE_k9_declined, ma
+	# trigger cua .19 doc co do de chan. Neu hen o immediate thi event van duoc
+	# dat lich va bi trigger huy luc den ngay -> phi mot slot va kho debug.
+	# Hen trong tung option thay vi vay.
+
+	# A - To chuc danh gia (lich su: 02/2023).
+	option = {
+		name = vie_proc_army.18.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.18.a executed"
+		custom_effect_tooltip = VIE_proc_k9_evaluate_tt
+		# Bao cao muc 1.4: .19 sau 900 ngay ~ 08/2025; 365 ngay neu co VIE_155mm_study
+		if = {
+			limit = { has_country_flag = VIE_155mm_study }
+			country_event = { id = vie_proc_army.19 days = 365 random_days = 30 }
+		}
+		else = {
+			country_event = { id = vie_proc_army.19 days = 900 random_days = 30 }
+		}
+		ai_chance = {
+			base = 50
+			modifier = { add = 100 VIE_ai_historical = yes }
+			modifier = { add = 30 has_opinion = { target = KOR value > 75 } }
+			modifier = { factor = 0.5 has_opinion = { target = KOR value < 25 } }
+		}
+	}
+
+	# B - Khong quan tam, dong chuoi K9.
+	option = {
+		name = vie_proc_army.18.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.18.b executed"
+		custom_effect_tooltip = VIE_proc_k9_decline_tt
+		set_country_flag = VIE_k9_declined
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { add = 40 has_opinion = { target = KOR value < 25 } }
+		}
+	}
+}
+
+# .19  Quyet dinh mua. Chi no neu .18 chon A (.18 tu hen).
+country_event = {
+	id = vie_proc_army.19
+	title = vie_proc_army.19.t
+	desc = vie_proc_army.19.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = VIE_k9_declined }
+	}
+
+	# A - Mua 20 xe (lich su), -1.30bn.
+	option = {
+		name = vie_proc_army.19.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.19.a executed"
+		VIE_proc_reward_k9_20 = yes
+		custom_effect_tooltip = VIE_proc_k9_20_tt
+		ai_chance = {
+			base = 10
+			modifier = { add = 200 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# B - Mua 40 xe, -2.60bn.
+	option = {
+		name = vie_proc_army.19.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.19.b executed"
+		VIE_proc_reward_k9_40 = yes
+		custom_effect_tooltip = VIE_proc_k9_40_tt
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# C - Khong mua.
+	option = {
+		name = vie_proc_army.19.c
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.19.c executed"
+		set_country_flag = VIE_k9_declined
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { add = 100 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# .20  Giao K9A1. CO POP-UP theo Q5 da chot (nguoi choi thay cua so khi xe ve).
+country_event = {
+	id = vie_proc_army.20
+	title = vie_proc_army.20.t
+	desc = vie_proc_army.20.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_proc_deliver_k9 = yes
+		country_event = { id = vie_proc_army.21 days = 365 random_days = 30 }
+	}
+
+	option = {
+		name = vie_proc_army.20.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.20.a executed"
+		ai_chance = { base = 100 }
+	}
+}
+
+# .21  Sau mot nam van hanh: noi dia hoa, mua dan dan huong, hay giu nguyen.
+#      A mo D8 (Truc 2) qua co VIE_k9_localization.
+country_event = {
+	id = vie_proc_army.21
+	title = vie_proc_army.21.t
+	desc = vie_proc_army.21.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	# A - Noi dia hoa bao duong va dan (mo D8).
+	option = {
+		name = vie_proc_army.21.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.21.a executed"
+		set_country_flag = VIE_k9_localization
+		custom_effect_tooltip = VIE_proc_k9_localization_tt
+		ai_chance = {
+			base = 70
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - Mua dan dan huong, -0.25bn.
+	option = {
+		name = vie_proc_army.21.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.21.b executed"
+		VIE_proc_reward_k9_guided_shells = yes
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# C - Giu nguyen.
+	option = {
+		name = vie_proc_army.21.c
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.21.c executed"
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { add = 100 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+
+
+########################################################################
+# CHUOI 7 - BMP-3 (alt-history, 2010). Chi vao lich khi rule_vie_alt_procurement bat.
+########################################################################
+
+# .30  Nga de nghi cho muon xe thu nghiem BMP-3.
+country_event = {
+	id = vie_proc_army.30
+	title = vie_proc_army.30.t
+	desc = vie_proc_army.30.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	# A - Nhan xe thu nghiem, -0.05bn. Mo .31 sau 180 ngay.
+	option = {
+		name = vie_proc_army.30.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.30.a executed"
+		set_temp_variable = { treasury_change = -0.05 }
+		modify_treasury_effect = yes
+		country_event = { id = vie_proc_army.31 days = 180 random_days = 30 }
+		ai_chance = { base = 80 }
+	}
+
+	# B - Khong nhan, dong chuoi.
+	option = {
+		name = vie_proc_army.30.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.30.b executed"
+		ai_chance = { base = 20 }
+	}
+}
+
+# .31  Bao cao danh gia: dat so voi ngan sach, phuc tap, nang cho dia hinh.
+country_event = {
+	id = vie_proc_army.31
+	title = vie_proc_army.31.t
+	desc = vie_proc_army.31.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		country_event = { id = vie_proc_army.32 days = 30 random_days = 10 }
+	}
+
+	option = {
+		name = vie_proc_army.31.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.31.a executed"
+		ai_chance = { base = 100 }
+	}
+}
+
+# .32  Quyet dinh: khong mua (rut kinh nghiem) hay mua 1 tieu doan.
+country_event = {
+	id = vie_proc_army.32
+	title = vie_proc_army.32.t
+	desc = vie_proc_army.32.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# A - Khong mua, rut kinh nghiem. Dat VIE_bmp3_lessons -> D6 (XCB-01) con 1095 ngay.
+	option = {
+		name = vie_proc_army.32.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.32.a executed"
+		set_country_flag = VIE_bmp3_lessons
+		army_experience = 10
+		if = {
+			limit = { country_exists = SOV }
+			add_opinion_modifier = { target = SOV modifier = small_decrease }
+		}
+		custom_effect_tooltip = VIE_proc_bmp3_lessons_tt
+		ai_chance = { base = 80 }
+	}
+
+	# B - Mua 1 tieu doan (~30 xe), -0.50bn.
+	option = {
+		name = vie_proc_army.32.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.32.b executed"
+		VIE_proc_reward_bmp3 = yes
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+
+########################################################################
+# CHUOI 8 - TOS-1A (alt-history, 2016)
+########################################################################
+
+country_event = {
+	id = vie_proc_army.35
+	title = vie_proc_army.35.t
+	desc = vie_proc_army.35.d
+	picture = GFX_report_event_generic_army
+	is_triggered_only = yes
+
+	# A - Bien che 12 xe, -0.40bn.
+	option = {
+		name = vie_proc_army.35.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.35.a executed"
+		VIE_proc_reward_tos1a = yes
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# B - Khong, +5 army XP.
+	option = {
+		name = vie_proc_army.35.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.35.b executed"
+		army_experience = 5
+		ai_chance = { base = 70 }
+	}
+}
+
+
+########################################################################
+# CHUOI 9 - CAESAR (alt-history, 2015). Ket that that bai -> VIE_155mm_study,
+#           mo chuoi K9 som hon 2 nam (2021 thay vi 2023).
+########################################################################
+
+country_event = {
+	id = vie_proc_army.38
+	title = vie_proc_army.38.t
+	desc = vie_proc_army.38.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	# A - Dam phan. Mo .39 sau 180 ngay.
+	option = {
+		name = vie_proc_army.38.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.38.a executed"
+		country_event = { id = vie_proc_army.39 days = 180 random_days = 30 }
+		ai_chance = { base = 80 }
+	}
+
+	# B - Khong quan tam, dong chuoi. KHONG dat VIE_155mm_study vi khong co gi
+	#     day VN di tim hieu chuan 155mm.
+	option = {
+		name = vie_proc_army.38.b
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.38.b executed"
+		ai_chance = { base = 20 }
+	}
+}
+
+# .39  Gia cao, dieu kien chuyen giao khat khe, chuan 155mm khac he 122/130/152mm.
+country_event = {
+	id = vie_proc_army.39
+	title = vie_proc_army.39.t
+	desc = vie_proc_army.39.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		country_event = { id = vie_proc_army.40 days = 365 random_days = 30 }
+	}
+
+	option = {
+		name = vie_proc_army.39.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.39.a executed"
+		ai_chance = { base = 100 }
+	}
+}
+
+# .40  Khong ky duoc. Dat VIE_155mm_study -> chuoi K9 mo tu 2021, .19 sau 365 ngay.
+country_event = {
+	id = vie_proc_army.40
+	title = vie_proc_army.40.t
+	desc = vie_proc_army.40.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = VIE_155mm_study
+		if = {
+			limit = { country_exists = FRA }
+			add_opinion_modifier = { target = FRA modifier = small_decrease }
+		}
+	}
+
+	option = {
+		name = vie_proc_army.40.a
+		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.40.a executed"
+		custom_effect_tooltip = VIE_proc_155mm_study_tt
+		ai_chance = { base = 100 }
+	}
+}

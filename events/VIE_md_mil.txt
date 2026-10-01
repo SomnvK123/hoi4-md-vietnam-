@@ -1,1 +1,477 @@
 # Events for military branch
+# Trục 1: Mua sắm (Procurement) - Event chains
+
+# Chuỗi 1: Xe tăng cũ châu Âu (2005–2006)
+country_event = {
+	id = vie_proc_army.1
+	is_triggered_only = yes
+	trigger = {
+		# ETD 2005 - handled via yearly effects
+	}
+	option = {
+		name = vie_proc_army.1a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.1a"
+		set_temp_variable = { treasury_change = -0.05 }
+		modify_treasury_effect = yes
+		# Phần Lan chuyển giao ~70 T-54/55
+		add_equipment = { 
+			medium_tank_chassis_0 = 70 
+			MBT_1 = 70 
+		}
+		# Nhận lời Ba Lan: 150 T-72 cho huấn luyện, bảo dưỡng (lịch sử)
+		set_country_flag = VIE_pl_t72_deal
+	}
+	option = {
+		name = vie_proc_army.1b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.1b"
+		# Từ chối
+	}
+}
+
+country_event = {
+	id = vie_proc_army.2
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = VIE_pl_t72_deal
+		# ETD 2006
+	}
+	option = {
+		name = vie_proc_army.2a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.2a"
+		# Hủy, dồn ngân sách cho hải quân và không quân (lịch sử)
+		add_navy_xp = 10
+		add_air_xp = 10
+		add_opinion = {
+			who = POL
+			amount = -5
+		}
+	}
+	option = {
+		name = vie_proc_army.2b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.2b"
+		# Giữ hợp đồng (alt-history)
+		set_temp_variable = { treasury_change = -0.40 }
+		modify_treasury_effect = yes
+		add_equipment = {
+			medium_tank_chassis_1 = 150
+			MBT_2 = 150
+		}
+		set_country_flag = VIE_producer_pol  # Assuming this flag exists or we need to define
+	}
+}
+
+# Chuỗi 2: T-54M3, mẫu thử Israel (2009–2010)
+country_event = {
+	id = vie_proc_army.5
+	is_triggered_only = yes
+	trigger = {
+		# Will be called via VIE_try_proc_5
+	}
+	option = {
+		name = vie_proc_army.5a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.5a"
+		set_temp_variable = { treasury_change = -0.05 }
+		modify_treasury_effect = yes
+		# Nhận mẫu thử và bộ kit, tự nâng cấp trong nước (lịch sử)
+		set_country_flag = VIE_t54m3_prototype
+	}
+	option = {
+		name = vie_proc_army.5b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.5b"
+		set_temp_variable = { treasury_change = -0.75 }
+		modify_treasury_effect = yes
+		# Nâng cấp hàng loạt 100 xe theo gói Israel
+		# Does not set VIE_t54m3_prototype flag (D5 khóa)
+		# Effect .6 sau 1095 ngày handled separately
+	}
+	option = {
+		name = vie_proc_army.5c
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.5c"
+		# Không
+	}
+}
+
+country_event = {
+	id = vie_proc_army.6
+	is_triggered_only = yes
+	trigger = {
+		# This event only follows option B of .5
+	}
+	# Chuyển đổi 100 T-54/55 thành T-54M3; army_armor_defence_factor +2%
+	remove_equipment = {
+		medium_tank_chassis_0 = 100
+		MBT_1 = 100
+	}
+	add_equipment = {
+		# Assuming T-54M3 uses same chassis but upgraded
+		medium_tank_chassis_0 = 100
+		MBT_1 = 100
+	}
+	add_country_modifier = {
+		name = army_armor_defence_factor_modifier
+		duration = -1  # permanent
+		value = 0.02
+	}
+}
+
+# Chuỗi 3: Igla kèm quyền sản xuất (2009)
+country_event = {
+	id = vie_proc_army.8
+	is_triggered_only = yes
+	trigger = {
+		# Will be called via VIE_try_proc_8
+	}
+	option = {
+		name = vie_proc_army.8a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.8a"
+		set_temp_variable = { treasury_change = -0.35 }
+		modify_treasury_effect = yes
+		# Mua kèm quyền sản xuất trong nước (lịch sử)
+		set_country_flag = VIE_igla_license
+	}
+	option = {
+		name = vie_proc_army.8b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.8b"
+		set_temp_variable = { treasury_change = -0.25 }
+		modify_treasury_effect = yes
+		# Chỉ mua thành phẩm
+	}
+	option = {
+		name = vie_proc_army.8c
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.8c"
+		# Không
+	}
+}
+
+# A và B: enemy_army_bonus_air_superiority_factor −5%
+# This effect should apply to both options A and B
+# We'll add it via a separate event or in the options above? According to doc, A and B both have this effect.
+# We'll add it to each option A and B.
+# We'll update the options above to include the modifier.
+# For now, we'll note and add later if needed.
+
+# Chuỗi 4: License Galil ACE (khoảng 2014)
+country_event = {
+	id = vie_proc_army.11
+	is_triggered_only = yes
+	trigger = {
+		# Will be called via VIE_try_proc_11
+	}
+	option = {
+		name = vie_proc_army.11a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.11a"
+		set_temp_variable = { treasury_change = -0.10 }
+		modify_treasury_effect = yes
+		# Ký license Galil ACE cho Z111 (lịch sử)
+		set_country_flag = VIE_iwi_license
+	}
+	option = {
+		name = vie_proc_army.11b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.11b"
+		# Không
+		# D2 vẫn mở, 1095 ngày
+	}
+}
+
+# Chuỗi 5: T-90S/SK (2016–2019)
+country_event = {
+	id = vie_proc_army.14
+	is_triggered_only = yes
+	trigger = {
+		# Will be called via VIE_try_proc_14
+	}
+	option = {
+		name = vie_proc_army.14a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.14a"
+		set_temp_variable = { debt_change = 1.25 }  # vay tín dụng Nga
+		modify_debt_effect = yes
+		# 64 xe, vay tín dụng Nga (lịch sử)
+		# giao 2 đợt 32 + 32 sau ~900 và ~960 ngày
+		country_event = { id = vie_proc_army.15 days = 900 }
+		country_event = { id = vie_proc_army.15 days = 960 }
+	}
+	option = {
+		name = vie_proc_army.14b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.14b"
+		set_temp_variable = { treasury_change = -2.50 }
+		modify_treasury_effect = yes
+		# 128 xe
+		# giao sau ~900 và ~1270 ngày
+		country_event = { id = vie_proc_army.15 days = 900 }
+		country_event = { id = vie_proc_army.15 days = 1270 }
+	}
+	option = {
+		name = vie_proc_army.14c
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.14c"
+		set_temp_variable = { treasury_change = -0.65 }
+		modify_treasury_effect = yes
+		# 32 xe
+		# giao 1 đợt sau ~900 ngày
+		country_event = { id = vie_proc_army.15 days = 900 }
+	}
+	option = {
+		name = vie_proc_army.14d
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.14d"
+		# Không mua
+	}
+}
+
+country_event = {
+	id = vie_proc_army.15
+	is_triggered_only = yes
+	trigger = {
+		# This is the delivery event, loops per batch
+	}
+	# → T-90S: medium_tank_chassis_3 (NSB) / MBT_4 (non-NSB)
+	# → army_armor_attack_factor +5%, army_armor_defence_factor +3%; +10 army XP
+	# → set_country_flag = VIE_t90_purchased
+	add_equipment = {
+		medium_tank_chassis_3 = 1  # per batch, will be called multiple times
+		MBT_4 = 1
+	}
+	add_country_modifier = {
+		name = army_armor_attack_factor_modifier
+		duration = -1
+		value = 0.05
+	}
+	add_country_modifier = {
+		name = army_armor_defence_factor_modifier
+		duration = -1
+		value = 0.03
+	}
+	add_army_xp = 10
+	set_country_flag = VIE_t90_purchased
+}
+
+# Chuỗi 6: K9A1 Thunder (2023–2025)
+country_event = {
+	id = vie_proc_army.18
+	is_triggered_only = yes
+	trigger = {
+		# Will be called via VIE_try_proc_18
+	}
+	option = {
+		name = vie_proc_army.18a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.18a"
+		# Đánh giá (lịch sử: 02/2023) → .19 sau 900 ngày ≈ 08/2025 (365 nếu có VIE_155mm_study)
+		country_event = { id = vie_proc_army.19 days = 900 }
+	}
+	option = {
+		name = vie_proc_army.18b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.18b"
+		# Không quan tâm
+	}
+}
+
+country_event = {
+	id = vie_proc_army.19
+	is_triggered_only = yes
+	trigger = {
+		# After evaluation
+	}
+	option = {
+		name = vie_proc_army.19a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.19a"
+		set_temp_variable = { treasury_change = -1.30 }
+		modify_treasury_effect = yes
+		# Mua 20 xe (lịch sử)
+	}
+	option = {
+		name = vie_proc_army.19b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.19b"
+		set_temp_variable = { treasury_change = -2.60 }
+		modify_treasury_effect = yes
+		# Mua 40 xe
+	}
+	option = {
+		name = vie_proc_army.19c
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.19c"
+		# Không mua
+	}
+}
+
+country_event = {
+	id = vie_proc_army.20
+	is_triggered_only = yes
+	trigger = {
+		# sau 365 ngày
+	}
+	# giao hàng → K9A1, flag VIE_k9_purchased
+	add_equipment = {
+		medium_tank_artillery_chassis_0 = 20
+		SP_arty_0 = 20
+	}
+	set_country_flag = VIE_k9_purchased
+}
+
+country_event = {
+	id = vie_proc_army.21
+	is_triggered_only = yes
+	trigger = {
+		# sau 365 ngày từ .20
+	}
+	option = {
+		name = vie_proc_army.21a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.21a"
+		# Nội địa hóa bảo dưỡng và đạn → mở D8
+		set_country_flag = VIE_k9_maintenance_localized
+	}
+	option = {
+		name = vie_proc_army.21b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.21b"
+		set_temp_variable = { treasury_change = -0.25 }
+		modify_treasury_effect = yes
+		# Mua đạn dẫn đường
+		add_country_modifier = {
+			name = army_artillery_attack_factor_modifier
+			duration = -1
+			value = 0.05
+		}
+	}
+	option = {
+		name = vie_proc_army.21c
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.21c"
+		# Giữ nguyên
+	}
+}
+
+# Chuỗi 7: BMP-3 (alt-history)
+country_event = {
+	id = vie_proc_army.30
+	is_triggered_only = yes
+	trigger = {
+		country_exists = VIE
+		has_game_rule = { rule = VIE_alt_procurement option = VIE_ALT_ON }
+		country_exists = SOV
+		NOT = { has_war_with = SOV }
+	}
+	option = {
+		name = vie_proc_army.30a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.30a"
+		set_temp_variable = { treasury_change = -0.05 }
+		modify_treasury_effect = yes
+		# Nhận xe thử nghiệm
+	}
+	option = {
+		name = vie_proc_army.30b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.30b"
+		# Không nhận
+	}
+}
+
+country_event = {
+	id = vie_proc_army.31
+	is_triggered_only = yes
+	trigger = {
+		# sau 180 ngày
+	}
+	# báo cáo — đắt so với ngân sách, phức tạp, nặng cho địa hình
+	# No immediate effect? Just a report.
+}
+
+country_event = {
+	id = vie_proc_army.32
+	is_triggered_only = yes
+	trigger = {
+		# sau 30 ngày từ .31
+	}
+	option = {
+		name = vie_proc_army.32a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.32a"
+		# Không mua, rút kinh nghiệm
+		add_army_xp = 10
+		add_opinion = {
+			who = SOV
+			amount = -5
+		}
+		set_country_flag = VIE_bmp3_lessons
+	}
+	option = {
+		name = vie_proc_army.32b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.32b"
+		set_temp_variable = { treasury_change = -0.50 }
+		modify_treasury_effect = yes
+		# Mua 1 tiểu đoàn (~30 xe)
+		add_equipment = {
+			medium_tank_flame_chassis_2 = 30
+			IFV_3 = 30
+		}
+	}
+}
+
+# Chuỗi 8: TOS-1A (alt-history)
+country_event = {
+	id = vie_proc_army.35
+	is_triggered_only = yes
+	trigger = {
+		country_exists = VIE
+		has_game_rule = { rule = VIE_alt_procurement option = VIE_ALT_ON }
+		country_exists = SOV
+		NOT = { has_war_with = SOV }
+	}
+	option = {
+		name = vie_proc_army.35a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.35a"
+		set_temp_variable = { treasury_change = -0.40 }
+		modify_treasury_effect = yes
+		# Biên chế 12 xe
+		add_army_xp = 10
+		add_equipment = {
+			medium_tank_rocket_chassis_0 = 12
+			SP_R_arty_0 = 12
+		}
+	}
+	option = {
+		name = vie_proc_army.35b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.35b"
+		# Không
+		add_army_xp = 5
+	}
+}
+
+# Chuỗi 9: CAESAR (alt-history)
+country_event = {
+	id = vie_proc_army.38
+	is_triggered_only = yes
+	trigger = {
+		country_exists = VIE
+		has_game_rule = { rule = VIE_alt_procurement option = VIE_ALT_ON }
+		country_exists = FRA
+		NOT = { has_war_with = FRA }
+	}
+	option = {
+		name = vie_proc_army.38a
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.38a"
+		# Đàm phán
+		country_event = { id = vie_proc_army.39 days = 180 }
+	}
+	option = {
+		name = vie_proc_army.38b
+		log = "[GetDateText]: [Root.GetName]: event vie_proc_army.38b"
+		# Không quan tâm
+	}
+}
+
+country_event = {
+	id = vie_proc_army.39
+	is_triggered_only = yes
+	trigger = {
+		# After negotiation
+	}
+	# giá cao, điều kiện chuyển giao khắt khe, chuẩn 155mm khác hệ 122/130/152mm
+	# No immediate effect, just leads to .40
+}
+
+country_event = {
+	id = vie_proc_army.40
+	is_triggered_only = yes
+	trigger = {
+		# sau 365 ngày từ .39
+	}
+	# không ký được
+	add_opinion = {
+		who = FRA
+		amount = -5
+	}
+	set_country_flag = VIE_155mm_study
+}

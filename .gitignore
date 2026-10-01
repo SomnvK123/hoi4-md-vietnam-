@@ -1,0 +1,16 @@
+# Script audit sinh ra khi chạy - không commit
+tools/audit/focus.json
+tools/audit/defined.json
+tools/audit/missing.json
+
+# Backup / temp
+*.tmp
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS
+.DS_Store
+Thumbs.db

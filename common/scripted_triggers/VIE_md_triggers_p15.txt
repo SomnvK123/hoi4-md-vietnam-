@@ -1,0 +1,135 @@
+########################################################################
+# Truc 2 (CNQP Luc quan) - cac gate dung chung.
+#
+# Nhu VIE_md_triggers_p14.txt cua Truc 1: moi quyet dinh thiet ke duoc gom vao
+# day de khi doi thi sua mot dong thay vi sua muoi cho. Tham chieu:
+# VIE_truc2_review_and_plan.md phan 5 (Q6-Q9, DA CHOT ca bon = (a) ngay 2026-09-30).
+#
+# Cac gate nay dung cho:
+#   common/decisions/VIE_md_def_industry.txt      (11 decision D1-D9)
+#   common/scripted_effects/VIE_md_effects_p15.txt (scheduler + reward)
+#   common/national_focus/VIE_md_focus.txt         (4 focus, buoc 2)
+#
+# ---------------------------------------------------------------------
+# ⚠️ THU TU THI CONG (Q6 = a). File nay va VIE_md_effects_p15.txt tham chieu
+# 4 focus CHUA TON TAI: VIE_def_industry_law, VIE_military_enterprises_core,
+# VIE_military_enterprises_divest, VIE_path_self_reliant_deterrence.
+# Ca bon duoc dung lai o BUOC 2. Cho toi luc do, tools/audit/live.py se bao
+# "FOCUS refs MISSING=3" - do la TINH TRANG DU KIEN cua buoc 0-1, khong phai loi.
+# Sau buoc 2 phai tro ve 0.
+# ---------------------------------------------------------------------
+########################################################################
+
+# ---------------------------------------------------------------------
+# Q7 = (a). Chon state de xay nha may vu khi.
+#
+# MD one_state_arms_factory (00_scripted_effects.txt:20) da tu:
+#   - tru 7.5 ty ngan kh (tre khi co bien skip_payment = 1)
+#   - cong add_extra_state_shared_building_slots = 1
+#   - fallback sang state khac neu state goc het slot
+# Vi vay KHONG duoc tru tien tay o ngoai (bao cao muc 6.2 lam vay -> tru doi).
+#
+# limit duoi day tu loai 801 (Tay Truong Sa): state do la state_inhospitable,
+# local_building_slots = 0, nen free_building_slots size > 0 khong bao gio dung.
+# Khong dung has_state_category hay is_island_state: ca hai KHONG xuat hien trong
+# bat ky file MD hay repo nao da tai, tuc chua xac minh duoc la hop le.
+# free_building_slots thi da dung 15 lan trong repo nen chac chan hop le.
+# ---------------------------------------------------------------------
+VIE_def_ind_has_factory_slot = {
+	any_owned_state = {
+		free_building_slots = {
+			building = arms_factory
+			size > 0
+			include_locked = yes
+		}
+	}
+}
+
+# ---------------------------------------------------------------------
+# Q6 = (a). Cong vao cua nhom decision CNQP Luc quan.
+# Bao cao muc 2.2 ghi "Nhom decision CNQP Luc quan hien khi hoan tat
+# VIE_tank_modernization" - focus do da bi v11 xoa. Q6 = (a) dung lai 4 focus,
+# nen cong that su la VIE_def_industry_law (Phap lenh CNQP, mo tu 01/07/2008).
+# ---------------------------------------------------------------------
+VIE_def_ind_gate_open = {
+	has_completed_focus = VIE_def_industry_law
+}
+
+# ---------------------------------------------------------------------
+# B1. Ten trigger staffing DUNG cua MD.
+# Bao cao muc 6.2 ghi can_staff_an_arms_factory - KHONG ton tai.
+# MD 00_economic_triggers.txt co: can_staff_an_agriculture_district,
+# can_staff_an_arms_industry, can_staff_an_composite_plant, can_staff_an_dockyard,
+# can_staff_an_industrial_complex, can_staff_an_microchip_plant, can_staff_an_offices.
+#
+# LUU Y: trigger nay kiem NHAN LUC / viec lam, khong kiem SLOT TRONG.
+# D1 va D2 can ca hai -> dung VIE_def_ind_has_factory_slot o tren kem theo.
+# ---------------------------------------------------------------------
+VIE_def_ind_can_staff_arms = {
+	can_staff_an_arms_industry = yes
+}
+
+# ---------------------------------------------------------------------
+# Ngan kh. MD tu phat hang no khi thieu tien (bao cao muc 6.1), nen thieu tien
+# KHONG chan nguoi choi bam decision. Chi dung de chinh ai_chance, dung de dat
+# trong available - dat trong available se khoa decision vinh vien khi AI/nguoi
+# choi het tien, trong khi y thiet ke la "mua duoc bang no".
+# ---------------------------------------------------------------------
+VIE_def_ind_bankrupt = {
+	has_active_mission = bankruptcy_incoming_collapse
+}
+
+# ---------------------------------------------------------------------
+# Q9 = (a). vie_def_ind.3 (xuat khau vu khi) tran 5 lan roi dung.
+# Bien VIE_def_ind_export_count tang 1 moi lan event no.
+# Khong tran thi: level >= 6 tu ~2022, mod chay toi 2035+ -> 13 nam x 0.25 ty
+# = 3.25 ty mien phi, bang 1/10 tong chi Truc 2 (30.25 ty).
+# ---------------------------------------------------------------------
+VIE_def_ind_export_open = {
+	check_variable = { VIE_def_industry_level >= 6 }
+	date > 2021.12.31
+	check_variable = { VIE_def_ind_export_count < 5 }
+}
+
+# ---------------------------------------------------------------------
+# Bien level. Q6 = (a): level song tren focus tree.
+#   +1  VIE_def_industry_law (Phap lenh CNQP, focus)
+#   +1  moi decision D1-D7 va D9 (8 cai). D8 KHONG cong (bao cao muc 2.2)
+#   +2  VIE_military_enterprises_core   (nga re, focus)
+#   +1  VIE_military_enterprises_divest (nga re, focus)
+#   => toi da 11 (Core) hoac 10 (Divest)
+# Mo khoa:
+#   >= 4  nga re Core / Divest
+#   >= 8  capstone VIE_path_self_reliant_deterrence (kem da chon nga re)
+# ---------------------------------------------------------------------
+VIE_def_ind_level_ge_4 = {
+	check_variable = { VIE_def_industry_level >= 4 }
+}
+VIE_def_ind_level_ge_8 = {
+	check_variable = { VIE_def_industry_level >= 8 }
+}
+VIE_def_ind_level_ge_2 = {
+	check_variable = { VIE_def_industry_level >= 2 }
+}
+
+# ---------------------------------------------------------------------
+# Capstone can "da chon nga re". Core va Divest mutually_exclusive nen chi mot
+# trong hai co ton tai; kiem tra ca hai.
+# ---------------------------------------------------------------------
+VIE_def_ind_fork_chosen = {
+	OR = {
+		has_completed_focus = VIE_military_enterprises_core
+		has_completed_focus = VIE_military_enterprises_divest
+	}
+}
+
+# ---------------------------------------------------------------------
+# Capstone con can "Four Nos hoac Non-alignment" (bao cao muc 2.4).
+# Ca hai idea deu da ton tai trong repo.
+# ---------------------------------------------------------------------
+VIE_def_ind_capstone_doctrine = {
+	OR = {
+		has_idea = VIE_four_nos_doctrine_idea
+		has_idea = VIE_non_alignment_policy
+	}
+}

@@ -77,6 +77,10 @@ country_event = {
 			country_exists = CHI
 			NOT = { has_war_with = CHI }
 		}
+		# D-7 (2026-09-30, ghi chu, khong sua): VIE da co claim tren 813 tu dau game
+		# (MD history/states/813-Paracel.txt: add_claim_by = VIE), nen dong nay
+		# thuong la no-op. GIU LAI co y: neu claim bi mat qua hoa uoc/event thi day
+		# la cho lay lai, va add_state_claim len claim da co thi khong sinh loi.
 		add_state_claim = 813
 		set_temp_variable = { wargoal_on = CHI }
 		add_threat_from_wargoal_effect = yes

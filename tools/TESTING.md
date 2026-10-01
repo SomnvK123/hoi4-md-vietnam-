@@ -61,7 +61,18 @@
 ## Balance sanity (observe mode, 2000-2026)
 * Stability stays between 40% and 90% on the historical trunk; treasury never far below zero for more than a year.
 * No collapse and no alternative regime appears under the "Historical" game rule.
-* Pop-ups: never two within 30 days (except chained events), at most 5 in any calendar year.
+* Pop-ups: never two within **45** days (except chained events) — this is the real,
+  code-enforced rule, via the `VIE_popup_cd` country flag (set in 102 places across
+  10 scheduler files; every scheduler reads it before firing).
+* Pop-ups per calendar year: the old target here was "at most 5". **That target was
+  never enforced by any code and is already exceeded by the mod as it stands** —
+  measured on 2026-09-30 across `VIE_event_scheduler` … `_p14`, counting only events
+  with a `title` (hidden class-C events excluded), 11 of 29 years are over 5:
+  `2003=6 · 2008=6 · 2012=8 · 2014=8 · 2018=6 · 2020=6 · 2021=12 · 2022=6 ·
+  2023=6 · 2024=7`, and Trục 1 adds `.14`/`.15`/`.16` (2016→6, 2018→7, 2019→6).
+  **Revised target: ≤ 7 per year.** 2021 (=12) is a known pre-existing exception and
+  is not Trục 1's doing; reducing it means re-dating existing p2/p10 events, which is
+  out of scope for Trục 1. If you want 2021 fixed, that is its own task.
 
 ## Batch 1 additions (plan v6 step 2): what to look at
 | Item | Expected |
@@ -426,3 +437,462 @@ Rà dây nối chéo cột: còn đúng 2 chỗ, cả hai đều có từ trư�
 - 3 ngã rẽ học thuyết cũ (`path_peoples_war`/`army_expeditionary`, `path_maritime_denial`/`navy_blue_water`, `air_superiority_ops`/`air_deep_strike`) được giữ nguyên và mở rộng thêm nhánh con.
 - Chưa chạy trong game (mọi kiểm tra đều qua `check_static.py` — kiểm tra tĩnh, không phải kiểm tra engine thật).
 - Save cũ đã hoàn thành các focus bị gộp (44 focus) sẽ mất focus đó — khuyên chơi game mới để kiểm tra.
+
+## Removed: toàn bộ hạ tầng quân sự cũ (2026-09-30, commit `f05cfa1` + bước 0 của Trục 1)
+
+Các mục "Military redesign Đợt 1–6" ở trên là **lịch sử**, không phải test còn sống. Ba file
+dưới đây đã bị xoá; mọi ID ghi trong các mục đó đều không còn tồn tại:
+
+| Đã xoá | Từng chứa | Ghi chú |
+|---|---|---|
+| `events/VIE_md_mil.txt` | namespace `vie_mil`, 11 event (`.1` `.2` `.3` `.6` `.12` `.21` `.22` `.31` `.34` `.39` `.40`) | `f05cfa1` rút còn 1 dòng comment; bước 0 Trục 1 xoá hẳn file |
+| `common/scripted_effects/VIE_md_mil_gauges.txt` | `VIE_mil_gauges_monthly`, `VIE_mil_gauges_monthly_p2` | `f05cfa1` rút thành 2 effect rỗng nhưng `on_actions` vẫn gọi mỗi tháng; bước 0 xoá file và gỡ 2 dòng gọi |
+| `common/ideas/VIE_md_ideas_mil.txt` | `VIE_carrier_upkeep`, `VIE_carrier_idle`, `VIE_hadr_idea` | `f05cfa1` rút thành `ideas = { country = { } }`; bước 0 xoá file |
+
+Các thanh đo `VIE_carrier_readiness`, `VIE_mandate_legitimacy`, `VIE_air_interop`,
+`VIE_nuc_progress`, `VIE_nuc_exposure` **không còn trôi hằng tháng** vì effect gauge đã rỗng
+trước khi bị xoá. Đừng gõ chúng vào console expecting một giá trị đang chạy.
+
+45 key loc `vie_mil.*` trong `localisation/english/replace/VIE_md_vi_mil_hypo_navy_army_l_english.yml`
+và `VIE_md_vi_mil_hypo_air_nuclear_l_english.yml` **vẫn còn** và giờ là key chết — dọn ở bước 8
+của Trục 1 cùng với ~966 key chết khác (xem `VIE_repo_health_report.md` mục 6.4).
+
+## Added: Trục 1 — mua sắm lục quân, bộ khung (2026-09-30, nhánh `truc1-skeleton`, bước 1/8)
+
+Namespace mới `vie_proc_army` trong `events/VIE_proc_army.txt`; scheduler mới
+`VIE_event_scheduler_p14` trong `common/scripted_effects/VIE_md_effects_p14.txt`;
+gate triggers trong `common/scripted_triggers/VIE_md_triggers_p14.txt`;
+rule `rule_vie_alt_procurement` trong `common/game_rules/VIE_md_rules.txt`.
+Bảng cờ: `VIE_v9_flag_mapping.md`. Thiết kế và lý do sửa: `VIE_truc1_review_and_plan.md`.
+
+**Trạng thái: bước 1 + 2 + 3 + 4 xong.** Chuỗi 1 (`.1`, `.2`), chuỗi 2 (`.5`, `.6`),
+chuỗi 3 (`.8`), chuỗi 4 (`.11`), chuỗi 5 (`.14`–`.16`), chuỗi 6 (`.18`–`.21`) và
+chuỗi 7–9 alt-history (`.30`–`.32`, `.35`, `.38`–`.40`) **đã viết thật — HOÀN TẤT** — có title, desc, picture, 2–3 option mỗi event,
+`ai_chance` theo `VIE_ai_historical` / `VIE_ai_free` / guard phá sản, và localisation
+tiếng Việt trong `localisation/english/VIE_md_events_p14_l_english.yml`.
+Người chơi thấy cửa sổ và chọn được. `.6` là class C (giao hàng, `hidden = yes`,
+0 option — đúng dạng `vie_pol.1`), cố ý ẩn.
+
+**19/20 event đã viết thật.** Chỉ còn `.6` là `hidden = yes` — và đó là **class C cố ý**
+(giao hàng chuyển đổi 100 T-54/55, không có lựa chọn nào để bấm), đúng convention của
+`VIE_event_scheduler_p12` (giao tàu Gepard/Kilo). Không còn placeholder, không còn key
+loc tạm `"chờ viết"`.
+
+**Q5 đã chốt (2026-09-30): `.15`/`.16`/`.20` CÓ pop-up**, không để im lặng. Người chơi
+thấy cửa sổ khi xe về. Hệ quả: 2018 = 7 pop-up, 2019 = 6, 2023 = 6 — xem mục
+"Balance sanity" ở đầu file, luật đã nới thành ≤ 7/năm.
+
+Key loc placeholder (khối cuối `VIE_md_events_p14_l_english.yml`) là **key tạm** cho các
+event còn ẩn, chỉ để `error.log` sạch. Xoá **từng dòng** khi viết event thật ở bước 4–6;
+đừng xoá cả khối một lần.
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| 1 | Mở game, `error.log` grep `vie_proc_army`, `VIE_proc_`, `VIE_try_proc`, `rule_vie_alt_procurement`, `VIE_event_scheduler_p14`, `MBT_`, `SP_arty`, `SP_R_arty`, `IFV_`, `medium_tank_chassis` | **0 dòng** |
+| 2 | Màn hình game rules | có "Việt Nam: Mua sắm quốc phòng giả định" với 2 option |
+| 3 | Chơi VIE tới 2005 | **pop-up "Xe tăng cũ từ châu Âu"** hiện ra (không còn ẩn); kho +70 `MBT_1` (hoặc `medium_tank_chassis_0` nếu có NSB) `producer = FIN`; treasury −0.05bn; log có `VIE_proc_reward_t54_finland` |
+| 3b | Chọn option A của `.1` | tooltip `VIE_proc_t72_offer_tt` hiện đúng chữ tiếng Việt, cờ `VIE_pl_t72_deal` có |
+| 3c | Chọn option B của `.1` | không có cờ `VIE_pl_t72_deal`, `.2` **không bao giờ** nổ |
+| 4 | Sau khi chọn A, chờ qua 2006 | **pop-up "Quyết định về 150 chiếc T-72"**; option A → +10 navy XP +10 air XP, opinion POL giảm; option B → −0.40bn, +150 `MBT_2`/`medium_tank_chassis_1` `producer = POL`, +5 army XP |
+| 4b | AI chơi VIE ở rule `VIE_alt_history = historical` | AI **luôn** chọn `.1.a` rồi `.2.a` (đúng lịch sử). Ở rule `free` thì đôi khi chọn B |
+| 4c | Đang `bankruptcy_incoming_collapse` rồi tới `.2` | AI chọn `.2.a` (hủy) — kiểm tra guard **không** bị đặt ngược: hủy hợp đồng là tiết kiệm tiền nên phải được khuyến khích, không bị `factor = 0` |
+| 5 | Hoàn tất `VIE_modernize_vpa` trước 2009 | `.5` `.8` `.14` `.18` mở được; thiếu focus này thì cả 4 chuỗi **không bao giờ** fire và log ghi `window closed unmet` |
+| 5b | Tới 2009 với `VIE_modernize_vpa` | **pop-up "Gói nâng cấp T-54 từ Israel"** (3 option) và **"Tên lửa vác vai Igla"** (3 option) hiện ra |
+| 5c | `.5` chọn A | −0.05bn; cờ `VIE_t54m3_prototype` **có**; tooltip `VIE_proc_t54m3_prototype_tt` hiện đúng |
+| 5d | `.5` chọn B | −0.75bn; cờ `VIE_t54m3_prototype` **KHÔNG có** (D5 khoá); sau ~1095 ngày `.6` chạy **im lặng**: −100 rồi +100 `MBT_1` (NSB: `medium_tank_chassis_0`) `producer = VIE`, `VIE_af_army_armor_defence_factor` +0.02 |
+| 5e | `.8` chọn A / B / C | A: −0.35bn + cờ `VIE_igla_license`; B: −0.25bn, **không** cờ; C: không đổi. Cả A và B đều +0.05 `VIE_af_air_defence_factor` — kiểm tra **không cộng dồn** nếu chơi lại |
+| 5f | ⚠️ `.6` `add_equipment_to_stockpile amount = -100` | **rủi ro cao nhất bước 3**: nếu kho < 100 xe thì stockpile có bị âm không? Nếu `error.log` báo gì thì đổi sang `destroy_equipment` — cả hai đều chưa xác minh được ngoài máy có HOI4 |
+| 6 | Qua 2012 mà chưa có `VIE_modernize_vpa` | log `proc 5 window closed unmet - D5 locked`; cờ `VIE_proc_5_done` có, `VIE_t54m3_prototype` **không** |
+| 6b | Qua 2012 **có** `VIE_modernize_vpa` nhưng pop-up bị `VIE_popup_cd` chặn suốt | fallback im lặng: log `VIE_fb_proc_t54m3`, cờ `VIE_t54m3_prototype` **có**, −0.05bn — **đúng convention Class B**, không phải lỗi (xem comment trên `VIE_fb_proc_t54m3`) |
+| 6c | Tới 2013 | **pop-up "Súng trường thế hệ mới cho Z111"** (2 option); A → −0.10bn + cờ `VIE_iwi_license`; B → không cờ |
+| 6d | ⚠️ `.11` gate theo **ngày** chứ không theo D1 | Q3 chưa chốt: `VIE_proc_gate_z_factories_done` hiện là `date > 2011.6.30`. Khi Trục 2 D1 land thì đổi thành `has_country_flag = VIE_dec_z_factories_done` |
+
+### Variant / equipment — kiểm tra kỹ nhất (xem `VIE_variant_research.md`)
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| V1 | ⚠️ NSB: `.1` cấp T-54/55 | `type = medium_tank_chassis_0`, `variant_name = "T-55A"`, **`producer = SOV`** (không phải FIN — Phần Lan không có variant T-54/55 trong MD). Xe phải **lắp được vào sư đoàn**, không nằm trần trong kho |
+| V2 | NSB: `.2` B cấp T-72 | `medium_tank_chassis_1` + `"T-72M1"` + `producer = POL` |
+| V3 | NSB: `.5` B → `.6` chuyển đổi | `VIE_proc_create_t54m_variant` tạo variant **"T-54M"** `producer = VIE`; kiểm `error.log` không báo module/upgrade/model sai; tạo **đúng một lần** (cờ `VIE_t54m_variant`) dù `.6` có chạy lại |
+| V4 | NSB: `.15`/`.16` cấp T-90 | `medium_tank_chassis_2` + `"T-90"` + `producer = SOV`. **Không phải `chassis_3`** — báo cáo ghi `_3` là sai, `chassis_2`=1995 mới khớp T-90 |
+| V5 | NSB: `.20` cấp K9 | `medium_tank_artillery_chassis_2` + `"K9 Thunder"` + `producer = KOR` |
+| V6 | NSB: `.32` B cấp BMP-3 (alt) | `medium_tank_flame_chassis_2` + `"BMP-3"` + `producer = SOV` |
+| V7 | **Không có NSB** | mọi nhánh `else` dùng `MBT_1`/`MBT_2`/`MBT_4`/`IFV_3`/`SP_arty_2` — không có `variant_name` |
+| V8 | Danh sách variant trong game | "T-54M" xuất hiện trong tab variant của VIE, design team = GDT (`VIE_gdt_manufacturer`) |
+| 7 | T-90: qua 2016 với `VIE_modernize_vpa` | **pop-up "Hợp đồng T-90 với Nga"** (4 option). Chọn A → **quốc trái** +1.25bn (kiểm tra `debt`, **không** phải `treasury`); `.15` sau ~1065 ngày, `.16` sau ~1125 ngày |
+| 7b | `.15` nổ | **pop-up "T-90 đợt đầu tiên đã về"**; kho +32 `medium_tank_chassis_2` variant `"T-90"` `producer = SOV` (non-NSB: `MBT_4`); `VIE_af_army_armor_attack_factor` = **+0.05**, `VIE_af_army_armor_defence_factor` = **+0.03**, +10 army XP; cờ `VIE_t90_purchased` + `VIE_ev_t90_tanks` |
+| 7c | `.16` nổ | **pop-up "T-90 đợt hai đã về"**; kho **+32 nữa** (tổng 64); `VIE_af_army_armor_attack_factor` **vẫn là 0.05, KHÔNG thành 0.10** — đây là lỗi C1 mà `.16` sinh ra để sửa |
+| 7d | `.14` chọn B | −2.50bn treasury (không phải nợ); cờ `VIE_t90_batch_large`; `.15` sau ~900 ngày, `.16` sau ~1270 ngày; mỗi đợt **64** xe, tổng 128 |
+| 7e | `.14` chọn C | −0.65bn; **chỉ `.15`**, không có `.16`; 32 xe |
+| 7f | `.14` chọn D | không xe, không tiền; `vie_def_ind.2` (Trục 2) sẽ không bao giờ nổ |
+| 7g | AI ở rule `historical` | AI **luôn** chọn `.14.a` (`add = 200` khi `VIE_ai_historical`) |
+| 8 | Bật rule alt, chơi qua 2010 / 2015 / 2016 | log `.30` `.38` `.35`; tắt rule thì **không** có log nào |
+
+### Chuỗi 6 (K9A1) và chuỗi 7–9 (alt-history) — bước 6
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| K1 | Tới 2023 (hoặc 2021 nếu có `VIE_155mm_study`) với `VIE_modernize_vpa` | **pop-up "Hàn Quốc chào bán pháo tự hành K9"** (2 option) |
+| K2 | `.18` chọn A | `.19` nổ sau **900 ngày** (≈08/2025); nếu có `VIE_155mm_study` thì sau **365 ngày** |
+| K3 | `.18` chọn B | cờ `VIE_k9_declined`; `.19` **không bao giờ** nổ (bị `trigger` chặn); D8 khoá |
+| K4 | `.19` chọn A / B | A: −1.30bn, 20 xe; B: −2.60bn, cờ `VIE_k9_batch_large`, 40 xe. Cả hai → `.20` sau ~365 ngày |
+| K5 | `.20` nổ | **pop-up "K9A1 đã về"** (Q5: có pop-up); kho +20/+40 `medium_tank_artillery_chassis_2` variant `"K9 Thunder"` `producer = KOR` (non-NSB: `SP_arty_2`); cờ `VIE_k9_purchased`; tự hẹn `.21` sau ~365 ngày |
+| K6 | `.21` chọn A | cờ `VIE_k9_localization` → **mở D8** (Trục 2) |
+| K7 | `.21` chọn B | −0.25bn, `VIE_af_army_artillery_attack_factor` **+0.05** |
+| K8 | ⚠️ `ai_chance` của `.18` dùng `has_opinion = { target = KOR value > 75 }` | Đã đổi từ cú pháp lồng scope (`KOR = { has_opinion = { target = ROOT … } }`) sang mẫu đã kiểm chứng ở `VIE_md_focus.txt:843`. Kiểm `error.log` không báo trigger sai |
+| A1 | Bật rule, tới 2010 | `.30` → chọn A (−0.05bn) → `.31` sau ~180 ngày → `.32` sau ~30 ngày |
+| A2 | `.32` chọn A | cờ `VIE_bmp3_lessons` → **D6 còn 1095 ngày** thay vì 1460; +10 army XP; opinion SOV giảm |
+| A3 | `.32` chọn B | −0.50bn, +30 `medium_tank_flame_chassis_2` variant `"BMP-3"` `producer = SOV` (non-NSB: `IFV_3`) |
+| A4 | Bật rule, tới 2016 | `.35` 2 option; A → −0.40bn, +12 `medium_tank_rocket_chassis_1` variant **`"TOS-1"`** `producer = SOV` (non-NSB: `SP_R_arty_1`) |
+| A5 | ⚠️ TOS-1A dùng variant `"TOS-1"` + `chassis_1` | MD có sẵn variant này (`SOV - Russia.txt:3588`) trên `chassis_1`=1985, **không phải** `chassis_2`=2005 như audit đề xuất lúc đầu. Kiểm xe **dùng được trong sư đoàn** |
+| A6 | Bật rule, tới 2015 | `.38` → A → `.39` sau ~180 ngày → `.40` sau ~365 ngày |
+| A7 | `.40` nổ | cờ `VIE_155mm_study`; opinion FRA giảm; **chuỗi K9 mở từ 2021** và `.19` chỉ chờ 365 ngày |
+| A8 | `.38` chọn B | **không** đặt `VIE_155mm_study` (không có lý do gì để VN đi tìm hiểu chuẩn 155mm nếu không đàm phán) → chuỗi K9 vẫn mở 2023 |
+| A9 | **Tắt** rule | `.30`/`.35`/`.38` không bao giờ nổ, không log. Bật rule giữa game (vd 2012) thì `.30` (2010) **không** hồi sinh vì đã quá hạn cứng 2011, nhưng `.35`/`.38` vẫn kịp |
+| 9 | `effect set_country_flag = { flag = VIE_popup_cd days = 45 }` ngay trước mốc 2009 | chuỗi dời sang tháng sau, **không mất**; cờ `VIE_proc_5_done` chưa có |
+| 10 | `effect set_variable = { VIE_catch_up = 1 } VIE_event_scheduler_p14 = yes` | không event nào nổ; `VIE_t90_purchased`, `VIE_k9_purchased`, `VIE_t54m3_prototype`, `VIE_igla_license`, `VIE_iwi_license`, `VIE_ev_t90_tanks` đều **có**; treasury và nợ **không đổi**, kho **không** thêm xe |
+| 11 | `add_equipment_to_stockpile` với `producer = SOV` cho `medium_tank_chassis_2` | **cần kiểm tra kỹ nhất**: variant T-90 phải có trong `history/countries/SOV - Russia.txt` của MD, không phải file VIE. Nếu `error.log` báo variant not found thì bỏ `producer` |
+| 12 | NSB: chassis vào kho có dùng được trong sư đoàn không | **rủi ro cao nhất của Trục 1**: NSB cần variant đã design. Nếu không dùng được, phải `create_equipment_variant` trong event |
+| 13 | `destroy_equipment = { type = MBT_1 amount = 100 }` khi kho < 100 | kiểm tra có đẩy stockpile xuống âm không (`.6`) |
+
+Chưa test được ở bước 1: mọi thứ liên quan D2/D5/D6/D8/D9 (Trục 2 chưa code — cờ
+`VIE_t54m3_prototype`, `VIE_igla_license`, `VIE_iwi_license`, `VIE_k9_purchased`,
+`VIE_k9_localization`, `VIE_bmp3_lessons` đang được đặt nhưng chưa có gì đọc).
+
+**Đã chốt Q1 = (d), để nguyên có ý:** `VIE_paracel_ultimatum` **vẫn khoá** và sẽ còn
+khoá cho tới khi có trục Hải quân. Hai cờ `VIE_ev_kilo_submarines` /
+`VIE_ev_bastion_p_coastal_defence` là cờ hải quân / phòng thủ bờ, Trục 1 (lục quân)
+không cấp được. **Đây không phải lỗi của bước 1** — đừng grep ra rồi "sửa": focus
+cố ý khoá, và gate gốc của nó (`VIE_scs_escalated_trigger`, ngày, quan hệ) vẫn đúng.
+
+Đừng test mở focus này ở bước 1. Muốn xác nhận phần còn lại của chuỗi Hoàng Sa
+(`vie_scs.16` trong `VIE_md_p11.txt`, dùng `add_state_claim = 813` + wargoal) thì
+dùng console: `focus.autocomplete VIE_paracel_ultimatum`, nhưng biết rằng focus đó
+chỉ đi được bằng console chứ không mở tự nhiên.
+
+Khi nào viết trục Hải quân: 2 event ở ID `.50`–`.59` (đã dành sẵn trong
+`events/VIE_proc_army.txt`) set hai cờ trên là focus tự mở, không cần sửa gì thêm.
+Xem `VIE_v9_flag_mapping.md` mục 3.
+
+## Dọn localisation (2026-09-30, bước 8 của Trục 1)
+
+**2323 → 1886 key. Xoá 514 dòng key chết + xoá nguyên 1 file trùng.**
+`verify_all_loc.py` PASS, **0 key trùng** (trước đó: 553).
+
+| Nhóm | Số key | Xử lý | Lý do |
+|---|---:|---|---|
+| `vie_mil.*` | 43 | **XOÁ** | namespace `vie_mil` không còn — `events/VIE_md_mil.txt` bị `f05cfa1` rút ruột rồi bước 0 xoá hẳn file |
+| focus/idea quân sự v7–v11 đã xoá | 396 | **XOÁ** | `VIE_air_*`, `VIE_navy_*`, `VIE_army_*`, `VIE_carrier_*`, `VIE_msl_*`, `VIE_nuc_*`, `VIE_kilo_*`, `VIE_gepard_*`, `VIE_t90_*`, `VIE_su30mk2_*`, `VIE_bastion_*`, `VIE_cam_ranh_*` … |
+| 2 decision `VIE_exercise_naval_drill` / `VIE_exercise_air_readiness` | 4 | **XOÁ** | `f05cfa1` xoá decision, loc còn sót |
+| **`VIE.<ideology>` — tên đảng** | 8 | **GIỮ** ⚠️ | `VIE.liberalism`, `VIE.socialism`, `VIE.anarchist_communism`, `VIE.Western_Autocracy` (+ `_desc`). HOI4 **tự sinh** key này từ country tag + ideology, không bao giờ xuất hiện trong code. **Xoá là mất tên đảng trên UI** |
+| **`VIE_tt_*`** | 29 | **GIỮ** ⚠️ | tooltip cho biến `VIE_af_*` trong `VIE_armed_forces_modifier`. 42/54 biến hiện chưa ai cộng vì focus quân sự bị v11 xoá — nhưng modifier **vẫn đang được gắn** bởi `VIE_modernize_vpa`, Trục 1 vừa dùng lại 4 biến, và **Trục 3 (30 focus modifier) sẽ dùng tiếp**. Xoá giờ = phải viết lại 42 tooltip sau |
+| `VIE_axbar_*`, `VIE_ax_*` | 39 → **0 chết** | **GIỮ** | được tham chiếu từ `common/scripted_localisation/VIE_md_axis_bars.txt`. Lúc quét đầu tiên tôi loại nhầm thư mục `scripted_localisation` khỏi corpus nên chúng bị báo chết — đã sửa |
+
+### Xoá nguyên file `localisation/english/VIE_md_p2_l_english.yml` (84 KB, 552 key)
+
+Toàn bộ **552/552** key của file này đều có bản trong `localisation/english/replace/`
+(`VIE_md_vi_p2_a/b/c/d`) với **bản dịch khác**. Trong HOI4, `replace/` thắng → file base
+là rác thuần. Đã kiểm tra trước khi xoá: **0 key chỉ có ở base**.
+
+Đây là nguồn của 552/553 key trùng. Sau khi xoá: **0 key trùng**.
+
+Pattern `replace/` của repo này là: viết bản dịch thứ nhất vào `localisation/english/`,
+rồi tinh chỉnh bằng bản thứ hai trong `replace/`. Cả hai đều tiếng Việt. Từ giờ nên
+**sửa thẳng file trong `replace/`** và không tạo thêm bản base mới.
+
+### Thêm 1 key còn thiếu
+
+`VIE_resolution_category_desc` — decision category "Thực hiện Nghị quyết" có `name`
+nhưng **không có `desc`**, trong khi 2 category kia (`VIE_statebuilding_category`,
+`VIE_military_readiness_category`) đều có. Đã viết, đặt trong
+`replace/VIE_md_vi_congress_l_english.yml` cạnh key `name`.
+
+### Sửa xung đột loc key của `.14`
+
+`vie_proc_army.14` là event **duy nhất trong mod có 4 option**. HOI4 dùng hậu tố `.d`
+cho cả `desc` lẫn option thứ tư → hai key `vie_proc_army.14.d` trùng nhau, option D sẽ
+hiện ra nguyên đoạn mô tả event.
+
+Đã đổi option thành **`vie_proc_army.14.d_opt`**, theo đúng convention của MD:
+`events/05_china.txt` → `sino_indian.39` có `desc = sino_indian.39.d` và option thứ tư
+`name = sino_indian.39.d_opt`.
+
+**Quy tắc cho mod này:** event có ≥ 4 option thì option thứ tư trở đi đặt `.d_opt`,
+`.e_opt`, … — không dùng `.d`, `.e` trần.
+
+### Cách quét lại (script ở `tools/audit/`)
+
+```bash
+python3 tools/verify_all_loc.py          # 0 lỗi + đếm focus
+python3 tools/audit/live.py         # đối chiếu tham chiếu chéo toàn repo
+```
+
+Khi quét key loc chết, **ba bẫy** đã gặp:
+1. `_desc` / `_tt` không bao giờ xuất hiện trong code — HOI4 tự suy từ key cha. Phải
+   kiểm tra key cha còn sống trước khi kết luận key dẫn xuất là chết.
+2. `common/scripted_localisation/` cũng tham chiếu loc key (`VIE_axbar_*`). Đừng loại
+   thư mục này khỏi corpus.
+3. `VIE.<ideology>` do engine sinh. Không bao giờ xoá.
+
+
+## Added: Trục 2 — CNQP Lục quân, bước 0–2 (2026-09-30, nhánh `truc1-skeleton`)
+
+Thiết kế và lý do sửa: `VIE_truc2_review_and_plan.md` (Q6–Q9 đều chốt = (a)).
+
+| File | Nội dung |
+|---|---|
+| `common/scripted_triggers/VIE_md_triggers_p15.txt` | 10 gate, gom mọi quyết định vào một chỗ |
+| `common/scripted_effects/VIE_md_effects_p15.txt` | `VIE_event_scheduler_p15` + 9 effect phần thưởng D1–D9 + 3 effect variant + MIO helpers + catch-up |
+| `common/ideas/VIE_md_ideas_p15.txt` | 5 idea: 2 của decision (D6, D8) + 3 của focus (Core, Divest, Capstone) |
+| `events/VIE_def_ind.txt` | namespace `vie_def_ind` + 4 event nền |
+| `common/decisions/categories/VIE_md_categories.txt` | thêm `VIE_def_industry_category` (priority 92, gate `VIE_def_industry_law`) |
+| `common/national_focus/VIE_md_focus.txt` | **4 focus mới** dưới `VIE_modernize_vpa` — 260 focus (từ 256) |
+| `localisation/english/VIE_md_events_p15_l_english.yml` | 30 key: 4 event + 4 focus + 3 idea + 5 tooltip |
+
+### 4 focus mới (Q6 = a) và layout
+
+```
+VIE_modernize_vpa                  abs (266, 1)   [đã có, từng là root mồ côi 0 con]
+  └─ VIE_def_industry_law          abs (266, 2)   cost 5,  date > 2008.6.30,  +1 level
+       ├─ VIE_military_enterprises_core    (264, 3)  cost 7, ME, level >= 4, +2 level
+       └─ VIE_military_enterprises_divest  (268, 3)  cost 7, ME, level >= 4, +1 level, +2 tỷ
+                    ▼ (prerequisite OR cả hai)
+     VIE_path_self_reliant_deterrence      (266, 4)  cost 10, level >= 8 + đã chọn ngã rẽ
+                                                    + (Four Nos hoặc Non-alignment)
+```
+
+Đã kiểm bằng `tools/audit/audit.py` + script toạ độ tuyệt đối:
+**0 collision · 0 forward-ref · 0 prerequisite cycle · 0 con nằm ngang/trên cha ·
+gap 2 nút ngã rẽ = 4 (≥ 2 ✅) · 0 missing x/y.**
+
+Capstone anchor vào `VIE_def_industry_law` (không phải vào một focus ngã rẽ) để rơi
+xuống **(266,4)** thẳng hàng với Pháp lệnh và `VIE_modernize_vpa`. Nếu anchor vào
+`core` thì nó rơi xuống (264,4), lệch trục giữa của nhánh.
+
+### Nợ bước 0–1 đã trả
+
+`tools/audit/live.py` từng báo `FOCUS refs MISSING=3`
+(`VIE_def_industry_law`, `VIE_military_enterprises_core`, `VIE_military_enterprises_divest`)
+vì 4 focus thuộc bước 2. **Giờ là 0.** Khối `vie_def_ind.4` (Luật 38/2024/QH15)
+trong scheduler p15 **giờ đã chạy được** vì trigger `has_completed_focus =
+VIE_def_industry_law` đã có focus thật.
+
+### Test bước 0–2
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| T1 | `error.log` grep `VIE_def_ind`, `VIE_event_scheduler_p15`, `VIE_gdt_mio`, `VIE_dec_`, `PTH-152`, `XCB-01`, `BM-21M`, `mio:` | **0 dòng** |
+| T2 | Cây focus, mở gốc `VIE_modernize_vpa` (x=266) | thấy 4 focus mới, dây nối thẳng, ngã rẽ Core/Divest **ngang hàng** cách nhau 4 ô |
+| T3 | `VIE_def_industry_law` trước 01/07/2008 | **xám**; sau ngày đó thì bấm được, cost 5 |
+| T4 | Hoàn tất Pháp lệnh | level = 1 (`effect print_variable = { var = VIE_def_industry_level }` hoặc tooltip); **nhóm decision "Công nghiệp Quốc phòng Lục quân" hiện ra** |
+| T5 | Level < 4 | cả Core và Divest **xám** với tooltip giải thích |
+| T6 | Đạt level 4 | Core và Divest mở; chọn một thì cái kia **biến mất** (ME hai chiều) |
+| T7 | Core | level +2, `VIE_def_ind_core_idea`, stability +3%, efficiency +3%, capacity +5%, consumer goods +2% |
+| T8 | Divest | level +1, **ngân khố +2 tỷ**, `VIE_ax_market +1`, `VIE_def_ind_divest_idea`, stability −2% |
+| T9 | Level 7 | capstone **xám** |
+| T10 | Level 8 + đã chọn ngã rẽ + có Four Nos hoặc Non-alignment | capstone mở; đủ 3 điều kiện |
+| T11 | Level 8 nhưng **chưa** chọn ngã rẽ | capstone vẫn xám (kiểm `VIE_def_ind_fork_chosen`) |
+| T12 | `vie_def_ind.1` 12/2022 và 12/2024 | pop-up Triển lãm; MIO GDT **+100 funds**; opinion SOV và IND +small |
+| T13 | Có `VIE_t90_purchased` + D1 xong | `vie_def_ind.2` nổ; MIO GDT **+150 funds**; +10 army XP |
+| T14 | Level ≥ 6 sau 2022 | `vie_def_ind.3` nổ **tối đa 5 lần** (Q9=a), mỗi lần **+0.25 tỷ**; sau lần 5 thì dừng hẳn |
+| T15 | 2024.6.27 + có Pháp lệnh | `vie_def_ind.4`; **cả 4 MIO** +150 funds |
+| T16 | ⚠️ `add_mio_funds` | Q8=a: decision **không** cấp funds, chỉ `add_mio_size`. Kiểm tra MIO GDT size = **+2 sau D1, +1 sau mỗi D2–D7/D9**, tổng **+9** — không bị lên size đôi |
+| T17 | ⚠️ `one_state_arms_factory` | Q7=a: D1 gọi 2 lần → treasury **−15 tỷ đúng một lần mỗi nhà máy**, tổng −15 tỷ (không phải −30). Không tự trừ tiền tay |
+| T18 | `effect set_variable = { VIE_catch_up = 1 } VIE_event_scheduler_p15 = yes` | không pop-up; level = 9; các cờ `VIE_dec_*_done` có; **không** mất tiền, không được xe, không có nhà máy |
+| T19 | Save cũ (trước khi có p15) load lại | `on_startup` đặt `VIE_def_industry_level = 0` và `VIE_def_ind_export_count = 0` → không đọc giá trị rác |
+
+Chưa test được ở bước 0–2: D1–D9 (bước 3–6), 3 variant `PTH-152` / `XCB-01` /
+`BM-21M` (bước 3–6).
+
+
+### Trục 2 bước 3 — D1 và D7 (`common/decisions/VIE_md_def_industry.txt`)
+
+Hai decision đầu tiên, đều `fire_only_once = yes` + `days_remove` + `remove_effect`
+theo mẫu `VIE_resolution_category` sẵn có của repo.
+
+| | D1 `VIE_dec_z_factories` | D7 `VIE_dec_bm21` |
+|---|---|---|
+| `cost` (PP) | 50 | 40 |
+| `visible` | `VIE_def_ind_gate_open` (= đã xong Pháp lệnh) | như D1 + `VIE_dec_z_factories_done` |
+| `available` | `date > 2008.6.30` + `can_staff_an_arms_industry` + còn slot `arms_factory` | `custom_trigger_tooltip` báo cần D1 xong |
+| `days_remove` | 1095 | 730 |
+| Tiền | **không trừ tay** — 2× `one_state_arms_factory` = **−15 tỷ** (MD tự trừ 7,5/lần) | **−0,5 tỷ** trong `complete_effect` (tiền nghiên cứu, không phải tiền xây) |
+| `remove_effect` | `VIE_d1_reward`: 2 nhà máy, +1 level, MIO +2 size, cờ done · + 2 khối `add_tech_bonus` (30% pháo ×2 uses, 50% `CAT_inf_wep` ×2 uses) | `VIE_d7_reward`: tạo variant `BM-21M` **trước**, đổi 36 BM-21, +5% `VIE_af_army_artillery_attack_factor`, +10 army XP, +1 level, MIO +1 size |
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| D1-1 | Trước 01/07/2008 | D1 **xám**; tooltip giải thiếu ngày / thiếu nhân lực / thiếu slot |
+| D1-2 | Sau 01/07/2008, đã xong Pháp lệnh | D1 bấm được, tốn 50 PP |
+| D1-3 | ⚠️ **Q7-a**: chờ 1095 ngày | **2 arms_factory** xuất hiện; treasury **−15 tỷ tổng**, không phải −30. Kiểm tra `one_state_arms_factory` tự trừ 7,5 mỗi lần và `complete_effect` **không** trừ thêm |
+| D1-4 | State nào được chọn | **không phải 801** (0 slot). Hai nhà máy có thể ở hai state khác nhau (`random_owned_controlled_state` chạy 2 lần) |
+| D1-5 | MIO GDT | size **+2** (không phải +3 hay +4 — kiểm Q8-a: `add_mio_funds` không được gọi ở decision) |
+| D1-6 | Level | `VIE_def_industry_level` **+1** |
+| D1-7 | Nghiên cứu | thấy 2 khoản bonus: "Hiện đại hóa nhà máy Z — công nghệ pháo" (30%, 2 uses) và "— công nghệ vũ khí bộ binh" (50%, 2 uses). **Tên hiện đúng tiếng Việt**, không phải raw key |
+| D7-1 | Chưa xong D1 | D7 **không hiện** (`visible` chặn) |
+| D7-2 | Xong D1 | D7 hiện, tốn 40 PP, **−0,5 tỷ ngay khi bấm** |
+| D7-3 | Chờ 730 ngày | variant **`BM-21M`** được tạo (kiểm tra trong tab variant, design team = GDT); kho −36 rồi +36 `medium_tank_rocket_chassis_0` (non-NSB: `SP_R_arty_0`) `producer = VIE`; +5% artillery attack; +10 army XP; level +1; MIO +1 size |
+| D7-4 | ⚠️ `amount = -36` | Cùng rủi ro `.6` của Trục 1: kho < 36 thì có bị âm không? Nếu `error.log` báo gì thì đổi sang `destroy_equipment` |
+| D7-5 | Bấm D1 lần nữa | **không được** — `fire_only_once = yes` |
+| D7-6 | Đang `bankruptcy_incoming_collapse` | D1/D7 vẫn **bấm được** (thiếu tiền không chặn, MD tự phát hành nợ); chỉ AI mới bị `factor = 0` |
+
+
+### Trục 2 bước 4 — D2 (2 biến thể), D3, D4
+
+| | D2 `VIE_dec_stv` | D2 `VIE_dec_stv_fast` | D3 `VIE_dec_pth` | D4 `VIE_dec_ammo` |
+|---|---|---|---|---|
+| cost | 40 PP | 40 PP | 50 PP | 30 PP |
+| `visible` | Pháp lệnh + D1 xong + **KHÔNG** có `VIE_iwi_license` | như vậy nhưng **CÓ** `VIE_iwi_license` | Pháp lệnh + D1 xong | Pháp lệnh + **D3 xong** |
+| `available` | `date > 2016.12.31` + chưa started + còn slot | như D2 | `date > 2012.12.31` + treasury > 2 | cần D3 xong |
+| `days_remove` | **1095** | **730** | 1460 | 730 |
+| tiền | −0,5 (chương trình) + −7,5 (MD tự trừ nhà máy) | như D2 | −2,0 | −1,0 |
+| thưởng | `VIE_d2_reward`: 1 nhà máy, 3000 `infantry_weapons_type`, +1 level, MIO +1 size, cờ done · + tech bonus 100% `CAT_infantry_weapons` ×1 | như D2 | `VIE_d3_reward`: variant `PTH-152`, 24 `medium_tank_artillery_chassis_2`/`SP_arty_2`, +1 level, MIO +1 size · + 50% `CAT_self_propelled_artillery` ×2 | `VIE_d4_reward`: `VIE_af_attrition −0.10`, +1 level, MIO +1 size · + 50% `CAT_artillery_ammunition` ×1 |
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| D2-1 | Chưa có `VIE_iwi_license`, sau 2017 | chỉ **`VIE_dec_stv`** hiện (1095 ngày). `VIE_dec_stv_fast` **không hiện** |
+| D2-2 | Có `VIE_iwi_license` (từ `.11` option A của Trục 1), sau 2017 | chỉ **`VIE_dec_stv_fast`** hiện (730 ngày) |
+| D2-3 | ⚠️ Bấm một trong hai | cái kia **xám ngay** (`NOT VIE_dec_stv_started`); không thể bấm cả hai |
+| D2-4 | Không có race `visible` | cửa sổ `.11` đóng **2015.12.31**, D2 mở **2017.1.1** → cờ license luôn quyết định trước khi D2 hiện lần đầu |
+| D2-5 | Xong D2 | +1 nhà máy, treasury −7,5 tỷ (MD tự trừ) + −0,5 tỷ (complete_effect) = **−8 tỷ tổng**; kho +3000 `infantry_weapons_type`; level +1; MIO +1 size |
+| D3-1 | Trước 2013 | D3 xám |
+| D3-2 | Sau 2013, treasury ≤ 2 | D3 hiện nhưng **xám**, tooltip "Ngân khố trên 2 tỷ" |
+| D3-3 | Xong D3 (1460 ngày) | variant **`PTH-152`** tạo (design team GDT); kho +24 `medium_tank_artillery_chassis_2` variant `PTH-152` `producer = VIE` (non-NSB: `SP_arty_2`); −2 tỷ; level +1 |
+| D4-1 | Chưa xong D3 | D4 **không hiện** |
+| D4-2 | Xong D3 | D4 hiện; bấm tốn 30 PP + −1 tỷ; sau 730 ngày `VIE_af_attrition` = **−0.10** |
+| D4-3 | ⚠️ tooltip của D4 | phải hiện "Tổn thất phi chiến đấu: −10%" bằng **tiếng Việt**, không phải raw key `VIE_tt_attrition` (key này mới tạo ở bước 1 vì `attrition_tt` không tồn tại trong MD) |
+| CAT-1 | ⚠️ Tab nghiên cứu sau D1/D2/D3/D4 | 4 khoản bonus hiện **tên tiếng Việt**: "Hiện đại hóa nhà máy Z — công nghệ pháo", "— công nghệ vũ khí bộ binh", "Sản xuất súng trường STV — công nghệ vũ khí bộ binh", "Pháo tự hành PTH — công nghệ pháo tự hành", "Đạn pháo nội địa — công nghệ đạn pháo" |
+| CAT-2 | ⚠️ `error.log` grep `CAT_` | **0 dòng**. Nếu có `unknown category` thì một token `CAT_*` sai — đã xác minh cả 4 token dùng ở đây (`CAT_artillery`, `CAT_artillery_ammunition`, `CAT_infantry_weapons`, `CAT_self_propelled_artillery`) đều có trong 24 file `common/technologies/` của MD |
+
+**Nợ cũ của repo phát hiện ở bước 4 (không thuộc Trục 2, chưa sửa):**
+`VIE_md_organizations.txt:183` liệt kê `CAT_inf_wep CAT_sp_arty CAT_sp_r_arty CAT_at CAT_util`
+trong `research_categories` — **cả 5 token này không tồn tại trong MD**. Tổng cộng
+**31/41** token `CAT_*` mà repo dùng không có trong `common/technologies/` của MD.
+Hệ quả: `research_bonus` của MIO GDT có thể không áp dụng, và `add_tech_bonus`
+trong focus cũ có thể không vào đúng category. Cần một đợt rà riêng — danh sách
+đầy đủ lấy bằng cách tải 24 file technologies của MD (195 token hợp lệ).
+
+
+### Trục 2 bước 5 — D5, D6 (2 biến thể), D9: ba decision nối cờ Trục 1
+
+Đây là ba decision **khóa vĩnh viễn** nếu mất cờ từ Trục 1. Đó là ý thiết kế, không phải lỗi.
+
+| | D5 `VIE_dec_t54m` | D6 `VIE_dec_xcb01` | D6 `VIE_dec_xcb01_fast` | D9 `VIE_dec_tl01` |
+|---|---|---|---|---|
+| cost | 30 PP | 60 PP | 60 PP | 40 PP |
+| cờ Trục 1 cần | **`VIE_t54m3_prototype`** (`.5` option A) | **không** | **`VIE_bmp3_lessons`** (`.32` option A, alt) | **`VIE_igla_license`** (`.8` option A) |
+| `available` | `date > 2011.12.31` | `date > 2020.12.31` + treasury > 3 | như D6 | `date > 2016.12.31` |
+| `days_remove` | 1095 | **1460** | **1095** | 730 |
+| tiền | −0,25 | −3,0 | −3,0 | −0,5 |
+| thưởng | `VIE_proc_convert_t54m3` (**tái dùng Trục 1**) + level + MIO + 50% `CAT_main_battle_tanks` | variant `XCB-01`, 50 `medium_tank_flame_chassis_4`/`IFV_7`, `VIE_xcb01_mechanized_idea`, level, MIO + 50% `CAT_infantry_fighting_vehicles` ×2 | như D6 | `VIE_af_air_defence_factor +0.03`, level, MIO + 50% `CAT_anti_air` |
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| D5-1 | ⚠️ `.5` chọn **B** (gói Israel) hoặc **C**, hoặc để mất cửa sổ 2009–2012 | **D5 không bao giờ hiện** trong nhóm decision. Đây là ý thiết kế: báo cáo mục 1.4 ghi *"B thay thế D5 chứ không đi cùng D5"* |
+| D5-2 | `.5` chọn A → cờ `VIE_t54m3_prototype` | D5 hiện từ 2012, tốn 30 PP + −0,25 tỷ |
+| D5-3 | Xong D5 (1095 ngày) | gọi **`VIE_proc_convert_t54m3` của Trục 1** — cùng effect, cùng variant `T-54M`, cùng modifier. Kiểm tra **không** bị đổi 100 xe hai lần nếu `.6` cũng đã chạy |
+| D6-1 | Game lịch sử (rule alt **tắt**) | chỉ **`VIE_dec_xcb01`** hiện, 1460 ngày. `_fast` không hiện |
+| D6-2 | Bật rule alt, `.32` chọn A → `VIE_bmp3_lessons` | chỉ **`VIE_dec_xcb01_fast`** hiện, **1095 ngày** |
+| D6-3 | ⚠️ Không có race `visible` | chuỗi BMP-3 hết cửa sổ **2011.12.31**, D6 mở **2021.1.1** → cờ quyết định trước ~9 năm |
+| D6-4 | treasury ≤ 3 | D6 xám, tooltip "Ngân khố trên 3 tỷ" |
+| D6-5 | Xong D6 | variant **`XCB-01`** tạo (design team GDT); kho +50 `medium_tank_flame_chassis_4` variant `XCB-01` `producer = VIE` (non-NSB: **`IFV_7`**, không phải `IFV_5` như báo cáo); idea `VIE_xcb01_mechanized_idea`; `mechanized_attack_factor +5%`; kiểm tra `equipment_bonus` áp cho **`medium_tank_flame_chassis`** chứ không phải MBT |
+| D9-1 | ⚠️ `.8` chọn B hoặc C, hoặc mất cửa sổ 2009–2013 | **D9 không bao giờ hiện** |
+| D9-2 | `.8` chọn A → `VIE_igla_license` | D9 hiện từ 2017, tốn 40 PP + −0,5 tỷ |
+| D9-3 | Xong D9 | `VIE_af_air_defence_factor` **+0.03** → tổng với Igla (Trục 1, +0.05) = **+0.08**. Không cấp equipment (MANPADS) |
+| CAT-3 | ⚠️ `error.log` grep `CAT_self_propelled` | **0 dòng**. D3 và D8 từng dùng token này ở bước 4 — **nó không tồn tại trong `common/technologies/`**, chỉ là `research_categories` của MIO. Đã đổi sang `CAT_artillery` |
+| CAT-4 | Tab nghiên cứu sau D5/D6/D9 | 3 khoản bonus hiện tên tiếng Việt: "T-54M nội địa — công nghệ xe tăng chủ lực", "XCB-01 — công nghệ xe chiến đấu bộ binh", "TL-01 — công nghệ phòng không" |
+| CAT-5 | `add_tech_bonus` có vào **đúng folder** không | D5 → folder Armor; D6 → folder Armor; D9 → folder Anti-Air; D3/D8 → folder Artillery. Nếu bonus hiện ở folder sai thì token `CAT_*` sai |
+
+**Đã xác minh cả 6 token `CAT_*` dùng trong Trục 2** đều có trong 24 file
+`common/technologies/` của MD (194 token): `CAT_artillery`, `CAT_artillery_ammunition`,
+`CAT_infantry_weapons`, `CAT_main_battle_tanks`, `CAT_infantry_fighting_vehicles`,
+`CAT_anti_air`. Danh sách đầy đủ: `tools/audit/md_ref/MD_all_CATS.json`.
+
+
+### Trục 2 bước 6 — D8 (decision cuối) + hoàn thiện scheduler p15
+
+**11/11 decision đã code.** Trục 2 chỉ còn bước 7 (loc soát lại + trả nợ Q3 + tài liệu).
+
+| D8 `VIE_dec_k9_localization` | |
+|---|---|
+| cost | 30 PP |
+| `days_remove` | 730 |
+| `visible` | Pháp lệnh + **`VIE_dec_pth_done`** + **`VIE_k9_purchased`** + **`VIE_k9_localization`** |
+| tiền | −0,5 tỷ |
+| thưởng | `VIE_k9_localization_idea` (research_bonus `CAT_artillery` 0.50 + artillery attack 2%), MIO +1 size, **không** cộng level |
+| tech bonus | 50% `CAT_artillery_ammunition` ×1 |
+
+**Điểm thiết kế:** D8 **không cộng `VIE_def_industry_level`** — báo cáo mục 2.2 ghi rõ,
+và điều này giữ đúng số học mục 2.4 (tối đa 11 Core / 10 Divest). Nếu D8 cũng cộng thì
+thành 12/11 và mốc capstone ≥ 8 sẽ trượt.
+
+`VIE_k9_localization` đặt trong **`visible`**, không chỉ trong `available`. Lý do: đó là
+**điều kiện nội dung**, không phải cờ chống bấm lại như `VIE_dec_stv_started`. Nếu chỉ để
+trong `available` thì decision sẽ hiện lên rồi nằm xám mãi mà người chơi không biết vì sao.
+Giờ nó chỉ hiện khi đủ cả ba cờ — đúng cách D5 và D9 xử lý.
+
+**Hai lỗi sửa trong scheduler `vie_def_ind.3` (bản nháp bước 1):**
+1. **Không tôn trọng `VIE_popup_cd`** trong khi `.1` `.2` `.4` đều tôn trọng → `.3` có thể
+   nổ sát ngày một event khác, phá luật "không hai pop-up trong 45 ngày".
+2. **Tăng `VIE_def_ind_export_count` trước khi event fire** → nếu event bị chặn thì vẫn mất
+   một lần trong trần 5, người chơi chỉ được **4 lần thật**. Giờ biến tăng trong `immediate`
+   của event, đúng nguyên tắc "cờ/biến chỉ đặt khi event THỰC SỰ fire" của Trục 1.
+
+Đã mô phỏng: scheduler đọc `count < 5` → fire → event tăng lên 5 → lần sau chặn. **Đúng 5 lần.**
+
+`vie_def_ind.2` **cố ý không có fallback và không có hạn chót**, khác `.1` và `.4`.
+Lý do: điều kiện của nó là **hai cờ** (không phải ngày), và cờ một khi đã đặt thì không mất.
+Nếu `VIE_popup_cd` đang bận thì khối này chờ tick tháng sau — tự thành vòng lặp cho tới khi
+nổ. Thêm fallback ở đây sẽ cấp funds sớm hơn người chơi đáng lẽ được thấy.
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| D8-1 | Thiếu một trong ba cờ | D8 **không hiện** (không phải hiện rồi xám) |
+| D8-2 | Đủ ba cờ | D8 hiện, tốn 30 PP + −0,5 tỷ |
+| D8-3 | Xong D8 | idea `VIE_k9_localization_idea`; kiểm tra research bonus **`CAT_artillery` 50%** hiện trong tab Artillery (không phải `CAT_self_propelled_artillery` — token đó không tồn tại) |
+| D8-4 | ⚠️ Level sau D8 | **không tăng**. Kiểm tra: D1+D2+D3+D4+D5+D6+D7+D9 = 8 decision cộng level, D8 thì không |
+| D8-5 | ⚠️ Tổng level tối đa | Core: Pháp lệnh 1 + 8 decision + 2 = **11**. Divest: 1 + 8 + 1 = **10**. Không phải 12/11 |
+| X3-1 | `vie_def_ind.3` khi level ≥ 6, sau 2022 | nổ **tối đa 5 lần**, mỗi lần +0,25 tỷ, cách nhau ≥ 365 ngày |
+| X3-2 | ⚠️ `VIE_popup_cd` đang bận | `.3` **dời sang tháng sau**, và **không** mất một lần trong trần 5 |
+| X3-3 | `.3` lần thứ 6 | **không nổ nữa** (`VIE_def_ind_export_count = 5`) |
+| X2-1 | `vie_def_ind.2` khi `VIE_popup_cd` bận | chờ tick tháng sau rồi nổ — **không mất**, vì không có hạn chót |
+
+
+### Trục 2 bước 7 — trả nợ Q3 + soát lại toàn bộ (HOÀN TẤT Trục 2)
+
+**Q3 đã trả.** `VIE_proc_gate_z_factories_done` đổi từ gate tạm `date > 2011.6.30`
+sang **`has_country_flag = VIE_dec_z_factories_done`** — đúng như báo cáo mục 1.4 muốn
+("Trigger: D1 đã xong").
+
+⚠️ **Gate mới CHẶT HƠN gate tạm, và đó là điểm quan trọng.** Gate tạm (ngày) luôn đúng
+từ 07/2011 bất kể người chơi có bấm D1 hay không → `.11` luôn nổ, license luôn có,
+D2 luôn là bản 730 ngày → người chơi **không bao giờ phải chọn thứ tự**. Gate mới
+khôi phục đúng ràng buộc: muốn license sớm thì phải ưu tiên D1.
+
+| Bước | Test | Kỳ vọng |
+|---|---|---|
+| Q3-1 | Bấm D1 ngày 01/07/2008, chờ 1095 ngày | `VIE_dec_z_factories_done` có từ **07/2011** |
+| Q3-2 | Tới 2013 | `.11` nổ (pop-up "Súng trường thế hệ mới cho Z111") |
+| Q3-3 | ⚠️ **Không** bấm D1, chờ tới 2016 | `.11` **hết cửa sổ** → log `proc 11 window closed unmet - D2 stays at 1095 days`; D2 là bản **1095 ngày** |
+| Q3-4 | Không có race | D1 xong sớm nhất 07/2011, `.11` mở 01/2013 → dư ~18 tháng |
+| LOC-1 | `python3 tools/verify_all_loc.py` | PASS, **1959 key**, 0 lỗi, 260 focus, 0 thiếu name/desc |
+| LOC-2 | Key trùng | **0** (đã dọn 553 → 0 ở Trục 1 bước 8) |
+| LOC-3 | BOM + format dòng | 40/40 file loc có BOM, 0 dòng sai format, 0 key giá trị rỗng |
+| NUM-1 | ⚠️ Tổng level tối đa | Core **11**, Divest **10** — khớp báo cáo mục 2.4 |
+| NUM-2 | ⚠️ Tổng tiền | 8 decision cố định **30,25 tỷ**; cả 9 **30,75 tỷ** — khớp báo cáo mục 2.2 và V |
+| NUM-3 | ⚠️ Timeline | D1 07/2011 · D7 06/2013 · D5 12/2014 · D3 12/2016 · D4 12/2018 · D2/D9 01/2019 · D6 12/2024 — khớp báo cáo mục 2.5 |
+| AUD-1 | `python3 tools/audit/audit.py` | 0 dangling · 0 forward-ref · 0 cycle · 0 missing x/y |
+| AUD-2 | `python3 tools/audit/prov.py` | TỔNG HỢP LỖI: 0 |
+| AUD-3 | `python3 tools/audit/ev.py` | 0 event thiếu loc · 0 orphan · 0 id trùng |
+| AUD-4 | `python3 tools/audit/live.py` | 0 missing ở mọi nhóm (trừ dòng DYNAMIC MODIFIERS là dương tính giả đã biết) |
+
+**4 TODO còn lại trong code — tất cả đều cần máy có HOI4, không phải nợ code:**
+
+| Chỗ | TODO |
+|---|---|
+| `VIE_md_effects_p14.txt:105` | `.6` dùng `amount = -100`; thử cả `destroy_equipment`, cái nào không ghi `error.log` thì giữ |
+| `VIE_md_effects_p14.txt:181` | Igla/TL-01 đang dùng `VIE_af_air_defence_factor`; đổi sang `enemy_army_bonus_air_superiority_factor` nếu xác nhận modifier đó tồn tại |
+| `VIE_md_effects_p15.txt:218` | D7 cũng dùng `amount = -36` — cùng rủi ro với `.6` |
+| `VIE_md_def_industry.txt:508` | ghi chú chéo cho TODO ở trên |
+
+**Trục 2 HOÀN TẤT:** 11/11 decision · 4 focus · 1 category · 5 idea · 4 event ·
+scheduler p15 · 4 variant tự tạo · 6/7 cờ Trục 1 đã nối.

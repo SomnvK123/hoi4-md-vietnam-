@@ -1,0 +1,676 @@
+########################################################################
+# Truc 2: CNQP Luc quan - 9 decision D1-D9.
+# Nguon thiet ke: "Bao cao Luc quan VIE - Truc 1, 2, 3.docx" muc II (bang 2.2),
+# da sua theo VIE_truc2_review_and_plan.md. Q6-Q9 da chot = (a).
+#
+# Mau decision lay tu VIE_resolution_category trong common/decisions/VIE_md_decisions.txt:
+#   icon, cost (PP), fire_only_once = yes, visible, available,
+#   complete_effect (chay ngay khi bam: log, tien, dat co),
+#   days_remove, remove_effect (chay khi xong: phan thuong that).
+# Bao cao muc 6.2 ghi dung nguyen tac nay: "Phan thuong cua decision co thoi han
+# dat trong remove_effect; complete_effect chay ngay khi bam, dung de tru tien,
+# log va dat co."
+#
+# ---------------------------------------------------------------------
+# BA NGUYEN TAC LAY TU REVIEW (VIE_truc2_review_and_plan.md)
+# ---------------------------------------------------------------------
+# Q7 = (a). Nha may xay bang one_state_arms_factory cua MD, goi trong scope state.
+#   MD TU TRU 7.5 ty moi lan goi (00_scripted_effects.txt:20), tu cong
+#   add_extra_state_shared_building_slots, tu fallback khi het slot.
+#   => complete_effect KHONG duoc tru tien tay. Bao cao muc 6.2 tru -15 ty tay
+#      ma van dinh goi one_state_* -> thanh 30 ty (A2). D1 = 2 lan goi = 15 ty.
+# Q8 = (a). MIO chi dung add_mio_size. add_mio_funds TU LEN SIZE khi vuot nguong
+#   (hoi4doc.dev), nen cho ca hai nhu bao cao muc 2.2 se len size doi.
+# B1. Trigger staffing dung la can_staff_an_arms_industry, KHONG phai
+#   can_staff_an_arms_factory (khong ton tai trong MD).
+#
+# Thieu tien KHONG chan decision: MD tu phat hang no (bao cao muc 6.1). Vi vay
+# VIE_def_ind_bankrupt chi dung trong ai_will_do, khong dat trong available -
+# dat trong available se khoa decision vinh vien khi het tien, trai y thiet ke.
+########################################################################
+
+VIE_def_industry_category = {
+
+	############################################################
+	# D1 - Hien dai hoa nha may Z luc quan
+	############################################################
+	# Bao cao 2.2: mo 2008.7.1, 1095 ngay, chi phi chuong trinh 0,
+	# 2 nha may = 15.0bn tru truc tiep, tech +30%/+50% CAT_artillery /
+	# CAT_art_ammo (bao cao ghi CAT_inf_wep / CAT_art_ammo - ca hai KHONG ton tai
+	# trong MD, da doi thanh CAT_infantry_weapons / CAT_artillery_ammunition),
+	# MIO GDT +2 size +500 funds +2 trait.
+	# Da sua: 15bn do MD tu tru (Q7=a); +500 funds bo (Q8=a); "+2 trait" bo vi
+	# HOI4 khong co effect unlock trait tu script (B3) - trait do nguoi choi tu mo.
+	VIE_dec_z_factories = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			VIE_def_ind_gate_open = yes
+		}
+		available = {
+			date > 2008.6.30
+			NOT = { has_country_flag = VIE_dec_z_started }
+			# Hai dieu kien duoi nay la trigger phuc (can_staff_an_arms_industry kiem
+			# nhieu bien nhan luc cua MD; free_building_slots kiem slot theo state).
+			# Engine khong tu sinh tooltip ro nghia cho chung, nen boc trong
+			# custom_trigger_tooltip de nguoi choi biet vi sao decision xam.
+			# Day KHONG phai tooltip thua: visible khong che hai dieu kien nay.
+			custom_trigger_tooltip = {
+				tooltip = VIE_dec_z_factories_avail_tt
+				AND = {
+					VIE_def_ind_can_staff_arms = yes
+					VIE_def_ind_has_factory_slot = yes
+				}
+			}
+		}
+
+		# complete_effect: chi log + dat co. KHONG tru tien - one_state_arms_factory
+		# cua MD tu tru 7.5 ty / nha may trong remove_effect.
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_z_factories"
+			set_country_flag = VIE_dec_z_started
+		}
+
+		days_remove = 1095
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_z_factories (complete)"
+			VIE_d1_reward = yes
+			# Tech bonus. Bao cao muc 2.2 ghi nguyen van: "+30%/+50% CAT_artillery,
+			# CAT_inf_wep, CAT_art_ammo" - khong ro 30% hay 50% cho cai nao.
+			# Chot: 50% cho sung bo binh (D1 la nen cho STV o D2, huong can day nhanh
+			# nhat) va 30% cho hai category phao.
+			#
+			# ⚠️ TEN TOKEN DA PHAI SUA. Tai TOAN BO 24 file common/technologies/ cua MD
+			# (195 token CAT_*) va doi chieu:
+			#   bao cao CAT_inf_wep   -> ❌ khong ton tai -> dung CAT_infantry_weapons ✅
+			#   bao cao CAT_art_ammo  -> ❌ khong ton tai -> dung CAT_artillery_ammunition ✅
+			#   bao cao CAT_artillery -> ✅ co that (57 lan trong artillery.txt)
+			# Repo van con dung CAT_inf_wep o 5 cho khac (focus + MIO
+			# VIE_md_organizations.txt:183) - tong cong 31/41 token CAT_* ma repo dung
+			# khong co trong MD. Do la NO CU cua repo, ngoai pham vi Truc 2; cac file
+			# Truc 2 chi dung token da xac minh. Xem VIE_repo_health_report.md.
+			#
+			# Viet HAI khoi add_tech_bonus vi bonus khac nhau. Repo thuong dung mot
+			# khoi voi nhieu category (VIE_md_focus.txt:1770, 2006) nhung nhung cho
+			# do deu cung mot muc bonus. Mot khoi khong bieu dien duoc 30% va 50%.
+			# Hai khoi can hai 'name' khac nhau, neu khong engine bao trung.
+			add_tech_bonus = {
+				name = VIE_dec_z_factories_art
+				bonus = 0.30
+				uses = 2
+				category = CAT_artillery
+				category = CAT_artillery_ammunition
+			}
+			add_tech_bonus = {
+				name = VIE_dec_z_factories_inf
+				bonus = 0.50
+				uses = 2
+				category = CAT_infantry_weapons
+			}
+		}
+
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D2 - Sung STV (Z111)  —  HAI BIEN THE THOI GIAN
+	############################################################
+	# Bao cao 2.2: mo 2017.1.1, 730 ngay neu co VIE_iwi_license (tu .11 option A
+	# cua Truc 1), 1095 ngay neu khong. Chi phi 0.5bn + 1 nha may 7.5bn.
+	# Thuong: 3000 sung bo binh, +100% CAT_infantry_weapons (bao cao ghi CAT_inf_wep,
+	# token do KHONG ton tai trong MD), MIO +1 size, +1 level.
+	#
+	# days_remove CO DINH luc kich hoat, nen khong the dung mot decision ma doi
+	# days_remove theo co. Bao cao muc 6.4 nghi dung: HAI decision loai tru nhau
+	# bang visible theo co. Mau do da kiem chung la dung.
+	#
+	# Ca hai goi chung VIE_d2_reward de khong lech phan thuong, va dat chung mot
+	# co VIE_dec_stv_started de nguoi choi khong bam duoc ca hai.
+	#
+	# Khong co race ve visible: cua so cua .11 (chuoi license Galil ACE, Truc 1)
+	# la 2013-2015 va het han 2015.12.31, con D2 chi mo tu date > 2016.12.31.
+	# Vay co VIE_iwi_license luon duoc quet dinh TRUOC khi D2 hien lan dau ->
+	# chi mot trong hai bien the hien, va no khong doi giua chung.
+	#
+	# Q7 = (a): nha may do one_state_arms_factory tu tru 7.5bn. Chi 0.5bn chi phi
+	# chuong trinh tru tay trong complete_effect.
+
+	VIE_dec_stv = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		fire_only_once = yes
+
+		# Ban CHAM: chua co license Galil ACE tu IWI
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+			NOT = { has_country_flag = VIE_iwi_license }
+		}
+		available = {
+			date > 2016.12.31
+			NOT = { has_country_flag = VIE_dec_stv_started }
+			VIE_def_ind_has_factory_slot = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_stv"
+			set_country_flag = VIE_dec_stv_started
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 1095
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_stv (complete)"
+			VIE_d2_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_stv_tech
+				bonus = 1.0
+				uses = 1
+				category = CAT_infantry_weapons
+			}
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	VIE_dec_stv_fast = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		fire_only_once = yes
+
+		# Ban NHANH: da ky license Galil ACE cho Z111 (Truc 1, .11 option A)
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+			has_country_flag = VIE_iwi_license
+		}
+		available = {
+			date > 2016.12.31
+			NOT = { has_country_flag = VIE_dec_stv_started }
+			VIE_def_ind_has_factory_slot = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_stv_fast"
+			set_country_flag = VIE_dec_stv_started
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 730
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_stv_fast (complete)"
+			VIE_d2_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_stv_tech
+				bonus = 1.0
+				uses = 1
+				category = CAT_infantry_weapons
+			}
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D3 - Phao tu hanh banh lop dong PTH (Z751, VDI)
+	############################################################
+	# Bao cao 2.2: mo 2013.1.1, 1460 ngay, 2.0bn, 24 phao tu hanh, MIO +1 size.
+	# Khong xay nha may nen khong co 7.5bn; 2.0bn la chi phi chuong trinh, tru tay.
+	#
+	# PTH-152 ra mat 2025 theo Asian Military Review, nhung D3 mo tu 2013: day la
+	# chuong trinh NGHIEN CUU va phat trien, ket qua la san pham ra mat sau.
+	# Dung medium_tank_artillery_chassis_2 / SP_arty_2 (tier 2005) vi MD khong co
+	# tier 2015 cho ho nay (bang nam: SP_arty_0=1965, _1=1985, _2=2005, _3=2025).
+	# Variant PTH-152 tu tao (VIE co 0 variant trong MD).
+	VIE_dec_pth = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+		}
+		available = {
+			date > 2012.12.31
+			NOT = { has_country_flag = VIE_dec_pth_started }
+			custom_trigger_tooltip = {
+				tooltip = VIE_dec_pth_tt
+				check_variable = { treasury > 2 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_pth"
+			set_country_flag = VIE_dec_pth_started
+			set_temp_variable = { treasury_change = -2.0 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 1460
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_pth (complete)"
+			VIE_d3_reward = yes
+			# CAT_self_propelled_artillery KHONG ton tai trong common/technologies/
+			# cua MD (da tai du 24 file = 194 token; token do chi la research_category
+			# cua MIO trong 00_generic_defense_companies.txt, khong phai tech folder).
+			# Dung CAT_artillery - co that, 57 lan trong artillery.txt, va bao trum
+			# ca phao tu hanh lan phao keo.
+			add_tech_bonus = {
+				name = VIE_dec_pth_tech
+				bonus = 0.5
+				uses = 2
+				category = CAT_artillery
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D4 - Dan phao noi dia (122/130/152mm)
+	############################################################
+	# Bao cao 2.2: mo sau D3, khong co ngay, 730 ngay, 1.0bn, attrition -10%,
+	# MIO +1 size +100 funds. Funds bo (Q8 = a).
+	# D4 khong cap equipment: san pham la DAN, tieu hao trong chien dau, khong nam
+	# trong kho nhu xe. Hieu ung the hien qua attrition -10% (bot phu thuoc dan
+	# nhap khau nen bot ton that hau can).
+	VIE_dec_ammo = {
+		icon = GFX_decision_generic_army_support
+		cost = 30
+		fire_only_once = yes
+
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_pth_done
+		}
+		available = {
+			NOT = { has_country_flag = VIE_dec_ammo_started }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_ammo"
+			set_country_flag = VIE_dec_ammo_started
+			set_temp_variable = { treasury_change = -1.0 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 730
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_ammo (complete)"
+			VIE_d4_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_ammo_tech
+				bonus = 0.5
+				uses = 1
+				category = CAT_artillery_ammunition
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D5 - T-54M noi dia (Z153; FCS Indra, ERA trong nuoc)
+	############################################################
+	# Bao cao 2.2: mo 2012.1.1, can D1 + VIE_t54m3_prototype, 1095 ngay, 0.25bn.
+	# Thuong: chuyen doi 100 T-54/55 thanh T-54M, army_armor_defence_factor +2%,
+	# MIO +1 size +200 funds. Funds bo (Q8 = a).
+	#
+	# VIE_t54m3_prototype chi co tu .5 option A (Truc 1). Neu nguoi choi chon .5
+	# option B (goi Israel) hoac C (khong mua), hoac de mat cua so 2009-2012, thi
+	# D5 KHOA VINH VIEN. Day la y thiet ke: B "thay the D5 chu khong di cung D5"
+	# (bao cao muc 1.4).
+	#
+	# 0.25bn = 100 xe x 0.5 trieu USD x K=5 (bao cao muc 2.2 ghi ro day la so duy
+	# nhat tinh tu gia that, khong phai so can bang).
+	#
+	# TAI DUNG VIE_proc_convert_t54m3 cua Truc 1: cung mot viec (doi 100 T-54/55
+	# -> T-54M), cung variant VIE_t54m_variant, cung modifier. Khong viet lai de
+	# khoi lech.
+	VIE_dec_t54m = {
+		icon = GFX_decision_generic_form_nation
+		cost = 30
+		fire_only_once = yes
+
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+			has_country_flag = VIE_t54m3_prototype
+		}
+		available = {
+			date > 2011.12.31
+			NOT = { has_country_flag = VIE_dec_t54m_started }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_t54m"
+			set_country_flag = VIE_dec_t54m_started
+			set_temp_variable = { treasury_change = -0.25 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 1095
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_t54m (complete)"
+			VIE_d5_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_t54m_tech
+				bonus = 0.5
+				uses = 1
+				category = CAT_main_battle_tanks
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D6 - Xe chien dau bo binh XCB-01  —  HAI BIEN THE THOI GIAN
+	############################################################
+	# Bao cao 2.2: mo 2021.1.1, 1460 ngay (1095 neu co VIE_bmp3_lessons), 3.0bn.
+	# Thuong: 50 XCB-01, mechanized_attack_factor +5%, flame chassis -5% build cost.
+	#
+	# VIE_bmp3_lessons chi co tu .32 option A (Truc 1, ALT-HISTORY, can bat
+	# rule_vie_alt_procurement). Vay trong game lich su mac dinh, D6 LUON la ban
+	# 1460 ngay; ban 1095 chi co khi nguoi choi bat rule alt va chon "khong mua
+	# BMP-3, rut kinh nghiem". Dung y thiet ke: bai hoc tu BMP-3 rut ngan chuong
+	# trinh XCB-01.
+	#
+	# XCB-01 ra mat 2025 -> IFV_7 (2025). Bao cao ghi IFV_5 (2005) la qua cu.
+	# NSB: medium_tank_flame_chassis_4. Variant XCB-01 tu tao (VIE co 0 variant).
+
+	VIE_dec_xcb01 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 60
+		fire_only_once = yes
+
+		# Ban CHAM: chua co bai hoc tu BMP-3
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+			NOT = { has_country_flag = VIE_bmp3_lessons }
+		}
+		available = {
+			date > 2020.12.31
+			NOT = { has_country_flag = VIE_dec_xcb01_started }
+			custom_trigger_tooltip = {
+				tooltip = VIE_dec_xcb01_tt
+				check_variable = { treasury > 3 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_xcb01"
+			set_country_flag = VIE_dec_xcb01_started
+			set_temp_variable = { treasury_change = -3.0 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 1460
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_xcb01 (complete)"
+			VIE_d6_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_xcb01_tech
+				bonus = 0.5
+				uses = 2
+				category = CAT_infantry_fighting_vehicles
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	VIE_dec_xcb01_fast = {
+		icon = GFX_decision_generic_form_nation
+		cost = 60
+		fire_only_once = yes
+
+		# Ban NHANH: da thu nghiem BMP-3 va rut ra bai hoc (alt-history)
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+			has_country_flag = VIE_bmp3_lessons
+		}
+		available = {
+			date > 2020.12.31
+			NOT = { has_country_flag = VIE_dec_xcb01_started }
+			custom_trigger_tooltip = {
+				tooltip = VIE_dec_xcb01_tt
+				check_variable = { treasury > 3 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_xcb01_fast"
+			set_country_flag = VIE_dec_xcb01_started
+			set_temp_variable = { treasury_change = -3.0 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 1095
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_xcb01_fast (complete)"
+			VIE_d6_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_xcb01_tech
+				bonus = 0.5
+				uses = 2
+				category = CAT_infantry_fighting_vehicles
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D9 - Ten lua vac vai TL-01 (Z131)
+	############################################################
+	# Bao cao 2.2: mo 2017.1.1, can D1 + VIE_igla_license, 730 ngay, 0.5bn.
+	# Thuong: enemy_army_bonus_air_superiority_factor -3%, MIO +1 size +100 funds.
+	# Funds bo (Q8 = a). Modifier: bao cao muon enemy_army_bonus_air_superiority_factor
+	# nhung modifier do chua nam trong VIE_armed_forces_modifier va chua xac minh
+	# duoc MD co nhan no khong -> dung VIE_af_air_defence_factor +0.03 (Truc 1 da
+	# dung +0.05 cho Igla, tong +0.08). TODO(verify) ghi o VIE_md_effects_p15.txt.
+	#
+	# MANPADS khong cap equipment (bao cao muc 6.5): tac dung nam o modifier.
+	# VIE_igla_license chi co tu .8 option A (Truc 1). Mat cua so 2009-2013 hoac
+	# chon .8 option B/C -> D9 khoa vinh vien.
+	VIE_dec_tl01 = {
+		icon = GFX_decision_generic_army_support
+		cost = 40
+		fire_only_once = yes
+
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+			has_country_flag = VIE_igla_license
+		}
+		available = {
+			date > 2016.12.31
+			NOT = { has_country_flag = VIE_dec_tl01_started }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_tl01"
+			set_country_flag = VIE_dec_tl01_started
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 730
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_tl01 (complete)"
+			VIE_d9_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_tl01_tech
+				bonus = 0.5
+				uses = 1
+				category = CAT_anti_air
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D8 - Noi dia hoa bao duong va dan K9
+	############################################################
+	# Bao cao 2.2: can D3 + VIE_k9_purchased + chon .21 A, khong co ngay,
+	# 730 ngay, 0.5bn, +50% CAT_artillery, MIO +1 size +150 funds.
+	# DA SUA:
+	#   - CAT_artillery giu nguyen (co that, 57 lan trong MD artillery.txt).
+	#     KHONG dung CAT_self_propelled_artillery: token do khong nam trong
+	#     common/technologies/ cua MD, chi la research_category cua MIO.
+	#   - funds bo (Q8 = a): add_mio_funds tu len size khi vuot nguong, cong ca
+	#     hai voi add_mio_size se len size doi.
+	#   - D8 KHONG cong VIE_def_industry_level (bao cao muc 2.2 ghi ro).
+	#
+	# D8 la decision CUOI va kho nhat: can 3 co tu 2 nguon khac nhau.
+	#   VIE_dec_pth_done       <- D3 (Truc 2, buoc 4)
+	#   VIE_k9_purchased       <- .20 giao K9 (Truc 1, buoc 6)
+	#   VIE_k9_localization    <- .21 option A (Truc 1, buoc 6)
+	# Neu nguoi choi chon .21 option B (mua dan dan huong) hoac C (giu nguyen),
+	# hoac tu choi mua K9 o .19, thi D8 KHOA. Dung y thiet ke: khong mua K9 thi
+	# khong co gi de noi dia hoa.
+	#
+	# Thoi diem: bao cao muc 2.5 tinh D8 "khoang 2027 -> 2029" (nhanh chuan) hoac
+	# "2024 -> 2026" (nhanh co VIE_155mm_study). Mod chay 2000-2026 la chinh, nen
+	# o nhanh chuan D8 co the KHONG kip lam trong mot van game binh thuong.
+	# Do la he qua cua moc lich su that (K9 xac nhan 08/2025), khong phai loi.
+	# Khong dat date gi cho D8 de nguoi choi van lam duoc neu van game keo dai.
+	VIE_dec_k9_localization = {
+		icon = GFX_decision_generic_army_support
+		cost = 30
+		fire_only_once = yes
+
+		# VIE_k9_localization dat trong visible (khong chi trong available) vi no la
+		# DIEU KIEN NOI DUNG, khong phai co chong bam lai nhu VIE_dec_stv_started.
+		# Neu chi de trong available thi decision se HIEN len roi nam xam mai mai
+		# cho toi khi nguoi choi chon .21 option A - ma ho khong biet vi sao xam.
+		# De trong visible thi no chi hien khi ca ba dieu kien da du, dung cach
+		# D5 va D9 xu ly VIE_t54m3_prototype / VIE_igla_license.
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_pth_done
+			has_country_flag = VIE_k9_purchased
+			has_country_flag = VIE_k9_localization
+		}
+		available = {
+			NOT = { has_country_flag = VIE_dec_k9_started }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_k9_localization"
+			set_country_flag = VIE_dec_k9_started
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 730
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_k9_localization (complete)"
+			VIE_d8_reward = yes
+			add_tech_bonus = {
+				name = VIE_dec_k9_localization_tech
+				bonus = 0.5
+				uses = 1
+				category = CAT_artillery_ammunition
+			}
+		}
+
+		ai_will_do = {
+			base = 40
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+
+	############################################################
+	# D7 - Hien dai hoa BM-21, dan rocket 122mm
+	############################################################
+	# Bao cao 2.2: mo sau D1, khong co ngay, 730 ngay, 0.5bn,
+	# chuyen doi 36 BM-21 sang ban so hoa (medium_tank_rocket_chassis_1 / SP_R_arty_1),
+	# army_artillery_attack_factor +5%, +10 army XP, MIO GDT +1 size +150 funds.
+	# Da sua: BM-21 (1963) -> medium_tank_rocket_chassis_0 / SP_R_arty_0, khong phai
+	# tier 1 (VIE_variant_research.md muc 2: SP_R_arty_0 = 1965); funds bo (Q8=a).
+	#
+	# D7 la decision DON GIAN NHAT de mo dau: khong co bien thoi gian, khong can co
+	# tu Truc 1, khong xay nha may. Dung de kiem tra ca pipeline truoc.
+	VIE_dec_bm21 = {
+		icon = GFX_decision_generic_army_support
+		cost = 40
+		fire_only_once = yes
+
+		visible = {
+			VIE_def_ind_gate_open = yes
+			has_country_flag = VIE_dec_z_factories_done
+		}
+		available = {
+			NOT = { has_country_flag = VIE_dec_bm21_started }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_bm21"
+			set_country_flag = VIE_dec_bm21_started
+			# 0.5bn chi phi chuong trinh - day la tien NGHIEN CUU, khong phai tien
+			# xay nha may, nen tru tay bang modify_treasury_effect (khong lien quan
+			# one_state_arms_factory).
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 730
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_bm21 (complete)"
+			VIE_d7_reward = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+		}
+	}
+}

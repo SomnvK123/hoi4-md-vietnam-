@@ -1,0 +1,130 @@
+add_namespace = vie_def_ind
+
+########################################################################
+# Truc 2: Cong nghiep quoc phong Luc quan - 4 event nen (bao cao muc 2.3).
+# Duoc dat lich boi VIE_event_scheduler_p15 (VIE_md_effects_p15.txt), KHONG dung
+# trigger_year_* cua MD - ly do ghi o header cua VIE_md_effects_p14.txt.
+#
+# .1  Trien lam Quoc phong quoc te Viet Nam  (12/2022, 12/2024; tran 2026)
+# .2  Chuyen giao bao duong T-90              (co VIE_t90_purchased + D1 xong)
+# .3  Xuat khau vu khi                       (level >= 6, sau 2022, TRAN 5 LAN - Q9=a)
+# .4  Quoc hoi thong qua Luat 38/2024/QH15   (27/06/2024)
+#
+# Ca 4 deu class B theo quy uoc cua mod (VIE_md_effects.txt:225-231): ton trong
+# VIE_popup_cd 45 ngay, va neu bi chan qua han cung thi scheduler tu ap hieu ung
+# im lang (VIE_gdt_mio_funds_100 / VIE_all_mio_funds_150).
+#
+# .3 KHONG dat trong khoi popup_cd vi no la event thong bao dinh ky, khong phai
+# buoc ngoat; no chay moi 365 ngay qua co VIE_def_ind_export_clock.
+########################################################################
+
+# .1  Trien lam Quoc phong quoc te Viet Nam (lan dau 12/2022)
+country_event = {
+	id = vie_def_ind.1
+	title = vie_def_ind.1.t
+	desc = vie_def_ind.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_gdt_mio_funds_100 = yes
+	}
+
+	option = {
+		name = vie_def_ind.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_def_ind.1.a executed"
+		# +10 opinion voi 2 doi tac da mua hang cua Viet Nam. Chi ap dung cho nuoc
+		# thuc su ton tai va khong trong tinh trang chien tranh voi VIE.
+		if = {
+			limit = { country_exists = SOV NOT = { has_war_with = SOV } }
+			add_opinion_modifier = { target = SOV modifier = small_increase }
+		}
+		if = {
+			limit = { country_exists = IND NOT = { has_war_with = IND } }
+			add_opinion_modifier = { target = IND modifier = small_increase }
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# .2  Chuyen giao bao duong T-90. Can VIE_t90_purchased (Truc 1, .15) va D1 xong.
+country_event = {
+	id = vie_def_ind.2
+	title = vie_def_ind.2.t
+	desc = vie_def_ind.2.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_gdt_mio_funds_150 = yes
+		army_experience = 10
+	}
+
+	option = {
+		name = vie_def_ind.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_def_ind.2.a executed"
+		ai_chance = { base = 100 }
+	}
+}
+
+# .3  Xuat khau vu khi. Q9 = (a): TRAN 5 LAN. Bien VIE_def_ind_export_count tang
+#     trong scheduler, khong tang o day, de event co chay lai cung khong vuot tran.
+country_event = {
+	id = vie_def_ind.3
+	title = vie_def_ind.3.t
+	desc = vie_def_ind.3.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	immediate = {
+		# Bien dem tran (Q9 = a: 5 lan) tang O DAY, khong tang trong scheduler.
+		# Nguyen tac: co/bien chi dat khi event THUC SU fire. Neu dat trong scheduler
+		# truoc khi fire ma event bi chan thi nguoi choi mat mot lan trong tran.
+		add_to_variable = { VIE_def_ind_export_count = 1 }
+		set_temp_variable = { treasury_change = 0.25 }
+		modify_treasury_effect = yes
+	}
+
+	option = {
+		name = vie_def_ind.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_def_ind.3.a executed"
+		# +opinion ASEAN. Dung has_idea = ASEAN_Member theo dung mau repo dang dung o
+		# VIE_md_focus.txt:986-992, 2501-2507, 4559-4563.
+		# KHONG dung is_in_array = { array = global.ASEAN_Member ... }: MD co array
+		# global.ASEAN_Member (00_startup_effects.txt:849-856) nhung cu phap
+		# is_in_array cua MD la "is_in_array = { <array> = <scope> }" (vd
+		# "is_in_array = { CHI.influence_array = THIS.id }"), va khong co cho nao
+		# trong MD hay repo dung array do de loc ASEAN. has_idea thi da kiem chung.
+		random_country = {
+			limit = {
+				has_idea = ASEAN_Member
+				NOT = { original_tag = VIE }
+				NOT = { has_war_with = ROOT }
+			}
+			add_opinion_modifier = { target = ROOT modifier = small_increase }
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# .4  Quoc hoi thong qua Luat 38/2024/QH15 (27/06/2024, hieu luc 01/07/2025).
+#     Trigger cua scheduler: date > 2024.6.26 + has_completed_focus VIE_def_industry_law.
+#     Bao cao ghi trigger "da co VIE_def_industry_law" - focus do bi v11 xoa, nhung
+#     Q6 = (a) dung lai nen trigger gio DUNG (loi L7d tu dong het).
+country_event = {
+	id = vie_def_ind.4
+	title = vie_def_ind.4.t
+	desc = vie_def_ind.4.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_all_mio_funds_150 = yes
+	}
+
+	option = {
+		name = vie_def_ind.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_def_ind.4.a executed"
+		ai_chance = { base = 100 }
+	}
+}

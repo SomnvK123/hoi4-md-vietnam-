@@ -34,6 +34,14 @@ on_actions = {
 				# before the first on_monthly tick fires, to prevent stack overflow.
 				VIE_ax_init = yes
 
+				# Truc 2 (CNQP Luc quan): bien level. HOI4 coi bien chua dat = 0 nen ve
+				# ky thuat khong bat buoc, nhung VIE_nationalist_regime_TDD.md muc 7.3 cua
+				# chinh repo nay da nhac: "Dat ro ... = 0, du bien chua dat mac dinh bang 0".
+				# Dat tu dau de check_variable >= 4 / >= 8 khong bao gio doc gia tri rac,
+				# va de save cu tai lai van dung.
+				set_variable = { VIE_def_industry_level = 0 }
+				set_variable = { VIE_def_ind_export_count = 0 }
+
 				# Party Congress spine (see VIE_congress_spine_redesign.md): saves from before
 				# this system existed have no VIE_congress_term variable. Re-derive it every
 				# startup from the scheduler flags already set - cheap, and self-correcting.

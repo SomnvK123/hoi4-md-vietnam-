@@ -1,0 +1,762 @@
+########################################################################
+# Scheduler, part 14 - Truc 1: mua sam luc quan (namespace vie_proc_army).
+# Nguon thiet ke: "Bao cao Luc quan VIE - Truc 1, 2, 3.docx" muc I, da sua theo
+# audit/REVIEW_TRUC1_MAUSAM.md. Bang co: VIE_v9_flag_mapping.md.
+#
+# Called from on_monthly (VIE_md_on_actions.txt) and from VIE_catch_up_schedule
+# (VIE_md_effects_p3.txt).
+#
+# ---------------------------------------------------------------------
+# VI SAO KHONG DUNG ETD (trigger_year_*) CUA MD NHU BAO CAO MUC 6.3 DE NGHI
+# ---------------------------------------------------------------------
+# MD goi trigger_year_[year]_events bang meta_effect trong on_monthly thang 1
+# (MD_on_actions.txt:904). Do la mot scripted effect PHANG duy nhat chua event
+# cua ~25 nuoc (ENG, USA, FRA, CHI, JAP, GER, ...). Scripted effect trung ten
+# thi GHI DE chu khong gop, va MD khong co hook mo rong cho submod -> submod
+# dinh nghia lai trigger_year_2016_events se xoa sach event 2016 cua moi nuoc
+# khac. Vi vay Truc 1 dung scheduler rieng, cung mau p1-p13.
+#
+# ---------------------------------------------------------------------
+# CO CHE CUA SO + THU LAI (thay cho .90-.94 trong bao cao muc 1.6)
+# ---------------------------------------------------------------------
+# Bao cao de xuat 5 event an de thu lai moi 90 ngay. Khong can: tick thang cua
+# on_monthly CHINH LA vong thu lai. Mau lay tu VIE_event_scheduler_p13:
+#   if    catch-up            -> chi dat co, khong fire
+#   elif  popup_cd trong      -> dat co + popup_cd 45 ngay + fire event
+#   elif  qua han cung       -> dat co + VIE_fb_* (ap dung ket qua lich su, im lang)
+#   (else: popup dang ban -> KHONG dat co, thang sau thu lai)
+# Do loi hon han 9 event an, va khong co cho dat co sai: bao cao dat co
+# VIE_proc_N_fired NGAY KHI GOI event, ma trigger cua event CO chan
+# country_event (HOI4 wiki, Event modding -> Effect), nen neu dieu kien doi
+# trong 1 ngay delay thi chuoi mat vinh vien. O day co chi duoc dat khi event
+# thuc su fire hoac da fallback.
+#
+# Class A/B/C theo quy uoc san co cua mod (VIE_md_effects.txt:225-231):
+#   A = buoc ngoat, luon fire          -> khong co trong Truc 1
+#   B = event lua chon, ton trong popup_cd, het cua so thi fallback im lang
+#   C = im lang, mot co moi lan giao hang (.15, .16, .20)
+########################################################################
+
+########################################################################
+# Phan thuong lich su, dung chung cho hai duong:
+#   (1) fallback im lang khi het cua so pop-up
+#   (2) option A cua event that (buoc 2-6 se noi event that vao day)
+# Viet dang nay de khi thay placeholder bang event that thi khong phai chep
+# lai hieu ung, tranh lech nhau.
+########################################################################
+
+# Chuoi 1 - Phan Lan chuyen giao ~70 T-54/55 (02/2005). Tu dong, khong phai lua chon.
+# ---------------------------------------------------------------------
+# VARIANT - da nghien cuu MD, xem VIE_variant_research.md
+# ---------------------------------------------------------------------
+# O che do NSB, add_equipment_to_stockpile can variant_name thi xe moi dung duoc
+# trong su doan; khong co variant thi chi la chassis tran trong kho.
+# MD dinh nghia variant trong history/countries/<TAG>.txt va variant THUOC VE nuoc
+# do, nen producer phai trung voi nuoc dinh nghia variant.
+#   T-54/55 : SOV co "T-55A"/"T-55AM"/"T-55AMV" (medium_tank_chassis_0).
+#             PHAN LAN khong co variant T-54/55 nao -> producer = SOV, khong FIN.
+#             Hang cu do SOV san xuat, Phan Lan chi chuyen giao, nen producer = SOV
+#             dung ca ve lich su lan ky thuat.
+VIE_proc_reward_t54_finland = {
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		add_equipment_to_stockpile = {
+			type = medium_tank_chassis_0
+			variant_name = "T-55A"
+			amount = 70
+			producer = SOV
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = { type = MBT_1 amount = 70 producer = SOV }
+	}
+	set_temp_variable = { treasury_change = -0.05 }
+	modify_treasury_effect = yes
+}
+
+# Chuoi 2 option A - T-54M3: nhan mau thu va bo kit, tu nang cap trong nuoc (lich su).
+# Mo D5 (T-54M noi dia) cua Truc 2.
+VIE_proc_reward_t54m3_prototype = {
+	set_country_flag = VIE_t54m3_prototype
+	set_temp_variable = { treasury_change = -0.05 }
+	modify_treasury_effect = yes
+}
+
+# Chuoi 2 option B - nang cap hang loat 100 T-54/55 theo goi Israel, -0.75bn.
+# B THAY THE D5 chu khong di cung D5, nen KHONG dat co VIE_t54m3_prototype; goi
+# .6 sau 1095 ngay de chuyen doi xe.
+VIE_proc_reward_t54m3_israeli_package = {
+	set_temp_variable = { treasury_change = -0.75 }
+	modify_treasury_effect = yes
+	country_event = { id = vie_proc_army.6 days = 1095 random_days = 30 }
+}
+
+# Chuyen doi 100 T-54/55 -> T-54M3. Tach ra de ca .5 B va .6 dung chung mot cho,
+# tranh lech nhanh NSB / non-NSB giua hai event.
+#
+# Bao cao muc 6.5 de xuat add_equipment_to_stockpile voi amount am, tu ghi "can thu
+# trong game". Audit de xuat destroy_equipment. CA HAI deu chua xac minh duoc trong
+# bat ky file MD/vanilla nao tai ve (MD dung add_equipment_to_stockpile 76 lan,
+# destroy_equipment 0 lan), ma tieu chuan cua repo nay la error.log sach
+# (tools/TESTING.md muc 0). -> Tam dung tru-roi-cong cung token da xac minh.
+# TODO(buoc 3, can may co HOI4): thu amount = -100 va destroy_equipment, cai nao
+# khong ghi error.log thi giu, roi xoa comment nay.
+# Variant T-54M cua VIE (nang cap noi dia tai Z153). MD KHONG dinh nghia variant
+# nao cho VIE (history/countries/VIE - Vietnam.txt co 0 create_equipment_variant),
+# nen phai tu tao. Module lay theo mau T-55AM cua MD (SOV) + reactive_armor_gen1
+# vi T-54M that gan giap phan ung no; bao cao muc 6.5 cung ghi "ERA trong nuoc".
+# Chi tao mot lan (co VIE_t54m_variant), vi create_equipment_variant trung ten se
+# tao ban version 2, 3... lam roi danh sach variant.
+VIE_proc_create_t54m_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_t54m_variant }
+		}
+		set_country_flag = VIE_t54m_variant
+		create_equipment_variant = {
+			name = "T-54M"
+			type = medium_tank_chassis_0
+			parent_version = 0
+			modules = {
+				main_armament_slot = tank_small_medium_cannon
+				secondary_armament_slot = afv_coax_machine_gun_2
+				ammunition_load_slot = mixed_main_ammo_2
+				turret_type_slot = tank_soviet_turret
+				suspension_type_slot = tank_torsion_bar_suspension_medium
+				armor_type_slot = tank_steel_armor_gen1
+				engine_type_slot = tank_diesel_engine_gen2
+				reload_type_slot = manual_loading
+				special_type_slot_1 = smoke_launchers
+				special_type_slot_2 = additional_mg
+				special_type_slot_3 = smoothbore_atgm_gen1
+				special_type_slot_4 = tank_battlestation_2
+				special_type_slot_6 = reactive_armor_gen1
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 2
+			}
+			model = "SOV_T55A_entity"
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_convert_t54m3 = {
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		VIE_proc_create_t54m_variant = yes
+		add_equipment_to_stockpile = { type = medium_tank_chassis_0 amount = -100 }
+		add_equipment_to_stockpile = {
+			type = medium_tank_chassis_0
+			variant_name = "T-54M"
+			amount = 100
+			producer = VIE
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = { type = MBT_1 amount = -100 }
+		add_equipment_to_stockpile = { type = MBT_1 amount = 100 producer = VIE }
+	}
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+	add_to_variable = { VIE_af_army_armor_defence_factor = 0.02 tooltip = VIE_tt_army_armor_defence_factor }
+}
+
+# Chuoi 3 option A - Igla kem quyen san xuat trong nuoc (lich su). Mo D9 (TL-01).
+VIE_proc_reward_igla_license = {
+	set_country_flag = VIE_igla_license
+	set_temp_variable = { treasury_change = -0.35 }
+	modify_treasury_effect = yes
+	# Bao cao muc 1.4 muon enemy_army_bonus_air_superiority_factor -5%. Modifier do
+	# chua nam trong VIE_armed_forces_modifier va chua xac minh duoc MD/vanilla co
+	# nhan no khong, nen dung VIE_af_air_defence_factor da duoc noi san (loc key
+	# VIE_tt_air_defence_factor cung da co). TODO(verify): doi sang
+	# enemy_army_bonus_air_superiority_factor neu xac nhan modifier ton tai.
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+	add_to_variable = { VIE_af_air_defence_factor = 0.05 tooltip = VIE_tt_air_defence_factor }
+}
+
+# Chuoi 3 option B - chi mua thanh pham, khong co quyen san xuat (D9 khoa).
+VIE_proc_reward_igla_purchase_only = {
+	set_temp_variable = { treasury_change = -0.25 }
+	modify_treasury_effect = yes
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+	add_to_variable = { VIE_af_air_defence_factor = 0.05 tooltip = VIE_tt_air_defence_factor }
+}
+
+# Chuoi 4 option A - ky license Galil ACE cho Z111 (lich su). D2 con 730 ngay thay vi 1095.
+VIE_proc_reward_iwi_license = {
+	set_country_flag = VIE_iwi_license
+	set_temp_variable = { treasury_change = -0.10 }
+	modify_treasury_effect = yes
+}
+
+# Chuoi 5 option A - 64 T-90S/SK, vay tin dung Nga (lich su).
+# Ghi vao NO bang modify_debt_effect, khong tru treasury (bao cao muc 6.1).
+# Ky 2016 -> giao 12/2018 va 02/2019: 1065 va 1125 ngay tu ETD 01/2016.
+# Bao cao ghi 900/960 ngay = 06-08/2018, lech lich su ~6 thang (loi C3).
+VIE_proc_reward_t90_credit = {
+	set_temp_variable = { debt_change = 1.25 }
+	modify_debt_effect = yes
+	VIE_proc_schedule_t90_two_batches = yes
+}
+
+# Chuoi 5 option B - 128 xe, tra thang 2.50bn; 2 dot moi dot 64.
+VIE_proc_reward_t90_128 = {
+	set_country_flag = VIE_t90_batch_large
+	set_temp_variable = { treasury_change = -2.50 }
+	modify_treasury_effect = yes
+	country_event = { id = vie_proc_army.15 days = 900 random_days = 30 }
+	country_event = { id = vie_proc_army.16 days = 1270 random_days = 30 }
+}
+
+# Chuoi 5 option C - 32 xe, tra thang 0.65bn; mot dot duy nhat.
+VIE_proc_reward_t90_32 = {
+	set_temp_variable = { treasury_change = -0.65 }
+	modify_treasury_effect = yes
+	country_event = { id = vie_proc_army.15 days = 900 random_days = 30 }
+}
+
+# Hen hai dot giao hang, moi dot 32 xe (option A). Tach ra de ca fallback im lang
+# dung chung. .15 cap modifier + XP mot lan; .16 CHI cap xe (loi C1: bao cao cho
+# .15 fire 2 lan, khien +5%/+3% thanh +10%/+6% va +10 XP thanh +20).
+VIE_proc_schedule_t90_two_batches = {
+	country_event = { id = vie_proc_army.15 days = 1065 random_days = 30 }
+	country_event = { id = vie_proc_army.16 days = 1125 random_days = 30 }
+}
+
+# Mot dot giao T-90. Kich thuoc doc tu co VIE_t90_batch_large (64) hay mac dinh (32).
+# Ten equipment da doi chieu MD main: MBT_4 = 1995, medium_tank_chassis_2 = 1995.
+# Bao cao muc 6.5 ghi medium_tank_chassis_3 - sai, chassis_3 la doi 2015 (loi B4).
+#   T-90S/SK : SOV co san variant "T-90" va "T-90A" (medium_tank_chassis_2) trong
+#              history/countries/SOV - Russia.txt dong 2230/2257. Dung "T-90" vi ban
+#              xuat khau T-90S gan ban noi dia hon T-90A. KHONG can tao variant moi.
+# producer = SOV doi variant T-90 phai co trong history/countries/SOV - Russia.txt
+# cua MD, khong phai file VIE (bao cao ghi dung diem nay).
+VIE_proc_deliver_t90_batch = {
+	if = {
+		limit = { has_country_flag = VIE_t90_batch_large }
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			add_equipment_to_stockpile = {
+				type = medium_tank_chassis_2
+				variant_name = "T-90"
+				amount = 64
+				producer = SOV
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = { type = MBT_4 amount = 64 producer = SOV }
+		}
+	}
+	else = {
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			add_equipment_to_stockpile = {
+				type = medium_tank_chassis_2
+				variant_name = "T-90"
+				amount = 32
+				producer = SOV
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = { type = MBT_4 amount = 32 producer = SOV }
+		}
+	}
+}
+
+# Modifier + XP + co hop dong, chi mot lan cho ca chuoi. Idempotent.
+VIE_proc_reward_t90_in_service = {
+	if = {
+		limit = { NOT = { has_country_flag = VIE_t90_purchased } }
+		set_country_flag = VIE_t90_purchased
+		set_country_flag = VIE_ev_t90_tanks
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+		add_to_variable = { VIE_af_army_armor_attack_factor = 0.05 tooltip = VIE_tt_army_armor_attack_factor }
+		add_to_variable = { VIE_af_army_armor_defence_factor = 0.03 tooltip = VIE_tt_army_armor_defence_factor }
+		army_experience = 10
+	}
+}
+
+# Chuoi 6 option A - mua 20 K9A1 (lich su), 1.30bn.
+VIE_proc_reward_k9_20 = {
+	set_temp_variable = { treasury_change = -1.30 }
+	modify_treasury_effect = yes
+	country_event = { id = vie_proc_army.20 days = 365 random_days = 30 }
+}
+
+# Chuoi 6 option B - mua 40 K9A1, 2.60bn.
+VIE_proc_reward_k9_40 = {
+	set_country_flag = VIE_k9_batch_large
+	set_temp_variable = { treasury_change = -2.60 }
+	modify_treasury_effect = yes
+	country_event = { id = vie_proc_army.20 days = 365 random_days = 30 }
+}
+
+# Giao K9A1. SP_arty_2 = tier 2005, dung cho K9 (thiet ke 1999). Bao cao de trong
+# "SP_arty_N" khong chon tier (loi C4). K9 tu hanh -> khong can nhanh NSB rieng:
+# MD dinh nghia SP_arty_* trong khoi equipments, khong gate theo DLC.
+#   K9A1 : KOR co san variant "K9 Thunder" (medium_tank_artillery_chassis_2), va
+#          chinh MD dung cap (type, variant_name) nay khi cap phao cho KOR trong
+#          history/countries/KOR - Korea.txt. Bao cao muc 6.5 ghi "SP_arty_N" - do
+#          la ho equipment non-NSB; o che do NSB phai dung ho chassis. Giu ca hai
+#          nhanh nhu moi he thong khac trong file nay.
+VIE_proc_deliver_k9 = {
+	if = {
+		limit = { has_country_flag = VIE_k9_batch_large }
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			add_equipment_to_stockpile = {
+				type = medium_tank_artillery_chassis_2
+				variant_name = "K9 Thunder"
+				amount = 40
+				producer = KOR
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = { type = SP_arty_2 amount = 40 producer = KOR }
+		}
+	}
+	else = {
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			add_equipment_to_stockpile = {
+				type = medium_tank_artillery_chassis_2
+				variant_name = "K9 Thunder"
+				amount = 20
+				producer = KOR
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = { type = SP_arty_2 amount = 20 producer = KOR }
+		}
+	}
+	set_country_flag = VIE_k9_purchased
+}
+
+# Chuoi 6 .21 option B - mua dan dan huong, 0.25bn.
+VIE_proc_reward_k9_guided_shells = {
+	set_temp_variable = { treasury_change = -0.25 }
+	modify_treasury_effect = yes
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+	add_to_variable = { VIE_af_army_artillery_attack_factor = 0.05 tooltip = VIE_tt_army_artillery_attack_factor }
+}
+
+# Chuoi 7 option B (alt) - mua 1 tieu doan ~30 BMP-3, -0.50bn.
+# Bao cao ghi medium_tank_flame_chassis_2 / IFV_3 - CA HAI DUNG (audit B4 ket luan
+# nguoc va da duoc sua lai): medium_tank_flame_chassis_2 CO that, vi MD dung
+# duplicate_archetypes + for_each de tu sinh tier con tu tier cua
+# medium_tank_chassis_0..6. SOV dinh nghia variant "BMP-3" tren dung type do.
+# IFV_3 (1985) la ten ho non-NSB, cung archetype medium_tank_flame_chassis.
+VIE_proc_reward_bmp3 = {
+	set_temp_variable = { treasury_change = -0.50 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		add_equipment_to_stockpile = {
+			type = medium_tank_flame_chassis_2
+			variant_name = "BMP-3"
+			amount = 30
+			producer = SOV
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = { type = IFV_3 amount = 30 producer = SOV }
+	}
+}
+
+# Chuoi 8 option A (alt) - bien che 12 TOS-1A, 0.40bn.
+# SP_R_arty_2 = tier 2005, dung cho TOS-1A (2001). BM-21 dung SP_R_arty_0 (1965).
+VIE_proc_reward_tos1a = {
+	set_temp_variable = { treasury_change = -0.40 }
+	modify_treasury_effect = yes
+	# TOS-1A (2001). MD co san variant "TOS-1" tren medium_tank_rocket_chassis_1
+	# (SOV - Russia.txt dong 3588, va MD tu cap 8 xe variant nay cho SOV o dong
+	# 3610). Dung cap do thay vi tu tao variant:
+	#   - chassis_1 = 1985: TOS-1 goc nhap ngu 1988, dung the he hon chassis_2 (2005)
+	#   - variant "TOS-1" da co day du module (main_armament, ammo, engine, upgrade
+	#     tank_nsb_fire_upgrade = 3) va icon rieng -> xe dung duoc trong su doan ngay
+	# TOS-1A la ban nang cap 2001 cua TOS-1; MD khong tach variant rieng, nen dung
+	# chung "TOS-1" va ghi chu trong loc la ban A.
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		add_equipment_to_stockpile = {
+			type = medium_tank_rocket_chassis_1
+			variant_name = "TOS-1"
+			amount = 12
+			producer = SOV
+		}
+	}
+	else = {
+		add_equipment_to_stockpile = { type = SP_R_arty_1 amount = 12 producer = SOV }
+	}
+	army_experience = 10
+}
+
+########################################################################
+# Fallback im lang: ket qua lich su khi het cua so pop-up. Moi cai chi goi lai
+# reward tuong ung, de mot chuoi chi co mot cho dinh nghia hieu ung.
+########################################################################
+# Chu y ve bat doi xung co y (khong phai loi):
+# Nguoi choi CHU DONG tu choi goi Israel (.5 option B hoac C) thi mat D5, con nguoi
+# choi khong kip thay pop-up thi fallback nay lai cap D5 mien phi. Day la dung
+# convention Class B san co cua mod: VIE_fb_president_2018 trong
+# VIE_md_effects_p13.txt cung ap ket qua lich su khi het cua so, va
+# VIE_md_effects.txt:227 ghi "if it is still blocked after DATE_TO the historical
+# result is applied silently (FALLBACK)". Y nghia: lich su van dien ra du nguoi
+# choi bo qua no; nguoi choi muon khac lich su thi phai chu dong bam.
+# DUNG "sua" cho hai nhanh giong nhau - se pha convention cua ca 13 scheduler.
+VIE_fb_proc_t54m3 = {
+	VIE_proc_reward_t54m3_prototype = yes
+}
+VIE_fb_proc_igla = {
+	VIE_proc_reward_igla_license = yes
+}
+VIE_fb_proc_galil = {
+	VIE_proc_reward_iwi_license = yes
+}
+VIE_fb_proc_t90 = {
+	VIE_proc_reward_t90_credit = yes
+}
+VIE_fb_proc_k9 = {
+	VIE_proc_reward_k9_20 = yes
+}
+# Ba chuoi alt-history (7, 8, 9) khong co ket qua lich su de fallback: het cua so
+# thi chi dong chuoi, khong ap hieu ung gi. Dung VIE_fb_none san co cua repo
+# (VIE_md_effects_p2.txt:17) thay vi dinh nghia mot effect rong rieng - effect
+# rong de bi engine bo qua va kho debug. VIE_fb_none co log nen thay duoc trong
+# error.log khi can truy van de.
+
+########################################################################
+# Catch-up: nguoi thang noi chien tiep quan dong VIE. Chi dat co, khong cap
+# tien va khong cap xe - dung quy uoc cua p12 ("a civil-war winner takes over
+# the VIE lineage without the hardware"). Co hop dong van phai dat vi Truc 2
+# doc chung de mo D2/D5/D8/D9 (tien le: p13 dat VIE_constitution_2013_adopted
+# ngay ca trong catch-up vi no gate focus cho moi che do).
+########################################################################
+VIE_proc_catch_up = {
+	set_country_flag = VIE_proc_1_done
+	set_country_flag = VIE_proc_2_done
+	set_country_flag = VIE_proc_5_done
+	set_country_flag = VIE_proc_8_done
+	set_country_flag = VIE_proc_11_done
+	set_country_flag = VIE_proc_14_done
+	set_country_flag = VIE_proc_18_done
+	set_country_flag = VIE_proc_30_done
+	set_country_flag = VIE_proc_35_done
+	set_country_flag = VIE_proc_38_done
+	set_country_flag = VIE_t54m3_prototype
+	set_country_flag = VIE_igla_license
+	set_country_flag = VIE_iwi_license
+	set_country_flag = VIE_t90_purchased
+	set_country_flag = VIE_ev_t90_tanks
+	set_country_flag = VIE_k9_purchased
+}
+
+########################################################################
+# Scheduler
+########################################################################
+VIE_event_scheduler_p14 = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+
+		# --- Chuoi 1: xe tang cu chau Au (2005-2006). Khong can cua so: dieu kien
+		#     khong phu thuoc thao tac nguoi choi (bao cao muc 1.6).
+		if = {
+			limit = {
+				date > 2004.12.31
+				NOT = { has_country_flag = VIE_proc_1_done }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_proc_1_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_proc_army.1 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2005.12.31 }
+				set_country_flag = VIE_proc_1_done
+				VIE_proc_reward_t54_finland = yes
+			}
+		}
+
+		# --- Chuoi 2: T-72 Ba Lan (2006). Chi ton tai neu .1 chon A; .1 tu hen.
+		if = {
+			limit = {
+				has_country_flag = VIE_pl_t72_deal
+				NOT = { has_country_flag = VIE_proc_2_done }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_proc_2_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_proc_army.2 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2007.6.30 }
+				# lich su: huy hop dong, don ngan sach cho hai quan va khong quan
+				set_country_flag = VIE_proc_2_done
+				navy_experience = 10
+				air_experience = 10
+			}
+		}
+
+		# --- Chuoi 3 (bao cao goi .5): T-54M3, mau thu Israel. Cua so 2009-2012.
+		if = {
+			limit = {
+				date > 2008.12.31
+				NOT = { has_country_flag = VIE_proc_5_done }
+			}
+			if = {
+				limit = {
+					VIE_proc_gate_army_program = yes
+					country_exists = ISR
+					NOT = { has_country_flag = VIE_popup_cd }
+				}
+				set_country_flag = VIE_proc_5_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_proc_army.5 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2012.12.31 }
+				set_country_flag = VIE_proc_5_done
+				if = {
+					limit = {
+						VIE_proc_gate_army_program = yes
+						country_exists = ISR
+					}
+					VIE_fb_proc_t54m3 = yes
+				}
+				else = {
+					log = "[GetDateText]: [Root.GetName]: proc 5 window closed unmet - D5 (T-54M noi dia) locked"
+				}
+			}
+		}
+
+		# --- Chuoi 3 (bao cao goi .8): Igla kem quyen san xuat. Cua so 2009-2013.
+		if = {
+			limit = {
+				date > 2008.12.31
+				NOT = { has_country_flag = VIE_proc_8_done }
+			}
+			if = {
+				limit = {
+					VIE_proc_gate_army_program = yes
+					country_exists = SOV
+					NOT = { has_country_flag = VIE_popup_cd }
+				}
+				set_country_flag = VIE_proc_8_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_proc_army.8 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2013.12.31 }
+				set_country_flag = VIE_proc_8_done
+				if = {
+					limit = {
+						VIE_proc_gate_army_program = yes
+						country_exists = SOV
+					}
+					VIE_fb_proc_igla = yes
+				}
+				else = {
+					log = "[GetDateText]: [Root.GetName]: proc 8 window closed unmet - D9 (TL-01) locked"
+				}
+			}
+		}
+
+		# --- Chuoi 4 (.11): license Galil ACE cho Z111. Cua so 2013-2015.
+		if = {
+			limit = {
+				date > 2012.12.31
+				NOT = { has_country_flag = VIE_proc_11_done }
+			}
+			if = {
+				limit = {
+					VIE_proc_gate_z_factories_done = yes
+					country_exists = ISR
+					NOT = { has_country_flag = VIE_popup_cd }
+				}
+				set_country_flag = VIE_proc_11_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_proc_army.11 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2015.12.31 }
+				set_country_flag = VIE_proc_11_done
+				if = {
+					limit = {
+						VIE_proc_gate_z_factories_done = yes
+						country_exists = ISR
+					}
+					VIE_fb_proc_galil = yes
+				}
+				else = {
+					# D2 van mo, chi la ban 1095 ngay thay vi 730 (bao cao muc 1.6)
+					log = "[GetDateText]: [Root.GetName]: proc 11 window closed unmet - D2 stays at 1095 days"
+				}
+			}
+		}
+
+		# --- Chuoi 5 (.14): T-90S/SK. Cua so 2016-2018.
+		if = {
+			limit = {
+				date > 2015.12.31
+				NOT = { has_country_flag = VIE_proc_14_done }
+			}
+			if = {
+				limit = {
+					VIE_proc_gate_army_program = yes
+					country_exists = SOV
+					NOT = { has_war_with = SOV }
+					NOT = { has_country_flag = VIE_popup_cd }
+				}
+				set_country_flag = VIE_proc_14_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_proc_army.14 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2018.12.31 }
+				set_country_flag = VIE_proc_14_done
+				if = {
+					limit = {
+						VIE_proc_gate_army_program = yes
+						country_exists = SOV
+						NOT = { has_war_with = SOV }
+					}
+					VIE_fb_proc_t90 = yes
+				}
+				else = {
+					log = "[GetDateText]: [Root.GetName]: proc 14 window closed unmet - no T-90, vie_def_ind.2 never fires"
+				}
+			}
+		}
+
+		# --- Chuoi 6 (.18): K9A1. Cua so 2023-2026, hoac 2021-2026 neu da nghien
+		#     cuu chuan 155mm (co VIE_155mm_study tu chuoi CAESAR that bai).
+		if = {
+			limit = { NOT = { has_country_flag = VIE_proc_18_done } }
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							VIE_proc_gate_k9_early = yes
+							date > 2020.12.31
+						}
+						date > 2022.12.31
+					}
+					VIE_proc_gate_army_program = yes
+					country_exists = KOR
+					NOT = { has_war_with = KOR }
+					NOT = { has_country_flag = VIE_popup_cd }
+				}
+				set_country_flag = VIE_proc_18_done
+				set_country_flag = { flag = VIE_popup_cd days = 45 }
+				country_event = { id = vie_proc_army.18 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2026.12.31 }
+				set_country_flag = VIE_proc_18_done
+				if = {
+					limit = {
+						country_exists = KOR
+						NOT = { has_war_with = KOR }
+					}
+					VIE_fb_proc_k9 = yes
+				}
+				else = {
+					log = "[GetDateText]: [Root.GetName]: proc 18 window closed unmet - no K9, D8 locked"
+				}
+			}
+		}
+
+		# --- Chuoi 7-9: alt-history, chi vao lich khi rule bat.
+		if = {
+			limit = { VIE_proc_alt_allowed = yes }
+
+			# Chuoi 7 (.30): BMP-3, 2010
+			if = {
+				limit = {
+					date > 2009.12.31
+					NOT = { has_country_flag = VIE_proc_30_done }
+				}
+				if = {
+					limit = {
+						country_exists = SOV
+						NOT = { has_country_flag = VIE_popup_cd }
+					}
+					set_country_flag = VIE_proc_30_done
+					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					country_event = { id = vie_proc_army.30 days = 3 random_days = 15 }
+				}
+				else_if = {
+					limit = { date > 2011.12.31 }
+					set_country_flag = VIE_proc_30_done
+					VIE_fb_none = yes
+				}
+			}
+
+			# Chuoi 8 (.35): TOS-1A, 2016
+			if = {
+				limit = {
+					date > 2015.12.31
+					NOT = { has_country_flag = VIE_proc_35_done }
+				}
+				if = {
+					limit = {
+						country_exists = SOV
+						NOT = { has_country_flag = VIE_popup_cd }
+					}
+					set_country_flag = VIE_proc_35_done
+					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					country_event = { id = vie_proc_army.35 days = 3 random_days = 15 }
+				}
+				else_if = {
+					limit = { date > 2017.12.31 }
+					set_country_flag = VIE_proc_35_done
+					VIE_fb_none = yes
+				}
+			}
+
+			# Chuoi 9 (.38): CAESAR, 2015
+			if = {
+				limit = {
+					date > 2014.12.31
+					NOT = { has_country_flag = VIE_proc_38_done }
+				}
+				if = {
+					limit = {
+						country_exists = FRA
+						NOT = { has_country_flag = VIE_popup_cd }
+					}
+					set_country_flag = VIE_proc_38_done
+					set_country_flag = { flag = VIE_popup_cd days = 45 }
+					country_event = { id = vie_proc_army.38 days = 3 random_days = 15 }
+				}
+				else_if = {
+					limit = { date > 2016.12.31 }
+					set_country_flag = VIE_proc_38_done
+					VIE_fb_none = yes
+				}
+			}
+		}
+	}
+	else = {
+		VIE_proc_catch_up = yes
+	}
+}
