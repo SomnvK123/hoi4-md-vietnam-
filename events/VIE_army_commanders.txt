@@ -1,0 +1,86 @@
+add_namespace = vie_army_commanders
+
+country_event = {
+	id = vie_army_commanders.1
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		recruit_character = VIE_army_le_xuan_thuan
+		recruit_character = VIE_army_dao_tuan_anh
+		recruit_character = VIE_army_le_xuan_the
+		recruit_character = VIE_army_tran_dai_thang
+		recruit_character = VIE_army_nguyen_thanh_pho
+		recruit_character = VIE_army_tran_cong_duc
+		recruit_character = VIE_army_nguyen_ba_luc
+		set_country_flag = VIE_army_expansion_recruited
+		clr_country_flag = VIE_army_expansion_event_pending
+	}
+
+	option = {
+		name = vie_army_commanders.1.a
+	}
+}
+
+country_event = {
+	id = vie_army_commanders.2
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		recruit_character = VIE_Ngo_Xuan_Lich
+		recruit_character = VIE_Phi_Quoc_Tuan
+		recruit_character = VIE_Nguyen_Quang_Dam
+		recruit_character = VIE_Pham_Kim_Hau
+		recruit_character = VIE_Pham_Van_Hung
+		recruit_character = VIE_Tran_Don
+		recruit_character = VIE_Tran_Viet_Khoa
+		recruit_character = VIE_Vo_Trong_Viet
+		recruit_character = VIE_Le_Xuan_Duy
+		recruit_character = VIE_Dinh_Gia_That
+		set_country_flag = VIE_md_roster_recruited_2015
+		clr_country_flag = VIE_md_roster_event_pending
+	}
+
+	option = {
+		name = vie_army_commanders.2.a
+	}
+}
+
+country_event = {
+	id = vie_army_commanders.3
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		recruit_character = VIE_Phan_Van_Giang
+		recruit_character = VIE_Be_Xuan_Truong
+		set_country_flag = VIE_md_roster_recruited_2016
+		clr_country_flag = VIE_md_roster_event_pending
+	}
+
+	option = {
+		name = vie_army_commanders.3.a
+	}
+}
+
+country_event = {
+	id = vie_army_commanders.4
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		recruit_character = VIE_Nguyen_Tan_Cuong
+		recruit_character = VIE_Nguyen_Trong_Nghia
+		recruit_character = VIE_Pham_Hoai_Nam
+		recruit_character = VIE_Tran_Quang_Phuong
+		recruit_character = VIE_Vo_Minh_Luong
+		recruit_character = VIE_Hoang_Xuan_Chien
+		set_country_flag = VIE_md_roster_recruited_2021
+		clr_country_flag = VIE_md_roster_event_pending
+	}
+
+	option = {
+		name = vie_army_commanders.4.a
+	}
+}

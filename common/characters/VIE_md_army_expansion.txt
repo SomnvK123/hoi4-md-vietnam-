@@ -1,0 +1,127 @@
+characters = {
+	VIE_army_le_xuan_thuan = {
+		name = "Le Xuan Thuan"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Le_Xuan_Thuan_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Le_Xuan_Thuan.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_leader organizer engineer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+
+	VIE_army_dao_tuan_anh = {
+		name = "Dao Tuan Anh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Dao_Tuan_Anh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Dao_Tuan_Anh.dds"
+			}
+		}
+		corps_commander = {
+			traits = { offensive_doctrine infantry_leader organizer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+
+	VIE_army_le_xuan_the = {
+		name = "Le Xuan The"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Le_Xuan_The_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Le_Xuan_The.dds"
+			}
+		}
+		field_marshal = {
+			traits = { defensive_doctrine organizer logistics_wizard }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+
+	VIE_army_tran_dai_thang = {
+		name = "Tran Dai Thang"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Tran_Dai_Thang_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Tran_Dai_Thang.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_army_tran_dai_thang
+			ledger = army
+			traits = { army_entrenchment_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_nguyen_thanh_pho = {
+		name = "Nguyen Thanh Pho"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Thanh_Pho_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Thanh_Pho.dds"
+			}
+		}
+		corps_commander = {
+			traits = { organizer engineer defensive_doctrine }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+
+	VIE_army_tran_cong_duc = {
+		name = "Tran Cong Duc"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Tran_Cong_Duc_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Tran_Cong_Duc.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_leader defensive_doctrine organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+
+	VIE_army_nguyen_ba_luc = {
+		name = "Nguyen Ba Luc"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Ba_Luc_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Ba_Luc.dds"
+			}
+		}
+		corps_commander = {
+			traits = { offensive_doctrine infantry_leader engineer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+}

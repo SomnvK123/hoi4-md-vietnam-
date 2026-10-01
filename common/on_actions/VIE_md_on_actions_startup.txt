@@ -4,6 +4,29 @@ on_actions = {
 	on_startup = {
 		effect = {
 			VIE = {
+				# Base MD recruits the VIE roster in 2000 history. Keep those characters
+				# out of the early bookmark and restore them through the 2015 scheduler.
+				if = {
+					limit = { date < 2015.1.1 }
+					retire_character = VIE_Ngo_Xuan_Lich
+					retire_character = VIE_Phi_Quoc_Tuan
+					retire_character = VIE_Nguyen_Quang_Dam
+					retire_character = VIE_Nguyen_Tan_Cuong
+					retire_character = VIE_Nguyen_Trong_Nghia
+					retire_character = VIE_Pham_Hoai_Nam
+					retire_character = VIE_Pham_Kim_Hau
+					retire_character = VIE_Pham_Van_Hung
+					retire_character = VIE_Phan_Van_Giang
+					retire_character = VIE_Tran_Don
+					retire_character = VIE_Tran_Quang_Phuong
+					retire_character = VIE_Tran_Viet_Khoa
+					retire_character = VIE_Vo_Minh_Luong
+					retire_character = VIE_Vo_Trong_Viet
+					retire_character = VIE_Le_Xuan_Duy
+					retire_character = VIE_Hoang_Xuan_Chien
+					retire_character = VIE_Dinh_Gia_That
+					retire_character = VIE_Be_Xuan_Truong
+				}
 				if = {
 					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_HISTORICAL } }
 					set_global_flag = VIE_AI_PATH_HISTORICAL

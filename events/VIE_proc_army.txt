@@ -80,7 +80,7 @@ country_event = {
 	id = vie_proc_army.1
 	title = vie_proc_army.1.t
 	desc = vie_proc_army.1.d
-	picture = GFX_report_event_generic_factory
+	picture = GFX_VIE_report_event_vie_proc_army_1
 	is_triggered_only = yes
 
 	immediate = {
@@ -119,7 +119,7 @@ country_event = {
 	id = vie_proc_army.2
 	title = vie_proc_army.2.t
 	desc = vie_proc_army.2.d
-	picture = GFX_report_event_generic_conference
+	picture = GFX_VIE_report_event_vie_proc_army_2
 	is_triggered_only = yes
 
 	# A - Huy, don ngan sach cho hai quan va khong quan (lich su).
@@ -190,7 +190,7 @@ country_event = {
 	id = vie_proc_army.5
 	title = vie_proc_army.5.t
 	desc = vie_proc_army.5.d
-	picture = GFX_report_event_generic_factory
+	picture = GFX_VIE_report_event_vie_proc_army_5
 	is_triggered_only = yes
 
 	# A - Nhan mau thu va bo kit, tu nang cap trong nuoc (lich su), -0.05bn.
@@ -255,7 +255,7 @@ country_event = {
 	id = vie_proc_army.8
 	title = vie_proc_army.8.t
 	desc = vie_proc_army.8.d
-	picture = GFX_report_event_generic_sign_treaty2
+	picture = GFX_VIE_report_event_vie_proc_army_8
 	is_triggered_only = yes
 
 	# A - Mua kem quyen san xuat trong nuoc (lich su), -0.35bn.
@@ -311,7 +311,7 @@ country_event = {
 	id = vie_proc_army.11
 	title = vie_proc_army.11.t
 	desc = vie_proc_army.11.d
-	picture = GFX_report_event_generic_sign_treaty1
+	picture = GFX_VIE_report_event_vie_proc_army_11
 	is_triggered_only = yes
 
 	# A - Ky license Galil ACE cho Z111 (lich su), -0.10bn (uoc tinh, gia khong cong bo).
@@ -351,7 +351,7 @@ country_event = {
 	id = vie_proc_army.14
 	title = vie_proc_army.14.t
 	desc = vie_proc_army.14.d
-	picture = GFX_report_event_generic_sign_treaty2
+	picture = GFX_VIE_report_event_vie_proc_army_14
 	is_triggered_only = yes
 
 	# A - 64 xe, vay tin dung Nga (lich su). No +1.25bn; giao 12/2018 va 02/2019.
@@ -415,7 +415,7 @@ country_event = {
 	id = vie_proc_army.15
 	title = vie_proc_army.15.t
 	desc = vie_proc_army.15.d
-	picture = GFX_report_event_generic_army
+	picture = GFX_VIE_report_event_vie_proc_army_15
 	is_triggered_only = yes
 
 	immediate = {
@@ -435,7 +435,7 @@ country_event = {
 	id = vie_proc_army.16
 	title = vie_proc_army.16.t
 	desc = vie_proc_army.16.d
-	picture = GFX_report_event_generic_army
+	picture = GFX_VIE_report_event_vie_proc_army_16
 	is_triggered_only = yes
 
 	immediate = {
@@ -461,7 +461,7 @@ country_event = {
 	id = vie_proc_army.18
 	title = vie_proc_army.18.t
 	desc = vie_proc_army.18.d
-	picture = GFX_report_event_generic_conference
+	picture = GFX_VIE_report_event_vie_proc_army_18
 	is_triggered_only = yes
 
 	# KHONG hen .19 o immediate: option B (tu choi) dat co VIE_k9_declined, ma
@@ -509,7 +509,7 @@ country_event = {
 	id = vie_proc_army.19
 	title = vie_proc_army.19.t
 	desc = vie_proc_army.19.d
-	picture = GFX_report_event_generic_sign_treaty2
+	picture = GFX_VIE_report_event_vie_proc_army_19
 	is_triggered_only = yes
 
 	trigger = {
@@ -560,7 +560,7 @@ country_event = {
 	id = vie_proc_army.20
 	title = vie_proc_army.20.t
 	desc = vie_proc_army.20.d
-	picture = GFX_report_event_generic_army
+	picture = GFX_VIE_report_event_vie_proc_army_20
 	is_triggered_only = yes
 
 	immediate = {
@@ -581,7 +581,7 @@ country_event = {
 	id = vie_proc_army.21
 	title = vie_proc_army.21.t
 	desc = vie_proc_army.21.d
-	picture = GFX_report_event_generic_factory
+	picture = GFX_VIE_report_event_vie_proc_army_21
 	is_triggered_only = yes
 
 	# A - Noi dia hoa bao duong va dan (mo D8).
@@ -631,7 +631,7 @@ country_event = {
 	id = vie_proc_army.30
 	title = vie_proc_army.30.t
 	desc = vie_proc_army.30.d
-	picture = GFX_report_event_generic_army
+	picture = GFX_VIE_report_event_vie_proc_army_30
 	is_triggered_only = yes
 
 	# A - Nhan xe thu nghiem, -0.05bn. Mo .31 sau 180 ngay.
@@ -657,7 +657,7 @@ country_event = {
 	id = vie_proc_army.31
 	title = vie_proc_army.31.t
 	desc = vie_proc_army.31.d
-	picture = GFX_report_event_generic_read_write
+	picture = GFX_VIE_report_event_vie_proc_army_31
 	is_triggered_only = yes
 
 	immediate = {
@@ -676,7 +676,7 @@ country_event = {
 	id = vie_proc_army.32
 	title = vie_proc_army.32.t
 	desc = vie_proc_army.32.d
-	picture = GFX_report_event_generic_conference
+	picture = GFX_VIE_report_event_vie_proc_army_32
 	is_triggered_only = yes
 
 	# A - Khong mua, rut kinh nghiem. Dat VIE_bmp3_lessons -> D6 (XCB-01) con 1095 ngay.
@@ -714,7 +714,7 @@ country_event = {
 	id = vie_proc_army.35
 	title = vie_proc_army.35.t
 	desc = vie_proc_army.35.d
-	picture = GFX_report_event_generic_army
+	picture = GFX_VIE_report_event_vie_proc_army_35
 	is_triggered_only = yes
 
 	# A - Bien che 12 xe, -0.40bn.
@@ -747,7 +747,7 @@ country_event = {
 	id = vie_proc_army.38
 	title = vie_proc_army.38.t
 	desc = vie_proc_army.38.d
-	picture = GFX_report_event_generic_conference
+	picture = GFX_VIE_report_event_vie_proc_army_38
 	is_triggered_only = yes
 
 	# A - Dam phan. Mo .39 sau 180 ngay.
@@ -772,7 +772,7 @@ country_event = {
 	id = vie_proc_army.39
 	title = vie_proc_army.39.t
 	desc = vie_proc_army.39.d
-	picture = GFX_report_event_generic_read_write
+	picture = GFX_VIE_report_event_vie_proc_army_39
 	is_triggered_only = yes
 
 	immediate = {
@@ -791,7 +791,7 @@ country_event = {
 	id = vie_proc_army.40
 	title = vie_proc_army.40.t
 	desc = vie_proc_army.40.d
-	picture = GFX_report_event_generic_conference
+	picture = GFX_VIE_report_event_vie_proc_army_40
 	is_triggered_only = yes
 
 	immediate = {

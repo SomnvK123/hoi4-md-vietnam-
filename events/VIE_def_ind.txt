@@ -23,7 +23,7 @@ country_event = {
 	id = vie_def_ind.1
 	title = vie_def_ind.1.t
 	desc = vie_def_ind.1.d
-	picture = GFX_report_event_generic_factory
+	picture = GFX_VIE_report_event_vie_def_ind_1
 	is_triggered_only = yes
 
 	immediate = {
@@ -52,7 +52,7 @@ country_event = {
 	id = vie_def_ind.2
 	title = vie_def_ind.2.t
 	desc = vie_def_ind.2.d
-	picture = GFX_report_event_generic_sign_treaty1
+	picture = GFX_VIE_report_event_vie_def_ind_2
 	is_triggered_only = yes
 
 	immediate = {
@@ -73,7 +73,7 @@ country_event = {
 	id = vie_def_ind.3
 	title = vie_def_ind.3.t
 	desc = vie_def_ind.3.d
-	picture = GFX_report_event_generic_stock_traders
+	picture = GFX_VIE_report_event_vie_def_ind_3
 	is_triggered_only = yes
 
 	immediate = {
@@ -115,7 +115,7 @@ country_event = {
 	id = vie_def_ind.4
 	title = vie_def_ind.4.t
 	desc = vie_def_ind.4.d
-	picture = GFX_report_event_generic_parliament
+	picture = GFX_VIE_report_event_vie_def_ind_4
 	is_triggered_only = yes
 
 	immediate = {
