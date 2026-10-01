@@ -13,6 +13,7 @@ country_event = {
 		recruit_character = VIE_army_nguyen_thanh_pho
 		recruit_character = VIE_army_tran_cong_duc
 		recruit_character = VIE_army_nguyen_ba_luc
+		recruit_character = VIE_army_truong_manh_dung
 		set_country_flag = VIE_army_expansion_recruited
 		clr_country_flag = VIE_army_expansion_event_pending
 	}
@@ -28,59 +29,30 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		recruit_character = VIE_Ngo_Xuan_Lich
-		recruit_character = VIE_Phi_Quoc_Tuan
-		recruit_character = VIE_Nguyen_Quang_Dam
-		recruit_character = VIE_Pham_Kim_Hau
-		recruit_character = VIE_Pham_Van_Hung
-		recruit_character = VIE_Tran_Don
-		recruit_character = VIE_Tran_Viet_Khoa
-		recruit_character = VIE_Vo_Trong_Viet
-		recruit_character = VIE_Le_Xuan_Duy
-		recruit_character = VIE_Dinh_Gia_That
+		# Roster swap on 2015.1.1. New 2015+ army characters come in...
+		recruit_character = VIE_army_phung_si_tan
+		recruit_character = VIE_army_nguyen_doan_anh
+		recruit_character = VIE_army_nguyen_hong_thai
+		recruit_character = VIE_army_nguyen_phuong_nam
+		recruit_character = VIE_army_vu_hai_san
+		# VIE_Hyunh_Chien_Thang (upstream, never recruited by history) could join here as an optional 6th commander.
+
+		# ...and the 2000-2014 group leaves. Phi Quoc Tuan is upstream, Le Manh is never recruited (see startup).
+		retire_character = VIE_army_le_van_dung
+		retire_character = VIE_army_phung_quang_thanh
+		retire_character = VIE_army_huynh_tien_phong
+		retire_character = VIE_army_nguyen_khac_nghien
+		retire_character = VIE_army_do_ba_ty
+		retire_character = VIE_army_pham_van_tra
+		retire_character = VIE_army_nguyen_van_duoc
+		retire_character = VIE_army_hoang_ky
+		retire_character = VIE_army_pham_xuan_hung
+		retire_character = VIE_Phi_Quoc_Tuan
 		set_country_flag = VIE_md_roster_recruited_2015
 		clr_country_flag = VIE_md_roster_event_pending
 	}
 
 	option = {
 		name = vie_army_commanders.2.a
-	}
-}
-
-country_event = {
-	id = vie_army_commanders.3
-	hidden = yes
-	is_triggered_only = yes
-
-	immediate = {
-		recruit_character = VIE_Phan_Van_Giang
-		recruit_character = VIE_Be_Xuan_Truong
-		set_country_flag = VIE_md_roster_recruited_2016
-		clr_country_flag = VIE_md_roster_event_pending
-	}
-
-	option = {
-		name = vie_army_commanders.3.a
-	}
-}
-
-country_event = {
-	id = vie_army_commanders.4
-	hidden = yes
-	is_triggered_only = yes
-
-	immediate = {
-		recruit_character = VIE_Nguyen_Tan_Cuong
-		recruit_character = VIE_Nguyen_Trong_Nghia
-		recruit_character = VIE_Pham_Hoai_Nam
-		recruit_character = VIE_Tran_Quang_Phuong
-		recruit_character = VIE_Vo_Minh_Luong
-		recruit_character = VIE_Hoang_Xuan_Chien
-		set_country_flag = VIE_md_roster_recruited_2021
-		clr_country_flag = VIE_md_roster_event_pending
-	}
-
-	option = {
-		name = vie_army_commanders.4.a
 	}
 }

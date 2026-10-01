@@ -1,0 +1,368 @@
+characters = {
+	# Air Defence - Air Force roster. Air has no unit leaders in HOI4/MD, so every entry is an advisor.
+	# Plan: VIE_air_force_implementation_plan.md. Easy to confuse: nguyen_van_than (Than, commander) vs
+	# nguyen_van_thanh (Thanh, commissar); nguyen_van_hien (Hien, commander) vs bui_duc_hien (chief of staff);
+	# pham_tuan (cosmonaut) vs pham_tuan_anh (deputy commander).
+
+	# ---- air_chief chain: one person per term, recruited then retired by VIE_event_scheduler_air ----
+	VIE_air_nguyen_duc_soat = {
+		name = "Nguyen Duc Soat"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Duc_Soat_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Duc_Soat.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_nguyen_duc_soat
+			ledger = air
+			traits = { air_air_superiority_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_nguyen_van_than = {
+		name = "Nguyen Van Than"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Van_Than_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Van_Than.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_nguyen_van_than
+			ledger = air
+			traits = { air_chief_safety_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_le_huu_duc = {
+		name = "Le Huu Duc"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Le_Huu_Duc_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Le_Huu_Duc.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_le_huu_duc
+			ledger = air
+			traits = { air_bomber_interception_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_phuong_minh_hoa = {
+		name = "Phuong Minh Hoa"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Phuong_Minh_Hoa_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Phuong_Minh_Hoa.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_phuong_minh_hoa
+			ledger = air
+			traits = { air_chief_reform_2 }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_le_huy_vinh = {
+		name = "Le Huy Vinh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Le_Huy_Vinh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Le_Huy_Vinh.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_le_huy_vinh
+			ledger = air
+			traits = { air_force_multiplier_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_vu_van_kha = {
+		name = "Vu Van Kha"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Vu_Van_Kha_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Vu_Van_Kha.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_vu_van_kha
+			ledger = air
+			traits = { air_close_air_support_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_nguyen_van_hien = {
+		name = "Nguyen Van Hien"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Van_Hien_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Van_Hien.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_nguyen_van_hien
+			ledger = air
+			traits = { air_chief_all_weather_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_vu_hong_son = {
+		name = "Vu Hong Son"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Vu_Hong_Son_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Vu_Hong_Son.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = vie_air_vu_hong_son
+			ledger = air
+			traits = { air_chief_reform_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	# ---- high_command (ledger air): extra commanders attached to the same dated steps ----
+	VIE_air_pham_thanh_ngan = {
+		name = "Pham Thanh Ngan"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Pham_Thanh_Ngan_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Pham_Thanh_Ngan.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_pham_thanh_ngan
+			ledger = air
+			traits = { air_high_command_air_superiority_3 }
+			cost = 125
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_han_vinh_tuong = {
+		name = "Han Vinh Tuong"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Han_Vinh_Tuong_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Han_Vinh_Tuong.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_han_vinh_tuong
+			ledger = air
+			traits = { air_high_command_combat_training_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_pham_tuan = {
+		name = "Pham Tuan"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Pham_Tuan_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Pham_Tuan.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_pham_tuan
+			ledger = air
+			traits = { air_high_command_aircraft_design_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_nguyen_van_phiet = {
+		name = "Nguyen Van Phiet"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Van_Phiet_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Van_Phiet.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_nguyen_van_phiet
+			ledger = air
+			traits = { air_high_command_flight_safety_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_vo_van_tuan = {
+		name = "Vo Van Tuan"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Vo_Van_Tuan_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Vo_Van_Tuan.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_vo_van_tuan
+			ledger = air
+			traits = { air_high_command_air_superiority_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_nguyen_van_tho = {
+		name = "Nguyen Van Tho"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Van_Tho_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Van_Tho.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_nguyen_van_tho
+			ledger = air
+			traits = { air_high_command_multirole_support_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_nguyen_van_thanh = {
+		name = "Nguyen Van Thanh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Van_Thanh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Van_Thanh.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_nguyen_van_thanh
+			ledger = air
+			traits = { air_high_command_flight_safety_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_lam_quang_dai = {
+		name = "Lam Quang Dai"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Lam_Quang_Dai_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Lam_Quang_Dai.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_lam_quang_dai
+			ledger = air
+			traits = { air_high_command_combat_training_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_pham_van_tinh = {
+		name = "Pham Van Tinh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Pham_Van_Tinh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Pham_Van_Tinh.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_pham_van_tinh
+			ledger = air
+			traits = { air_high_command_interception_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_tran_ngoc_quyen = {
+		name = "Tran Ngoc Quyen"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Tran_Ngoc_Quyen_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Tran_Ngoc_Quyen.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_tran_ngoc_quyen
+			ledger = air
+			traits = { air_high_command_air_reform_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_pham_tuan_anh = {
+		name = "Pham Tuan Anh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Pham_Tuan_Anh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Pham_Tuan_Anh.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_pham_tuan_anh
+			ledger = air
+			traits = { air_high_command_all_weather_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_air_bui_duc_hien = {
+		name = "Bui Duc Hien"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Bui_Duc_Hien_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Bui_Duc_Hien.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_air_bui_duc_hien
+			ledger = air
+			traits = { air_high_command_night_operations_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

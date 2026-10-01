@@ -245,17 +245,17 @@ Không dùng trait “offensive”/“logistics” chỉ vì một người gi�
 - Millennium Dawn GitHub: `history/countries/VIE - Vietnam.txt` tuyển roster bằng `recruit_character`.
 - Repo submod có bản reference tương ứng trong `tools/audit/md_ref/VIE_country.txt` và `VIE_Vietnam.txt`.
 - Submod bổ sung `common/characters/VIE_md_army_expansion.txt` với 7 commander Lục quân mới.
-- Startup tuyển 7 ID mới trong `common/on_actions/VIE_md_on_actions_startup.txt`.
+- 7 commander mới (cộng Trương Mạnh Dũng, tổng 8) được tuyển bằng event `vie_army_commanders.1` từ `date > 2025.12.31`, không còn tuyển lúc khởi động. Xem `VIE_land_forces_implementation_plan_v2.md`.
 - Localization mới nằm trong `localisation/english/VIE_army_commanders_l_english.yml`.
-- 8 portrait VIE cục bộ hiện có trong `gfx/leaders/VIE/`, cùng các portrait VIE còn lại do base Millennium Dawn cung cấp khi game load.
+- Portrait VIE cục bộ trong `gfx/leaders/VIE/`: các file có sẵn (Trà, Thanh, Tỵ, Đỗ Bá Tỵ, 7 commander Quân đoàn 12/34...) và 13 ảnh placeholder sinh bằng `tools/build_vie_placeholder_portraits.py`, cùng các portrait VIE còn lại do base Millennium Dawn cung cấp khi game load.
 - `recruit_character` list trong `tools/audit/md_ref/VIE_country.txt` và `VIE_Vietnam.txt`.
 - Country leader creation và chuyển giao Tổng Bí thư trong `common/scripted_effects/VIE_md_effects.txt`.
 - Báo cáo quân sự đã đề xuất mô hình cải cách chỉ huy, quân đoàn 12/34 và hệ thống “tinh, gọn, mạnh”.
 
 ### Chưa có / cần làm
 
-- 7 commander mới chưa có portrait riêng; hiện character dùng fallback portrait của game.
-- Chưa có patch event thay đổi role/availability của roster theo mốc 2000-nay; roster base và 7 commander mới được tuyển khi VIE khởi động.
+- Các portrait placeholder (silhouette trung tính, không phải chân dung thật) cần thay bằng ảnh thật nếu có; ghi đè cùng tên file và bỏ id khỏi `PLACEHOLDERS` trong script.
+- Roster đã có hai giai đoạn (2000-2014 và 2015-nay) cộng một mốc phụ 2026: xem `VIE_land_forces_implementation_plan_v2.md`. Cơ chế đổi roster chưa được test trong game.
 - Cần kiểm tra version base MD cài thực tế có khớp commit GitHub đã kiểm tra hay không.
 - Cần test trong game để xác nhận toàn bộ portrait base và các advisor trait được nạp.
 

@@ -3,32 +3,13 @@ VIE_event_scheduler_p16 = {
 		limit = {
 			date > 2014.12.31
 			NOT = { has_country_flag = VIE_md_roster_recruited_2015 }
-			NOT = { has_character = VIE_Ngo_Xuan_Lich }
 		}
 		set_country_flag = VIE_md_roster_event_pending
 		country_event = { id = vie_army_commanders.2 days = 1 }
 	}
 	if = {
 		limit = {
-			date > 2015.12.31
-			NOT = { has_country_flag = VIE_md_roster_recruited_2016 }
-			NOT = { has_character = VIE_Phan_Van_Giang }
-		}
-		set_country_flag = VIE_md_roster_event_pending
-		country_event = { id = vie_army_commanders.3 days = 1 }
-	}
-	if = {
-		limit = {
-			date > 2020.12.31
-			NOT = { has_country_flag = VIE_md_roster_recruited_2021 }
-			NOT = { has_character = VIE_Nguyen_Tan_Cuong }
-		}
-		set_country_flag = VIE_md_roster_event_pending
-		country_event = { id = vie_army_commanders.4 days = 1 }
-	}
-	if = {
-		limit = {
-			date > 2022.12.31
+			date > 2025.12.31
 			NOT = { has_country_flag = VIE_army_expansion_recruited }
 			NOT = { has_country_flag = VIE_army_expansion_event_pending }
 		}

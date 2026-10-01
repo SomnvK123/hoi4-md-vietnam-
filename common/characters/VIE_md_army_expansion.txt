@@ -8,12 +8,12 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = { infantry_leader organizer engineer }
+			traits = { infantry_leader organizer trait_engineer }
 			skill = 3
 			attack_skill = 2
 			defense_skill = 3
 			planning_skill = 3
-			logistics_skill = 3
+			logistics_skill = 2
 		}
 	}
 
@@ -26,7 +26,7 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = { offensive_doctrine infantry_leader organizer }
+			traits = { adaptable infantry_leader organizer }
 			skill = 3
 			attack_skill = 3
 			defense_skill = 2
@@ -47,9 +47,9 @@ characters = {
 			traits = { defensive_doctrine organizer logistics_wizard }
 			skill = 3
 			attack_skill = 2
-			defense_skill = 4
+			defense_skill = 3
 			planning_skill = 3
-			logistics_skill = 3
+			logistics_skill = 2
 		}
 	}
 
@@ -80,12 +80,12 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = { organizer engineer defensive_doctrine }
+			traits = { organizer trait_engineer desperate_defender }
 			skill = 3
 			attack_skill = 2
 			defense_skill = 2
 			planning_skill = 4
-			logistics_skill = 3
+			logistics_skill = 2
 		}
 	}
 
@@ -98,7 +98,7 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = { infantry_leader defensive_doctrine organizer }
+			traits = { infantry_leader desperate_defender organizer }
 			skill = 3
 			attack_skill = 2
 			defense_skill = 3
@@ -116,11 +116,29 @@ characters = {
 			}
 		}
 		corps_commander = {
-			traits = { offensive_doctrine infantry_leader engineer }
+			traits = { adaptable infantry_leader trait_engineer }
 			skill = 3
 			attack_skill = 3
 			defense_skill = 3
 			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+
+	VIE_army_truong_manh_dung = {
+		name = "Truong Manh Dung"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Truong_Manh_Dung_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Truong_Manh_Dung.dds"
+			}
+		}
+		corps_commander = {
+			traits = { adaptable organizer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
 			logistics_skill = 2
 		}
 	}

@@ -129,6 +129,8 @@ Roster này phủ đủ bốn nhóm gameplay: chỉ huy chiến dịch, tham mư
 | `VIE_Le_Xuan_Duy` | `high_command`, artillery |
 | `VIE_Hoang_Xuan_Chien` | `army_chief`, drill |
 
+> **Lưu ý về 4 character Không quân upstream:** `VIE_Tran_Quang_Phuong` và `VIE_Tran_Viet_Khoa` (slot `air_chief`), `VIE_Vo_Minh_Luong` và `VIE_Vo_Trong_Viet` (`high_command` ledger air) không có chức vụ nào ở Quân chủng Phòng không - Không quân trong hồ sơ công khai (tướng chính trị, tướng Lục quân hoặc Biên phòng). Submod retire hai `air_chief` ở startup và dựng chuỗi tư lệnh thật bằng ID `VIE_air_*`; xem `VIE_air_force_commanders_research_report.md`.
+
 ## 5. Quy ước kiến trúc của MD
 
 ### File ownership

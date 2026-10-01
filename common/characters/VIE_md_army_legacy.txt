@@ -1,0 +1,290 @@
+characters = {
+	# ---- Giai doan 1: bookmark 2000, rut ngay 2015.1.1 (xem VIE_land_forces_implementation_plan_v2.md) ----
+	VIE_army_le_van_dung = {
+		name = "Le Van Dung"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Le_Van_Dung_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Le_Van_Dung.dds"
+			}
+		}
+		field_marshal = {
+			traits = { defensive_doctrine organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = vie_army_le_van_dung
+			ledger = army
+			traits = { army_chief_reform_2 }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_phung_quang_thanh = {
+		name = "Phung Quang Thanh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Phung_Quang_Thanh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Phung_Quang_Thanh.dds"
+			}
+		}
+		corps_commander = {
+			traits = { organizer infantry_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = vie_army_phung_quang_thanh
+			ledger = army
+			traits = { army_chief_logistics_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_huynh_tien_phong = {
+		name = "Huynh Tien Phong"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Huynh_Tien_Phong_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Huynh_Tien_Phong.dds"
+			}
+		}
+		corps_commander = {
+			traits = { jungle_rat infantry_leader }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+
+	VIE_army_nguyen_khac_nghien = {
+		name = "Nguyen Khac Nghien"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Khac_Nghien_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Khac_Nghien.dds"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = vie_army_nguyen_khac_nghien
+			ledger = army
+			traits = { army_chief_drill_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_do_ba_ty = {
+		name = "Do Ba Ty"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Do_Ba_Ty_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Do_Ba_Ty.dds"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = vie_army_do_ba_ty
+			ledger = army
+			traits = { army_chief_logistics_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_pham_van_tra = {
+		name = "Pham Van Tra"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Pham_Van_Tra_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Pham_Van_Tra.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_army_pham_van_tra
+			ledger = army
+			traits = { army_entrenchment_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_nguyen_van_duoc = {
+		name = "Nguyen Van Duoc"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Van_Duoc_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Van_Duoc.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_army_nguyen_van_duoc
+			ledger = army
+			traits = { army_entrenchment_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_hoang_ky = {
+		name = "Hoang Ky"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Hoang_Ky_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Hoang_Ky.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_army_hoang_ky
+			ledger = army
+			traits = { army_militia_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_pham_xuan_hung = {
+		name = "Pham Xuan Hung"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Pham_Xuan_Hung_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Pham_Xuan_Hung.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_army_pham_xuan_hung
+			ledger = army
+			traits = { army_artillery_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	# ---- Tuy chon, KHONG tuyen mac dinh: Giai doan 1 da du 6 commander ----
+	VIE_army_le_manh = {
+		name = "Le Manh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Le_Manh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Le_Manh.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_leader organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+
+	# ---- Giai doan 2: tuyen ngay 2015.1.1 ----
+	VIE_army_phung_si_tan = {
+		name = "Phung Si Tan"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Phung_Si_Tan_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Phung_Si_Tan.dds"
+			}
+		}
+		corps_commander = {
+			traits = { hill_fighter infantry_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+
+	VIE_army_nguyen_doan_anh = {
+		name = "Nguyen Doan Anh"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Doan_Anh_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Doan_Anh.dds"
+			}
+		}
+		corps_commander = {
+			traits = { urban_assault_specialist organizer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+
+	VIE_army_nguyen_hong_thai = {
+		name = "Nguyen Hong Thai"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Hong_Thai_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Hong_Thai.dds"
+			}
+		}
+		corps_commander = {
+			traits = { hill_fighter organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+
+	VIE_army_nguyen_phuong_nam = {
+		name = "Nguyen Phuong Nam"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Phuong_Nam_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Nguyen_Phuong_Nam.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_army_nguyen_phuong_nam
+			ledger = army
+			traits = { army_regrouping_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+
+	VIE_army_vu_hai_san = {
+		name = "Vu Hai San"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VIE/small/Portrait_Vu_Hai_San_small.dds"
+				large = "gfx/leaders/VIE/Portrait_Vu_Hai_San.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = vie_army_vu_hai_san
+			ledger = army
+			traits = { army_infantry_3 }
+			cost = 125
+			ai_will_do = { factor = 1 }
+		}
+	}
+}
