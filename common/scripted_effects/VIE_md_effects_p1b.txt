@@ -953,8 +953,8 @@ VIE_p1b_load_destroyer = {
 		limit = {
 			OR = {
 				AND = {
-					country_exists = IND
-					NOT = { has_war_with = IND }
+					country_exists = RAJ
+					NOT = { has_war_with = RAJ }
 				}
 				AND = {
 					country_exists = KOR
@@ -1097,8 +1097,8 @@ VIE_p1b_load_carrier = {
 		limit = {
 			OR = {
 				AND = {
-					country_exists = IND
-					NOT = { has_war_with = IND }
+					country_exists = RAJ
+					NOT = { has_war_with = RAJ }
 				}
 			}
 		}

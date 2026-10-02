@@ -363,3 +363,17 @@ Bước 0–9 đã code, chưa chạy trong game, chưa commit. Bước 10 (rà 
 | 9 | Xong: loc, `tools/TESTING.md` (mục "Naval force and Program 1B"), bảng cờ trong `VIE_v9_flag_mapping.md` | — |
 
 Mở: module variant P8 và P7 chưa có mẫu MD đầy đủ; bunker P6 chồng lên Bastion Trục 1; icon/ảnh event chưa tạo; ngày T5/T1 và Lữ đoàn 189 chưa xác minh.
+
+## Cap nhat 2026-10-02: cum Luat Bien chuyen sang nhanh Bien Dong
+
+- 10 focus (law_of_the_sea, maritime_militia, fisheries_surveillance, dk1_platforms, legal_warfare, spratly_fortification, coast_guard_law, assert_maritime_rights, paracel_ultimatum, limited_war_doctrine) gom thanh mot khoi trong `VIE_md_focus.txt`, bo `FOCUS_FILTER_NAVY`; ID, vi tri luoi, prerequisite khong doi.
+- `VIE_assert_maritime_rights` mo som qua `VIE_nf_branch_denial` (Truc 3) thay cho `VIE_maritime_denial_idea` (da xoa). Chieu phu thuoc duy nhat: nang luc hai quan -> mo focus Bien Dong.
+- Ngan sach modifier chung `VIE_armed_forces_modifier`: Truc 3 da cham tran coord 19.5/20 va detect 14.5/15 -> Bien Dong chi con `VIE_af_navy_max_range_factor` +0.05 (spratly_fortification); `nf_balance.py` tinh them SCS, PASS.
+- 1B: doi tac `destroyer`/`carrier` doi `IND` -> `RAJ` (An Do), sinh lai file.
+
+## Cap nhat 2026-10-02: giai doan 2 - Hop tac an ninh bien (nhanh Bien Dong)
+
+- 4 focus moi: `VIE_scs_maritime_cooperation` (goc, sau `VIE_law_of_the_sea`), `VIE_scs_multilateral_exercise`, `VIE_scs_cam_ranh_port` (cap `VIE_cam_ranh_idea`, can Bon Khong / khong lien minh), `VIE_scs_joint_training` (can ca hai nhanh + doi tac An Do/Nhat hoac co kilo).
+- Category `VIE_scs_cooperation_category` (priority 88), 5 decision (tap tran, tham cang, huan luyen chung RAJ/SOV/JAP), event `vie_scs_coop.1` / `.10`, scripted trigger `VIE_scs_pc_ok` / `VIE_scs_pc_any` / `VIE_scs_non_aligned`.
+- Khong cong vao `VIE_armed_forces_modifier`; `VIE_cam_ranh_idea` experience 0.05 -> 0.01 de tong `experience_gain_navy_factor` (truc luc luong 5 + coast guard 4 + Cam Ranh 1) khop tran 10; `nf_balance.py` doc truc tiep file idea.
+- MD da dat san naval_base 8 tai Nha Trang (province 10162, state 519) nen khong xay them ha tang o Cam Ranh.

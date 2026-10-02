@@ -305,8 +305,8 @@ VIE_naval_program_category = {
 				tooltip = VIE_p1b_path_tt
 				OR = {
 					AND = {
-						country_exists = IND
-						NOT = { has_war_with = IND }
+						country_exists = RAJ
+						NOT = { has_war_with = RAJ }
 					}
 					AND = {
 						country_exists = KOR
@@ -353,8 +353,8 @@ VIE_naval_program_category = {
 				tooltip = VIE_p1b_path_tt
 				OR = {
 					AND = {
-						country_exists = IND
-						NOT = { has_war_with = IND }
+						country_exists = RAJ
+						NOT = { has_war_with = RAJ }
 					}
 					AND = {
 						has_country_flag = VIE_cap_mature_naval_industry

@@ -73,3 +73,11 @@ VIE_naval_program_category = {
 	priority = 89
 	visible = { has_completed_focus = VIE_nf_medium_force }
 }
+
+# Hop tac an ninh bien (nhanh Bien Dong): tap tran, tau nuoc ngoai tham cang Cam Ranh, huan luyen chung
+# (VIE_md_scs_coop_decisions.txt). Cong la Focus VIE_scs_maritime_cooperation. priority 88: duoi het cac category khac.
+VIE_scs_cooperation_category = {
+	allowed = { original_tag = VIE }
+	priority = 88
+	visible = { has_completed_focus = VIE_scs_maritime_cooperation }
+}

@@ -1,0 +1,32 @@
+########################################################################
+# Hop tac an ninh bien (nhanh Bien Dong): cac cong dung chung cho decision / event.
+# Thiet ke: plan giai doan 2 (tap tran, tham cang Cam Ranh, huan luyen chung).
+########################################################################
+
+# Doi tac $T$ co the gui tau tham Cam Ranh: ton tai, khong co chien tranh voi VIE, chua tham trong 3 nam qua.
+VIE_scs_pc_ok = {
+	country_exists = $T$
+	NOT = { has_war_with = $T$ }
+	NOT = { has_country_flag = VIE_scs_pc_$T$ }
+}
+
+# It nhat mot doi tac co the tham cang (cong cua decision VIE_scs_d2_port_call).
+VIE_scs_pc_any = {
+	OR = {
+		VIE_scs_pc_ok = { T = JAP }
+		VIE_scs_pc_ok = { T = RAJ }
+		VIE_scs_pc_ok = { T = USA }
+		VIE_scs_pc_ok = { T = FRA }
+		VIE_scs_pc_ok = { T = AST }
+		VIE_scs_pc_ok = { T = SOV }
+		VIE_scs_pc_ok = { T = CHI }
+	}
+}
+
+# Chinh sach Bon Khong / khong lien minh con hieu luc: dieu kien de mo cang cho tau nuoc ngoai.
+VIE_scs_non_aligned = {
+	OR = {
+		has_idea = VIE_four_nos
+		has_idea = VIE_non_alignment_policy
+	}
+}

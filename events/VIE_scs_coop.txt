@@ -1,0 +1,276 @@
+add_namespace = vie_scs_coop
+
+########################################################################
+# Hop tac an ninh bien (nhanh Bien Dong). Nguoi choi chu dong bam Decision nen khong qua VIE_popup_cd.
+#   .1   Tap tran: chi ASEAN hay cung USA / JAP / AST
+#   .10  Tau nuoc ngoai tham cang Cam Ranh (dich vu hau can quoc te, khong phai can cu)
+########################################################################
+
+# .1  Tap tran
+country_event = {
+	id = vie_scs_coop.1
+	title = vie_scs_coop.1.t
+	desc = vie_scs_coop.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Chi cac nuoc ASEAN: it XP, khong choc Trung Quoc
+	option = {
+		name = vie_scs_coop.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.1.a executed"
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 10
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 10
+		}
+		if = {
+			limit = { country_exists = PHI NOT = { has_war_with = PHI } }
+			add_opinion_modifier = { target = PHI modifier = small_increase }
+		}
+		if = {
+			limit = { country_exists = MAY NOT = { has_war_with = MAY } }
+			add_opinion_modifier = { target = MAY modifier = small_increase }
+		}
+		if = {
+			limit = { country_exists = IND NOT = { has_war_with = IND } }
+			add_opinion_modifier = { target = IND modifier = small_increase }
+		}
+		if = {
+			limit = { country_exists = SIN NOT = { has_war_with = SIN } }
+			add_opinion_modifier = { target = SIN modifier = small_increase }
+		}
+		ai_chance = {
+			base = 65
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - Cung My / Nhat / Uc: nhieu XP, gan ket phuong Tay, Trung Quoc khong hai long
+	option = {
+		name = vie_scs_coop.1.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.1.b executed"
+		trigger = {
+			OR = {
+				country_exists = USA
+				country_exists = JAP
+				country_exists = AST
+			}
+		}
+		add_to_variable = { VIE_ax_west = 1 tooltip = VIE_ax_west_tt }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 20
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 20
+		}
+		if = {
+			limit = { country_exists = USA NOT = { has_war_with = USA } }
+			add_opinion_modifier = { target = USA modifier = small_increase }
+		}
+		if = {
+			limit = { country_exists = JAP NOT = { has_war_with = JAP } }
+			add_opinion_modifier = { target = JAP modifier = small_increase }
+		}
+		if = {
+			limit = { country_exists = AST NOT = { has_war_with = AST } }
+			add_opinion_modifier = { target = AST modifier = small_increase }
+		}
+		if = {
+			limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+			add_opinion_modifier = { target = CHI modifier = small_decrease }
+		}
+		ai_chance = {
+			base = 35
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+}
+
+# .10  Tau nuoc ngoai tham cang Cam Ranh
+country_event = {
+	id = vie_scs_coop.10
+	title = vie_scs_coop.10.t
+	desc = vie_scs_coop.10.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = vie_scs_coop.10.a
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.a executed"
+		trigger = { VIE_scs_pc_ok = { T = JAP } }
+		set_country_flag = { flag = VIE_scs_pc_JAP days = 1095 }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 5
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 5
+		}
+		add_opinion_modifier = { target = JAP modifier = small_increase }
+		if = {
+			limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+			add_opinion_modifier = { target = CHI modifier = small_decrease }
+		}
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	option = {
+		name = vie_scs_coop.10.b
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.b executed"
+		trigger = { VIE_scs_pc_ok = { T = RAJ } }
+		set_country_flag = { flag = VIE_scs_pc_RAJ days = 1095 }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 5
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 5
+		}
+		add_opinion_modifier = { target = RAJ modifier = small_increase }
+		if = {
+			limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+			add_opinion_modifier = { target = CHI modifier = small_decrease }
+		}
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	option = {
+		name = vie_scs_coop.10.c
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.c executed"
+		trigger = { VIE_scs_pc_ok = { T = USA } }
+		set_country_flag = { flag = VIE_scs_pc_USA days = 1095 }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 5
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 5
+		}
+		add_opinion_modifier = { target = USA modifier = small_increase }
+		if = {
+			limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+			add_opinion_modifier = { target = CHI modifier = small_decrease }
+		}
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	option = {
+		name = vie_scs_coop.10.h
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.h executed"
+		trigger = { VIE_scs_pc_ok = { T = FRA } }
+		set_country_flag = { flag = VIE_scs_pc_FRA days = 1095 }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 5
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 5
+		}
+		add_opinion_modifier = { target = FRA modifier = small_increase }
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	option = {
+		name = vie_scs_coop.10.e
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.e executed"
+		trigger = { VIE_scs_pc_ok = { T = AST } }
+		set_country_flag = { flag = VIE_scs_pc_AST days = 1095 }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 5
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 5
+		}
+		add_opinion_modifier = { target = AST modifier = small_increase }
+		if = {
+			limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+			add_opinion_modifier = { target = CHI modifier = small_decrease }
+		}
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	option = {
+		name = vie_scs_coop.10.f
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.f executed"
+		trigger = { VIE_scs_pc_ok = { T = SOV } }
+		set_country_flag = { flag = VIE_scs_pc_SOV days = 1095 }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 5
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 5
+		}
+		add_opinion_modifier = { target = SOV modifier = small_increase }
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	option = {
+		name = vie_scs_coop.10.g
+		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.g executed"
+		trigger = { VIE_scs_pc_ok = { T = CHI } }
+		set_country_flag = { flag = VIE_scs_pc_CHI days = 1095 }
+		if = {
+			limit = { has_selected_naval_grand_doctrine = yes }
+			add_mastery = {
+				amount = 5
+				folder = naval
+			}
+		}
+		else = {
+			navy_experience = 5
+		}
+		add_opinion_modifier = { target = CHI modifier = small_increase }
+		ai_chance = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}

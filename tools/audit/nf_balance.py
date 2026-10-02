@@ -8,7 +8,9 @@ when the design changes, then rerun. Exit code 1 on any FAIL.
 from __future__ import annotations
 
 import itertools
+import re
 import sys
+from pathlib import Path
 from collections import Counter
 
 # ---------------------------------------------------------------- modifiers (percent points; + = bonus)
@@ -38,6 +40,10 @@ BRANCH = {
     "green": [{"range": 5}, {"range": 3, "org": 2}, {"inv_plan": 10, "inv_cap": 1}, {"inv_cap": 1}, {"org": 3, "coord": 3}],
     "blue": [{"range": 5}, {"aa": 5}, {"range": 3}, {"aa": 3, "detect": 4}, {"org": 3, "coord": 5}],
 }
+# Bien Dong (Luat Bien) feeds the same VIE_armed_forces_modifier: only spratly_fortification (+range 5).
+# Optional, so the worst case always includes it. coord / detect are already at the cap on the Truc 3 worst
+# path (19.5 / 14.5), so coast_guard_law and spratly_fortification must not add to them.
+SCS = {"range": 5}
 CARRIER_MULT = 1.5  # B5 modifiers x1.5 once D-E (carrier group) is done
 
 CAPS = {"org": 18, "coord": 20, "detect": 15, "range": 25, "subatk": 10, "subdef": 10, "strike": 10, "exp": 10}
@@ -94,6 +100,7 @@ def path_totals(branch: str, da: str, db: str, dd: str, carriers: bool):
     add(t, D_A[da])
     add(t, D_B[db])
     add(t, {"coord": D_C["coord"], "subdef": D_C["subdef"]})
+    add(t, SCS)
     mods, match = D_D[dd]
     add(t, mods)
     ok_match = (match == branch) if isinstance(match, str) else (branch in match if match else True)
@@ -121,6 +128,17 @@ def main() -> int:
     for k in sorted(CAPS):
         print("  %-30s worst %5.1f  cap %2d  at %s" % (SIZE_NAMES[k], worst[k], CAPS[k], worst_label.get(k)))
         check(worst[k] <= CAPS[k], "%s worst case %.1f <= cap %d" % (SIZE_NAMES[k], worst[k], CAPS[k]))
+
+    # experience_gain_navy_factor also comes from static ideas (read from the idea file so it cannot drift)
+    ideas = Path(__file__).resolve().parents[2].joinpath("common/ideas/VIE_md_ideas_p2.txt").read_text(encoding="utf-8")
+    idea_exp = 0.0
+    for name in ("VIE_coast_guard_idea", "VIE_cam_ranh_idea"):
+        m = re.search(r"\t\t%s = \{.*?experience_gain_navy_factor = ([\d.]+)" % name, ideas, re.S)
+        v = float(m.group(1)) * 100 if m else 0.0
+        idea_exp += v
+        print("  %-28s experience_gain_navy_factor +%.1f" % (name, v))
+    check(worst["exp"] + idea_exp <= CAPS["exp"],
+          "experience_gain_navy_factor force axis %.1f + ideas %.1f <= cap %d" % (worst["exp"], idea_exp, CAPS["exp"]))
 
     print("\n== 2. Force Decisions (USD bn)")
     low = FORCE_COST["D-A"][1] + FORCE_COST["D-B"]["hist"][1] + FORCE_COST["D-C"] + FORCE_COST["D-D"]

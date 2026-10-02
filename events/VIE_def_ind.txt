@@ -40,8 +40,8 @@ country_event = {
 			add_opinion_modifier = { target = SOV modifier = small_increase }
 		}
 		if = {
-			limit = { country_exists = IND NOT = { has_war_with = IND } }
-			add_opinion_modifier = { target = IND modifier = small_increase }
+			limit = { country_exists = RAJ NOT = { has_war_with = RAJ } }
+			add_opinion_modifier = { target = RAJ modifier = small_increase }
 		}
 		ai_chance = { base = 100 }
 	}

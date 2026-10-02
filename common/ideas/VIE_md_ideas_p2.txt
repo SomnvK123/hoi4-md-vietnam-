@@ -980,7 +980,7 @@ ideas = {
 				trade_opinion_factor = 0.1
 				opinion_gain_monthly_factor = 0.1
 				naval_speed_factor = 0.03
-				experience_gain_navy_factor = 0.05
+				experience_gain_navy_factor = 0.01
 			}
 		}
 
@@ -1174,22 +1174,6 @@ ideas = {
 				guerrilla_warfare_mastery_gain_factor = 0.15
 				army_attack_factor = -0.05
 				justify_war_goal_time = 0.25
-			}
-		}
-		VIE_maritime_denial_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				naval_strike_attack_factor = 0.1
-				navy_submarine_attack_factor = 0.1
-				coastal_bunker_effectiveness_factor = 0.15
-				air_superiority_efficiency = 0.05
-				green_water_mastery_gain_factor = 0.15
-				local_airspace_defense_mastery_gain_factor = 0.1
-				army_org_factor = -0.05
 			}
 		}
 

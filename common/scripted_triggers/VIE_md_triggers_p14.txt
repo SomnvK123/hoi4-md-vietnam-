@@ -105,6 +105,9 @@ VIE_proc_gate_k9_early = {
 # (ID .50-.59 da danh san trong events/VIE_proc_army.txt) thi hai event do set
 # VIE_ev_kilo_submarines va VIE_ev_bastion_p_coastal_defence, focus tu mo,
 # khong can sua gi them o day.
+# CAP NHAT (2026-10-02): hai co nay NAY DA DUOC SET boi truc Hai quan
+# (VIE_md_effects_naval_ships.txt, VIE_md_effects_naval_late.txt) -> focus khong con soft-lock.
+# Focus nay nay thuoc cum Luat Bien (nhanh Bien Dong); dieu kien co hai quan chi la cong nang luc.
 # ---------------------------------------------------------------------
 # ---------------------------------------------------------------------
 VIE_proc_gate_paracel_capable = {

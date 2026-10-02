@@ -23,6 +23,8 @@ focus_tree = {
 	## v9 (28/09/2026): tach MUA SAM VU KHI khoi focus tree de chuyen sang event. (1) XOA 21 focus mua sam: russian_arms_deals, arms_russia_framework, arms_diversification, t90_tanks, kilo_submarines, gepard_frigates, bastion_p_coastal_defence, su30mk2_fleet, yak130_trainers, fighter_replacement, helicopter_fleet, navy_ssn_lease, navy_sigma_9814, carrier_ex_russian, carrier_stovl_west, air_su34_strike, air_f16_package, air_kf21_partner, air_tanker, def_vaeco_hangar, def_research_partnership. 409 -> 388 focus. Khoi focus goc duoc xuat ra v9_removed_focuses_for_events.txt. (2) RE-PARENT 4 node mo coi len ong noi: cam_ranh_base & navy_domestic_frigate <- navy_modernization; carrier_air_wing <- navy_light_carrier (OR 3 carrier chi con carrier_domestic song, gate tinh bang flag); air_hypersonic <- air_deep_strike. (3) RE-ANCHOR navy_domestic_frigate: gepard_frigates (da xoa) -> navy_modernization (tranh missing anchor). (4) 19 gate has_completed_focus o 12 focus CON SONG -> has_country_flag = VIE_ev_<slug>: chong soft-lock. Event mua sam BAT BUOC set cac co nay (xem VIE_v9_flag_mapping.md). (5) Xoa 2 dong mutually_exclusive treo: navy_domestic_frigate (mx navy_sigma_9814), carrier_domestic (mx carrier_ex_russian + carrier_stovl_west). (6) DON LAYOUT nhanh quan su theo quy tac gap v5 (<=2 giu; 3-9->2; 10-19->4; >=20->8), chi ap cho cac gap bi thung do xoa va cac gap=3 off-grid; node trai nhat moi hang giu nguyen. Band x 239..296 -> 239..277. Khong doi reward/available/ai_will_do cua focus con song (ngoai 19 gate o muc 4).
 	## v10 (29/09/2026): go bo 28 focus nhanh chu nghia dan toc (VIE_nat_*) va shortcut VIE_nat_shortcut khoi cay focus de tai thiet ke theo VIE_nationalism_branch_research_report.md. 388 -> 360 focus. Khoi focus goc duoc luu tru tai v10_removed_nationalist_focuses.txt.
 	## v11 (29/09/2026): rut gon toi da nhanh quan doi - chi giu duy nhat root cha VIE_modernize_vpa (Hien dai hoa Quan doi Nhan dan). Xoa bo toan bo 3 quan chung Luc quan, Hai quan, PK-KQ. Cay focus: 360 -> 256 focus. Luu tru tai v11_removed_military_all_subbranches.txt.
+	## v12 (02/10/2026): cum LUAT BIEN (10 focus: law_of_the_sea, maritime_militia, fisheries_surveillance, dk1_platforms, legal_warfare, spratly_fortification, coast_guard_law, assert_maritime_rights, paracel_ultimatum, limited_war_doctrine) gom ve mot khoi, tach khoi hai quan: bo FOCUS_FILTER_NAVY; assert_maritime_rights bo nhanh VIE_maritime_denial_idea (chet) -> VIE_nf_branch_denial; CAT_patrolboat -> CAT_patrol_boats; tooltip VIE_tt_*; spratly_fortification gop khoi lap (mastery/XP 15+10 -> 15, range 0.05+0.05 -> 0.05); bo VIE_af_naval_detection/coordination khoi coast_guard_law va spratly_fortification (da cham tran 19.5/14.5 cua Truc 3, xem tools/audit/nf_balance.py).
+	## v13 (02/10/2026): them 4 focus HOP TAC AN NINH BIEN trong nhanh Bien Dong (VIE_scs_maritime_cooperation, _multilateral_exercise, _cam_ranh_port, _joint_training) + category VIE_scs_cooperation_category; cap VIE_cam_ranh_idea.
 	# Left-hand menu: each button scrolls the view to the target focus. Loc keys VIE_<name>_shortcut.
 	shortcut = {
 		name = VIE_doi_moi_shortcut
@@ -1035,7 +1037,7 @@ focus_tree = {
 
 		cost = 7
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_NAVY }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
 			date > 2011.12.31
@@ -1052,6 +1054,314 @@ focus_tree = {
 		ai_will_do = { base = 75 }
 	}
 
+	###############################
+	## BIEN DONG - LUAT BIEN (cum Luat Bien: chu quyen, phap ly, kiem ngu / canh sat bien, DK1, Truong Sa)
+	###############################
+
+	focus = {
+		id = VIE_maritime_militia
+		icon = navy3
+
+		x = -4
+		y = 1
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_law_of_the_sea }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_maritime_militia"
+			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
+			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
+			add_ideas = VIE_maritime_militia_idea
+			navy_experience = 10
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_fisheries_surveillance
+		icon = Generic_Maritime
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_law_of_the_sea }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			date > 2012.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_fisheries_surveillance"
+			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 10
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 10
+			}
+			add_stability = 0.01
+			add_tech_bonus = {
+				name = VIE_fisheries_surveillance
+				category = CAT_patrol_boats
+				uses = 1
+				bonus = 0.5
+			}
+			set_temp_variable = { temp_opinion = 3 }
+			change_farmers_opinion = yes
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_dk1_platforms
+		icon = army_defence1
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_law_of_the_sea }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_dk1_platforms"
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 15
+			}
+			set_country_flag = VIE_dk1_built
+			# FIX D-2 (2026-09-30): 526 -> 801.
+			# DK1 la chuoi nha gian cua VIET NAM (Tay Truong Sa = 801, owner VIE).
+			# 526 = Bac Truong Sa do Trung Quoc giu. tools/TESTING.md van ghi dung
+			# ky vong: "801 radar (DK1)".
+			801 = {
+				one_state_radar_station = yes
+			}
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_legal_warfare
+		icon = focus_generic_court
+
+		x = 4
+		y = 1
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_law_of_the_sea }
+		mutually_exclusive = { focus = VIE_assert_maritime_rights }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			date > 2016.7.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_legal_warfare"
+			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
+			add_political_power = 50
+			add_stability = 0.01
+			set_country_flag = VIE_legal_track
+			add_ideas = VIE_arbitral_track
+			set_temp_variable = { VIE_tension_add = -1 }
+			VIE_add_scs_tension = yes
+			add_opinion_modifier = { target = PHI modifier = medium_increase }
+			add_opinion_modifier = { target = MAY modifier = medium_increase }
+			add_opinion_modifier = { target = JAP modifier = medium_increase }
+			add_opinion_modifier = { target = USA modifier = medium_increase }
+			add_opinion_modifier = { target = CHI modifier = medium_decrease }
+			country_event = { id = vie_scs.19 days = 90 }
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 3 VIE_ai_free = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_spratly_fortification
+		icon = focus_generic_large_navy
+
+		x = 0
+		y = 3
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 16
+
+		prerequisite = { focus = VIE_maritime_militia }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		available = {
+			date > 2020.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_spratly_fortification"
+			set_temp_variable = { treasury_change = -9.5 }
+			modify_treasury_effect = yes
+			add_ideas = VIE_spratly_garrison_idea
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 15
+			}
+			set_country_flag = VIE_spratly_fortified
+			country_event = { id = vie_scs.14 days = 15 }
+			# FIX D-1 (2026-09-30): doi 526 -> 801.
+			# 526 = Northern Spratlys, MD: owner = CHI (Trung Quoc giu). Ca 3 province
+			# dung o day (11168 Southwest Cay, 11149 Collins Reef, 11134 Spratly Is)
+			# deu thuoc 801 = Western Spratlys, owner = VIE. Nguyen van viet 526 nen:
+			# 3 lenh add_building_construction fail (province khong thuoc state), va
+			# one_state_air_base / anti_air / radar roi vao state TQ dang so huu.
+			# Nguoi choi tra cost 16 (80 ngay) + 9.5 ty USD ma khong nhan duoc gi.
+			# Dong thoi bo 1 lenh one_state_anti_air trung (bi goi 2 lan lien tiep).
+			801 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 11168
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 11149
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 11134
+				}
+				one_state_air_base = yes
+				one_state_anti_air = yes
+				one_state_radar_station = yes
+			}
+			# FIX D-5b: province 4223 = Long Xuyen (An Giang) khong giap bien -> doi sang 4284 = Rach Gia,
+			# cho MD dat san naval_base = 4 trong 518-Mekong Delta.txt.
+			518 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 4284
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = modifies_dynamic_modifier_tt
+				MODIFIER = VIE_armed_forces_modifier
+			}
+			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_coast_guard_law
+		icon = navy2
+
+		x = 4
+		y = 2
+		relative_position_id = VIE_law_of_the_sea
+
+		prerequisite = { focus = VIE_fisheries_surveillance }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			date > 2018.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_coast_guard_law"
+			set_temp_variable = { treasury_change = -3.25 }
+			modify_treasury_effect = yes
+			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
+			add_ideas = VIE_coast_guard_idea
+			set_country_flag = VIE_coast_guard_done
+			# FIX D-5a (2026-09-30): province 1423 -> 14178.
+			# 1423 = Vinh Long, tinh NOI DIA (giua Can Tho va My Tho, tren song Co
+			# Chien, cach bien ~50 km) -> naval_base build fail. Dung loai loi ma
+			# tools/TESTING.md tung ghi nhan cho state 524: "State 524 has no coastal
+			# province, so the old dockyard could never build."
+			# Doi sang 14178 = Phu Quoc (dao, chac chan giap bien). Khong dung 4284
+			# (Rach Gia) vi MD da dat san naval_base = 4 o do va VIE_spratly_fortification
+			# (da sua o D-5b) cung dung 4284 -> tranh cong don hai naval_base mot cho.
+			# Phu Quoc hop ngu canh canh bien: day la can cu canh sat bien thuc te.
+			518 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 14178
+				}
+			}
+		
+			add_war_support = 0.02
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 10
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 10
+			}
+		
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
 	focus = {
 		id = VIE_assert_maritime_rights
 		icon = demand_territory
@@ -1065,14 +1375,14 @@ focus_tree = {
 		prerequisite = { focus = VIE_law_of_the_sea }
 		mutually_exclusive = { focus = VIE_legal_warfare }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
 			OR = {
 				VIE_scs_escalated_trigger = yes
-				# The maritime-denial doctrine (path C) already stands ready: it opens this at tension 1
+				# The sea-denial doctrine (naval force axis, VIE_nf_denial) already stands ready: it opens this at tension 1
 				AND = {
-					has_idea = VIE_maritime_denial_idea
+					VIE_nf_branch_denial = yes
 					check_variable = { VIE_scs_tension > 0 }
 				}
 			}
@@ -1110,7 +1420,7 @@ focus_tree = {
 		prerequisite = { focus = VIE_assert_maritime_rights }
 		will_lead_to_war_with = CHI
 
-		search_filters = { FOCUS_FILTER_NAVY }
+		search_filters = { FOCUS_FILTER_ARMY }
 
 		available = {
 			VIE_scs_escalated_trigger = yes
@@ -1150,6 +1460,200 @@ focus_tree = {
 
 		ai_will_do = { base = 0 }
 	}
+
+	focus = {
+		id = VIE_limited_war_doctrine
+		icon = army_radar
+
+		x = 6
+		y = 4
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_assert_maritime_rights }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		available = {
+			VIE_scs_escalated_trigger = yes
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_limited_war_doctrine"
+			if = {
+				limit = { has_selected_land_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = land
+				}
+			}
+			else = {
+				army_experience = 15
+			}
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 15
+			}
+			add_war_support = 0.03
+			add_ideas = VIE_limited_war_idea
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	###############################
+	## BIEN DONG - HOP TAC AN NINH BIEN (tap tran, tau nuoc ngoai tham cang Cam Ranh, huan luyen chung)
+	###############################
+
+	focus = {
+		id = VIE_scs_maritime_cooperation
+		icon = focus_generic_conference
+
+		x = 7
+		y = 0
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_law_of_the_sea }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			date > 2011.12.31
+			has_completed_focus = VIE_asean_integration
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_scs_maritime_cooperation"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			add_political_power = 25
+			every_country = {
+				limit = {
+					has_idea = ASEAN_Member
+					NOT = { original_tag = VIE }
+				}
+				add_opinion_modifier = { target = VIE modifier = VIE_asean_cooperation }
+			}
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_scs_multilateral_exercise
+		icon = navy3
+
+		x = 6
+		y = 1
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_scs_maritime_cooperation }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_scs_multilateral_exercise"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 10
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 10
+			}
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_scs_cam_ranh_port
+		icon = maritime_trade
+
+		x = 8
+		y = 1
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_scs_maritime_cooperation }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			OR = {
+				has_idea = VIE_four_nos
+				has_idea = VIE_non_alignment_policy
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_scs_cam_ranh_port"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			add_ideas = VIE_cam_ranh_idea
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_scs_joint_training
+		icon = navy2
+
+		x = 7
+		y = 2
+		relative_position_id = VIE_law_of_the_sea
+
+		cost = 7
+
+		prerequisite = { focus = VIE_scs_multilateral_exercise }
+		prerequisite = { focus = VIE_scs_cam_ranh_port }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
+
+		available = {
+			OR = {
+				has_completed_focus = VIE_japan_partnership
+				has_completed_focus = VIE_india_partnership
+				has_country_flag = VIE_ev_kilo_submarines
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_scs_joint_training"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
 
 	###############################
 	## CHINH TRI
@@ -2159,7 +2663,7 @@ focus_tree = {
 		icon = navy
 
 		x = -8
-		y = 1
+		y = 2
 		relative_position_id = VIE_modernize_vpa
 
 		cost = 5
@@ -2361,7 +2865,7 @@ focus_tree = {
 		icon = navy
 
 		x = -26
-		y = 1
+		y = 2
 		relative_position_id = VIE_modernize_vpa
 
 		cost = 7
@@ -3246,144 +3750,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_maritime_militia
-		icon = navy3
-
-		x = -4
-		y = 1
-		relative_position_id = VIE_law_of_the_sea
-
-		cost = 7
-
-		prerequisite = { focus = VIE_law_of_the_sea }
-
-		search_filters = { FOCUS_FILTER_NAVY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_maritime_militia"
-			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
-			add_ideas = VIE_maritime_militia_idea
-			navy_experience = 10
-		}
-
-		ai_will_do = { base = 65 }
-	}
-
-	focus = {
-		id = VIE_spratly_fortification
-		icon = focus_generic_large_navy
-
-		x = 0
-		y = 3
-		relative_position_id = VIE_law_of_the_sea
-
-		cost = 16
-
-		prerequisite = { focus = VIE_maritime_militia }
-
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_ARMY }
-
-		available = {
-			date > 2020.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_spratly_fortification"
-			set_temp_variable = { treasury_change = -9.5 }
-			modify_treasury_effect = yes
-			add_ideas = VIE_spratly_garrison_idea
-			if = {
-				limit = { has_selected_naval_grand_doctrine = yes }
-				add_mastery = {
-					amount = 15
-					folder = naval
-				}
-			}
-			else = {
-				navy_experience = 15
-			}
-			set_country_flag = VIE_spratly_fortified
-			country_event = { id = vie_scs.14 days = 15 }
-			# FIX D-1 (2026-09-30): doi 526 -> 801.
-			# 526 = Northern Spratlys, MD: owner = CHI (Trung Quoc giu). Ca 3 province
-			# dung o day (11168 Southwest Cay, 11149 Collins Reef, 11134 Spratly Is)
-			# deu thuoc 801 = Western Spratlys, owner = VIE. Nguyen van viet 526 nen:
-			# 3 lenh add_building_construction fail (province khong thuoc state), va
-			# one_state_air_base / anti_air / radar roi vao state TQ dang so huu.
-			# Nguoi choi tra cost 16 (80 ngay) + 9.5 ty USD ma khong nhan duoc gi.
-			# Dong thoi bo 1 lenh one_state_anti_air trung (bi goi 2 lan lien tiep).
-			801 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					instant_build = yes
-					province = 11168
-				}
-				add_building_construction = {
-					type = coastal_bunker
-					level = 1
-					instant_build = yes
-					province = 11149
-				}
-				one_state_air_base = yes
-				one_state_anti_air = yes
-			}
-		
-			801 = { one_state_radar_station = yes }
-			custom_effect_tooltip = {
-				localization_key = modifies_dynamic_modifier_tt
-				MODIFIER = VIE_armed_forces_modifier
-			}
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = navy_max_range_factor_tt }
-			add_to_variable = { VIE_af_naval_coordination = 0.05 tooltip = naval_coordination_tt }
-			if = {
-				limit = { has_selected_naval_grand_doctrine = yes }
-				add_mastery = {
-					amount = 10
-					folder = naval
-				}
-			}
-			else = {
-				navy_experience = 10
-			}
-		
-		
-			801 = {
-				add_building_construction = {
-					type = naval_base
-					level = 1
-					instant_build = yes
-					province = 11134
-				}
-			}
-			# FIX D-5b: province 4223 = Long Xuyen (An Giang), KHONG giap bien ->
-			# naval_base build fail. Doi sang 4284 = Rach Gia, chinh la cho MD dat
-			# san naval_base = 4 trong 518-Mekong Delta.txt.
-			518 = {
-				add_building_construction = {
-					type = naval_base
-					level = 1
-					instant_build = yes
-					province = 4284
-				}
-			}
-			custom_effect_tooltip = {
-				localization_key = modifies_dynamic_modifier_tt
-				MODIFIER = VIE_armed_forces_modifier
-			}
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = navy_max_range_factor_tt }
-		
-		}
-
-		ai_will_do = {
-			base = 60
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-	}
-
-	focus = {
 		id = VIE_four_nos_doctrine
 		icon = treaty2
 
@@ -4217,6 +4583,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
+			# The control of cyberspace needs the legal basis first (2018 Law on Cybersecurity)
+			has_completed_focus = VIE_cybersecurity_law
 			OR = {
 				check_variable = { ruling_party = 7 }
 				AND = {
@@ -7700,245 +8068,6 @@ focus_tree = {
 	## QUAN SU
 	###############################
 	focus = {
-		id = VIE_fisheries_surveillance
-		icon = Generic_Maritime
-
-		x = 0
-		y = 1
-		relative_position_id = VIE_law_of_the_sea
-
-		cost = 7
-
-		prerequisite = { focus = VIE_law_of_the_sea }
-
-		search_filters = { FOCUS_FILTER_NAVY }
-
-		available = {
-			date > 2012.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_fisheries_surveillance"
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			if = {
-				limit = { has_selected_naval_grand_doctrine = yes }
-				add_mastery = {
-					amount = 10
-					folder = naval
-				}
-			}
-			else = {
-				navy_experience = 10
-			}
-			add_stability = 0.01
-			add_tech_bonus = {
-				name = VIE_fisheries_surveillance
-				category = CAT_patrolboat
-				uses = 1
-				bonus = 0.5
-			}
-			set_temp_variable = { temp_opinion = 3 }
-			change_farmers_opinion = yes
-		}
-
-		ai_will_do = { base = 70 }
-	}
-
-	focus = {
-		id = VIE_coast_guard_law
-		icon = navy2
-
-		x = 4
-		y = 2
-		relative_position_id = VIE_law_of_the_sea
-
-		prerequisite = { focus = VIE_fisheries_surveillance }
-
-		search_filters = { FOCUS_FILTER_NAVY }
-
-		available = {
-			date > 2018.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_coast_guard_law"
-			set_temp_variable = { treasury_change = -3.25 }
-			modify_treasury_effect = yes
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			add_ideas = VIE_coast_guard_idea
-			set_country_flag = VIE_coast_guard_done
-			# FIX D-5a (2026-09-30): province 1423 -> 14178.
-			# 1423 = Vinh Long, tinh NOI DIA (giua Can Tho va My Tho, tren song Co
-			# Chien, cach bien ~50 km) -> naval_base build fail. Dung loai loi ma
-			# tools/TESTING.md tung ghi nhan cho state 524: "State 524 has no coastal
-			# province, so the old dockyard could never build."
-			# Doi sang 14178 = Phu Quoc (dao, chac chan giap bien). Khong dung 4284
-			# (Rach Gia) vi MD da dat san naval_base = 4 o do va VIE_spratly_fortification
-			# (da sua o D-5b) cung dung 4284 -> tranh cong don hai naval_base mot cho.
-			# Phu Quoc hop ngu canh canh bien: day la can cu canh sat bien thuc te.
-			518 = {
-				add_building_construction = {
-					type = naval_base
-					level = 1
-					instant_build = yes
-					province = 14178
-				}
-			}
-		
-			add_war_support = 0.02
-			custom_effect_tooltip = {
-				localization_key = modifies_dynamic_modifier_tt
-				MODIFIER = VIE_armed_forces_modifier
-			}
-			add_to_variable = { VIE_af_naval_detection = 0.05 tooltip = naval_detection_tt }
-			add_to_variable = { VIE_af_naval_coordination = 0.05 tooltip = naval_coordination_tt }
-			if = {
-				limit = { has_selected_naval_grand_doctrine = yes }
-				add_mastery = {
-					amount = 10
-					folder = naval
-				}
-			}
-			else = {
-				navy_experience = 10
-			}
-		
-		}
-
-		ai_will_do = { base = 70 }
-	}
-
-	focus = {
-		id = VIE_dk1_platforms
-		icon = army_defence1
-
-		x = 0
-		y = 2
-		relative_position_id = VIE_law_of_the_sea
-
-		cost = 7
-
-		prerequisite = { focus = VIE_law_of_the_sea }
-
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_ARMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_dk1_platforms"
-			if = {
-				limit = { has_selected_naval_grand_doctrine = yes }
-				add_mastery = {
-					amount = 15
-					folder = naval
-				}
-			}
-			else = {
-				navy_experience = 15
-			}
-			set_country_flag = VIE_dk1_built
-			# FIX D-2 (2026-09-30): 526 -> 801.
-			# DK1 la chuoi nha gian cua VIET NAM (Tay Truong Sa = 801, owner VIE).
-			# 526 = Bac Truong Sa do Trung Quoc giu. tools/TESTING.md van ghi dung
-			# ky vong: "801 radar (DK1)".
-			801 = {
-				one_state_radar_station = yes
-			}
-		}
-
-		ai_will_do = { base = 60 }
-	}
-
-	focus = {
-		id = VIE_legal_warfare
-		icon = focus_generic_court
-
-		x = 4
-		y = 1
-		relative_position_id = VIE_law_of_the_sea
-
-		cost = 7
-
-		prerequisite = { focus = VIE_law_of_the_sea }
-		mutually_exclusive = { focus = VIE_assert_maritime_rights }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_NAVY }
-
-		available = {
-			date > 2016.7.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_legal_warfare"
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_political_power = 50
-			add_stability = 0.01
-			set_country_flag = VIE_legal_track
-			add_ideas = VIE_arbitral_track
-			set_temp_variable = { VIE_tension_add = -1 }
-			VIE_add_scs_tension = yes
-			add_opinion_modifier = { target = PHI modifier = medium_increase }
-			add_opinion_modifier = { target = MAY modifier = medium_increase }
-			add_opinion_modifier = { target = JAP modifier = medium_increase }
-			add_opinion_modifier = { target = USA modifier = medium_increase }
-			add_opinion_modifier = { target = CHI modifier = medium_decrease }
-			country_event = { id = vie_scs.19 days = 90 }
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_limited_war_doctrine
-		icon = army_radar
-
-		x = 6
-		y = 4
-		relative_position_id = VIE_law_of_the_sea
-
-		cost = 7
-
-		prerequisite = { focus = VIE_assert_maritime_rights }
-
-		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
-
-		available = {
-			VIE_scs_escalated_trigger = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_limited_war_doctrine"
-			if = {
-				limit = { has_selected_land_grand_doctrine = yes }
-				add_mastery = {
-					amount = 15
-					folder = land
-				}
-			}
-			else = {
-				army_experience = 15
-			}
-			if = {
-				limit = { has_selected_naval_grand_doctrine = yes }
-				add_mastery = {
-					amount = 15
-					folder = naval
-				}
-			}
-			else = {
-				navy_experience = 15
-			}
-			add_war_support = 0.03
-			add_ideas = VIE_limited_war_idea
-		}
-
-		ai_will_do = { base = 45 }
-	}
-
-	focus = {
 		id = VIE_peoples_defence
 		icon = army_mobilisation
 
@@ -9671,7 +9800,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_def_industry_law
 
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = VIE_modernize_vpa
 
 		cost = 5
@@ -9822,7 +9951,7 @@ focus_tree = {
 	###############################
 	## TRUC 3 - XAY DUNG LUC LUONG LUC QUAN (buoc 2: nen tang, binh chung, HD, CR1)
 	###############################
-	# Thiet ke: VIE_truc3_review_and_plan.md muc 5.2 / 5.10. N1 neo vao VIE_modernize_vpa (abs 278,2);
+	# Thiet ke: VIE_truc3_review_and_plan.md muc 5.2 / 5.10. N1 neo vao VIE_modernize_vpa (abs 278,3);
 	# 11 focus con neo vao N1 (khai bao truoc nen 0 forward-ref). Phan thuong nam trong
 	# VIE_md_effects_p17.txt (VIE_lf_<ma>_reward). Dem count/done: bao hiem chi ap phan thuong khi con duoi gioi han.
 
@@ -9831,7 +9960,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_lf_army_reform
 
 		x = 12
-		y = 1
+		y = 2
 		relative_position_id = VIE_modernize_vpa
 
 		prerequisite = { focus = VIE_modernize_vpa }

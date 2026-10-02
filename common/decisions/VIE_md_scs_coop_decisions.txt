@@ -1,0 +1,188 @@
+########################################################################
+# Hop tac an ninh bien (nhanh Bien Dong). Focus -> Decision -> Event, theo mau Truc 3.
+#   d1 tap tran (vie_scs_coop.1)    d2 tau nuoc ngoai tham cang Cam Ranh (vie_scs_coop.10)
+#   d3 huan luyen chung An Do (RAJ)   d4 Nga (SOV)   d5 Nhat (JAP)
+# Khong cap quyen quan su / can cu nuoc ngoai; khong cong vao VIE_armed_forces_modifier (da cham tran).
+########################################################################
+
+VIE_scs_cooperation_category = {
+	VIE_scs_d1_exercise = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		days_re_enable = 730
+
+		visible = {
+			has_completed_focus = VIE_scs_multilateral_exercise
+		}
+		available = {
+			has_war = no
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d1_exercise"
+			country_event = { id = vie_scs_coop.1 }
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d2_port_call = {
+		icon = GFX_decision_generic_form_nation
+		cost = 25
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_scs_cam_ranh_port
+		}
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = VIE_scs_non_aligned_tt
+				VIE_scs_non_aligned = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_scs_pc_any_tt
+				VIE_scs_pc_any = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d2_port_call"
+			country_event = { id = vie_scs_coop.10 }
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d3_train_raj = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_re_enable = 1095
+
+		visible = {
+			has_completed_focus = VIE_scs_joint_training
+			has_completed_focus = VIE_india_partnership
+		}
+		available = {
+			has_war = no
+			country_exists = RAJ
+			NOT = { has_war_with = RAJ }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d3_train_raj"
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 15
+			}
+			add_opinion_modifier = { target = RAJ modifier = small_increase }
+			if = {
+				limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+				add_opinion_modifier = { target = CHI modifier = small_decrease }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d4_train_sov = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_re_enable = 1095
+
+		visible = {
+			has_completed_focus = VIE_scs_joint_training
+			has_country_flag = VIE_ev_kilo_submarines
+		}
+		available = {
+			has_war = no
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d4_train_sov"
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 15
+			}
+			add_opinion_modifier = { target = SOV modifier = small_increase }
+			if = {
+				limit = { country_exists = USA NOT = { has_war_with = USA } }
+				add_opinion_modifier = { target = USA modifier = small_decrease }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d5_train_jap = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_re_enable = 1095
+
+		visible = {
+			has_completed_focus = VIE_scs_joint_training
+			has_completed_focus = VIE_japan_partnership
+		}
+		available = {
+			has_war = no
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d5_train_jap"
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 10
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 10
+			}
+			add_tech_bonus = {
+				name = VIE_scs_d5_train_jap
+				category = CAT_patrol_boats
+				uses = 1
+				bonus = 0.5
+			}
+			add_opinion_modifier = { target = JAP modifier = small_increase }
+			if = {
+				limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+				add_opinion_modifier = { target = CHI modifier = small_decrease }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
