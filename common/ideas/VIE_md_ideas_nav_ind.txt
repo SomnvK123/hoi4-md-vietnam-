@@ -1,0 +1,73 @@
+ideas = {
+	country = {
+
+		# Chi bao "dang thuc hien" cua cac chuong trinh CNQP hai quan (timed idea, days = bien tam).
+		# Modifier rat nho de khong de trong; thuong that nam o event an ket thuc.
+		VIE_nav_prog_ba_son = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nav_prog_mro = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nav_prog_small = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nav_prog_integration = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nav_prog_2030 = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		# Nen cong nghiep tau chien truong thanh (Decision 5). Chi mot modifier da kiem trong repo.
+		VIE_nav_mature_industry_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.05
+			}
+		}
+	}
+}

@@ -1,0 +1,48 @@
+########################################################################
+# Truc 3 hai quan (luc luong, tien to VIE_nf_) va Truc 1B (VIE_p1b_) - cac gate dung chung.
+# Thiet ke: VIE_naval_truc3_review_and_plan.md (5.7). Moi quyet dinh con mo gom vao day,
+# khi chot thi sua mot dong o day, khong sua trong focus/decision.
+########################################################################
+
+# ---------------------------------------------------------------------
+# Nhanh chien luoc (thay cho co VIE_path_* cua bao cao: = trang thai focus co san, A3).
+# ---------------------------------------------------------------------
+VIE_nf_branch_denial = {
+	has_completed_focus = VIE_nf_denial
+}
+
+VIE_nf_branch_greenwater = {
+	has_completed_focus = VIE_nf_greenwater
+}
+
+VIE_nf_branch_bluewater = {
+	has_completed_focus = VIE_nf_bluewater
+}
+
+# ---------------------------------------------------------------------
+# Nang luc do Truc 2 so huu (thay VIE_cap_naval_mro_sub cua bao cao, L4).
+# VIE_mro_scope: 1 = tau ngam, 2 = tau mat nuoc, 3 = ca hai (VIE_md_effects_nav_ind.txt).
+# ---------------------------------------------------------------------
+VIE_naval_has_sub_mro = {
+	has_country_flag = VIE_nav_d2_done
+	NOT = { check_variable = { VIE_mro_scope = 2 } }
+}
+
+# ---------------------------------------------------------------------
+# Nguon cong nghe hat nhan cho SSN (P11). Thay VIE_ext_nuclear_tech chua co chu (B7).
+# Tech reactor thuc te duoc cap luc ky hop dong 1B. Doi nguon = sua mot dong.
+# ---------------------------------------------------------------------
+VIE_naval_has_nuclear_tech = {
+	has_completed_focus = VIE_nuclear_research
+}
+
+# ---------------------------------------------------------------------
+# Slot chuong trinh (tooltip "chua du nang luc" dung custom_trigger_tooltip o noi goi).
+# ---------------------------------------------------------------------
+VIE_nf_slot_free = {
+	check_variable = { VIE_var_force_program_active < 2 }
+}
+
+VIE_p1b_slot_free = {
+	check_variable = { VIE_var_procurement_1b_active < 2 }
+}

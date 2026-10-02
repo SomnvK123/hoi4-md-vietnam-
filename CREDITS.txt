@@ -20,8 +20,8 @@ Portrait_Do_Ba_Ty*.dds      "Martin E. Dempsey & Do Ba Ty (Ty crop).jpg", D. Myl
                             https://commons.wikimedia.org/wiki/File:Martin_E._Dempsey_%26_%C4%90%E1%BB%97_B%C3%A1_T%E1%BB%B5_(T%E1%BB%B5_crop).jpg
 Portrait_Mai_Xuan_Vinh*.dds "Tu lenh Hai quan Mai Xuan Vinh.jpg" by TrungTran142, CC BY-SA 4.0
                             https://commons.wikimedia.org/wiki/File:T%C6%B0_l%E1%BB%87nh_H%E1%BA%A3i_qu%C3%A2n_Mai_Xu%C3%A2n_V%C4%A9nh.jpg
-Portrait_Pham_Van_Tra, _Phung_Quang_Thanh, _Do_Ba_Ty, _Mai_Xuan_Vinh (and their small/ versions) are not used by
-any character yet; they are ready for the planned historical generals (see vie_leaders_review_and_plan.md).
+Portrait_Mai_Xuan_Vinh (and its small/ version) is not used by any character yet; it is ready for the planned
+navy commander (see vie_leaders_review_and_plan.md).
 
 Portrait_Le_Xuan_Thuan*.dds       QDND, "Bàn giao chức vụ Tư lệnh Quân đoàn 12", 2025-05-06
                                   https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/ban-giao-chuc-vu-tu-lenh-quan-doan-12-827158
@@ -37,9 +37,65 @@ Portrait_Dao_Tuan_Anh*.dds      TTXVN, hồ sơ "Đào Tuấn Anh", 2026-01-27
                                   https://nvsk.vnanet.vn/ho-so/dao-tuan-anh-3-181955.vna
 Portrait_Tran_Cong_Duc*.dds     QDND, "Quân đoàn 34: Hoàn thành toàn diện nhiệm vụ quý I năm 2026", 2026-04-10
                                   https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/quan-doan-34-hoan-thanh-toan-dien-nhiem-vu-quy-i-nam-2026-1034371
+Portrait_Le_Huy_Vinh*.dds       "Lehuyvinh2013.jpg", USAID Vietnam, public domain (U.S. federal work)
+                                  https://commons.wikimedia.org/wiki/File:Lehuyvinh2013.jpg
+Portrait_Nguyen_Duc_Soat*.dds   "Nguyen Duc Soat.jpg", U.S. Air Force photo, public domain
+                                  https://commons.wikimedia.org/wiki/File:Nguyen_Duc_Soat.jpg
+Portrait_Nguyen_Van_Duoc*.dds   "Nguyễn Văn Được 20260710.jpg", U.S. Consulate General HCMC, public domain
+                                  https://commons.wikimedia.org/wiki/File:Nguy%E1%BB%85n_V%C4%83n_%C4%90%C6%B0%E1%BB%A3c_20260710.jpg
+Portrait_Nguyen_Hong_Thai*.dds  "Nguyễn Hồng Thái.jpg", Cổng TTĐT Chính phủ; attribution required
+                                  https://commons.wikimedia.org/wiki/File:Nguy%E1%BB%85n_H%E1%BB%93ng_Th%C3%A1i.jpg
+                                  Attribution: Cổng Thông tin điện tử Chính phủ / Báo Điện tử Chính phủ / www.chinhphu.vn
 
 
 Focus icons (army branch, gfx/interface/goals/*.dds, 93x91) were cropped and converted to DDS from files on Wikimedia Commons
 (retrieved 2026-10-01): photographs of the Vietnam People's Army and public-domain branch emblems.
 Per-file title, author, licence and URL: assets/focus_icons/CREDITS.json. Rebuild: tools/build_vie_focus_icons.py.
 "CC BY" / "CC BY-SA" images need attribution; CC BY-SA derivatives must be shared under the same licence.
+
+Portraits added 2026-10-02 (cropped to the face, resized to 156x210 and 38x51 and converted to DDS from Wikimedia Commons files):
+Portrait_Pham_Thanh_Ngan*.dds      "Phạm Thanh Ngân.jpg" by Thainguyentelevision, CC BY-SA 4.0
+                                   https://commons.wikimedia.org/wiki/File:Ph%E1%BA%A1m_Thanh_Ng%C3%A2n.jpg
+Portrait_Pham_Tuan*.dds            "Phạm Tuân .JPG" by Duyphuong, CC BY 3.0
+                                   https://commons.wikimedia.org/wiki/File:Ph%E1%BA%A1m_Tu%C3%A2n_.JPG
+Portrait_Nguyen_Van_Hien*.dds      "Nguyen Van Hien pkkq.jpg" by Quocthang2002, CC BY-SA 4.0
+                                   https://commons.wikimedia.org/wiki/File:Nguyen_Van_Hien_pkkq.jpg
+Portrait_Vo_Van_Tuan*.dds          "VỖ VĂN TUẤN.jpg" by Franky986, CC BY-SA 4.0
+                                   https://commons.wikimedia.org/wiki/File:V%E1%BB%96_V%C4%82N_TU%E1%BA%A4N.jpg
+Portrait_Le_Huu_Duc*.dds           "Le Huu Duc.jpg" by Boquocphongvn, CC BY-SA 4.0
+                                   https://commons.wikimedia.org/wiki/File:Le_Huu_Duc.jpg
+Portrait_Vu_Hai_San*.dds           "Trung tuong Vu Hai San.jpg" by Quocthang2002, CC BY-SA 4.0
+                                   https://commons.wikimedia.org/wiki/File:Trung_tuong_Vu_Hai_San.jpg
+Portrait_Nguyen_Doan_Anh*.dds      "Nguyen Doan Anh.jpg" by Quocthang2002, CC BY-SA 4.0
+                                   https://commons.wikimedia.org/wiki/File:Nguyen_Doan_Anh.jpg
+Portrait_Phung_Si_Tan*.dds         "Phùng Sĩ Tấn.jpg" USAID Vietnam, public domain (U.S. federal work)
+                                   https://commons.wikimedia.org/wiki/File:Ph%C3%B9ng_S%C4%A9_T%E1%BA%A5n.jpg
+Portrait_Truong_Manh_Dung*.dds     "Trương Mạnh Dũng 2025.png" by Truyền hình Lạng Sơn, CC BY 3.0
+                                   https://commons.wikimedia.org/wiki/File:Tr%C6%B0%C6%A1ng_M%E1%BA%A1nh_D%C5%A9ng_2025.png
+Portrait_Le_Van_Dung*.dds          "LêVănDũng2010.jpg" by Lê Văn Dũng (own work), CC BY-SA 4.0
+                                   https://commons.wikimedia.org/wiki/File:L%C3%AAV%C4%83nD%C5%A9ng2010.jpg
+"CC BY-SA" derivatives above must be shared under the same licence; "CC BY" derivatives need attribution (this file).
+
+Portraits from news photographs (added 2026-10-02). These are copyrighted press photos, cropped to the face and used as development
+references by the modder; replace them with licensed images before any public release:
+Portrait_Vu_Hong_Son*.dds          TTXVN (Nhân vật & sự kiện), ho so "Vũ Hồng Sơn", 2026-01-24
+                                   https://nvsk.vnanet.vn/vu-hong-son-10580.vna
+Portrait_Phuong_Minh_Hoa*.dds      VietNamNet, "Thượng tướng Phương Minh Hòa bị kỷ luật cảnh cáo", 2018-07-28
+                                   https://vietnamnet.vn/thuong-tuong-phuong-minh-hoa-bi-ky-luat-canh-cao-466834.html
+Portrait_Nguyen_Van_Thanh*.dds     Tuổi Trẻ, "Vi phạm của Thượng tướng Phương Minh Hòa là nghiêm trọng" (ảnh Nguyễn Văn Thanh), 2018-06-30
+                                   https://tuoitre.vn/vi-pham-cua-thuong-tuong-phuong-minh-hoa-la-nghiem-trong-2018063014180997.htm
+Portrait_Vu_Van_Kha*.dds           VOV, "Thiếu tướng Vũ Văn Kha được giao quyền Tư lệnh Quân chủng PK-KQ", 2020-04-30
+                                   https://vov.gov.vn/thieu-tuong-vu-van-kha-duoc-giao-quyen-tu-lenh-quan-chung-pk-kq-dtnew-167847
+Portrait_Huynh_Tien_Phong*.dds     Sức khỏe & Môi trường, "Trung tướng Huỳnh Tiền Phong được phong tặng danh hiệu Anh hùng LLVT nhân dân", 2026-01-15
+                                   https://suckhoemoitruong.com.vn/trung-tuong-huynh-tien-phong-duoc-phong-tang-danh-hieu-anh-hung-llvt-nhan-dan-28178.html
+Portrait_Nguyen_Phuong_Nam*.dds    VietNamNet, "Thượng tướng Nguyễn Phương Nam thôi làm Phó Tổng Tham mưu trưởng QĐND Việt Nam", 2021-06-04
+                                   https://vietnamnet.vn/thuong-tuong-nguyen-phuong-nam-thoi-lam-pho-tong-tham-muu-truong-qdnd-viet-nam-742900.html
+Portrait_Nguyen_Khac_Nghien*.dds   Dân trí, "Thượng tướng, Tổng Tham mưu trưởng Quân đội nhân dân Việt Nam từ trần", 2010-11-16
+                                   https://dantri.com.vn/thoi-su/thuong-tuong-tong-tham-muu-truong-quan-doi-nhan-dan-viet-nam-tu-tran-1290157302.htm
+Portrait_Tran_Ngoc_Quyen*.dds      Tuổi Trẻ (ảnh: PK-KQ), "Trao Huân chương Bảo vệ Tổ quốc hạng ba cho hai phi công lái máy bay Yak-130 gặp nạn", 2024-11-23
+                                   https://tuoitre.vn/trao-huan-chuong-bao-ve-to-quoc-hang-ba-cho-hai-phi-cong-lai-may-bay-yak-130-gap-nan-20241123173844646.htm
+
+Supplied by the project owner (2026-10-02; source and licence not recorded, replace before any public release):
+Portrait_Nguyen_Van_Phiet*.dds     Trung tuong Nguyen Van Phiet portrait, cropped from a framed photo
+Portrait_Bui_Duc_Hien*.dds         Bui Duc Hien at a Air Defence - Air Force ceremony (temporary stand-in photo)
+Portrait_Nguyen_Van_Than*.dds      Trung tuong Nguyen Van Than portrait (supplied by the project owner, source and licence not recorded)

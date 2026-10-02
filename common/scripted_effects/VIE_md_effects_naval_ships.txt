@@ -8,9 +8,11 @@
 #               -> 0,333 moi tau + 0,2 moi tau neu huan luyen/ha tang day du (6 tau = 3,2)
 #   Gepard I    0,175 moi tau (350 trieu cho 2 tau, ky 12/5/2006)
 #   Gepard II   0,35 moi tau (700 trieu cho 2 tau, gom dan va goi bao duong)
-#   Molniya p1  0,06 moi tau (don gia khoang 60 trieu)                  [tin cay thap]
-#   Molniya p2  0,13 moi tau (VND 3.000 ty ~ 131,7 trieu, bao Nghe An)  [trung binh]
-#   Bastion-P   0,20 moi he thong (khoang 150-300 trieu, KHONG co gia hop dong VN) [thap]
+#   Molniya p1  0,06 moi tau (don gia khoang 60 trieu)                  [thap-trung binh]
+#   Molniya p2  0,13 moi tau (VND 3.000 ty ~ 131,7 trieu, bao Nghe An; ca chuong trinh
+#               2 + 6 tau cung giay phep khoang 1 ty USD ~ 0,125/tau)       [trung binh-cao]
+#   Bastion-P   0,15 moi he thong (hop dong 2006 cho mot to hop = 150 trieu USD theo nguon
+#               Nga; Syria 2007: hai to hop = 300 trieu)                    [trung binh]
 #   Sigma       0,33 moi tau (660 trieu cho 2 tau)                      [buoc 5]
 # TODO(nguon): ngay giao tau 2 va 3 cua Kilo (2014-09, 2015-01) la noi suy.
 # TODO(nguon): Gepard II chi biet giao khoang 2017-2018; dung 2017-06 va 2018-03.
@@ -175,9 +177,14 @@ VIE_naval_pay_molniya_p1 = {
 	multiply_temp_variable = { treasury_change = -0.06 }
 	modify_treasury_effect = yes
 }
+# He so VIE_small_combatant_cost_mult (0,8-0,9) do Decision 3 cua Truc 2 hai quan dat khi hoan tat.
 VIE_naval_pay_molniya_p2 = {
 	set_temp_variable = { treasury_change = VIE_molniya_vn_qty_ordered }
 	multiply_temp_variable = { treasury_change = -0.13 }
+	if = {
+		limit = { check_variable = { VIE_small_combatant_cost_mult > 0 } }
+		multiply_temp_variable = { treasury_change = VIE_small_combatant_cost_mult }
+	}
 	modify_treasury_effect = yes
 }
 VIE_naval_pay_gepard1 = {
@@ -192,7 +199,7 @@ VIE_naval_pay_gepard2 = {
 }
 VIE_naval_pay_bastion = {
 	set_temp_variable = { treasury_change = VIE_bastion_qty_ordered }
-	multiply_temp_variable = { treasury_change = -0.2 }
+	multiply_temp_variable = { treasury_change = -0.15 }
 	modify_treasury_effect = yes
 }
 
@@ -204,7 +211,15 @@ VIE_naval_pay_kilo = {
 	if = {
 		limit = { has_country_flag = VIE_kilo_training_full }
 		set_temp_variable = { treasury_change = VIE_kilo_qty_ordered }
-		multiply_temp_variable = { treasury_change = -0.2 }
+		# Truc 3 (L7): da chuan bi nhan luc tau ngam thi goi huan luyen re hon (0,15 thay 0,2 ty/tau).
+		# Chi la thuong, khong phai dieu kien (Quy tac 5).
+		if = {
+			limit = { has_country_flag = VIE_nf_sub_prep }
+			multiply_temp_variable = { treasury_change = -0.15 }
+		}
+		else = {
+			multiply_temp_variable = { treasury_change = -0.2 }
+		}
 		modify_treasury_effect = yes
 		navy_experience = 20
 	}
@@ -709,7 +724,6 @@ VIE_naval_deliver_bastion = {
 		}
 		VIE_naval_bastion_site = yes
 		add_to_variable = { VIE_bastion_qty_delivered = 1 }
-		add_to_variable = { VIE_var_hulls_delivered = 1 }
 		set_country_flag = VIE_ev_bastion_p_coastal_defence
 	}
 	if = {
@@ -730,7 +744,6 @@ VIE_naval_deliver_bastion = {
 		}
 		VIE_naval_bastion_site = yes
 		add_to_variable = { VIE_bastion_qty_delivered = 1 }
-		add_to_variable = { VIE_var_hulls_delivered = 1 }
 	}
 	if = {
 		limit = {
@@ -750,7 +763,6 @@ VIE_naval_deliver_bastion = {
 		}
 		VIE_naval_bastion_site = yes
 		add_to_variable = { VIE_bastion_qty_delivered = 1 }
-		add_to_variable = { VIE_var_hulls_delivered = 1 }
 	}
 	if = {
 		limit = {
@@ -770,7 +782,6 @@ VIE_naval_deliver_bastion = {
 		}
 		VIE_naval_bastion_site = yes
 		add_to_variable = { VIE_bastion_qty_delivered = 1 }
-		add_to_variable = { VIE_var_hulls_delivered = 1 }
 	}
 	# Du so he thong da dat: nang luc ten lua hai quan (Truc 2 doc VIE_ext_naval_missile).
 	if = {

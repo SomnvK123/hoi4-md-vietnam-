@@ -27,41 +27,17 @@ PHASE2 = ((60, 80, 92), (26, 36, 44))  # slate: 2015-now roster
 MODERN = ((98, 64, 58), (44, 28, 26))  # dark red: Corps 12/34 group
 AIR = ((70, 112, 152), (28, 48, 70))  # sky blue: Air Defence - Air Force advisors
 
-# file stem (after "Portrait_") -> palette
+# file stem (after "Portrait_") -> palette. Stems that now have a real photo are removed (do not re-add:
+# running this script would overwrite the photo).
 PLACEHOLDERS = {
-    "Le_Van_Dung": PHASE1,
     "Le_Manh": PHASE1,
-    "Nguyen_Khac_Nghien": PHASE1,
-    "Huynh_Tien_Phong": PHASE1,
-    "Nguyen_Van_Duoc": PHASE1,
     "Hoang_Ky": PHASE1,
     "Pham_Xuan_Hung": PHASE1,
-    "Nguyen_Phuong_Nam": PHASE2,
-    "Vu_Hai_San": PHASE2,
-    "Phung_Si_Tan": PHASE2,
-    "Nguyen_Doan_Anh": PHASE2,
-    "Nguyen_Hong_Thai": PHASE2,
-    "Truong_Manh_Dung": MODERN,
-    "Nguyen_Duc_Soat": AIR,
-    "Nguyen_Van_Than": AIR,
-    "Le_Huu_Duc": AIR,
-    "Phuong_Minh_Hoa": AIR,
-    "Le_Huy_Vinh": AIR,
-    "Vu_Van_Kha": AIR,
-    "Nguyen_Van_Hien": AIR,
-    "Vu_Hong_Son": AIR,
-    "Pham_Thanh_Ngan": AIR,
     "Han_Vinh_Tuong": AIR,
-    "Pham_Tuan": AIR,
-    "Nguyen_Van_Phiet": AIR,
-    "Vo_Van_Tuan": AIR,
     "Nguyen_Van_Tho": AIR,
-    "Nguyen_Van_Thanh": AIR,
     "Lam_Quang_Dai": AIR,
     "Pham_Van_Tinh": AIR,
-    "Tran_Ngoc_Quyen": AIR,
     "Pham_Tuan_Anh": AIR,
-    "Bui_Duc_Hien": AIR,
 }
 
 

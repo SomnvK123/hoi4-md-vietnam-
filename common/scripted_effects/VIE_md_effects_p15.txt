@@ -39,26 +39,43 @@
 # unlock trait tu script (da tra toan bo md_ref), trait do nguoi choi tu mua bang
 # funds. Bao cao ghi "+2 trait" la khong lam duoc (loi B3).
 ########################################################################
+# MIO chi co voi DLC Arms Against Tyranny: moi lan goi mio:<org> boc has_dlc nhu MD (vd. Ukraine.txt),
+# neu khong, thieu DLC thi scope mio: bao loi.
 VIE_gdt_mio_size_2 = {
-	mio:VIE_gdt_manufacturer = { add_mio_size = 2 }
+	if = {
+		limit = { has_dlc = "Arms Against Tyranny" }
+		mio:VIE_gdt_manufacturer = { add_mio_size = 2 }
+	}
 }
 VIE_gdt_mio_size_1 = {
-	mio:VIE_gdt_manufacturer = { add_mio_size = 1 }
+	if = {
+		limit = { has_dlc = "Arms Against Tyranny" }
+		mio:VIE_gdt_manufacturer = { add_mio_size = 1 }
+	}
 }
 
 # Funds chi dung cho event (Q8 = a). vie_def_ind.1 trien lam = +100,
 # vie_def_ind.4 Luat 38/2024/QH15 = +150 cho ca 4 MIO.
 VIE_gdt_mio_funds_100 = {
-	mio:VIE_gdt_manufacturer = { add_mio_funds = 100 }
+	if = {
+		limit = { has_dlc = "Arms Against Tyranny" }
+		mio:VIE_gdt_manufacturer = { add_mio_funds = 100 }
+	}
 }
 VIE_gdt_mio_funds_150 = {
-	mio:VIE_gdt_manufacturer = { add_mio_funds = 150 }
+	if = {
+		limit = { has_dlc = "Arms Against Tyranny" }
+		mio:VIE_gdt_manufacturer = { add_mio_funds = 150 }
+	}
 }
 VIE_all_mio_funds_150 = {
-	mio:VIE_gdt_manufacturer = { add_mio_funds = 150 }
-	mio:VIE_viettel_manufacturer = { add_mio_funds = 150 }
-	mio:VIE_ba_son_manufacturer = { add_mio_funds = 150 }
-	mio:VIE_vaeco_manufacturer = { add_mio_funds = 150 }
+	if = {
+		limit = { has_dlc = "Arms Against Tyranny" }
+		mio:VIE_gdt_manufacturer = { add_mio_funds = 150 }
+		mio:VIE_viettel_manufacturer = { add_mio_funds = 150 }
+		mio:VIE_ba_son_manufacturer = { add_mio_funds = 150 }
+		mio:VIE_vaeco_manufacturer = { add_mio_funds = 150 }
+	}
 }
 
 ########################################################################

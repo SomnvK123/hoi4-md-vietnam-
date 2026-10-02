@@ -96,11 +96,30 @@ Console: `effect VIE_event_scheduler_naval = yes` runs one tick; set the date fi
 - [ ] Sigma delivered by hidden event `.45` every 182 days after 900 / 1080 / 1260 days; `VIE_var_integration_exp` +8 (Domestic) / +4 (Hybrid) on the last ship.
 - [ ] Late path: with `_missed` set (`effect set_country_flag = VIE_kilo_missed`, date after 2011-12) Decision `VIE_naval_late_kilo` appears, 50 PP, 180 day cooldown; sign it: +25% cost, first boat after 1840 days, then every 210 days (`vie_naval.53`); the dated delivery flags (`VIE_kilo_s1..s8`) are all pre-set so no double delivery.
 - [ ] Remove SOV from the map before 2009-12 (annex by console): Kilo is `_missed`, late Decision unavailable until it exists; phase 2 Molniya still delivers using the own variant.
-- [ ] Civil war: `effect set_variable = { VIE_catch_up = 1 }` then `effect VIE_event_scheduler_naval = yes`: no popup, no ship, offered flags set, `VIE_sigma_suspended` set.
 - [ ] No `VIE_gepard_contract` / `VIE_kilo_contract` left anywhere live: `grep -rn` in `common/` and `events/` (only `.bak` and `v1*_removed_*.txt` may match).
 - [ ] Pop-ups per year 2003-2019 (`python tools/audit/ev.py`, then play observe mode): naval adds `.1` (2003), `.10` `.30` (2006), `.3` (2009), `.20` (2009-12), `.40` `.12` (2011); chained `.11/.21/.31/.41/.42/.43` are exempt. Target <= 7 per year, record the years over.
+- [ ] Civil war: `effect set_variable = { VIE_catch_up = 1 }` then `effect VIE_event_scheduler_naval = yes`: no popup, no ship, offered flags set, `VIE_sigma_suspended` set.
 - [ ] AI-only run to 2020: AI VIE has Molniya phase 1, Gepard I, Bastion-P and Kilo (`VIE_ai_historical`); no Sigma. Gepard II and Molniya phase 2 depend on Truc 2 for the Ba Son flag.
-- [ ] Prices (USD bn, see top of `VIE_md_effects_naval_ships.txt`): Kilo 0.333/boat (+0.2 full pack), Gepard I 0.175, Gepard II 0.35, Molniya p1 0.06, Molniya p2 0.13, Bastion-P 0.20, Sigma 0.33. Low-confidence ones: Molniya p1, Bastion-P.
+- [ ] Prices (USD bn, see top of `VIE_md_effects_naval_ships.txt`): Kilo 0.333/boat (+0.2 full pack), Gepard I 0.175, Gepard II 0.35, Molniya p1 0.06, Molniya p2 0.13, Bastion-P 0.15, Sigma 0.33. Lowest confidence: Molniya p1. Run `python tools/audit/naval_balance.py` after changing any price.
+
+## Naval industry (Truc 2 hai quan, namespace vie_nav_ind), not yet run in game
+Design, deviations and the 9 steps: `VIE_naval_truc2_review_and_plan.md`. Flags: `VIE_v9_flag_mapping.md` (section "Truc 2 hai quan"). Balance numbers: `python tools/audit/naval_balance.py` (must print PASS).
+Files: `VIE_md_effects_nav_ind.txt` (helpers, D1-D5 start/finish), `events/VIE_nav_ind.txt` (17 events), `VIE_md_nav_ind_decisions.txt` (category `VIE_naval_industry_category`), `VIE_md_ideas_nav_ind.txt`, six focuses `VIE_naval_defence_law` ... `VIE_naval_defence_2030` right of `VIE_modernize_vpa` (x 256-260). On a save copy with `debug` on:
+- [ ] `error.log`: grep `vie_nav_ind`, `VIE_nav_`, `VIE_naval_has_`, `two_state_dockyards`, `one_state_dockyard`, `add_tech_bonus`, `add_mio_size`, `add_timed_idea`, `CAT_`, `minor_flavor`.
+- [ ] **First check:** `days = <temp variable>` works for `country_event` and `add_timed_idea` (MD does it, see plan part 10, but this mod never has): finish D1 Basic, the timed idea `VIE_nav_prog_ba_son` shows a countdown of about 365 days and `vie_nav_ind.60` fires after 146.
+- [ ] Focus tree: the six focuses sit in a clean column left of the army block, none overlapping `VIE_def_industry_law` at (266, 2). Focus 1 opens from 2005-01, Focus 3 needs `VIE_var_hulls_delivered >= 4` (ships only; Bastion-P does not count) (tooltip shows) and 2012, Focus 4 needs 2010, Focus 5 needs Focus 3 AND 4 and 2018 and one source, Focus 6 needs 2028. `effect set_variable = { VIE_var_hulls_delivered = 4 }` and the date console to test.
+- [ ] Focus 2 completion fires `vie_nav_ind.1` (orientation A/B/C); A and C add `VIE_var_shipbuilding_exp`, B and C add `VIE_var_mro_exp`. Decision `VIE_nav_d1_ba_son` is greyed until an orientation is chosen and fewer than 2 programs run (both tooltips).
+- [ ] D1: Basic -> `.60` after 146 days sets `VIE_cap_ba_son_yard` and `VIE_var_ba_son_tier = 1`; Expanded 219 days and tier 2; Focus 292 days and tier 3. At the end one dockyard appears in state 519 (two for Focus), MIO Ba Son +1/+2/+3, shipbuilding_exp +5/+10/+15, `VIE_nav_d1_done`. **Treasury:** MD charges 7.5 per dockyard itself; the extra hand charge is only 4.5 / 3.0 and Balanced orientation adds 15% of the tier total. Compare treasury before and after: a total of 15+ for Basic means a double charge.
+- [ ] Truc 1 link: after `.60` with tier 2+, `vie_naval.3` (Molniya phase 2, 2009-06 window) shows options B and C (8 and 10 ships). With tier 1 only A and E show.
+- [ ] D3: needs `VIE_cap_ba_son_yard`; `.20` spec adds exp at once; level 3 hides without `VIE_molniya_domestic_started`. After completion `VIE_small_combatant_cost_mult` is 0.80/0.85/0.90; a late Molniya phase 2 contract (Decision `VIE_naval_late_molniya`) is cheaper by that factor.
+- [ ] D2: needs a delivered Kilo or Gepard/Molniya; scope sub/surface/fleet follow the Truc 1 deliveries; Russia support sets `VIE_mro_russia_dependent` and clamps `VIE_var_mro_exp` at 50; level 2 needs D1 done, level 3 needs D1 done plus D1 Expanded+ or D3 done. Duration: orientation MRO-first 0.75x, shipbuilding-first 1.25x, Russia 0.75x, autonomous 1.25x, 0.85x with `VIE_opp_sub_mro`.
+- [ ] D4: Electronics needs one of `VIE_semiconductor_fab`, `VIE_chip_design`, `VIE_earth_observation`, `VIE_vinasat` (completed focus); Weapons needs `VIE_ext_naval_missile` (Truc 1: all Bastion-P delivered). Full needs both, 1.5x price. Balanced level adds +5 exp when a Sigma has been delivered.
+- [ ] D5: needs shipbuilding_exp 30 and mro_exp 15 (tooltips show the current values); balanced orientation + all-Basic + Molniya phase 2 (6 ships) reaches 40/16. The four priorities need D1, D2, D4 done as written; autonomy Integrated needs `VIE_var_ba_son_tier >= 2`, High needs tier 3 and `VIE_var_integration_tier >= 2`. End sets `VIE_cap_mature_naval_industry` and idea `VIE_nav_mature_industry_idea`.
+- [ ] Slot: start D2 and D3 together; D4 or D5 shows the slot tooltip greyed; finishing one frees it. Console `effect VIE_nav_program_recount = yes` with no timed ideas gives 0.
+- [ ] Civil war: after `VIE_collapse_aftermath` the slot counter equals the number of `VIE_nav_prog_*` ideas held; a rebel-tag winner starts at 0. Pending completion events of the old country are lost with the tag (known limit).
+- [ ] AI-only run to 2020: AI VIE completes Focus 1, 2, Decision 1 before 2009-06 (else Molniya phase 2 is missed) and later D3 and D2; no D4/D5 before their dates. Watch `ai_will_do` of the six focuses (90 / 90 / 70 / 70 / 60 / 60).
+- [ ] Notifications `.60 .61 .62 .63 .64 .65` use `minor_flavor = yes`: check they appear as the small flavor notices and not as full pop-ups; if the attribute is rejected, remove it.
+- [ ] Prices (USD bn): D1 7.5 / 12 / 18; D2 4.0 x 1 / 1.6 / 2.4 x 0.8 or 1.4 x 1.3 (fleet); D3 6.0 / 9.6 / 14.4; D4 7.0 / 11.2 / 16.8 x 1.5 (Full); D5 10 / 15 / 22. Totals: historical 33.7, all-max 97.1. Change a price: rerun `python tools/audit/naval_balance.py`.
 
 ## Console shortcuts (use a save copy, enable `debug` first)
 * `tag VIE`, then `event vie_alt.14` (first free election: options a/b/c switch the ruling party to 2/liberalism,
@@ -971,3 +990,39 @@ khôi phục đúng ràng buộc: muốn license sớm thì phải ưu tiên D1.
 
 **Trục 2 HOÀN TẤT:** 11/11 decision · 4 focus · 1 category · 5 idea · 4 event ·
 scheduler p15 · 4 variant tự tạo · 6/7 cờ Trục 1 đã nối.
+
+## Naval force and Program 1B (Truc 3 hai quan, buoc 0-9)
+
+Thiet ke: `VIE_naval_truc3_review_and_plan.md`. Chua chay trong game. Static: `python tools/gen_p1b.py` (sinh lai 1B),
+`python tools/audit/nf_balance.py` (PASS), `verify_all_loc.py`, `tools/audit/live.py` (0 tooltip thieu), `audit.py` (0 forward-ref, 0 cycle).
+
+### Chuoi focus va Decision luc luong
+| # | Thao tac | Ket qua mong doi |
+|---|---|---|
+| NF-1 | Mo cay focus | Cot hai quan x 240 duoi `VIE_modernize_vpa`; T1..T9 thang hang; ba nhanh o y 9-12; duong ke tu T6 toi `VIE_naval_mro` / `VIE_small_combatant_construction` doc duoc |
+| NF-2 | Chon D1 (Denial) roi xem G1, B1 | G1 va B1 xam (mutually exclusive) |
+| NF-3 | Bam `VIE_nf_d1_surface` (T3 xong) | Tru 50 PP, event `.1` roi `.2`; tru 0,40 hoac 0,60 ty; idea `VIE_nf_prog_surface` hien; 365 / 548 ngay sau `.61` va modifier xuat hien trong `VIE_armed_forces_modifier` |
+| NF-4 | Bam `VIE_nf_d2_submarine` | `VIE_nf_sub_prep` dat ngay o `.10`; chi phi 0,30 / 0,45 (lich su) hoac 0,50 / 0,75 (som) |
+| NF-5 | Bam D-A va D-B cung luc, roi D-C | D-C xam ("it hon 2 chuong trinh") cho toi khi mot cai xong; D-C can ca `VIE_nf_d1_done` va `_d2_done` |
+| NF-6 | D-C: sau 183, 365, 548 ngay | `.50` (XP + coordination 2%), `.51` (2%), `.63` (2% + sub defence 2%) |
+| NF-7 | D-D chon Coastal roi chon nhanh B1 (Bluewater) | Idea phat `VIE_nf_branch_mismatch_idea` 365 ngay; chon D1 (Denial) thi +1% to chuc |
+| NF-8 | Kilo: co `VIE_nf_sub_prep` | Goi huan luyen 0,15 ty/tau (khong co: 0,2) |
+| NF-9 | Noi chien (`VIE_collapse_aftermath`) | `VIE_var_force_program_active` va `VIE_var_procurement_1b_active` ve dung so timed idea con lai |
+
+### Chuong trinh 1B (P1-P4, P6-P8, P10, P11)
+| # | Thao tac | Ket qua mong doi |
+|---|---|---|
+| P1B-1 | Hoan T8 (>= 2016), bam `VIE_p1b_corvette` | Event `vie_p1b.1` (so luong 2/4/6), `.2` (nhap khau/hybrid/noi dia theo dieu kien), tru tien khi ky |
+| P1B-2 | Thieu von | `vie_p1b.3`: cat quy mo / vay (no x 1,1) / hoan / huy; hoan khong mat slot; huy dat `_cancelled` |
+| P1B-3 | Sau lead (900/1080/1260 ngay cho P1) | Tau dau den, moi tau cach 240 ngay; `VIE_var_hulls_delivered` +1; exp Truc 2 theo muc noi dia hoa; tau cuoi giai phong slot |
+| P1B-4 | `error.log` | **Rui ro cao nhat:** khong co "equipment_variant does not exist", khong loi module/slot; variant co `allow_without_tech = yes` |
+| P1B-5 | Mo man hinh thiet ke | Variant `VIE Corvette Class` ... `VIE SSN Class` co du module; P8 (destroyer) la bo module tu ghep, de kiem ky |
+| P1B-6 | P11 | Can `VIE_nuclear_research`; module `module_sub_early_reactor_power` hien; `tech_nuclear_power_systems_1` duoc cap |
+| P1B-7 | P6 (Bastion-P mo rong) | Moi lan giao dat 1 bunker; kiem tra khong loi khi chong len Bastion Truc 1 o cung tinh |
+| P1B-8 | P8 + P10 xong, hoan B5 | `VIE_nf_d5_carrier_group` mo (can 1 tau san bay va 2 khu truc); thuong nhan 0,25 / 0,5 lan thuong B5 |
+| P1B-9 | AI free-mode | Decision 1B chi AI `VIE_ai_free` bam; moi event AI co it nhat mot lua chon duoc |
+| P1B-10 | `python tools/audit/nf_balance.py` | PASS: tran modifier moi duong (org 18, coord 20, detect 15, range 25, ...), tong 1B toi da 24,5 ty |
+
+### Dang cho kiem trong game (khong phai no code)
+Thong so thang `VIE_nf_*` la gia tri khoi diem; ngay co moc T5 (Lu doan 162/167), Lu doan 189 (2013 vs 2011) va T1 (2005) chua xac minh;
+`navy_personnel_cost_multiplier_modifier` mau/don vi chua kiem; bunker P6 chong len Truc 1.

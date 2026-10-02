@@ -313,7 +313,7 @@ VIE_ba_son_manufacturer = {
 	task_capacity = 2
 
 	equipment_type = { mio_cat_only_small_ships mio_cat_frigates mio_cat_destroyers submarine }
-	research_categories = { CAT_patrolboat CAT_corvette CAT_frigate CAT_green_water_navy CAT_naval_sonar }
+	research_categories = { CAT_patrol_boats CAT_corvettes CAT_frigates CAT_surface_ships CAT_naval_sonar }
 	research_bonus = 0.06
 	ai_will_do = { base = 10 }
 

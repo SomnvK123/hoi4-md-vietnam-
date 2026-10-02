@@ -60,8 +60,6 @@ country_event = {
 	# C - Bo qua pha 1 (duong B: de danh cho noi dia hoa o pha 2)
 	option = {
 		name = vie_naval.1.c
-		log = "[GetDateText]: [This.GetName]: Event vie_naval.1.c executed"
-		set_country_flag = VIE_molniya_p1_skipped
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
@@ -122,8 +120,6 @@ country_event = {
 	# D - Dung o so tau da mua, khong dong them
 	option = {
 		name = vie_naval.3.e
-		log = "[GetDateText]: [This.GetName]: Event vie_naval.3.e executed"
-		set_country_flag = VIE_molniya_p2_skipped
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }

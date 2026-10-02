@@ -1,0 +1,174 @@
+########################################################################
+# Truc 2 hai quan (CNQP): Decision. Thiet ke: VIE_naval_truc2_review_and_plan.md muc 5.2.
+# Decision chi la nut khoi dong (50 PP). Bam xong ban chuoi event chon; chi bao dang chay la
+# timed idea; hoan tat bang event an hen gio (days = bien tam, xem plan Phan 10).
+# Cong luc bam: custom_trigger_tooltip noi ro dieu kien con thieu. Khong co trang thai cho giua chung.
+########################################################################
+
+VIE_naval_industry_category = {
+	VIE_nav_d1_ba_son = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_ba_son_shipyards
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_slot_tt
+				check_variable = { VIE_var_naval_program_active < 2 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_orient_tt
+				check_variable = { VIE_ba_son_orientation > 0 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav_d1_ba_son"
+			VIE_nav_program_start = yes
+			country_event = { id = vie_nav_ind.2 }
+		}
+
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_nav_d3_small = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_small_combatant_construction
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_slot_tt
+				check_variable = { VIE_var_naval_program_active < 2 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_yard_tt
+				has_country_flag = VIE_cap_ba_son_yard
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav_d3_small"
+			VIE_nav_program_start = yes
+			country_event = { id = vie_nav_ind.20 }
+		}
+
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_nav_d2_mro = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_naval_mro
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_slot_tt
+				check_variable = { VIE_var_naval_program_active < 2 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_hull_source_tt
+				OR = {
+					VIE_naval_has_sub = yes
+					VIE_naval_has_surface = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav_d2_mro"
+			VIE_nav_program_start = yes
+			country_event = { id = vie_nav_ind.10 }
+		}
+
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_nav_d4_integration = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_naval_systems_integration
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_slot_tt
+				check_variable = { VIE_var_naval_program_active < 2 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_ext_source_tt
+				VIE_naval_has_ext_source = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav_d4_integration"
+			VIE_nav_program_start = yes
+			country_event = { id = vie_nav_ind.30 }
+		}
+
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_nav_d5_2030 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_naval_defence_2030
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_slot_tt
+				check_variable = { VIE_var_naval_program_active < 2 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_d1_done_tt
+				has_country_flag = VIE_nav_d1_done
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_exp_ship_tt
+				check_variable = { VIE_var_shipbuilding_exp > 29 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_nav_exp_mro_tt
+				check_variable = { VIE_var_mro_exp > 14 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav_d5_2030"
+			VIE_nav_program_start = yes
+			country_event = { id = vie_nav_ind.40 }
+		}
+
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}

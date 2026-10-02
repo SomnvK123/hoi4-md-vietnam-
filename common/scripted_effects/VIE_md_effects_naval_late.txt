@@ -45,7 +45,13 @@ VIE_naval_late_start_kilo = {
 	if = {
 		limit = { has_country_flag = VIE_kilo_training_full }
 		set_temp_variable = { treasury_change = VIE_kilo_qty_ordered }
-		multiply_temp_variable = { treasury_change = -0.05 }
+		if = {
+			limit = { has_country_flag = VIE_nf_sub_prep }
+			multiply_temp_variable = { treasury_change = -0.0375 }
+		}
+		else = {
+			multiply_temp_variable = { treasury_change = -0.05 }
+		}
 		modify_treasury_effect = yes
 	}
 	country_event = { id = vie_naval.53 days = 1840 }
@@ -57,7 +63,7 @@ VIE_naval_late_start_bastion = {
 	set_country_flag = VIE_bastion_s3
 	set_country_flag = VIE_bastion_s4
 	set_temp_variable = { treasury_change = VIE_bastion_qty_ordered }
-	multiply_temp_variable = { treasury_change = -0.05 }
+	multiply_temp_variable = { treasury_change = -0.0375 }
 	modify_treasury_effect = yes
 	country_event = { id = vie_naval.54 days = 1875 }
 }
@@ -86,6 +92,10 @@ VIE_naval_late_start_molniya_p2 = {
 	set_country_flag = VIE_molniya_v10
 	set_temp_variable = { treasury_change = VIE_molniya_vn_qty_ordered }
 	multiply_temp_variable = { treasury_change = -0.0325 }
+	if = {
+		limit = { check_variable = { VIE_small_combatant_cost_mult > 0 } }
+		multiply_temp_variable = { treasury_change = VIE_small_combatant_cost_mult }
+	}
 	modify_treasury_effect = yes
 	country_event = { id = vie_naval.56 days = 2280 }
 }
@@ -364,7 +374,6 @@ VIE_naval_late_ship_bastion = {
 		VIE_naval_bastion_site = yes
 	}
 	add_to_variable = { VIE_bastion_qty_delivered = 1 }
-	add_to_variable = { VIE_var_hulls_delivered = 1 }
 }
 
 VIE_naval_late_ship_molniya_p1 = {

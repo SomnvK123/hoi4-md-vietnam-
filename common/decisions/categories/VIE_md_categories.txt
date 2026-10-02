@@ -49,3 +49,27 @@ VIE_naval_procurement_category = {
 		}
 	}
 }
+
+# Truc 2 hai quan (CNQP): 5 Decision D1-D5 (VIE_md_nav_ind_decisions.txt). Cong la Focus 1
+# (VIE_naval_defence_law). priority 93: ngay tren VIE_def_industry_category (92).
+VIE_naval_industry_category = {
+	allowed = { original_tag = VIE }
+	priority = 93
+	visible = { has_completed_focus = VIE_naval_defence_law }
+}
+
+# Truc 3 hai quan (luc luong): 5 Decision D-A..D-E (VIE_md_nav_force_decisions.txt). Cong la Focus T1
+# (VIE_nf_training_standardization). priority 94: ngay tren VIE_naval_industry_category (93).
+VIE_naval_force_category = {
+	allowed = { original_tag = VIE }
+	priority = 94
+	visible = { has_completed_focus = VIE_nf_training_standardization }
+}
+
+# Truc 1B hai quan: chuong trinh mua sam alt-history (VIE_md_p1b_decisions.txt, sinh boi tools/gen_p1b.py).
+# Cong la Focus T8 (VIE_nf_medium_force). priority 89: duoi cac category hai quan khac.
+VIE_naval_program_category = {
+	allowed = { original_tag = VIE }
+	priority = 89
+	visible = { has_completed_focus = VIE_nf_medium_force }
+}

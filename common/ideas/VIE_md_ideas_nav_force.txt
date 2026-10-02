@@ -1,0 +1,73 @@
+ideas = {
+	country = {
+
+		# Phat luc chuyen doi nhanh (Truc 3 hai quan, L6): chon nhanh chien luoc lech voi VIE_nf_force_priority.
+		# Gan boi focus D1/G1/B1 bang add_timed_idea 365 ngay.
+		VIE_nf_branch_mismatch_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				navy_org_factor = -0.03
+				naval_coordination = -0.03
+			}
+		}
+
+		VIE_nf_prog_surface = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nf_prog_sub = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nf_prog_coord = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nf_prog_first = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_nf_prog_csg = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.02
+			}
+		}
+	}
+}

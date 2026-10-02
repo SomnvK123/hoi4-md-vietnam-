@@ -65,4 +65,7 @@ VIE_armed_forces_modifier = {
 	conscription_factor = VIE_af_conscription_factor
 	army_personnel_cost_multiplier_modifier = VIE_af_army_personnel_cost_multiplier_modifier
 	equipment_cost_multiplier_modifier = VIE_af_equipment_cost_multiplier_modifier
+	# Truc 3 hai quan (VIE_naval_truc3_review_and_plan.md B4): chi phi duy tri nhan su hai quan
+	# (token MD, money_modifier_definitions.txt:30). Ngoai khoi GEN de generator khong ghi de.
+	navy_personnel_cost_multiplier_modifier = VIE_af_navy_personnel_cost_multiplier_modifier
 }

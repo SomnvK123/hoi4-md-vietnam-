@@ -240,7 +240,6 @@ Thiet ke: `VIE_naval_truc1_review_and_plan.md`. Code: `VIE_md_effects_naval*.txt
 | `VIE_<p>_contracted` | `VIE_naval_contract_*` / reward Molniya | giao hang, Trục 2, Decision (an) |
 | `VIE_<p>_cancelled` | `.12` C, `.40` C, `.43` D | Decision (an) |
 | `VIE_<p>_late` | Decision `VIE_naval_late_*` | pay effect + `VIE_naval_late_start_*`, Sigma +25% |
-| `VIE_molniya_p1_skipped`, `VIE_molniya_p2_skipped` | `.1` C, `.3` E | thong tin |
 | `VIE_sigma_historical` | `.40` A | `VIE_naval_sigma_review` |
 | `VIE_sigma_suspended` | `VIE_fb_naval_sigma` / review `.44` | Decision `VIE_naval_late_sigma` |
 | `VIE_sigma_use_debt` | `.43` B | `VIE_naval_contract_sigma` |
@@ -259,7 +258,7 @@ Sigma khong co co giao hang: chuoi su kien an `.45`.
 | `VIE_opp_sub_mro` | giao du so Kilo da dat | Truc 2 Decision 2 (co hoi MRO, chua phai nang luc) |
 | `VIE_ext_naval_missile` | giao du Bastion da dat | Truc 2 Focus 5 / Decision 4 (nguon tuy chon) |
 | `VIE_molniya_domestic_started` | 2010-06 sau khi ky pha 2 | Truc 2 Decision 3 bac 3 |
-| `VIE_var_hulls_delivered` | +1 moi tau giao | Truc 2 Focus 3 (>= 4) |
+| `VIE_var_hulls_delivered` | +1 moi than tau giao (Molniya, Gepard, Kilo, Sigma, 1B; **khong** tinh Bastion-P, he thong bo) | Truc 2 Focus 3 (>= 4), Truc 3 T6 |
 | `VIE_var_shipbuilding_exp` | Molniya pha 2: +3 moi tau | Truc 2 Decision 5 |
 | `VIE_var_integration_exp` | Sigma Domestic +8 / Hybrid +4 khi giao du | Truc 2 Decision 4/5 |
 
@@ -268,10 +267,89 @@ Sigma khong co co giao hang: chuoi su kien an `.45`.
 
 ### Bien so luong
 `VIE_molniya_ru_qty`, `VIE_molniya_ru_delivered`, `VIE_molniya_vn_qty_ordered`, `VIE_molniya_vn_qty_delivered`,
-`VIE_molniya_path` (1 mua, 2 noi dia, 3 hybrid); `VIE_<gepard1|gepard2|kilo|bastion|sigma>_qty_ordered`, `_qty_delivered`;
+`VIE_<gepard1|gepard2|kilo|bastion|sigma>_qty_ordered`, `_qty_delivered`;
 `VIE_gepard1_config` (1 tieu chuan, 2 ASW), `VIE_bastion_deploy` (1 Bac, 2 Trung, 3 Nam, 4 phan tan), `VIE_bastion_site`
 (tam), `VIE_sigma_config` (1 Full Western, 2 Hybrid, 3 Noi dia).
 
 ### Da bo so voi bao cao
 `VIE_<p>_complete` (= `qty_delivered = qty_ordered`), `VIE_var_naval_budget_room` (dung thang bien `treasury`),
 cac bien `_progress`, config Gepard 3 (phong khong), `VIE_gepard_contract` / `VIE_kilo_contract` (p12 cu).
+
+## Truc 2 hai quan (namespace vie_nav_ind) - bang co va bien
+
+Thiet ke: `VIE_naval_truc2_review_and_plan.md`. Code: `VIE_md_effects_nav_ind.txt`, `events/VIE_nav_ind.txt`,
+`VIE_md_nav_ind_decisions.txt`, 6 focus `VIE_naval_defence_law` ... `VIE_naval_defence_2030`.
+
+### Co
+| Co | Dat boi | Doc boi |
+|---|---|---|
+| `VIE_cap_ba_son_yard` | `vie_nav_ind.60` (moc 40% cua D1) | **Truc 1:** `VIE_naval_sched_molniya_p2` (cua so pha 2), Decision `VIE_naval_late_molniya`; D3 |
+| `VIE_cap_mature_naval_industry` | `VIE_nav_d5_finish` | Truc 1B: hybrid cua P10 va P11 (`VIE_md_effects_p1b.txt`, sinh boi `tools/gen_p1b.py`) |
+| `VIE_mro_russia_dependent` | `vie_nav_ind.11` A | `VIE_nav_add_mro_exp` (tran 50) |
+| `VIE_nav_d1_done`, `_d2_done`, `_d3_done`, `_d4_done` | `VIE_nav_dN_finish` | D2 bac 2-3, D5 uu tien |
+
+### Bien (so luong that, khong phan chieu)
+| Bien | Khoang | Dat / cong boi | Doc boi |
+|---|---|---|---|
+| `VIE_var_shipbuilding_exp` | 0-100 | D1 (dinh huong +12/+6, dau tu +5/+10/+15), D3 (chuyen hoa +5..+8, muc +5/+10/+15), **Truc 1:** Molniya pha 2 +3 moi tau | D5 (>= 30) |
+| `VIE_var_mro_exp` | 0-100, tran 50 neu phu thuoc Nga | D1 dinh huong, D2 (+10/+20/+30) | D5 (>= 15) |
+| `VIE_var_integration_exp` | 0-100 | D4 (+10/+20/+30, +5 Sigma), **Truc 1:** Sigma Domestic +8, Hybrid +4 | (D5 khong doc truc tiep) |
+| `VIE_var_ba_son_tier` | 0-3 | `.60` (moc 40%, bang muc dau tu) | **Truc 1:** `vie_naval.3` B, C (>= 2); D5 bac tu chu |
+| `VIE_var_small_combatant_tier`, `VIE_var_integration_tier` | 0-3 | D2, D3, D4 khi ket thuc | `VIE_var_integration_tier` doc boi D5 (High) |
+| `VIE_small_combatant_cost_mult` | 0,8-0,9 | D3 khi ket thuc | **Truc 1:** `VIE_naval_pay_molniya_p2` va phu phi ky muon |
+| `VIE_var_naval_program_active` | 0-2 | `VIE_nav_program_start/end`, `VIE_nav_program_recount` (sau noi chien) | tooltip `VIE_nav_slot_tt` cua moi Decision |
+| `VIE_ba_son_orientation` | 1 dong tau, 2 bao duong, 3 can bang | `vie_nav_ind.1` (Focus 2) | thoi luong D2, D3; phu phi 15% cua D1 |
+| `VIE_ba_son_invest`, `VIE_mro_scope` / `_source` / `_level`, `VIE_smallcomb_spec` / `_level`, `VIE_integration_field` / `_level`, `VIE_naval2030_priority` / `_autonomy` | lua chon da luu | cac event chon cua D1-D5 | event ket thuc cua cung Decision |
+
+### Doc tu Truc 1 hai quan
+`VIE_kilo_qty_delivered`, `VIE_gepard1_qty_delivered`, `VIE_gepard2_qty_delivered`, `VIE_molniya_ru_delivered`, `VIE_molniya_vn_qty_delivered`
+(trigger `VIE_naval_has_sub`, `VIE_naval_has_surface`), `VIE_var_hulls_delivered` (Focus 3), `VIE_opp_sub_mro` (D2 nhanh hon 15%),
+`VIE_ext_naval_missile` (D4 Weapons), `VIE_molniya_domestic_started` (D3 bac 3), `VIE_sigma_qty_delivered` (D4 Can bang).
+
+### Nguon nang luc thay cho VIE_ext_* (trigger trong `VIE_md_triggers_naval.txt`)
+`VIE_naval_has_electronics` = `VIE_semiconductor_fab` hoac `VIE_chip_design`; `VIE_naval_has_c4isr` = `VIE_earth_observation` hoac `VIE_vinasat`;
+`VIE_naval_has_missile` = co `VIE_ext_naval_missile`. Doi mot dong khi nhanh Viettel/C4ISR that duoc xay.
+
+### Da bo so voi bao cao
+`VIE_cap_naval_institution`, `VIE_cap_ba_son_complete`, `VIE_cap_naval_mro`, `VIE_cap_small_combatant`, `VIE_cap_integration`,
+`VIE_var_ext_support`, cac co `_active` / `_waiting` va bien `_progress` (phan chieu trang thai co san hoac khong can vi cong dat o luc bam).
+
+## Truc 3 hai quan - luc luong (tien to VIE_nf_, namespace vie_nav_force) va Truc 1B (VIE_p1b_, namespace vie_p1b)
+
+Thiet ke: `VIE_naval_truc3_review_and_plan.md`. Code: `VIE_md_effects_nav_force.txt`, `events/VIE_nav_force.txt`,
+`VIE_md_nav_force_decisions.txt`, 22 focus `VIE_nf_*`; 1B do `tools/gen_p1b.py` sinh ra `VIE_md_effects_p1b.txt`,
+`events/VIE_p1b.txt`, `VIE_md_p1b_decisions.txt`, `VIE_md_ideas_p1b.txt`, scripted loc `VIE_p1b_name`.
+
+### Co
+| Co | Dat boi | Doc boi |
+|---|---|---|
+| `VIE_nf_d1_done`, `_d2_done` | event an ket thuc `vie_nav_force.61 .62` | D-C (d1, d2), 1B P4 (d2) |
+| `VIE_nf_sub_prep` | `vie_nav_force.10` (moi lua chon, ngay khi bam D-B) | **Truc 1:** `VIE_naval_pay_kilo`, `VIE_naval_late_start_kilo` (goi huan luyen 0,15 thay 0,2 ty/tau; chi thuong) |
+| `VIE_p1b_<p>_contracted`, `_cancelled` | `VIE_p1b_contract_<p>`, `VIE_p1b_cancel` | Decision 1B (visible), giao hang |
+| `VIE_p1b_variant_<p>_done` | `VIE_p1b_ensure_variant_<p>` | chan tao trung variant |
+| `VIE_p1b_use_debt` | `vie_p1b.3` B | `VIE_p1b_pay` (no x 1,1; xoa sau khi tra) |
+
+### Bien
+| Bien | Khoang | Dat boi | Doc boi |
+|---|---|---|---|
+| `VIE_var_force_program_active` | 0-2 | `VIE_nf_program_start/end`, `VIE_nf_program_recount` (sau noi chien) | `VIE_nf_slot_free` |
+| `VIE_var_procurement_1b_active` | 0-2 | `VIE_p1b_program_start/end` (luc ky va giao tau cuoi), `VIE_p1b_program_recount` | `VIE_p1b_slot_free` |
+| `VIE_nf_surface_level`, `VIE_nf_surface_specialty`, `VIE_nf_sub_level`, `VIE_nf_sub_orientation` | lua chon da luu | event chon D-A, D-B | `VIE_nf_d1_finish`, `VIE_nf_d2_finish` |
+| `VIE_nf_force_priority` | 1 ven bo / 2 can bang / 3 tam xa | `vie_nav_force.30` (ngay luc chon) | focus D1/G1/B1 (khop +1% to chuc; lech: idea phat 365 ngay), `VIE_nf_d4_finish` |
+| `VIE_var_hulls_carrier`, `VIE_var_hulls_destroyer` | >= 0 | `VIE_p1b_deliver_carrier`, `_destroyer` | D-E (`VIE_nf_d5_carrier_group`) |
+| `VIE_var_hulls_delivered` | >= 0 | **1B**: +1 moi than tau chu luc (khong tinh P6) | Focus T6, Focus 3 Truc 2 |
+| `VIE_p1b_<p>_qty_ordered`, `_qty_delivered`, `_localization` | 0-2 cho localization | hop dong, giao hang | giao hang, exp |
+| `VIE_p1b_cur`, `_unit`, `_q1`-`_q3`, `_qty`, `_loc`, `_ok_import`, `_ok_hybrid`, `_ok_domestic` | bien chung cua Program Engine | `VIE_p1b_load_<p>` va event `vie_p1b.1 .2` | event `vie_p1b.1-.3`, `VIE_p1b_cost` |
+| `VIE_af_*` (navy_org, naval_coordination, naval_detection, navy_max_range, navy_submarine_attack, navy_submarine_defence, naval_strike_attack, experience_gain_navy, navy_personnel_cost_multiplier_modifier, ...) | % cong don | focus T1-T9, D1-D4, G1-G5, B1-B5, ket thuc D-A..D-E | dynamic modifier `VIE_armed_forces_modifier` |
+
+### Doc tu Truc 2
+Focus `VIE_naval_mro` / `VIE_small_combatant_construction` (T6), `VIE_var_hulls_delivered > 3` (T6), `VIE_var_ba_son_tier`,
+`VIE_var_small_combatant_tier`, `VIE_var_integration_tier` (dieu kien hybrid/noi dia), `VIE_cap_mature_naval_industry` (P10, P11),
+`VIE_nav_d2_done` va `VIE_mro_scope` (trigger `VIE_naval_has_sub_mro`, P4), `VIE_nuclear_research` (trigger `VIE_naval_has_nuclear_tech`, P11).
+Truc 3 khong ghi `VIE_cap_*` hay bien exp cua Truc 2; 1B chi cong exp qua helper `VIE_nav_add_shipbuilding_exp` / `_integration_exp`.
+
+### Da bo so voi bao cao
+`VIE_org_naval_training`, `VIE_path_denial/greenwater/bluewater` (= `has_completed_focus`, trigger `VIE_nf_branch_*`),
+`VIE_dec_*_active/_waiting/_progress`, `VIE_var_surface_readiness`, `VIE_var_sub_readiness`, `VIE_var_asw_skill`, `VIE_var_fleet_organization`
+(thay bang modifier that), `VIE_var_hulls_operational` (= `VIE_var_hulls_delivered`), `VIE_var_naval_budget_room` (= `treasury`),
+bo dem lop `VIE_var_hulls_<lop>` ngoai `carrier` va `destroyer`, `VIE_ext_nuclear_tech` (= trigger tren `VIE_nuclear_research`), `_complete`/`_offered`/`_missed` cua 1B.

@@ -15,7 +15,6 @@ VIE_naval_procurement_category = {
 		visible = {
 			has_country_flag = VIE_gepard1_missed
 			NOT = { has_country_flag = VIE_gepard1_contracted }
-			NOT = { has_country_flag = VIE_gepard1_cancelled }
 		}
 		available = {
 			date > 2008.12.31
@@ -43,7 +42,6 @@ VIE_naval_procurement_category = {
 		visible = {
 			has_country_flag = VIE_bastion_missed
 			NOT = { has_country_flag = VIE_bastion_contracted }
-			NOT = { has_country_flag = VIE_bastion_cancelled }
 		}
 		available = {
 			date > 2009.12.31
@@ -71,7 +69,6 @@ VIE_naval_procurement_category = {
 		visible = {
 			has_country_flag = VIE_kilo_missed
 			NOT = { has_country_flag = VIE_kilo_contracted }
-			NOT = { has_country_flag = VIE_kilo_cancelled }
 		}
 		available = {
 			date > 2011.12.31

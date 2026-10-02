@@ -43,7 +43,6 @@ VIE_event_scheduler_naval = {
 				NOT = { has_country_flag = VIE_molniya_p1_offered }
 			}
 			set_country_flag = VIE_molniya_p1_offered
-			set_country_flag = VIE_molniya_p1_skipped
 		}
 		if = {
 			limit = {
@@ -170,7 +169,6 @@ VIE_naval_ensure_variants = {
 # Nguoi goi dat truoc VIE_molniya_ru_qty (2 lich su, 4 alt).
 VIE_naval_reward_molniya_p1 = {
 	set_country_flag = VIE_molniya_contracted
-	set_variable = { VIE_molniya_path = 1 }
 	VIE_naval_pay_molniya_p1 = yes
 	if = {
 		limit = { has_country_flag = VIE_molniya_p1_late }
@@ -181,13 +179,6 @@ VIE_naval_reward_molniya_p1 = {
 # Nguoi goi dat truoc VIE_molniya_vn_qty_ordered (6 lich su, 8, 10 alt).
 VIE_naval_reward_molniya_p2 = {
 	set_country_flag = VIE_molniya_p2_contracted
-	if = {
-		limit = { has_country_flag = VIE_molniya_contracted }
-		set_variable = { VIE_molniya_path = 3 }
-	}
-	else = {
-		set_variable = { VIE_molniya_path = 2 }
-	}
 	VIE_naval_pay_molniya_p2 = yes
 	if = {
 		limit = { has_country_flag = VIE_molniya_p2_late }

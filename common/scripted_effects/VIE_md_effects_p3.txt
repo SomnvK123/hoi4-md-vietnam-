@@ -132,6 +132,9 @@ VIE_collapse_aftermath = {
 	set_country_flag = VIE_collapse_done
 	set_country_flag = VIE_post_collapse
 	set_country_flag = { flag = VIE_collapse_immunity value = 1 days = 1095 }
+	VIE_nav_program_recount = yes
+	VIE_nf_program_recount = yes
+	VIE_p1b_program_recount = yes
 	# the winner needs the balance of power that matches its regime
 	if = {
 		limit = {

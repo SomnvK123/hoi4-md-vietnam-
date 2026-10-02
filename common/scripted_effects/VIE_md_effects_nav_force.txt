@@ -1,0 +1,300 @@
+########################################################################
+# Truc 3 hai quan (luc luong, tien to VIE_nf_) - helper dung chung, phan 1.
+# Thiet ke: VIE_naval_truc3_review_and_plan.md (5.1, 5.2, 5.7). Namespace event: vie_nav_force.
+#
+# Quy uoc:
+#  - Modifier van hanh di thang vao VIE_af_* cua VIE_armed_forces_modifier (gan mot lan boi
+#    VIE_modernize_vpa, ma T1 phai co). Ghi bang add_to_variable ... tooltip = VIE_tt_*.
+#  - Slot: VIE_var_force_program_active (0-2) cho Decision luc luong, VIE_var_procurement_1b_active
+#    (0-2) cho Truc 1B. +1 khi bat dau, -1 khi event an hoan tat. Dem lai sau noi chien o buoc 4/8
+#    (can idea chuong trinh, chua co o buoc nay).
+#  - Truc 3 khong ghi VIE_cap_* hay bien kinh nghiem cua Truc 2 (Quy tac 11).
+########################################################################
+
+# ---- XP hai quan: bon muc co dinh (add_mastery chua xac minh nhan bien o amount) ----
+VIE_nf_xp_10 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = {
+			amount = 10
+			folder = naval
+		}
+	}
+	else = {
+		navy_experience = 10
+	}
+}
+VIE_nf_xp_15 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = {
+			amount = 15
+			folder = naval
+		}
+	}
+	else = {
+		navy_experience = 15
+	}
+}
+VIE_nf_xp_20 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = {
+			amount = 20
+			folder = naval
+		}
+	}
+	else = {
+		navy_experience = 20
+	}
+}
+VIE_nf_xp_25 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = {
+			amount = 25
+			folder = naval
+		}
+	}
+	else = {
+		navy_experience = 25
+	}
+}
+
+# ---- Dong tooltip "thay doi dynamic modifier" (mau VIE_d4_reward cua luc quan) ----
+VIE_nf_dm_tt = {
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+}
+
+# ---- Slot chuong trinh luc luong (toi da 2 chay cung luc) ----
+VIE_nf_program_start = {
+	add_to_variable = { VIE_var_force_program_active = 1 }
+	clamp_variable = { var = VIE_var_force_program_active min = 0 max = 2 }
+}
+VIE_nf_program_end = {
+	add_to_variable = { VIE_var_force_program_active = -1 }
+	clamp_variable = { var = VIE_var_force_program_active min = 0 max = 2 }
+}
+
+# ---- Slot chuong trinh Truc 1B (toi da 2 chay cung luc) ----
+VIE_p1b_program_start = {
+	add_to_variable = { VIE_var_procurement_1b_active = 1 }
+	clamp_variable = { var = VIE_var_procurement_1b_active min = 0 max = 2 }
+}
+VIE_p1b_program_end = {
+	add_to_variable = { VIE_var_procurement_1b_active = -1 }
+	clamp_variable = { var = VIE_var_procurement_1b_active min = 0 max = 2 }
+}
+
+# Dem lai slot theo cac timed idea chuong trinh luc luong dang chay. Goi sau noi chien
+# (VIE_collapse_aftermath), cung ly do VIE_nav_program_recount cua Truc 2.
+VIE_nf_program_recount = {
+	set_variable = { VIE_var_force_program_active = 0 }
+	if = {
+		limit = { has_idea = VIE_nf_prog_surface }
+		add_to_variable = { VIE_var_force_program_active = 1 }
+	}
+	if = {
+		limit = { has_idea = VIE_nf_prog_sub }
+		add_to_variable = { VIE_var_force_program_active = 1 }
+	}
+	if = {
+		limit = { has_idea = VIE_nf_prog_coord }
+		add_to_variable = { VIE_var_force_program_active = 1 }
+	}
+	if = {
+		limit = { has_idea = VIE_nf_prog_first }
+		add_to_variable = { VIE_var_force_program_active = 1 }
+	}
+	if = {
+		limit = { has_idea = VIE_nf_prog_csg }
+		add_to_variable = { VIE_var_force_program_active = 1 }
+	}
+	clamp_variable = { var = VIE_var_force_program_active min = 0 max = 2 }
+}
+
+########################################################################
+# Decision D-A: huan luyen luc luong tau mat nuoc (event vie_nav_force.1 .2, ket thuc .61).
+# Nguoi goi dat truoc VIE_nf_surface_level (1 co ban / 2 chuyen sau) va VIE_nf_surface_specialty
+# (1 hoa luc / 2 chong ngam). Chi phi 0,40 / 0,60 ty, thoi luong 365 / 548 ngay.
+########################################################################
+VIE_nf_d1_start = {
+	# Bien tam dat truoc (mac dinh muc 1) roi ghi de trong if: bien tam dat ben trong if khong dung duoc o ngoai.
+	set_temp_variable = { treasury_change = -0.4 }
+	set_temp_variable = { VIE_nf_end_days = 365 }
+	if = {
+		limit = { check_variable = { VIE_nf_surface_level = 2 } }
+		set_temp_variable = { treasury_change = -0.6 }
+		set_temp_variable = { VIE_nf_end_days = 548 }
+	}
+	modify_treasury_effect = yes
+	add_timed_idea = { idea = VIE_nf_prog_surface days = VIE_nf_end_days }
+	country_event = { id = vie_nav_force.61 days = VIE_nf_end_days }
+}
+
+# Ket thuc D-A. Muc 2 = 1,5 lan muc 1.
+VIE_nf_d1_finish = {
+	if = {
+		limit = { check_variable = { VIE_nf_surface_specialty = 2 } }
+		if = {
+			limit = { check_variable = { VIE_nf_surface_level = 2 } }
+			add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.045 tooltip = VIE_tt_navy_submarine_defence_factor }
+			add_to_variable = { VIE_af_naval_detection = 0.03 tooltip = VIE_tt_naval_detection }
+		}
+		else = {
+			add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.03 tooltip = VIE_tt_navy_submarine_defence_factor }
+			add_to_variable = { VIE_af_naval_detection = 0.02 tooltip = VIE_tt_naval_detection }
+		}
+	}
+	else = {
+		if = {
+			limit = { check_variable = { VIE_nf_surface_level = 2 } }
+			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.045 tooltip = VIE_tt_naval_strike_attack_factor }
+			add_to_variable = { VIE_af_navy_org_factor = 0.015 tooltip = VIE_tt_navy_org_factor }
+		}
+		else = {
+			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.03 tooltip = VIE_tt_naval_strike_attack_factor }
+			add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
+		}
+	}
+	VIE_nf_dm_tt = yes
+	set_country_flag = VIE_nf_d1_done
+	VIE_nf_program_end = yes
+}
+
+########################################################################
+# Decision D-B: huan luyen luc luong tau ngam (event vie_nav_force.10 .11, ket thuc .62).
+# Nguoi goi dat truoc VIE_nf_sub_orientation (1 lich su / 2 som) va VIE_nf_sub_level (1 / 2).
+# Chi phi: lich su 0,30 / 0,45 ty, som 0,50 / 0,75 ty; thoi luong 365 / 548 ngay.
+########################################################################
+VIE_nf_d2_start = {
+	set_temp_variable = { treasury_change = -0.3 }
+	set_temp_variable = { VIE_nf_end_days = 365 }
+	if = {
+		limit = { check_variable = { VIE_nf_sub_orientation = 2 } }
+		set_temp_variable = { treasury_change = -0.5 }
+	}
+	if = {
+		limit = { check_variable = { VIE_nf_sub_level = 2 } }
+		set_temp_variable = { VIE_nf_end_days = 548 }
+		if = {
+			limit = { check_variable = { VIE_nf_sub_orientation = 2 } }
+			set_temp_variable = { treasury_change = -0.75 }
+		}
+		else = {
+			set_temp_variable = { treasury_change = -0.45 }
+		}
+	}
+	modify_treasury_effect = yes
+	add_timed_idea = { idea = VIE_nf_prog_sub days = VIE_nf_end_days }
+	country_event = { id = vie_nav_force.62 days = VIE_nf_end_days }
+}
+
+VIE_nf_d2_finish = {
+	if = {
+		limit = { check_variable = { VIE_nf_sub_level = 2 } }
+		add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.045 tooltip = VIE_tt_navy_submarine_attack_factor }
+		add_to_variable = { VIE_af_naval_detection = 0.015 tooltip = VIE_tt_naval_detection }
+	}
+	else = {
+		add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.03 tooltip = VIE_tt_navy_submarine_attack_factor }
+		add_to_variable = { VIE_af_naval_detection = 0.01 tooltip = VIE_tt_naval_detection }
+	}
+	if = {
+		limit = { check_variable = { VIE_nf_sub_orientation = 2 } }
+		add_to_variable = { VIE_af_naval_detection = 0.01 tooltip = VIE_tt_naval_detection }
+	}
+	VIE_nf_dm_tt = yes
+	set_country_flag = VIE_nf_d2_done
+	VIE_nf_program_end = yes
+}
+
+########################################################################
+# Decision D-C: huan luyen hiep dong hang doi (khong co lua chon; chi phi 0,50 ty, 548 ngay).
+# Ba giai doan an: .50 (183 ngay), .51 (365 ngay), ket thuc .63 (548 ngay).
+########################################################################
+VIE_nf_d3_start = {
+	set_temp_variable = { treasury_change = -0.5 }
+	modify_treasury_effect = yes
+	add_timed_idea = { idea = VIE_nf_prog_coord days = 548 }
+	country_event = { id = vie_nav_force.50 days = 183 }
+	country_event = { id = vie_nav_force.51 days = 365 }
+	country_event = { id = vie_nav_force.63 days = 548 }
+}
+
+VIE_nf_d3_stage1 = {
+	VIE_nf_xp_10 = yes
+	add_to_variable = { VIE_af_naval_coordination = 0.02 tooltip = VIE_tt_naval_coordination }
+}
+
+VIE_nf_d3_stage2 = {
+	add_to_variable = { VIE_af_naval_coordination = 0.02 tooltip = VIE_tt_naval_coordination }
+}
+
+VIE_nf_d3_finish = {
+	add_to_variable = { VIE_af_naval_coordination = 0.02 tooltip = VIE_tt_naval_coordination }
+	add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.02 tooltip = VIE_tt_navy_submarine_defence_factor }
+	VIE_nf_dm_tt = yes
+	VIE_nf_program_end = yes
+}
+
+########################################################################
+# Decision D-D: co cau luc luong ban dau (event vie_nav_force.30, ket thuc .64).
+# Nguoi goi dat truoc VIE_nf_force_priority (1 ven bo / 2 can bang / 3 tam xa). Chi phi 0,60 ty, 365 ngay.
+# VIE_nf_force_priority duoc dat ngay luc chon, de focus nhanh chien luoc doc (khop thi thuong, lech thi phat).
+########################################################################
+VIE_nf_d4_start = {
+	set_temp_variable = { treasury_change = -0.6 }
+	modify_treasury_effect = yes
+	add_timed_idea = { idea = VIE_nf_prog_first days = 365 }
+	country_event = { id = vie_nav_force.64 days = 365 }
+}
+
+VIE_nf_d4_finish = {
+	if = {
+		limit = { check_variable = { VIE_nf_force_priority = 1 } }
+		add_to_variable = { VIE_af_naval_strike_attack_factor = 0.02 tooltip = VIE_tt_naval_strike_attack_factor }
+		add_to_variable = { VIE_af_navy_max_range_factor = -0.03 tooltip = VIE_tt_navy_max_range_factor }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_nf_force_priority = 3 } }
+		add_to_variable = { VIE_af_navy_max_range_factor = 0.04 tooltip = VIE_tt_navy_max_range_factor }
+		add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+		add_to_variable = { VIE_af_navy_personnel_cost_multiplier_modifier = 0.03 tooltip = VIE_tt_navy_personnel_cost }
+	}
+	else = {
+		add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
+		add_to_variable = { VIE_af_naval_strike_attack_factor = 0.01 tooltip = VIE_tt_naval_strike_attack_factor }
+		add_to_variable = { VIE_af_navy_max_range_factor = 0.01 tooltip = VIE_tt_navy_max_range_factor }
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_program_end = yes
+}
+
+########################################################################
+# Decision D-E: nhom tac chien tau san bay (khong co lua chon; 1,0 ty, 548 ngay, ket thuc .65).
+# Thuong cua B5 nhan them 0,25 (1 tau san bay) hoac 0,5 (tu 2 tau) lan: tong toi da 1,5 lan (nf_balance.py).
+########################################################################
+VIE_nf_d5_start = {
+	set_temp_variable = { treasury_change = -1.0 }
+	modify_treasury_effect = yes
+	add_timed_idea = { idea = VIE_nf_prog_csg days = 548 }
+	country_event = { id = vie_nav_force.65 days = 548 }
+}
+
+VIE_nf_d5_finish = {
+	if = {
+		limit = { check_variable = { VIE_var_hulls_carrier > 1 } }
+		add_to_variable = { VIE_af_navy_org_factor = 0.015 tooltip = VIE_tt_navy_org_factor }
+		add_to_variable = { VIE_af_naval_coordination = 0.025 tooltip = VIE_tt_naval_coordination }
+	}
+	else = {
+		add_to_variable = { VIE_af_navy_org_factor = 0.0075 tooltip = VIE_tt_navy_org_factor }
+		add_to_variable = { VIE_af_naval_coordination = 0.0125 tooltip = VIE_tt_naval_coordination }
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_program_end = yes
+}
