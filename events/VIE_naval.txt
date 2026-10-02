@@ -1,0 +1,829 @@
+add_namespace = vie_naval
+
+########################################################################
+# Truc 1 hai quan: MUA SAM (VIE_naval_truc1_review_and_plan.md, buoc 3).
+# Lat cat Molniya. Scheduler: VIE_event_scheduler_naval (VIE_md_effects_naval.txt).
+#
+#   .1  Molniya pha 1 - mua tu Nga (cua so 2003-06 -> 2005-12)
+#   .3  Molniya pha 2 - dong tai Ba Son (cua so 2009-06 -> 2012-12, can VIE_cap_ba_son_yard)
+#   .2  (trong - giao hang la Class C trong scheduler, khong co event)
+#   .4 -.9   du phong Molniya
+#   .10 .11  Gepard I (cau hinh, so luong)  .12 Gepard II
+#   .20 .21  Kilo (so luong, huan luyen)
+#   .30 .31  Bastion-P (so luong, trien khai)
+#   .51-.56  giao hang muon (an) cho Decision P_late
+#   .40-.44  Sigma (dam phan, so luong, cau hinh, Funding Gate truot, review 08/2013), .45 giao tau an
+#   .40-.49  Sigma                (buoc 5)
+#
+# Event nay la Class B: scheduler da dat VIE_popup_cd va cac co _offered truoc khi fire.
+# Option A = lich su, goi cung reward voi fallback im lang (VIE_fb_naval_*).
+# Gia: xem dau VIE_md_effects_naval_ships.txt (Q3).
+# TODO(picture): dung anh generic cua vanilla; doi sang GFX_VIE_report_event_vie_naval_N
+# khi chay tools/build_vie_event_pictures.py.
+########################################################################
+
+# .1  Molniya pha 1: mua tau tu Nga (thoa thuan 2003 cho 2 tau hoan chinh, giao 2007-2008).
+country_event = {
+	id = vie_naval.1
+	title = vie_naval.1.t
+	desc = vie_naval.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - 2 tau (lich su)
+	option = {
+		name = vie_naval.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.1.a executed"
+		set_variable = { VIE_molniya_ru_qty = 2 }
+		VIE_naval_reward_molniya_p1 = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - 4 tau (alt-history, dat). An cho toi khi co focus thuong that (VIE_naval_bonus_russian_deals).
+	option = {
+		name = vie_naval.1.b
+		trigger = { VIE_naval_bonus_russian_deals = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.1.b executed"
+		set_variable = { VIE_molniya_ru_qty = 4 }
+		VIE_naval_reward_molniya_p1 = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# C - Bo qua pha 1 (duong B: de danh cho noi dia hoa o pha 2)
+	option = {
+		name = vie_naval.1.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.1.c executed"
+		set_country_flag = VIE_molniya_p1_skipped
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .3  Molniya pha 2: chuyen giao cong nghe, dong tai Ba Son (khoi dong 2010, giao 2014-2017).
+country_event = {
+	id = vie_naval.3
+	title = vie_naval.3.t
+	desc = vie_naval.3.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - 6 tau (lich su; cong voi 2 tau pha 1 la 2 + 6)
+	option = {
+		name = vie_naval.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.3.a executed"
+		set_variable = { VIE_molniya_vn_qty_ordered = 6 }
+		VIE_naval_reward_molniya_p2 = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - 8 tau (alt-history, can xuong Ba Son bac 2 tro len)
+	option = {
+		name = vie_naval.3.b
+		trigger = { check_variable = { VIE_var_ba_son_tier > 1 } }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.3.b executed"
+		set_variable = { VIE_molniya_vn_qty_ordered = 8 }
+		VIE_naval_reward_molniya_p2 = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# C - 10 tau (alt-history, can xuong Ba Son bac 2 tro len)
+	option = {
+		name = vie_naval.3.c
+		trigger = { check_variable = { VIE_var_ba_son_tier > 1 } }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.3.c executed"
+		set_variable = { VIE_molniya_vn_qty_ordered = 10 }
+		VIE_naval_reward_molniya_p2 = yes
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# D - Dung o so tau da mua, khong dong them
+	option = {
+		name = vie_naval.3.e
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.3.e executed"
+		set_country_flag = VIE_molniya_p2_skipped
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .10  Gepard I: cau hinh (chuoi: .10 -> .11 so luong)
+country_event = {
+	id = vie_naval.10
+	title = vie_naval.10.t
+	desc = vie_naval.10.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Gepard 3.9 tieu chuan (lich su)
+	option = {
+		name = vie_naval.10.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.10.a executed"
+		set_variable = { VIE_gepard1_config = 1 }
+		country_event = { id = vie_naval.11 }
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - Gepard 3.9 chong ngam (variant "Gepard Class" co ngu loi)
+	option = {
+		name = vie_naval.10.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.10.b executed"
+		set_variable = { VIE_gepard1_config = 2 }
+		country_event = { id = vie_naval.11 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# C - Hoan: khong ky trong cua so (mo Decision P_late o buoc 6)
+	option = {
+		name = vie_naval.10.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.10.c executed"
+		set_country_flag = VIE_gepard1_missed
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .11  Gepard I: so luong. Chuoi tu .10, duoc mien VIE_popup_cd (event noi tiep)
+country_event = {
+	id = vie_naval.11
+	title = vie_naval.11.t
+	desc = vie_naval.11.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - 2 tau (lich su, ky 2006, giao 2011)
+	option = {
+		name = vie_naval.11.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.11.a executed"
+		set_variable = { VIE_gepard1_qty_ordered = 2 }
+		VIE_naval_contract_gepard1 = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - 4 tau (alt-history). An cho toi khi co focus thuong that.
+	option = {
+		name = vie_naval.11.b
+		trigger = { VIE_naval_bonus_modernization = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.11.b executed"
+		set_variable = { VIE_gepard1_qty_ordered = 4 }
+		VIE_naval_contract_gepard1 = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# C - Hoan
+	option = {
+		name = vie_naval.11.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.11.c executed"
+		set_country_flag = VIE_gepard1_missed
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .12  Gepard II: lo chong ngam (cua so 2011-12 -> 2014-12, can Gepard I da giao xong)
+country_event = {
+	id = vie_naval.12
+	title = vie_naval.12.t
+	desc = vie_naval.12.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - 2 tau ASW (lich su, giao 2017-2018)
+	option = {
+		name = vie_naval.12.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.12.a executed"
+		set_variable = { VIE_gepard2_qty_ordered = 2 }
+		VIE_naval_contract_gepard2 = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - 4 tau ASW (alt-history). An cho toi khi co focus thuong that.
+	option = {
+		name = vie_naval.12.b
+		trigger = { VIE_naval_bonus_modernization = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.12.b executed"
+		set_variable = { VIE_gepard2_qty_ordered = 4 }
+		VIE_naval_contract_gepard2 = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# C - Khong mua lo hai
+	option = {
+		name = vie_naval.12.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.12.c executed"
+		set_country_flag = VIE_gepard2_cancelled
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .20  Kilo 636: so luong (chuoi: .20 -> .21 huan luyen)
+country_event = {
+	id = vie_naval.20
+	title = vie_naval.20.t
+	desc = vie_naval.20.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - 6 tau (lich su, ky 12/2009)
+	option = {
+		name = vie_naval.20.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.20.a executed"
+		set_variable = { VIE_kilo_qty_ordered = 6 }
+		country_event = { id = vie_naval.21 }
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - 4 tau
+	option = {
+		name = vie_naval.20.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.20.b executed"
+		set_variable = { VIE_kilo_qty_ordered = 4 }
+		country_event = { id = vie_naval.21 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# C - 2 tau
+	option = {
+		name = vie_naval.20.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.20.c executed"
+		set_variable = { VIE_kilo_qty_ordered = 2 }
+		country_event = { id = vie_naval.21 }
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# D - 8 tau (alt-history). An cho toi khi co focus thuong that.
+	option = {
+		name = vie_naval.20.g
+		trigger = { VIE_naval_bonus_russian_deals = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.20.g executed"
+		set_variable = { VIE_kilo_qty_ordered = 8 }
+		country_event = { id = vie_naval.21 }
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# E - Hoan: khong ky trong cua so (mo Decision P_late o buoc 6)
+	option = {
+		name = vie_naval.20.e
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.20.e executed"
+		set_country_flag = VIE_kilo_missed
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .21  Kilo: huan luyen va co so ha tang. Chuoi tu .20, duoc mien VIE_popup_cd
+country_event = {
+	id = vie_naval.21
+	title = vie_naval.21.t
+	desc = vie_naval.21.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Day du (lich su): +0,2 ty moi tau, +20 XP hai quan, giao dung han, du 6 tau thi co doi tau ngam
+	option = {
+		name = vie_naval.21.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.21.a executed"
+		set_country_flag = VIE_kilo_training_full
+		VIE_naval_contract_kilo = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - Cat giam: re hon, giao cham them 6 thang, khong co XP va doi tau ngam
+	option = {
+		name = vie_naval.21.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.21.b executed"
+		VIE_naval_contract_kilo = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+}
+
+# .30  Bastion-P: so luong (chuoi: .30 -> .31 trien khai)
+country_event = {
+	id = vie_naval.30
+	title = vie_naval.30.t
+	desc = vie_naval.30.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - 2 he thong (lich su, giao 2011)
+	option = {
+		name = vie_naval.30.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.30.a executed"
+		set_variable = { VIE_bastion_qty_ordered = 2 }
+		country_event = { id = vie_naval.31 }
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - 1 he thong
+	option = {
+		name = vie_naval.30.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.30.b executed"
+		set_variable = { VIE_bastion_qty_ordered = 1 }
+		country_event = { id = vie_naval.31 }
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# C - 4 he thong (alt-history). An cho toi khi co focus thuong that.
+	option = {
+		name = vie_naval.30.c
+		trigger = { VIE_naval_bonus_modernization = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.30.c executed"
+		set_variable = { VIE_bastion_qty_ordered = 4 }
+		country_event = { id = vie_naval.31 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# D - Hoan: khong ky trong cua so (mo Decision P_late o buoc 6)
+	option = {
+		name = vie_naval.30.g
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.30.g executed"
+		set_country_flag = VIE_bastion_missed
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .31  Bastion-P: trien khai. Chuoi tu .30, duoc mien VIE_popup_cd. Moi he thong xay 1 coastal_bunker
+country_event = {
+	id = vie_naval.31
+	title = vie_naval.31.t
+	desc = vie_naval.31.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Mien Bac (Hai Phong)
+	option = {
+		name = vie_naval.31.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.31.a executed"
+		set_variable = { VIE_bastion_deploy = 1 }
+		VIE_naval_contract_bastion = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# B - Mien Trung (Da Nang)
+	option = {
+		name = vie_naval.31.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.31.b executed"
+		set_variable = { VIE_bastion_deploy = 2 }
+		VIE_naval_contract_bastion = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# C - Mien Nam (Cam Ranh / Nha Trang)
+	option = {
+		name = vie_naval.31.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.31.c executed"
+		set_variable = { VIE_bastion_deploy = 3 }
+		VIE_naval_contract_bastion = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# D - Phan tan ba mien
+	option = {
+		name = vie_naval.31.g
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.31.g executed"
+		set_variable = { VIE_bastion_deploy = 4 }
+		VIE_naval_contract_bastion = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+}
+
+# .40  Sigma 9814: mo dam phan (cua so 2011-10 -> 2014-12, doi tac Ha Lan)
+country_event = {
+	id = vie_naval.40
+	title = vie_naval.40.t
+	desc = vie_naval.40.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Historical: tiep tuc dam phan nhung chua cam ket mua (chua chot tai chinh). KHONG co Sigma.
+	option = {
+		name = vie_naval.40.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.40.a executed"
+		set_country_flag = VIE_sigma_historical
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	# B - Chuyen sang mua sam: chon so luong, cau hinh, qua Funding Gate
+	option = {
+		name = vie_naval.40.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.40.b executed"
+		country_event = { id = vie_naval.41 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# C - Tu bo
+	option = {
+		name = vie_naval.40.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.40.c executed"
+		set_country_flag = VIE_sigma_cancelled
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .41  Sigma: so luong (chuoi tu .40, mien VIE_popup_cd)
+country_event = {
+	id = vie_naval.41
+	title = vie_naval.41.t
+	desc = vie_naval.41.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - 2 tau
+	option = {
+		name = vie_naval.41.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.41.a executed"
+		set_variable = { VIE_sigma_qty_ordered = 2 }
+		country_event = { id = vie_naval.42 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# B - 4 tau
+	option = {
+		name = vie_naval.41.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.41.b executed"
+		set_variable = { VIE_sigma_qty_ordered = 4 }
+		country_event = { id = vie_naval.42 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# C - 6 tau (alt-history). An cho toi khi co focus thuong that.
+	option = {
+		name = vie_naval.41.c
+		trigger = { VIE_naval_bonus_modernization = yes }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.41.c executed"
+		set_variable = { VIE_sigma_qty_ordered = 6 }
+		country_event = { id = vie_naval.42 }
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# D - Hoan (mo Decision sigma_late o buoc 6)
+	option = {
+		name = vie_naval.41.e
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.41.e executed"
+		set_country_flag = VIE_sigma_missed
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .42  Sigma: cau hinh, roi qua Funding Gate (chuoi tu .41)
+country_event = {
+	id = vie_naval.42
+	title = vie_naval.42.t
+	desc = vie_naval.42.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Full Western: x1,0, tich hop cao, logistics moi
+	option = {
+		name = vie_naval.42.a
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.42.a executed"
+		set_variable = { VIE_sigma_config = 1 }
+		VIE_naval_sigma_funding_check = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# B - Hybrid: x1,15, cham hon 20%, +4 integration_exp
+	option = {
+		name = vie_naval.42.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.42.b executed"
+		set_variable = { VIE_sigma_config = 2 }
+		VIE_naval_sigma_funding_check = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# C - Noi dia hoa: x1,3, cham hon 40%, +8 integration_exp
+	option = {
+		name = vie_naval.42.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.42.c executed"
+		set_variable = { VIE_sigma_config = 3 }
+		VIE_naval_sigma_funding_check = yes
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+}
+
+# .43  Sigma: Funding Gate truot (ngan kho khong du). Chuoi, mien VIE_popup_cd
+country_event = {
+	id = vie_naval.43
+	title = vie_naval.43.t
+	desc = vie_naval.43.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Cat nua quy mo roi xet lai (chi khi con tren 2 tau)
+	option = {
+		name = vie_naval.43.a
+		trigger = { check_variable = { VIE_sigma_qty_ordered > 2 } }
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.43.a executed"
+		divide_variable = { var = VIE_sigma_qty_ordered value = 2 }
+		round_variable = VIE_sigma_qty_ordered
+		VIE_naval_sigma_funding_check = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# B - Vay von nuoc ngoai (no = chi phi x 1,1)
+	option = {
+		name = vie_naval.43.b
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.43.b executed"
+		set_country_flag = VIE_sigma_use_debt
+		VIE_naval_contract_sigma = yes
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 ai_has_high_deficit = yes }
+		}
+	}
+
+	# C - Hoan (mo Decision sigma_late o buoc 6)
+	option = {
+		name = vie_naval.43.c
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.43.c executed"
+		set_country_flag = VIE_sigma_missed
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+
+	# D - Huy
+	option = {
+		name = vie_naval.43.e
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.43.e executed"
+		set_country_flag = VIE_sigma_cancelled
+		ai_chance = {
+			base = 5
+			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+		}
+	}
+}
+
+# .44  Sigma: thang 08/2013 dam phan dat thoa thuan 2 tau nhung chua ky hop dong (nhanh Historical)
+country_event = {
+	id = vie_naval.44
+	title = vie_naval.44.t
+	desc = vie_naval.44.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# A - Ghi nhan: chuong trinh tam dung (VIE_sigma_suspended da dat)
+	option = {
+		name = vie_naval.44.a
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+}
+
+# .45  Giao tau Sigma (an, Class C). Tu hen lai sau 6 thang cho den khi giao du so da dat.
+country_event = {
+	id = vie_naval.45
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.45 (Sigma delivery)"
+		VIE_naval_deliver_sigma_ship = yes
+		if = {
+			limit = { check_variable = { VIE_sigma_qty_delivered < VIE_sigma_qty_ordered } }
+			country_event = { id = vie_naval.45 days = 182 }
+		}
+	}
+}
+
+# ---- Giao hang muon (an, Class C): .51 Gepard I, .52 Gepard II, .53 Kilo, .54 Bastion-P, .55 Molniya p1, .56 Molniya p2 ----
+country_event = {
+	id = vie_naval.51
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.51 (late delivery gepard1)"
+		VIE_naval_late_ship_gepard1 = yes
+		if = {
+			limit = { check_variable = { VIE_gepard1_qty_delivered < VIE_gepard1_qty_ordered } }
+			country_event = { id = vie_naval.51 days = 150 }
+		}
+	}
+}
+
+country_event = {
+	id = vie_naval.52
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.52 (late delivery gepard2)"
+		VIE_naval_late_ship_gepard2 = yes
+		if = {
+			limit = { check_variable = { VIE_gepard2_qty_delivered < VIE_gepard2_qty_ordered } }
+			country_event = { id = vie_naval.52 days = 270 }
+		}
+	}
+}
+
+country_event = {
+	id = vie_naval.53
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.53 (late delivery kilo)"
+		VIE_naval_late_ship_kilo = yes
+		if = {
+			limit = { check_variable = { VIE_kilo_qty_delivered < VIE_kilo_qty_ordered } }
+			country_event = { id = vie_naval.53 days = 210 }
+		}
+	}
+}
+
+country_event = {
+	id = vie_naval.54
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.54 (late delivery bastion)"
+		VIE_naval_late_ship_bastion = yes
+		if = {
+			limit = { check_variable = { VIE_bastion_qty_delivered < VIE_bastion_qty_ordered } }
+			country_event = { id = vie_naval.54 days = 180 }
+		}
+	}
+}
+
+country_event = {
+	id = vie_naval.55
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.55 (late delivery molniya_p1)"
+		VIE_naval_late_ship_molniya_p1 = yes
+		if = {
+			limit = { check_variable = { VIE_molniya_ru_delivered < VIE_molniya_ru_qty } }
+			country_event = { id = vie_naval.55 days = 365 }
+		}
+	}
+}
+
+country_event = {
+	id = vie_naval.56
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_naval.56 (late delivery molniya_p2)"
+		VIE_naval_late_ship_molniya_p2 = yes
+		if = {
+			limit = { check_variable = { VIE_molniya_vn_qty_delivered < VIE_molniya_vn_qty_ordered } }
+			country_event = { id = vie_naval.56 days = 240 }
+		}
+	}
+}

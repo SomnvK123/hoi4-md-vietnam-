@@ -30,3 +30,22 @@ VIE_def_industry_category = {
 	priority = 92
 	visible = { has_completed_focus = VIE_def_industry_law }
 }
+
+# Truc 1 hai quan: Decision P_late. Chi hien khi co chuong trinh da lo cua so (_missed)
+# hoac Sigma tam dung (_suspended). priority 91: ngay duoi VIE_def_industry_category (92).
+VIE_naval_procurement_category = {
+	allowed = { original_tag = VIE }
+	priority = 91
+	visible = {
+		OR = {
+			has_country_flag = VIE_gepard1_missed
+			has_country_flag = VIE_gepard2_missed
+			has_country_flag = VIE_bastion_missed
+			has_country_flag = VIE_kilo_missed
+			has_country_flag = VIE_molniya_p1_missed
+			has_country_flag = VIE_molniya_p2_missed
+			has_country_flag = VIE_sigma_missed
+			has_country_flag = VIE_sigma_suspended
+		}
+	}
+}

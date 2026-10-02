@@ -1,0 +1,44 @@
+########################################################################
+# Truc 1 hai quan (mua sam, namespace vie_naval) - cac gate dung chung.
+# Thiet ke: VIE_naval_truc1_review_and_plan.md (Phan 3, 3.8 va B4).
+#
+# Gom het quyet dinh con mo vao file nay, giong VIE_md_triggers_p14.txt:
+# khi chot thi sua mot dong o day, khong sua trong scheduler.
+########################################################################
+
+# ---------------------------------------------------------------------
+# Thuong Focus cua Truc 1 (giam gia, rut ngan giao hang, quy mo lon hon muc lich su).
+# VIE_navy_modernization va VIE_russian_arms_deals da bi xoa (v9/v11), nen mac dinh
+# TAT: cac lua chon "quy mo lon hon" (Kilo 8, Gepard 4, Sigma 6...) an cho toi khi
+# Truc 2/3 co focus that. Doi sang focus that = sua mot dong moi trigger.
+# ---------------------------------------------------------------------
+VIE_naval_bonus_modernization = {
+	always = no # TODO(Truc2/3): thay bang has_completed_focus = <focus that>
+}
+
+VIE_naval_bonus_russian_deals = {
+	always = no # TODO(Truc2/3): thay bang has_completed_focus = <focus that>
+}
+
+# ---------------------------------------------------------------------
+# Funding Gate (Sigma, va cac chuong trinh khac neu muon chan theo ngan kho).
+# MD luu ngan kho o bien `treasury` (don vi ty USD; modify_treasury_effect cong vao
+# bien nay, xem 00_budget_effects.txt). Khong dung bien sao chep naval_budget_room.
+# Nguoi goi phai dat truoc: set_temp_variable = { VIE_naval_cost = <ty USD> }
+#
+# Khac convention Truc 2 (thieu tien khong chan decision vi MD tu phat hanh no):
+# day la ngoai le co chu y, cong xac dinh cua Sigma. Tooltip phai noi ro nguong.
+# ---------------------------------------------------------------------
+VIE_naval_can_fund = {
+	check_variable = { treasury > VIE_naval_cost }
+}
+
+# ---------------------------------------------------------------------
+# Gepard II chi mo khi Gepard I da giao xong (ngoai le "chuong trinh noi tiep", bao cao 3.1).
+# So sanh bien-voi-bien bang NOT(<) de tranh phu thuoc toan tu >=.
+# ---------------------------------------------------------------------
+VIE_naval_gepard1_done = {
+	has_country_flag = VIE_gepard1_contracted
+	check_variable = { VIE_gepard1_qty_ordered > 0 }
+	NOT = { check_variable = { VIE_gepard1_qty_delivered < VIE_gepard1_qty_ordered } }
+}

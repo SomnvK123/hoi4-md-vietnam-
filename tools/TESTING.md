@@ -76,6 +76,32 @@ Design and the three experiments (E5-E7) behind it: `VIE_air_force_implementatio
       `VIE_air_step_N` flags appear. If direct recruit/retire inside the scheduler fails, switch to hidden events (plan, step 4).
 - [ ] Reload a 2012 save: nobody is recruited twice and the roster still matches the 2010-07 to 2015-05 row of the plan.
 
+## Naval procurement (Truc 1 hai quan, namespace vie_naval), not yet run in game
+Design, deviations from the report and the 7 build steps: `VIE_naval_truc1_review_and_plan.md`. Flags: `VIE_v9_flag_mapping.md` (section "Truc 1 hai quan").
+Files: `VIE_md_effects_naval*.txt` (scheduler, ships, sigma, late), `VIE_md_triggers_naval.txt`, `events/VIE_naval.txt` (21 events), `VIE_md_naval_decisions.txt`.
+Console: `effect VIE_event_scheduler_naval = yes` runs one tick; set the date first. On a save copy with `debug` on:
+- [ ] `error.log`: grep `vie_naval`, `VIE_naval`, `equipment_variant`, `create_ship`, `module`, `slot`, `frigate_hull_3`, `attack_submarine_hull_2`, `corvette_hull_2`, `multiply_temp_variable`.
+- [ ] **Highest risk, check first:** does `create_ship` with `creator = SOV` deliver when VIE has not researched the hull (VIE starts with `corvette_hull_1` only)? The old p12 scheduler that used the same pattern was never run in game. If ships do not arrive, the money was still charged: note the log line.
+- [ ] Own variants (`"Molniya Class"`, `"Gepard Class"`, `"Gepard 3.9 Class"`, `"Improved Kilo Class"`, `"Sigma Class"`) appear in the ship designer; modules are not silently dropped for missing tech. `effect VIE_naval_ensure_variants = yes` twice must not create version 2.
+- [ ] Obsolete SOV variants (`"Molniya Class"`, `"Gepard 3.9 Class"`) are accepted by `create_ship`.
+- [ ] Start 2000, wait to 2003-06: exactly ONE popup `vie_naval.1` (A 2 ships / C skip; B hidden). Pick A: treasury -0.12bn, flag `VIE_molniya_contracted`. 2007-02 and 2008-02 one corvette each, no popup. Pick C: no ships.
+- [ ] Set `VIE_popup_cd` by hand (`effect set_country_flag = { flag = VIE_popup_cd days = 45 }`) in 2003-06 and wait: the offer slips to the next month, nothing is lost. Keep it set to 2006-01: `VIE_molniya_p1_gate_seen` then silent fallback gives the 2 ships (flag `VIE_molniya_p1_offered`, no `_missed`).
+- [ ] War with SOV through the whole 2003-06..2005-12 window: `VIE_molniya_p1_missed` after 2005-12; Decision `VIE_naval_late_molniya` appears (category "Mua sam Hai quan (muon)").
+- [ ] Gepard I 2006-01 (`.10` then `.11` in the same sitting, `.11` ignores popup cooldown): A = Gepard 3.9, B = ASW. Ships 2011-03 / 2011-08. Treasury -0.35bn for 2.
+- [ ] Bastion-P 2006-07 (`.30` then `.31`): bunkers appear in provinces 4119 / 10309 / 10162 per choice; after the first delivery `effect has_country_flag = VIE_ev_bastion_p_coastal_defence`; after all delivered `VIE_ext_naval_missile`.
+- [ ] Kilo 2009-12 (`.20` then `.21`): full pack -3.2bn for 6, +20 navy XP; cut pack -2.0bn and every boat 6 months later. First boat 2014-01-15; `VIE_ev_kilo_submarines` set -> `VIE_paracel_ultimatum` becomes selectable (other gates permitting). After the sixth: `VIE_opp_sub_mro`, and `VIE_kilo_flotilla_idea` only with the full pack.
+- [ ] Gepard II only after Gepard I is delivered: window 2011-12; with Gepard I skipped the offer never appears and `VIE_gepard2_missed` is set after 2014-12.
+- [ ] Molniya phase 2 needs `VIE_cap_ba_son_yard` (nothing sets it yet, Truc 2 Focus 1-2 and Decision 1 are not built): `effect set_country_flag = VIE_cap_ba_son_yard` in 2009-06 to test `.3`. Options B/C appear only with `effect set_variable = { VIE_var_ba_son_tier = 2 }`. Ships 2014-07, 2015-06, 2017-10.
+- [ ] Sigma 2011-10 (`.40`): A "continue talks" then in 2013-08 `.44` and `VIE_sigma_suspended`, NO ship ever. B -> `.41` -> `.42` -> Funding Gate: log the real `treasury` at 2011-10. If it is below 0.66bn the gate always fails (check the pop-up `.43`). `.43` A (halve) must not loop forever; B borrows (debt +10%).
+- [ ] Sigma delivered by hidden event `.45` every 182 days after 900 / 1080 / 1260 days; `VIE_var_integration_exp` +8 (Domestic) / +4 (Hybrid) on the last ship.
+- [ ] Late path: with `_missed` set (`effect set_country_flag = VIE_kilo_missed`, date after 2011-12) Decision `VIE_naval_late_kilo` appears, 50 PP, 180 day cooldown; sign it: +25% cost, first boat after 1840 days, then every 210 days (`vie_naval.53`); the dated delivery flags (`VIE_kilo_s1..s8`) are all pre-set so no double delivery.
+- [ ] Remove SOV from the map before 2009-12 (annex by console): Kilo is `_missed`, late Decision unavailable until it exists; phase 2 Molniya still delivers using the own variant.
+- [ ] Civil war: `effect set_variable = { VIE_catch_up = 1 }` then `effect VIE_event_scheduler_naval = yes`: no popup, no ship, offered flags set, `VIE_sigma_suspended` set.
+- [ ] No `VIE_gepard_contract` / `VIE_kilo_contract` left anywhere live: `grep -rn` in `common/` and `events/` (only `.bak` and `v1*_removed_*.txt` may match).
+- [ ] Pop-ups per year 2003-2019 (`python tools/audit/ev.py`, then play observe mode): naval adds `.1` (2003), `.10` `.30` (2006), `.3` (2009), `.20` (2009-12), `.40` `.12` (2011); chained `.11/.21/.31/.41/.42/.43` are exempt. Target <= 7 per year, record the years over.
+- [ ] AI-only run to 2020: AI VIE has Molniya phase 1, Gepard I, Bastion-P and Kilo (`VIE_ai_historical`); no Sigma. Gepard II and Molniya phase 2 depend on Truc 2 for the Ba Son flag.
+- [ ] Prices (USD bn, see top of `VIE_md_effects_naval_ships.txt`): Kilo 0.333/boat (+0.2 full pack), Gepard I 0.175, Gepard II 0.35, Molniya p1 0.06, Molniya p2 0.13, Bastion-P 0.20, Sigma 0.33. Low-confidence ones: Molniya p1, Bastion-P.
+
 ## Console shortcuts (use a save copy, enable `debug` first)
 * `tag VIE`, then `event vie_alt.14` (first free election: options a/b/c switch the ruling party to 2/liberalism,
   1/conservatism or 3/socialism), `event vie_col.2` (collapse and civil war; the rebel party is picked by
@@ -242,7 +268,7 @@ localisation/english/replace/VIE_md_vi_military_l_english.yml. The alternative-r
 1. Tanks/planes: with NSB `medium_tank_chassis_2` (T-90 focus), without `MBT_4`; Su-30/Yak-130 use the By Blood Alone branch, otherwise
    `AS_Fighter2` / `L_Strike_fighter2`. Open the equipment stockpile screen after each focus. If the amount is 0 the producer/variant
    combination did not match (SOV variant "T-90"/"Su-30"/"Yak-130"): change `producer` or drop it.
-2. Ships (VIE_event_scheduler_p12): sign `VIE_gepard_frigates` and `VIE_kilo_submarines` and jump the date (console `date 2011.6.1`,
+2. **[Superseded 2026-10-02: p12 was removed, ships now come from the naval procurement axis, see "Naval procurement" above.]** Ships (VIE_event_scheduler_p12): sign `VIE_gepard_frigates` and `VIE_kilo_submarines` and jump the date (console `date 2011.6.1`,
    then 2014.8, 2015.1 ... 2017.2, one month at a time): 2+2 Gepard, six Kilo one by one. After the sixth boat idea
    `VIE_kilo_flotilla_idea` appears. Names "Dinh Tien Hoang", "Ha Noi" ... show in the navy screen.
 3. Buildings: Cam Ranh naval base +2 (province 10162, state 519), coastal bunkers 10162 and 10309 (Bastion), 522 radar/AA/dockyard,

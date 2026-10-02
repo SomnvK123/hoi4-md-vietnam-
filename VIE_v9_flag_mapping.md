@@ -217,3 +217,61 @@ bảng trên tính chúng là pop-up cho tới khi bước 5–6 quyết định
 Nếu giữ `.15`/`.16`/`.20` im lặng thì 2018 → 6, 2019 → 5, 2026 → 2. **Còn Q5 chưa chốt.**
 
 (2021 hiện đã là 12 — nợ cũ của mod, không phải của Trục 1.)
+
+## Cờ hải quân đã chết (bước 0 Trục 1 hải quân, 2026-10-02)
+
+`VIE_event_scheduler_p12` (giao Gepard/Kilo) đã bị gỡ cùng `VIE_md_effects_p12.txt`. Các cờ
+`VIE_gepard_contract`, `VIE_kilo_contract`, `VIE_gepard_b1/b2`, `VIE_kilo_b1..b6` không còn chỗ đọc
+lẫn chỗ đặt. Giữ `VIE_kilo_flotilla_idea` (idea + loc), Trục 1 hải quân sẽ đặt lại khi đủ 6 tàu.
+Hai cờ `VIE_ev_kilo_submarines` và `VIE_ev_bastion_p_coastal_defence` vẫn do trục Hải quân đặt
+(xem `VIE_naval_truc1_review_and_plan.md` mục 3.7).
+
+## Truc 1 hai quan (namespace vie_naval) - bang co
+
+Thiet ke: `VIE_naval_truc1_review_and_plan.md`. Code: `VIE_md_effects_naval*.txt`, `events/VIE_naval.txt`,
+`VIE_md_naval_decisions.txt`. Moi chuong trinh `<p>` thuoc {`molniya_p1`, `molniya_p2`, `gepard1`, `gepard2`, `kilo`, `bastion`, `sigma`}.
+
+### Co chuyen tien (dat boi scheduler hoac event)
+| Co | Dat boi | Doc boi |
+|---|---|---|
+| `VIE_<p>_offered` | scheduler khi ban event (hoac fallback), catch-up | scheduler (chan ban lai) |
+| `VIE_<p>_gate_seen` | scheduler khi cong dat nhung `VIE_popup_cd` ban | scheduler (het cua so -> fallback im lang) |
+| `VIE_<p>_missed` | scheduler het cua so khi cong khong tung dat; event chon "hoan" | category + Decision `VIE_naval_late_*` |
+| `VIE_<p>_contracted` | `VIE_naval_contract_*` / reward Molniya | giao hang, Trục 2, Decision (an) |
+| `VIE_<p>_cancelled` | `.12` C, `.40` C, `.43` D | Decision (an) |
+| `VIE_<p>_late` | Decision `VIE_naval_late_*` | pay effect + `VIE_naval_late_start_*`, Sigma +25% |
+| `VIE_molniya_p1_skipped`, `VIE_molniya_p2_skipped` | `.1` C, `.3` E | thong tin |
+| `VIE_sigma_historical` | `.40` A | `VIE_naval_sigma_review` |
+| `VIE_sigma_suspended` | `VIE_fb_naval_sigma` / review `.44` | Decision `VIE_naval_late_sigma` |
+| `VIE_sigma_use_debt` | `.43` B | `VIE_naval_contract_sigma` |
+| `VIE_kilo_training_full` | `.21` A / fallback | giao hang cham, XP, idea doi tau ngam |
+
+### Co giao hang (Class C, im lang, mot co moi tau)
+`VIE_molniya_s1..s4` (pha 1), `VIE_molniya_v1..v10` (pha 2), `VIE_gepard1_s1..s4`, `VIE_gepard2_s1..s4`,
+`VIE_kilo_s1..s8`, `VIE_bastion_s1..s4`. Ky muon (`_late`) dat het cac co nay truoc de chan giao theo ngay.
+Sigma khong co co giao hang: chuoi su kien an `.45`.
+
+### Co dau ra cho nhanh khac
+| Co / bien | Dat khi | Doc boi |
+|---|---|---|
+| `VIE_ev_kilo_submarines` | tau Kilo dau tien giao | `VIE_paracel_ultimatum` (Q1 = d, muc 3 ben tren) |
+| `VIE_ev_bastion_p_coastal_defence` | he thong Bastion dau tien giao | `VIE_paracel_ultimatum` |
+| `VIE_opp_sub_mro` | giao du so Kilo da dat | Truc 2 Decision 2 (co hoi MRO, chua phai nang luc) |
+| `VIE_ext_naval_missile` | giao du Bastion da dat | Truc 2 Focus 5 / Decision 4 (nguon tuy chon) |
+| `VIE_molniya_domestic_started` | 2010-06 sau khi ky pha 2 | Truc 2 Decision 3 bac 3 |
+| `VIE_var_hulls_delivered` | +1 moi tau giao | Truc 2 Focus 3 (>= 4) |
+| `VIE_var_shipbuilding_exp` | Molniya pha 2: +3 moi tau | Truc 2 Decision 5 |
+| `VIE_var_integration_exp` | Sigma Domestic +8 / Hybrid +4 khi giao du | Truc 2 Decision 4/5 |
+
+### Co do Truc 2 phai dat (Truc 1 hai quan chi doc)
+`VIE_cap_ba_son_yard` (Molniya pha 2), `VIE_var_ba_son_tier` (>= 2 mo 8 va 10 tau). Chua co ai dat: dung console de thu.
+
+### Bien so luong
+`VIE_molniya_ru_qty`, `VIE_molniya_ru_delivered`, `VIE_molniya_vn_qty_ordered`, `VIE_molniya_vn_qty_delivered`,
+`VIE_molniya_path` (1 mua, 2 noi dia, 3 hybrid); `VIE_<gepard1|gepard2|kilo|bastion|sigma>_qty_ordered`, `_qty_delivered`;
+`VIE_gepard1_config` (1 tieu chuan, 2 ASW), `VIE_bastion_deploy` (1 Bac, 2 Trung, 3 Nam, 4 phan tan), `VIE_bastion_site`
+(tam), `VIE_sigma_config` (1 Full Western, 2 Hybrid, 3 Noi dia).
+
+### Da bo so voi bao cao
+`VIE_<p>_complete` (= `qty_delivered = qty_ordered`), `VIE_var_naval_budget_room` (dung thang bien `treasury`),
+cac bien `_progress`, config Gepard 3 (phong khong), `VIE_gepard_contract` / `VIE_kilo_contract` (p12 cu).

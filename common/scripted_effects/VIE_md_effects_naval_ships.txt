@@ -1,0 +1,785 @@
+########################################################################
+# Truc 1 hai quan, buoc 4: Gepard I/II, Kilo, Bastion-P (scheduler + giao hang).
+# File sinh boi script, doc nhu file binh thuong.
+# Mau giong VIE_md_effects_naval.txt (Class B cho chon, Class C cho giao hang).
+#
+# GIA (Q3, USD ty, tru qua modify_treasury_effect) - nguon tim ngay 2026-10-02:
+#   Kilo        2,0 cho 6 tau (hop dong 1,8-2,1; goi day du ha tang + vu khi 3,2)
+#               -> 0,333 moi tau + 0,2 moi tau neu huan luyen/ha tang day du (6 tau = 3,2)
+#   Gepard I    0,175 moi tau (350 trieu cho 2 tau, ky 12/5/2006)
+#   Gepard II   0,35 moi tau (700 trieu cho 2 tau, gom dan va goi bao duong)
+#   Molniya p1  0,06 moi tau (don gia khoang 60 trieu)                  [tin cay thap]
+#   Molniya p2  0,13 moi tau (VND 3.000 ty ~ 131,7 trieu, bao Nghe An)  [trung binh]
+#   Bastion-P   0,20 moi he thong (khoang 150-300 trieu, KHONG co gia hop dong VN) [thap]
+#   Sigma       0,33 moi tau (660 trieu cho 2 tau)                      [buoc 5]
+# TODO(nguon): ngay giao tau 2 va 3 cua Kilo (2014-09, 2015-01) la noi suy.
+# TODO(nguon): Gepard II chi biet giao khoang 2017-2018; dung 2017-06 va 2018-03.
+# TODO(names): ten tau vuot so lich su la placeholder.
+########################################################################
+
+# Gepard I: cua so 2006-01 -> 2008-12. Event .10 (cau hinh) -> .11 (so luong).
+VIE_naval_sched_gepard1 = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_gepard1_offered }
+			NOT = { has_country_flag = VIE_gepard1_missed }
+		}
+		if = {
+			limit = {
+				date > 2005.12.31
+				date < 2009.1.1
+				country_exists = SOV
+				NOT = { has_war_with = SOV }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_gepard1_offered
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_naval.10 days = 1 random_days = 14 }
+			}
+			else = {
+				set_country_flag = VIE_gepard1_gate_seen
+			}
+		}
+		else_if = {
+			limit = { date > 2008.12.31 }
+			if = {
+				limit = { has_country_flag = VIE_gepard1_gate_seen }
+				set_country_flag = VIE_gepard1_offered
+				VIE_fb_naval_gepard1 = yes
+			}
+			else = {
+				set_country_flag = VIE_gepard1_missed
+			}
+		}
+	}
+}
+
+# Bastion-P: cua so 2006-07 -> 2009-12. Event .30 (so luong) -> .31 (trien khai).
+VIE_naval_sched_bastion = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_bastion_offered }
+			NOT = { has_country_flag = VIE_bastion_missed }
+		}
+		if = {
+			limit = {
+				date > 2006.6.30
+				date < 2010.1.1
+				country_exists = SOV
+				NOT = { has_war_with = SOV }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_bastion_offered
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_naval.30 days = 1 random_days = 14 }
+			}
+			else = {
+				set_country_flag = VIE_bastion_gate_seen
+			}
+		}
+		else_if = {
+			limit = { date > 2009.12.31 }
+			if = {
+				limit = { has_country_flag = VIE_bastion_gate_seen }
+				set_country_flag = VIE_bastion_offered
+				VIE_fb_naval_bastion = yes
+			}
+			else = {
+				set_country_flag = VIE_bastion_missed
+			}
+		}
+	}
+}
+
+# Kilo 636: cua so 2009-12 -> 2011-12. Event .20 (so luong) -> .21 (huan luyen).
+VIE_naval_sched_kilo = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_kilo_offered }
+			NOT = { has_country_flag = VIE_kilo_missed }
+		}
+		if = {
+			limit = {
+				date > 2009.11.30
+				date < 2012.1.1
+				country_exists = SOV
+				NOT = { has_war_with = SOV }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_kilo_offered
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_naval.20 days = 1 random_days = 14 }
+			}
+			else = {
+				set_country_flag = VIE_kilo_gate_seen
+			}
+		}
+		else_if = {
+			limit = { date > 2011.12.31 }
+			if = {
+				limit = { has_country_flag = VIE_kilo_gate_seen }
+				set_country_flag = VIE_kilo_offered
+				VIE_fb_naval_kilo = yes
+			}
+			else = {
+				set_country_flag = VIE_kilo_missed
+			}
+		}
+	}
+}
+
+# Gepard II: cua so 2011-12 -> 2014-12, can Gepard I da giao xong (ngoai le chuong trinh noi tiep).
+VIE_naval_sched_gepard2 = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_gepard2_offered }
+			NOT = { has_country_flag = VIE_gepard2_missed }
+		}
+		if = {
+			limit = {
+				date > 2011.11.30
+				date < 2015.1.1
+				country_exists = SOV
+				NOT = { has_war_with = SOV }
+				VIE_naval_gepard1_done = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_gepard2_offered
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_naval.12 days = 1 random_days = 14 }
+			}
+			else = {
+				set_country_flag = VIE_gepard2_gate_seen
+			}
+		}
+		else_if = {
+			limit = { date > 2014.12.31 }
+			if = {
+				limit = { has_country_flag = VIE_gepard2_gate_seen }
+				set_country_flag = VIE_gepard2_offered
+				VIE_fb_naval_gepard2 = yes
+			}
+			else = {
+				set_country_flag = VIE_gepard2_missed
+			}
+		}
+	}
+}
+
+VIE_naval_pay_molniya_p1 = {
+	set_temp_variable = { treasury_change = VIE_molniya_ru_qty }
+	multiply_temp_variable = { treasury_change = -0.06 }
+	modify_treasury_effect = yes
+}
+VIE_naval_pay_molniya_p2 = {
+	set_temp_variable = { treasury_change = VIE_molniya_vn_qty_ordered }
+	multiply_temp_variable = { treasury_change = -0.13 }
+	modify_treasury_effect = yes
+}
+VIE_naval_pay_gepard1 = {
+	set_temp_variable = { treasury_change = VIE_gepard1_qty_ordered }
+	multiply_temp_variable = { treasury_change = -0.175 }
+	modify_treasury_effect = yes
+}
+VIE_naval_pay_gepard2 = {
+	set_temp_variable = { treasury_change = VIE_gepard2_qty_ordered }
+	multiply_temp_variable = { treasury_change = -0.35 }
+	modify_treasury_effect = yes
+}
+VIE_naval_pay_bastion = {
+	set_temp_variable = { treasury_change = VIE_bastion_qty_ordered }
+	multiply_temp_variable = { treasury_change = -0.2 }
+	modify_treasury_effect = yes
+}
+
+# Kilo: 0,333 moi tau cho than tau + 0,2 moi tau neu huan luyen/ha tang day du.
+VIE_naval_pay_kilo = {
+	set_temp_variable = { treasury_change = VIE_kilo_qty_ordered }
+	multiply_temp_variable = { treasury_change = -0.3333 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { has_country_flag = VIE_kilo_training_full }
+		set_temp_variable = { treasury_change = VIE_kilo_qty_ordered }
+		multiply_temp_variable = { treasury_change = -0.2 }
+		modify_treasury_effect = yes
+		navy_experience = 20
+	}
+}
+
+# Hop dong: nguoi goi dat truoc bien so luong (va cau hinh / trien khai / huan luyen).
+VIE_naval_contract_gepard1 = {
+	set_country_flag = VIE_gepard1_contracted
+	VIE_naval_pay_gepard1 = yes
+	if = {
+		limit = { has_country_flag = VIE_gepard1_late }
+		VIE_naval_late_start_gepard1 = yes
+	}
+}
+VIE_naval_contract_gepard2 = {
+	set_country_flag = VIE_gepard2_contracted
+	VIE_naval_pay_gepard2 = yes
+	if = {
+		limit = { has_country_flag = VIE_gepard2_late }
+		VIE_naval_late_start_gepard2 = yes
+	}
+}
+VIE_naval_contract_kilo = {
+	set_country_flag = VIE_kilo_contracted
+	VIE_naval_pay_kilo = yes
+	if = {
+		limit = { has_country_flag = VIE_kilo_late }
+		VIE_naval_late_start_kilo = yes
+	}
+}
+VIE_naval_contract_bastion = {
+	set_country_flag = VIE_bastion_contracted
+	VIE_naval_pay_bastion = yes
+	if = {
+		limit = { has_country_flag = VIE_bastion_late }
+		VIE_naval_late_start_bastion = yes
+	}
+}
+
+# Fallback im lang: ket qua lich su khi het cua so ma pop-up bi chan.
+VIE_fb_naval_gepard1 = {
+	set_variable = { VIE_gepard1_config = 1 }
+	set_variable = { VIE_gepard1_qty_ordered = 2 }
+	VIE_naval_contract_gepard1 = yes
+}
+VIE_fb_naval_gepard2 = {
+	set_variable = { VIE_gepard2_qty_ordered = 2 }
+	VIE_naval_contract_gepard2 = yes
+}
+VIE_fb_naval_kilo = {
+	set_variable = { VIE_kilo_qty_ordered = 6 }
+	set_country_flag = VIE_kilo_training_full
+	VIE_naval_contract_kilo = yes
+}
+VIE_fb_naval_bastion = {
+	set_variable = { VIE_bastion_qty_ordered = 2 }
+	set_variable = { VIE_bastion_deploy = 4 }
+	VIE_naval_contract_bastion = yes
+}
+
+# Gepard I: giao 2011-03, 2011-08; tau vuot so lich su cach 6 thang.
+# Cau hinh 1 = Gepard 3.9, 2 = ASW (variant "Gepard Class" co ngu loi).
+VIE_naval_deliver_gepard1 = {
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard1_contracted
+			check_variable = { VIE_gepard1_qty_ordered > 0 }
+			date > 2011.2.28
+			NOT = { has_country_flag = VIE_gepard1_s1 }
+		}
+		set_country_flag = VIE_gepard1_s1
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_gepard1_config = 2 } }
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Dinh Tien Hoang" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Dinh Tien Hoang" }
+			}
+		}
+		else = {
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = SOV name = "Dinh Tien Hoang" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = VIE name = "Dinh Tien Hoang" }
+			}
+		}
+		add_to_variable = { VIE_gepard1_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard1_contracted
+			check_variable = { VIE_gepard1_qty_ordered > 1 }
+			date > 2011.7.31
+			NOT = { has_country_flag = VIE_gepard1_s2 }
+		}
+		set_country_flag = VIE_gepard1_s2
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_gepard1_config = 2 } }
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Ly Thai To" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Ly Thai To" }
+			}
+		}
+		else = {
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = SOV name = "Ly Thai To" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = VIE name = "Ly Thai To" }
+			}
+		}
+		add_to_variable = { VIE_gepard1_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard1_contracted
+			check_variable = { VIE_gepard1_qty_ordered > 2 }
+			date > 2012.1.31
+			NOT = { has_country_flag = VIE_gepard1_s3 }
+		}
+		set_country_flag = VIE_gepard1_s3
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_gepard1_config = 2 } }
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Ngo Quyen" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Ngo Quyen" }
+			}
+		}
+		else = {
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = SOV name = "Ngo Quyen" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = VIE name = "Ngo Quyen" }
+			}
+		}
+		add_to_variable = { VIE_gepard1_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard1_contracted
+			check_variable = { VIE_gepard1_qty_ordered > 3 }
+			date > 2012.7.31
+			NOT = { has_country_flag = VIE_gepard1_s4 }
+		}
+		set_country_flag = VIE_gepard1_s4
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_gepard1_config = 2 } }
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Le Loi" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Le Loi" }
+			}
+		}
+		else = {
+			if = {
+				limit = { country_exists = SOV }
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = SOV name = "Le Loi" }
+			}
+			else = {
+				create_ship = { type = frigate_hull_3 equipment_variant = "Gepard 3.9 Class" creator = VIE name = "Le Loi" }
+			}
+		}
+		add_to_variable = { VIE_gepard1_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+}
+
+# Gepard II: lo ASW, giao 2017-06, 2018-03 (TODO nguon); tau vuot so cach 6 thang.
+VIE_naval_deliver_gepard2 = {
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard2_contracted
+			check_variable = { VIE_gepard2_qty_ordered > 0 }
+			date > 2017.5.31
+			NOT = { has_country_flag = VIE_gepard2_s1 }
+		}
+		set_country_flag = VIE_gepard2_s1
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Tran Hung Dao" }
+		}
+		else = {
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Tran Hung Dao" }
+		}
+		add_to_variable = { VIE_gepard2_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard2_contracted
+			check_variable = { VIE_gepard2_qty_ordered > 1 }
+			date > 2018.2.28
+			NOT = { has_country_flag = VIE_gepard2_s2 }
+		}
+		set_country_flag = VIE_gepard2_s2
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Quang Trung" }
+		}
+		else = {
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Quang Trung" }
+		}
+		add_to_variable = { VIE_gepard2_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard2_contracted
+			check_variable = { VIE_gepard2_qty_ordered > 2 }
+			date > 2018.8.31
+			NOT = { has_country_flag = VIE_gepard2_s3 }
+		}
+		set_country_flag = VIE_gepard2_s3
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Ly Thuong Kiet" }
+		}
+		else = {
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Ly Thuong Kiet" }
+		}
+		add_to_variable = { VIE_gepard2_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_gepard2_contracted
+			check_variable = { VIE_gepard2_qty_ordered > 3 }
+			date > 2019.2.28
+			NOT = { has_country_flag = VIE_gepard2_s4 }
+		}
+		set_country_flag = VIE_gepard2_s4
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = SOV name = "Nguyen Trai" }
+		}
+		else = {
+			create_ship = { type = frigate_hull_3 equipment_variant = "Gepard Class" creator = VIE name = "Nguyen Trai" }
+		}
+		add_to_variable = { VIE_gepard2_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+}
+
+# Kilo: tau 1 2014-01-15, 4 2015-06-30, 5 2016-02, 6 2017-01-20 (bao cao muc 8.3); tau 2, 3 noi suy.
+# Huan luyen cat giam (khong co VIE_kilo_training_full) giao cham them 6 thang.
+VIE_naval_deliver_kilo = {
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 0 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2014.1.14 }
+				date > 2014.7.14
+			}
+			NOT = { has_country_flag = VIE_kilo_s1 }
+		}
+		set_country_flag = VIE_kilo_s1
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Ha Noi" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Ha Noi" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+		set_country_flag = VIE_ev_kilo_submarines
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 1 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2014.8.31 }
+				date > 2015.2.28
+			}
+			NOT = { has_country_flag = VIE_kilo_s2 }
+		}
+		set_country_flag = VIE_kilo_s2
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Thanh pho Ho Chi Minh" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Thanh pho Ho Chi Minh" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 2 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2014.12.31 }
+				date > 2015.6.30
+			}
+			NOT = { has_country_flag = VIE_kilo_s3 }
+		}
+		set_country_flag = VIE_kilo_s3
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Hai Phong" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Hai Phong" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 3 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2015.6.29 }
+				date > 2015.12.27
+			}
+			NOT = { has_country_flag = VIE_kilo_s4 }
+		}
+		set_country_flag = VIE_kilo_s4
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Khanh Hoa" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Khanh Hoa" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 4 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2016.1.31 }
+				date > 2016.7.31
+			}
+			NOT = { has_country_flag = VIE_kilo_s5 }
+		}
+		set_country_flag = VIE_kilo_s5
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Da Nang" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Da Nang" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 5 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2017.1.19 }
+				date > 2017.7.19
+			}
+			NOT = { has_country_flag = VIE_kilo_s6 }
+		}
+		set_country_flag = VIE_kilo_s6
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Ba Ria - Vung Tau" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Ba Ria - Vung Tau" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 6 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2017.7.19 }
+				date > 2018.1.19
+			}
+			NOT = { has_country_flag = VIE_kilo_s7 }
+		}
+		set_country_flag = VIE_kilo_s7
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Kilo 7" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Kilo 7" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 7 }
+			OR = {
+				AND = { has_country_flag = VIE_kilo_training_full date > 2018.1.19 }
+				date > 2018.7.19
+			}
+			NOT = { has_country_flag = VIE_kilo_s8 }
+		}
+		set_country_flag = VIE_kilo_s8
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = SOV name = "Kilo 8" }
+		}
+		else = {
+			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Kilo 8" }
+		}
+		add_to_variable = { VIE_kilo_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	# Du so tau da dat: co hoi MRO tau ngam (Truc 2 doc), va hai doi tau ngam neu huan luyen day du.
+	if = {
+		limit = {
+			has_country_flag = VIE_kilo_contracted
+			check_variable = { VIE_kilo_qty_ordered > 0 }
+			NOT = { check_variable = { VIE_kilo_qty_delivered < VIE_kilo_qty_ordered } }
+			NOT = { has_country_flag = VIE_opp_sub_mro }
+		}
+		set_country_flag = VIE_opp_sub_mro
+		if = {
+			limit = {
+				has_country_flag = VIE_kilo_training_full
+				check_variable = { VIE_kilo_qty_delivered > 5 }
+			}
+			add_ideas = VIE_kilo_flotilla_idea
+		}
+	}
+}
+
+# Bastion-P: he thong 1, 2 giao 2011-06, tiep theo cach 6 thang. Moi he thong xay 1 coastal_bunker
+# theo VIE_bastion_deploy (1 Bac = tinh 4119 / state 522, 2 Trung = 10309 / 521, 3 Nam = 10162 / 519,
+# 4 phan tan: he thong 1 Bac, 2 Trung, 3 Nam, 4 Trung). Tinh lay tu md_ref.
+VIE_naval_bastion_site = {
+	if = {
+		limit = { check_variable = { VIE_bastion_site = 1 } }
+		522 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes province = 4119 } }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_bastion_site = 2 } }
+		521 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes province = 10309 } }
+	}
+	else = {
+		519 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes province = 10162 } }
+	}
+}
+
+VIE_naval_deliver_bastion = {
+	if = {
+		limit = {
+			has_country_flag = VIE_bastion_contracted
+			check_variable = { VIE_bastion_qty_ordered > 0 }
+			date > 2011.5.31
+			NOT = { has_country_flag = VIE_bastion_s1 }
+		}
+		set_country_flag = VIE_bastion_s1
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_bastion_deploy = 4 } }
+			set_variable = { VIE_bastion_site = 1 }
+		}
+		else = {
+			set_variable = { VIE_bastion_site = VIE_bastion_deploy }
+		}
+		VIE_naval_bastion_site = yes
+		add_to_variable = { VIE_bastion_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+		set_country_flag = VIE_ev_bastion_p_coastal_defence
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_bastion_contracted
+			check_variable = { VIE_bastion_qty_ordered > 1 }
+			date > 2011.5.31
+			NOT = { has_country_flag = VIE_bastion_s2 }
+		}
+		set_country_flag = VIE_bastion_s2
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_bastion_deploy = 4 } }
+			set_variable = { VIE_bastion_site = 2 }
+		}
+		else = {
+			set_variable = { VIE_bastion_site = VIE_bastion_deploy }
+		}
+		VIE_naval_bastion_site = yes
+		add_to_variable = { VIE_bastion_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_bastion_contracted
+			check_variable = { VIE_bastion_qty_ordered > 2 }
+			date > 2011.11.30
+			NOT = { has_country_flag = VIE_bastion_s3 }
+		}
+		set_country_flag = VIE_bastion_s3
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_bastion_deploy = 4 } }
+			set_variable = { VIE_bastion_site = 3 }
+		}
+		else = {
+			set_variable = { VIE_bastion_site = VIE_bastion_deploy }
+		}
+		VIE_naval_bastion_site = yes
+		add_to_variable = { VIE_bastion_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_bastion_contracted
+			check_variable = { VIE_bastion_qty_ordered > 3 }
+			date > 2012.5.31
+			NOT = { has_country_flag = VIE_bastion_s4 }
+		}
+		set_country_flag = VIE_bastion_s4
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { check_variable = { VIE_bastion_deploy = 4 } }
+			set_variable = { VIE_bastion_site = 2 }
+		}
+		else = {
+			set_variable = { VIE_bastion_site = VIE_bastion_deploy }
+		}
+		VIE_naval_bastion_site = yes
+		add_to_variable = { VIE_bastion_qty_delivered = 1 }
+		add_to_variable = { VIE_var_hulls_delivered = 1 }
+	}
+	# Du so he thong da dat: nang luc ten lua hai quan (Truc 2 doc VIE_ext_naval_missile).
+	if = {
+		limit = {
+			has_country_flag = VIE_bastion_contracted
+			check_variable = { VIE_bastion_qty_ordered > 0 }
+			NOT = { check_variable = { VIE_bastion_qty_delivered < VIE_bastion_qty_ordered } }
+			NOT = { has_country_flag = VIE_ext_naval_missile }
+		}
+		set_country_flag = VIE_ext_naval_missile
+	}
+}

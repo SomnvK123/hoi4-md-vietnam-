@@ -1,0 +1,517 @@
+########################################################################
+# Scheduler hai quan - Truc 1 mua sam hai quan (namespace vie_naval).
+# Thiet ke: VIE_naval_truc1_review_and_plan.md (buoc 2). Gate: VIE_md_triggers_naval.txt.
+#
+# Goi tu VIE_catch_up_schedule (VIE_md_effects_p3.txt) va, tu buoc 3, tu on_monthly
+# (VIE_md_on_actions.txt). KHONG dung on_monthly_VIE (nguoi thang noi chien co the la
+# tag noi loan) va KHONG dung trigger_year_* cua MD (scripted effect trung ten ghi de).
+#
+# Mau Class B (giong p13/p14):
+#   catch-up                       -> chi dat co "da xay ra", khong fire, khong cap tau
+#   cong dat + popup_cd trong      -> dat _offered + popup_cd 45 ngay + fire event
+#   cong dat + popup_cd ban        -> dat _gate_seen, thu lai thang sau
+#   het cua so + _gate_seen        -> VIE_fb_naval_* (ket qua lich su, im lang)
+#   het cua so, cong khong bao gio dat -> _missed (mo Decision P_late, buoc 6)
+# Giao hang la Class C: im lang, mot co moi tau, khong popup.
+#
+# Event vie_naval.* o events/VIE_naval.txt. Gia tien (Q3) va Gepard/Kilo/Bastion nam o
+# VIE_md_effects_naval_ships.txt (cac effect VIE_naval_pay_*).
+########################################################################
+
+VIE_event_scheduler_naval = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+		VIE_naval_sched_molniya_p1 = yes
+		VIE_naval_sched_molniya_p2 = yes
+		VIE_naval_deliver_molniya = yes
+		VIE_naval_sched_gepard1 = yes
+		VIE_naval_sched_bastion = yes
+		VIE_naval_sched_kilo = yes
+		VIE_naval_sched_gepard2 = yes
+		VIE_naval_deliver_gepard1 = yes
+		VIE_naval_deliver_gepard2 = yes
+		VIE_naval_deliver_kilo = yes
+		VIE_naval_deliver_bastion = yes
+		VIE_naval_sched_sigma = yes
+		VIE_naval_sigma_review = yes
+	}
+	else = {
+		# Nguoi thang noi chien: ghi nhan "da xay ra", khong cap tau.
+		if = {
+			limit = {
+				date > 2003.5.31
+				NOT = { has_country_flag = VIE_molniya_p1_offered }
+			}
+			set_country_flag = VIE_molniya_p1_offered
+			set_country_flag = VIE_molniya_p1_skipped
+		}
+		if = {
+			limit = {
+				date > 2009.5.31
+				NOT = { has_country_flag = VIE_molniya_p2_offered }
+			}
+			set_country_flag = VIE_molniya_p2_offered
+		}
+		if = {
+			limit = { date > 2005.12.31 NOT = { has_country_flag = VIE_gepard1_offered } }
+			set_country_flag = VIE_gepard1_offered
+		}
+		if = {
+			limit = { date > 2006.6.30 NOT = { has_country_flag = VIE_bastion_offered } }
+			set_country_flag = VIE_bastion_offered
+		}
+		if = {
+			limit = { date > 2009.11.30 NOT = { has_country_flag = VIE_kilo_offered } }
+			set_country_flag = VIE_kilo_offered
+		}
+		if = {
+			limit = { date > 2011.11.30 NOT = { has_country_flag = VIE_gepard2_offered } }
+			set_country_flag = VIE_gepard2_offered
+		}
+		if = {
+			limit = { date > 2011.9.30 NOT = { has_country_flag = VIE_sigma_offered } }
+			set_country_flag = VIE_sigma_offered
+			set_country_flag = VIE_sigma_suspended
+		}
+	}
+}
+
+########################################################################
+# Variant VIE tu tao (MD VIE history co 0 create_equipment_variant). Co chan de khong tao
+# trung (create_equipment_variant trung ten sinh version 2, 3...).
+# Gom Molniya, Gepard (2 ban), Improved Kilo: giao hang van chay khi Nga mat tag.
+# Module chep 1:1 tu SOV_Russia.txt (Molniya :931, Gepard :827/:849, Improved Kilo :1428) (tools/audit/md_ref/SOV_Russia.txt:931).
+# TODO(test): VIE co the thieu tech module (module_radar_3, module_naval_missile_mount_quad...);
+# module thieu tech bi bo im lang. Xem checklist trong VIE_naval_truc1_review_and_plan.md.
+########################################################################
+VIE_naval_ensure_variants = {
+	if = {
+		limit = { NOT = { has_country_flag = VIE_naval_variants_done } }
+		set_country_flag = VIE_naval_variants_done
+		create_equipment_variant = {
+			name = "Molniya Class"
+			type = corvette_hull_2
+			parent_version = 0
+			role_icon_index = 2
+			modules = {
+				fixed_ship_engine_slot = module_light_surface_diesel_power_1
+				fixed_ship_fire_control_system_slot = module_analog_fire_control
+				fixed_ship_radar_slot = module_radar_3
+				fixed_ship_auxillary_slot = module_naval_missile_mount_quad
+				fixed_ship_battery_slot = module_76mm_gun_2
+				front_1_custom_slot = module_ciws_1
+				rear_1_custom_slot = module_naval_missile_mount_quad
+				fixed_ship_missile_ammo_slot = module_naval_ammo_anti_ship_2
+			}
+			icon = "gfx/interface/technologies/SOV/NAV/Molniya.dds"
+		}
+		create_equipment_variant = {
+			name = "Gepard Class"
+			type = frigate_hull_3
+			parent_version = 0
+			role_icon_index = 2
+			modules = {
+				fixed_ship_engine_slot = module_light_surface_diesel_power_1
+				fixed_ship_fire_control_system_slot = module_digital_integrated_fire_control
+				fixed_ship_radar_slot = module_radar_3
+				fixed_ship_auxillary_slot_2 = module_ciws_3
+				fixed_ship_auxillary_slot_1 = module_torpedoes_3
+				fixed_ship_auxillary_slot = module_naval_vls_cells_16
+				fixed_ship_battery_slot = module_76mm_gun_3
+				front_1_custom_slot = module_naval_missile_mount_quad
+				rear_1_custom_slot = module_fuel_tank
+				fixed_ship_missile_ammo_slot = module_naval_ammo_balanced_2
+			}
+			icon = "gfx/interface/technologies/SOV/NAV/Gepard.dds"
+		}
+		create_equipment_variant = {
+			name = "Gepard 3.9 Class"
+			type = frigate_hull_3
+			parent_version = 1
+			role_icon_index = 2
+			modules = {
+				fixed_ship_engine_slot = module_light_surface_diesel_power_1
+				fixed_ship_fire_control_system_slot = module_digital_integrated_fire_control
+				fixed_ship_radar_slot = module_radar_3
+				fixed_ship_auxillary_slot_2 = empty
+				fixed_ship_auxillary_slot_1 = module_naval_missile_mount_quad
+				fixed_ship_auxillary_slot = module_ciws_3
+				fixed_ship_battery_slot = module_76mm_gun_3
+				front_1_custom_slot = module_naval_missile_mount_quad
+				rear_1_custom_slot = module_fuel_tank
+				fixed_ship_missile_ammo_slot = module_naval_ammo_balanced_2
+			}
+			icon = "gfx/interface/technologies/SOV/NAV/Gepard.dds"
+		}
+		create_equipment_variant = {
+			name = "Improved Kilo Class"
+			type = attack_submarine_hull_2
+			parent_version = 0
+			role_icon_index = 14
+			modules = {
+				fixed_ship_engine_slot = module_sub_diesel_electric_power2
+				fixed_ship_radar_slot = module_sonar_2
+				fixed_ship_auxillary_slot_3 = module_torpedoes_2
+				fixed_ship_auxillary_slot_2 = module_fuel_tank
+				fixed_ship_auxillary_slot_1 = module_minelaying
+				fixed_ship_auxillary_slot = module_naval_sub_vls_cells_8
+				fixed_ship_battery_slot = module_anti_ship_torpedoes_2
+				fixed_ship_missile_ammo_slot = module_naval_sub_ammo_anti_ship_1
+			}
+			icon = "gfx/interface/technologies/SOV/NAV/ImprovedKilo.dds"
+		}
+	}
+}
+
+########################################################################
+# Reward lich su, dung chung cho option A cua event that (buoc 3) va fallback im lang,
+# de mot chuoi chi co mot cho dinh nghia hieu ung.
+########################################################################
+# Nguoi goi dat truoc VIE_molniya_ru_qty (2 lich su, 4 alt).
+VIE_naval_reward_molniya_p1 = {
+	set_country_flag = VIE_molniya_contracted
+	set_variable = { VIE_molniya_path = 1 }
+	VIE_naval_pay_molniya_p1 = yes
+	if = {
+		limit = { has_country_flag = VIE_molniya_p1_late }
+		VIE_naval_late_start_molniya_p1 = yes
+	}
+}
+
+# Nguoi goi dat truoc VIE_molniya_vn_qty_ordered (6 lich su, 8, 10 alt).
+VIE_naval_reward_molniya_p2 = {
+	set_country_flag = VIE_molniya_p2_contracted
+	if = {
+		limit = { has_country_flag = VIE_molniya_contracted }
+		set_variable = { VIE_molniya_path = 3 }
+	}
+	else = {
+		set_variable = { VIE_molniya_path = 2 }
+	}
+	VIE_naval_pay_molniya_p2 = yes
+	if = {
+		limit = { has_country_flag = VIE_molniya_p2_late }
+		VIE_naval_late_start_molniya_p2 = yes
+	}
+}
+
+VIE_fb_naval_molniya_p1 = {
+	set_variable = { VIE_molniya_ru_qty = 2 }
+	VIE_naval_reward_molniya_p1 = yes
+}
+VIE_fb_naval_molniya_p2 = {
+	set_variable = { VIE_molniya_vn_qty_ordered = 6 }
+	VIE_naval_reward_molniya_p2 = yes
+}
+
+########################################################################
+# Molniya pha 1 - mua tu Nga. Cua so 2003-06 -> 2005-12. Event: vie_naval.1.
+# Chu y: _gate_seen nho rang cong tung dat trong cua so ma popup bi chan; het cua so thi
+# ap ket qua lich su im lang thay vi _missed (bao cao review muc B5).
+########################################################################
+VIE_naval_sched_molniya_p1 = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_molniya_p1_offered }
+			NOT = { has_country_flag = VIE_molniya_p1_missed }
+		}
+		if = {
+			limit = {
+				date > 2003.5.31
+				date < 2006.1.1
+				country_exists = SOV
+				NOT = { has_war_with = SOV }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_molniya_p1_offered
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_naval.1 days = 1 random_days = 14 }
+			}
+			else = {
+				set_country_flag = VIE_molniya_p1_gate_seen
+			}
+		}
+		else_if = {
+			limit = { date > 2005.12.31 }
+			if = {
+				limit = { has_country_flag = VIE_molniya_p1_gate_seen }
+				set_country_flag = VIE_molniya_p1_offered
+				VIE_fb_naval_molniya_p1 = yes
+			}
+			else = {
+				set_country_flag = VIE_molniya_p1_missed
+			}
+		}
+	}
+}
+
+########################################################################
+# Molniya pha 2 - dong tai Ba Son. Cua so 2009-06 -> 2012-12, can VIE_cap_ba_son_yard
+# (ngoai le co ten cua cong chung). Khong doi Nga ton tai: giao tau dung variant VIE.
+# Event: vie_naval.3.
+########################################################################
+VIE_naval_sched_molniya_p2 = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = VIE_molniya_p2_offered }
+			NOT = { has_country_flag = VIE_molniya_p2_missed }
+		}
+		if = {
+			limit = {
+				date > 2009.5.31
+				date < 2013.1.1
+				has_country_flag = VIE_cap_ba_son_yard
+				NOT = { has_war_with = SOV }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_molniya_p2_offered
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_naval.3 days = 1 random_days = 14 }
+			}
+			else = {
+				set_country_flag = VIE_molniya_p2_gate_seen
+			}
+		}
+		else_if = {
+			limit = { date > 2012.12.31 }
+			if = {
+				limit = { has_country_flag = VIE_molniya_p2_gate_seen }
+				set_country_flag = VIE_molniya_p2_offered
+				VIE_fb_naval_molniya_p2 = yes
+			}
+			else = {
+				set_country_flag = VIE_molniya_p2_missed
+			}
+		}
+	}
+}
+
+########################################################################
+# Giao hang Molniya (Class C, im lang). Quy tac lich giao (bao cao 3.2): tau thu N giao
+# vao ngay lich su; tau vuot so lich su cach tau truoc 6 thang.
+#   Pha 1 (mua):     2007-02, 2008-02, (alt) 2008-08, 2009-02
+#   Pha 2 (Ba Son):  khoi dong 2010; cap 1 giua 2014, cap 2 2/6/2015, cap 3 9/10/2017,
+#                    (alt 8/10 tau) them moi 6 thang tu 2018-04
+# Tau pha 1 dung variant cua SOV neu Nga con, mat Nga thi dung variant VIE.
+# Ten tau la placeholder. TODO(names): doi sang so hieu that.
+########################################################################
+VIE_naval_deliver_molniya = {
+	# ---- pha 1 ----
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_contracted
+			check_variable = { VIE_molniya_ru_qty > 0 }
+			date > 2007.1.31
+			NOT = { has_country_flag = VIE_molniya_s1 }
+		}
+		set_country_flag = VIE_molniya_s1
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = SOV name = "HQ-375" }
+		}
+		else = {
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-375" }
+		}
+		VIE_naval_count_molniya_p1 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_contracted
+			check_variable = { VIE_molniya_ru_qty > 1 }
+			date > 2008.1.31
+			NOT = { has_country_flag = VIE_molniya_s2 }
+		}
+		set_country_flag = VIE_molniya_s2
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = SOV name = "HQ-376" }
+		}
+		else = {
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-376" }
+		}
+		VIE_naval_count_molniya_p1 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_contracted
+			check_variable = { VIE_molniya_ru_qty > 2 }
+			date > 2008.7.31
+			NOT = { has_country_flag = VIE_molniya_s3 }
+		}
+		set_country_flag = VIE_molniya_s3
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = SOV name = "HQ-377" }
+		}
+		else = {
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-377" }
+		}
+		VIE_naval_count_molniya_p1 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_contracted
+			check_variable = { VIE_molniya_ru_qty > 3 }
+			date > 2009.1.31
+			NOT = { has_country_flag = VIE_molniya_s4 }
+		}
+		set_country_flag = VIE_molniya_s4
+		VIE_naval_ensure_variants = yes
+		if = {
+			limit = { country_exists = SOV }
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = SOV name = "HQ-378" }
+		}
+		else = {
+			create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-378" }
+		}
+		VIE_naval_count_molniya_p1 = yes
+	}
+
+	# ---- pha 2: khoi dong dong tau 2010 ----
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			date > 2010.5.31
+			NOT = { has_country_flag = VIE_molniya_domestic_started }
+		}
+		set_country_flag = VIE_molniya_domestic_started
+	}
+
+	# ---- pha 2: giao tau (variant VIE, khong phu thuoc Nga) ----
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 0 }
+			date > 2014.6.30
+			NOT = { has_country_flag = VIE_molniya_v1 }
+		}
+		set_country_flag = VIE_molniya_v1
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-381" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 1 }
+			date > 2014.6.30
+			NOT = { has_country_flag = VIE_molniya_v2 }
+		}
+		set_country_flag = VIE_molniya_v2
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-382" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 2 }
+			date > 2015.6.1
+			NOT = { has_country_flag = VIE_molniya_v3 }
+		}
+		set_country_flag = VIE_molniya_v3
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-383" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 3 }
+			date > 2015.6.1
+			NOT = { has_country_flag = VIE_molniya_v4 }
+		}
+		set_country_flag = VIE_molniya_v4
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-384" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 4 }
+			date > 2017.10.8
+			NOT = { has_country_flag = VIE_molniya_v5 }
+		}
+		set_country_flag = VIE_molniya_v5
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-385" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 5 }
+			date > 2017.10.8
+			NOT = { has_country_flag = VIE_molniya_v6 }
+		}
+		set_country_flag = VIE_molniya_v6
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-386" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 6 }
+			date > 2018.4.8
+			NOT = { has_country_flag = VIE_molniya_v7 }
+		}
+		set_country_flag = VIE_molniya_v7
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-387" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 7 }
+			date > 2018.10.8
+			NOT = { has_country_flag = VIE_molniya_v8 }
+		}
+		set_country_flag = VIE_molniya_v8
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-388" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 8 }
+			date > 2019.4.8
+			NOT = { has_country_flag = VIE_molniya_v9 }
+		}
+		set_country_flag = VIE_molniya_v9
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-389" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = VIE_molniya_p2_contracted
+			check_variable = { VIE_molniya_vn_qty_ordered > 9 }
+			date > 2019.10.8
+			NOT = { has_country_flag = VIE_molniya_v10 }
+		}
+		set_country_flag = VIE_molniya_v10
+		VIE_naval_ensure_variants = yes
+		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-390" }
+		VIE_naval_count_molniya_p2 = yes
+	}
+}
+
+# So sach sau moi lan giao. Pha 2 cong kinh nghiem dong tau (bao cao 7.3: +3 moi tau).
+VIE_naval_count_molniya_p1 = {
+	add_to_variable = { VIE_molniya_ru_delivered = 1 }
+	add_to_variable = { VIE_var_hulls_delivered = 1 }
+}
+VIE_naval_count_molniya_p2 = {
+	add_to_variable = { VIE_molniya_vn_qty_delivered = 1 }
+	add_to_variable = { VIE_var_hulls_delivered = 1 }
+	add_to_variable = { VIE_var_shipbuilding_exp = 3 }
+}
