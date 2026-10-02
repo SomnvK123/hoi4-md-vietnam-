@@ -142,61 +142,6 @@ characters = {
 		}
 	}
 
-	VIE_army_hoang_ky = {
-		name = "Hoang Ky"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Hoang_Ky_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Hoang_Ky.dds"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vie_army_hoang_ky
-			ledger = army
-			traits = { army_militia_2 }
-			cost = 100
-			ai_will_do = { factor = 1 }
-		}
-	}
-
-	VIE_army_pham_xuan_hung = {
-		name = "Pham Xuan Hung"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Pham_Xuan_Hung_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Pham_Xuan_Hung.dds"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vie_army_pham_xuan_hung
-			ledger = army
-			traits = { army_artillery_2 }
-			cost = 100
-			ai_will_do = { factor = 1 }
-		}
-	}
-
-	# ---- Tuy chon, KHONG tuyen mac dinh: Giai doan 1 da du 6 commander ----
-	VIE_army_le_manh = {
-		name = "Le Manh"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Le_Manh_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Le_Manh.dds"
-			}
-		}
-		corps_commander = {
-			traits = { infantry_leader organizer }
-			skill = 3
-			attack_skill = 2
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 2
-		}
-	}
-
 	# ---- Giai doan 2: tuyen ngay 2015.1.1 ----
 	VIE_army_phung_si_tan = {
 		name = "Phung Si Tan"

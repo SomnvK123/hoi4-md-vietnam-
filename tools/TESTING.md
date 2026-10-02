@@ -54,7 +54,7 @@ Design and the 4 experiments (E1-E4) behind it: `VIE_land_forces_implementation_
 - [ ] Start 2000, VIE recruit panel: field marshals Nguyen Chi Vinh + Le Van Dung; corps commanders Phung Quang Thanh,
       Huynh Tien Phong, Phi Quoc Tuan, Ngo Xuan Lich (6 with Vinh/Dung); army_chief advisors Le Van Dung, Phung Quang Thanh,
       Nguyen Khac Nghien, Do Ba Ty; high_command advisors Pham Van Tra, Nguyen Van Duoc, Hoang Ky, Pham Xuan Hung.
-      `VIE_army_le_manh` must NOT be present (defined, deliberately not recruited).
+      `VIE_army_le_manh` no longer exists (character removed 2026-10-02).
 - [ ] `effect set_country_flag = VIE_army_phase1_recruited` already set after the first load; reload a 2007 save: nobody is recruited twice.
 - [ ] `event vie_army_commanders.2`: the 2000-2014 group disappears, Phung Si Tan / Nguyen Doan Anh / Nguyen Hong Thai
       (corps) and Nguyen Phuong Nam / Vu Hai San (high_command) appear. Phi Quoc Tuan is retired too.

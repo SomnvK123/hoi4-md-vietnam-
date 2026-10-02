@@ -168,24 +168,6 @@ characters = {
 		}
 	}
 
-	VIE_air_han_vinh_tuong = {
-		name = "Han Vinh Tuong"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Han_Vinh_Tuong_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Han_Vinh_Tuong.dds"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vie_air_han_vinh_tuong
-			ledger = air
-			traits = { air_high_command_combat_training_2 }
-			cost = 100
-			ai_will_do = { factor = 1 }
-		}
-	}
-
 	VIE_air_pham_tuan = {
 		name = "Pham Tuan"
 		portraits = {
@@ -240,24 +222,6 @@ characters = {
 		}
 	}
 
-	VIE_air_nguyen_van_tho = {
-		name = "Nguyen Van Tho"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Nguyen_Van_Tho_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Nguyen_Van_Tho.dds"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vie_air_nguyen_van_tho
-			ledger = air
-			traits = { air_high_command_multirole_support_2 }
-			cost = 100
-			ai_will_do = { factor = 1 }
-		}
-	}
-
 	VIE_air_nguyen_van_thanh = {
 		name = "Nguyen Van Thanh"
 		portraits = {
@@ -276,42 +240,6 @@ characters = {
 		}
 	}
 
-	VIE_air_lam_quang_dai = {
-		name = "Lam Quang Dai"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Lam_Quang_Dai_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Lam_Quang_Dai.dds"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vie_air_lam_quang_dai
-			ledger = air
-			traits = { air_high_command_combat_training_1 }
-			cost = 100
-			ai_will_do = { factor = 1 }
-		}
-	}
-
-	VIE_air_pham_van_tinh = {
-		name = "Pham Van Tinh"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Pham_Van_Tinh_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Pham_Van_Tinh.dds"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vie_air_pham_van_tinh
-			ledger = air
-			traits = { air_high_command_interception_2 }
-			cost = 100
-			ai_will_do = { factor = 1 }
-		}
-	}
-
 	VIE_air_tran_ngoc_quyen = {
 		name = "Tran Ngoc Quyen"
 		portraits = {
@@ -325,24 +253,6 @@ characters = {
 			idea_token = vie_air_tran_ngoc_quyen
 			ledger = air
 			traits = { air_high_command_air_reform_1 }
-			cost = 100
-			ai_will_do = { factor = 1 }
-		}
-	}
-
-	VIE_air_pham_tuan_anh = {
-		name = "Pham Tuan Anh"
-		portraits = {
-			army = {
-				small = "gfx/leaders/VIE/small/Portrait_Pham_Tuan_Anh_small.dds"
-				large = "gfx/leaders/VIE/Portrait_Pham_Tuan_Anh.dds"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vie_air_pham_tuan_anh
-			ledger = air
-			traits = { air_high_command_all_weather_1 }
 			cost = 100
 			ai_will_do = { factor = 1 }
 		}

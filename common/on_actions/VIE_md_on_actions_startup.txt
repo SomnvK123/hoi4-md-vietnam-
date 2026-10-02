@@ -6,7 +6,6 @@ on_actions = {
 			VIE = {
 				# 2000-2014 army roster (see VIE_land_forces_implementation_plan_v2.md). on_startup also runs on
 				# every save load, so the flag keeps this from recruiting twice; vie_army_commanders.2 retires
-				# the group on 2015.1.1. VIE_army_le_manh is defined but left out on purpose (6 commander cap).
 				if = {
 					limit = {
 						date < 2015.1.1
@@ -19,8 +18,6 @@ on_actions = {
 					recruit_character = VIE_army_do_ba_ty
 					recruit_character = VIE_army_pham_van_tra
 					recruit_character = VIE_army_nguyen_van_duoc
-					recruit_character = VIE_army_hoang_ky
-					recruit_character = VIE_army_pham_xuan_hung
 					set_country_flag = VIE_army_phase1_recruited
 				}
 				# Air force step 0 (later steps: VIE_event_scheduler_air). The two upstream air chiefs are not air
@@ -33,7 +30,6 @@ on_actions = {
 					}
 					recruit_character = VIE_air_nguyen_duc_soat
 					recruit_character = VIE_air_pham_thanh_ngan
-					recruit_character = VIE_air_han_vinh_tuong
 					recruit_character = VIE_air_pham_tuan
 					recruit_character = VIE_air_nguyen_van_phiet
 					retire_character = VIE_Tran_Quang_Phuong

@@ -24,7 +24,6 @@ VIE_event_scheduler_air = {
 		}
 		recruit_character = VIE_air_le_huu_duc
 		retire_character = VIE_air_nguyen_van_than
-		retire_character = VIE_air_han_vinh_tuong
 		set_country_flag = VIE_air_step_2
 	}
 	# 2010 (month unknown, 07/01 used): Phuong Minh Hoa; Vo Van Tuan is chief of staff 2008-2011
@@ -39,44 +38,38 @@ VIE_event_scheduler_air = {
 		retire_character = VIE_air_pham_tuan
 		set_country_flag = VIE_air_step_3
 	}
-	# 2015-05-21: Le Huy Vinh; chief of staff Tho and commissars Thanh, Dai are in post
+	# 2015-05-21: Le Huy Vinh; commissar Thanh is in post
 	if = {
 		limit = {
 			date > 2015.5.20
 			NOT = { has_country_flag = VIE_air_step_4 }
 		}
 		recruit_character = VIE_air_le_huy_vinh
-		recruit_character = VIE_air_nguyen_van_tho
 		recruit_character = VIE_air_nguyen_van_thanh
-		recruit_character = VIE_air_lam_quang_dai
 		retire_character = VIE_air_phuong_minh_hoa
 		set_country_flag = VIE_air_step_4
 	}
-	# 2019-12-31: Vu Van Kha acts as commander; Tinh is deputy commander from 06/2020
+	# 2019-12-31: Vu Van Kha acts as commander
 	if = {
 		limit = {
 			date > 2019.12.30
 			NOT = { has_country_flag = VIE_air_step_5 }
 		}
 		recruit_character = VIE_air_vu_van_kha
-		recruit_character = VIE_air_pham_van_tinh
 		retire_character = VIE_air_le_huy_vinh
 		retire_character = VIE_air_vo_van_tuan
-		retire_character = VIE_air_nguyen_van_tho
 		retire_character = VIE_air_nguyen_van_thanh
 		set_country_flag = VIE_air_step_5
 	}
-	# 2023-05-19: Nguyen Van Hien; Tuan Anh is deputy commander from 07/2023, Quyen commissar from 06/2022
+	# 2023-05-19: Nguyen Van Hien; Quyen is commissar from 06/2022
 	if = {
 		limit = {
 			date > 2023.5.18
 			NOT = { has_country_flag = VIE_air_step_6 }
 		}
 		recruit_character = VIE_air_nguyen_van_hien
-		recruit_character = VIE_air_pham_tuan_anh
 		recruit_character = VIE_air_tran_ngoc_quyen
 		retire_character = VIE_air_vu_van_kha
-		retire_character = VIE_air_lam_quang_dai
 		set_country_flag = VIE_air_step_6
 	}
 	# 2025-06-28: Vu Hong Son; Bui Duc Hien is chief of staff from 06/2025

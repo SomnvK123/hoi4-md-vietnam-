@@ -30,14 +30,6 @@ AIR = ((70, 112, 152), (28, 48, 70))  # sky blue: Air Defence - Air Force adviso
 # file stem (after "Portrait_") -> palette. Stems that now have a real photo are removed (do not re-add:
 # running this script would overwrite the photo).
 PLACEHOLDERS = {
-    "Le_Manh": PHASE1,
-    "Hoang_Ky": PHASE1,
-    "Pham_Xuan_Hung": PHASE1,
-    "Han_Vinh_Tuong": AIR,
-    "Nguyen_Van_Tho": AIR,
-    "Lam_Quang_Dai": AIR,
-    "Pham_Van_Tinh": AIR,
-    "Pham_Tuan_Anh": AIR,
 }
 
 
