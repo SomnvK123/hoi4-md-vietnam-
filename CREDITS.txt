@@ -184,3 +184,17 @@ vie_air_ind_42.dds           "VRS-Viettel.jpg", Government Office (Vietnam), Pub
                              https://commons.wikimedia.org/wiki/File:VRS-Viettel.jpg
 vie_air_ind_51.dds           "BTS-99 loitering munition of Z199 Factory.jpg", Arest128, CC BY 4.0
                              https://commons.wikimedia.org/wiki/File:BTS-99_loitering_munition_of_Z199_Factory.jpg
+vie_air_force_1.dds          "VPAF Su-30MK2.jpg", Cougr, CC BY-SA 4.0
+                             https://commons.wikimedia.org/wiki/File:VPAF_Su-30MK2.jpg
+vie_air_force_2.dds          "Vietnam Air Force Sukhoi Su-30MK2 - VDE2024.jpg", Embassy of the United States, Hanoi, Public domain
+                             https://commons.wikimedia.org/wiki/File:Vietnam_Air_Force_Sukhoi_Su-30MK2_-_VDE2024.jpg
+vie_air_force_10.dds         "UA anti-air training 2021 S-300 (1).jpg", Ukrainian Air Force, CC BY 4.0
+                             https://commons.wikimedia.org/wiki/File:UA_anti-air_training_2021_S-300_(1).jpg
+vie_air_force_11.dds         "P18M surveilance radar of Viettel.jpg", Arest128, CC BY 4.0
+                             https://commons.wikimedia.org/wiki/File:P18M_surveilance_radar_of_Viettel.jpg
+vie_air_force_30.dds         "Su-30MK2 number 8533 Jan-2017.jpg", Hoangprs5, CC BY-SA 4.0
+                             https://commons.wikimedia.org/wiki/File:Su-30MK2_number_8533_Jan-2017.jpg
+
+Air-branch focus icons (Truc 2 VIE_apm_*, Truc 3 VIE_airf_*; gfx/interface/goals/apm_*.dds and airf_*.dds, 93x91) are cropped from the same
+Wikimedia Commons photographs as the air event pictures above and the Truc 1 / Truc 2 ones. Per-file title, author, licence and URL:
+assets/focus_icons/CREDITS.json (keys apm_*, airf_*). Rebuild: tools/build_vie_air_focus_icons.py.

@@ -1,6 +1,7 @@
 # BÁO CÁO NỘI DUNG NHÁNH KHÔNG QUÂN (QUÂN CHỦNG PHÒNG KHÔNG – KHÔNG QUÂN) · VIE · MILLENNIUM DAWN
 
-> Bản 1.4 · 2026-10-02 · **Chỉ có nội dung thiết kế, chưa có dòng code nào.**
+> Bản 1.5 · 2026-10-03 · **Trục 1 và 2 đã code; Trục 3 và 1B chỉ có thiết kế.**
+> Bản 1.5 sửa Trục 3 (Phần 7, 3.1 R9, 4.3; chi tiết, tọa độ, ngân sách modifier và plan code ở `VIE_air_truc3_review_and_plan.md`): T5 đòi một trong ba focus Trục 2 và có dự phòng theo ngày; D-E mức 1 chỉ đọc Trục 1–2; "phòng không" = `air_home_defence_factor`, "phòng thủ" = `air_intercept_efficiency`, Trục 3 không dùng `air_defence_factor`; phát hiện hạ về 4,5–8,5%; category `VIE_airf_category` (priority 86); bỏ phần thưởng mở 1B; cột focus x 290–322.
 > Bản 1.4 viết lại Trục 2 (Phần 6, chi tiết `VIE_air_truc2_review_and_plan.md`). Bản 1.3 sửa Trục 1 (Phần 5) và các chỗ liên quan (4.2, 4.3, 12.1) sau khi đối chiếu với MD v2.0.0 cài trên máy và repo; chi tiết lỗi, ánh xạ trang bị và plan code ở `VIE_air_truc1_review_and_plan.md`. Các Phần 7–11 chưa đối chiếu lại bằng cách này.
 > Bản 1.2 chốt thêm Q15 (hỗ trợ cả BBA và non-BBA) và Q16 (Trục 2 giữ bằng Decision; bản 1.4 sửa: nuôi MIO Viettel có sẵn bằng `add_mio_size`, xem 6.5). Bản 1.1 so với 1.0: đã chốt Q1, Q2, Q4 (Phần 13); đã đối chiếu một phần với repo Millennium Dawn chính thức (Phần 12.2) và sửa các điểm bị ảnh hưởng ở Phần 5.1, 7.5, 8.2, 9.
 > Khuôn tham khảo: `VIE_naval_truc3_review_and_plan.md` (nhánh hải quân: 3 trục + Program Engine 1B, đã qua review). Bản này áp sẵn các bài học của review đó (Phần 3.2) để không lặp lại các lỗi chặn.
@@ -120,7 +121,7 @@
 | R6 | Trục 2 sở hữu: bậc năng lực, giá, tuổi thọ/độ tin cậy, `VIE_cap_*` |
 | R7 | Ngày cổng chương trình mua sắm đặt ở Decision hoặc cửa sổ sự kiện, không ở focus. Riêng chuỗi focus chung của Trục 3 có `date >` theo mốc lịch sử (tiền lệ hải quân) |
 | R8 | Ngân sách pop-up: tuân `VIE_popup_cd` và luật không quá 7 pop-up mỗi năm; chuỗi chọn do người chơi bấm Decision thì miễn cd; event ẩn không tính |
-| R9 | Bộ đếm slot (Trục 3: tối đa 2; 1B: tối đa 2; Trục 2: tối đa 2) phải được đếm lại theo timed idea sau nội chiến |
+| R9 | Bộ đếm slot (Trục 3: tối đa 2; 1B: tối đa 2; Trục 2: tối đa 2) tự chữa hàng tháng theo timed idea và cờ chờ (không còn hook nội chiến) |
 | R10 | Mọi hiệu ứng vận hành ghi vào `VIE_armed_forces_modifier` qua biến `VIE_af_*` kèm tooltip; có trần cho đường đầy đủ, kiểm bằng script cân bằng |
 | R11 | Phụ thuộc không vòng: Trục 1 → Trục 2 → {Trục 3, 1B}. Hai cạnh ngược (Trục 1 và 1B cộng exp vào Trục 2; Trục 3 cộng thưởng vào Trục 1) chỉ **cộng thưởng**, không gate |
 | R12 | Nhánh Biển Đông, hải quân, Special Force chỉ đọc năng lực không quân, không viết ngược |
@@ -175,7 +176,7 @@
 | `VIE_var_uav_delivered` | biến ≥ 0 | 1B P9 | D-E (nhánh C) |
 | `VIE_var_airf_program_active`, `VIE_var_a1b_active`, `VIE_var_apm_active` | biến 0–2 | các hàm start/end, recount | `available` của Decision |
 | `VIE_airf_fighter_level`, `VIE_airf_fighter_specialty`, `VIE_airf_sam_level`, `VIE_airf_sam_orientation`, `VIE_airf_force_priority` (1–3) | biến | event chọn của Trục 3 (7.3) | event hoàn tất, focus mở nhánh |
-| `VIE_airf_d1_done` … `VIE_airf_d5_done` | cờ | event ẩn hoàn tất | D-C, P4 |
+| `VIE_airf_d1_done`, `VIE_airf_d2_done` | cờ | event ẩn hoàn tất D-A, D-B | D-C |
 | `VIE_ap_su35_talks` (E9 lựa chọn B), `VIE_ap_barak_research` (E10 lựa chọn B), `VIE_ap_yak130_declined` (E14 lựa chọn B, đọc bởi E16), `VIE_ap_pechora_scope` (E7: 1 hoặc 2), `VIE_ap_radar_viettel_fast` (E11 lựa chọn C) | cờ/biến | event Trục 1 | `available` của 1B; Trục 2 A31 bậc 1 và Radar (cờ đặt trước, chưa ai đọc tới khi dựng Trục 2) |
 | Bậc Trục 2: `VIE_apm_a32_tier`, `VIE_apm_a31_tier`, `VIE_apm_radar_tier`, `VIE_apm_integ_tier`, `VIE_apm_uav_tier` (mỗi biến 0–3); `VIE_cap_mature_air_industry` | biến/cờ | Trục 2 | 1B (điều kiện nội địa/hybrid), T-chain |
 | `VIE_a1b_<p>_contracted/_cancelled`; `…_qty_ordered/_qty_delivered/_localization` | cờ/biến | engine 1B | giao hàng, hiển thị |
@@ -198,7 +199,7 @@ Không giữ: `_active/_done/_waiting` cho Decision, `_progress`, "readiness". C
 
 ## 4.4 Vị trí cây focus (đề xuất, chốt bằng `layout.py`)
 
-Hải quân chiếm x ≈ 216–262; lục quân x ≈ 272–284. Đề xuất cột không quân đặt **x ≥ 290** (bên phải lục quân) hoặc **x ≤ 200** (bên trái hải quân), chia theo trục: Trục 2 ở cột gần root, Trục 3 ở cột riêng, giữ khoảng cách cùng hàng ≥ 4 ô và con luôn `y >` cha. `[?]` chưa đo.
+Hải quân chiếm x ≈ 216–262; lục quân x ≈ 272–284. Đề xuất cột không quân đặt **x ≥ 290** (bản 1.5: Trục 2 ở x 290–296, Trục 3 ở x 290–322, y 2–12, đã kiểm trống; xem `VIE_air_truc3_review_and_plan.md` 4.1) (bên phải lục quân) hoặc **x ≤ 200** (bên trái hải quân), chia theo trục: Trục 2 ở cột gần root, Trục 3 ở cột riêng, giữ khoảng cách cùng hàng ≥ 4 ô và con luôn `y >` cha. `[?]` chưa đo.
 
 ---
 
@@ -374,7 +375,7 @@ Cấu trúc: **8 focus chung → 3 nhánh học thuyết loại trừ nhau** (4 
 | T2 | `VIE_airf_fighter_force` | Phát triển lực lượng tiêm kích | T1 | `date > 2007.12.31` |
 | T3 | `VIE_airf_sam_force` | Phát triển lực lượng tên lửa phòng không và radar | T1 | `date > 2005.12.31` (S-300PMU1 giao 8/2005) |
 | T4 | `VIE_airf_command_reform_1` | Cải cách chỉ huy PK-KQ I | T2 và T3 | `date > 2009.12.31` |
-| T5 | `VIE_airf_first_force` | Cơ cấu lực lượng ban đầu | T4, hoặc `VIE_apm_a32` | `date > 2011.12.31`; `VIE_var_air_delivered > 11` (đường lịch sử: 4 + 8 = 12 vào 2011) |
+| T5 | `VIE_airf_first_force` | Cơ cấu lực lượng ban đầu | T4 **và** một trong `VIE_apm_a32`, `VIE_apm_a31`, `VIE_apm_radar` | `date > 2011.12.31`; `OR = { VIE_var_air_delivered > 11, date > 2014.12.31 }` (đường lịch sử: 4 + 8 = 12 vào 2011; dự phòng khi Su-30 không giao) |
 | T6 | `VIE_airf_command_reform_2` | Cải cách chỉ huy PK-KQ II (trung tâm chỉ huy tích hợp, liên kết với lục quân, hải quân) | T5 | `date > 2013.12.31` |
 | T7 | `VIE_airf_medium_force` | Lực lượng không quân trung bình | T6 | `date > 2015.12.31` (đủ 3 trung đoàn Su-30MK2 cuối 2016) |
 | T8 | `VIE_airf_operating_range` | Mở rộng bán kính hoạt động và căn cứ tiền phương | T7 | `date > 2017.12.31` |
@@ -410,25 +411,27 @@ Cấu trúc: **8 focus chung → 3 nhánh học thuyết loại trừ nhau** (4 
 
 `[?]` Các nhánh B và C chỉ mở cho người chơi tự do/`VIE_ai_free`; AI mặc định đi nhánh A (như quy tắc hải quân).
 
-## 7.2 Phần thưởng focus (chỉ XP, modifier và `unlock_decision_tooltip`)
+## 7.2 Phần thưởng focus (chỉ XP, modifier; sửa ở bản 1.5, không còn `unlock_decision_tooltip` tới 1B vì 1B chưa tồn tại)
+
+Ký hiệu token: EXP `experience_gain_air_factor`, ATK `air_attack_factor`, SUP `air_superiority_efficiency`, CAS `air_cas_efficiency`, MIS `air_mission_efficiency`, RNG `air_range_factor`, DET `air_detection`, HOME `air_home_defence_factor` ("phòng không"), INT `air_intercept_efficiency` ("phòng thủ"), PERS `airforce_personnel_cost_multiplier_modifier`.
 
 | Focus | Thưởng | Mở |
 |---|---|---|
-| T1 | XP +15; kinh nghiệm không quân +4% | category Trục 3 |
-| T2 | tấn công không quân +1% | D-A |
-| T3 | tấn công phòng không +2% | D-B |
-| T4 | hiệu suất nhiệm vụ +2% | D-C |
+| T1 | XP +15; EXP +4% | category Trục 3 |
+| T2 | ATK +1% | D-A |
+| T3 | HOME +2% | D-B |
+| T4 | MIS +2% | D-C |
 | T5 | XP +10 | D-D |
-| T6 | hiệu suất nhiệm vụ +2%, phát hiện +2% | — |
-| T7 | tầm bay +3% | lối vào 1B: P1, P6, P7 |
-| T8 | tầm bay +4%, phát hiện +3% | ba nhánh |
-| A1–A4 | A1 phòng không +2%; A2 phát hiện +4%, phòng không +2%; A3 phòng thủ không quân +3%, phát hiện +3%; A4 nhiệm vụ +2%, phòng không +2% (nhân 1,0/1,5 theo D-E) | A2: P8, P10; A3: P4; A4: D-E |
-| B1–B5 | B1 tầm bay +4%; B2 tấn công +3%, ưu thế trên không +2%, hỗ trợ mặt đất +2%; B3 nhiệm vụ +2%; B4 tầm bay +3%; B5 nhiệm vụ +2%, tấn công +2% (nhân 1,0/1,5) | B2: P2 (và P3 từ 2030); B4: P5; B5: D-E |
-| C1–C5 | C1 phát hiện +3%; C2 phát hiện +4%; C3 nhiệm vụ +3%; C4 tấn công +3%; C5 nhiệm vụ +2%, phòng thủ +2% (nhân 1,0/1,5) | C2: P9; C3: P4, P10; C5: D-E |
+| T6 | MIS +2%, DET +1% | — |
+| T7 | RNG +3% | — (1B đọc `has_completed_focus` khi dựng) |
+| T8 | RNG +4%, DET +1% | ba nhánh |
+| A1–A4 | A1 HOME +2%; A2 DET +2%, HOME +2%; A3 INT +3%, DET +2%; A4 MIS +2%, HOME +2% (thưởng gốc; D-E cộng thêm 25% / 50%) | A4: D-E |
+| B1–B5 | B1 RNG +4%; B2 ATK +3%, SUP +2%, CAS +2%; B3 MIS +2%; B4 RNG +3%; B5 MIS +2%, ATK +2% (thưởng gốc; D-E cộng thêm 25% / 50%) | B5: D-E |
+| C1–C5 | C1 DET +1%; C2 DET +3%; C3 MIS +2%; C4 ATK +3%; C5 MIS +2%, INT +2% (thưởng gốc; D-E cộng thêm 25% / 50%) | C5: D-E |
 
 (Mức lệch nhánh và đúng nhánh: xem 7.4.)
 
-## 7.3 Năm Decision lực lượng (category `VIE_air_force_category`, `allowed = original_tag = VIE`)
+## 7.3 Năm Decision lực lượng (category `VIE_airf_category`, priority 86, `allowed = original_tag = VIE`)
 
 Mỗi Decision: `fire_only_once`, chi phí 50 PP (D-E 60 PP), cổng ở lúc bấm (không có trạng thái "chờ"), chuỗi chọn là event nối tiếp (miễn `VIE_popup_cd`), hoàn tất bằng event ẩn; slot `VIE_var_airf_program_active < 2`.
 
@@ -437,8 +440,8 @@ Mỗi Decision: `fire_only_once`, chi phí 50 PP (D-E 60 PP), cổng ở lúc b�
 | D-A `VIE_airf_d1_fighters` | T2 | Mức: **Cơ bản** 0,40 tỷ / 12 tháng; **Chuyên sâu** 0,60 / 18 tháng. Chuyên môn: **Không chiến** hoặc **Tấn công mặt đất/mặt biển** | Đặt mức, chuyên môn, modifier theo 7.5, `VIE_airf_d1_done` |
 | D-B `VIE_airf_d2_sam` | T3 | Định hướng: **Lịch sử** 0,30 (nâng cấp S-125, S-75 tại A31) hoặc **Sớm** 0,50 (đưa hệ thống mới vào biên chế ngay, thưởng đầu cao hơn). Mức Cơ bản/Chuyên sâu (×1,0/×1,5). | `VIE_airf_d2_done`, modifier |
 | D-C `VIE_airf_d3_coordination` | T4 | Không có lựa chọn: 0,50 tỷ / 18 tháng, **đòi `d1_done` và `d2_done`**. Ba giai đoạn ẩn: (1) XP và hiệu suất nhiệm vụ; (2) phối hợp tiêm kích – tên lửa; (3) bức tranh trên không tích hợp | `VIE_airf_d3_done` |
-| D-D `VIE_airf_d4_first_force` | T5 | Ba cơ cấu: **1 Phòng thủ lãnh thổ**, **2 Cân bằng**, **3 Tầm xa**. 0,60 tỷ / 12 tháng. Đặt `VIE_airf_force_priority` | `VIE_airf_d4_done`, modifier |
-| D-E `VIE_airf_d5_capstone` | A4, B5 hoặc C5 | 1,0 tỷ / 18 tháng. Cổng theo nhánh: **A** `VIE_var_sam_lr ≥ 1` và radar bậc ≥ 2; **B** `VIE_var_air_multirole4 ≥ 12`; **C** `VIE_var_uav_delivered ≥ 4` và `VIE_apm_uav_tier ≥ 2` | Nhân thưởng nhánh ×1,0 (đạt mức đầu) hoặc ×1,5 (đạt mức hai: ≥ 2 hệ thống / ≥ 24 chiếc / ≥ 8 UAV) |
+| D-D `VIE_airf_d4_first_force` | T5 | Ba cơ cấu: **1 Phòng thủ lãnh thổ**, **2 Cân bằng**, **3 Tầm xa**. 0,60 tỷ / 12 tháng. Đặt `VIE_airf_force_priority` | modifier |
+| D-E `VIE_airf_d5_capstone` | A4, B5 hoặc C5 | 1,0 tỷ / 18 tháng. Cổng **mức 1** (chỉ Trục 1–2): **A** (`VIE_var_sam_lr ≥ 1` hoặc `VIE_apm_a31_tier ≥ 2`) và `VIE_apm_radar_tier ≥ 2`; **B** `VIE_var_air_delivered ≥ 24` và `VIE_apm_a32_tier ≥ 2`; **C** `VIE_apm_uav_tier ≥ 2`. **Mức 2** (đọc 1B, chỉ để cộng thưởng): A `VIE_var_sam_lr ≥ 3` (S-300 của Trục 1 đã cho 2), B `VIE_var_air_multirole4 ≥ 12`, C `VIE_var_uav_delivered ≥ 4` | Cộng thêm +25% (mức 1) hoặc +50% (mức 2) thưởng gốc của focus capstone, như hải quân |
 
 Chi phí D-A đến D-D khoảng 1,8 tỷ (mọi mức Cơ bản, D-B Lịch sử) đến 2,45 tỷ (mọi mức Chuyên sâu, D-B Sớm), cộng D-E 1,0 tỷ. Tổng đối xứng với hải quân.
 
@@ -448,21 +451,21 @@ Chi phí D-A đến D-D khoảng 1,8 tỷ (mọi mức Cơ bản, D-B Lịch s�
 - **Lệch nhánh** khi mở A1/B1/C1: timed idea 365 ngày, hiệu suất nhiệm vụ −3%, phát hiện −3%. **Đúng nhánh**: +1% hiệu suất nhiệm vụ.
 - Mức chuyên môn (D-A) là lựa chọn một lần. Hướng còn lại được bù một phần bởi giai đoạn 2 của D-C (phối hợp tiêm kích – tên lửa).
 
-## 7.5 Bảng modifier (giá trị khởi điểm; token `[?]`, cần tra MD)
+## 7.5 Bảng modifier (giá trị khởi điểm, sửa ở bản 1.5)
 
 | Nguồn | Hiệu ứng (+ là bonus) |
 |---|---|
-| D-A mức 1/2 × Không chiến | ưu thế trên không +3% / +4,5% |
-| D-A mức 1/2 × Tấn công đất/biển | hỗ trợ mặt đất +3% / +4,5%; tấn công +1% / +1,5% |
-| D-B mức 1/2 | phòng không +3% / +4,5%; phát hiện +1% / +1,5% (Sớm: +1% thêm) |
-| D-C (ba giai đoạn) | nhiệm vụ +2%; phòng không +2%, ưu thế +2%; phát hiện +2%, nhiệm vụ +2% |
-| D-D Phòng thủ | phòng thủ +3%, phòng không +2%, tầm bay −3% |
-| D-D Cân bằng | tấn công +1%, phòng thủ +1%, tầm bay +1% |
-| D-D Tầm xa | tầm bay +5%, nhiệm vụ +2%; chi phí nhân sự không quân +3% (token `airforce_personnel_cost_multiplier_modifier`, **đã xác nhận** trong tài liệu MD) |
+| D-A mức 1/2 × Không chiến | SUP +3% / +4,5% |
+| D-A mức 1/2 × Tấn công đất/biển | CAS +3% / +4,5%; ATK +1% / +1,5% |
+| D-B mức 1/2 | HOME +3% / +4,5%; DET +1% / +1,5% (Sớm: HOME +1% thêm) |
+| D-C (ba giai đoạn) | MIS +2%; HOME +2%, SUP +2%; DET +1%, MIS +2% |
+| D-D Phòng thủ | INT +3%, HOME +2%, RNG −3% |
+| D-D Cân bằng | ATK +1%, INT +1%, RNG +1% |
+| D-D Tầm xa | RNG +5%, MIS +2%; PERS +3% (token `airforce_personnel_cost_multiplier_modifier`, đã xác nhận) |
 
-**Token đã đối chiếu với MD/HOI4 gốc (12.2 mục 1–3):** `experience_gain_air_factor`, `air_attack_factor`, `air_defence_factor`, `air_mission_efficiency`, `air_superiority_efficiency`, `air_cas_efficiency`, `air_range_factor`, `air_detection`, `air_accidents_factor`. Dòng "phòng không" (tấn công phòng không mặt đất) vẫn `[?]`, chưa tìm thấy token. Không dùng `air_agility_factor` vì MD đã đổi "Agility" thành "Radar Advantage" trong tính toán không chiến.
+**Token đã đối chiếu** (`modifiers_documentation.md`, `money_modifier_definitions.txt`, 2026-10-03): `experience_gain_air_factor`, `air_attack_factor`, `air_superiority_efficiency`, `air_cas_efficiency`, `air_mission_efficiency`, `air_range_factor`, `air_detection`, `air_home_defence_factor`, `air_intercept_efficiency`, `airforce_personnel_cost_multiplier_modifier`. `air_attack_factor` và PERS cần thêm vào `VIE_armed_forces_modifier`. **Trục 3 không dùng `air_defence_factor`** (đã có 0,18 từ Trục 1, Trục 2, lục quân). Không dùng `air_agility_factor` vì MD đã đổi "Agility" thành "Radar Advantage".
 
-**Trần cho đường đầy đủ** (script cân bằng cộng cả ba nhánh): kinh nghiệm không quân ≤ +10%, tấn công ≤ +10%, phòng thủ ≤ +8%, hiệu suất nhiệm vụ ≤ +16%, ưu thế trên không ≤ +10%, hỗ trợ mặt đất ≤ +10%, tầm bay ≤ +20%, phòng không ≤ +20%, phát hiện ≤ +18%. Tính tay sơ bộ: nhánh A phòng không ≈ 17,5%, nhánh B tầm bay ≈ 19%, hiệu suất nhiệm vụ ≈ 16% (sát trần), nhánh C phát hiện ≈ 16,5%. Nếu script báo vượt thì hạ giá trị chứ không nâng trần (như hải quân đã làm).
+**Trần là tổng cả ba trục vì biến dùng chung** (script cân bằng cộng chéo): EXP ≤ 10%, ATK ≤ 10%, SUP ≤ 10%, CAS ≤ 10%, MIS ≤ 16%, RNG ≤ 20%, **DET ≤ 20% (Trục 1 + 2 đã chiếm 11%, Trục 3 còn 9%)**, HOME ≤ 20%, INT ≤ 8%, `air_defence_factor` ≤ 20%. Tổng lớn nhất của Trục 3 (nhánh A / B / C, mức hai, D-E +50%): DET 8,5 / 4,5 / 8,5; HOME 18,5 / 11,5 / 11,5; RNG 12 / 19 / 12; MIS 13 / 15 / 16; ATK 3,5 / 9,5 / 6,5. Mọi tổ hợp dưới trần. Nếu script báo vượt thì hạ giá trị chứ không nâng trần (như hải quân đã làm).
 
 Không có modifier sản xuất, chi phí chế tạo hay tai nạn (R5; thuộc Trục 2).
 
@@ -531,8 +534,8 @@ Tên máy bay trong loc: placeholder `TODO(names)`; tên biên đội Việt Nam
 
 | Phần | Quy tắc |
 |---|---|
-| Focus Trục 3 | `ai_will_do` base 60 cho chuỗi chung; 40 cho A1/B1/C1 với `factor` theo đường (Historical: nhánh A ×1,5, nhánh B ×0,5, nhánh C ×0,25; Reform/Western: B ×1,5; chỉ `VIE_ai_free` cho B và C); `factor = 0` khi `bankruptcy_incoming_collapse` |
-| Decision lực lượng | base 100, `factor = 0` khi `bankruptcy_incoming_collapse`; option lịch sử `base 90` + `add 100` nếu `VIE_ai_historical`; option khác `factor 0` nếu không `VIE_ai_free`, có guard tài chính (`bankruptcy_incoming_collapse`, `ai_has_high_deficit`) |
+| Focus Trục 3 | `ai_will_do` base 60 cho chuỗi chung; A1 = 40; B1 và C1 `factor = 0 VIE_ai_historical = yes` (bản 1.5: `VIE_ai_free` chưa định nghĩa, dùng mẫu Trục 2/hải quân; AI chỉ đi nhánh A); `factor = 0` khi `bankruptcy_incoming_collapse` |
+| Decision lực lượng | base 100, `factor = 0` khi `bankruptcy_incoming_collapse`; option lịch sử `base 90` + `add 100` nếu `VIE_ai_historical`; option khác `factor 0 VIE_ai_historical = yes`, có guard tài chính (`bankruptcy_incoming_collapse`, `ai_has_high_deficit`) |
 | Trục 1 | option lịch sử là mặc định của AI; quan hệ ngoại giao chỉ cộng `ai_chance`; mọi option phải có ít nhất một đường chọn được (bài học zero-weight) |
 | Trục 2 | base 80 cho bậc 1 của từng trụ, 50 cho bậc 2, 30 cho bậc 3; guard tài chính; chỉ một chương trình chạy mỗi lần với AI |
 | 1B | base 20 và chỉ khi `VIE_ai_free` (AI không đi alt-history ngoài chế độ free); cùng guard tài chính; tránh giữ slot vô ích |

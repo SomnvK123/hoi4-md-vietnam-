@@ -89,3 +89,11 @@ VIE_apm_category = {
 	priority = 87
 	visible = { has_completed_focus = VIE_apm_law }
 }
+
+# Truc 3 khong quan (xay dung luc luong): 5 Decision (VIE_md_air_force_decisions.txt). Cong la Focus T1 (VIE_airf_training_standardization).
+# priority 86: duoi Truc 2 khong quan (87).
+VIE_airf_category = {
+	allowed = { original_tag = VIE }
+	priority = 86
+	visible = { has_completed_focus = VIE_airf_training_standardization }
+}

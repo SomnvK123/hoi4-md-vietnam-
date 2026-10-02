@@ -425,7 +425,7 @@ Thiet ke: `VIE_air_truc2_review_and_plan.md`. Code: `VIE_md_triggers_air_ind.txt
 ### Co
 | Co | Dat boi | Doc boi |
 |---|---|---|
-| `VIE_apm_<tru>_pending` (2 ngay) | Decision | `available` (chan bam hai lan) |
+| `VIE_apm_<tru>_pending` (30 ngay, xoa boi moi option) | Decision | `available` (chan bam hai lan), `VIE_apm_slot_heal` |
 | `VIE_apm_a32_su30_life` | A32 bac 2 option A | cong bac 3 va option A cua `.13` |
 | `VIE_apm_sam_production` | A31 bac 3 option B | 1B P8 (chua co) |
 | `VIE_apm_uav_loitering` | UAV bac 3 option B | Truc 3 C4 (chua co) |
@@ -439,3 +439,33 @@ Thiet ke: `VIE_air_truc2_review_and_plan.md`. Code: `VIE_md_triggers_air_ind.txt
 
 ### Da bo so voi bao cao
 15 Decision `fire_only_once` (thay bang 5 Decision lap lai), `VIE_var_a32_tier` va ten tran khac (doi sang `VIE_apm_*`), hook `VIE_collapse_aftermath` (da bo, slot tu chua), "gia thay the ten lua" (khong co token MD), exp tu Truc 1 (Truc 1 chi dat co ket qua).
+
+## Truc 3 khong quan - xay dung luc luong (tien to VIE_airf_, namespace vie_air_force)
+Thiet ke: `VIE_air_truc3_review_and_plan.md`. Code: `VIE_md_triggers_air_force.txt`, `VIE_md_effects_air_force.txt`, `VIE_md_air_force_decisions.txt`, `events/VIE_air_force.txt`, `VIE_md_ideas_air_force.txt`, 22 focus cuoi `VIE_md_focus.txt` (sau Truc 2), category `VIE_airf_category` (priority 86).
+
+### Bien
+| Bien | Khoang | Dat boi | Doc boi |
+|---|---|---|---|
+| `VIE_var_airf_program_active` | 0-2 | `VIE_airf_program_start/_end`, `VIE_airf_slot_heal` (tu chua, on_monthly) | `VIE_airf_slot_free` |
+| `VIE_airf_fighter_level`, `VIE_airf_fighter_specialty` | 1-2 | `.1`, `.2` | `VIE_airf_d1_start/_finish` |
+| `VIE_airf_sam_level`, `VIE_airf_sam_orientation` | 1-2 | `.10`, `.11` | `VIE_airf_d2_start/_finish` |
+| `VIE_airf_force_priority` | 1-3 (0 = chua chon) | `.30` | `VIE_airf_d4_finish`, `VIE_airf_branch_fit_a/_wide` (A1, B1, C1) |
+| `VIE_af_experience_gain_air_factor`, `_air_attack_factor`, `_air_superiority_efficiency`, `_air_cas_efficiency`, `_air_mission_efficiency`, `_air_range_factor`, `_air_detection`, `_air_home_defence_factor`, `_air_intercept_efficiency`, `_airforce_personnel_cost_multiplier_modifier` | cong don | `VIE_airf_add_*` (focus + Decision) | `VIE_armed_forces_modifier`; tran cong don Truc 1+2+3 o `air_force_balance.py`. Truc 3 khong dung `VIE_af_air_defence_factor` |
+
+### Co
+| Co | Dat boi | Doc boi |
+|---|---|---|
+| `VIE_airf_d1_pending`, `_d2_pending`, `_d4_pending` (30 ngay, xoa boi option) | Decision D-A, D-B, D-D | `VIE_airf_slot_heal` |
+| `VIE_airf_d1_done`, `VIE_airf_d2_done` | event hoan tat D-A, D-B | D-C (`available`). D-C, D-D, D-E khong dat co "done" (khong ai doc; focus va modifier da la dau vet) |
+
+### Idea
+`VIE_airf_prog_fighters/_sam/_coord/_first/_capstone` (timed idea chi bao dang chay), `VIE_airf_branch_mismatch_idea` (365 ngay, MIS -3%, DET -3%).
+
+### Doc tu Truc 1 va 2
+`VIE_var_air_delivered` (T5, cong B cua D-E), `VIE_var_sam_lr` (cong A cua D-E), `VIE_apm_a32_tier`, `_a31_tier`, `_radar_tier`, `_uav_tier`; focus `VIE_apm_a32/_a31/_radar` (T5). Doc tu 1B (chi cong them thuong, chua co): `VIE_var_air_multirole4`, `VIE_var_uav_delivered`, `VIE_var_sam_lr > 2`.
+
+### Ghi nguoc
+`VIE_ap_training_standardized` (Truc 1) = `has_completed_focus = VIE_airf_training_standardization`: E15 (T-6C) re hon, option `.13.c` hien. Canh ngoai duy nhat, chi thuong.
+
+### Da bo so voi bao cao
+Hook dem lai slot sau noi chien, `VIE_air_force_category` (doi sang `VIE_airf_category`), `VIE_ai_free`, `unlock_decision_tooltip` toi chuong trinh 1B, dung `VIE_af_air_defence_factor` cho phong khong cua Truc 3.

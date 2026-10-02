@@ -59,3 +59,10 @@
  ### Truc 2 khong quan: key rieng thay cho air_detection_tt / air_accidents_factor_tt (key chet).
  VIE_tt_air_detection:0 "$MODIFIER_AIR_DETECTION$: $RIGHT|+=%1$"
  VIE_tt_air_accidents_factor:0 "$MODIFIER_AIR_ACCIDENTS_FACTOR$: $RIGHT|-=%1$"
+ ### Truc 3 khong quan (VIE_air_truc3_review_and_plan.md buoc 0): tooltip cho 6 modifier cua VIE_armed_forces_modifier.
+ VIE_tt_experience_gain_air_factor:0 "$MODIFIER_EXPERIENCE_GAIN_AIR_FACTOR$: $RIGHT|+=%1$"
+ VIE_tt_air_attack_factor:0 "$MODIFIER_AIR_ATTACK_FACTOR$: $RIGHT|+=%1$"
+ VIE_tt_air_superiority_efficiency:0 "$MODIFIER_AIR_SUPERIORITY_EFFICIENCY$: $RIGHT|+=%1$"
+ VIE_tt_air_home_defence_factor:0 "$MODIFIER_AIR_HOME_DEFENCE_FACTOR$: $RIGHT|+=%1$"
+ VIE_tt_air_intercept_efficiency:0 "$MODIFIER_AIR_INTERCEPT_EFFICIENCY$: $RIGHT|+=%1$"
+ VIE_tt_airforce_personnel_cost:0 "Chi phí duy trì không quân: $RIGHT|+=%1$"

@@ -68,10 +68,9 @@ VIE_ap_gate_none = {
 }
 
 # ---------------------------------------------------------------------
-# Canh nguoc tu Truc 3 (review muc B7): E15 (T-6C) re hon neu Truc 3 da xong T1.
-# Focus VIE_airf_training_standardization chua ton tai, nen TAT cho toi khi Truc 3 duoc xay.
+# Canh nguoc tu Truc 3 (review muc B7): E15 (T-6C) re hon va E13 option c hien neu Truc 3 da xong T1.
 # Chi la thuong, khong phai dieu kien (R11).
 # ---------------------------------------------------------------------
 VIE_ap_training_standardized = {
-	always = no # TODO(Truc3): thay bang has_completed_focus = VIE_airf_training_standardization
+	has_completed_focus = VIE_airf_training_standardization
 }

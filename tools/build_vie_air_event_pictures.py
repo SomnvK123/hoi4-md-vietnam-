@@ -1,4 +1,4 @@
-"""Download, crop and encode the air event pictures (Truc 1 vie_air_proc.*, Truc 2 vie_air_ind.*) from Wikimedia Commons.
+"""Download, crop and encode the air event pictures (Truc 1 vie_air_proc.*, Truc 2 vie_air_ind.*, Truc 3 vie_air_force.*) from Wikimedia Commons.
 
 Unlike build_vie_event_pictures.py (first search hit), every picture here is a hand-picked Commons FILE, and its
 license, author and page are written to assets/event_pictures/CREDITS.json (CC BY / CC BY-SA need attribution).
@@ -56,6 +56,12 @@ PICTURES = {
     "vie_air_ind.51": "File:BTS-99 loitering munition of Z199 Factory.jpg",
     "vie_air_ind.52": "File:Pacific Friendship 2026- US, Vietnamese partners train with drones, support water rescue operations in Vietnam (9788238).jpg",
     "vie_air_ind.53": "File:BXL-01 loitering munition of Z131 Factory.jpg",
+    # Truc 3 (xay dung luc luong): 5 event chon
+    "vie_air_force.1": "File:VPAF Su-30MK2.jpg",
+    "vie_air_force.2": "File:Vietnam Air Force Sukhoi Su-30MK2 - VDE2024.jpg",
+    "vie_air_force.10": "File:UA anti-air training 2021 S-300 (1).jpg",
+    "vie_air_force.11": "File:P18M surveilance radar of Viettel.jpg",
+    "vie_air_force.30": "File:Su-30MK2 number 8533 Jan-2017.jpg",
 }
 
 

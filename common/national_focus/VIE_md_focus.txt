@@ -10550,7 +10550,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_apm_law
-		icon = GFX_focus_generic_military_industry
+		icon = GFX_focus_VIE_apm_law
 
 		x = 26
 		y = 2
@@ -10589,7 +10589,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_apm_a32
-		icon = GFX_focus_generic_aircraft_production
+		icon = GFX_focus_VIE_apm_a32
 
 		x = -2
 		y = 1
@@ -10618,7 +10618,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_apm_a31
-		icon = GFX_focus_generic_air_defense
+		icon = GFX_focus_VIE_apm_a31
 
 		x = 0
 		y = 1
@@ -10647,7 +10647,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_apm_radar
-		icon = GFX_focus_generic_air_bases
+		icon = GFX_focus_VIE_apm_radar
 
 		x = 2
 		y = 1
@@ -10676,7 +10676,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_apm_integration
-		icon = GFX_focus_generic_air_partners
+		icon = GFX_focus_VIE_apm_integration
 
 		x = 0
 		y = 2
@@ -10706,7 +10706,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_apm_uav
-		icon = GFX_focus_generic_air_research_boost
+		icon = GFX_focus_VIE_apm_uav
 
 		x = 2
 		y = 2
@@ -10735,7 +10735,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_apm_mature
-		icon = GFX_focus_generic_industry_investment
+		icon = GFX_focus_VIE_apm_mature
 
 		x = 2
 		y = 2
@@ -10756,6 +10756,689 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_mature"
 			set_country_flag = VIE_cap_mature_air_industry
 			air_experience = 10
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	###############################
+	# Truc 3 khong quan (xay dung luc luong): chuoi chung T1-T8, cot x >= 298 (T1 neo VIE_modernize_vpa x+36).
+	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. Nhanh A/B/C (14 focus) o buoc 3; unlock_decision_tooltip them o buoc 4.
+	###############################
+
+	focus = {
+		id = VIE_airf_training_standardization
+		icon = GFX_focus_VIE_airf_training_standardization
+
+		x = 36
+		y = 1
+		relative_position_id = VIE_modernize_vpa
+
+		cost = 7
+
+		prerequisite = { focus = VIE_modernize_vpa }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2004.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_training_standardization"
+			VIE_airf_xp_15 = yes
+			VIE_airf_add_exp = { V = 0.04 }
+			unlock_decision_category_tooltip = VIE_airf_category
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_fighter_force
+		icon = GFX_focus_VIE_airf_fighter_force
+
+		x = -4
+		y = 1
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_training_standardization }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2007.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_fighter_force"
+			unlock_decision_tooltip = VIE_airf_d1_fighters
+			VIE_airf_add_atk = { V = 0.01 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_sam_force
+		icon = GFX_focus_VIE_airf_sam_force
+
+		x = 4
+		y = 1
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_training_standardization }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2005.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_sam_force"
+			unlock_decision_tooltip = VIE_airf_d2_sam
+			VIE_airf_add_home = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_command_reform_1
+		icon = GFX_focus_VIE_airf_command_reform_1
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_fighter_force }
+		prerequisite = { focus = VIE_airf_sam_force }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2009.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_1"
+			unlock_decision_tooltip = VIE_airf_d3_coordination
+			VIE_airf_add_mis = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_first_force
+		icon = GFX_focus_VIE_airf_first_force
+
+		x = 0
+		y = 3
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_command_reform_1 }
+		prerequisite = { focus = VIE_apm_a32 focus = VIE_apm_a31 focus = VIE_apm_radar }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2011.12.31
+			OR = {
+				check_variable = { VIE_var_air_delivered > 11 }
+				date > 2014.12.31
+			}
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_first_force"
+			unlock_decision_tooltip = VIE_airf_d4_first_force
+			VIE_airf_xp_10 = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_command_reform_2
+		icon = GFX_focus_VIE_airf_command_reform_2
+
+		x = 0
+		y = 4
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_first_force }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2013.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_2"
+			VIE_airf_add_mis = { V = 0.02 }
+			VIE_airf_add_det = { V = 0.01 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_medium_force
+		icon = GFX_focus_VIE_airf_medium_force
+
+		x = 0
+		y = 5
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_command_reform_2 }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2015.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_medium_force"
+			VIE_airf_add_rng = { V = 0.03 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_operating_range
+		icon = GFX_focus_VIE_airf_operating_range
+
+		x = 0
+		y = 6
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_medium_force }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2017.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_operating_range"
+			VIE_airf_add_rng = { V = 0.04 }
+			VIE_airf_add_det = { V = 0.01 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	###############################
+	# Truc 3 khong quan: 14 focus nhanh hoc thuyet (A phong khong tich hop, B da nhiem, C khong nguoi lai), loai tru nhau o A1/B1/C1.
+	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. unlock_decision_tooltip them o buoc 4-5.
+	###############################
+
+	focus = {
+		id = VIE_airf_iads
+		icon = GFX_focus_VIE_airf_iads
+
+		x = -12
+		y = 7
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_operating_range }
+		mutually_exclusive = { focus = VIE_airf_multirole focus = VIE_airf_unmanned }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads"
+			VIE_airf_add_home = { V = 0.02 }
+			VIE_airf_branch_fit_a = yes
+		}
+
+		ai_will_do = {
+			base = 40
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_layered_defence
+		icon = GFX_focus_VIE_airf_layered_defence
+
+		x = -12
+		y = 8
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_iads }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2019.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_layered_defence"
+			VIE_airf_add_det = { V = 0.02 }
+			VIE_airf_add_home = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_ew_antistealth
+		icon = GFX_focus_VIE_airf_ew_antistealth
+
+		x = -12
+		y = 9
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_layered_defence }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2021.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_ew_antistealth"
+			VIE_airf_add_int = { V = 0.03 }
+			VIE_airf_add_det = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_iads_command
+		icon = GFX_focus_VIE_airf_iads_command
+
+		x = -12
+		y = 10
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 10
+
+		prerequisite = { focus = VIE_airf_ew_antistealth }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2024.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads_command"
+			unlock_decision_tooltip = VIE_airf_d5_capstone
+			VIE_airf_xp_20 = yes
+			VIE_airf_add_mis = { V = 0.02 }
+			VIE_airf_add_home = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_multirole
+		icon = GFX_focus_VIE_airf_multirole
+
+		x = 0
+		y = 7
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_operating_range }
+		mutually_exclusive = { focus = VIE_airf_iads focus = VIE_airf_unmanned }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole"
+			VIE_airf_add_rng = { V = 0.04 }
+			VIE_airf_branch_fit_wide = yes
+		}
+
+		ai_will_do = {
+			base = 40
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_multirole_fleet
+		icon = GFX_focus_VIE_airf_multirole_fleet
+
+		x = -6
+		y = 8
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_multirole }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2024.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_fleet"
+			VIE_airf_add_atk = { V = 0.03 }
+			VIE_airf_add_sup = { V = 0.02 }
+			VIE_airf_add_cas = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_sustainment
+		icon = GFX_focus_VIE_airf_sustainment
+
+		x = 0
+		y = 8
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_multirole }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2022.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_sustainment"
+			VIE_airf_add_mis = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_airlift_tanker
+		icon = GFX_focus_VIE_airf_airlift_tanker
+
+		x = 6
+		y = 8
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_multirole }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2026.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_airlift_tanker"
+			VIE_airf_add_rng = { V = 0.03 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_multirole_wing
+		icon = GFX_focus_VIE_airf_multirole_wing
+
+		x = 0
+		y = 9
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 10
+
+		prerequisite = { focus = VIE_airf_multirole_fleet }
+		prerequisite = { focus = VIE_airf_sustainment }
+		prerequisite = { focus = VIE_airf_airlift_tanker }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2028.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_wing"
+			unlock_decision_tooltip = VIE_airf_d5_capstone
+			VIE_airf_xp_20 = yes
+			VIE_airf_add_mis = { V = 0.02 }
+			VIE_airf_add_atk = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_unmanned
+		icon = GFX_focus_VIE_airf_unmanned
+
+		x = 16
+		y = 7
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_operating_range }
+		mutually_exclusive = { focus = VIE_airf_iads focus = VIE_airf_multirole }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_unmanned"
+			VIE_airf_add_det = { V = 0.01 }
+			VIE_airf_branch_fit_wide = yes
+		}
+
+		ai_will_do = {
+			base = 40
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_isr_uav
+		icon = GFX_focus_VIE_airf_isr_uav
+
+		x = 12
+		y = 8
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_unmanned }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2020.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_isr_uav"
+			VIE_airf_add_det = { V = 0.03 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_datalink
+		icon = GFX_focus_VIE_airf_datalink
+
+		x = 20
+		y = 8
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_unmanned }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2022.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_datalink"
+			VIE_airf_add_mis = { V = 0.02 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_strike_uav
+		icon = GFX_focus_VIE_airf_strike_uav
+
+		x = 12
+		y = 9
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_airf_isr_uav }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2025.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_strike_uav"
+			VIE_airf_add_atk = { V = 0.03 }
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_airf_teaming
+		icon = GFX_focus_VIE_airf_teaming
+
+		x = 16
+		y = 10
+		relative_position_id = VIE_airf_training_standardization
+
+		cost = 10
+
+		prerequisite = { focus = VIE_airf_datalink }
+		prerequisite = { focus = VIE_airf_strike_uav }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+
+		available = {
+			date > 2029.12.31
+			NOT = { has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_teaming"
+			unlock_decision_tooltip = VIE_airf_d5_capstone
+			VIE_airf_xp_20 = yes
+			VIE_airf_add_mis = { V = 0.02 }
+			VIE_airf_add_int = { V = 0.02 }
 		}
 
 		ai_will_do = {

@@ -1,0 +1,76 @@
+ideas = {
+	country = {
+
+		# Chi bao "dang thuc hien" cua D-A huan luyen luc luong tiem kich (timed idea, days = bien tam). Modifier gan nhu bang 0 (0,25%) de idea khong trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_airf_slot_heal biet con chuong trinh nao dang chay.
+		VIE_airf_prog_fighters = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.0025
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua D-B huan luyen luc luong ten lua phong khong va radar (timed idea, days = bien tam). Modifier gan nhu bang 0 (0,25%) de idea khong trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_airf_slot_heal biet con chuong trinh nao dang chay.
+		VIE_airf_prog_sam = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.0025
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua D-C phoi hop tiem kich - ten lua (timed idea, days = bien tam). Modifier gan nhu bang 0 (0,25%) de idea khong trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_airf_slot_heal biet con chuong trinh nao dang chay.
+		VIE_airf_prog_coord = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.0025
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua D-D co cau luc luong ban dau (timed idea, days = bien tam). Modifier gan nhu bang 0 (0,25%) de idea khong trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_airf_slot_heal biet con chuong trinh nao dang chay.
+		VIE_airf_prog_first = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.0025
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua D-E chuong trinh dinh nhanh (timed idea, days = bien tam). Modifier gan nhu bang 0 (0,25%) de idea khong trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_airf_slot_heal biet con chuong trinh nao dang chay.
+		VIE_airf_prog_capstone = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.0025
+			}
+		}
+
+		# Mo nhanh khong khop co cau luc luong da chon o D-D (A1/B1/C1). Timed idea 365 ngay.
+		VIE_airf_branch_mismatch_idea = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				air_mission_efficiency = -0.03
+				air_detection = -0.03
+			}
+		}
+	}
+}

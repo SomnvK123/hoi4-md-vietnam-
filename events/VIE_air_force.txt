@@ -1,0 +1,309 @@
+add_namespace = vie_air_force
+
+########################################################################
+# Truc 3 khong quan (luc luong). Thiet ke: VIE_air_truc3_review_and_plan.md (4.3, 4.4).
+#
+#   .1   D-A tiem kich: chon muc (co ban / chuyen sau)          .2   D-A: chon chuyen mon, khoi dong
+#   .10  D-B ten lua - radar: chon dinh huong (lich su / som)   .11  D-B: chon muc, khoi dong
+#   .30  D-D: chon co cau luc luong (dat VIE_airf_force_priority)
+#   .50 .51 (an) D-C giai doan 1, 2;  .61 .62 .63 .64 .65 ket thuc D-A, D-B, D-C, D-D, D-E (thong bao nhe)
+#
+# Cac event chon do nguoi choi chu dong bam Decision nen khong di qua VIE_popup_cd. Cuoi chuoi moi option xoa co cho (d<N>_pending).
+# Anh: tools/build_vie_air_event_pictures.py (Wikimedia Commons, giay phep trong assets/event_pictures/CREDITS.json). Event hoan tat dung anh generic.
+########################################################################
+
+# .1  D-A: muc dau tu
+country_event = {
+	id = vie_air_force.1
+	title = vie_air_force.1.t
+	desc = vie_air_force.1.d
+	picture = GFX_VIE_report_event_vie_air_force_1
+	is_triggered_only = yes
+
+	option = {
+		name = vie_air_force.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.1.a executed"
+		set_variable = { VIE_airf_fighter_level = 1 }
+		country_event = { id = vie_air_force.2 }
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	option = {
+		name = vie_air_force.1.b
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.1.b executed"
+		set_variable = { VIE_airf_fighter_level = 2 }
+		country_event = { id = vie_air_force.2 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# .2  D-A: chuyen mon (chuoi tu .1)
+country_event = {
+	id = vie_air_force.2
+	title = vie_air_force.2.t
+	desc = vie_air_force.2.d
+	picture = GFX_VIE_report_event_vie_air_force_2
+	is_triggered_only = yes
+
+	option = {
+		name = vie_air_force.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.2.a executed"
+		set_variable = { VIE_airf_fighter_specialty = 1 }
+		VIE_airf_d1_start = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	option = {
+		name = vie_air_force.2.b
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.2.b executed"
+		set_variable = { VIE_airf_fighter_specialty = 2 }
+		VIE_airf_d1_start = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# .10  D-B: dinh huong (lich su / som)
+country_event = {
+	id = vie_air_force.10
+	title = vie_air_force.10.t
+	desc = vie_air_force.10.d
+	picture = GFX_VIE_report_event_vie_air_force_10
+	is_triggered_only = yes
+
+	option = {
+		name = vie_air_force.10.a
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.10.a executed"
+		set_variable = { VIE_airf_sam_orientation = 1 }
+		country_event = { id = vie_air_force.11 }
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	option = {
+		name = vie_air_force.10.b
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.10.b executed"
+		set_variable = { VIE_airf_sam_orientation = 2 }
+		country_event = { id = vie_air_force.11 }
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# .11  D-B: muc dau tu (chuoi tu .10)
+country_event = {
+	id = vie_air_force.11
+	title = vie_air_force.11.t
+	desc = vie_air_force.11.d
+	picture = GFX_VIE_report_event_vie_air_force_11
+	is_triggered_only = yes
+
+	option = {
+		name = vie_air_force.11.a
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.11.a executed"
+		set_variable = { VIE_airf_sam_level = 1 }
+		VIE_airf_d2_start = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	option = {
+		name = vie_air_force.11.b
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.11.b executed"
+		set_variable = { VIE_airf_sam_level = 2 }
+		VIE_airf_d2_start = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# .30  D-D: co cau luc luong ban dau. Dat VIE_airf_force_priority ngay (focus A1/B1/C1 doc)
+country_event = {
+	id = vie_air_force.30
+	title = vie_air_force.30.t
+	desc = vie_air_force.30.d
+	picture = GFX_VIE_report_event_vie_air_force_30
+	is_triggered_only = yes
+
+	option = {
+		name = vie_air_force.30.a
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.a executed"
+		set_variable = { VIE_airf_force_priority = 1 }
+		VIE_airf_d4_start = yes
+		ai_chance = {
+			base = 90
+			modifier = { add = 100 VIE_ai_historical = yes }
+		}
+	}
+
+	option = {
+		name = vie_air_force.30.b
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.b executed"
+		set_variable = { VIE_airf_force_priority = 2 }
+		VIE_airf_d4_start = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	option = {
+		name = vie_air_force.30.c
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.c executed"
+		set_variable = { VIE_airf_force_priority = 3 }
+		VIE_airf_d4_start = yes
+		ai_chance = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# .61  Ket thuc D-A (thong bao nhe)
+country_event = {
+	id = vie_air_force.61
+	title = vie_air_force.61.t
+	desc = vie_air_force.61.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.61 (VIE_airf_d1_finish)"
+		VIE_airf_d1_finish = yes
+	}
+
+	option = {
+		name = vie_air_force.61.a
+		ai_chance = { base = 1 }
+	}
+}
+
+# .62  Ket thuc D-B (thong bao nhe)
+country_event = {
+	id = vie_air_force.62
+	title = vie_air_force.62.t
+	desc = vie_air_force.62.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.62 (VIE_airf_d2_finish)"
+		VIE_airf_d2_finish = yes
+	}
+
+	option = {
+		name = vie_air_force.62.a
+		ai_chance = { base = 1 }
+	}
+}
+
+# .50  D-C giai doan 1 (an)
+country_event = {
+	id = vie_air_force.50
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.50 (VIE_airf_d3_stage1)"
+		VIE_airf_d3_stage1 = yes
+	}
+}
+
+# .51  D-C giai doan 2 (an)
+country_event = {
+	id = vie_air_force.51
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.51 (VIE_airf_d3_stage2)"
+		VIE_airf_d3_stage2 = yes
+	}
+}
+
+# .63  Ket thuc D-C (thong bao nhe)
+country_event = {
+	id = vie_air_force.63
+	title = vie_air_force.63.t
+	desc = vie_air_force.63.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.63 (VIE_airf_d3_finish)"
+		VIE_airf_d3_finish = yes
+	}
+
+	option = {
+		name = vie_air_force.63.a
+		ai_chance = { base = 1 }
+	}
+}
+
+# .64  Ket thuc D-D (thong bao nhe)
+country_event = {
+	id = vie_air_force.64
+	title = vie_air_force.64.t
+	desc = vie_air_force.64.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.64 (VIE_airf_d4_finish)"
+		VIE_airf_d4_finish = yes
+	}
+
+	option = {
+		name = vie_air_force.64.a
+		ai_chance = { base = 1 }
+	}
+}
+
+# .65  Ket thuc D-E (thong bao nhe)
+country_event = {
+	id = vie_air_force.65
+	title = vie_air_force.65.t
+	desc = vie_air_force.65.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.65 (VIE_airf_d5_finish)"
+		VIE_airf_d5_finish = yes
+	}
+
+	option = {
+		name = vie_air_force.65.a
+		ai_chance = { base = 1 }
+	}
+}
