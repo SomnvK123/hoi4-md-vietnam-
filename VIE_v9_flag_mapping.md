@@ -353,3 +353,89 @@ Truc 3 khong ghi `VIE_cap_*` hay bien exp cua Truc 2; 1B chi cong exp qua helper
 `VIE_dec_*_active/_waiting/_progress`, `VIE_var_surface_readiness`, `VIE_var_sub_readiness`, `VIE_var_asw_skill`, `VIE_var_fleet_organization`
 (thay bang modifier that), `VIE_var_hulls_operational` (= `VIE_var_hulls_delivered`), `VIE_var_naval_budget_room` (= `treasury`),
 bo dem lop `VIE_var_hulls_<lop>` ngoai `carrier` va `destroyer`, `VIE_ext_nuclear_tech` (= trigger tren `VIE_nuclear_research`), `_complete`/`_offered`/`_missed` cua 1B.
+
+
+## Truc 1 khong quan - mua sam lich su (tien to VIE_ap_, namespace vie_air_proc)
+Thiet ke: `VIE_air_truc1_review_and_plan.md`. Code: `VIE_md_effects_air_proc.txt`, `VIE_md_triggers_air_proc.txt`, `events/VIE_air_proc.txt`, `VIE_md_ideas_air_proc.txt`.
+KHONG dung tien to `VIE_air_` (roster chi huy khong quan: character, `VIE_air_phase0_done`, `VIE_air_step_N`, `VIE_event_scheduler_air`).
+
+### Co (moi chuong trinh `<p>`)
+| Co | Dat boi | Doc boi |
+|---|---|---|
+| `VIE_ap_<p>_offered` | `VIE_ap_window_b/_c` (khi fire hoac fallback), `VIE_ap_catchup_mark` (noi chien) | `window_b/_c` (chi cho lap lai) |
+| `VIE_ap_<p>_gate_seen` | `window_b` khi cong dat nhung popup_cd ban | `window_b` (het cua so -> fallback im lang, khong `_missed`) |
+| `VIE_ap_<p>_missed` | `window_b/_c` khi het cua so ma cong chua tung dat | 1B (chua co) |
+| `VIE_ap_<p>_wait` (365 ngay) | option "hoan" cua `.2 .3 .9 .14` | `window_b` (tam dung chao lai) |
+| `VIE_ap_<p>_lead` (days = lead_min, 150-480) | `VIE_ap_reward_<p>_*` (luc ky hop dong) | `VIE_ap_tranche`, `VIE_ap_deliver_sam`, `VIE_ap_deliver_air_misc` (khong giao khi con co) |
+| `VIE_ap_<p>_dN` | giao hang tung dot (Class C) | chinh no (chong giao hai lan) |
+| `VIE_ap_su30_1_late` | `.3` option B (giao cham 6 thang) | `VIE_ap_tranche` |
+`<p>` = `india_dca s300 su30_1 yak52 su30_2 su30_3 pechora c295 su30_4 spyder radar mig21_retire india_train yak130 t6c l39ng`.
+Class C (khong event): `yak52`, `mig21_retire`, `l39ng`.
+
+### Co dau ra cho nhanh khac (chua ai doc)
+| Co / bien | Dat boi | Doc boi |
+|---|---|---|
+| `VIE_ap_su35_talks` | `.9` option B (cung ca fallback khong dat) | 1B P2 (gia Su-35 -10%) |
+| `VIE_ap_barak_research` | `.10` option B | 1B P8 (mo som) |
+| `VIE_ap_radar_viettel_fast` | `.11` option C | Truc 2 khong quan, tru Radar |
+| `VIE_ap_pechora_scope` (bien 1/2) | `.7` | Truc 2 khong quan, tru A31 bac 1 |
+| `VIE_ap_yak130_declined` | `.14` option B | `VIE_fb_ap_l39ng` (co doc ngay: dat 18 chiec) |
+| `VIE_ap_t6c_qty > 0` (da ky T-6C) | `.15` | chua (1B co the doc) |
+
+### Bien
+| Bien | Khoang | Dat boi | Doc boi |
+|---|---|---|---|
+| `VIE_var_air_delivered` | >= 0 | `VIE_ap_give_su30` (+1 moi tiem kich Su-30 giao; huan luyen, van tai khong tinh) | Truc 3 T5 (`> 11`), Truc 2 (chua co) |
+| `VIE_var_sam_lr` | >= 0 | `VIE_ap_deliver_sam` (+1 moi tieu doan S-300 giao; SPYDER va Pechora khong tinh) | Truc 3 D-E nhanh A, 1B P8 (chua co) |
+| `VIE_ap_<p>_qty` | so chiec / tieu doan / he thong dat mua; `> 0` = da ky hop dong (thay co `_contracted` cu) | `VIE_ap_reward_<p>_*`, `VIE_fb_ap_l39ng` | giao hang |
+| `VIE_af_air_defence_factor` | cong don | `VIE_ap_air_def` (S-300 2 x 0.01, Pechora 0.02, SPYDER 2 x 0.01; tran Truc 1 0.06) | `VIE_armed_forces_modifier` |
+| `VIE_af_air_detection` | cong don | `.11` (A 0.03 / B 0.05 / C 0.01) | `VIE_armed_forces_modifier` |
+
+### Anh huong ben ban
+`VIE_ap_seller_influence = { S = <TAG> PCT = 1 }` (MD `change_influence_percentage`, tag_index = ben ban, influence_target mac dinh = VIE) goi o cuoi moi reward `VIE_ap_reward_*` va `VIE_fb_ap_l39ng` (SOV, BLR, ISR, SPR, CZE, RAJ, USA). Khong goi o lua chon tu choi / hoan / tu dao tao.
+
+### Trigger (VIE_md_triggers_air_proc.txt)
+`VIE_ap_gate_sov/_raj/_rom/_blr/_spr/_isr/_cze/_usa/_none/_cze_or_isr` (doi tac con ton tai, khong chien tranh), (da bo `VIE_ap_has_bba/_has_got/_can_fund`: khong ai goi; `has_dlc` viet truc tiep nhu MD, option mo rong dung `check_variable = { treasury > X }`),
+`VIE_ap_training_standardized = { always = no }` (canh nguoc Truc 3 -> `.13` option C va `.15` gia re; doi khi co focus `VIE_airf_training_standardization`).
+
+### Idea (VIE_md_ideas_air_proc.txt)
+`VIE_ap_su30_no_munitions_idea` (`.5` A/C -> go o `.6`), `VIE_ap_su30_airframe_only_idea` (`.6` B, 730 ngay), `VIE_ap_mig21_extension_idea` (`.1` A -> go o E12),
+`VIE_ap_basic_training_idea` (yak52, 1095 ngay), `VIE_ap_mig21_retired_idea` (E12, 730 ngay), `VIE_ap_pilot_training_idea` (`.13` A/C).
+
+### Tag MD can nho
+An Do = `RAJ` (`IND` la Indonesia), Tay Ban Nha = `SPR` (khong co `ESP`). Cac tag con lai: `SOV ROM BLR CZE ISR USA`.
+
+### Da bo so voi bao cao
+`VIE_air_e15_done`, `VIE_air_e17_west` (E17 sang 1B), `vie_air.40-.43` (Funding Gate: chi option mo rong, dung `treasury` truc tiep), `vie_air.50` (giao hang an: nay la co `_dN` trong scheduler),
+`VIE_nav_add_*_exp`-kieu helper exp vao Truc 2 khong quan (khong co noi nhan; Truc 1 chi dat co ket qua), lua chon "A31 tu lam" cua E7 (vong R11), L-39NG trong E14 (trung E16).
+
+## Truc 2 khong quan - CNQP hang khong (tien to VIE_apm_, namespace vie_air_ind)
+Thiet ke: `VIE_air_truc2_review_and_plan.md`. Code: `VIE_md_triggers_air_ind.txt`, `VIE_md_effects_air_ind.txt`, `VIE_md_air_ind_decisions.txt`, `events/VIE_air_ind.txt`, `VIE_md_ideas_air_ind.txt`, 7 focus cuoi `VIE_md_focus.txt`, category `VIE_apm_category` (priority 87).
+
+### Bien
+| Bien | Khoang | Dat boi | Doc boi |
+|---|---|---|---|
+| `VIE_apm_a32_tier`, `_a31_tier`, `_radar_tier`, `_integ_tier`, `_uav_tier` | 0-3 | `VIE_apm_tier_up` (event an `.19 .29 .39 .49 .59`) | `VIE_apm_<tru>_ok`, `VIE_apm_mature_ok`, 1B (hybrid / noi dia P2 P3 P8 P9 P10), Truc 3 T5 doc focus `VIE_apm_a32` |
+| `VIE_var_apm_active` | 0-2 | `VIE_apm_program_start/_end`, `VIE_apm_slot_heal` (tu chua, on_monthly) | `VIE_apm_slot_free` |
+| `VIE_apm_<tru>_choice` | lua chon cua bac dang chay | event chon | `VIE_apm_<tru>_finish` |
+| `VIE_apm_radar_orient` (1 chong tang hinh / 2 uu tien 3D) | | `VIE_apm_radar_finish` bac 3 | 1B P10 (chua co) |
+| `VIE_apm_integ_c1`, `_c2`, `_c3` | lua chon moi bac | `VIE_apm_integ_finish` | 1B (chua co) |
+| `VIE_af_air_accidents_factor` (-0.03, -0.03, -0.02), `VIE_af_air_detection` (+0.02 x3), `VIE_af_air_defence_factor` (+0.01, +0.01, +0.02), `VIE_af_equipment_cost_multiplier_modifier` (-0.01) | cong don | `VIE_apm_add_*` | `VIE_armed_forces_modifier` |
+
+### Co
+| Co | Dat boi | Doc boi |
+|---|---|---|
+| `VIE_apm_<tru>_pending` (2 ngay) | Decision | `available` (chan bam hai lan) |
+| `VIE_apm_a32_su30_life` | A32 bac 2 option A | cong bac 3 va option A cua `.13` |
+| `VIE_apm_sam_production` | A31 bac 3 option B | 1B P8 (chua co) |
+| `VIE_apm_uav_loitering` | UAV bac 3 option B | Truc 3 C4 (chua co) |
+| `VIE_cap_mature_air_industry` | F7 `VIE_apm_mature` | 1B (chua co) |
+
+### Idea
+`VIE_apm_prog_a32/_a31/_radar/_integ/_uav` (timed idea chi bao dang chay; `VIE_apm_slot_heal` doc de dem lai slot).
+
+### Doc tu Truc 1
+`VIE_ap_pechora_scope` (cong va giam gia A31 bac 1), `VIE_ap_radar_viettel_fast` (giam gia Radar bac 1), `VIE_var_air_delivered`, `VIE_var_sam_lr`, `VIE_ap_spyder_qty`, `VIE_ap_c295_qty`, `VIE_ap_t6c_qty`, `VIE_ap_l39ng_qty`.
+
+### Da bo so voi bao cao
+15 Decision `fire_only_once` (thay bang 5 Decision lap lai), `VIE_var_a32_tier` va ten tran khac (doi sang `VIE_apm_*`), hook `VIE_collapse_aftermath` (da bo, slot tu chua), "gia thay the ten lua" (khong co token MD), exp tu Truc 1 (Truc 1 chi dat co ket qua).

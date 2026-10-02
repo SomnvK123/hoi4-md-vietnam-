@@ -81,3 +81,11 @@ VIE_scs_cooperation_category = {
 	priority = 88
 	visible = { has_completed_focus = VIE_scs_maritime_cooperation }
 }
+
+# Truc 2 khong quan (CNQP hang khong - phong khong): 5 Decision lap lai theo bac (VIE_md_air_ind_decisions.txt). Cong la Focus F1
+# (VIE_apm_law). priority 87: duoi cac category quan su khac (88 la hop tac an ninh bien, 89 la 1B hai quan).
+VIE_apm_category = {
+	allowed = { original_tag = VIE }
+	priority = 87
+	visible = { has_completed_focus = VIE_apm_law }
+}

@@ -1029,4 +1029,49 @@ Thong so thang `VIE_nf_*` la gia tri khoi diem; ngay co moc T5 (Lu doan 162/167)
 
 ## Removed 2026-10-02: mod-driven collapse / civil war
 The mod no longer starts a collapse or a civil war. Removed: events `vie_col.1/.2/.4/.6/.8`, `vie_int.7/.8`, `vie_news.9`; effects `VIE_collapse_check`, `VIE_col_pick_rebel`, `VIE_col_start_civil_war`; triggers `VIE_collapse_pole`, `VIE_collapse_stability`, `VIE_crisis_count_ge_2`; ideas `VIE_post_collapse_idea`, `VIE_china_orbit_idea`; flag `VIE_democracy_path_open`. Older checklist items above that mention them no longer apply.
-Kept: `on_civil_war_end` -> `VIE_civil_war_end` (clears the rebel flag, `VIE_catch_up_schedule`, slot recounts, party balance) for any civil war started by the game or by Millennium Dawn.
+Not kept (checked 2026-10-02): there is no `on_civil_war_end` / `VIE_civil_war_end` / `VIE_collapse_aftermath` / recount in the code, and none is planned. Slot counters must heal themselves (see VIE_air_truc2_review_and_plan.md A3).
+
+## Air procurement (Truc 1 khong quan, namespace vie_air_proc, buoc 1-6), not yet run in game
+Design and review: `VIE_air_truc1_review_and_plan.md`. Static balance: `python tools/audit/air_proc_balance.py` (must print ALL PASS; it also cross-checks the scheduler windows in `VIE_md_effects_air_proc.txt`).
+Run every item twice: with / without By Blood Alone, and with / without Gotterdammerung.
+- [ ] `error.log`: grep `vie_air_proc`, `VIE_ap_`, `VIE_fb_ap`, `equipment`, `variant`, `sam_missile`, `stockpile`, `technology`.
+- [ ] **T0 (template parameters):** the scheduler uses `$P$ $GATE$ $N$ $FROM$ $END$` templates (`VIE_ap_window_b/_c`, `VIE_ap_tranche`, `VIE_ap_catchup_mark`). `effect VIE_event_scheduler_air_proc = yes`, then play to 2004-01: popup `vie_air_proc.3` and flag `VIE_ap_su30_1_offered`. If parameters inside flag/effect names do not expand, rewrite the templates by hand per program (like naval).
+- [ ] **T1 (BBA Su-30):** after `.3` option A and 2004-11 the stockpile holds 4 aircraft named "Su-30" (SOV variant), usable in a new air wing. Non-BBA: 4 `AS_Fighter2`. `VIE_var_air_delivered` = 4 (`effect` can read it with `show_variable` / tooltip).
+- [ ] Schedule: Su-30 totals 8 / 12 / 12 across 2010-12 ... 2016-02, `VIE_var_air_delivered` = 36 by 2016-02; > 11 by 2011-06.
+- [ ] **T3 (GOT SAM):** `.2` option A: tech SAM1+SAM2 present, 62 `sam_missile_equipment_3` in 2005-08 and again 2006-12, `VIE_var_sam_lr` = 2. Without GOT: no error, only `VIE_af_air_defence_factor` +0.02 and `VIE_var_sam_lr` = 2. `.7`: 60 (scope 2) or 30 `sam_missile_equipment_2` in 2011-06. `.10`: 48, 48 (24 if 3 systems), 24.
+- [ ] **T4 (T-6C):** BBA, `.15` A then 2024-11: 5 aircraft appear without `variant_name`. If nothing appears, switch `VIE_ap_give_t6c` to `variant_name = "Aero L-39"` producer CZE.
+- [ ] Class C: `yak52` (2007), `mig21_retire` (2016, +0.03 bn, idea `VIE_ap_mig21_retired_idea`, `VIE_ap_mig21_extension_idea` removed), `l39ng` (2024-08/2025-03, 12 or 18 aircraft): no popup.
+- [ ] Wait option: `.3` C then nothing for 365 days, popup again; `.14` C same. After the window ends with no offer: `VIE_ap_<p>_missed`.
+- [ ] `effect set_country_flag = { flag = VIE_popup_cd days = 45 }` in 2004-01: `.3` slips a month; held to 2005-12: silent fallback gives the 4 aircraft, flag `_offered` set, no `_missed`.
+- [ ] Remove SOV by console before 2008: `su30_2/3/4` and `s300` get `_missed`, no popup, no error.
+- [ ] Civil war: `effect set_variable = { VIE_catch_up = 1 }` then `effect VIE_event_scheduler_air_proc = yes`: no popup, no aircraft, `_offered` flags set.
+- [ ] Money: treasury / debt after `.6` A (1.00 bn: 0.60 treasury, 0.40 debt) and `.9` A; debt is the `debt` variable, not `treasury`.
+- [ ] Pop-ups per year: 2004 (`.2`, `.3`), 2009 (`.6`, `.7`), 2013 (`.8`, `.9`, `.11`) are the air additions not yet measured; target <= 7. Lever: demote `.8`, `.13`, `.10`, `.11` to Class C (`VIE_ap_window_c`).
+- [ ] Reserved flags nobody reads yet (Truc 2 / 1B): `VIE_ap_pechora_scope`, `VIE_ap_radar_viettel_fast`, `VIE_ap_su35_talks`, `VIE_ap_barak_research`. `VIE_ap_yak130_declined` is read by `l39ng` (18 aircraft).
+- [ ] Lead time: sign `.3` in 2005-11 (late window): no Su-30 for ~300 days after signing even though the date is past; `VIE_ap_<p>_lead` flag visible, then deliveries run.
+- [ ] Idea `VIE_ap_su30_no_munitions_idea`: sign `.6` first (console), then `.5` A: idea is NOT added. Remove SOV before 2009: `su30_3_missed`, the idea (if present) is cleared next month.
+- [ ] SOV removed after signing `.9`: deliveries still arrive as generic aircraft (no variant, no producer); `VIE_var_air_delivered` still counts.
+- [ ] S-300 delivered (2005) before finishing `VIE_modernize_vpa`: `VIE_armed_forces_modifier` is attached by `VIE_ap_ensure_af_modifier` and the later focus does not add it twice.
+- [ ] Influence: each signed contract adds 1% influence of the seller (SOV, BLR, ISR, SPR, CZE, RAJ, USA) over VIE via MD `change_influence_percentage` (`effect` check in the influence screen; `error.log` has no `Error Code: 5001`). Seller gone: skipped silently.
+- [ ] Event pictures: each `vie_air_proc.N` popup shows its own photo (`GFX_VIE_report_event_vie_air_proc_N`, 210x176 DDS); `error.log` has no `GFX_VIE_report_event_vie_air_proc` / `texturefile` errors. `.3` and `.5` show a small watermark from the source photo (consider swapping).
+
+## Air industry (Truc 2 khong quan, namespace vie_air_ind, buoc 1-8), not yet run in game
+Design and review: `VIE_air_truc2_review_and_plan.md`. Static balance: `python tools/audit/air_ind_balance.py` (must print ALL PASS; it also cross-checks every event cost/duration in `events/VIE_air_ind.txt`).
+Run twice: with / without Arms Against Tyranny (MIO), and with / without By Blood Alone and Gotterdammerung (no effect on this axis, but Truc 1 flags feed it).
+- [ ] `error.log`: grep `vie_air_ind`, `VIE_apm_`, `add_mio_size`, `mio:`, `round_temp_variable`, `GFX_focus_generic`.
+- [ ] Focus tree: 7 focuses at x 290-296, y 3-8 (F1 `VIE_apm_law` 2009; F2 `VIE_apm_a32` 2011; F3 `VIE_apm_a31`; F4 `VIE_apm_radar` 2011; F5 `VIE_apm_integration` 2015 after two of F2/F3/F4; F6 `VIE_apm_uav` 2018; F7 `VIE_apm_mature` 2027). F1 done -> category `VIE_apm_category` appears.
+- [ ] Decision repeatable: `VIE_apm_d_a32` after F2 (2011): click -> event `.11`; pick -> Decision greys (timed idea `VIE_apm_prog_a32`), 50 PP, treasury -0.15/-0.08; after 12/24 months a minor notice `.19`, `VIE_apm_a32_tier` = 1, accidents -3% (`VIE_af_air_accidents_factor`), Decision shows again for tier 2 (gate 2017).
+- [ ] Double click: clicking the Decision twice in the same day does not start two programmes (`VIE_apm_a32_pending`, cleared by every option, 30-day fallback).
+- [ ] Slot: A32 + A31 running -> Radar greyed with the slot tooltip. `effect remove_ideas = VIE_apm_prog_a32` then wait a month: `VIE_var_apm_active` heals (`VIE_apm_slot_heal`, on_monthly).
+- [ ] Truc 1 gates: no Pechora contract (`VIE_ap_pechora_scope` = 0) -> A31 tier 1 greyed; scope 2 -> cost x0.8 and -3 months. `VIE_ap_radar_viettel_fast` -> radar tier 1 cheaper. A32 tier 3 needs `VIE_var_air_delivered` > 11 and (`VIE_apm_a32_su30_life` or a C-295M order). Integration tier 1 needs `VIE_ap_spyder_qty` > 0; tier 3 a T-6C or L-39NG order.
+- [ ] A32 tier 2 option B (Su-22/Su-27 only), then tier 3 with no C-295M: the Decision stays greyed (cannot start a programme with no option). Tier 3 option A needs `VIE_apm_a32_su30_life`.
+- [ ] MIO (with AAT): Viettel MIO size +1 after A31 tier 2, A31 tier 3, Radar tier 2, UAV tier 2 (total +4); no error without AAT. Check the MD size cap is not exceeded.
+- [ ] Modifiers visible in `VIE_armed_forces_modifier`: accidents -8%, detection +6%, air defence +4%, upkeep -1% on the full path; modifier attached even before `VIE_modernize_vpa` (helper `VIE_ap_ensure_af_modifier`).
+- [ ] AI observe run to 2030: AI uses A32/A31/Radar/Integration, never UAV tier 2-3, never A31 tier 3 option B; no stuck slot; total spend ~3.1 bn.
+- [ ] F7 `VIE_apm_mature` opens only after 2026-12-31 and `VIE_apm_mature_ok` (a32 = 3, a31 >= 2, radar = 3, integ >= 2, uav >= 2); sets `VIE_cap_mature_air_industry`.
+- [ ] Reserved variables nobody reads yet: `VIE_apm_integ_c1/_c2/_c3`, `VIE_apm_radar_orient`, `VIE_apm_sam_production`, `VIE_apm_uav_loitering` (1B / Truc 3).
+- [ ] Event pictures (Truc 2): `.11 .12 .13 .21 .22 .23 .31 .32 .33 .41 .42 .43 .51 .52 .53` each show their own photo (`GFX_VIE_report_event_vie_air_ind_N`); no `texturefile` errors. Some are not Vietnamese equipment (S-75 Russia, Python-5 Israel, T-6C Germany, `.52` US-Vietnam drone training photo); replace if you find better Commons files.
+- [ ] Fallback gates (review fix #1): remove BLR (or declare war on it) before 2009 -> Pechora `_missed`, `VIE_ap_pechora_scope` = 0; A31 tier 1 still opens after 2012-12-31. Same for ISR/SPYDER (Integration tier 1 after 2016-12-31), no S-300 (`VIE_var_sam_lr` = 0: A31 tier 3 after 2022-12-31, Integration tier 2 after 2018-12-31), no T-6C/L-39NG (Integration tier 3 after 2026-12-31). F7 then still reachable.
+- [ ] Postpone option (review fix #6): `vie_air_proc.3.c`, `.9.c`, `.2.c`, `.14.c` hidden when less than one year of window is left (.3 after 2004-12-31, .9 after 2013-12-31, .2 after 2005-12-31, .14 after 2019-12-31).
+- [ ] Tooltips (review fix #2): radar/accident rewards show `Air Detection` / `Air Accidents Chance`, no raw key; modifier values update at once after a reward (`force_update_dynamic_modifier`, review fix #4) - if not needed, remove the lines.
+- [ ] Slot (review fix #5): leave a choice popup unanswered over a month tick -> `VIE_var_apm_active` is not reset while `VIE_apm_<p>_pending` is set; no third programme can start.

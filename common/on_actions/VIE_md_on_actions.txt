@@ -22,6 +22,8 @@ on_actions = {
 				VIE_event_scheduler_p17 = yes
 				VIE_event_scheduler_naval = yes
 				VIE_event_scheduler_air = yes
+				VIE_event_scheduler_air_proc = yes
+				VIE_apm_slot_heal = yes
 				VIE_ax_normalize = yes
 			}
 		}

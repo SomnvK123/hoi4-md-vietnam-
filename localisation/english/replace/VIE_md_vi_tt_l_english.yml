@@ -56,3 +56,6 @@
  VIE_tt_navy_submarine_attack_factor:0 "$MODIFIER_NAVY_SUBMARINE_ATTACK_FACTOR$: $RIGHT|+=%1$"
  VIE_tt_naval_strike_attack_factor:0 "$MODIFIER_NAVAL_STRIKE_ATTACK_FACTOR$: $RIGHT|+=%1$"
  VIE_tt_navy_personnel_cost:0 "Chi phí duy trì hải quân: $RIGHT|+=%1$"
+ ### Truc 2 khong quan: key rieng thay cho air_detection_tt / air_accidents_factor_tt (key chet).
+ VIE_tt_air_detection:0 "$MODIFIER_AIR_DETECTION$: $RIGHT|+=%1$"
+ VIE_tt_air_accidents_factor:0 "$MODIFIER_AIR_ACCIDENTS_FACTOR$: $RIGHT|-=%1$"

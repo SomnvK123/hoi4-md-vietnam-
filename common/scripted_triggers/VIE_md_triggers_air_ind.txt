@@ -1,0 +1,175 @@
+########################################################################
+# Truc 2 khong quan (cong nghiep quoc phong, namespace vie_air_ind) - cac gate dung chung.
+# Thiet ke: VIE_air_truc2_review_and_plan.md (Phan 3, buoc 1); bang bac: VIE_air_force_content_report.md 6.3.
+#
+# Moi bac co mot trigger rieng VIE_apm_<tru>_t<N>_ok ("cong de len bac N"), de Decision hien dung dieu kien con
+# thieu bang custom_trigger_tooltip. VIE_apm_<tru>_ok = hop cua ba bac, chinh xac theo bac hien tai.
+# Bac la bien VIE_apm_<tru>_tier (0-3; bien chua dat = 0). Tien to VIE_apm_ (VIE_air_ da bi roster chi huy chiem).
+#
+# Doc tu Truc 1 (khong viet nguoc): VIE_ap_pechora_scope, VIE_ap_spyder_qty, VIE_ap_t6c_qty, VIE_ap_l39ng_qty,
+# VIE_var_air_delivered, VIE_var_sam_lr. Cac focus F1-F7 (VIE_apm_law ...) do buoc 2 tao; truoc do live.py bao thieu focus.
+# Tru: a32 (Nha may A32), a31 (Nha may A31), radar (Viettel), integ (tich hop), uav.
+########################################################################
+
+# ---------------------------------------------------------------------
+# Cho trong chuong trinh: toi da 2 chay cung luc (VIE_var_apm_active, tu chua boi VIE_apm_slot_heal).
+# ---------------------------------------------------------------------
+VIE_apm_slot_free = {
+	check_variable = { VIE_var_apm_active < 2 }
+}
+
+# ---------------------------------------------------------------------
+# Tru 1 - A32 (dai tu khung may bay)
+# ---------------------------------------------------------------------
+VIE_apm_a32_t1_ok = {
+	has_completed_focus = VIE_apm_a32
+	date > 2010.12.31
+}
+VIE_apm_a32_t2_ok = {
+	date > 2016.12.31
+}
+VIE_apm_a32_t3_ok = {
+	date > 2023.12.31
+	check_variable = { VIE_var_air_delivered > 11 }
+	# it nhat mot huong phai chon duoc (event .13): Su-30MK2 (can co su30_life tu bac 2 option A) hoac C-295M (Truc 1 .8)
+	OR = {
+		has_country_flag = VIE_apm_a32_su30_life
+		check_variable = { VIE_ap_c295_qty > 0 }
+	}
+}
+VIE_apm_a32_ok = {
+	OR = {
+		AND = { check_variable = { VIE_apm_a32_tier = 0 } VIE_apm_a32_t1_ok = yes }
+		AND = { check_variable = { VIE_apm_a32_tier = 1 } VIE_apm_a32_t2_ok = yes }
+		AND = { check_variable = { VIE_apm_a32_tier = 2 } VIE_apm_a32_t3_ok = yes }
+	}
+}
+
+# ---------------------------------------------------------------------
+# Tru 2 - A31 (ten lua phong khong). Bac 1 doc hop dong Pechora cua Truc 1 (E7).
+# ---------------------------------------------------------------------
+VIE_apm_a31_t1_ok = {
+	has_completed_focus = VIE_apm_a31
+	# hop dong Pechora (Truc 1 .7) hoac, neu bo lo / doi tac mat, tu phat trien sau cua so
+	OR = {
+		check_variable = { VIE_ap_pechora_scope > 0 }
+		date > 2012.12.31
+	}
+}
+VIE_apm_a31_t2_ok = {
+	date > 2012.12.31
+}
+VIE_apm_a31_t3_ok = {
+	date > 2020.12.31
+	# S-300 giao that (Truc 1) hoac tu phat trien neu khong co
+	OR = {
+		check_variable = { VIE_var_sam_lr > 0 }
+		date > 2022.12.31
+	}
+}
+VIE_apm_a31_ok = {
+	OR = {
+		AND = { check_variable = { VIE_apm_a31_tier = 0 } VIE_apm_a31_t1_ok = yes }
+		AND = { check_variable = { VIE_apm_a31_tier = 1 } VIE_apm_a31_t2_ok = yes }
+		AND = { check_variable = { VIE_apm_a31_tier = 2 } VIE_apm_a31_t3_ok = yes }
+	}
+}
+
+# ---------------------------------------------------------------------
+# Tru 3 - Radar va chi huy - dieu khien (Viettel)
+# ---------------------------------------------------------------------
+VIE_apm_radar_t1_ok = {
+	has_completed_focus = VIE_apm_radar
+	date > 2013.12.31
+}
+VIE_apm_radar_t2_ok = {
+	date > 2018.12.31
+}
+VIE_apm_radar_t3_ok = {
+	date > 2023.12.31
+}
+VIE_apm_radar_ok = {
+	OR = {
+		AND = { check_variable = { VIE_apm_radar_tier = 0 } VIE_apm_radar_t1_ok = yes }
+		AND = { check_variable = { VIE_apm_radar_tier = 1 } VIE_apm_radar_t2_ok = yes }
+		AND = { check_variable = { VIE_apm_radar_tier = 2 } VIE_apm_radar_t3_ok = yes }
+	}
+}
+
+# ---------------------------------------------------------------------
+# Tru 4 - Tich hop he thong va vu khi. Bac 1: Python-5/Derby den cung SPYDER; bac 3: tieu chuan phuong Tay.
+# ---------------------------------------------------------------------
+VIE_apm_integ_t1_ok = {
+	has_completed_focus = VIE_apm_integration
+	OR = {
+		check_variable = { VIE_ap_spyder_qty > 0 }
+		date > 2016.12.31
+	}
+}
+VIE_apm_integ_t2_ok = {
+	OR = {
+		check_variable = { VIE_var_sam_lr > 0 }
+		date > 2018.12.31
+	}
+	check_variable = { VIE_apm_radar_tier > 0 }
+}
+VIE_apm_integ_t3_ok = {
+	date > 2024.12.31
+	# T-6C / L-39NG (Truc 1) hoac, neu khong mua, sau khi cua so dong
+	OR = {
+		check_variable = { VIE_ap_t6c_qty > 0 }
+		check_variable = { VIE_ap_l39ng_qty > 0 }
+		date > 2026.12.31
+	}
+}
+VIE_apm_integ_ok = {
+	OR = {
+		AND = { check_variable = { VIE_apm_integ_tier = 0 } VIE_apm_integ_t1_ok = yes }
+		AND = { check_variable = { VIE_apm_integ_tier = 1 } VIE_apm_integ_t2_ok = yes }
+		AND = { check_variable = { VIE_apm_integ_tier = 2 } VIE_apm_integ_t3_ok = yes }
+	}
+}
+
+# ---------------------------------------------------------------------
+# Tru 5 - UAV. Bac 2-3 dua tren tin chua xac nhan [~]: AI chi di khi VIE_ai_free (xu ly o ai_will_do cua Decision).
+# ---------------------------------------------------------------------
+VIE_apm_uav_t1_ok = {
+	has_completed_focus = VIE_apm_uav
+	date > 2017.12.31
+}
+VIE_apm_uav_t2_ok = {
+	date > 2022.12.31
+	check_variable = { VIE_apm_radar_tier > 0 }
+}
+VIE_apm_uav_t3_ok = {
+	date > 2025.12.31
+}
+VIE_apm_uav_ok = {
+	OR = {
+		AND = { check_variable = { VIE_apm_uav_tier = 0 } VIE_apm_uav_t1_ok = yes }
+		AND = { check_variable = { VIE_apm_uav_tier = 1 } VIE_apm_uav_t2_ok = yes }
+		AND = { check_variable = { VIE_apm_uav_tier = 2 } VIE_apm_uav_t3_ok = yes }
+	}
+}
+
+# ---------------------------------------------------------------------
+# F5 (Tich hop) can it nhat HAI trong ba focus F2-F4: prerequisite chi co OR/AND, nen kiem them bang trigger nay.
+# ---------------------------------------------------------------------
+VIE_apm_two_of_three = {
+	OR = {
+		AND = { has_completed_focus = VIE_apm_a32 has_completed_focus = VIE_apm_a31 }
+		AND = { has_completed_focus = VIE_apm_a32 has_completed_focus = VIE_apm_radar }
+		AND = { has_completed_focus = VIE_apm_a31 has_completed_focus = VIE_apm_radar }
+	}
+}
+
+# ---------------------------------------------------------------------
+# F7 (cong nghiep truong thanh): du bac o ca nam tru. Mot cho de doi nguong.
+# ---------------------------------------------------------------------
+VIE_apm_mature_ok = {
+	check_variable = { VIE_apm_a32_tier = 3 }
+	check_variable = { VIE_apm_a31_tier > 1 }
+	check_variable = { VIE_apm_radar_tier = 3 }
+	check_variable = { VIE_apm_integ_tier > 1 }
+	check_variable = { VIE_apm_uav_tier > 1 }
+}

@@ -1,0 +1,64 @@
+ideas = {
+	country = {
+
+		# Chi bao "dang thuc hien" cua tru A32 dai tu va keo dai nien han (timed idea, days = bien tam). Modifier rat nho de khong de trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_apm_slot_heal biet con chuong trinh nao dang chay.
+		VIE_apm_prog_a32 = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.02
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua tru A31 hien dai hoa ten lua phong khong (timed idea, days = bien tam). Modifier rat nho de khong de trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_apm_slot_heal biet con chuong trinh nao dang chay.
+		VIE_apm_prog_a31 = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.02
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua tru radar va chi huy - dieu khien Viettel (timed idea, days = bien tam). Modifier rat nho de khong de trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_apm_slot_heal biet con chuong trinh nao dang chay.
+		VIE_apm_prog_radar = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.02
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua tru tich hop he thong va vu khi da nguon (timed idea, days = bien tam). Modifier rat nho de khong de trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_apm_slot_heal biet con chuong trinh nao dang chay.
+		VIE_apm_prog_integ = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.02
+			}
+		}
+
+		# Chi bao "dang thuc hien" cua tru chuong trinh UAV noi dia (timed idea, days = bien tam). Modifier rat nho de khong de trong;
+		# thuong that nam o event an hoan tat. Dung de VIE_apm_slot_heal biet con chuong trinh nao dang chay.
+		VIE_apm_prog_uav = {
+			picture = army_planning
+			allowed_civil_war = { always = yes }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_air_factor = 0.02
+			}
+		}
+	}
+}
