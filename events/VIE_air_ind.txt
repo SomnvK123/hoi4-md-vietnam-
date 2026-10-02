@@ -20,12 +20,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.11.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.11.a executed"
-		VIE_apm_cost_set = { C = 0.15 }
+		set_temp_variable = { VIE_apm_cost = 0.15 }
 		VIE_apm_charge = yes
-		VIE_apm_time_set = { M = 12 }
+		set_temp_variable = { VIE_apm_months = 12 }
 		set_variable = { VIE_apm_a32_choice = 1 }
 		clr_country_flag = VIE_apm_a32_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a32 EV = 19 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a32 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.19 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -35,12 +39,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.11.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.11.b executed"
-		VIE_apm_cost_set = { C = 0.08 }
+		set_temp_variable = { VIE_apm_cost = 0.08 }
 		VIE_apm_charge = yes
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		set_variable = { VIE_apm_a32_choice = 2 }
 		clr_country_flag = VIE_apm_a32_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a32 EV = 19 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a32 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.19 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -60,12 +68,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.12.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.12.a executed"
-		VIE_apm_cost_set = { C = 0.20 }
+		set_temp_variable = { VIE_apm_cost = 0.20 }
 		VIE_apm_charge = yes
-		VIE_apm_time_set = { M = 30 }
+		set_temp_variable = { VIE_apm_months = 30 }
 		set_variable = { VIE_apm_a32_choice = 1 }
 		clr_country_flag = VIE_apm_a32_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a32 EV = 19 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a32 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.19 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -75,12 +87,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.12.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.12.b executed"
-		VIE_apm_cost_set = { C = 0.15 }
+		set_temp_variable = { VIE_apm_cost = 0.15 }
 		VIE_apm_charge = yes
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		set_variable = { VIE_apm_a32_choice = 2 }
 		clr_country_flag = VIE_apm_a32_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a32 EV = 19 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a32 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.19 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -101,12 +117,16 @@ country_event = {
 		name = vie_air_ind.13.a
 		trigger = { has_country_flag = VIE_apm_a32_su30_life }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.13.a executed"
-		VIE_apm_cost_set = { C = 0.30 }
+		set_temp_variable = { VIE_apm_cost = 0.30 }
 		VIE_apm_charge = yes
-		VIE_apm_time_set = { M = 30 }
+		set_temp_variable = { VIE_apm_months = 30 }
 		set_variable = { VIE_apm_a32_choice = 1 }
 		clr_country_flag = VIE_apm_a32_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a32 EV = 19 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a32 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.19 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -117,12 +137,16 @@ country_event = {
 		name = vie_air_ind.13.b
 		trigger = { check_variable = { VIE_ap_c295_qty > 0 } }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.13.b executed"
-		VIE_apm_cost_set = { C = 0.25 }
+		set_temp_variable = { VIE_apm_cost = 0.25 }
 		VIE_apm_charge = yes
-		VIE_apm_time_set = { M = 30 }
+		set_temp_variable = { VIE_apm_months = 30 }
 		set_variable = { VIE_apm_a32_choice = 2 }
 		clr_country_flag = VIE_apm_a32_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a32 EV = 19 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a32 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.19 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes has_country_flag = VIE_apm_a32_su30_life }
@@ -163,13 +187,17 @@ country_event = {
 		name = vie_air_ind.21.a
 		trigger = { VIE_ap_gate_blr = yes }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.21.a executed"
-		VIE_apm_cost_set = { C = 0.10 }
-		VIE_apm_time_set = { M = 18 }
+		set_temp_variable = { VIE_apm_cost = 0.10 }
+		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_disc_pechora = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 1 }
 		clr_country_flag = VIE_apm_a31_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a31 EV = 29 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a31 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.29 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -179,13 +207,17 @@ country_event = {
 	option = {
 		name = vie_air_ind.21.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.21.b executed"
-		VIE_apm_cost_set = { C = 0.04 }
-		VIE_apm_time_set = { M = 30 }
+		set_temp_variable = { VIE_apm_cost = 0.04 }
+		set_temp_variable = { VIE_apm_months = 30 }
 		VIE_apm_disc_pechora = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 2 }
 		clr_country_flag = VIE_apm_a31_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a31 EV = 29 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a31 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.29 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes VIE_ap_gate_blr = yes }
@@ -205,12 +237,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.22.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.22.a executed"
-		VIE_apm_cost_set = { C = 0.15 }
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_cost = 0.15 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 1 }
 		clr_country_flag = VIE_apm_a31_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a31 EV = 29 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a31 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.29 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -220,12 +256,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.22.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.22.b executed"
-		VIE_apm_cost_set = { C = 0.20 }
-		VIE_apm_time_set = { M = 30 }
+		set_temp_variable = { VIE_apm_cost = 0.20 }
+		set_temp_variable = { VIE_apm_months = 30 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 2 }
 		clr_country_flag = VIE_apm_a31_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a31 EV = 29 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a31 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.29 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -245,12 +285,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.23.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.23.a executed"
-		VIE_apm_cost_set = { C = 0.35 }
-		VIE_apm_time_set = { M = 36 }
+		set_temp_variable = { VIE_apm_cost = 0.35 }
+		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 1 }
 		clr_country_flag = VIE_apm_a31_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a31 EV = 29 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a31 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.29 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -261,12 +305,16 @@ country_event = {
 		name = vie_air_ind.23.b
 		trigger = { check_variable = { VIE_apm_radar_tier > 1 } }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.23.b executed"
-		VIE_apm_cost_set = { C = 0.45 }
-		VIE_apm_time_set = { M = 36 }
+		set_temp_variable = { VIE_apm_cost = 0.45 }
+		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 2 }
 		clr_country_flag = VIE_apm_a31_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_a31 EV = 29 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_a31 days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.29 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -306,13 +354,17 @@ country_event = {
 	option = {
 		name = vie_air_ind.31.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.31.a executed"
-		VIE_apm_cost_set = { C = 0.10 }
-		VIE_apm_time_set = { M = 18 }
+		set_temp_variable = { VIE_apm_cost = 0.10 }
+		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_disc_radar_fast = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 1 }
 		clr_country_flag = VIE_apm_radar_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_radar EV = 39 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_radar days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.39 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -322,13 +374,17 @@ country_event = {
 	option = {
 		name = vie_air_ind.31.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.31.b executed"
-		VIE_apm_cost_set = { C = 0.14 }
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_cost = 0.14 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_disc_radar_fast = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 2 }
 		clr_country_flag = VIE_apm_radar_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_radar EV = 39 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_radar days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.39 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -348,12 +404,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.32.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.32.a executed"
-		VIE_apm_cost_set = { C = 0.18 }
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_cost = 0.18 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 1 }
 		clr_country_flag = VIE_apm_radar_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_radar EV = 39 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_radar days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.39 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -363,12 +423,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.32.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.32.b executed"
-		VIE_apm_cost_set = { C = 0.22 }
-		VIE_apm_time_set = { M = 18 }
+		set_temp_variable = { VIE_apm_cost = 0.22 }
+		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 2 }
 		clr_country_flag = VIE_apm_radar_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_radar EV = 39 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_radar days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.39 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -388,12 +452,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.33.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.33.a executed"
-		VIE_apm_cost_set = { C = 0.30 }
-		VIE_apm_time_set = { M = 30 }
+		set_temp_variable = { VIE_apm_cost = 0.30 }
+		set_temp_variable = { VIE_apm_months = 30 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 1 }
 		clr_country_flag = VIE_apm_radar_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_radar EV = 39 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_radar days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.39 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -403,12 +471,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.33.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.33.b executed"
-		VIE_apm_cost_set = { C = 0.30 }
-		VIE_apm_time_set = { M = 30 }
+		set_temp_variable = { VIE_apm_cost = 0.30 }
+		set_temp_variable = { VIE_apm_months = 30 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 2 }
 		clr_country_flag = VIE_apm_radar_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_radar EV = 39 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_radar days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.39 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -448,12 +520,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.41.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.41.a executed"
-		VIE_apm_cost_set = { C = 0.12 }
-		VIE_apm_time_set = { M = 18 }
+		set_temp_variable = { VIE_apm_cost = 0.12 }
+		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 1 }
 		clr_country_flag = VIE_apm_integ_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_integ EV = 49 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_integ days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.49 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -463,12 +539,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.41.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.41.b executed"
-		VIE_apm_cost_set = { C = 0.12 }
-		VIE_apm_time_set = { M = 18 }
+		set_temp_variable = { VIE_apm_cost = 0.12 }
+		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 2 }
 		clr_country_flag = VIE_apm_integ_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_integ EV = 49 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_integ days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.49 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -488,12 +568,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.42.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.42.a executed"
-		VIE_apm_cost_set = { C = 0.25 }
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_cost = 0.25 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 1 }
 		clr_country_flag = VIE_apm_integ_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_integ EV = 49 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_integ days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.49 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -503,12 +587,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.42.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.42.b executed"
-		VIE_apm_cost_set = { C = 0.32 }
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_cost = 0.32 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 2 }
 		clr_country_flag = VIE_apm_integ_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_integ EV = 49 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_integ days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.49 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -528,12 +616,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.43.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.43.a executed"
-		VIE_apm_cost_set = { C = 0.40 }
-		VIE_apm_time_set = { M = 36 }
+		set_temp_variable = { VIE_apm_cost = 0.40 }
+		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 1 }
 		clr_country_flag = VIE_apm_integ_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_integ EV = 49 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_integ days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.49 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -543,12 +635,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.43.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.43.b executed"
-		VIE_apm_cost_set = { C = 0.40 }
-		VIE_apm_time_set = { M = 36 }
+		set_temp_variable = { VIE_apm_cost = 0.40 }
+		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 2 }
 		clr_country_flag = VIE_apm_integ_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_integ EV = 49 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_integ days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.49 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -588,12 +684,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.51.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.51.a executed"
-		VIE_apm_cost_set = { C = 0.05 }
-		VIE_apm_time_set = { M = 12 }
+		set_temp_variable = { VIE_apm_cost = 0.05 }
+		set_temp_variable = { VIE_apm_months = 12 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 1 }
 		clr_country_flag = VIE_apm_uav_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_uav EV = 59 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_uav days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.59 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -612,12 +712,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.52.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.52.a executed"
-		VIE_apm_cost_set = { C = 0.15 }
-		VIE_apm_time_set = { M = 24 }
+		set_temp_variable = { VIE_apm_cost = 0.15 }
+		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 1 }
 		clr_country_flag = VIE_apm_uav_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_uav EV = 59 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_uav days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.59 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -627,12 +731,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.52.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.52.b executed"
-		VIE_apm_cost_set = { C = 0.20 }
-		VIE_apm_time_set = { M = 18 }
+		set_temp_variable = { VIE_apm_cost = 0.20 }
+		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 2 }
 		clr_country_flag = VIE_apm_uav_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_uav EV = 59 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_uav days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.59 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -652,12 +760,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.53.a
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.53.a executed"
-		VIE_apm_cost_set = { C = 0.30 }
-		VIE_apm_time_set = { M = 36 }
+		set_temp_variable = { VIE_apm_cost = 0.30 }
+		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 1 }
 		clr_country_flag = VIE_apm_uav_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_uav EV = 59 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_uav days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.59 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -667,12 +779,16 @@ country_event = {
 	option = {
 		name = vie_air_ind.53.b
 		log = "[GetDateText]: [This.GetName]: Event vie_air_ind.53.b executed"
-		VIE_apm_cost_set = { C = 0.36 }
-		VIE_apm_time_set = { M = 36 }
+		set_temp_variable = { VIE_apm_cost = 0.36 }
+		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 2 }
 		clr_country_flag = VIE_apm_uav_pending
-		VIE_apm_start_timer = { IDEA = VIE_apm_prog_uav EV = 59 }
+		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+		multiply_temp_variable = { VIE_apm_end_days = 30 }
+		round_temp_variable = VIE_apm_end_days
+		add_timed_idea = { idea = VIE_apm_prog_uav days = VIE_apm_end_days }
+		country_event = { id = vie_air_ind.59 days = VIE_apm_end_days }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }

@@ -7,6 +7,11 @@ VIE_ai_historical = {
 	always = yes
 }
 
+# Decisions marked "AI only when VIE_ai_free" stay off for the AI (historical line is permanent).
+VIE_ai_free = {
+	always = no
+}
+
 # Door D3 (security state): stability below 40%
 VIE_gate_security_stability = {
 	has_stability < 0.40

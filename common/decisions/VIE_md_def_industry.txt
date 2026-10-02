@@ -100,13 +100,12 @@ VIE_def_industry_category = {
 				bonus = 0.30
 				uses = 2
 				category = CAT_artillery
-				category = CAT_artillery_ammunition
 			}
 			add_tech_bonus = {
 				name = VIE_dec_z_factories_inf
 				bonus = 0.50
 				uses = 2
-				category = CAT_infantry_weapons
+				category = CAT_inf_wep
 			}
 		}
 
@@ -172,7 +171,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_stv_tech
 				bonus = 1.0
 				uses = 1
-				category = CAT_infantry_weapons
+				category = CAT_inf_wep
 			}
 		}
 
@@ -215,7 +214,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_stv_tech
 				bonus = 1.0
 				uses = 1
-				category = CAT_infantry_weapons
+				category = CAT_inf_wep
 			}
 		}
 
@@ -323,7 +322,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_ammo_tech
 				bonus = 0.5
 				uses = 1
-				category = CAT_artillery_ammunition
+				category = CAT_artillery
 			}
 		}
 
@@ -382,7 +381,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_t54m_tech
 				bonus = 0.5
 				uses = 1
-				category = CAT_main_battle_tanks
+				category = CAT_mbt
 			}
 		}
 
@@ -443,7 +442,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_xcb01_tech
 				bonus = 0.5
 				uses = 2
-				category = CAT_infantry_fighting_vehicles
+				category = CAT_ifv
 			}
 		}
 
@@ -490,7 +489,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_xcb01_tech
 				bonus = 0.5
 				uses = 2
-				category = CAT_infantry_fighting_vehicles
+				category = CAT_ifv
 			}
 		}
 
@@ -545,7 +544,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_tl01_tech
 				bonus = 0.5
 				uses = 1
-				category = CAT_anti_air
+				category = CAT_aa
 			}
 		}
 
@@ -619,7 +618,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_k9_localization_tech
 				bonus = 0.5
 				uses = 1
-				category = CAT_artillery_ammunition
+				category = CAT_artillery
 			}
 		}
 

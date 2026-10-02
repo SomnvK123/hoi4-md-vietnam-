@@ -13,13 +13,41 @@ VIE_scs_pc_ok = {
 # It nhat mot doi tac co the tham cang (cong cua decision VIE_scs_d2_port_call).
 VIE_scs_pc_any = {
 	OR = {
-		VIE_scs_pc_ok = { T = JAP }
-		VIE_scs_pc_ok = { T = RAJ }
-		VIE_scs_pc_ok = { T = USA }
-		VIE_scs_pc_ok = { T = FRA }
-		VIE_scs_pc_ok = { T = AST }
-		VIE_scs_pc_ok = { T = SOV }
-		VIE_scs_pc_ok = { T = CHI }
+		AND = {
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+			NOT = { has_country_flag = VIE_scs_pc_JAP }
+		}
+		AND = {
+			country_exists = RAJ
+			NOT = { has_war_with = RAJ }
+			NOT = { has_country_flag = VIE_scs_pc_RAJ }
+		}
+		AND = {
+			country_exists = USA
+			NOT = { has_war_with = USA }
+			NOT = { has_country_flag = VIE_scs_pc_USA }
+		}
+		AND = {
+			country_exists = FRA
+			NOT = { has_war_with = FRA }
+			NOT = { has_country_flag = VIE_scs_pc_FRA }
+		}
+		AND = {
+			country_exists = AST
+			NOT = { has_war_with = AST }
+			NOT = { has_country_flag = VIE_scs_pc_AST }
+		}
+		AND = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+			NOT = { has_country_flag = VIE_scs_pc_SOV }
+		}
+		AND = {
+			country_exists = CHI
+			NOT = { has_war_with = CHI }
+			NOT = { has_country_flag = VIE_scs_pc_CHI }
+		}
 	}
 }
 

@@ -142,7 +142,7 @@ VIE_lf_fm2_reward = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_lf_tpl_mobile } }
 		set_country_flag = VIE_lf_tpl_mobile
-		add_division_template = {
+		division_template = {
 			name = "Cum Co dong"
 			regiments = {
 				armor_Bat = { x = 0 y = 0 }
@@ -192,7 +192,7 @@ VIE_lf_fd2_reward = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_lf_tpl_militia } }
 		set_country_flag = VIE_lf_tpl_militia
-		add_division_template = {
+		division_template = {
 			name = "Dan quan Khu vuc"
 			regiments = {
 				L_Inf_Bat = { x = 0 y = 0 }

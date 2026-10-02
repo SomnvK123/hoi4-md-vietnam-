@@ -23,46 +23,625 @@ VIE_event_scheduler_air_proc = {
 	if = {
 		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 		# ---- Su-30MK2 (buoc 3)
-		VIE_ap_window_b = { P = su30_1 GATE = sov N = 3 FROM = 2003.12.31 END = 2005.12.31 }
-		VIE_ap_window_b = { P = su30_2 GATE = sov N = 5 FROM = 2008.5.31 END = 2010.6.30 }
-		VIE_ap_window_b = { P = su30_3 GATE = sov N = 6 FROM = 2009.8.31 END = 2011.6.30 }
-		VIE_ap_window_b = { P = su30_4 GATE = sov N = 9 FROM = 2013.5.31 END = 2014.12.31 }
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_su30_1_offered }
+				NOT = { has_country_flag = VIE_ap_su30_1_missed }
+			}
+			if = {
+				limit = {
+					date > 2003.12.31
+					NOT = { date > 2005.12.31 }
+					NOT = { has_country_flag = VIE_ap_su30_1_wait }
+					VIE_ap_gate_sov = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_su30_1_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.3 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_1_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2005.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_su30_1_gate_seen }
+					set_country_flag = VIE_ap_su30_1_offered
+					VIE_fb_ap_su30_1 = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_1_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_su30_2_offered }
+				NOT = { has_country_flag = VIE_ap_su30_2_missed }
+			}
+			if = {
+				limit = {
+					date > 2008.5.31
+					NOT = { date > 2010.6.30 }
+					NOT = { has_country_flag = VIE_ap_su30_2_wait }
+					VIE_ap_gate_sov = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_su30_2_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.5 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_2_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2010.6.30 }
+				if = {
+					limit = { has_country_flag = VIE_ap_su30_2_gate_seen }
+					set_country_flag = VIE_ap_su30_2_offered
+					VIE_fb_ap_su30_2 = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_2_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_su30_3_offered }
+				NOT = { has_country_flag = VIE_ap_su30_3_missed }
+			}
+			if = {
+				limit = {
+					date > 2009.8.31
+					NOT = { date > 2011.6.30 }
+					NOT = { has_country_flag = VIE_ap_su30_3_wait }
+					VIE_ap_gate_sov = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_su30_3_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.6 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_3_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2011.6.30 }
+				if = {
+					limit = { has_country_flag = VIE_ap_su30_3_gate_seen }
+					set_country_flag = VIE_ap_su30_3_offered
+					VIE_fb_ap_su30_3 = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_3_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_su30_4_offered }
+				NOT = { has_country_flag = VIE_ap_su30_4_missed }
+			}
+			if = {
+				limit = {
+					date > 2013.5.31
+					NOT = { date > 2014.12.31 }
+					NOT = { has_country_flag = VIE_ap_su30_4_wait }
+					VIE_ap_gate_sov = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_su30_4_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.9 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_4_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2014.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_su30_4_gate_seen }
+					set_country_flag = VIE_ap_su30_4_offered
+					VIE_fb_ap_su30_4 = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_su30_4_missed
+				}
+			}
+		}
 		VIE_ap_deliver_su30 = yes
 		# ---- Ten lua phong khong (buoc 4)
-		VIE_ap_window_b = { P = s300 GATE = sov N = 2 FROM = 2004.2.29 END = 2006.12.31 }
-		VIE_ap_window_b = { P = pechora GATE = blr N = 7 FROM = 2008.12.31 END = 2012.12.31 }
-		VIE_ap_window_b = { P = spyder GATE = isr N = 10 FROM = 2014.12.31 END = 2016.12.31 }
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_s300_offered }
+				NOT = { has_country_flag = VIE_ap_s300_missed }
+			}
+			if = {
+				limit = {
+					date > 2004.2.29
+					NOT = { date > 2006.12.31 }
+					NOT = { has_country_flag = VIE_ap_s300_wait }
+					VIE_ap_gate_sov = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_s300_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.2 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_s300_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2006.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_s300_gate_seen }
+					set_country_flag = VIE_ap_s300_offered
+					VIE_fb_ap_s300 = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_s300_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_pechora_offered }
+				NOT = { has_country_flag = VIE_ap_pechora_missed }
+			}
+			if = {
+				limit = {
+					date > 2008.12.31
+					NOT = { date > 2012.12.31 }
+					NOT = { has_country_flag = VIE_ap_pechora_wait }
+					VIE_ap_gate_blr = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_pechora_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.7 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_pechora_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2012.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_pechora_gate_seen }
+					set_country_flag = VIE_ap_pechora_offered
+					VIE_fb_ap_pechora = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_pechora_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_spyder_offered }
+				NOT = { has_country_flag = VIE_ap_spyder_missed }
+			}
+			if = {
+				limit = {
+					date > 2014.12.31
+					NOT = { date > 2016.12.31 }
+					NOT = { has_country_flag = VIE_ap_spyder_wait }
+					VIE_ap_gate_isr = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_spyder_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.10 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_spyder_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2016.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_spyder_gate_seen }
+					set_country_flag = VIE_ap_spyder_offered
+					VIE_fb_ap_spyder = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_spyder_missed
+				}
+			}
+		}
 		VIE_ap_deliver_sam = yes
 		# ---- Huan luyen, van tai, radar (buoc 5)
-		VIE_ap_window_b = { P = india_dca GATE = raj N = 1 FROM = 2000.2.29 END = 2002.12.31 }
-		VIE_ap_window_c = { P = yak52 GATE = rom FROM = 2006.12.31 END = 2009.12.31 }
-		VIE_ap_window_b = { P = c295 GATE = spr N = 8 FROM = 2012.12.31 END = 2014.12.31 }
-		VIE_ap_window_b = { P = radar GATE = cze_or_isr N = 11 FROM = 2012.12.31 END = 2015.12.31 }
-		VIE_ap_window_c = { P = mig21_retire GATE = none FROM = 2015.12.31 END = 2017.12.31 }
-		VIE_ap_window_b = { P = india_train GATE = raj N = 13 FROM = 2016.11.30 END = 2018.12.31 }
-		VIE_ap_window_b = { P = yak130 GATE = sov N = 14 FROM = 2016.12.31 END = 2020.12.31 }
-		VIE_ap_window_b = { P = t6c GATE = usa N = 15 FROM = 2021.12.31 END = 2024.12.31 }
-		VIE_ap_window_c = { P = l39ng GATE = cze FROM = 2021.12.31 END = 2024.12.31 }
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_india_dca_offered }
+				NOT = { has_country_flag = VIE_ap_india_dca_missed }
+			}
+			if = {
+				limit = {
+					date > 2000.2.29
+					NOT = { date > 2002.12.31 }
+					NOT = { has_country_flag = VIE_ap_india_dca_wait }
+					VIE_ap_gate_raj = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_india_dca_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.1 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_india_dca_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2002.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_india_dca_gate_seen }
+					set_country_flag = VIE_ap_india_dca_offered
+					VIE_fb_ap_india_dca = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_india_dca_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_yak52_offered }
+				NOT = { has_country_flag = VIE_ap_yak52_missed }
+			}
+			if = {
+				limit = {
+					date > 2006.12.31
+					NOT = { date > 2009.12.31 }
+					VIE_ap_gate_rom = yes
+				}
+				set_country_flag = VIE_ap_yak52_offered
+				VIE_fb_ap_yak52 = yes
+			}
+			else_if = {
+				limit = { date > 2009.12.31 }
+				set_country_flag = VIE_ap_yak52_missed
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_c295_offered }
+				NOT = { has_country_flag = VIE_ap_c295_missed }
+			}
+			if = {
+				limit = {
+					date > 2012.12.31
+					NOT = { date > 2014.12.31 }
+					NOT = { has_country_flag = VIE_ap_c295_wait }
+					VIE_ap_gate_spr = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_c295_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.8 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_c295_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2014.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_c295_gate_seen }
+					set_country_flag = VIE_ap_c295_offered
+					VIE_fb_ap_c295 = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_c295_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_radar_offered }
+				NOT = { has_country_flag = VIE_ap_radar_missed }
+			}
+			if = {
+				limit = {
+					date > 2012.12.31
+					NOT = { date > 2015.12.31 }
+					NOT = { has_country_flag = VIE_ap_radar_wait }
+					VIE_ap_gate_cze_or_isr = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_radar_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.11 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_radar_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2015.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_radar_gate_seen }
+					set_country_flag = VIE_ap_radar_offered
+					VIE_fb_ap_radar = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_radar_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_mig21_retire_offered }
+				NOT = { has_country_flag = VIE_ap_mig21_retire_missed }
+			}
+			if = {
+				limit = {
+					date > 2015.12.31
+					NOT = { date > 2017.12.31 }
+					VIE_ap_gate_none = yes
+				}
+				set_country_flag = VIE_ap_mig21_retire_offered
+				VIE_fb_ap_mig21_retire = yes
+			}
+			else_if = {
+				limit = { date > 2017.12.31 }
+				set_country_flag = VIE_ap_mig21_retire_missed
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_india_train_offered }
+				NOT = { has_country_flag = VIE_ap_india_train_missed }
+			}
+			if = {
+				limit = {
+					date > 2016.11.30
+					NOT = { date > 2018.12.31 }
+					NOT = { has_country_flag = VIE_ap_india_train_wait }
+					VIE_ap_gate_raj = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_india_train_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.13 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_india_train_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2018.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_india_train_gate_seen }
+					set_country_flag = VIE_ap_india_train_offered
+					VIE_fb_ap_india_train = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_india_train_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_yak130_offered }
+				NOT = { has_country_flag = VIE_ap_yak130_missed }
+			}
+			if = {
+				limit = {
+					date > 2016.12.31
+					NOT = { date > 2020.12.31 }
+					NOT = { has_country_flag = VIE_ap_yak130_wait }
+					VIE_ap_gate_sov = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_yak130_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.14 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_yak130_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2020.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_yak130_gate_seen }
+					set_country_flag = VIE_ap_yak130_offered
+					VIE_fb_ap_yak130 = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_yak130_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_t6c_offered }
+				NOT = { has_country_flag = VIE_ap_t6c_missed }
+			}
+			if = {
+				limit = {
+					date > 2021.12.31
+					NOT = { date > 2024.12.31 }
+					NOT = { has_country_flag = VIE_ap_t6c_wait }
+					VIE_ap_gate_usa = yes
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VIE_popup_cd } }
+					set_country_flag = VIE_ap_t6c_offered
+					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					country_event = { id = vie_air_proc.15 days = 1 random_days = 14 }
+				}
+				else = {
+					set_country_flag = VIE_ap_t6c_gate_seen
+				}
+			}
+			else_if = {
+				limit = { date > 2024.12.31 }
+				if = {
+					limit = { has_country_flag = VIE_ap_t6c_gate_seen }
+					set_country_flag = VIE_ap_t6c_offered
+					VIE_fb_ap_t6c = yes
+				}
+				else = {
+					set_country_flag = VIE_ap_t6c_missed
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ap_l39ng_offered }
+				NOT = { has_country_flag = VIE_ap_l39ng_missed }
+			}
+			if = {
+				limit = {
+					date > 2021.12.31
+					NOT = { date > 2024.12.31 }
+					VIE_ap_gate_cze = yes
+				}
+				set_country_flag = VIE_ap_l39ng_offered
+				VIE_fb_ap_l39ng = yes
+			}
+			else_if = {
+				limit = { date > 2024.12.31 }
+				set_country_flag = VIE_ap_l39ng_missed
+			}
+		}
 		VIE_ap_deliver_air_misc = yes
 	}
 	else = {
 		# Nguoi thang noi chien: chi ghi nhan "da xay ra", khong cap may bay.
-		VIE_ap_catchup_mark = { P = su30_1 END = 2005.12.31 }
-		VIE_ap_catchup_mark = { P = su30_2 END = 2010.6.30 }
-		VIE_ap_catchup_mark = { P = su30_3 END = 2011.6.30 }
-		VIE_ap_catchup_mark = { P = su30_4 END = 2014.12.31 }
-		VIE_ap_catchup_mark = { P = s300 END = 2006.12.31 }
-		VIE_ap_catchup_mark = { P = pechora END = 2012.12.31 }
-		VIE_ap_catchup_mark = { P = spyder END = 2016.12.31 }
-		VIE_ap_catchup_mark = { P = india_dca END = 2002.12.31 }
-		VIE_ap_catchup_mark = { P = yak52 END = 2009.12.31 }
-		VIE_ap_catchup_mark = { P = c295 END = 2014.12.31 }
-		VIE_ap_catchup_mark = { P = radar END = 2015.12.31 }
-		VIE_ap_catchup_mark = { P = mig21_retire END = 2017.12.31 }
-		VIE_ap_catchup_mark = { P = india_train END = 2018.12.31 }
-		VIE_ap_catchup_mark = { P = yak130 END = 2020.12.31 }
-		VIE_ap_catchup_mark = { P = t6c END = 2024.12.31 }
-		VIE_ap_catchup_mark = { P = l39ng END = 2024.12.31 }
+		if = {
+			limit = {
+				date > 2005.12.31
+				NOT = { has_country_flag = VIE_ap_su30_1_offered }
+			}
+			set_country_flag = VIE_ap_su30_1_offered
+		}
+		if = {
+			limit = {
+				date > 2010.6.30
+				NOT = { has_country_flag = VIE_ap_su30_2_offered }
+			}
+			set_country_flag = VIE_ap_su30_2_offered
+		}
+		if = {
+			limit = {
+				date > 2011.6.30
+				NOT = { has_country_flag = VIE_ap_su30_3_offered }
+			}
+			set_country_flag = VIE_ap_su30_3_offered
+		}
+		if = {
+			limit = {
+				date > 2014.12.31
+				NOT = { has_country_flag = VIE_ap_su30_4_offered }
+			}
+			set_country_flag = VIE_ap_su30_4_offered
+		}
+		if = {
+			limit = {
+				date > 2006.12.31
+				NOT = { has_country_flag = VIE_ap_s300_offered }
+			}
+			set_country_flag = VIE_ap_s300_offered
+		}
+		if = {
+			limit = {
+				date > 2012.12.31
+				NOT = { has_country_flag = VIE_ap_pechora_offered }
+			}
+			set_country_flag = VIE_ap_pechora_offered
+		}
+		if = {
+			limit = {
+				date > 2016.12.31
+				NOT = { has_country_flag = VIE_ap_spyder_offered }
+			}
+			set_country_flag = VIE_ap_spyder_offered
+		}
+		if = {
+			limit = {
+				date > 2002.12.31
+				NOT = { has_country_flag = VIE_ap_india_dca_offered }
+			}
+			set_country_flag = VIE_ap_india_dca_offered
+		}
+		if = {
+			limit = {
+				date > 2009.12.31
+				NOT = { has_country_flag = VIE_ap_yak52_offered }
+			}
+			set_country_flag = VIE_ap_yak52_offered
+		}
+		if = {
+			limit = {
+				date > 2014.12.31
+				NOT = { has_country_flag = VIE_ap_c295_offered }
+			}
+			set_country_flag = VIE_ap_c295_offered
+		}
+		if = {
+			limit = {
+				date > 2015.12.31
+				NOT = { has_country_flag = VIE_ap_radar_offered }
+			}
+			set_country_flag = VIE_ap_radar_offered
+		}
+		if = {
+			limit = {
+				date > 2017.12.31
+				NOT = { has_country_flag = VIE_ap_mig21_retire_offered }
+			}
+			set_country_flag = VIE_ap_mig21_retire_offered
+		}
+		if = {
+			limit = {
+				date > 2018.12.31
+				NOT = { has_country_flag = VIE_ap_india_train_offered }
+			}
+			set_country_flag = VIE_ap_india_train_offered
+		}
+		if = {
+			limit = {
+				date > 2020.12.31
+				NOT = { has_country_flag = VIE_ap_yak130_offered }
+			}
+			set_country_flag = VIE_ap_yak130_offered
+		}
+		if = {
+			limit = {
+				date > 2024.12.31
+				NOT = { has_country_flag = VIE_ap_t6c_offered }
+			}
+			set_country_flag = VIE_ap_t6c_offered
+		}
+		if = {
+			limit = {
+				date > 2024.12.31
+				NOT = { has_country_flag = VIE_ap_l39ng_offered }
+			}
+			set_country_flag = VIE_ap_l39ng_offered
+		}
 	}
 }
 
@@ -257,17 +836,29 @@ VIE_ap_seller_influence = {
 VIE_ap_reward_su30_1_a = {
 	set_variable = { VIE_ap_su30_1_qty = 4 }
 	set_country_flag = { flag = VIE_ap_su30_1_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.12 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	set_temp_variable = { treasury_change = -0.12 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 # Dot 1 - 6 chiec + goi chuyen loai, giao cham 6 thang.
 VIE_ap_reward_su30_1_b = {
 	set_country_flag = VIE_ap_su30_1_late
 	set_variable = { VIE_ap_su30_1_qty = 6 }
 	set_country_flag = { flag = VIE_ap_su30_1_lead value = 1 days = 480 }
-	VIE_ap_pay = { COST = 0.20 }
+	set_temp_variable = { treasury_change = -0.20 }
+	modify_treasury_effect = yes
 	air_experience = 10
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_su30_1 = {
 	VIE_ap_reward_su30_1_a = yes
@@ -277,30 +868,57 @@ VIE_fb_ap_su30_1 = {
 VIE_ap_reward_su30_2_a = {
 	set_variable = { VIE_ap_su30_2_qty = 8 }
 	set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 0.40 DEBT = 0.16 }
+	set_temp_variable = { treasury_change = -0.40 }
+	add_to_temp_variable = { treasury_change = 0.16 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.16 }
+	modify_debt_effect = yes
 	if = {
 		limit = { NOT = { check_variable = { VIE_ap_su30_3_qty > 0 } } }
 		add_ideas = VIE_ap_su30_no_munitions_idea
 	}
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 # Dot 2 - 8 chiec kem vu khi: san sang ngay, khong co idea.
 VIE_ap_reward_su30_2_b = {
 	set_variable = { VIE_ap_su30_2_qty = 8 }
 	set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 0.52 DEBT = 0.21 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	set_temp_variable = { treasury_change = -0.52 }
+	add_to_temp_variable = { treasury_change = 0.21 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.21 }
+	modify_debt_effect = yes
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 # Dot 2 - chi 6 chiec, van khong kem vu khi.
 VIE_ap_reward_su30_2_c = {
 	set_variable = { VIE_ap_su30_2_qty = 6 }
 	set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 0.30 DEBT = 0.12 }
+	set_temp_variable = { treasury_change = -0.30 }
+	add_to_temp_variable = { treasury_change = 0.12 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.12 }
+	modify_debt_effect = yes
 	if = {
 		limit = { NOT = { check_variable = { VIE_ap_su30_3_qty > 0 } } }
 		add_ideas = VIE_ap_su30_no_munitions_idea
 	}
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_su30_2 = {
 	VIE_ap_reward_su30_2_a = yes
@@ -310,26 +928,53 @@ VIE_fb_ap_su30_2 = {
 VIE_ap_reward_su30_3_a = {
 	set_variable = { VIE_ap_su30_3_qty = 12 }
 	set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 1.00 DEBT = 0.40 }
+	set_temp_variable = { treasury_change = -1.00 }
+	add_to_temp_variable = { treasury_change = 0.40 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.40 }
+	modify_debt_effect = yes
 	VIE_ap_su30_clear_no_munitions = yes
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 # Dot 3 - 12 chiec chi than may: ha hieu suat nhiem vu 24 thang.
 VIE_ap_reward_su30_3_b = {
 	set_variable = { VIE_ap_su30_3_qty = 12 }
 	set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 0.62 DEBT = 0.25 }
+	set_temp_variable = { treasury_change = -0.62 }
+	add_to_temp_variable = { treasury_change = 0.25 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.25 }
+	modify_debt_effect = yes
 	VIE_ap_su30_clear_no_munitions = yes
 	add_timed_idea = { idea = VIE_ap_su30_airframe_only_idea days = 730 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 # Dot 3 - chi 8 chiec.
 VIE_ap_reward_su30_3_c = {
 	set_variable = { VIE_ap_su30_3_qty = 8 }
 	set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 0.70 DEBT = 0.28 }
+	set_temp_variable = { treasury_change = -0.70 }
+	add_to_temp_variable = { treasury_change = 0.28 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.28 }
+	modify_debt_effect = yes
 	VIE_ap_su30_clear_no_munitions = yes
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_su30_3 = {
 	VIE_ap_reward_su30_3_a = yes
@@ -345,16 +990,34 @@ VIE_ap_su30_clear_no_munitions = {
 VIE_ap_reward_su30_4_a = {
 	set_variable = { VIE_ap_su30_4_qty = 12 }
 	set_country_flag = { flag = VIE_ap_su30_4_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 0.60 DEBT = 0.24 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	set_temp_variable = { treasury_change = -0.60 }
+	add_to_temp_variable = { treasury_change = 0.24 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.24 }
+	modify_debt_effect = yes
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 # Dot 4 - 6 chiec va mo dam phan Su-35S (1B P2 doc co nay; chua ai doc cho toi khi co 1B).
 VIE_ap_reward_su30_4_b = {
 	set_country_flag = VIE_ap_su35_talks
 	set_variable = { VIE_ap_su30_4_qty = 6 }
 	set_country_flag = { flag = VIE_ap_su30_4_lead value = 1 days = 300 }
-	VIE_ap_pay_split = { COST = 0.30 DEBT = 0.12 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	set_temp_variable = { treasury_change = -0.30 }
+	add_to_temp_variable = { treasury_change = 0.12 }
+	modify_treasury_effect = yes
+	set_temp_variable = { debt_change = 0.12 }
+	modify_debt_effect = yes
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_su30_4 = {
 	VIE_ap_reward_su30_4_a = yes
@@ -388,11 +1051,69 @@ VIE_ap_tranche = {
 		set_country_flag = VIE_ap_$P$_d$K$
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_$P$_qty < $HI$ } } }
-			VIE_ap_give_su30 = { QTY = 4 }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
 		}
 		else_if = {
 			limit = { check_variable = { VIE_ap_$P$_qty > $LO$ } }
-			VIE_ap_give_su30 = { QTY = 2 }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
 		}
 	}
 }
@@ -404,19 +1125,849 @@ VIE_ap_deliver_su30 = {
 		VIE_ap_su30_clear_no_munitions = yes
 	}
 	# Dot 1: 4 chiec 11/2004 (6 chiec: 4 + 2, cham 6 thang)
-	VIE_ap_tranche = { P = su30_1 K = 1 LO = 0 HI = 4 DATE = 2004.10.31 LATE_DATE = 2005.4.30 }
-	VIE_ap_tranche = { P = su30_1 K = 2 LO = 4 HI = 8 DATE = 2004.10.31 LATE_DATE = 2005.4.30 }
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_1_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_1_lead }
+			NOT = { has_country_flag = VIE_ap_su30_1_d1 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_1_late }
+					date > 2004.10.31
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_1_late
+					date > 2005.4.30
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_1_d1
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_1_qty < 4 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_1_qty > 0 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_1_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_1_lead }
+			NOT = { has_country_flag = VIE_ap_su30_1_d2 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_1_late }
+					date > 2004.10.31
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_1_late
+					date > 2005.4.30
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_1_d2
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_1_qty < 8 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_1_qty > 4 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
 	# Dot 2: 2010-12 va 2011-06 (noi suy, TODO(nguon))
-	VIE_ap_tranche = { P = su30_2 K = 1 LO = 0 HI = 4 DATE = 2010.11.30 LATE_DATE = 2010.11.30 }
-	VIE_ap_tranche = { P = su30_2 K = 2 LO = 4 HI = 8 DATE = 2011.5.31 LATE_DATE = 2011.5.31 }
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_2_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_2_lead }
+			NOT = { has_country_flag = VIE_ap_su30_2_d1 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_2_late }
+					date > 2010.11.30
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_2_late
+					date > 2010.11.30
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_2_d1
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_2_qty < 4 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_2_qty > 0 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_2_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_2_lead }
+			NOT = { has_country_flag = VIE_ap_su30_2_d2 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_2_late }
+					date > 2011.5.31
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_2_late
+					date > 2011.5.31
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_2_d2
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_2_qty < 8 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_2_qty > 4 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
 	# Dot 3: 2011-12, 2012-06, 2012-12 (noi suy, "xong cuoi 2012")
-	VIE_ap_tranche = { P = su30_3 K = 1 LO = 0 HI = 4 DATE = 2011.11.30 LATE_DATE = 2011.11.30 }
-	VIE_ap_tranche = { P = su30_3 K = 2 LO = 4 HI = 8 DATE = 2012.5.31 LATE_DATE = 2012.5.31 }
-	VIE_ap_tranche = { P = su30_3 K = 3 LO = 8 HI = 12 DATE = 2012.11.30 LATE_DATE = 2012.11.30 }
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_3_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_3_lead }
+			NOT = { has_country_flag = VIE_ap_su30_3_d1 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_3_late }
+					date > 2011.11.30
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_3_late
+					date > 2011.11.30
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_3_d1
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_3_qty < 4 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_3_qty > 0 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_3_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_3_lead }
+			NOT = { has_country_flag = VIE_ap_su30_3_d2 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_3_late }
+					date > 2012.5.31
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_3_late
+					date > 2012.5.31
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_3_d2
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_3_qty < 8 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_3_qty > 4 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_3_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_3_lead }
+			NOT = { has_country_flag = VIE_ap_su30_3_d3 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_3_late }
+					date > 2012.11.30
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_3_late
+					date > 2012.11.30
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_3_d3
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_3_qty < 12 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_3_qty > 8 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
 	# Dot 4: 2014-12, 2015-08 (co nguon), 2016-02 ("dau 2016")
-	VIE_ap_tranche = { P = su30_4 K = 1 LO = 0 HI = 4 DATE = 2014.11.30 LATE_DATE = 2014.11.30 }
-	VIE_ap_tranche = { P = su30_4 K = 2 LO = 4 HI = 8 DATE = 2015.7.31 LATE_DATE = 2015.7.31 }
-	VIE_ap_tranche = { P = su30_4 K = 3 LO = 8 HI = 12 DATE = 2016.1.31 LATE_DATE = 2016.1.31 }
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_4_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_4_lead }
+			NOT = { has_country_flag = VIE_ap_su30_4_d1 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_4_late }
+					date > 2014.11.30
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_4_late
+					date > 2014.11.30
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_4_d1
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_4_qty < 4 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_4_qty > 0 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_4_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_4_lead }
+			NOT = { has_country_flag = VIE_ap_su30_4_d2 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_4_late }
+					date > 2015.7.31
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_4_late
+					date > 2015.7.31
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_4_d2
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_4_qty < 8 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_4_qty > 4 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_ap_su30_4_qty > 0 }
+			NOT = { has_country_flag = VIE_ap_su30_4_lead }
+			NOT = { has_country_flag = VIE_ap_su30_4_d3 }
+			OR = {
+				AND = {
+					NOT = { has_country_flag = VIE_ap_su30_4_late }
+					date > 2016.1.31
+				}
+				AND = {
+					has_country_flag = VIE_ap_su30_4_late
+					date > 2016.1.31
+				}
+			}
+		}
+		set_country_flag = VIE_ap_su30_4_d3
+		if = {
+			limit = { NOT = { check_variable = { VIE_ap_su30_4_qty < 12 } } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 4
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 4
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { VIE_ap_su30_4_qty > 8 } }
+			if = {
+				limit = { country_exists = SOV }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = {
+						type = medium_plane_airframe_2
+						variant_name = "Su-30"
+						amount = 2
+						producer = SOV
+					}
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = AS_Fighter2
+						amount = 2
+						producer = SOV
+					}
+				}
+			}
+			else = {
+				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+				}
+			}
+			add_to_variable = { VIE_var_air_delivered = 2 }
+		}
+	}
 }
 
 ########################################################################
@@ -454,14 +2005,26 @@ VIE_ap_air_def = {
 VIE_ap_reward_s300_a = {
 	set_variable = { VIE_ap_s300_qty = 2 }
 	set_country_flag = { flag = VIE_ap_s300_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.30 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	set_temp_variable = { treasury_change = -0.30 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_s300_b = {
 	set_variable = { VIE_ap_s300_qty = 1 }
 	set_country_flag = { flag = VIE_ap_s300_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.16 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	set_temp_variable = { treasury_change = -0.16 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_s300 = {
 	VIE_ap_reward_s300_a = yes
@@ -471,14 +2034,26 @@ VIE_fb_ap_s300 = {
 VIE_ap_reward_pechora_a = {
 	set_variable = { VIE_ap_pechora_scope = 2 }
 	set_country_flag = { flag = VIE_ap_pechora_lead value = 1 days = 150 }
-	VIE_ap_pay = { COST = 0.15 }
-	VIE_ap_seller_influence = { S = BLR PCT = 1 }
+	set_temp_variable = { treasury_change = -0.15 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = BLR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = BLR }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_pechora_b = {
 	set_variable = { VIE_ap_pechora_scope = 1 }
 	set_country_flag = { flag = VIE_ap_pechora_lead value = 1 days = 150 }
-	VIE_ap_pay = { COST = 0.08 }
-	VIE_ap_seller_influence = { S = BLR PCT = 1 }
+	set_temp_variable = { treasury_change = -0.08 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = BLR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = BLR }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_pechora = {
 	VIE_ap_reward_pechora_a = yes
@@ -488,15 +2063,27 @@ VIE_fb_ap_pechora = {
 VIE_ap_reward_spyder_a = {
 	set_variable = { VIE_ap_spyder_qty = 5 }
 	set_country_flag = { flag = VIE_ap_spyder_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.25 }
-	VIE_ap_seller_influence = { S = ISR PCT = 1 }
+	set_temp_variable = { treasury_change = -0.25 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = ISR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = ISR }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_spyder_b = {
 	set_country_flag = VIE_ap_barak_research
 	set_variable = { VIE_ap_spyder_qty = 3 }
 	set_country_flag = { flag = VIE_ap_spyder_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.18 }
-	VIE_ap_seller_influence = { S = ISR PCT = 1 }
+	set_temp_variable = { treasury_change = -0.18 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = ISR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = ISR }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_spyder = {
 	VIE_ap_reward_spyder_a = yes
@@ -519,9 +2106,22 @@ VIE_ap_deliver_sam = {
 			date > 2005.7.31
 		}
 		set_country_flag = VIE_ap_s300_d1
-		VIE_ap_give_sam3 = { QTY = 62 PROD = SOV }
+		if = {
+			limit = { has_dlc = "Gotterdammerung" }
+			set_technology = { SAM1 = 1 SAM2 = 1 }
+			if = {
+				limit = { country_exists = SOV }
+				add_equipment_to_stockpile = { type = sam_missile_equipment_3 amount = 62 producer = SOV }
+			}
+		}
 		add_to_variable = { VIE_var_sam_lr = 1 }
-		VIE_ap_air_def = { V = 0.01 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_defence_factor = 0.01 tooltip = VIE_tt_air_defence_factor }
+		force_update_dynamic_modifier = yes
 	}
 	# S-300 tieu doan 2
 	if = {
@@ -533,9 +2133,22 @@ VIE_ap_deliver_sam = {
 			date > 2006.12.30
 		}
 		set_country_flag = VIE_ap_s300_d2
-		VIE_ap_give_sam3 = { QTY = 62 PROD = SOV }
+		if = {
+			limit = { has_dlc = "Gotterdammerung" }
+			set_technology = { SAM1 = 1 SAM2 = 1 }
+			if = {
+				limit = { country_exists = SOV }
+				add_equipment_to_stockpile = { type = sam_missile_equipment_3 amount = 62 producer = SOV }
+			}
+		}
 		add_to_variable = { VIE_var_sam_lr = 1 }
-		VIE_ap_air_def = { V = 0.01 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_defence_factor = 0.01 tooltip = VIE_tt_air_defence_factor }
+		force_update_dynamic_modifier = yes
 	}
 	# Pechora-2TM
 	if = {
@@ -548,12 +2161,38 @@ VIE_ap_deliver_sam = {
 		set_country_flag = VIE_ap_pechora_d1
 		if = {
 			limit = { check_variable = { VIE_ap_pechora_scope = 2 } }
-			VIE_ap_give_sam2 = { QTY = 60 PROD = BLR }
-			VIE_ap_air_def = { V = 0.02 }
+			if = {
+				limit = { has_dlc = "Gotterdammerung" }
+				set_technology = { SAM1 = 1 }
+				if = {
+					limit = { country_exists = BLR }
+					add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 60 producer = BLR }
+				}
+			}
+			VIE_ap_ensure_af_modifier = yes
+			custom_effect_tooltip = {
+				localization_key = modifies_dynamic_modifier_tt
+				MODIFIER = VIE_armed_forces_modifier
+			}
+			add_to_variable = { VIE_af_air_defence_factor = 0.02 tooltip = VIE_tt_air_defence_factor }
+			force_update_dynamic_modifier = yes
 		}
 		else = {
-			VIE_ap_give_sam2 = { QTY = 30 PROD = BLR }
-			VIE_ap_air_def = { V = 0.01 }
+			if = {
+				limit = { has_dlc = "Gotterdammerung" }
+				set_technology = { SAM1 = 1 }
+				if = {
+					limit = { country_exists = BLR }
+					add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 30 producer = BLR }
+				}
+			}
+			VIE_ap_ensure_af_modifier = yes
+			custom_effect_tooltip = {
+				localization_key = modifies_dynamic_modifier_tt
+				MODIFIER = VIE_armed_forces_modifier
+			}
+			add_to_variable = { VIE_af_air_defence_factor = 0.01 tooltip = VIE_tt_air_defence_factor }
+			force_update_dynamic_modifier = yes
 		}
 	}
 	# SPYDER dot 1
@@ -565,8 +2204,21 @@ VIE_ap_deliver_sam = {
 			date > 2016.11.30
 		}
 		set_country_flag = VIE_ap_spyder_d1
-		VIE_ap_give_sam2 = { QTY = 48 PROD = ISR }
-		VIE_ap_air_def = { V = 0.01 }
+		if = {
+			limit = { has_dlc = "Gotterdammerung" }
+			set_technology = { SAM1 = 1 }
+			if = {
+				limit = { country_exists = ISR }
+				add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 48 producer = ISR }
+			}
+		}
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_defence_factor = 0.01 tooltip = VIE_tt_air_defence_factor }
+		force_update_dynamic_modifier = yes
 	}
 	# SPYDER dot 2
 	if = {
@@ -579,11 +2231,31 @@ VIE_ap_deliver_sam = {
 		set_country_flag = VIE_ap_spyder_d2
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_spyder_qty < 4 } } }
-			VIE_ap_give_sam2 = { QTY = 48 PROD = ISR }
-			VIE_ap_air_def = { V = 0.01 }
+			if = {
+				limit = { has_dlc = "Gotterdammerung" }
+				set_technology = { SAM1 = 1 }
+				if = {
+					limit = { country_exists = ISR }
+					add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 48 producer = ISR }
+				}
+			}
+			VIE_ap_ensure_af_modifier = yes
+			custom_effect_tooltip = {
+				localization_key = modifies_dynamic_modifier_tt
+				MODIFIER = VIE_armed_forces_modifier
+			}
+			add_to_variable = { VIE_af_air_defence_factor = 0.01 tooltip = VIE_tt_air_defence_factor }
+			force_update_dynamic_modifier = yes
 		}
 		else = {
-			VIE_ap_give_sam2 = { QTY = 24 PROD = ISR }
+			if = {
+				limit = { has_dlc = "Gotterdammerung" }
+				set_technology = { SAM1 = 1 }
+				if = {
+					limit = { country_exists = ISR }
+					add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 24 producer = ISR }
+				}
+			}
 		}
 	}
 	# SPYDER he thong thu 5
@@ -596,7 +2268,14 @@ VIE_ap_deliver_sam = {
 			date > 2018.5.31
 		}
 		set_country_flag = VIE_ap_spyder_d3
-		VIE_ap_give_sam2 = { QTY = 24 PROD = ISR }
+		if = {
+			limit = { has_dlc = "Gotterdammerung" }
+			set_technology = { SAM1 = 1 }
+			if = {
+				limit = { country_exists = ISR }
+				add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 24 producer = ISR }
+			}
+		}
 	}
 }
 
@@ -668,15 +2347,27 @@ VIE_ap_give_l39ng = {
 
 # E1 - Hop tac quoc phong An Do (3/2000): A dai tu + dao tao (lich su), B chi dao tao.
 VIE_ap_reward_india_dca_a = {
-	VIE_ap_pay = { COST = 0.05 }
+	set_temp_variable = { treasury_change = -0.05 }
+	modify_treasury_effect = yes
 	air_experience = 10
 	add_ideas = VIE_ap_mig21_extension_idea
-	VIE_ap_seller_influence = { S = RAJ PCT = 1 }
+	if = {
+		limit = { country_exists = RAJ }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = RAJ }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_india_dca_b = {
-	VIE_ap_pay = { COST = 0.02 }
+	set_temp_variable = { treasury_change = -0.02 }
+	modify_treasury_effect = yes
 	air_experience = 5
-	VIE_ap_seller_influence = { S = RAJ PCT = 1 }
+	if = {
+		limit = { country_exists = RAJ }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = RAJ }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_india_dca = {
 	VIE_ap_reward_india_dca_a = yes
@@ -684,7 +2375,8 @@ VIE_fb_ap_india_dca = {
 
 # E4 - Yak-52 (Class C): 10 chiec, chi XP + idea dao tao co ban (khong co thiet bi trong MD).
 VIE_fb_ap_yak52 = {
-	VIE_ap_pay = { COST = 0.02 }
+	set_temp_variable = { treasury_change = -0.02 }
+	modify_treasury_effect = yes
 	air_experience = 5
 	add_timed_idea = { idea = VIE_ap_basic_training_idea days = 1095 }
 }
@@ -693,20 +2385,38 @@ VIE_fb_ap_yak52 = {
 VIE_ap_reward_c295_a = {
 	set_variable = { VIE_ap_c295_qty = 3 }
 	set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.10 }
-	VIE_ap_seller_influence = { S = SPR PCT = 1 }
+	set_temp_variable = { treasury_change = -0.10 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = SPR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SPR }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_c295_b = {
 	set_variable = { VIE_ap_c295_qty = 2 }
 	set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.07 }
-	VIE_ap_seller_influence = { S = SPR PCT = 1 }
+	set_temp_variable = { treasury_change = -0.07 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = SPR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SPR }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_c295_c = {
 	set_variable = { VIE_ap_c295_qty = 4 }
 	set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.14 }
-	VIE_ap_seller_influence = { S = SPR PCT = 1 }
+	set_temp_variable = { treasury_change = -0.14 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = SPR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SPR }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_c295 = {
 	VIE_ap_reward_c295_a = yes
@@ -716,31 +2426,44 @@ VIE_fb_ap_c295 = {
 # Chi modifier VIE_af_air_detection (khong xay cong trinh: one_state_radar_station tu tru 1.75 ty moi tram).
 VIE_ap_reward_radar_a = {
 	VIE_ap_ensure_af_modifier = yes
-	VIE_ap_pay = { COST = 0.06 }
+	set_temp_variable = { treasury_change = -0.06 }
+	modify_treasury_effect = yes
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_air_detection = 0.03 tooltip = VIE_tt_air_detection }
 	force_update_dynamic_modifier = yes
-	VIE_ap_seller_influence = { S = CZE PCT = 1 }
+	if = {
+		limit = { country_exists = CZE }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = CZE }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_radar_b = {
 	VIE_ap_ensure_af_modifier = yes
-	VIE_ap_pay = { COST = 0.10 }
+	set_temp_variable = { treasury_change = -0.10 }
+	modify_treasury_effect = yes
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_air_detection = 0.05 tooltip = VIE_tt_air_detection }
 	force_update_dynamic_modifier = yes
-	VIE_ap_seller_influence = { S = ISR PCT = 1 }
+	if = {
+		limit = { country_exists = ISR }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = ISR }
+		change_influence_percentage = yes
+	}
 }
 # C: chi them 0.01 ngay (thap hon A 0.03); Truc 2 Radar doc VIE_ap_radar_viettel_fast (chua ai doc).
 VIE_ap_reward_radar_c = {
 	VIE_ap_ensure_af_modifier = yes
 	set_country_flag = VIE_ap_radar_viettel_fast
-	VIE_ap_pay = { COST = 0.04 }
+	set_temp_variable = { treasury_change = -0.04 }
+	modify_treasury_effect = yes
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -766,12 +2489,14 @@ VIE_fb_ap_mig21_retire = {
 
 # E13 - Dao tao phi cong Su-30: A An Do (lich su), B Nga, C tu dao tao (cho Truc 3 T1).
 VIE_ap_reward_india_train_a = {
-	VIE_ap_pay = { COST = 0.05 }
+	set_temp_variable = { treasury_change = -0.05 }
+	modify_treasury_effect = yes
 	air_experience = 10
 	add_timed_idea = { idea = VIE_ap_pilot_training_idea days = 1095 }
 }
 VIE_ap_reward_india_train_b = {
-	VIE_ap_pay = { COST = 0.08 }
+	set_temp_variable = { treasury_change = -0.08 }
+	modify_treasury_effect = yes
 	air_experience = 15
 }
 VIE_ap_reward_india_train_c = {
@@ -785,8 +2510,14 @@ VIE_fb_ap_india_train = {
 VIE_ap_reward_yak130_a = {
 	set_variable = { VIE_ap_yak130_qty = 12 }
 	set_country_flag = { flag = VIE_ap_yak130_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.35 }
-	VIE_ap_seller_influence = { S = SOV PCT = 1 }
+	set_temp_variable = { treasury_change = -0.35 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = SOV }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = SOV }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_yak130_b = {
 	set_country_flag = VIE_ap_yak130_declined
@@ -801,18 +2532,31 @@ VIE_ap_reward_t6c_a = {
 	set_country_flag = { flag = VIE_ap_t6c_lead value = 1 days = 300 }
 	if = {
 		limit = { VIE_ap_training_standardized = yes }
-		VIE_ap_pay = { COST = 0.12 }
+		set_temp_variable = { treasury_change = -0.12 }
+		modify_treasury_effect = yes
 	}
 	else = {
-		VIE_ap_pay = { COST = 0.15 }
+		set_temp_variable = { treasury_change = -0.15 }
+		modify_treasury_effect = yes
 	}
-	VIE_ap_seller_influence = { S = USA PCT = 1 }
+	if = {
+		limit = { country_exists = USA }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = USA }
+		change_influence_percentage = yes
+	}
 }
 VIE_ap_reward_t6c_b = {
 	set_variable = { VIE_ap_t6c_qty = 6 }
 	set_country_flag = { flag = VIE_ap_t6c_lead value = 1 days = 300 }
-	VIE_ap_pay = { COST = 0.08 }
-	VIE_ap_seller_influence = { S = USA PCT = 1 }
+	set_temp_variable = { treasury_change = -0.08 }
+	modify_treasury_effect = yes
+	if = {
+		limit = { country_exists = USA }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = USA }
+		change_influence_percentage = yes
+	}
 }
 VIE_fb_ap_t6c = {
 	VIE_ap_reward_t6c_a = yes
@@ -827,14 +2571,21 @@ VIE_fb_ap_l39ng = {
 		}
 		set_variable = { VIE_ap_l39ng_qty = 18 }
 		set_country_flag = { flag = VIE_ap_l39ng_lead value = 1 days = 300 }
-		VIE_ap_pay = { COST = 0.18 }
+		set_temp_variable = { treasury_change = -0.18 }
+		modify_treasury_effect = yes
 	}
 	else = {
 		set_variable = { VIE_ap_l39ng_qty = 12 }
 		set_country_flag = { flag = VIE_ap_l39ng_lead value = 1 days = 300 }
-		VIE_ap_pay = { COST = 0.12 }
+		set_temp_variable = { treasury_change = -0.12 }
+		modify_treasury_effect = yes
 	}
-	VIE_ap_seller_influence = { S = CZE PCT = 1 }
+	if = {
+		limit = { country_exists = CZE }
+		set_temp_variable = { percent_change = 1 }
+		set_temp_variable = { tag_index = CZE }
+		change_influence_percentage = yes
+	}
 }
 
 ########################################################################
@@ -849,61 +2600,160 @@ VIE_ap_deliver_air_misc = {
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d1 } date > 2015.2.28 }
 		set_country_flag = VIE_ap_c295_d1
-		VIE_ap_give_c295 = { QTY = 1 }
+		if = {
+			limit = { country_exists = SPR }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = large_plane_air_transport_airframe_2 variant_name = "Airbus C-295" amount = 1 producer = SPR }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = transport_plane3 amount = 1 producer = SPR }
+			}
+		}
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d2 } date > 2015.8.31 NOT = { check_variable = { VIE_ap_c295_qty < 2 } } }
 		set_country_flag = VIE_ap_c295_d2
-		VIE_ap_give_c295 = { QTY = 1 }
+		if = {
+			limit = { country_exists = SPR }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = large_plane_air_transport_airframe_2 variant_name = "Airbus C-295" amount = 1 producer = SPR }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = transport_plane3 amount = 1 producer = SPR }
+			}
+		}
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d3 } date > 2016.2.29 NOT = { check_variable = { VIE_ap_c295_qty < 3 } } }
 		set_country_flag = VIE_ap_c295_d3
-		VIE_ap_give_c295 = { QTY = 1 }
+		if = {
+			limit = { country_exists = SPR }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = large_plane_air_transport_airframe_2 variant_name = "Airbus C-295" amount = 1 producer = SPR }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = transport_plane3 amount = 1 producer = SPR }
+			}
+		}
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d4 } date > 2016.8.31 NOT = { check_variable = { VIE_ap_c295_qty < 4 } } }
 		set_country_flag = VIE_ap_c295_d4
-		VIE_ap_give_c295 = { QTY = 1 }
+		if = {
+			limit = { country_exists = SPR }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = large_plane_air_transport_airframe_2 variant_name = "Airbus C-295" amount = 1 producer = SPR }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = transport_plane3 amount = 1 producer = SPR }
+			}
+		}
 	}
 	# ---- Yak-130
 	if = {
 		limit = { check_variable = { VIE_ap_yak130_qty > 0 } NOT = { has_country_flag = VIE_ap_yak130_lead } NOT = { has_country_flag = VIE_ap_yak130_d1 } date > 2021.5.31 }
 		set_country_flag = VIE_ap_yak130_d1
-		VIE_ap_give_yak130 = { QTY = 6 }
+		if = {
+			limit = { country_exists = SOV }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = small_plane_strike_airframe_2 variant_name = "Yak-130" amount = 6 producer = SOV }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 6 producer = SOV }
+			}
+		}
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_yak130_qty > 0 } NOT = { has_country_flag = VIE_ap_yak130_lead } NOT = { has_country_flag = VIE_ap_yak130_d2 } date > 2022.5.31 }
 		set_country_flag = VIE_ap_yak130_d2
-		VIE_ap_give_yak130 = { QTY = 6 }
+		if = {
+			limit = { country_exists = SOV }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = small_plane_strike_airframe_2 variant_name = "Yak-130" amount = 6 producer = SOV }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 6 producer = SOV }
+			}
+		}
 	}
 	# ---- T-6C
 	if = {
 		limit = { check_variable = { VIE_ap_t6c_qty > 0 } NOT = { has_country_flag = VIE_ap_t6c_lead } NOT = { has_country_flag = VIE_ap_t6c_d1 } date > 2024.10.31 }
 		set_country_flag = VIE_ap_t6c_d1
-		VIE_ap_give_t6c = { QTY = 5 }
+		if = {
+			limit = { country_exists = USA }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 amount = 5 producer = USA }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 5 producer = USA }
+			}
+		}
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_t6c_qty > 0 } NOT = { has_country_flag = VIE_ap_t6c_lead } NOT = { has_country_flag = VIE_ap_t6c_d2 } date > 2026.5.31 }
 		set_country_flag = VIE_ap_t6c_d2
 		if = {
 			limit = { check_variable = { VIE_ap_t6c_qty > 6 } }
-			VIE_ap_give_t6c = { QTY = 7 }
+			if = {
+				limit = { country_exists = USA }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 amount = 7 producer = USA }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 7 producer = USA }
+				}
+			}
 		}
 		else = {
-			VIE_ap_give_t6c = { QTY = 1 }
+			if = {
+				limit = { country_exists = USA }
+				if = {
+					limit = { has_dlc = "By Blood Alone" }
+					add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 amount = 1 producer = USA }
+				}
+				else = {
+					add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 1 producer = USA }
+				}
+			}
 		}
 	}
 	# ---- L-39NG
 	if = {
 		limit = { check_variable = { VIE_ap_l39ng_qty > 0 } NOT = { has_country_flag = VIE_ap_l39ng_lead } NOT = { has_country_flag = VIE_ap_l39ng_d1 } date > 2024.7.31 }
 		set_country_flag = VIE_ap_l39ng_d1
-		VIE_ap_give_l39ng = { QTY = 6 }
+		if = {
+			limit = { country_exists = CZE }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 variant_name = "Aero L-39" amount = 6 producer = CZE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 6 producer = CZE }
+			}
+		}
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_l39ng_qty > 0 } NOT = { has_country_flag = VIE_ap_l39ng_lead } NOT = { has_country_flag = VIE_ap_l39ng_d2 } date > 2025.2.28 }
 		set_country_flag = VIE_ap_l39ng_d2
-		VIE_ap_give_l39ng = { QTY = 6 }
+		if = {
+			limit = { country_exists = CZE }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 variant_name = "Aero L-39" amount = 6 producer = CZE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 6 producer = CZE }
+			}
+		}
 	}
 	if = {
 		limit = {
@@ -914,6 +2764,15 @@ VIE_ap_deliver_air_misc = {
 			date > 2025.8.31
 		}
 		set_country_flag = VIE_ap_l39ng_d3
-		VIE_ap_give_l39ng = { QTY = 6 }
+		if = {
+			limit = { country_exists = CZE }
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 variant_name = "Aero L-39" amount = 6 producer = CZE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 6 producer = CZE }
+			}
+		}
 	}
 }

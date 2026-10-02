@@ -107,7 +107,11 @@ country_event = {
 	option = {
 		name = vie_scs_coop.10.a
 		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.a executed"
-		trigger = { VIE_scs_pc_ok = { T = JAP } }
+		trigger = {
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+			NOT = { has_country_flag = VIE_scs_pc_JAP }
+		}
 		set_country_flag = { flag = VIE_scs_pc_JAP days = 1095 }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
@@ -133,7 +137,11 @@ country_event = {
 	option = {
 		name = vie_scs_coop.10.b
 		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.b executed"
-		trigger = { VIE_scs_pc_ok = { T = RAJ } }
+		trigger = {
+			country_exists = RAJ
+			NOT = { has_war_with = RAJ }
+			NOT = { has_country_flag = VIE_scs_pc_RAJ }
+		}
 		set_country_flag = { flag = VIE_scs_pc_RAJ days = 1095 }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
@@ -159,7 +167,11 @@ country_event = {
 	option = {
 		name = vie_scs_coop.10.c
 		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.c executed"
-		trigger = { VIE_scs_pc_ok = { T = USA } }
+		trigger = {
+			country_exists = USA
+			NOT = { has_war_with = USA }
+			NOT = { has_country_flag = VIE_scs_pc_USA }
+		}
 		set_country_flag = { flag = VIE_scs_pc_USA days = 1095 }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
@@ -185,7 +197,11 @@ country_event = {
 	option = {
 		name = vie_scs_coop.10.h
 		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.h executed"
-		trigger = { VIE_scs_pc_ok = { T = FRA } }
+		trigger = {
+			country_exists = FRA
+			NOT = { has_war_with = FRA }
+			NOT = { has_country_flag = VIE_scs_pc_FRA }
+		}
 		set_country_flag = { flag = VIE_scs_pc_FRA days = 1095 }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
@@ -207,7 +223,11 @@ country_event = {
 	option = {
 		name = vie_scs_coop.10.e
 		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.e executed"
-		trigger = { VIE_scs_pc_ok = { T = AST } }
+		trigger = {
+			country_exists = AST
+			NOT = { has_war_with = AST }
+			NOT = { has_country_flag = VIE_scs_pc_AST }
+		}
 		set_country_flag = { flag = VIE_scs_pc_AST days = 1095 }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
@@ -233,7 +253,11 @@ country_event = {
 	option = {
 		name = vie_scs_coop.10.f
 		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.f executed"
-		trigger = { VIE_scs_pc_ok = { T = SOV } }
+		trigger = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+			NOT = { has_country_flag = VIE_scs_pc_SOV }
+		}
 		set_country_flag = { flag = VIE_scs_pc_SOV days = 1095 }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
@@ -255,7 +279,11 @@ country_event = {
 	option = {
 		name = vie_scs_coop.10.g
 		log = "[GetDateText]: [This.GetName]: Event vie_scs_coop.10.g executed"
-		trigger = { VIE_scs_pc_ok = { T = CHI } }
+		trigger = {
+			country_exists = CHI
+			NOT = { has_war_with = CHI }
+			NOT = { has_country_flag = VIE_scs_pc_CHI }
+		}
 		set_country_flag = { flag = VIE_scs_pc_CHI days = 1095 }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }

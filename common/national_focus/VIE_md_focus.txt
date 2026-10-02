@@ -1118,7 +1118,7 @@ focus_tree = {
 			add_stability = 0.01
 			add_tech_bonus = {
 				name = VIE_fisheries_surveillance
-				category = CAT_patrol_boats
+				category = CAT_patrolboat
 				uses = 1
 				bonus = 0.5
 			}
@@ -2317,19 +2317,18 @@ focus_tree = {
 		id = VIE_north_south_hsr
 		icon = economic_blue_print
 
-		x = -2
-		y = 5
+		x = 0
+		y = 9
 		relative_position_id = VIE_north_south_expressway
 
-		prerequisite = { focus = VIE_long_thanh_airport }
+		prerequisite = { focus = VIE_hsr_2010_reject focus = VIE_hsr_2010_approve }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
 		available = {
-			has_completed_focus = VIE_lao_cai_haiphong_rail
 			OR = {
+				has_completed_focus = VIE_hsr_2010_approve
 				date > 2024.11.30
-				has_country_flag = VIE_hsr_approved_2010
 			}
 		}
 
@@ -2358,7 +2357,7 @@ focus_tree = {
 		icon = economic_blue_print
 
 		x = -2
-		y = 8
+		y = 7
 		relative_position_id = VIE_north_south_expressway
 
 		cost = 5
@@ -2370,6 +2369,11 @@ focus_tree = {
 
 		available = {
 			date > 2010.4.30
+		}
+
+		# Khong chon gi thi den cuoi 2024 vote tu qua (mac dinh Bac, dung lich su) de HSR khong bi khoa vinh vien.
+		bypass = {
+			date > 2024.11.30
 		}
 
 		completion_reward = {
@@ -2388,7 +2392,7 @@ focus_tree = {
 		icon = economic_blue_print
 
 		x = 2
-		y = 8
+		y = 7
 		relative_position_id = VIE_north_south_expressway
 
 		cost = 7
@@ -2405,7 +2409,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_hsr_2010_approve"
 			add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 }
-			set_country_flag = VIE_hsr_approved_2010
 		}
 
 		ai_will_do = {
@@ -10567,7 +10570,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_training_standardization"
 			VIE_airf_xp_15 = yes
-			VIE_airf_add_exp = { V = 0.04 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_experience_gain_air_factor = 0.04 tooltip = VIE_tt_experience_gain_air_factor }
+			force_update_dynamic_modifier = yes
 			unlock_decision_category_tooltip = VIE_airf_category
 		}
 
@@ -10818,7 +10824,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_fighter_force"
 			unlock_decision_tooltip = VIE_airf_d1_fighters
-			VIE_airf_add_atk = { V = 0.01 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_attack_factor = 0.01 tooltip = VIE_tt_air_attack_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -10848,7 +10857,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_sam_force"
 			unlock_decision_tooltip = VIE_airf_d2_sam
-			VIE_airf_add_home = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -10879,7 +10891,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_1"
 			unlock_decision_tooltip = VIE_airf_d3_coordination
-			VIE_airf_add_mis = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -10943,8 +10958,14 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_2"
-			VIE_airf_add_mis = { V = 0.02 }
-			VIE_airf_add_det = { V = 0.01 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -10973,7 +10994,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_medium_force"
-			VIE_airf_add_rng = { V = 0.03 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_range_factor = 0.03 tooltip = VIE_tt_air_range_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11002,8 +11026,14 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_operating_range"
-			VIE_airf_add_rng = { V = 0.04 }
-			VIE_airf_add_det = { V = 0.01 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_range_factor = 0.04 tooltip = VIE_tt_air_range_factor }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11037,7 +11067,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads"
-			VIE_airf_add_home = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+			force_update_dynamic_modifier = yes
 			VIE_airf_branch_fit_a = yes
 		}
 
@@ -11067,8 +11100,14 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_layered_defence"
-			VIE_airf_add_det = { V = 0.02 }
-			VIE_airf_add_home = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11097,8 +11136,14 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_ew_antistealth"
-			VIE_airf_add_int = { V = 0.03 }
-			VIE_airf_add_det = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_intercept_efficiency = 0.03 tooltip = VIE_tt_air_intercept_efficiency }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11128,8 +11173,14 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads_command"
 			unlock_decision_tooltip = VIE_airf_d5_capstone
 			VIE_airf_xp_20 = yes
-			VIE_airf_add_mis = { V = 0.02 }
-			VIE_airf_add_home = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11158,7 +11209,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole"
-			VIE_airf_add_rng = { V = 0.04 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_range_factor = 0.04 tooltip = VIE_tt_air_range_factor }
+			force_update_dynamic_modifier = yes
 			VIE_airf_branch_fit_wide = yes
 		}
 
@@ -11189,9 +11243,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_fleet"
-			VIE_airf_add_atk = { V = 0.03 }
-			VIE_airf_add_sup = { V = 0.02 }
-			VIE_airf_add_cas = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_attack_factor = 0.03 tooltip = VIE_tt_air_attack_factor }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_superiority_efficiency = 0.02 tooltip = VIE_tt_air_superiority_efficiency }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_cas_efficiency = 0.02 tooltip = VIE_tt_air_cas_efficiency }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11220,7 +11283,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_sustainment"
-			VIE_airf_add_mis = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11249,7 +11315,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_airlift_tanker"
-			VIE_airf_add_rng = { V = 0.03 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_range_factor = 0.03 tooltip = VIE_tt_air_range_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11281,8 +11350,14 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_wing"
 			unlock_decision_tooltip = VIE_airf_d5_capstone
 			VIE_airf_xp_20 = yes
-			VIE_airf_add_mis = { V = 0.02 }
-			VIE_airf_add_atk = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_attack_factor = 0.02 tooltip = VIE_tt_air_attack_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11311,7 +11386,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_unmanned"
-			VIE_airf_add_det = { V = 0.01 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
+			force_update_dynamic_modifier = yes
 			VIE_airf_branch_fit_wide = yes
 		}
 
@@ -11342,7 +11420,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_isr_uav"
-			VIE_airf_add_det = { V = 0.03 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_detection = 0.03 tooltip = VIE_tt_air_detection }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11371,7 +11452,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_datalink"
-			VIE_airf_add_mis = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11400,7 +11484,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_strike_uav"
-			VIE_airf_add_atk = { V = 0.03 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_attack_factor = 0.03 tooltip = VIE_tt_air_attack_factor }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {
@@ -11431,8 +11518,14 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_teaming"
 			unlock_decision_tooltip = VIE_airf_d5_capstone
 			VIE_airf_xp_20 = yes
-			VIE_airf_add_mis = { V = 0.02 }
-			VIE_airf_add_int = { V = 0.02 }
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+			force_update_dynamic_modifier = yes
+			VIE_ap_ensure_af_modifier = yes
+			VIE_airf_dm_tt = yes
+			add_to_variable = { VIE_af_air_intercept_efficiency = 0.02 tooltip = VIE_tt_air_intercept_efficiency }
+			force_update_dynamic_modifier = yes
 		}
 
 		ai_will_do = {

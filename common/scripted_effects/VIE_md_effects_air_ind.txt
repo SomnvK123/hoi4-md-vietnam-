@@ -130,7 +130,13 @@ VIE_apm_add_upkeep = {
 VIE_apm_a32_finish = {
 	if = {
 		limit = { check_variable = { VIE_apm_a32_tier = 0 } }
-		VIE_apm_add_accidents = { V = -0.03 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_accidents_factor = -0.03 tooltip = VIE_tt_air_accidents_factor }
+		force_update_dynamic_modifier = yes
 		air_experience = 5
 		if = {
 			limit = { check_variable = { VIE_apm_a32_choice = 2 } }
@@ -139,7 +145,13 @@ VIE_apm_a32_finish = {
 	}
 	else_if = {
 		limit = { check_variable = { VIE_apm_a32_tier = 1 } }
-		VIE_apm_add_accidents = { V = -0.03 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_accidents_factor = -0.03 tooltip = VIE_tt_air_accidents_factor }
+		force_update_dynamic_modifier = yes
 		air_experience = 5
 		if = {
 			limit = { check_variable = { VIE_apm_a32_choice = 1 } }
@@ -148,10 +160,17 @@ VIE_apm_a32_finish = {
 	}
 	else_if = {
 		limit = { check_variable = { VIE_apm_a32_tier = 2 } }
-		VIE_apm_add_accidents = { V = -0.02 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_accidents_factor = -0.02 tooltip = VIE_tt_air_accidents_factor }
+		force_update_dynamic_modifier = yes
 		air_experience = 10
 	}
-	VIE_apm_tier_up = { P = a32 }
+	add_to_variable = { VIE_apm_a32_tier = 1 }
+	clamp_variable = { var = VIE_apm_a32_tier min = 0 max = 3 }
 	VIE_apm_program_end = yes
 }
 
@@ -165,26 +184,50 @@ VIE_apm_a32_finish = {
 VIE_apm_disc_pechora = {
 	if = {
 		limit = { check_variable = { VIE_ap_pechora_scope = 2 } }
-		VIE_apm_cost_scale = { F = 0.8 }
+		multiply_temp_variable = { VIE_apm_cost = 0.8 }
 		add_to_temp_variable = { VIE_apm_months = -3 }
 	}
 }
 VIE_apm_a31_finish = {
 	if = {
 		limit = { check_variable = { VIE_apm_a31_tier = 0 } }
-		VIE_apm_add_air_def = { V = 0.01 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_defence_factor = 0.01 tooltip = VIE_tt_air_defence_factor }
+		force_update_dynamic_modifier = yes
 		air_experience = 5
 	}
 	else_if = {
 		limit = { check_variable = { VIE_apm_a31_tier = 1 } }
-		VIE_apm_add_air_def = { V = 0.01 }
-		VIE_apm_add_upkeep = { V = -0.01 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_defence_factor = 0.01 tooltip = VIE_tt_air_defence_factor }
+		force_update_dynamic_modifier = yes
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_equipment_cost_multiplier_modifier = -0.01 tooltip = VIE_tt_equipment_cost }
+		force_update_dynamic_modifier = yes
 		VIE_apm_viettel_mio_size = yes
 		air_experience = 5
 	}
 	else_if = {
 		limit = { check_variable = { VIE_apm_a31_tier = 2 } }
-		VIE_apm_add_air_def = { V = 0.02 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_defence_factor = 0.02 tooltip = VIE_tt_air_defence_factor }
+		force_update_dynamic_modifier = yes
 		VIE_apm_viettel_mio_size = yes
 		air_experience = 10
 		if = {
@@ -192,7 +235,8 @@ VIE_apm_a31_finish = {
 			set_country_flag = VIE_apm_sam_production
 		}
 	}
-	VIE_apm_tier_up = { P = a31 }
+	add_to_variable = { VIE_apm_a31_tier = 1 }
+	clamp_variable = { var = VIE_apm_a31_tier min = 0 max = 3 }
 	VIE_apm_program_end = yes
 }
 
@@ -207,14 +251,20 @@ VIE_apm_a31_finish = {
 VIE_apm_disc_radar_fast = {
 	if = {
 		limit = { has_country_flag = VIE_ap_radar_viettel_fast }
-		VIE_apm_cost_scale = { F = 0.8 }
+		multiply_temp_variable = { VIE_apm_cost = 0.8 }
 		add_to_temp_variable = { VIE_apm_months = -3 }
 	}
 }
 VIE_apm_radar_finish = {
 	if = {
 		limit = { check_variable = { VIE_apm_radar_tier = 0 } }
-		VIE_apm_add_detection = { V = 0.02 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
+		force_update_dynamic_modifier = yes
 		air_experience = 5
 		if = {
 			limit = { check_variable = { VIE_apm_radar_choice = 2 } }
@@ -223,17 +273,30 @@ VIE_apm_radar_finish = {
 	}
 	else_if = {
 		limit = { check_variable = { VIE_apm_radar_tier = 1 } }
-		VIE_apm_add_detection = { V = 0.02 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
+		force_update_dynamic_modifier = yes
 		VIE_apm_viettel_mio_size = yes
 		air_experience = 5
 	}
 	else_if = {
 		limit = { check_variable = { VIE_apm_radar_tier = 2 } }
-		VIE_apm_add_detection = { V = 0.02 }
+		VIE_ap_ensure_af_modifier = yes
+		custom_effect_tooltip = {
+			localization_key = modifies_dynamic_modifier_tt
+			MODIFIER = VIE_armed_forces_modifier
+		}
+		add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
+		force_update_dynamic_modifier = yes
 		set_variable = { VIE_apm_radar_orient = VIE_apm_radar_choice }
 		air_experience = 10
 	}
-	VIE_apm_tier_up = { P = radar }
+	add_to_variable = { VIE_apm_radar_tier = 1 }
+	clamp_variable = { var = VIE_apm_radar_tier min = 0 max = 3 }
 	VIE_apm_program_end = yes
 }
 
@@ -260,7 +323,8 @@ VIE_apm_integ_finish = {
 		set_variable = { VIE_apm_integ_c3 = VIE_apm_integ_choice }
 		air_experience = 10
 	}
-	VIE_apm_tier_up = { P = integ }
+	add_to_variable = { VIE_apm_integ_tier = 1 }
+	clamp_variable = { var = VIE_apm_integ_tier min = 0 max = 3 }
 	VIE_apm_program_end = yes
 }
 
@@ -290,6 +354,7 @@ VIE_apm_uav_finish = {
 			set_country_flag = VIE_apm_uav_loitering
 		}
 	}
-	VIE_apm_tier_up = { P = uav }
+	add_to_variable = { VIE_apm_uav_tier = 1 }
+	clamp_variable = { var = VIE_apm_uav_tier min = 0 max = 3 }
 	VIE_apm_program_end = yes
 }
