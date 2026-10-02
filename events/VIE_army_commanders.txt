@@ -35,6 +35,11 @@ country_event = {
 		recruit_character = VIE_army_nguyen_hong_thai
 		recruit_character = VIE_army_nguyen_phuong_nam
 		recruit_character = VIE_army_vu_hai_san
+		recruit_character = VIE_army_luong_cuong
+		recruit_character = VIE_army_nguyen_truong_thang
+		recruit_character = VIE_army_luong_van_kiem
+		recruit_character = VIE_army_thai_dai_ngoc
+		recruit_character = VIE_army_luong_dinh_hong
 		# VIE_Hyunh_Chien_Thang (upstream, never recruited by history) could join here as an optional 6th commander.
 
 		# ...and the 2000-2014 group leaves. Phi Quoc Tuan is upstream.
@@ -44,6 +49,7 @@ country_event = {
 		retire_character = VIE_army_nguyen_khac_nghien
 		retire_character = VIE_army_do_ba_ty
 		retire_character = VIE_army_pham_van_tra
+		retire_character = VIE_army_nguyen_huy_hieu
 		retire_character = VIE_army_nguyen_van_duoc
 		retire_character = VIE_Phi_Quoc_Tuan
 		set_country_flag = VIE_md_roster_recruited_2015
