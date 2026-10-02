@@ -1,6 +1,4 @@
 on_actions = {
-	# Translates the VIE_ai_behavior game rule into a global flag (pattern of MD's 999_game_rules_on_actions.txt).
-	# The flags are read by VIE_ai_path_* triggers, the focus ai_will_do blocks and the event ai_chance blocks.
 	on_startup = {
 		effect = {
 			VIE = {
@@ -36,32 +34,6 @@ on_actions = {
 					retire_character = VIE_Tran_Quang_Phuong
 					retire_character = VIE_Tran_Viet_Khoa
 					set_country_flag = VIE_air_phase0_done
-				}
-				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_HISTORICAL } }
-					set_global_flag = VIE_AI_PATH_HISTORICAL
-				}
-				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_REFORM } }
-					set_global_flag = VIE_AI_PATH_REFORM
-				}
-				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_HARDLINE } }
-					set_global_flag = VIE_AI_PATH_HARDLINE
-				}
-				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = VIE_WESTERN } }
-					set_global_flag = VIE_AI_PATH_WESTERN
-				}
-				if = {
-					limit = { has_game_rule = { rule = VIE_ai_behavior option = RANDOM } }
-					random_list = {
-						20 = { set_global_flag = VIE_AI_PATH_HISTORICAL }
-						15 = { set_global_flag = VIE_AI_PATH_REFORM }
-						10 = { set_global_flag = VIE_AI_PATH_HARDLINE }
-						10 = { set_global_flag = VIE_AI_PATH_WESTERN }
-						45 = { }
-					}
 				}
 				# Initialise the 9-axis state-building system at game start,
 				# before the first on_monthly tick fires, to prevent stack overflow.

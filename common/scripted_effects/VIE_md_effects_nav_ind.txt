@@ -63,34 +63,6 @@ VIE_nav_program_end = {
 	clamp_variable = { var = VIE_var_naval_program_active min = 0 max = 2 }
 }
 
-# Dem lai slot theo cac timed idea chuong trinh dang chay. Goi sau noi chien (VIE_collapse_aftermath):
-# nguoi thang la tag noi loan thi khong con idea nao nen ve 0; cung tag thi giu so chuong trinh con chay.
-# Su kien hoan tat da hen ma bi mat khi doi tag thi khong con tru slot nua, nen khong the ket o 2.
-VIE_nav_program_recount = {
-	set_variable = { VIE_var_naval_program_active = 0 }
-	if = {
-		limit = { has_idea = VIE_nav_prog_ba_son }
-		add_to_variable = { VIE_var_naval_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nav_prog_mro }
-		add_to_variable = { VIE_var_naval_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nav_prog_small }
-		add_to_variable = { VIE_var_naval_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nav_prog_integration }
-		add_to_variable = { VIE_var_naval_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nav_prog_2030 }
-		add_to_variable = { VIE_var_naval_program_active = 1 }
-	}
-	clamp_variable = { var = VIE_var_naval_program_active min = 0 max = 2 }
-}
-
 # ---- Decision 1: khoi dong chuong trinh Ba Son ----
 # Nguoi goi (vie_nav_ind.2 option) dat truoc cac bien tam:
 #   VIE_nav_invest   1 Co ban / 2 Mo rong / 3 Trong diem

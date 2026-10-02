@@ -135,34 +135,6 @@ country_event = {
 }
 
 ########################################################################
-# vie_col.8  ASEAN offers to mediate (scheduler p11, during the civil war)
-########################################################################
-country_event = {
-	id = vie_col.8
-	title = vie_col.8.t
-	desc = vie_col.8.d
-	picture = GFX_report_event_generic_conference
-	is_triggered_only = yes
-
-	# Accept the mediation
-	option = {
-		name = vie_col.8.a
-		log = "[GetDateText]: [This.GetName]: Event vie_col.8.a executed"
-		add_stability = 0.02
-		set_country_flag = VIE_asean_mediation
-		ai_chance = { base = 70 }
-	}
-
-	# Refuse: no outside interference
-	option = {
-		name = vie_col.8.b
-		log = "[GetDateText]: [This.GetName]: Event vie_col.8.b executed"
-		add_political_power = 25
-		ai_chance = { base = 30 }
-	}
-}
-
-########################################################################
 # vie_scs.19  The tribunal takes up the case (90 days after VIE_legal_warfare)
 ########################################################################
 country_event = {

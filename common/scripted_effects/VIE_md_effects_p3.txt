@@ -9,105 +9,7 @@
 # Doors: a conditional event that fires once; the event's own options gate the alternatives.
 ########################################################################
 ########################################################################
-# Collapse: pick the rebel faction and start the civil war (see plan 2.10).
-#   Rebel party 22 (military):  states 524 523   (Military Regions 1 and 2)
-#   Rebel party 20 (populist):  states 521 520   (Military Regions 4 and 5)
-#   Rebel party 13 (reformist): states 519 518   (Military Regions 7 and 9)
-# The capital region (522) and the Spratlys (801) always stay with the government.
-########################################################################
-VIE_col_pick_rebel = {
-	if = {
-		limit = {
-			OR = {
-				has_country_flag = VIE_reform_mandate
-				has_country_flag = VIE_press_relaxed
-			}
-		}
-		set_variable = { VIE_col_rebel = 13 }
-	}
-	else_if = {
-		limit = {
-			OR = {
-				has_country_flag = VIE_wk_grievance
-				has_country_flag = VIE_wa_labor_repressed
-			}
-		}
-		set_variable = { VIE_col_rebel = 5 }
-	}
-	else = {
-		set_variable = { VIE_col_rebel = 22 }
-	}
-}
-
-VIE_col_start_civil_war = {
-	VIE_col_pick_rebel = yes
-	set_country_flag = { flag = VIE_civil_war_clock value = 1 days = 180 }
-	hidden_effect = {
-		if = {
-			limit = { check_variable = { VIE_col_rebel = 13 } }
-			start_civil_war = {
-				ideology = neutrality
-				size = 0.35
-				states = { 519 518 }
-			}
-		}
-		else_if = {
-			limit = { check_variable = { VIE_col_rebel = 5 } }
-			start_civil_war = {
-				ideology = communism
-				size = 0.30
-				states = { 519 524 }
-			}
-		}
-		else_if = {
-			limit = { check_variable = { VIE_col_rebel = 20 } }
-			start_civil_war = {
-				ideology = nationalist
-				size = 0.35
-				states = { 521 520 }
-			}
-		}
-		else = {
-			start_civil_war = {
-				ideology = nationalist
-				size = 0.35
-				states = { 524 523 }
-			}
-		}
-		# Same pattern as MD start_civil_war_against_the_strongest_opposition
-		random_enemy_country = {
-			limit = { original_tag = ROOT }
-			set_country_flag = VIE_civil_war_rebel
-			set_temp_variable = { rul_party_temp = PREV.VIE_col_rebel }
-			if = {
-				limit = { check_variable = { rul_party_temp = 13 } }
-				set_temp_variable = { party_index = 13 }
-				set_temp_variable = { party_popularity_increase = 0.25 }
-				set_temp_variable = { temp_outlook_increase = 0.25 }
-				hidden_effect = { change_relative_party_popularity = yes }
-			}
-			else_if = {
-				limit = { check_variable = { rul_party_temp = 5 } }
-				set_temp_variable = { party_index = 5 }
-				set_temp_variable = { party_popularity_increase = 0.25 }
-				set_temp_variable = { temp_outlook_increase = 0.25 }
-				hidden_effect = { change_relative_party_popularity = yes }
-			}
-			else = {
-				set_temp_variable = { party_index = 22 }
-				set_temp_variable = { party_popularity_increase = 0.25 }
-				set_temp_variable = { temp_outlook_increase = 0.25 }
-				hidden_effect = { change_relative_party_popularity = yes }
-			}
-			set_temp_variable = { disable_elections = 1 }
-			change_ruling_party_effect = yes
-			hidden_effect = { set_variable = { current_term = 0 } }
-		}
-	}
-}
-
-########################################################################
-# Called for the winner of a civil war whose original tag is VIE (from on_civil_war_end).
+# Re-creates the "already happened" flags in catch-up mode (VIE_catch_up = 1). Not called by any hook now; kept for later use.
 # The winner may be the old country or the rebel country, so it re-creates the "already happened" flags.
 ########################################################################
 VIE_catch_up_schedule = {
@@ -124,77 +26,6 @@ VIE_catch_up_schedule = {
 	VIE_event_scheduler_p15 = yes
 	VIE_event_scheduler_p17 = yes
 	VIE_event_scheduler_naval = yes
-}
-
-VIE_collapse_aftermath = {
-	clr_country_flag = VIE_civil_war_rebel
-	VIE_catch_up_schedule = yes
-	set_country_flag = VIE_collapse_done
-	set_country_flag = VIE_post_collapse
-	set_country_flag = { flag = VIE_collapse_immunity value = 1 days = 1095 }
-	VIE_nav_program_recount = yes
-	VIE_nf_program_recount = yes
-	VIE_p1b_program_recount = yes
-	# the winner needs the balance of power that matches its regime
-	if = {
-		limit = {
-			OR = {
-				check_variable = { ruling_party = 19 }
-				check_variable = { ruling_party = 4 }
-			}
-			NOT = { has_country_flag = VIE_bop_active }
-		}
-		set_power_balance = {
-			id = VIE_party_balance
-			left_side = VIE_conservative_side
-			right_side = VIE_reform_side
-			set_value = -0.4
-		}
-		set_country_flag = VIE_bop_active
-	}
-	if = {
-		limit = { check_variable = { ruling_party = 5 } }
-		clr_country_flag = VIE_wk_grievance
-	}
-	country_event = { id = vie_col.6 days = 20 }
-}
-
-########################################################################
-# Monthly collapse check: stability < 20%, two crises and a pole. First a single chance to pull back.
-########################################################################
-VIE_collapse_check = {
-	if = {
-		limit = {
-			VIE_collapse_stability = yes
-			VIE_crisis_count_ge_2 = yes
-			VIE_collapse_pole = yes
-			has_war = no
-			has_civil_war = no
-			NOT = { has_country_flag = VIE_collapse_done }
-			NOT = { has_country_flag = VIE_collapse_immunity }
-		}
-		if = {
-			limit = { NOT = { has_country_flag = VIE_winter_used } }
-			set_country_flag = VIE_winter_used
-			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
-			country_event = { id = vie_col.1 days = 2 }
-		}
-		else = {
-			set_country_flag = VIE_collapse_done
-			country_event = { id = vie_col.2 days = 5 }
-		}
-	}
-	# Reconciliation conference if the war drags on
-	if = {
-		limit = {
-			has_civil_war = yes
-			has_country_flag = VIE_collapse_done
-			NOT = { has_country_flag = VIE_civil_war_clock }
-			NOT = { has_country_flag = VIE_hue_done }
-		}
-		set_country_flag = VIE_hue_done
-		country_event = { id = vie_col.4 days = 3 }
-	}
 }
 
 ########################################################################
@@ -275,7 +106,5 @@ VIE_event_scheduler_p3 = {
 			}
 		}
 
-		# ---- Collapse
-		VIE_collapse_check = yes
 	}
 }

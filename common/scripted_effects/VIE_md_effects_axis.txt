@@ -192,10 +192,7 @@ VIE_ax_faction_check = {
 	# 4. Labour Unions: high horizontal checks and reform or democratic path
 	if = {
 		limit = {
-			OR = {
-				has_country_flag = VIE_democracy_path_open
-				check_variable = { VIE_ax_checks_norm > 4 }
-			}
+			check_variable = { VIE_ax_checks_norm > 4 }
 			NOT = { has_idea = labour_unions }
 		}
 		if = {

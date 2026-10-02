@@ -72,7 +72,6 @@ country_event = {
 		VIE_bop_reform_small = yes
 		ai_chance = {
 			base = 80
-			modifier = { add = 60 has_global_flag = VIE_AI_PATH_WESTERN }
 		}
 	}
 
@@ -86,7 +85,6 @@ country_event = {
 		ai_chance = {
 			base = 20
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 }

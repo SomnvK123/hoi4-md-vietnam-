@@ -107,7 +107,7 @@ country_event = {
 		ai_chance = {
 			base = 30
 			# Tu choi de nghi Ba Lan la huong di chong lai lich su -> chi AI "free"
-			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 }
 		}
 	}
 }
@@ -171,7 +171,7 @@ country_event = {
 		ai_chance = {
 			base = 30
 			# Giu hop dong T-72 la huong di chong lai lich su -> chi AI che do "free"
-			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -215,7 +215,7 @@ country_event = {
 		custom_effect_tooltip = VIE_proc_t54m3_package_tt
 		ai_chance = {
 			base = 30
-			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}

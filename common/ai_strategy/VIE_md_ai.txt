@@ -1,5 +1,4 @@
-# AI strategies for an AI-controlled Vietnam (submod). MD had no VIE file. Patterns follow SIN.txt / SIA.txt.
-# The VIE_path_* blocks are switched on by the game rule "Vietnam AI behaviour" (global flags VIE_AI_PATH_*).
+# AI strategies for an AI-controlled Vietnam (submod). MD has no VIE file. Patterns follow SIN.txt / SIA.txt.
 
 # ---- Default: bamboo diplomacy. Friends in ASEAN and among the big partners, no war with anyone.
 VIE_befriend_asean = {
@@ -17,6 +16,8 @@ VIE_befriend_asean = {
 	ai_strategy = { type = befriend id = "IND" value = 100 }
 	ai_strategy = { type = befriend id = "PHI" value = 50 }
 	ai_strategy = { type = befriend id = "BRM" value = 50 }
+	ai_strategy = { type = befriend id = "BRU" value = 50 }
+	ai_strategy = { type = befriend id = "TIM" value = 50 }
 }
 
 VIE_befriend_partners = {
@@ -31,6 +32,7 @@ VIE_befriend_partners = {
 	ai_strategy = { type = befriend id = "RAJ" value = 100 }
 	ai_strategy = { type = befriend id = "SOV" value = 100 }
 	ai_strategy = { type = befriend id = "AST" value = 50 }
+	ai_strategy = { type = befriend id = "FRA" value = 50 }
 	ai_strategy = { type = befriend id = "USA" value = 50 }
 	ai_strategy = { type = befriend id = "CHI" value = 50 }
 }
@@ -39,13 +41,14 @@ VIE_befriend_partners = {
 VIE_avoid_war_with_china = {
 	allowed = { original_tag = VIE }
 	enable = {
-		NOT = { has_global_flag = VIE_AI_PATH_NATIONALIST }
+		NOT = { has_war_with = CHI }
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = { type = declare_war id = "CHI" value = -300 }
 }
 
+# Neighbours and the other ASEAN members: the Sea disputes are handled through the SCS focuses and decisions, not by war.
 VIE_avoid_war_with_neighbours = {
 	allowed = { original_tag = VIE }
 	enable = {
@@ -56,31 +59,25 @@ VIE_avoid_war_with_neighbours = {
 	ai_strategy = { type = declare_war id = "LAO" value = -200 }
 	ai_strategy = { type = declare_war id = "CBD" value = -200 }
 	ai_strategy = { type = declare_war id = "SIA" value = -200 }
+	ai_strategy = { type = declare_war id = "PHI" value = -200 }
+	ai_strategy = { type = declare_war id = "MAY" value = -200 }
+	ai_strategy = { type = declare_war id = "IND" value = -200 }
+	ai_strategy = { type = declare_war id = "BRU" value = -200 }
+	ai_strategy = { type = declare_war id = "SIN" value = -200 }
+	ai_strategy = { type = declare_war id = "BRM" value = -200 }
 }
 
-# ---- Path: hardline / Chinese primacy
-VIE_path_hardline = {
+# Already fighting and losing: no new fronts.
+VIE_hold_new_wars_while_losing = {
 	allowed = { original_tag = VIE }
-	enable = { has_global_flag = VIE_AI_PATH_HARDLINE }
+	enable = {
+		has_war = yes
+		surrender_progress > 0.15
+	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = befriend id = "CHI" value = 200 }
-	ai_strategy = { type = befriend id = "SOV" value = 150 }
-	ai_strategy = { type = befriend id = "LAO" value = 100 }
-	ai_strategy = { type = befriend id = "CBD" value = 100 }
+	ai_strategy = { type = declare_war id = "CHI" value = -4000 }
+	ai_strategy = { type = declare_war id = "LAO" value = -4000 }
+	ai_strategy = { type = declare_war id = "CBD" value = -4000 }
+	ai_strategy = { type = declare_war id = "SIA" value = -4000 }
 }
-
-# ---- Path: Western pivot
-VIE_path_western = {
-	allowed = { original_tag = VIE }
-	enable = { has_global_flag = VIE_AI_PATH_WESTERN }
-	abort_when_not_enabled = yes
-
-	ai_strategy = { type = befriend id = "USA" value = 200 }
-	ai_strategy = { type = befriend id = "JAP" value = 150 }
-	ai_strategy = { type = befriend id = "AST" value = 100 }
-	ai_strategy = { type = befriend id = "KOR" value = 100 }
-	ai_strategy = { type = befriend id = "RAJ" value = 100 }
-	ai_strategy = { type = contain id = "CHI" value = 50 }
-}
-

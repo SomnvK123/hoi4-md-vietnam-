@@ -42,18 +42,5 @@ VIE_event_scheduler_p11 = {
 			country_event = { id = vie_scs.17 days = 3 }
 		}
 
-		# ASEAN mediation during the civil war, once
-		if = {
-			limit = {
-				has_civil_war = yes
-				has_country_flag = VIE_collapse_done
-				NOT = { has_country_flag = VIE_asean_mediation_offered }
-			}
-			random = {
-				chance = 20
-				set_country_flag = VIE_asean_mediation_offered
-				country_event = { id = vie_col.8 days = 5 }
-			}
-		}
 	}
 }

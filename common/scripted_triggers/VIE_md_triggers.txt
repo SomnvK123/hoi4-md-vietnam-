@@ -19,29 +19,16 @@ VIE_scs_escalated_trigger = {
 # Balance-of-power readers (need VIE_bop_active, i.e. Party rule and the balance initialised)
 VIE_bop_is_reformist = {
 	has_country_flag = VIE_bop_active
-	OR = {
-		VIE_ai_path_reformish = yes
-		power_balance_value = {
-			id = VIE_party_balance
-			value > 0.2
-		}
-		AND = {
-			VIE_ai_free = yes
-			power_balance_value = {
-				id = VIE_party_balance
-				value > 0.05
-			}
-		}
+	power_balance_value = {
+		id = VIE_party_balance
+		value > 0.2
 	}
 }
 VIE_bop_leans_conservative = {
 	has_country_flag = VIE_bop_active
-	OR = {
-		VIE_ai_path_conservative = yes
-		power_balance_value = {
-			id = VIE_party_balance
-			value < 0
-		}
+	power_balance_value = {
+		id = VIE_party_balance
+		value < 0
 	}
 }
 

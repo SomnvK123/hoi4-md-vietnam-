@@ -29,7 +29,6 @@ country_event = {
 		ai_chance = {
 			base = 20
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 }
@@ -62,7 +61,6 @@ country_event = {
 		ai_chance = {
 			base = 30
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 }
@@ -143,7 +141,6 @@ country_event = {
 		ai_chance = {
 			base = 40
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 }
@@ -206,7 +203,6 @@ country_event = {
 		ai_chance = {
 			base = 20
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 }

@@ -1154,17 +1154,6 @@ VIE_event_scheduler_p10 = {
 	}
 	if = {
 		limit = {
-			NOT = { has_country_flag = VIE_news_civil_war }
-			has_country_flag = VIE_civil_war_clock
-		}
-		set_country_flag = VIE_news_civil_war
-		if = {
-			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-			news_event = { id = vie_news.9 hours = 6 }
-		}
-	}
-	if = {
-		limit = {
 			NOT = { has_country_flag = VIE_news_paracel }
 			has_war_with = CHI
 		}

@@ -16,23 +16,11 @@
 ########################################################################
 
 # ---------------------------------------------------------------------
-# Q10 = khoa mem. N1 (VIE_lf_army_reform) chi mo khi:
-#   - sau 11/2/2019 (Nghi quyet 109-NQ/QUTW, bao cao 9.2), hoac
-#   - che do game rule VIE_alt_history = free, sau 2012 va Truc 2 da dat level >= 2
-#     (day chinh la "cong mem 8.3" cua bao cao, chi o che do free).
+# Q10 = khoa mem. N1 (VIE_lf_army_reform) chi mo sau 11/2/2019 (Nghi quyet 109-NQ/QUTW, bao cao 9.2).
 # Phan con lai cua cay KHONG khoa ngay them: di theo N1 (bao cao 8.13).
-# VIE_ai_free (VIE_md_triggers_p4.txt) va VIE_def_ind_level_ge_2
-# (VIE_md_triggers_p15.txt) la hai trigger co san.
 # ---------------------------------------------------------------------
 VIE_lf_gate_open = {
-	OR = {
-		date > 2019.2.10
-		AND = {
-			VIE_ai_free = yes
-			date > 2012.12.31
-			VIE_def_ind_level_ge_2 = yes
-		}
-	}
+	date > 2019.2.10
 }
 
 # ---------------------------------------------------------------------

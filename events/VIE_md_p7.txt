@@ -69,7 +69,6 @@ country_event = {
 		ai_chance = {
 			base = 30
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { add = 60 has_global_flag = VIE_AI_PATH_WESTERN }
 		}
 	}
 

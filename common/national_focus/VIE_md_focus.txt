@@ -25,6 +25,7 @@ focus_tree = {
 	## v11 (29/09/2026): rut gon toi da nhanh quan doi - chi giu duy nhat root cha VIE_modernize_vpa (Hien dai hoa Quan doi Nhan dan). Xoa bo toan bo 3 quan chung Luc quan, Hai quan, PK-KQ. Cay focus: 360 -> 256 focus. Luu tru tai v11_removed_military_all_subbranches.txt.
 	## v12 (02/10/2026): cum LUAT BIEN (10 focus: law_of_the_sea, maritime_militia, fisheries_surveillance, dk1_platforms, legal_warfare, spratly_fortification, coast_guard_law, assert_maritime_rights, paracel_ultimatum, limited_war_doctrine) gom ve mot khoi, tach khoi hai quan: bo FOCUS_FILTER_NAVY; assert_maritime_rights bo nhanh VIE_maritime_denial_idea (chet) -> VIE_nf_branch_denial; CAT_patrolboat -> CAT_patrol_boats; tooltip VIE_tt_*; spratly_fortification gop khoi lap (mastery/XP 15+10 -> 15, range 0.05+0.05 -> 0.05); bo VIE_af_naval_detection/coordination khoi coast_guard_law va spratly_fortification (da cham tran 19.5/14.5 cua Truc 3, xem tools/audit/nf_balance.py).
 	## v13 (02/10/2026): them 4 focus HOP TAC AN NINH BIEN trong nhanh Bien Dong (VIE_scs_maritime_cooperation, _multilateral_exercise, _cam_ranh_port, _joint_training) + category VIE_scs_cooperation_category; cap VIE_cam_ranh_idea.
+	## v14 (02/10/2026): go 6 focus lua chon dinh huong gia dinh trong nhanh ASEAN (VIE_accept_chinese_influence, VIE_pivot_to_the_west, VIE_join_bri, VIE_military_cooperation_usa, VIE_socialist_bloc, VIE_indo_pacific_partner), cung 4 idea, 2 event vie_int.4/.5 va opinion modifier VIE_western_shift.
 	# Left-hand menu: each button scrolls the view to the target focus. Loc keys VIE_<name>_shortcut.
 	shortcut = {
 		name = VIE_doi_moi_shortcut
@@ -644,8 +645,7 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes } }
+			modifier = { factor = 0 VIE_ai_historical = yes } }
 	}
 
 	focus = {
@@ -1207,7 +1207,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -1403,8 +1402,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_NATIONALIST }
 		}
 	}
 
@@ -2127,7 +2124,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -2415,7 +2411,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -2510,7 +2505,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 20
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -3161,8 +3155,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 40
 			modifier = { factor = 1.5 VIE_ai_historical = yes }
-			modifier = { factor = 1 VIE_ai_path_security = yes }
-			modifier = { factor = 0.5 VIE_ai_path_reformish = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -3297,9 +3289,7 @@ focus_tree = {
 		ai_will_do = {
 			base = 40
 			modifier = { factor = 0.5 VIE_ai_historical = yes }
-			modifier = { factor = 0.5 VIE_ai_path_security = yes }
-			modifier = { factor = 1.5 VIE_ai_path_reformish = yes }
-			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -3467,9 +3457,7 @@ focus_tree = {
 		ai_will_do = {
 			base = 40
 			modifier = { factor = 0.25 VIE_ai_historical = yes }
-			modifier = { factor = 0.25 VIE_ai_path_security = yes }
-			modifier = { factor = 1 VIE_ai_path_reformish = yes }
-			modifier = { factor = 0 NOT = { VIE_ai_free = yes } }
+			modifier = { factor = 0 }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -4273,234 +4261,6 @@ focus_tree = {
 	## CHINH TRI
 	###############################
 	focus = {
-		id = VIE_accept_chinese_influence
-		icon = diplomatic_treaty
-
-		x = -4
-		y = 4
-		relative_position_id = VIE_asean_integration
-
-		prerequisite = { focus = VIE_asean_integration }
-		mutually_exclusive = { focus = VIE_pivot_to_the_west }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_accept_chinese_influence"
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = -3 tooltip = VIE_ax_west_tt }
-			if = { limit = { has_idea = VIE_four_nos } remove_ideas = VIE_four_nos }
-			if = { limit = { has_idea = VIE_non_alignment_policy } remove_ideas = VIE_non_alignment_policy }
-			add_ideas = VIE_china_orbit_idea
-			VIE_bop_conservative_medium = yes
-			add_stability = -0.03
-			set_variable = { VIE_scs_tension = 0 }
-			clr_country_flag = VIE_scs_escalated
-			add_opinion_modifier = { target = CHI modifier = VIE_chinese_influence }
-			reverse_add_opinion_modifier = { target = CHI modifier = VIE_chinese_influence }
-			add_opinion_modifier = { target = USA modifier = VIE_pro_china_shift }
-			reverse_add_opinion_modifier = { target = USA modifier = VIE_pro_china_shift }
-			add_opinion_modifier = { target = JAP modifier = VIE_pro_china_shift }
-			reverse_add_opinion_modifier = { target = JAP modifier = VIE_pro_china_shift }
-			country_event = { id = vie_int.5 days = 45 }
-		}
-
-		ai_will_do = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
-		}
-	}
-
-	focus = {
-		id = VIE_join_bri
-		icon = focus_generic_hydroelectric_energy
-
-		x = 8
-		y = 5
-		relative_position_id = VIE_asean_integration
-
-		cost = 7
-
-		prerequisite = { focus = VIE_accept_chinese_influence }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_join_bri"
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = -1 tooltip = VIE_ax_west_tt }
-			VIE_bop_conservative_small = yes
-			add_ideas = VIE_bri_idea
-			every_owned_state = {
-				limit = { is_core_of = VIE }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			set_temp_variable = { treasury_change = -2 }
-			modify_treasury_effect = yes
-		}
-
-		ai_will_do = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
-		}
-	}
-
-	focus = {
-		id = VIE_socialist_bloc
-		icon = accept_treaty
-
-		x = 6
-		y = 6
-		relative_position_id = VIE_asean_integration
-
-		cost = 7
-
-		prerequisite = { focus = VIE_join_bri }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_socialist_bloc"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = -2 tooltip = VIE_ax_west_tt }
-			VIE_bop_conservative_medium = yes
-			add_ideas = VIE_socialist_bloc_idea
-			if = {
-				limit = { country_exists = CHI CHI = { is_faction_leader = yes } }
-				CHI = { add_to_faction = ROOT }
-			}
-		}
-
-		ai_will_do = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
-		}
-	}
-
-	focus = {
-		id = VIE_pivot_to_the_west
-		icon = diplomatic_treaty
-
-		x = -4
-		y = 5
-		relative_position_id = VIE_asean_integration
-
-		prerequisite = { focus = VIE_asean_integration }
-		mutually_exclusive = { focus = VIE_accept_chinese_influence }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_pivot_to_the_west"
-			add_to_variable = { VIE_ax_integ = 2 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = 3 tooltip = VIE_ax_west_tt }
-			if = { limit = { has_idea = VIE_four_nos } remove_ideas = VIE_four_nos }
-			if = { limit = { has_idea = VIE_non_alignment_policy } remove_ideas = VIE_non_alignment_policy }
-			add_ideas = VIE_west_alignment_idea
-			VIE_bop_reform_medium = yes
-			add_stability = -0.01
-			add_opinion_modifier = { target = USA modifier = VIE_western_pivot }
-			reverse_add_opinion_modifier = { target = USA modifier = VIE_western_pivot }
-			add_opinion_modifier = { target = JAP modifier = VIE_western_pivot }
-			reverse_add_opinion_modifier = { target = JAP modifier = VIE_western_pivot }
-			add_opinion_modifier = { target = CHI modifier = VIE_western_shift }
-			reverse_add_opinion_modifier = { target = CHI modifier = VIE_western_shift }
-			country_event = { id = vie_int.4 days = 45 }
-		}
-
-		ai_will_do = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_military_cooperation_usa
-		icon = accept_treaty
-
-		x = -2
-		y = 6
-		relative_position_id = VIE_asean_integration
-
-		cost = 7
-
-		prerequisite = { focus = VIE_pivot_to_the_west }
-
-		search_filters = { FOCUS_FILTER_ARMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_military_cooperation_usa"
-			add_to_variable = { VIE_ax_west = 2 tooltip = VIE_ax_west_tt }
-			VIE_bop_reform_small = yes
-			add_ideas = VIE_us_defence_idea
-			army_experience = 15
-			add_tech_bonus = {
-				name = VIE_military_cooperation_usa
-				category = CAT_armor
-				category = CAT_fighter
-				uses = 1
-				bonus = 0.5
-			}
-		}
-
-		ai_will_do = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
-		id = VIE_indo_pacific_partner
-		icon = accept_treaty
-
-		x = -2
-		y = 7
-		relative_position_id = VIE_asean_integration
-
-		cost = 7
-
-		prerequisite = { focus = VIE_military_cooperation_usa }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_indo_pacific_partner"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_west = 2 tooltip = VIE_ax_west_tt }
-			if = {
-				limit = { country_exists = USA USA = { is_faction_leader = yes } }
-				USA = { add_to_faction = ROOT }
-			}
-			else_if = {
-				limit = { country_exists = RAJ RAJ = { is_faction_leader = yes } }
-				RAJ = { add_to_faction = ROOT }
-			}
-		}
-
-		ai_will_do = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_WESTERN }
-		}
-	}
-
-	focus = {
 		id = VIE_indochina_solidarity
 		icon = treaty2
 
@@ -4534,7 +4294,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -4566,7 +4325,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -4615,8 +4373,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 15
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -4649,8 +4405,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -4678,8 +4432,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -5223,7 +4975,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -5437,7 +5188,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -5886,7 +5636,6 @@ focus_tree = {
 		available = {
 			has_completed_focus = VIE_code_of_conduct
 			date > 2022.12.31
-			NOT = { has_completed_focus = VIE_pivot_to_the_west }
 		}
 
 		completion_reward = {
@@ -6132,7 +5881,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -7418,7 +7166,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -7640,7 +7387,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -8460,7 +8206,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
 		}
 	}
 
@@ -9346,8 +9091,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -9377,8 +9120,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -9407,8 +9148,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -9437,8 +9176,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -9467,8 +9204,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 25
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 150 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 
@@ -9900,7 +9635,6 @@ focus_tree = {
 
 		ai_will_do = {
 			base = 40
-			modifier = { factor = 3 VIE_ai_free = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -10343,8 +10077,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 40
 			modifier = { factor = 0.25 VIE_ai_historical = yes }
-			modifier = { factor = 1.5 VIE_ai_path_reformish = yes }
-			modifier = { factor = 0.25 VIE_ai_path_security = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -10444,8 +10176,6 @@ focus_tree = {
 
 		ai_will_do = {
 			base = 40
-			modifier = { factor = 0.25 VIE_ai_path_reformish = yes }
-			modifier = { factor = 1.5 VIE_ai_path_security = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -10496,8 +10226,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 40
 			modifier = { factor = 1.5 VIE_ai_historical = yes }
-			modifier = { factor = 1.5 VIE_ai_path_reformish = yes }
-			modifier = { factor = 0.5 VIE_ai_path_security = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -10523,8 +10251,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 40
 			modifier = { factor = 1.5 VIE_ai_historical = yes }
-			modifier = { factor = 0.75 VIE_ai_path_reformish = yes }
-			modifier = { factor = 1.5 VIE_ai_path_security = yes }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}

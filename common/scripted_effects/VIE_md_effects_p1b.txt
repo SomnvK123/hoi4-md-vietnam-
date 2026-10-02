@@ -133,48 +133,6 @@ VIE_p1b_cancel = {
 	}
 }
 
-# Dem lai slot theo timed idea chuong trinh 1B dang chay (goi sau noi chien, VIE_collapse_aftermath).
-VIE_p1b_program_recount = {
-	set_variable = { VIE_var_procurement_1b_active = 0 }
-	if = {
-		limit = { has_idea = VIE_p1b_prog_corvette }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_frigate_med }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_asw_frigate }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_ssk_reg }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_bastion2 }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_amphib }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_destroyer }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_carrier }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_p1b_prog_ssn }
-		add_to_variable = { VIE_var_procurement_1b_active = 1 }
-	}
-	clamp_variable = { var = VIE_var_procurement_1b_active min = 0 max = 2 }
-}
-
 ########################################################################
 # P1 Hộ vệ hạm nhẹ (corvette)
 ########################################################################

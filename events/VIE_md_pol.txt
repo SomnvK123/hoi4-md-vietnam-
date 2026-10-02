@@ -65,8 +65,6 @@ country_event = {
 		ai_chance = {
 			base = 3
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 100 has_global_flag = VIE_AI_PATH_HARDLINE }
 		}
 	}
 }
@@ -103,8 +101,6 @@ country_event = {
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 100 has_global_flag = VIE_AI_PATH_REFORM }
 		}
 	}
 }
@@ -178,8 +174,6 @@ country_event = {
 		ai_chance = {
 			base = 4
 			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 3 VIE_ai_free = yes }
-			modifier = { add = 100 has_global_flag = VIE_AI_PATH_REFORM }
 		}
 	}
 }

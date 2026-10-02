@@ -294,10 +294,6 @@ VIE_p1b_pay = {
         o += '\t%s = {\n\t\tlimit = { check_variable = { VIE_p1b_cur = %d } }\n\t\tset_country_flag = VIE_p1b_%s_cancelled\n\t}\n' % ('if' if first else 'else_if', prog(k)['n'], k)
         first = False
     o += '}\n\n'
-    o += '# Dem lai slot theo timed idea chuong trinh 1B dang chay (goi sau noi chien, VIE_collapse_aftermath).\nVIE_p1b_program_recount = {\n\tset_variable = { VIE_var_procurement_1b_active = 0 }\n'
-    for k in ENABLED:
-        o += '\tif = {\n\t\tlimit = { has_idea = VIE_p1b_prog_%s }\n\t\tadd_to_variable = { VIE_var_procurement_1b_active = 1 }\n\t}\n' % k
-    o += '\tclamp_variable = { var = VIE_var_procurement_1b_active min = 0 max = 2 }\n}\n\n'
 
     for k in ENABLED:
         p = prog(k)

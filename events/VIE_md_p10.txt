@@ -1612,20 +1612,6 @@ news_event = {
 }
 
 news_event = {
-	id = vie_news.9
-	title = vie_news.9.t
-	desc = vie_news.9.d
-	picture = GFX_news_event_generic_ruins
-	is_triggered_only = yes
-
-	option = {
-		name = vie_news.9.a
-		log = "[GetDateText]: [This.GetName]: Event vie_news.9.a executed"
-	}
-
-}
-
-news_event = {
 	id = vie_news.11
 	title = vie_news.11.t
 	desc = vie_news.11.d

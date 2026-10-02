@@ -15,10 +15,6 @@ opinion_modifiers = {
 		value = 30
 		decay = 0.1
 	}
-	VIE_chinese_influence = {
-		value = 25
-		decay = 0.1
-	}
 	VIE_pro_china_shift = {
 		value = -20
 		decay = 0.2
@@ -26,10 +22,6 @@ opinion_modifiers = {
 	VIE_western_pivot = {
 		value = 25
 		decay = 0.1
-	}
-	VIE_western_shift = {
-		value = -25
-		decay = 0.2
 	}
 	VIE_trade_agreement = {
 		value = 15

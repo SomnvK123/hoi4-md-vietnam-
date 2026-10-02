@@ -116,7 +116,7 @@ Files: `VIE_md_effects_nav_ind.txt` (helpers, D1-D5 start/finish), `events/VIE_n
 - [ ] D4: Electronics needs one of `VIE_semiconductor_fab`, `VIE_chip_design`, `VIE_earth_observation`, `VIE_vinasat` (completed focus); Weapons needs `VIE_ext_naval_missile` (Truc 1: all Bastion-P delivered). Full needs both, 1.5x price. Balanced level adds +5 exp when a Sigma has been delivered.
 - [ ] D5: needs shipbuilding_exp 30 and mro_exp 15 (tooltips show the current values); balanced orientation + all-Basic + Molniya phase 2 (6 ships) reaches 40/16. The four priorities need D1, D2, D4 done as written; autonomy Integrated needs `VIE_var_ba_son_tier >= 2`, High needs tier 3 and `VIE_var_integration_tier >= 2`. End sets `VIE_cap_mature_naval_industry` and idea `VIE_nav_mature_industry_idea`.
 - [ ] Slot: start D2 and D3 together; D4 or D5 shows the slot tooltip greyed; finishing one frees it. Console `effect VIE_nav_program_recount = yes` with no timed ideas gives 0.
-- [ ] Civil war: after `VIE_collapse_aftermath` the slot counter equals the number of `VIE_nav_prog_*` ideas held; a rebel-tag winner starts at 0. Pending completion events of the old country are lost with the tag (known limit).
+- [ ] Civil war: after `VIE_civil_war_end` the slot counter equals the number of `VIE_nav_prog_*` ideas held; a rebel-tag winner starts at 0. Pending completion events of the old country are lost with the tag (known limit).
 - [ ] AI-only run to 2020: AI VIE completes Focus 1, 2, Decision 1 before 2009-06 (else Molniya phase 2 is missed) and later D3 and D2; no D4/D5 before their dates. Watch `ai_will_do` of the six focuses (90 / 90 / 70 / 70 / 60 / 60).
 - [ ] Notifications `.60 .61 .62 .63 .64 .65` use `minor_flavor = yes`: check they appear as the small flavor notices and not as full pop-ups; if the attribute is rejected, remove it.
 - [ ] Prices (USD bn): D1 7.5 / 12 / 18; D2 4.0 x 1 / 1.6 / 2.4 x 0.8 or 1.4 x 1.3 (fleet); D3 6.0 / 9.6 / 14.4; D4 7.0 / 11.2 / 16.8 x 1.5 (Full); D5 10 / 15 / 22. Totals: historical 33.7, all-max 97.1. Change a price: rerun `python tools/audit/naval_balance.py`.
@@ -1007,7 +1007,7 @@ Thiet ke: `VIE_naval_truc3_review_and_plan.md`. Chua chay trong game. Static: `p
 | NF-6 | D-C: sau 183, 365, 548 ngay | `.50` (XP + coordination 2%), `.51` (2%), `.63` (2% + sub defence 2%) |
 | NF-7 | D-D chon Coastal roi chon nhanh B1 (Bluewater) | Idea phat `VIE_nf_branch_mismatch_idea` 365 ngay; chon D1 (Denial) thi +1% to chuc |
 | NF-8 | Kilo: co `VIE_nf_sub_prep` | Goi huan luyen 0,15 ty/tau (khong co: 0,2) |
-| NF-9 | Noi chien (`VIE_collapse_aftermath`) | `VIE_var_force_program_active` va `VIE_var_procurement_1b_active` ve dung so timed idea con lai |
+| NF-9 | Noi chien (`VIE_civil_war_end`) | `VIE_var_force_program_active` va `VIE_var_procurement_1b_active` ve dung so timed idea con lai |
 
 ### Chuong trinh 1B (P1-P4, P6-P8, P10, P11)
 | # | Thao tac | Ket qua mong doi |
@@ -1026,3 +1026,7 @@ Thiet ke: `VIE_naval_truc3_review_and_plan.md`. Chua chay trong game. Static: `p
 ### Dang cho kiem trong game (khong phai no code)
 Thong so thang `VIE_nf_*` la gia tri khoi diem; ngay co moc T5 (Lu doan 162/167), Lu doan 189 (2013 vs 2011) va T1 (2005) chua xac minh;
 `navy_personnel_cost_multiplier_modifier` mau/don vi chua kiem; bunker P6 chong len Truc 1.
+
+## Removed 2026-10-02: mod-driven collapse / civil war
+The mod no longer starts a collapse or a civil war. Removed: events `vie_col.1/.2/.4/.6/.8`, `vie_int.7/.8`, `vie_news.9`; effects `VIE_collapse_check`, `VIE_col_pick_rebel`, `VIE_col_start_civil_war`; triggers `VIE_collapse_pole`, `VIE_collapse_stability`, `VIE_crisis_count_ge_2`; ideas `VIE_post_collapse_idea`, `VIE_china_orbit_idea`; flag `VIE_democracy_path_open`. Older checklist items above that mention them no longer apply.
+Kept: `on_civil_war_end` -> `VIE_civil_war_end` (clears the rebel flag, `VIE_catch_up_schedule`, slot recounts, party balance) for any civil war started by the game or by Millennium Dawn.

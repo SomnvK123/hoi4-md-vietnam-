@@ -471,68 +471,6 @@ ideas = {
 
 
 
-		VIE_china_orbit_idea = {
-			picture = generic_diplomatic_pressure
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.02
-				stability_factor = -0.02
-				trade_opinion_factor = -0.02
-			}
-		}
-
-		VIE_bri_idea = {
-			picture = economic_road_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				production_speed_infrastructure_factor = 0.1
-				country_productivity_growth_modifier = 0.01
-			}
-		}
-
-		VIE_socialist_bloc_idea = {
-			picture = generic_communist_drift_bonus
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				war_support_factor = 0.02
-				drift_defence_factor = 0.03
-			}
-		}
-
-		VIE_west_alignment_idea = {
-			picture = generic_diplomatic_treaty
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				trade_opinion_factor = 0.05
-				country_productivity_growth_modifier = 0.02
-				stability_factor = -0.01
-			}
-		}
-
-		VIE_us_defence_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				army_defence_factor = 0.04
-				experience_gain_army_factor = 0.05
-			}
-		}
-
 		VIE_china_pressure_idea = {
 			picture = financial_crisis
 			allowed = { always = no }
@@ -700,18 +638,6 @@ ideas = {
 
 
 
-
-		VIE_post_collapse_idea = {
-			picture = financial_crisis
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = -0.03
-				country_productivity_growth_modifier = -0.02
-			}
-		}
 
 		VIE_public_admin_idea = {
 			picture = generic_political_reform

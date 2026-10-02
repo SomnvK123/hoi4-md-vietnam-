@@ -89,33 +89,6 @@ VIE_p1b_program_end = {
 	clamp_variable = { var = VIE_var_procurement_1b_active min = 0 max = 2 }
 }
 
-# Dem lai slot theo cac timed idea chuong trinh luc luong dang chay. Goi sau noi chien
-# (VIE_collapse_aftermath), cung ly do VIE_nav_program_recount cua Truc 2.
-VIE_nf_program_recount = {
-	set_variable = { VIE_var_force_program_active = 0 }
-	if = {
-		limit = { has_idea = VIE_nf_prog_surface }
-		add_to_variable = { VIE_var_force_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nf_prog_sub }
-		add_to_variable = { VIE_var_force_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nf_prog_coord }
-		add_to_variable = { VIE_var_force_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nf_prog_first }
-		add_to_variable = { VIE_var_force_program_active = 1 }
-	}
-	if = {
-		limit = { has_idea = VIE_nf_prog_csg }
-		add_to_variable = { VIE_var_force_program_active = 1 }
-	}
-	clamp_variable = { var = VIE_var_force_program_active min = 0 max = 2 }
-}
-
 ########################################################################
 # Decision D-A: huan luyen luc luong tau mat nuoc (event vie_nav_force.1 .2, ket thuc .61).
 # Nguoi goi dat truoc VIE_nf_surface_level (1 co ban / 2 chuyen sau) va VIE_nf_surface_specialty
