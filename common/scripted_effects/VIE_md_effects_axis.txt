@@ -1,4 +1,12 @@
-# Scripted effects for Vietnam 9-Axis State-Building (Batch 0).
+# Scripted effects for Vietnam State-Building.
+# Nine hidden axis variables (VIE_ax_<x>, written by ~370 focuses) are normalized to -10..+10, then folded
+# every month into FOUR visible axes (see VIE_statebuilding_4axis_design.md):
+#   A Nang luc Bo may       VIE_sb_A = merit_norm - size_norm/2               + VIE_sb_A_dec
+#   B Khong gian Chinh tri  VIE_sb_B = civil_norm + (checks_norm - mob_norm)/2 + VIE_sb_B_dec
+#   C Mo hinh Kinh te       VIE_sb_C = market_norm + decent_norm/2            + VIE_sb_C_dec
+#   D Dinh huong Doi ngoai  VIE_sb_D = integ_norm + west_norm/2               + VIE_sb_D_dec
+# The *_dec offsets are written only by the four state-building decisions (events vie_sb.*), so the monthly
+# recompute never wipes a decision's effect. Modifier, factions and gates read A..D only.
 
 VIE_ax_init = {
 	if = {
@@ -21,6 +29,10 @@ VIE_ax_init = {
 		set_variable = { VIE_ax_integ = 0 }
 		set_variable = { VIE_ax_mob = 0 }
 		set_variable = { VIE_ax_west = 0 }
+		set_variable = { VIE_sb_A_dec = 0 }
+		set_variable = { VIE_sb_B_dec = 0 }
+		set_variable = { VIE_sb_C_dec = 0 }
+		set_variable = { VIE_sb_D_dec = 0 }
 		VIE_ax_normalize = yes
 	}
 }
@@ -98,49 +110,119 @@ VIE_ax_normalize = {
 	clamp_variable = { var = VIE_ax_west_norm min = -10 max = 10 }
 	round_variable = VIE_ax_west_norm
 
-	# Calculate modifier variables (range +-3% at +-10 norm)
-	set_variable = { VIE_ax_size_mod = VIE_ax_size_norm }
-	multiply_variable = { var = VIE_ax_size_mod value = -0.003 }
+	# ---- Fold the nine hidden axes into the four visible ones ----
+	# A = merit - size/2 (+ decision offset)
+	set_variable = { VIE_sb_A = VIE_ax_merit_norm }
+	set_temp_variable = { sb_half = VIE_ax_size_norm }
+	divide_variable = { var = sb_half value = 2 }
+	subtract_from_variable = { var = VIE_sb_A value = sb_half }
+	add_to_variable = { var = VIE_sb_A value = VIE_sb_A_dec }
+	clamp_variable = { var = VIE_sb_A min = -10 max = 10 }
+	round_variable = VIE_sb_A
 
-	set_variable = { VIE_ax_merit_mod = VIE_ax_merit_norm }
-	multiply_variable = { var = VIE_ax_merit_mod value = 0.003 }
-	set_variable = { VIE_ax_merit_eff_mod = VIE_ax_merit_norm }
-	multiply_variable = { var = VIE_ax_merit_eff_mod value = 0.003 }
+	# B = civil + (checks - mob)/2 (+ decision offset)
+	set_variable = { VIE_sb_B = VIE_ax_civil_norm }
+	set_temp_variable = { sb_half = VIE_ax_checks_norm }
+	subtract_from_variable = { var = sb_half value = VIE_ax_mob_norm }
+	divide_variable = { var = sb_half value = 2 }
+	add_to_variable = { var = VIE_sb_B value = sb_half }
+	add_to_variable = { var = VIE_sb_B value = VIE_sb_B_dec }
+	clamp_variable = { var = VIE_sb_B min = -10 max = 10 }
+	round_variable = VIE_sb_B
 
-	set_variable = { VIE_ax_decent_mod = VIE_ax_decent_norm }
-	multiply_variable = { var = VIE_ax_decent_mod value = -0.003 }
+	# C = market + decent/2 (+ decision offset)
+	set_variable = { VIE_sb_C = VIE_ax_market_norm }
+	set_temp_variable = { sb_half = VIE_ax_decent_norm }
+	divide_variable = { var = sb_half value = 2 }
+	add_to_variable = { var = VIE_sb_C value = sb_half }
+	add_to_variable = { var = VIE_sb_C value = VIE_sb_C_dec }
+	clamp_variable = { var = VIE_sb_C min = -10 max = 10 }
+	round_variable = VIE_sb_C
 
-	set_variable = { VIE_ax_checks_mod = VIE_ax_checks_norm }
-	multiply_variable = { var = VIE_ax_checks_mod value = 0.003 }
+	# D = integ + west/2 (+ decision offset)
+	set_variable = { VIE_sb_D = VIE_ax_integ_norm }
+	set_temp_variable = { sb_half = VIE_ax_west_norm }
+	divide_variable = { var = sb_half value = 2 }
+	add_to_variable = { var = VIE_sb_D value = sb_half }
+	add_to_variable = { var = VIE_sb_D value = VIE_sb_D_dec }
+	clamp_variable = { var = VIE_sb_D min = -10 max = 10 }
+	round_variable = VIE_sb_D
 
-	set_variable = { VIE_ax_market_mod = VIE_ax_market_norm }
-	multiply_variable = { var = VIE_ax_market_mod value = 0.003 }
+	# Zone level per axis: 0 in -1..+1, +-0.5 in 2..5, +-1 from 6 (half / full pole effect)
+	VIE_sb_calc_level = { AX = A }
+	VIE_sb_calc_level = { AX = B }
+	VIE_sb_calc_level = { AX = C }
+	VIE_sb_calc_level = { AX = D }
 
-	set_variable = { VIE_ax_civil_mod = VIE_ax_civil_norm }
-	multiply_variable = { var = VIE_ax_civil_mod value = 0.003 }
+	# Modifier variables, each linear in the zone level (left pole = negative level)
+	# A: left = patronage (+PP, -efficiency); right = professional (-PP, +efficiency)
+	set_variable = { VIE_sb_pp_mod = VIE_sb_A_lv }
+	multiply_variable = { var = VIE_sb_pp_mod value = -0.06 }
+	set_variable = { VIE_sb_eff_mod = VIE_sb_A_lv }
+	multiply_variable = { var = VIE_sb_eff_mod value = 0.05 }
+	set_temp_variable = { sb_t = VIE_sb_D_lv }
+	multiply_variable = { var = sb_t value = -0.02 }
+	add_to_variable = { var = VIE_sb_eff_mod value = sb_t }
 
-	set_variable = { VIE_ax_integ_mod = VIE_ax_integ_norm }
-	multiply_variable = { var = VIE_ax_integ_mod value = 0.003 }
+	# B: left = security (+stability, +war support, -research); right = open (-stability, +research)
+	# C: left = state-led (+military industry, +stability); right = market (+construction, +productivity, -stability)
+	set_variable = { VIE_sb_stab_mod = VIE_sb_B_lv }
+	multiply_variable = { var = VIE_sb_stab_mod value = -0.08 }
+	set_temp_variable = { sb_t = VIE_sb_C_lv }
+	multiply_variable = { var = sb_t value = -0.04 }
+	add_to_variable = { var = VIE_sb_stab_mod value = sb_t }
+	set_variable = { VIE_sb_war_mod = VIE_sb_B_lv }
+	multiply_variable = { var = VIE_sb_war_mod value = -0.05 }
+	set_variable = { VIE_sb_res_mod = VIE_sb_B_lv }
+	multiply_variable = { var = VIE_sb_res_mod value = 0.05 }
+	set_temp_variable = { sb_t = VIE_sb_D_lv }
+	multiply_variable = { var = sb_t value = 0.03 }
+	add_to_variable = { var = VIE_sb_res_mod value = sb_t }
+	set_variable = { VIE_sb_mil_mod = VIE_sb_C_lv }
+	multiply_variable = { var = VIE_sb_mil_mod value = -0.08 }
+	set_variable = { VIE_sb_build_mod = VIE_sb_C_lv }
+	multiply_variable = { var = VIE_sb_build_mod value = 0.08 }
+	set_variable = { VIE_sb_prod_mod = VIE_sb_C_lv }
+	multiply_variable = { var = VIE_sb_prod_mod value = 0.03 }
 
-	set_variable = { VIE_ax_mob_mod = VIE_ax_mob_norm }
-	multiply_variable = { var = VIE_ax_mob_mod value = 0.003 }
-
-	set_variable = { VIE_ax_west_mod = VIE_ax_west_norm }
-	multiply_variable = { var = VIE_ax_west_mod value = 0.003 }
+	# D: left = self-reliant (+efficiency, see above); right = integrated (+trade opinion, +research)
+	set_variable = { VIE_sb_trade_mod = VIE_sb_D_lv }
+	multiply_variable = { var = VIE_sb_trade_mod value = 0.05 }
 
 	VIE_ax_faction_check = yes
 	VIE_ax_events_check = yes
 }
 
-# Evolution of internal factions based on axis thresholds and regime flags (Batch 4).
+# Zone level of one visible axis ($AX$ = A, B, C or D): 0 in -1..+1, +-0.5 in 2..5, +-1 from 6.
+VIE_sb_calc_level = {
+	set_variable = { VIE_sb_$AX$_lv = 0 }
+	if = {
+		limit = { check_variable = { VIE_sb_$AX$ > 1 } }
+		set_variable = { VIE_sb_$AX$_lv = 0.5 }
+	}
+	if = {
+		limit = { check_variable = { VIE_sb_$AX$ > 5 } }
+		set_variable = { VIE_sb_$AX$_lv = 1 }
+	}
+	if = {
+		limit = { check_variable = { VIE_sb_$AX$ < -1 } }
+		set_variable = { VIE_sb_$AX$_lv = -0.5 }
+	}
+	if = {
+		limit = { check_variable = { VIE_sb_$AX$ < -5 } }
+		set_variable = { VIE_sb_$AX$_lv = -1 }
+	}
+}
+
+# Evolution of internal factions based on the four state-building axes and regime flags.
 # Respects Millennium Dawn's exact 3-slot limit for internal factions.
 VIE_ax_faction_check = {
-	# 1. Oligarchs: state capture when market outpaces merit or oligarch regime active
+	# 1. Oligarchs: market runs ahead of the apparatus (C high, A low) under heavy corruption
 	if = {
 		limit = {
 			AND = {
-				check_variable = { VIE_ax_market_norm > 3 }
-				check_variable = { VIE_ax_merit_norm < 3 }
+				check_variable = { VIE_sb_C > 3 }
+				check_variable = { VIE_sb_A < 2 }
 				OR = {
 					has_idea = corruption_level_07
 					has_idea = corruption_level_08
@@ -157,15 +239,12 @@ VIE_ax_faction_check = {
 		}
 	}
 
-	# 2. Intelligence Community: security primacy when civil liberties drop or security regime active
+	# 2. Intelligence Community: security primacy (B deep on the control side) or security regime active
 	if = {
 		limit = {
 			OR = {
 				has_country_flag = VIE_security_active
-				AND = {
-					check_variable = { VIE_ax_civil_norm < -7 }
-					check_variable = { VIE_ax_checks_norm < -1 }
-				}
+				check_variable = { VIE_sb_B < -5 }
 			}
 			NOT = { has_idea = intelligence_community }
 		}
@@ -176,10 +255,11 @@ VIE_ax_faction_check = {
 		}
 	}
 
-	# 3. The Military: mobilization
+	# 3. The Military: control state plus a closed external posture
 	if = {
 		limit = {
-			check_variable = { VIE_ax_mob_norm > 7 }
+			check_variable = { VIE_sb_B < -5 }
+			check_variable = { VIE_sb_D < -3 }
 			NOT = { has_idea = the_military }
 		}
 		if = {
@@ -189,10 +269,10 @@ VIE_ax_faction_check = {
 		}
 	}
 
-	# 4. Labour Unions: high horizontal checks and reform or democratic path
+	# 4. Labour Unions: open political space
 	if = {
 		limit = {
-			check_variable = { VIE_ax_checks_norm > 4 }
+			check_variable = { VIE_sb_B > 4 }
 			NOT = { has_idea = labour_unions }
 		}
 		if = {
@@ -202,11 +282,11 @@ VIE_ax_faction_check = {
 		}
 	}
 
-	# 5. Small & Medium Business Owners: clean market development
+	# 5. Small & Medium Business Owners: clean market development (C and A both high)
 	if = {
 		limit = {
-			check_variable = { VIE_ax_market_norm > 2 }
-			check_variable = { VIE_ax_merit_norm > 2 }
+			check_variable = { VIE_sb_C > 2 }
+			check_variable = { VIE_sb_A > 2 }
 			NOT = { has_idea = small_medium_business_owners }
 			NOT = { has_idea = labour_unions }
 		}
@@ -218,20 +298,19 @@ VIE_ax_faction_check = {
 	}
 }
 
-# Failure and reversal event triggers (Batch 5)
+# Failure and reversal event triggers
 VIE_ax_events_check = {
-	# 4. Multi-dimensional crisis warning
+	# Multi-dimensional crisis warning: unstable, and either deep repression or a rotten apparatus
 	if = {
 		limit = {
 			NOT = { has_country_flag = VIE_axis_4_fired }
 			has_stability < 0.20
 			OR = {
-				check_variable = { VIE_ax_checks_norm < -5 }
-				check_variable = { VIE_ax_merit_norm < -3 }
+				check_variable = { VIE_sb_B < -5 }
+				check_variable = { VIE_sb_A < -3 }
 			}
 		}
 		set_country_flag = VIE_axis_4_fired
 		country_event = { id = vie_axis.4 days = 10 }
 	}
 }
-

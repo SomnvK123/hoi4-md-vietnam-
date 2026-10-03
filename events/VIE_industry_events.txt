@@ -1,0 +1,66 @@
+add_namespace = vie_ind
+
+########################################################################
+# vie_ind.1  Supply-chain shift out of China (2018-2019 trade war): open door or selective FDI
+########################################################################
+country_event = {
+	id = vie_ind.1
+	title = vie_ind.1.t
+	desc = vie_ind.1.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+
+	# Take every factory that wants to move
+	option = {
+		name = vie_ind.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_ind.1.a executed"
+		set_country_flag = VIE_fdi_open_door
+		increase_economic_growth = yes
+		add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+		ai_chance = { base = 40 }
+	}
+
+	# Screen projects for technology and local linkage
+	option = {
+		name = vie_ind.1.b
+		log = "[GetDateText]: [This.GetName]: Event vie_ind.1.b executed"
+		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+		add_to_variable = { VIE_ind_localization = 2 tooltip = VIE_ind_localization_tt }
+		add_political_power = -25
+		ai_chance = { base = 60 }
+	}
+}
+
+########################################################################
+# vie_ind.2  Transshipment / origin-fraud scrutiny (only after the open-door choice)
+########################################################################
+country_event = {
+	id = vie_ind.2
+	title = vie_ind.2.t
+	desc = vie_ind.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# Crack down on origin fraud
+	option = {
+		name = vie_ind.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_ind.2.a executed"
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+		if = {
+			limit = { country_exists = USA }
+			add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
+			reverse_add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
+		}
+		ai_chance = { base = 70 }
+	}
+
+	# Look the other way
+	option = {
+		name = vie_ind.2.b
+		log = "[GetDateText]: [This.GetName]: Event vie_ind.2.b executed"
+		add_timed_idea = { idea = VIE_origin_fraud_scrutiny days = 365 }
+		ai_chance = { base = 30 }
+	}
+}

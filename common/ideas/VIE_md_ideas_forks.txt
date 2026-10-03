@@ -48,15 +48,5 @@ ideas = {
 			}
 		}
 
-		VIE_covid_lockdown_idea = {
-			picture = generic_political_pressure
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = -0.03
-			}
-		}
 	}
 }

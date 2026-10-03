@@ -1214,22 +1214,6 @@ country_event = {
 
 }
 
-country_event = {
-	id = vie_dip.19
-	title = vie_dip.19.t
-	desc = vie_dip.19.d
-	picture = GFX_report_event_generic_handshake
-	is_triggered_only = yes
-
-	option = {
-		name = vie_dip.19.a
-		log = "[GetDateText]: [This.GetName]: Event vie_dip.19.a executed"
-		set_temp_variable = { treasury_change = 3 }
-		modify_treasury_effect = yes
-		ai_chance = { base = 100 }
-	}
-
-}
 
 country_event = {
 	id = vie_int.9
@@ -1261,22 +1245,6 @@ country_event = {
 
 }
 
-country_event = {
-	id = vie_soc.8
-	title = vie_soc.8.t
-	desc = vie_soc.8.d
-	picture = GFX_report_event_generic_dancing
-	is_triggered_only = yes
-
-	option = {
-		name = vie_soc.8.a
-		log = "[GetDateText]: [This.GetName]: Event vie_soc.8.a executed"
-		add_stability = 0.02
-		add_political_power = 25
-		ai_chance = { base = 100 }
-	}
-
-}
 
 country_event = {
 	id = vie_soc.9

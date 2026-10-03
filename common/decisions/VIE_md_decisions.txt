@@ -95,8 +95,11 @@ VIE_military_readiness_category = {
 }
 VIE_statebuilding_category = {
 
-	# Merit: competitive civil service examination
-	VIE_civil_service_examination = {
+	# Four state-building decisions, one per axis (see VIE_statebuilding_4axis_design.md).
+	# Each opens an event (vie_sb.N) in which the player pushes the axis left or right.
+
+	# A: apparatus (civil service, size, anti-corruption, rotation)
+	VIE_sb_apparatus = {
 		icon = GFX_decision_VIE_civil_service_examination
 		cost = 75
 		days_re_enable = 180
@@ -110,105 +113,59 @@ VIE_statebuilding_category = {
 		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_civil_service_examination"
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			VIE_ax_normalize = yes
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -5 }
-				change_communist_cadres_opinion = yes
-			}
-		}
-
-		ai_will_do = { base = 25 }
-	}
-
-	# Decentralization: provincial pilot program
-	VIE_provincial_pilot_program = {
-		icon = GFX_decision_VIE_provincial_pilot_program
-		cost = 50
-		days_re_enable = 180
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = { has_completed_focus = VIE_decentralization }
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_provincial_pilot_program"
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			VIE_ax_normalize = yes
-			add_stability = 0.01
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_apparatus"
+			country_event = { id = vie_sb.1 }
 		}
 
 		ai_will_do = { base = 20 }
 	}
 
-	# Size: streamline administrative apparatus
-	VIE_streamline_administrative_org = {
-		icon = GFX_decision_VIE_streamline_administrative_org
-		cost = 100
-		days_re_enable = 360
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = { has_completed_focus = VIE_streamline_apparatus NOT = { has_idea = bureau_01 } }
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_streamline_administrative_org"
-			if = {
-				limit = { has_country_flag = VIE_par3_cost_reduction }
-				add_political_power = 20
-			}
-			add_to_variable = { VIE_ax_size = -1 tooltip = VIE_ax_size_tt }
-			decrease_centralization = yes
-			set_temp_variable = { desire_change = -0.5 }
-			change_expected_bureaucracy_spending = yes
-			VIE_ax_normalize = yes
-		}
-
-		ai_will_do = { base = 20 }
-	}
-
-	# Civil: relax media scrutiny
-	VIE_relax_media_scrutiny = {
+	# B: political space (discipline vs open criticism, public consultation)
+	VIE_sb_politics = {
 		icon = GFX_decision_VIE_relax_media_scrutiny
 		cost = 50
 		days_re_enable = 180
 
 		visible = { has_country_flag = VIE_ax_initialized }
-		available = { has_completed_focus = VIE_constitution_2013 }
+		available = {
+			OR = {
+				has_completed_focus = VIE_constitution_2013
+				has_completed_focus = VIE_cybersecurity_law
+			}
+		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_relax_media_scrutiny"
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_stability = -0.02
-			VIE_ax_normalize = yes
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_politics"
+			country_event = { id = vie_sb.2 }
 		}
 
 		ai_will_do = { base = 15 }
 	}
 
-	# Civil: strengthen internal discipline
-	VIE_strengthen_internal_discipline = {
-		icon = GFX_decision_VIE_strengthen_internal_discipline
+	# C: economic model (state-led vs local pilots and market)
+	VIE_sb_economy = {
+		icon = GFX_decision_VIE_provincial_pilot_program
 		cost = 50
 		days_re_enable = 180
 
 		visible = { has_country_flag = VIE_ax_initialized }
-		available = { has_completed_focus = VIE_cybersecurity_law }
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_strengthen_internal_discipline"
-			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_stability = 0.02
-			VIE_ax_normalize = yes
+		available = {
+			OR = {
+				has_completed_focus = VIE_decentralization
+				has_completed_focus = VIE_wto_negotiations
+			}
 		}
 
-		ai_will_do = { base = 25 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_economy"
+			country_event = { id = vie_sb.3 }
+		}
+
+		ai_will_do = { base = 20 }
 	}
 
-	# Integration: negotiate economic pact
-	VIE_negotiate_economic_pact = {
+	# D: external orientation (strategic autonomy vs new trade and investment pacts)
+	VIE_sb_foreign = {
 		icon = GFX_decision_VIE_negotiate_economic_pact
 		cost = 75
 		days_re_enable = 240
@@ -217,86 +174,11 @@ VIE_statebuilding_category = {
 		available = { has_completed_focus = VIE_wto_negotiations }
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_negotiate_economic_pact"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			set_temp_variable = { treasury_change = 1 }
-			modify_treasury_effect = yes
-			VIE_ax_normalize = yes
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_foreign"
+			country_event = { id = vie_sb.4 }
 		}
 
 		ai_will_do = { base = 20 }
-	}
-
-	# After the party discipline campaign: a costly, slow, one-notch anti-corruption push
-	VIE_anticorruption_campaign = {
-		icon = GFX_decision_VIE_anticorruption_campaign
-		cost = 100
-		days_re_enable = 730
-
-		visible = { NOT = { VIE_party_rule_active = yes } }
-		available = {
-			has_completed_focus = VIE_party_discipline
-			NOT = {
-				OR = {
-					has_idea = corruption_level_01
-					has_idea = corruption_level_02
-					has_idea = corruption_level_03
-				}
-			}
-		}
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_anticorruption_campaign"
-			decrease_corruption = yes
-			add_stability = -0.02
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -5 }
-				change_communist_cadres_opinion = yes
-			}
-		}
-
-		ai_will_do = { base = 10 }
-	}
-
-	# After the grassroots democracy regulation: consult the public
-	VIE_public_consultation = {
-		icon = GFX_decision_VIE_public_consultation
-		cost = 50
-		days_re_enable = 180
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = { has_completed_focus = VIE_grassroots_democracy }
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_public_consultation"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_stability = 0.01
-			VIE_ax_normalize = yes
-		}
-
-		ai_will_do = { base = 15 }
-	}
-
-	# After the clean cadres focus: rotate senior cadres between localities
-	VIE_cadre_rotation = {
-		icon = GFX_decision_VIE_cadre_rotation
-		cost = 75
-		days_re_enable = 540
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = { has_completed_focus = VIE_clean_cadres }
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_cadre_rotation"
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			decrease_corruption = yes
-			add_timed_idea = { idea = VIE_reorg_disruption days = 180 }
-			VIE_ax_normalize = yes
-		}
-
-		ai_will_do = { base = 10 }
 	}
 }
 

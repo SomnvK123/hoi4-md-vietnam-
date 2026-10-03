@@ -1,800 +1,547 @@
 defined_text = {
-	name = VIE_AxBar_size
+	name = VIE_AxBar_A
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -10 } }
+		trigger = { check_variable = { VIE_sb_A = -10 } }
 		localization_key = VIE_axbar_m10
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -9 } }
+		trigger = { check_variable = { VIE_sb_A = -9 } }
 		localization_key = VIE_axbar_m09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -8 } }
+		trigger = { check_variable = { VIE_sb_A = -8 } }
 		localization_key = VIE_axbar_m08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -7 } }
+		trigger = { check_variable = { VIE_sb_A = -7 } }
 		localization_key = VIE_axbar_m07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -6 } }
+		trigger = { check_variable = { VIE_sb_A = -6 } }
 		localization_key = VIE_axbar_m06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -5 } }
+		trigger = { check_variable = { VIE_sb_A = -5 } }
 		localization_key = VIE_axbar_m05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -4 } }
+		trigger = { check_variable = { VIE_sb_A = -4 } }
 		localization_key = VIE_axbar_m04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -3 } }
+		trigger = { check_variable = { VIE_sb_A = -3 } }
 		localization_key = VIE_axbar_m03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -2 } }
+		trigger = { check_variable = { VIE_sb_A = -2 } }
 		localization_key = VIE_axbar_m02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = -1 } }
+		trigger = { check_variable = { VIE_sb_A = -1 } }
 		localization_key = VIE_axbar_m01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 0 } }
+		trigger = { check_variable = { VIE_sb_A = 0 } }
 		localization_key = VIE_axbar_p00
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 1 } }
+		trigger = { check_variable = { VIE_sb_A = 1 } }
 		localization_key = VIE_axbar_p01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 2 } }
+		trigger = { check_variable = { VIE_sb_A = 2 } }
 		localization_key = VIE_axbar_p02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 3 } }
+		trigger = { check_variable = { VIE_sb_A = 3 } }
 		localization_key = VIE_axbar_p03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 4 } }
+		trigger = { check_variable = { VIE_sb_A = 4 } }
 		localization_key = VIE_axbar_p04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 5 } }
+		trigger = { check_variable = { VIE_sb_A = 5 } }
 		localization_key = VIE_axbar_p05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 6 } }
+		trigger = { check_variable = { VIE_sb_A = 6 } }
 		localization_key = VIE_axbar_p06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 7 } }
+		trigger = { check_variable = { VIE_sb_A = 7 } }
 		localization_key = VIE_axbar_p07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 8 } }
+		trigger = { check_variable = { VIE_sb_A = 8 } }
 		localization_key = VIE_axbar_p08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 9 } }
+		trigger = { check_variable = { VIE_sb_A = 9 } }
 		localization_key = VIE_axbar_p09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_size_norm = 10 } }
+		trigger = { check_variable = { VIE_sb_A = 10 } }
 		localization_key = VIE_axbar_p10
 	}
+
 	text = { localization_key = VIE_axbar_p00 }
 }
 
 defined_text = {
-	name = VIE_AxBar_merit
+	name = VIE_AxZone_A
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -10 } }
+		trigger = { check_variable = { VIE_sb_A < -5 } }
+		localization_key = VIE_zone_A_1
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_A < -1 } }
+		localization_key = VIE_zone_A_2
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_A < 2 } }
+		localization_key = VIE_zone_A_3
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_A < 6 } }
+		localization_key = VIE_zone_A_4
+	}
+
+	text = { localization_key = VIE_zone_A_5 }
+}
+
+defined_text = {
+	name = VIE_AxBar_B
+
+	text = {
+		trigger = { check_variable = { VIE_sb_B = -10 } }
 		localization_key = VIE_axbar_m10
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -9 } }
+		trigger = { check_variable = { VIE_sb_B = -9 } }
 		localization_key = VIE_axbar_m09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -8 } }
+		trigger = { check_variable = { VIE_sb_B = -8 } }
 		localization_key = VIE_axbar_m08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -7 } }
+		trigger = { check_variable = { VIE_sb_B = -7 } }
 		localization_key = VIE_axbar_m07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -6 } }
+		trigger = { check_variable = { VIE_sb_B = -6 } }
 		localization_key = VIE_axbar_m06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -5 } }
+		trigger = { check_variable = { VIE_sb_B = -5 } }
 		localization_key = VIE_axbar_m05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -4 } }
+		trigger = { check_variable = { VIE_sb_B = -4 } }
 		localization_key = VIE_axbar_m04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -3 } }
+		trigger = { check_variable = { VIE_sb_B = -3 } }
 		localization_key = VIE_axbar_m03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -2 } }
+		trigger = { check_variable = { VIE_sb_B = -2 } }
 		localization_key = VIE_axbar_m02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = -1 } }
+		trigger = { check_variable = { VIE_sb_B = -1 } }
 		localization_key = VIE_axbar_m01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 0 } }
+		trigger = { check_variable = { VIE_sb_B = 0 } }
 		localization_key = VIE_axbar_p00
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 1 } }
+		trigger = { check_variable = { VIE_sb_B = 1 } }
 		localization_key = VIE_axbar_p01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 2 } }
+		trigger = { check_variable = { VIE_sb_B = 2 } }
 		localization_key = VIE_axbar_p02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 3 } }
+		trigger = { check_variable = { VIE_sb_B = 3 } }
 		localization_key = VIE_axbar_p03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 4 } }
+		trigger = { check_variable = { VIE_sb_B = 4 } }
 		localization_key = VIE_axbar_p04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 5 } }
+		trigger = { check_variable = { VIE_sb_B = 5 } }
 		localization_key = VIE_axbar_p05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 6 } }
+		trigger = { check_variable = { VIE_sb_B = 6 } }
 		localization_key = VIE_axbar_p06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 7 } }
+		trigger = { check_variable = { VIE_sb_B = 7 } }
 		localization_key = VIE_axbar_p07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 8 } }
+		trigger = { check_variable = { VIE_sb_B = 8 } }
 		localization_key = VIE_axbar_p08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 9 } }
+		trigger = { check_variable = { VIE_sb_B = 9 } }
 		localization_key = VIE_axbar_p09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_merit_norm = 10 } }
+		trigger = { check_variable = { VIE_sb_B = 10 } }
 		localization_key = VIE_axbar_p10
 	}
+
 	text = { localization_key = VIE_axbar_p00 }
 }
 
 defined_text = {
-	name = VIE_AxBar_decent
+	name = VIE_AxZone_B
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -10 } }
+		trigger = { check_variable = { VIE_sb_B < -5 } }
+		localization_key = VIE_zone_B_1
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_B < -1 } }
+		localization_key = VIE_zone_B_2
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_B < 2 } }
+		localization_key = VIE_zone_B_3
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_B < 6 } }
+		localization_key = VIE_zone_B_4
+	}
+
+	text = { localization_key = VIE_zone_B_5 }
+}
+
+defined_text = {
+	name = VIE_AxBar_C
+
+	text = {
+		trigger = { check_variable = { VIE_sb_C = -10 } }
 		localization_key = VIE_axbar_m10
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -9 } }
+		trigger = { check_variable = { VIE_sb_C = -9 } }
 		localization_key = VIE_axbar_m09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -8 } }
+		trigger = { check_variable = { VIE_sb_C = -8 } }
 		localization_key = VIE_axbar_m08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -7 } }
+		trigger = { check_variable = { VIE_sb_C = -7 } }
 		localization_key = VIE_axbar_m07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -6 } }
+		trigger = { check_variable = { VIE_sb_C = -6 } }
 		localization_key = VIE_axbar_m06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -5 } }
+		trigger = { check_variable = { VIE_sb_C = -5 } }
 		localization_key = VIE_axbar_m05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -4 } }
+		trigger = { check_variable = { VIE_sb_C = -4 } }
 		localization_key = VIE_axbar_m04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -3 } }
+		trigger = { check_variable = { VIE_sb_C = -3 } }
 		localization_key = VIE_axbar_m03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -2 } }
+		trigger = { check_variable = { VIE_sb_C = -2 } }
 		localization_key = VIE_axbar_m02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = -1 } }
+		trigger = { check_variable = { VIE_sb_C = -1 } }
 		localization_key = VIE_axbar_m01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 0 } }
+		trigger = { check_variable = { VIE_sb_C = 0 } }
 		localization_key = VIE_axbar_p00
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 1 } }
+		trigger = { check_variable = { VIE_sb_C = 1 } }
 		localization_key = VIE_axbar_p01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 2 } }
+		trigger = { check_variable = { VIE_sb_C = 2 } }
 		localization_key = VIE_axbar_p02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 3 } }
+		trigger = { check_variable = { VIE_sb_C = 3 } }
 		localization_key = VIE_axbar_p03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 4 } }
+		trigger = { check_variable = { VIE_sb_C = 4 } }
 		localization_key = VIE_axbar_p04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 5 } }
+		trigger = { check_variable = { VIE_sb_C = 5 } }
 		localization_key = VIE_axbar_p05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 6 } }
+		trigger = { check_variable = { VIE_sb_C = 6 } }
 		localization_key = VIE_axbar_p06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 7 } }
+		trigger = { check_variable = { VIE_sb_C = 7 } }
 		localization_key = VIE_axbar_p07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 8 } }
+		trigger = { check_variable = { VIE_sb_C = 8 } }
 		localization_key = VIE_axbar_p08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 9 } }
+		trigger = { check_variable = { VIE_sb_C = 9 } }
 		localization_key = VIE_axbar_p09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_decent_norm = 10 } }
+		trigger = { check_variable = { VIE_sb_C = 10 } }
 		localization_key = VIE_axbar_p10
 	}
+
 	text = { localization_key = VIE_axbar_p00 }
 }
 
 defined_text = {
-	name = VIE_AxBar_checks
+	name = VIE_AxZone_C
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -10 } }
+		trigger = { check_variable = { VIE_sb_C < -5 } }
+		localization_key = VIE_zone_C_1
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_C < -1 } }
+		localization_key = VIE_zone_C_2
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_C < 2 } }
+		localization_key = VIE_zone_C_3
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_sb_C < 6 } }
+		localization_key = VIE_zone_C_4
+	}
+
+	text = { localization_key = VIE_zone_C_5 }
+}
+
+defined_text = {
+	name = VIE_AxBar_D
+
+	text = {
+		trigger = { check_variable = { VIE_sb_D = -10 } }
 		localization_key = VIE_axbar_m10
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -9 } }
+		trigger = { check_variable = { VIE_sb_D = -9 } }
 		localization_key = VIE_axbar_m09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -8 } }
+		trigger = { check_variable = { VIE_sb_D = -8 } }
 		localization_key = VIE_axbar_m08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -7 } }
+		trigger = { check_variable = { VIE_sb_D = -7 } }
 		localization_key = VIE_axbar_m07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -6 } }
+		trigger = { check_variable = { VIE_sb_D = -6 } }
 		localization_key = VIE_axbar_m06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -5 } }
+		trigger = { check_variable = { VIE_sb_D = -5 } }
 		localization_key = VIE_axbar_m05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -4 } }
+		trigger = { check_variable = { VIE_sb_D = -4 } }
 		localization_key = VIE_axbar_m04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -3 } }
+		trigger = { check_variable = { VIE_sb_D = -3 } }
 		localization_key = VIE_axbar_m03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -2 } }
+		trigger = { check_variable = { VIE_sb_D = -2 } }
 		localization_key = VIE_axbar_m02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = -1 } }
+		trigger = { check_variable = { VIE_sb_D = -1 } }
 		localization_key = VIE_axbar_m01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 0 } }
+		trigger = { check_variable = { VIE_sb_D = 0 } }
 		localization_key = VIE_axbar_p00
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 1 } }
+		trigger = { check_variable = { VIE_sb_D = 1 } }
 		localization_key = VIE_axbar_p01
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 2 } }
+		trigger = { check_variable = { VIE_sb_D = 2 } }
 		localization_key = VIE_axbar_p02
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 3 } }
+		trigger = { check_variable = { VIE_sb_D = 3 } }
 		localization_key = VIE_axbar_p03
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 4 } }
+		trigger = { check_variable = { VIE_sb_D = 4 } }
 		localization_key = VIE_axbar_p04
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 5 } }
+		trigger = { check_variable = { VIE_sb_D = 5 } }
 		localization_key = VIE_axbar_p05
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 6 } }
+		trigger = { check_variable = { VIE_sb_D = 6 } }
 		localization_key = VIE_axbar_p06
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 7 } }
+		trigger = { check_variable = { VIE_sb_D = 7 } }
 		localization_key = VIE_axbar_p07
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 8 } }
+		trigger = { check_variable = { VIE_sb_D = 8 } }
 		localization_key = VIE_axbar_p08
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 9 } }
+		trigger = { check_variable = { VIE_sb_D = 9 } }
 		localization_key = VIE_axbar_p09
 	}
+
 	text = {
-		trigger = { check_variable = { VIE_ax_checks_norm = 10 } }
+		trigger = { check_variable = { VIE_sb_D = 10 } }
 		localization_key = VIE_axbar_p10
 	}
+
 	text = { localization_key = VIE_axbar_p00 }
 }
 
 defined_text = {
-	name = VIE_AxBar_market
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -10 } }
-		localization_key = VIE_axbar_m10
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -9 } }
-		localization_key = VIE_axbar_m09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -8 } }
-		localization_key = VIE_axbar_m08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -7 } }
-		localization_key = VIE_axbar_m07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -6 } }
-		localization_key = VIE_axbar_m06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -5 } }
-		localization_key = VIE_axbar_m05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -4 } }
-		localization_key = VIE_axbar_m04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -3 } }
-		localization_key = VIE_axbar_m03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -2 } }
-		localization_key = VIE_axbar_m02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = -1 } }
-		localization_key = VIE_axbar_m01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 0 } }
-		localization_key = VIE_axbar_p00
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 1 } }
-		localization_key = VIE_axbar_p01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 2 } }
-		localization_key = VIE_axbar_p02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 3 } }
-		localization_key = VIE_axbar_p03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 4 } }
-		localization_key = VIE_axbar_p04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 5 } }
-		localization_key = VIE_axbar_p05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 6 } }
-		localization_key = VIE_axbar_p06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 7 } }
-		localization_key = VIE_axbar_p07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 8 } }
-		localization_key = VIE_axbar_p08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 9 } }
-		localization_key = VIE_axbar_p09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_market_norm = 10 } }
-		localization_key = VIE_axbar_p10
-	}
-	text = { localization_key = VIE_axbar_p00 }
-}
+	name = VIE_AxZone_D
 
-defined_text = {
-	name = VIE_AxBar_civil
 	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -10 } }
-		localization_key = VIE_axbar_m10
+		trigger = { check_variable = { VIE_sb_D < -5 } }
+		localization_key = VIE_zone_D_1
 	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -9 } }
-		localization_key = VIE_axbar_m09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -8 } }
-		localization_key = VIE_axbar_m08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -7 } }
-		localization_key = VIE_axbar_m07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -6 } }
-		localization_key = VIE_axbar_m06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -5 } }
-		localization_key = VIE_axbar_m05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -4 } }
-		localization_key = VIE_axbar_m04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -3 } }
-		localization_key = VIE_axbar_m03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -2 } }
-		localization_key = VIE_axbar_m02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = -1 } }
-		localization_key = VIE_axbar_m01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 0 } }
-		localization_key = VIE_axbar_p00
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 1 } }
-		localization_key = VIE_axbar_p01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 2 } }
-		localization_key = VIE_axbar_p02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 3 } }
-		localization_key = VIE_axbar_p03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 4 } }
-		localization_key = VIE_axbar_p04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 5 } }
-		localization_key = VIE_axbar_p05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 6 } }
-		localization_key = VIE_axbar_p06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 7 } }
-		localization_key = VIE_axbar_p07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 8 } }
-		localization_key = VIE_axbar_p08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 9 } }
-		localization_key = VIE_axbar_p09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_civil_norm = 10 } }
-		localization_key = VIE_axbar_p10
-	}
-	text = { localization_key = VIE_axbar_p00 }
-}
 
-defined_text = {
-	name = VIE_AxBar_integ
 	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -10 } }
-		localization_key = VIE_axbar_m10
+		trigger = { check_variable = { VIE_sb_D < -1 } }
+		localization_key = VIE_zone_D_2
 	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -9 } }
-		localization_key = VIE_axbar_m09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -8 } }
-		localization_key = VIE_axbar_m08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -7 } }
-		localization_key = VIE_axbar_m07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -6 } }
-		localization_key = VIE_axbar_m06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -5 } }
-		localization_key = VIE_axbar_m05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -4 } }
-		localization_key = VIE_axbar_m04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -3 } }
-		localization_key = VIE_axbar_m03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -2 } }
-		localization_key = VIE_axbar_m02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = -1 } }
-		localization_key = VIE_axbar_m01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 0 } }
-		localization_key = VIE_axbar_p00
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 1 } }
-		localization_key = VIE_axbar_p01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 2 } }
-		localization_key = VIE_axbar_p02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 3 } }
-		localization_key = VIE_axbar_p03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 4 } }
-		localization_key = VIE_axbar_p04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 5 } }
-		localization_key = VIE_axbar_p05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 6 } }
-		localization_key = VIE_axbar_p06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 7 } }
-		localization_key = VIE_axbar_p07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 8 } }
-		localization_key = VIE_axbar_p08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 9 } }
-		localization_key = VIE_axbar_p09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_integ_norm = 10 } }
-		localization_key = VIE_axbar_p10
-	}
-	text = { localization_key = VIE_axbar_p00 }
-}
 
-defined_text = {
-	name = VIE_AxBar_mob
 	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -10 } }
-		localization_key = VIE_axbar_m10
+		trigger = { check_variable = { VIE_sb_D < 2 } }
+		localization_key = VIE_zone_D_3
 	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -9 } }
-		localization_key = VIE_axbar_m09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -8 } }
-		localization_key = VIE_axbar_m08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -7 } }
-		localization_key = VIE_axbar_m07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -6 } }
-		localization_key = VIE_axbar_m06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -5 } }
-		localization_key = VIE_axbar_m05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -4 } }
-		localization_key = VIE_axbar_m04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -3 } }
-		localization_key = VIE_axbar_m03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -2 } }
-		localization_key = VIE_axbar_m02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = -1 } }
-		localization_key = VIE_axbar_m01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 0 } }
-		localization_key = VIE_axbar_p00
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 1 } }
-		localization_key = VIE_axbar_p01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 2 } }
-		localization_key = VIE_axbar_p02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 3 } }
-		localization_key = VIE_axbar_p03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 4 } }
-		localization_key = VIE_axbar_p04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 5 } }
-		localization_key = VIE_axbar_p05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 6 } }
-		localization_key = VIE_axbar_p06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 7 } }
-		localization_key = VIE_axbar_p07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 8 } }
-		localization_key = VIE_axbar_p08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 9 } }
-		localization_key = VIE_axbar_p09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_mob_norm = 10 } }
-		localization_key = VIE_axbar_p10
-	}
-	text = { localization_key = VIE_axbar_p00 }
-}
 
-defined_text = {
-	name = VIE_AxBar_west
 	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -10 } }
-		localization_key = VIE_axbar_m10
+		trigger = { check_variable = { VIE_sb_D < 6 } }
+		localization_key = VIE_zone_D_4
 	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -9 } }
-		localization_key = VIE_axbar_m09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -8 } }
-		localization_key = VIE_axbar_m08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -7 } }
-		localization_key = VIE_axbar_m07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -6 } }
-		localization_key = VIE_axbar_m06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -5 } }
-		localization_key = VIE_axbar_m05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -4 } }
-		localization_key = VIE_axbar_m04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -3 } }
-		localization_key = VIE_axbar_m03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -2 } }
-		localization_key = VIE_axbar_m02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = -1 } }
-		localization_key = VIE_axbar_m01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 0 } }
-		localization_key = VIE_axbar_p00
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 1 } }
-		localization_key = VIE_axbar_p01
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 2 } }
-		localization_key = VIE_axbar_p02
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 3 } }
-		localization_key = VIE_axbar_p03
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 4 } }
-		localization_key = VIE_axbar_p04
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 5 } }
-		localization_key = VIE_axbar_p05
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 6 } }
-		localization_key = VIE_axbar_p06
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 7 } }
-		localization_key = VIE_axbar_p07
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 8 } }
-		localization_key = VIE_axbar_p08
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 9 } }
-		localization_key = VIE_axbar_p09
-	}
-	text = {
-		trigger = { check_variable = { VIE_ax_west_norm = 10 } }
-		localization_key = VIE_axbar_p10
-	}
-	text = { localization_key = VIE_axbar_p00 }
+
+	text = { localization_key = VIE_zone_D_5 }
 }

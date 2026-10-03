@@ -1,7 +1,7 @@
 # VIE Focus Tree — Coding Standards & Architecture Guide
 > Áp dụng cho: `common/national_focus/VIE_md_focus.txt`  
-> Cơ sở: MD4 conventions từ `.claude/docs/` + audit thực tế file v14 (11 929 dòng, 357 focus)  
-> Cập nhật: 03/10/2026
+> Cơ sở: MD upstream (`.claude/docs/focus-tree-reference.md`, `search-filters.md`, `tools/standardization/standardize_focus_tree.py`, `tools/validation/validate_focus_tree.py`) — đối chiếu 03/10/2026  
+> File hiện tại: v15, 357 focus, đã chạy qua `standardize_focus_tree.py` + `validate_focus_tree.py` của MD
 
 ---
 
@@ -76,6 +76,9 @@ focus = {
 }
 ```
 
+> Thứ tự upstream: `id, icon, x/y, relative_position_id, cost, allow_branch, prerequisite/mutually_exclusive, search_filters, available/bypass/cancel, completion_reward/select_effect/bypass_effect, ai_will_do`.
+> Block `available`/`bypass`/`reward` chỉ có 1 điều kiện/effect sẽ được `standardize_focus_tree.py` gộp thành 1 dòng `available = { ... }` — đây là output chuẩn, đừng tách lại. Không được khai báo 2 block `available` trong cùng 1 focus (tool gộp thành 1 block AND).
+
 ### 2.2 Quy tắc từng trường
 
 | Trường | Quy tắc |
@@ -84,8 +87,8 @@ focus = {
 | `icon` | Sau `id`, trước `x`/`y` |
 | `cost` | **Bỏ nếu = 10** (omit defaults). Viết khi = 5, 7, hay bất thường |
 | `prerequisite` | AND = nhiều block `prerequisite = {}` riêng. OR = một block với nhiều `focus =` |
-| `search_filters` | Luôn có |
-| `completion_reward` | Dòng đầu: `log = "..."` |
+| `search_filters` | Luôn có, viết trên **1 dòng**. Xem mục 4 |
+| `completion_reward` | Dòng đầu: `log = "..."`. Block chỉ có `log` mà không có effect nào là dead → bỏ cả block (`check_common_mistakes.py` từ chối) |
 | `ai_will_do` | Trường CUỐI CÙNG |
 
 ---
@@ -103,21 +106,22 @@ focus = {
 
 ---
 
-## 4. `search_filters` — DANH SÁCH HỢP LỆ
+## 4. `search_filters` — QUY TẮC (theo MD `search-filters.md`)
 
-```
-FOCUS_FILTER_POLITICAL
-FOCUS_FILTER_ECONOMY
-FOCUS_FILTER_INDUSTRY
-FOCUS_FILTER_STABILITY
-FOCUS_FILTER_ARMY
-FOCUS_FILTER_AIRCRAFT     # KHÔNG dùng FOCUS_FILTER_AIR (alias cũ)
-FOCUS_FILTER_RESEARCH
-FOCUS_FILTER_MILITARY_LAWS
-FOCUS_FILTER_MANPOWER
-```
+Mỗi focus **phải** có ≥ 1 filter. MD dùng mô hình 2 lớp: filter riêng của nước + filter chung. VIE chưa có filter riêng nên chỉ dùng filter chung (MD cho phép: "smaller trees may use only generic filters"). Chọn 1–2 filter, đừng gắn thừa.
 
-> ⚠️ **FOCUS_FILTER_NAVY** đã xóa khỏi cây VIE (v12) — không dùng lại.
+| Nhóm | Filter đang dùng trong VIE |
+|------|---------------------------|
+| Chính trị | `FOCUS_FILTER_POLITICAL`, `FOCUS_FILTER_STABILITY` |
+| Kinh tế | `FOCUS_FILTER_ECONOMY`, `FOCUS_FILTER_INDUSTRY`, `FOCUS_FILTER_RESEARCH` |
+| Quân sự | `FOCUS_FILTER_ARMY`, `FOCUS_FILTER_AIRCRAFT`, `FOCUS_FILTER_NAVY`, `FOCUS_FILTER_MILITARY_LAWS`, `FOCUS_FILTER_MANPOWER` |
+
+Các filter chung khác MD hỗ trợ (dùng khi hợp nội dung): `INTERNAL_AFFAIRS`, `CORRUPTION`, `PROPAGANDA`, `EQUIPMENT`, `WAR_SUPPORT`, `ARMY_XP/AIR_XP/NAVY_XP`, `SPACE`, `INSURGENCY`, `EXPENDITURE`, `RESOURCE`, `TRADE`, `FOREIGN_INVESTMENTS`, `ENVIRONMENT`, `RENEWABLE_ENERGY_INFRASTRUCTURE`, `POWER_INFRASTRUCTURE`, `ADD_BUILDING`, `INFRASTRUCTURE`, `FOREIGN_POLICY`, `DIPLOMACY`, `INFLUENCE`, `ANNEXATION`, `NATO`, `EUROPEAN_UNION`, `COUNTER_DEBUFF`.
+
+Lỗi hay gặp:
+- `FOCUS_FILTER_NAVY` **hợp lệ** (hải quân/đóng tàu); các alias legacy `FOCUS_FILTER_AIR`, `FOCUS_FILTER_MILITARY` → dùng `AIRCRAFT` / `MILITARY_LAWS`.
+- Focus chi tiền thật (≥ ~5 bn) nên thêm `FOCUS_FILTER_EXPENDITURE`.
+- Không dùng filter riêng của nước khác (`RUSSIA_*`, `ISRPOLIT`...).
 
 ---
 
@@ -144,13 +148,23 @@ ai_will_do = {
 | Condition | Khi nào dùng |
 |-----------|-------------|
 | `factor = 0 can_staff_an_industrial_complex = no` | Focus xây IC/AF/dockyard |
-| `factor = 0 has_active_mission = bankruptcy_incoming_collapse` | Focus chi ≥ 5 bn treasury |
+| `factor = 0 has_active_mission = bankruptcy_incoming_collapse` | Chỉ khi **reward thực sự chi tiền** ≥ ~5 bn (tổng `treasury_change` âm qua `modify_treasury_effect`, hoặc scripted effect xây dựng tốn tiền). `cost` của focus là thời gian, không phải tiền. Guard đặt trong `ai_will_do`, không đặt trong `available`. Gắn cho focus không chi tiền bị validator báo "unneeded" |
 | `factor = 0 VIE_ai_historical = yes` | Focus alt-history |
 | `factor = 4 VIE_ai_historical = yes` | Focus lịch sử bắt buộc (AI ưu tiên mạnh) |
 
 ---
 
 ## 6. `completion_reward` — QUY TẮC REWARD
+
+### Giới hạn & quy ước chung
+
+- Tối đa **5 hiệu ứng vĩnh viễn** mỗi focus; bonus thêm → dùng timed idea.
+- Bỏ giá trị mặc định: `cost = 10`, `cancel_if_invalid = yes`, `continue_if_invalid = no`, `available_if_capitulated = no`.
+- Không để block rỗng (`mutually_exclusive`, `available`) hoặc comment slot.
+- `available` phải khớp `bypass` đạt được; không bao giờ dùng `available = { always = no }` cùng `bypass`.
+- Trước khi dùng `create_wargoal`/target nước khác: `country_exists = TAG` trong `available` hoặc bọc `if`.
+- Focus bắn event sang nước khác: thêm tooltip `TT_IF_THEY_ACCEPT` / `TT_IF_THEY_REJECT`.
+- Tiêu đề focus (loc) không dùng mã màu `§`; mô tả chỉ `§Y` / `§G` / `§R`.
 
 ### Dòng đầu bắt buộc
 
@@ -170,7 +184,7 @@ completion_reward = {
 | `one_state_dockyard = yes` | -7.5 bn | Xây dockyard |
 | `one_state_infrastructure = yes` | -3.5 bn | Xây infra lv1 |
 | `one_state_anti_air = yes` | -3.25 bn | Xây AA |
-| `one_state_air_base = yes` | -3.0 bn | Xây air base |
+| `one_state_air_base = yes` | -2.5 bn | Xây air base |
 | `one_state_radar_station = yes` | -1.75 bn | Xây radar |
 | `increase_economic_growth = yes` | — | Tăng GDP |
 | `decrease_corruption = yes` | — | Giảm tham nhũng |
@@ -231,9 +245,9 @@ focus = { id = VIE_anchor  x = 10  y = 0 }
 
 | State ID | Tên | Chủ | Ghi chú |
 |----------|-----|-----|---------|
-| 519 | Red River Delta | VIE | Hà Nội |
-| 522 | Mekong Delta South | VIE | TP.HCM |
-| 518 | Mekong Delta West | VIE | Cần Thơ, Phú Quốc |
+| 522 | Red River Delta | VIE | Hà Nội (thủ đô, `capital = 522`) |
+| 519 | Southern Vietnam | VIE | TP.HCM, Đông Nam Bộ, Nha Trang |
+| 518 | Mekong Delta | VIE | Cần Thơ, Phú Quốc |
 | 801 | Western Spratlys | VIE | naval_base tại 11134/11140/11149/11168 ✅ |
 | 813 | Paracel Islands | CHI | VIE có claim |
 | 526 | Northern Spratlys | CHI | ❌ KHÔNG build — CHI sở hữu |
@@ -394,6 +408,23 @@ Test theo `tools/TESTING.md`:
 - VIE_popup_cd chặn double pop-up (sau B4 fix)
 - Tất cả focus localisation hiển thị đúng (sau B5 fix)
 - Axis system `VIE_ax_*` khởi tạo đúng với bất kỳ root nào taken first
+
+---
+
+## 11b. CÔNG CỤ CHUẨN HÓA (MD upstream)
+
+```bash
+# Lấy tool MD (sparse)
+git clone --depth 1 --filter=blob:none --sparse https://github.com/MillenniumDawn/Millennium-Dawn.git md
+cd md && git sparse-checkout set tools .claude/docs
+
+# Format file focus (xuất ra file riêng, kiểm tra diff rồi mới ghi đè)
+python md/tools/standardization/standardize_focus_tree.py common/national_focus/VIE_md_focus.txt -o out.txt -v
+# Validate cấu trúc cây (chạy từ gốc mod)
+python md/tools/validation/validate_focus_tree.py --path . --no-color --no-cache
+```
+
+Lưu ý: tool xuất LF → chuyển lại CRLF cho khớp file hiện có. Validator chạy ngoài repo MD sẽ không thấy scripted effect của MD nên cảnh báo `unneeded-bankruptcy-guard` có thể là false positive; cảnh báo `pp-malus` (3 focus: `VIE_sez_three_zones`, `VIE_sec_cyber_sovereignty`, `VIE_peoples_oversight` trừ PP trong reward) cần xác nhận có chủ đích.
 
 ---
 

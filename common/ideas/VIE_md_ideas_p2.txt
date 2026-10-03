@@ -144,6 +144,111 @@ ideas = {
 			}
 		}
 
+		VIE_expressway_idea_2 = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.15
+				country_productivity_growth_modifier = 0.024
+			}
+		}
+
+		VIE_expressway_idea_3 = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.2
+				country_productivity_growth_modifier = 0.032
+			}
+		}
+
+		VIE_airport_network_idea = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				trade_opinion_factor = 0.021
+			}
+		}
+
+		VIE_logistics_idea = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.021
+				country_productivity_growth_modifier = 0.008
+			}
+		}
+
+		VIE_synchronized_infra_idea = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				trade_opinion_factor = 0.021
+			}
+		}
+
+		VIE_textile_supply_chain_idea = {
+			picture = economic_road_idea
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				consumer_goods_factor = -0.01
+				trade_opinion_factor = 0.021
+			}
+		}
+
+		VIE_industrialization_2045_idea = {
+			picture = economic_road_idea
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_modern_industrial_nation_idea = {
+			picture = economic_road_idea
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+				country_productivity_growth_modifier = 0.024
+				industrial_capacity_factory = 0.03
+			}
+		}
+
+		VIE_origin_fraud_scrutiny = {
+			picture = economic_road_idea
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = -0.05
+				country_productivity_growth_modifier = -0.008
+			}
+		}
+
 		VIE_cptpp_idea = {
 			picture = generic_diplomatic_treaty
 			allowed = { always = no }
@@ -319,17 +424,6 @@ ideas = {
 
 			modifier = {
 				research_speed_factor = 0.022
-			}
-		}
-
-		VIE_universal_health_idea = {
-			picture = health_care
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = 0.021
 			}
 		}
 
@@ -722,30 +816,6 @@ ideas = {
 			}
 		}
 
-		VIE_tourism_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.016
-				stability_factor = 0.007
-			}
-		}
-
-		VIE_diaspora_idea = {
-			picture = economic_boom
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				corporate_tax_income_multiplier_modifier = 0.02
-				country_productivity_growth_modifier = 0.008
-			}
-		}
-
 		VIE_developed_nation_idea = {
 			picture = economic_prosperity
 			allowed = { always = no }
@@ -924,29 +994,6 @@ ideas = {
 			}
 		}
 
-
-		VIE_english_idea = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				research_speed_factor = 0.015
-				country_productivity_growth_modifier = 0.008
-			}
-		}
-
-		VIE_preventive_health_idea = {
-			picture = health_care
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = 0.014
-			}
-		}
 
 		VIE_digital_nation_idea = {
 			picture = digitalize_idea

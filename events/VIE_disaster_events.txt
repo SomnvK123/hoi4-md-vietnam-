@@ -15,19 +15,17 @@ country_event = {
 	trigger = {
 		tag = VIE
 		date > 2013.9.1
-		has_completed_focus = VIE_disaster_preparedness
 	}
 
 	mean_time_to_happen = {
 		months = 6
 	}
 
-	# Phương án A: Đã chuẩn bị đầy đủ Cứu hộ và Viễn thám
+	# Phương án A: Đã có Luật Phòng thủ dân sự (hệ thống chỉ huy và lực lượng cứu hộ)
 	option = {
 		name = vie_disaster.1.a
 		trigger = {
-			has_completed_focus = VIE_military_rescue_corps
-			has_completed_focus = VIE_satellite_early_warning
+			has_completed_focus = VIE_civil_defense_law_2023
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.a executed"
 		add_stability = 0.03
@@ -39,20 +37,12 @@ country_event = {
 		}
 	}
 
-	# Phương án B: Đã chuẩn bị một phần
+	# Phương án B: Mới có Luật Phòng, chống thiên tai
 	option = {
 		name = vie_disaster.1.b
 		trigger = {
-			OR = {
-				has_completed_focus = VIE_military_rescue_corps
-				has_completed_focus = VIE_satellite_early_warning
-			}
-			NOT = {
-				AND = {
-					has_completed_focus = VIE_military_rescue_corps
-					has_completed_focus = VIE_satellite_early_warning
-				}
-			}
+			has_completed_focus = VIE_disaster_law_2013
+			NOT = { has_completed_focus = VIE_civil_defense_law_2023 }
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.b executed"
 		set_temp_variable = { treasury_change = -0.5 }
@@ -64,54 +54,11 @@ country_event = {
 	option = {
 		name = vie_disaster.1.c
 		trigger = {
-			NOT = { has_completed_focus = VIE_military_rescue_corps }
-			NOT = { has_completed_focus = VIE_satellite_early_warning }
+			NOT = { has_completed_focus = VIE_disaster_law_2013 }
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.c executed"
 		set_temp_variable = { treasury_change = -2.0 }
 		modify_treasury_effect = yes
 		add_stability = -0.05
-	}
-}
-
-########################################################################
-# vie_disaster.2  Đại hạn mặn và khủng hoảng nguồn nước Mê Kông (2016)
-########################################################################
-country_event = {
-	id = vie_disaster.2
-	title = vie_disaster.2.t
-	desc = vie_disaster.2.d
-	picture = GFX_report_event_generic_factory
-
-	is_triggered_only = no
-	fire_only_once = yes
-
-	trigger = {
-		tag = VIE
-		date > 2016.2.1
-		has_completed_focus = VIE_disaster_preparedness
-		NOT = { has_completed_focus = VIE_sustainable_mekong_delta }
-	}
-
-	mean_time_to_happen = {
-		days = 15
-	}
-
-	# Hướng A: Kích hoạt khẩn cấp công trình ngăn mặn
-	option = {
-		name = vie_disaster.2.a
-		log = "[GetDateText]: [This.GetName]: Event vie_disaster.2.a executed"
-		set_temp_variable = { treasury_change = -1.0 }
-		modify_treasury_effect = yes
-		add_timed_idea = { idea = VIE_salinity_emergency days = 365 }
-	}
-
-	# Hướng B: Kích hoạt mô hình NQ120 Thuận thiên
-	option = {
-		name = vie_disaster.2.b
-		log = "[GetDateText]: [This.GetName]: Event vie_disaster.2.b executed"
-		set_temp_variable = { temp_opinion = 5 }
-		change_farmers_opinion = yes
-		add_timed_idea = { idea = VIE_nature_transition days = 365 }
 	}
 }

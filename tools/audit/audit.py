@@ -161,11 +161,22 @@ if dang:
     for (k,t),srcs in sorted(dang.items()): print(f'  {k} -> {t}  : from {", ".join(sorted(set(srcs)))}')
 else: print('  none')
 
+abs_coords = {}
+for fid in order:
+    a = attrs[fid]
+    if a['x'] is None or a['y'] is None:
+        continue
+    if a['anchor'] and a['anchor'] in abs_coords:
+        px, py = abs_coords[a['anchor']]
+        abs_coords[fid] = (px + a['x'], py + a['y'])
+    else:
+        abs_coords[fid] = (a['x'], a['y'])
+
 coords=collections.defaultdict(list)
-for fid,a in attrs.items():
-    if a['x'] is not None and a['y'] is not None: coords[(a['x'],a['y'])].append(fid)
+for fid, pt in abs_coords.items():
+    coords[pt].append(fid)
 dups={k:v for k,v in coords.items() if len(v)>1}
-print(f'\n=== [FOCUS] duplicate (x,y): {len(dups)} ===')
+print(f'\n=== [FOCUS] duplicate absolute (x,y): {len(dups)} ===')
 for k,v in sorted(dups.items()): print('  ',k,v)
 noxy=[(f,a['line']) for f,a in attrs.items() if a['x'] is None or a['y'] is None]
 print(f'\n=== [FOCUS] missing absolute x/y: {len(noxy)} ===  {noxy[:15]}')
