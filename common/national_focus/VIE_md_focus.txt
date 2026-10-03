@@ -2,7 +2,6 @@
 ## History runs on dated events (events/VIE_md_*.txt); focuses are the player's choices.
 ## Rewards use only MD systems: decrease_corruption, change_*_opinion (temp_opinion), modify_treasury_effect
 ## (treasury_change), increase_economic_growth, building constructions on states 519/522.
-	## v2 (27/09/2026): tach tru CHINH TRI khoi doi_moi. 'Doi Moi tiep dien' = root KINH TE; chuoi Dai hoi (prepare_congress_9), ngoai giao (asean_integration) va quan su (modernize_vpa) thanh root doc lap. VIE_ax_init duoc guard bang flag VIE_ax_initialized tai ca 4 diem vao.
 focus_tree = {
 	id = VIE_md_focus
 
@@ -14,6 +13,7 @@ focus_tree = {
 		}
 	}
 
+	## v2 (27/09/2026): tach tru CHINH TRI khoi doi_moi. 'Doi Moi tiep dien' = root KINH TE; chuoi Dai hoi (prepare_congress_9), ngoai giao (asean_integration) va quan su (modernize_vpa) thanh root doc lap. VIE_ax_init duoc guard bang flag VIE_ax_initialized tai ca 4 diem vao.
 	## v3 (27/09/2026): dot 1 QA theo chuan MD4 (mau 05_thailand.txt + .claude/docs): INDO->IND; state 801/813->526 (main: 526=Northern Spratlys, khong co state Hoang Sa); storm_resilient_islands 524->526+province+treasury; will_lead_to_war_with=CHI; FOCUS_FILTER_AIR->AIRCRAFT; MILITARY_ARMY->MILITARY_LAWS; legal_warfare IND->PHI.
 	## v4 (27/09/2026): keo 4 focus quan su mo coi (carrier_air_wing, air_hypersonic, nuc_ambiguity_doctrine, msl_deterrent_doctrine) tu vung trong x~323-349 ve hang y=27 trong khoi quan su (x=640/648/667/669); them fallback khong-DLC cho 2 gate special project (BBA/Gotterdammerung).
 	## v5 (27/09/2026): nen layout - x gap rules (<=2 giu; 3-9->2; 10-19->4; >=20->8), shift min x = 2; doi khoi quan su -9 hang (bat dau y=1), sec band -4, nat band -5. Span: 824x42 -> 322x37. Logic khong doi.
@@ -26,6 +26,10 @@ focus_tree = {
 	## v12 (02/10/2026): cum LUAT BIEN (10 focus: law_of_the_sea, maritime_militia, fisheries_surveillance, dk1_platforms, legal_warfare, spratly_fortification, coast_guard_law, assert_maritime_rights, paracel_ultimatum, limited_war_doctrine) gom ve mot khoi, tach khoi hai quan: bo FOCUS_FILTER_NAVY; assert_maritime_rights bo nhanh VIE_maritime_denial_idea (chet) -> VIE_nf_branch_denial; CAT_patrolboat -> CAT_patrol_boats; tooltip VIE_tt_*; spratly_fortification gop khoi lap (mastery/XP 15+10 -> 15, range 0.05+0.05 -> 0.05); bo VIE_af_naval_detection/coordination khoi coast_guard_law va spratly_fortification (da cham tran 19.5/14.5 cua Truc 3, xem tools/audit/nf_balance.py).
 	## v13 (02/10/2026): them 4 focus HOP TAC AN NINH BIEN trong nhanh Bien Dong (VIE_scs_maritime_cooperation, _multilateral_exercise, _cam_ranh_port, _joint_training) + category VIE_scs_cooperation_category; cap VIE_cam_ranh_idea.
 	## v14 (02/10/2026): go 6 focus lua chon dinh huong gia dinh trong nhanh ASEAN (VIE_accept_chinese_influence, VIE_pivot_to_the_west, VIE_join_bri, VIE_military_cooperation_usa, VIE_socialist_bloc, VIE_indo_pacific_partner), cung 4 idea, 2 event vie_int.4/.5 va opinion modifier VIE_western_shift.
+	## v15 (03/10/2026): reformat toan bo file theo VIE_focus_coding_standards.md: dua continuous_focus_position va initial_show_position len truoc shortcuts; dong nhat section header Truc 2 & Truc 3 Khong quan (## SECTION wrapper); chuan hoa khoang cach giua prerequisite va search_filters (25 focus PK-KQ); loai bo double blank lines va trailing whitespace.
+	continuous_focus_position = { x = 765 y = 2850 }
+	initial_show_position = { focus = VIE_doi_moi_continues }
+
 	# Left-hand menu: each button scrolls the view to the target focus. Loc keys VIE_<name>_shortcut.
 	shortcut = {
 		name = VIE_doi_moi_shortcut
@@ -97,9 +101,6 @@ focus_tree = {
 		target = VIE_sec_cyber_control
 		scroll_wheel_factor = 0.60
 	}
-
-	continuous_focus_position = { x = 765 y = 2850 }
-	initial_show_position = { focus = VIE_doi_moi_continues }
 
 	###############################
 	## CHINH TRI
@@ -903,7 +904,7 @@ focus_tree = {
 		id = VIE_industrialization_strategy
 		icon = economic_civil_industry
 
-		x = 53
+		x = 50
 		y = 1
 		relative_position_id = VIE_doi_moi_continues
 
@@ -913,7 +914,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
-		# [CAN DOI CHIEU] moc Dai hoi IX (4/2001) dat duong loi "day manh cong nghiep hoa, hien dai hoa".
+		# Dai hoi IX (4/2001) dat duong loi day manh cong nghiep hoa, hien dai hoa.
 		available = {
 			date > 2001.4.30
 		}
@@ -931,8 +932,8 @@ focus_tree = {
 		id = VIE_vinacomin_founding
 		icon = mining
 
-		x = 23
-		y = 3
+		x = 24
+		y = 2
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 5
@@ -941,7 +942,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
-		# [CAN DOI CHIEU] TKV (Tap doan Cong nghiep Than - Khoang san VN) thanh lap theo QD 346/2005/QD-TTg, 26/12/2005.
+		# [DA DOI CHIEU] TKV (Tap doan Cong nghiep Than - Khoang san VN) thanh lap theo QD 345/2005/QD-TTg, 26/12/2005.
 		available = {
 			date > 2005.12.31
 		}
@@ -1057,13 +1058,13 @@ focus_tree = {
 		id = VIE_border_settlement
 		icon = treaty2
 
-		x = 6
-		y = 1
+		x = -12
+		y = 2
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
 
-		prerequisite = { focus = VIE_asean_integration }
+		prerequisite = { focus = VIE_gulf_of_tonkin }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -1118,7 +1119,7 @@ focus_tree = {
 		id = VIE_maritime_militia
 		icon = navy3
 
-		x = -4
+		x = 0
 		y = 1
 		relative_position_id = VIE_law_of_the_sea
 
@@ -1144,7 +1145,7 @@ focus_tree = {
 		id = VIE_fisheries_surveillance
 		icon = Generic_Maritime
 
-		x = 0
+		x = -4
 		y = 1
 		relative_position_id = VIE_law_of_the_sea
 
@@ -1189,8 +1190,8 @@ focus_tree = {
 		id = VIE_dk1_platforms
 		icon = army_defence1
 
-		x = 0
-		y = 2
+		x = -6
+		y = 3
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -1228,7 +1229,7 @@ focus_tree = {
 		id = VIE_legal_warfare
 		icon = focus_generic_court
 
-		x = 4
+		x = -14
 		y = 1
 		relative_position_id = VIE_law_of_the_sea
 
@@ -1271,7 +1272,7 @@ focus_tree = {
 		icon = focus_generic_large_navy
 
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 16
@@ -1359,7 +1360,7 @@ focus_tree = {
 		id = VIE_coast_guard_law
 		icon = navy2
 
-		x = 4
+		x = -4
 		y = 2
 		relative_position_id = VIE_law_of_the_sea
 
@@ -1396,7 +1397,7 @@ focus_tree = {
 					province = 14178
 				}
 			}
-		
+
 			add_war_support = 0.02
 			if = {
 				limit = { has_selected_naval_grand_doctrine = yes }
@@ -1408,7 +1409,7 @@ focus_tree = {
 			else = {
 				navy_experience = 10
 			}
-		
+
 		}
 
 		ai_will_do = {
@@ -1421,8 +1422,8 @@ focus_tree = {
 		id = VIE_assert_maritime_rights
 		icon = demand_territory
 
-		x = 4
-		y = 3
+		x = -10
+		y = 1
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -1466,8 +1467,8 @@ focus_tree = {
 		id = VIE_paracel_ultimatum
 		icon = demand_territory2
 
-		x = 4
-		y = 5
+		x = -8
+		y = 2
 		relative_position_id = VIE_law_of_the_sea
 
 		prerequisite = { focus = VIE_assert_maritime_rights }
@@ -1518,8 +1519,8 @@ focus_tree = {
 		id = VIE_limited_war_doctrine
 		icon = army_radar
 
-		x = 6
-		y = 4
+		x = -12
+		y = 2
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -1569,8 +1570,8 @@ focus_tree = {
 		id = VIE_scs_maritime_cooperation
 		icon = focus_generic_conference
 
-		x = 7
-		y = 0
+		x = 6
+		y = 1
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -1607,8 +1608,8 @@ focus_tree = {
 		id = VIE_scs_multilateral_exercise
 		icon = navy3
 
-		x = 6
-		y = 1
+		x = 4
+		y = 2
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -1643,7 +1644,7 @@ focus_tree = {
 		icon = maritime_trade
 
 		x = 8
-		y = 1
+		y = 2
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -1676,8 +1677,8 @@ focus_tree = {
 		id = VIE_scs_joint_training
 		icon = navy2
 
-		x = 7
-		y = 2
+		x = 6
+		y = 3
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -1706,7 +1707,6 @@ focus_tree = {
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
-
 
 	###############################
 	## CHINH TRI
@@ -2118,7 +2118,7 @@ focus_tree = {
 		id = VIE_bauxite_tay_nguyen
 		icon = economic_privatisation
 
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = VIE_vinacomin_founding
 
@@ -2156,7 +2156,7 @@ focus_tree = {
 		id = VIE_bauxite_suspend
 		icon = focus_generic_court
 
-		x = -1
+		x = -4
 		y = 1
 		relative_position_id = VIE_vinacomin_founding
 
@@ -3656,7 +3656,7 @@ focus_tree = {
 		icon = focus_generic_industry_investment
 
 		x = -2
-		y = 4
+		y = 5
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -3690,7 +3690,7 @@ focus_tree = {
 		icon = army_reform
 
 		x = -6
-		y = 4
+		y = 5
 		relative_position_id = VIE_law_of_the_sea
 
 		prerequisite = { focus = VIE_peoples_defence }
@@ -3759,7 +3759,7 @@ focus_tree = {
 					}
 				}
 			}
-		
+
 			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
 			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
 			if = {
@@ -3786,7 +3786,7 @@ focus_tree = {
 			else = {
 				army_experience = 10
 			}
-		
+
 		}
 
 		ai_will_do = {
@@ -3799,16 +3799,15 @@ focus_tree = {
 		id = VIE_four_nos_doctrine
 		icon = treaty2
 
-		x = 0
+		x = 2
 		y = 6
 		relative_position_id = VIE_law_of_the_sea
 
-		prerequisite = { focus = VIE_militia_law }
+		prerequisite = { focus = VIE_un_peacekeeping }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
 
 		available = {
-			has_completed_focus = VIE_un_peacekeeping
 			has_idea = VIE_four_nos
 		}
 
@@ -3830,7 +3829,7 @@ focus_tree = {
 		id = VIE_asean_chair
 		icon = trade_with_asean
 
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = VIE_asean_integration
 
@@ -3864,13 +3863,13 @@ focus_tree = {
 		id = VIE_un_security_council
 		icon = refuse_treaty2
 
-		x = 6
-		y = 2
+		x = 4
+		y = 1
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
 
-		prerequisite = { focus = VIE_asean_chair }
+		prerequisite = { focus = VIE_asean_integration }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -3888,7 +3887,7 @@ focus_tree = {
 		id = VIE_us_comprehensive_partnership
 		icon = renounce_treaty
 
-		x = 2
+		x = 8
 		y = 2
 		relative_position_id = VIE_asean_integration
 
@@ -3919,7 +3918,7 @@ focus_tree = {
 		id = VIE_us_embargo_lifted
 		icon = forceful_treaty
 
-		x = 4
+		x = 8
 		y = 3
 		relative_position_id = VIE_asean_integration
 
@@ -3955,8 +3954,8 @@ focus_tree = {
 		id = VIE_csp_network
 		icon = focus_generic_approach_the_west
 
-		x = 0
-		y = 5
+		x = 14
+		y = 4
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
@@ -3993,8 +3992,8 @@ focus_tree = {
 		id = VIE_bamboo_diplomacy
 		icon = focus_generic_financial_agreement
 
-		x = 2
-		y = 6
+		x = 14
+		y = 5
 		relative_position_id = VIE_asean_integration
 
 		prerequisite = { focus = VIE_csp_network }
@@ -4021,19 +4020,15 @@ focus_tree = {
 		id = VIE_special_relations_laos
 		icon = focus_generic_conference
 
-		x = -6
-		y = 2
+		x = -8
+		y = 1
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
 
-		prerequisite = { focus = VIE_border_settlement }
+		prerequisite = { focus = VIE_asean_integration }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		available = {
-			has_completed_focus = VIE_border_settlement
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_special_relations_laos"
@@ -4050,19 +4045,15 @@ focus_tree = {
 		id = VIE_cambodia_relations
 		icon = demand_territory3
 
-		x = -2
-		y = 2
+		x = -4
+		y = 1
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
 
-		prerequisite = { focus = VIE_border_settlement }
+		prerequisite = { focus = VIE_asean_integration }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		available = {
-			has_completed_focus = VIE_border_settlement
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_cambodia_relations"
@@ -4149,7 +4140,7 @@ focus_tree = {
 		id = VIE_vinasat
 		icon = focus_generic_central_planning
 
-		x = 22
+		x = 28
 		y = 2
 		relative_position_id = VIE_north_south_expressway
 
@@ -4175,82 +4166,6 @@ focus_tree = {
 		}
 
 		ai_will_do = { base = 65 }
-	}
-
-	focus = {
-		id = VIE_national_digital_transformation
-		icon = focus_generic_full_employment
-
-		x = 14
-		y = 3
-		relative_position_id = VIE_north_south_expressway
-
-		cost = 7
-
-		prerequisite = { focus = VIE_internet_expansion }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
-
-		available = {
-			date > 2019.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_national_digital_transformation"
-			set_temp_variable = { treasury_change = -5 }
-			modify_treasury_effect = yes
-			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_ideas = VIE_digital_idea
-			every_owned_state = {
-				limit = { is_core_of = VIE }
-				add_building_construction = {
-					type = internet_station
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
-		ai_will_do = {
-			base = 70
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-		ai_will_do = { base = 70 }
-	}
-
-	focus = {
-		id = VIE_viettel_global
-		icon = focus_generic_electrification
-
-		x = 20
-		y = 6
-		relative_position_id = VIE_north_south_expressway
-
-		cost = 7
-
-		prerequisite = { focus = VIE_internet_expansion }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		available = {
-			date > 2005.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_viettel_global"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
-			add_political_power = 50
-			increase_economic_growth = yes
-		}
-
-		ai_will_do = { base = 60 }
 	}
 
 	focus = {
@@ -4322,8 +4237,8 @@ focus_tree = {
 		id = VIE_indochina_solidarity
 		icon = treaty2
 
-		x = -8
-		y = 5
+		x = -6
+		y = 4
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
@@ -4360,7 +4275,7 @@ focus_tree = {
 		icon = treaty2
 
 		x = -6
-		y = 6
+		y = 5
 		relative_position_id = VIE_asean_integration
 
 		prerequisite = { focus = VIE_indochina_solidarity }
@@ -5562,8 +5477,8 @@ focus_tree = {
 		id = VIE_16_words
 		icon = trade_with_china
 
-		x = 14
-		y = 2
+		x = -12
+		y = 3
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
@@ -5588,8 +5503,8 @@ focus_tree = {
 		id = VIE_border_trade_gates
 		icon = border
 
-		x = 8
-		y = 3
+		x = -12
+		y = 5
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
@@ -5614,16 +5529,17 @@ focus_tree = {
 		id = VIE_defence_hotline
 		icon = peace
 
-		x = -10
-		y = 2
+		x = -12
+		y = 4
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
 
+		prerequisite = { focus = VIE_16_words }
+
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
 
 		available = {
-			has_completed_focus = VIE_16_words
 			date > 2011.12.31
 		}
 
@@ -5645,11 +5561,13 @@ focus_tree = {
 		id = VIE_code_of_conduct
 		icon = focus_generic_conference
 
-		x = -4
+		x = 0
 		y = 2
-		relative_position_id = VIE_law_of_the_sea
+		relative_position_id = VIE_asean_integration
 
 		cost = 7
+
+		prerequisite = { focus = VIE_asean_chair }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -5683,8 +5601,8 @@ focus_tree = {
 		id = VIE_shared_future
 		icon = treaty
 
-		x = 12
-		y = 3
+		x = -12
+		y = 6
 		relative_position_id = VIE_asean_integration
 
 		prerequisite = { focus = VIE_16_words }
@@ -6068,7 +5986,7 @@ focus_tree = {
 		id = VIE_upper_middle_income
 		icon = economic_prosperity
 
-		x = 84
+		x = 92
 		y = 1
 		relative_position_id = VIE_doi_moi_continues
 
@@ -6152,19 +6070,113 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_high_income_2045
-		icon = economic_prosperity2
+		id = VIE_carbon_circular_economy
+		icon = generic_solar
 
-		x = 0
+		x = -2
 		y = 2
 		relative_position_id = VIE_upper_middle_income
+
+		cost = 7
 
 		prerequisite = { focus = VIE_green_growth }
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
 		available = {
-			has_completed_focus = VIE_innovation_nation
+			# [DA DOI CHIEU] ND 06/2022: den het 2027 xay dung khung va thi diem; tu 2028 san giao dich tin chi carbon van hanh chinh thuc.
+			date > 2027.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_carbon_circular_economy"
+			increase_economic_growth = yes
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+			add_stability = 0.01
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_productivity_leap
+		icon = economic_prosperity
+
+		x = 2
+		y = 2
+		relative_position_id = VIE_upper_middle_income
+
+		cost = 7
+
+		prerequisite = { focus = VIE_innovation_nation }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
+
+		available = {
+			date > 2033.12.31
+			has_completed_focus = VIE_science_breakthrough
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_productivity_leap"
+			increase_economic_growth = yes
+			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			set_temp_variable = { treasury_change = 3 }
+			modify_treasury_effect = yes
+			add_political_power = 50
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_ageing_society
+		icon = focus_generic_conference
+
+		x = 6
+		y = 1
+		relative_position_id = VIE_upper_middle_income
+
+		cost = 7
+
+		prerequisite = { focus = VIE_upper_middle_income }
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_ECONOMY }
+
+		available = {
+			# [DA DOI CHIEU] Du bao TCTK/UNFPA: nguoi tu 65 tuoi dat 14% (dan so gia) vao khoang 2036; focus la buoc chuan bi truoc moc nay.
+			date > 2032.12.31
+			has_completed_focus = VIE_population_policy
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_ageing_society"
+			add_to_variable = { VIE_ax_size = 1 tooltip = VIE_ax_size_tt }
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+			add_stability = 0.02
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_high_income_2045
+		icon = economic_prosperity2
+
+		x = 0
+		y = 3
+		relative_position_id = VIE_upper_middle_income
+
+		prerequisite = { focus = VIE_carbon_circular_economy }
+		prerequisite = { focus = VIE_productivity_leap }
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		available = {
 			date > 2039.12.31
 		}
 
@@ -6183,10 +6195,11 @@ focus_tree = {
 		icon = economic_prosperity2
 
 		x = 0
-		y = 3
+		y = 4
 		relative_position_id = VIE_upper_middle_income
 
 		prerequisite = { focus = VIE_high_income_2045 }
+		prerequisite = { focus = VIE_ageing_society }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -6332,13 +6345,13 @@ focus_tree = {
 		id = VIE_gulf_of_tonkin
 		icon = treaty
 
-		x = 10
-		y = 2
+		x = -12
+		y = 1
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
 
-		prerequisite = { focus = VIE_border_settlement }
+		prerequisite = { focus = VIE_asean_integration }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -6362,7 +6375,7 @@ focus_tree = {
 		id = VIE_apec_host
 		icon = focus_generic_conference
 
-		x = 2
+		x = 12
 		y = 1
 		relative_position_id = VIE_asean_integration
 
@@ -6390,7 +6403,7 @@ focus_tree = {
 		id = VIE_us_carrier_visit
 		icon = trade_with_america
 
-		x = 12
+		x = 8
 		y = 4
 		relative_position_id = VIE_asean_integration
 
@@ -6425,7 +6438,7 @@ focus_tree = {
 		icon = trade_with_america
 
 		x = 8
-		y = 4
+		y = 5
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
@@ -6463,8 +6476,8 @@ focus_tree = {
 		id = VIE_cambodia_border
 		icon = border
 
-		x = 0
-		y = 3
+		x = -4
+		y = 2
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
@@ -6488,8 +6501,8 @@ focus_tree = {
 		id = VIE_mekong_commission
 		icon = economic_water_supply
 
-		x = -4
-		y = 3
+		x = -8
+		y = 2
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
@@ -6512,8 +6525,8 @@ focus_tree = {
 		id = VIE_mekong_dams_response
 		icon = Dutch_Watermanagement
 
-		x = 0
-		y = 4
+		x = -8
+		y = 3
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
@@ -6541,8 +6554,8 @@ focus_tree = {
 		id = VIE_funan_techo_response
 		icon = treaty2
 
-		x = 4
-		y = 4
+		x = -4
+		y = 3
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
@@ -6573,8 +6586,8 @@ focus_tree = {
 		id = VIE_india_partnership
 		icon = trade_with_india
 
-		x = -12
-		y = 4
+		x = 16
+		y = 2
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
@@ -6602,11 +6615,13 @@ focus_tree = {
 		id = VIE_japan_partnership
 		icon = trade_with_japan
 
-		x = -14
-		y = 2
+		x = 16
+		y = 1
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
+
+		prerequisite = { focus = VIE_asean_integration }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
 
@@ -6631,8 +6646,8 @@ focus_tree = {
 		id = VIE_korea_partnership
 		icon = trade_with_east_timor
 
-		x = -8
-		y = 3
+		x = 12
+		y = 2
 		relative_position_id = VIE_asean_integration
 
 		cost = 7
@@ -6662,8 +6677,8 @@ focus_tree = {
 		id = VIE_australia_partnership
 		icon = trade_with_australia
 
-		x = -8
-		y = 4
+		x = 20
+		y = 2
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
@@ -6692,7 +6707,7 @@ focus_tree = {
 		id = VIE_france_eu
 		icon = trade_with_europe
 
-		x = -12
+		x = 20
 		y = 3
 		relative_position_id = VIE_asean_integration
 
@@ -6723,8 +6738,8 @@ focus_tree = {
 		id = VIE_gulf_investment
 		icon = trade_with_iran
 
-		x = 4
-		y = 5
+		x = 12
+		y = 3
 		relative_position_id = VIE_asean_integration
 
 		cost = 5
@@ -6749,8 +6764,8 @@ focus_tree = {
 		id = VIE_global_south_ties
 		icon = trade_with_east_africa
 
-		x = 2
-		y = 7
+		x = 16
+		y = 3
 		relative_position_id = VIE_asean_integration
 
 		prerequisite = { focus = VIE_india_partnership }
@@ -7665,7 +7680,7 @@ focus_tree = {
 		id = VIE_rare_earths
 		icon = economic_civil_industry
 
-		x = -3
+		x = -2
 		y = 2
 		relative_position_id = VIE_vinacomin_founding
 
@@ -7701,7 +7716,7 @@ focus_tree = {
 		id = VIE_than_quang_ninh
 		icon = coal_mining
 
-		x = 0
+		x = 4
 		y = 1
 		relative_position_id = VIE_vinacomin_founding
 
@@ -7711,7 +7726,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
-		# [CAN DOI CHIEU] moc mo rong khai thac than Quang Ninh phuc vu nhiet dien - dat tam.
+		# Moc thiet ke (khong gan voi mot van ban cu the): mo rong khai thac than Quang Ninh phuc vu nhiet dien.
 		available = {
 			date > 2006.12.31
 		}
@@ -7730,8 +7745,8 @@ focus_tree = {
 		id = VIE_nui_phao_tungsten
 		icon = steel_production
 
-		x = -2
-		y = 2
+		x = 8
+		y = 1
 		relative_position_id = VIE_vinacomin_founding
 
 		cost = 7
@@ -7740,7 +7755,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
-		# [CAN DOI CHIEU] mo Nui Phao (Dai Tu, Thai Nguyen) van hanh thuong mai 3/2014.
+		# [DA DOI CHIEU] mo Nui Phao (Dai Tu, Thai Nguyen): xay dung tu giua 2011, san xuat thuong mai tu quy I/2014.
 		available = {
 			date > 2013.12.31
 		}
@@ -7761,19 +7776,18 @@ focus_tree = {
 		id = VIE_thach_khe_mine_start
 		icon = focus_generic_improve_roads
 
-		x = 0
-		y = 3
+		x = 4
+		y = 2
 		relative_position_id = VIE_vinacomin_founding
 
 		cost = 7
 
 		prerequisite = { focus = VIE_vinacomin_founding }
-		mutually_exclusive = { focus = VIE_thach_khe_mine_suspend }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
-		# [CAN DOI CHIEU] du an mo sat Thach Khe (Ha Tinh) tam dung nam 2016 do su co va vuong moi truong;
-		# day la nhanh giua su "tiep tuc khai thac" thay vi dung theo lich su.
+		# Du an mo sat Thach Khe (Ha Tinh): cap phep dau tu 2008; cuoi 2016 Ha Tinh de xuat tam dung vi cong nghe khai thac va rui ro moi truong.
+		# Day la nhanh gia dinh (tiep tuc khai thac): AI theo lich su khong chon.
 		available = {
 			date > 2016.12.31
 		}
@@ -7791,36 +7805,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 15
 			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_thach_khe_mine_suspend
-		icon = focus_generic_court
-
-		x = 2
-		y = 3
-		relative_position_id = VIE_vinacomin_founding
-
-		cost = 5
-
-		prerequisite = { focus = VIE_vinacomin_founding }
-		mutually_exclusive = { focus = VIE_thach_khe_mine_start }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
-
-		available = {
-			date > 2016.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_thach_khe_mine_suspend"
-			add_stability = 0.02
-		}
-
-		ai_will_do = {
-			base = 70
-			modifier = { factor = 3 VIE_ai_historical = yes }
 		}
 	}
 
@@ -8010,8 +7994,8 @@ focus_tree = {
 		id = VIE_peoples_defence
 		icon = army_mobilisation
 
-		x = -4
-		y = 3
+		x = -2
+		y = 4
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -8037,8 +8021,8 @@ focus_tree = {
 		id = VIE_militia_law
 		icon = army_recruting
 
-		x = -4
-		y = 5
+		x = -6
+		y = 6
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 8
@@ -8058,7 +8042,7 @@ focus_tree = {
 			VIE_bop_conservative_small = yes
 			army_experience = 10
 			add_stability = 0.01
-		
+
 			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
 			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
 			add_manpower = 20000
@@ -8078,7 +8062,7 @@ focus_tree = {
 			else = {
 				army_experience = 10
 			}
-		
+
 		}
 
 		ai_will_do = { base = 60 }
@@ -8088,8 +8072,8 @@ focus_tree = {
 		id = VIE_cyber_command
 		icon = army_logistics
 
-		x = 0
-		y = 5
+		x = -2
+		y = 6
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 7
@@ -8134,7 +8118,7 @@ focus_tree = {
 		icon = peacekeeping_brig_arm
 
 		x = 2
-		y = 4
+		y = 5
 		relative_position_id = VIE_law_of_the_sea
 
 		cost = 5
@@ -8767,79 +8751,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_internet_expansion
-		icon = economic_avia_industry
-
-		x = 16
-		y = 1
-		relative_position_id = VIE_north_south_expressway
-
-		cost = 7
-
-		prerequisite = { focus = VIE_doi_moi_continues }
-
-		search_filters = { FOCUS_FILTER_ECONOMY }
-
-		available = {
-			has_completed_focus = VIE_doi_moi_continues
-			date > 2005.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_internet_expansion"
-			set_temp_variable = { treasury_change = -5 }
-			modify_treasury_effect = yes
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			every_owned_state = {
-				limit = { is_core_of = VIE }
-				add_building_construction = {
-					type = internet_station
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
-		ai_will_do = {
-			base = 70
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-		ai_will_do = { base = 70 }
-	}
-
-	focus = {
-		id = VIE_mobile_networks
-		icon = asian_investmentnew
-
-		x = 14
-		y = 2
-		relative_position_id = VIE_north_south_expressway
-
-		cost = 7
-
-		prerequisite = { focus = VIE_internet_expansion }
-
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
-
-		available = {
-			date > 2023.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_mobile_networks"
-			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
-			add_tech_bonus = {
-				name = VIE_mobile_networks
-				category = CAT_internet_tech
-				uses = 1
-				bonus = 0.5
-			}
-		}
-
-		ai_will_do = { base = 65 }
-	}
-
-	focus = {
 		id = VIE_cashless_payments
 		icon = economic_another_money
 
@@ -8875,12 +8786,234 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_internet_expansion
+		icon = economic_avia_industry
+
+		x = 66
+		y = 1
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 7
+
+		prerequisite = { focus = VIE_doi_moi_continues }
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		available = {
+			has_completed_focus = VIE_doi_moi_continues
+			date > 2005.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_internet_expansion"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			every_owned_state = {
+				limit = { is_core_of = VIE }
+				add_building_construction = {
+					type = internet_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_mobile_3g_4g
+		icon = GFX_goal_generic_radar
+
+		x = -8
+		y = 1
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_internet_expansion }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
+
+		available = {
+			# 3G: giay phep thang 8/2009, dich vu thuong mai cuoi 2009; 4G cap phep 10/2016.
+			date > 2009.8.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_mobile_3g_4g"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			increase_economic_growth = yes
+			add_tech_bonus = {
+				name = VIE_mobile_3g_4g
+				category = CAT_internet_tech
+				uses = 1
+				bonus = 0.5
+			}
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_mobile_networks
+		icon = asian_investmentnew
+
+		x = -10
+		y = 2
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_mobile_3g_4g }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
+
+		available = {
+			date > 2023.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_mobile_networks"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			add_tech_bonus = {
+				name = VIE_mobile_networks
+				category = CAT_internet_tech
+				uses = 1
+				bonus = 0.5
+			}
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	focus = {
+		id = VIE_submarine_cables
+		icon = GFX_focus_generic_supply_line
+
+		x = -6
+		y = 2
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_mobile_3g_4g }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
+
+		available = {
+			date > 2013.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_submarine_cables"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			add_political_power = 25
+			add_tech_bonus = {
+				name = VIE_submarine_cables
+				category = CAT_encryption_tech
+				uses = 1
+				bonus = 0.5
+			}
+		}
+
+		ai_will_do = { base = 55 }
+	}
+
+	focus = {
+		id = VIE_national_digital_transformation
+		icon = focus_generic_full_employment
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_internet_expansion }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
+
+		available = {
+			date > 2019.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_national_digital_transformation"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_merit = 2 tooltip = VIE_ax_merit_tt }
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = -1 }
+				change_communist_cadres_opinion = yes
+			}
+			add_ideas = VIE_digital_idea
+			every_owned_state = {
+				limit = { is_core_of = VIE }
+				add_building_construction = {
+					type = internet_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_ai_strategy
+		icon = science2
+
+		x = 4
+		y = 2
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_national_digital_transformation }
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		available = {
+			date > 2020.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_ai_strategy"
+			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = -1 }
+				change_communist_cadres_opinion = yes
+			}
+			add_tech_bonus = {
+				name = VIE_ai_strategy
+				category = CAT_ai
+				uses = 1
+				bonus = 0.5
+			}
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
 		id = VIE_digital_id
 		icon = focus_generic_court
 
-		x = 16
-		y = 4
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 2
+		relative_position_id = VIE_internet_expansion
 
 		cost = 7
 
@@ -8912,15 +9045,19 @@ focus_tree = {
 		id = VIE_national_data_center
 		icon = economic_sciencer
 
-		x = 18
-		y = 5
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 3
+		relative_position_id = VIE_internet_expansion
 
 		cost = 7
 
 		prerequisite = { focus = VIE_digital_id }
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		available = {
+			date > 2024.11.30
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_national_data_center"
@@ -8943,57 +9080,18 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_ai_strategy
-		icon = science2
-
-		x = 16
-		y = 6
-		relative_position_id = VIE_north_south_expressway
-
-		cost = 7
-
-		prerequisite = { focus = VIE_national_data_center }
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		available = {
-			date > 2020.12.31
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ai_strategy"
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
-			if = {
-				limit = { has_idea = communist_cadres }
-				set_temp_variable = { temp_opinion = -1 }
-				change_communist_cadres_opinion = yes
-			}
-			add_tech_bonus = {
-				name = VIE_ai_strategy
-				category = CAT_ai
-				uses = 1
-				bonus = 0.5
-			}
-		}
-
-		ai_will_do = { base = 60 }
-	}
-
-	focus = {
 		id = VIE_digital_nation
 		icon = economic_prosperity2
 
-		x = 18
-		y = 7
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 5
+		relative_position_id = VIE_internet_expansion
 
 		prerequisite = { focus = VIE_mobile_networks }
+		prerequisite = { focus = VIE_national_data_center }
+		prerequisite = { focus = VIE_ai_strategy }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
-
-		available = {
-			has_completed_focus = VIE_ai_strategy
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_digital_nation"
@@ -9004,10 +9102,102 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_viettel_global
+		icon = focus_generic_electrification
+
+		x = 8
+		y = 1
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_internet_expansion }
+
+		search_filters = { FOCUS_FILTER_ECONOMY }
+
+		available = {
+			date > 2005.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_viettel_global"
+			add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			add_political_power = 50
+			increase_economic_growth = yes
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_make_in_vietnam
+		icon = economic_civil_industry
+
+		x = 8
+		y = 2
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_viettel_global }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		available = {
+			# Chien dich Make in Vietnam phat dong 9/5/2019; cuoc goi 5G tren thiet bi Viettel 17/1/2020.
+			date > 2019.5.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_make_in_vietnam"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			increase_economic_growth = yes
+			add_tech_bonus = {
+				name = VIE_make_in_vietnam
+				category = CAT_computing_tech
+				uses = 1
+				bonus = 0.5
+			}
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_digital_tech_industry_law
+		icon = economic_sciencer
+
+		x = 8
+		y = 3
+		relative_position_id = VIE_internet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_make_in_vietnam }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_RESEARCH }
+
+		available = {
+			date > 2025.6.30
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_digital_tech_industry_law"
+			add_to_variable = { VIE_ax_market = 1 tooltip = VIE_ax_market_tt }
+			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			add_political_power = 50
+			increase_economic_growth = yes
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
 		id = VIE_nafosted
 		icon = economic_sciencer
 
-		x = 20
+		x = 26
 		y = 1
 		relative_position_id = VIE_north_south_expressway
 
@@ -9041,7 +9231,7 @@ focus_tree = {
 		id = VIE_research_universities
 		icon = research2
 
-		x = 18
+		x = 24
 		y = 2
 		relative_position_id = VIE_north_south_expressway
 
@@ -9074,7 +9264,7 @@ focus_tree = {
 		id = VIE_earth_observation
 		icon = generic_space
 
-		x = 22
+		x = 28
 		y = 3
 		relative_position_id = VIE_north_south_expressway
 
@@ -9106,7 +9296,7 @@ focus_tree = {
 		id = VIE_nuclear_research
 		icon = research4
 
-		x = 18
+		x = 24
 		y = 3
 		relative_position_id = VIE_north_south_expressway
 
@@ -9133,7 +9323,7 @@ focus_tree = {
 		id = VIE_science_breakthrough
 		icon = science2
 
-		x = 20
+		x = 26
 		y = 4
 		relative_position_id = VIE_north_south_expressway
 
@@ -9467,7 +9657,7 @@ focus_tree = {
 		id = VIE_us_engagement
 		icon = trade_with_america
 
-		x = -6
+		x = 8
 		y = 1
 		relative_position_id = VIE_asean_integration
 
@@ -9503,8 +9693,8 @@ focus_tree = {
 		id = VIE_multilateral_champion
 		icon = GFX_focus_generic_conference
 
-		x = 0
-		y = 8
+		x = 4
+		y = 2
 		relative_position_id = VIE_asean_integration
 
 		prerequisite = { focus = VIE_un_security_council }
@@ -10737,10 +10927,10 @@ focus_tree = {
 	}
 
 	###############################
-	# Truc 3 khong quan (xay dung luc luong): chuoi chung T1-T8, cot x >= 298 (T1 neo VIE_modernize_vpa x+36).
-	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. Nhanh A/B/C (14 focus) o buoc 3; unlock_decision_tooltip them o buoc 4.
+	## TRUC 3 KHONG QUAN - XAY DUNG LUC LUONG (chuoi chung T1-T8)
 	###############################
-
+	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. Nhanh A/B/C (14 focus) o buoc 3; unlock_decision_tooltip them o buoc 4.
+	# Cot x >= 298 (T1 neo VIE_modernize_vpa x+36).
 	focus = {
 		id = VIE_airf_training_standardization
 		icon = GFX_focus_VIE_airf_training_standardization
@@ -10752,6 +10942,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_modernize_vpa }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -10776,10 +10967,11 @@ focus_tree = {
 	}
 
 	###############################
-	# Truc 2 khong quan (CNQP hang khong - phong khong): 7 focus F1-F7, cot x >= 288.
+	## TRUC 2 KHONG QUAN - CNQP HANG KHONG & PHONG KHONG (F1-F7)
+	###############################
 	# Thiet ke: VIE_air_truc2_review_and_plan.md / VIE_air_force_content_report.md 6.2. Focus chi cap XP, tooltip mo Decision va
 	# (F7) co nang luc; bac nam o Decision (buoc 4-6). Neo tuong doi vao VIE_modernize_vpa (266,1), thu tu khai bao chong forward-ref.
-	###############################
+	# Cot x >= 288.
 	focus = {
 		id = VIE_apm_law
 		icon = GFX_focus_VIE_apm_law
@@ -10791,6 +10983,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = { focus = VIE_airf_training_standardization }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }
 
 		available = {
@@ -10830,6 +11023,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_apm_law }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }
 
 		available = {
@@ -10859,6 +11053,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_apm_law }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }
 
 		available = {
@@ -10888,6 +11083,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_apm_law }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }
 
 		available = {
@@ -10917,6 +11113,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_apm_a32 focus = VIE_apm_a31 focus = VIE_apm_radar }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }
 
 		available = {
@@ -10947,6 +11144,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_apm_radar }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }
 
 		available = {
@@ -11006,6 +11204,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_training_standardization }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11039,6 +11238,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_training_standardization }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11073,6 +11273,7 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_airf_fighter_force }
 		prerequisite = { focus = VIE_airf_sam_force }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11107,6 +11308,7 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_airf_command_reform_1 }
 		prerequisite = { focus = VIE_apm_a32 focus = VIE_apm_a31 focus = VIE_apm_radar }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11141,6 +11343,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_first_force }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11177,6 +11380,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_command_reform_2 }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11209,6 +11413,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_medium_force }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11235,10 +11440,10 @@ focus_tree = {
 	}
 
 	###############################
-	# Truc 3 khong quan: 14 focus nhanh hoc thuyet (A phong khong tich hop, B da nhiem, C khong nguoi lai), loai tru nhau o A1/B1/C1.
-	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. unlock_decision_tooltip them o buoc 4-5.
+	## TRUC 3 KHONG QUAN - NHANH HOC THUYET (14 focus A/B/C)
 	###############################
-
+	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. unlock_decision_tooltip them o buoc 4-5.
+	# Loai tru nhau o A1/B1/C1 (A phong khong tich hop, B da nhiem, C khong nguoi lai).
 	focus = {
 		id = VIE_airf_iads
 		icon = GFX_focus_VIE_airf_iads
@@ -11251,6 +11456,7 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_airf_operating_range }
 		mutually_exclusive = { focus = VIE_airf_multirole focus = VIE_airf_unmanned }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11283,6 +11489,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_iads }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11319,6 +11526,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_layered_defence }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11393,6 +11601,7 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_airf_operating_range }
 		mutually_exclusive = { focus = VIE_airf_iads focus = VIE_airf_unmanned }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11426,6 +11635,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_multirole }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11466,6 +11676,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_multirole }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11498,6 +11709,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_multirole }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11570,6 +11782,7 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_airf_operating_range }
 		mutually_exclusive = { focus = VIE_airf_iads focus = VIE_airf_multirole }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11603,6 +11816,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_unmanned }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11635,6 +11849,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_unmanned }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
@@ -11667,6 +11882,7 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_airf_isr_uav }
+
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 
 		available = {
