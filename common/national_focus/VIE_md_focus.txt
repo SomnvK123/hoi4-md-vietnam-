@@ -721,13 +721,13 @@ focus_tree = {
 		id = VIE_bilateral_trade_agreement_usa
 		icon = diplomatic_treaty
 
-		x = -52
-		y = 4
+		x = -50
+		y = 2
 		relative_position_id = VIE_doi_moi_continues
 
 		cost = 7
 
-		prerequisite = { focus = VIE_fdi_attraction }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL }
 
@@ -787,12 +787,9 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_equitization_soes }
+		prerequisite = { focus = VIE_bilateral_trade_agreement_usa }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
-
-		available = {
-			has_completed_focus = VIE_bilateral_trade_agreement_usa
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_fdi_attraction"
@@ -895,27 +892,62 @@ focus_tree = {
 		ai_will_do = { base = 65 }
 	}
 
-	## v6-fix: anchor moved above its dependents (engine resolves relative_position_id in file order)
+	###############################
+	## CONG NGHIEP & KHAI KHOANG - hai nhanh goc moi, tach khoi VIE_north_south_expressway.
+	## Dat ngay tren cum focus cong nghiep/khai khoang hien co (rebase: giu nguyen hinh dang
+	## tuong doi cua cum, chi doi anchor) nen khong co duong noi cheo dai. Khai bao o day (truoc
+	## VIE_supporting_industries) de khong forward-ref voi 16 focus con da doi relative_position_id
+	## sang hai root nay.
+	###############################
 	focus = {
-		id = VIE_supporting_industries
+		id = VIE_industrialization_strategy
 		icon = economic_civil_industry
 
-		x = -2
+		x = 53
 		y = 1
-		relative_position_id = VIE_north_south_expressway
+		relative_position_id = VIE_doi_moi_continues
 
-		cost = 7
+		cost = 5
 
-		prerequisite = { focus = VIE_north_south_expressway }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
+		# [CAN DOI CHIEU] moc Dai hoi IX (4/2001) dat duong loi "day manh cong nghiep hoa, hien dai hoa".
 		available = {
-			has_completed_focus = VIE_samsung_partnership
+			date > 2001.4.30
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_supporting_industries"
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_industrialization_strategy"
+			add_political_power = 50
+			increase_economic_growth = yes
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	focus = {
+		id = VIE_vinacomin_founding
+		icon = mining
+
+		x = 23
+		y = 3
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_doi_moi_continues }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		# [CAN DOI CHIEU] TKV (Tap doan Cong nghiep Than - Khoang san VN) thanh lap theo QD 346/2005/QD-TTg, 26/12/2005.
+		available = {
+			date > 2005.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_vinacomin_founding"
 			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
 			increase_economic_growth = yes
 		}
@@ -927,13 +959,13 @@ focus_tree = {
 		id = VIE_samsung_partnership
 		icon = economic_civil_industry
 
-		x = -4
-		y = 4
-		relative_position_id = VIE_supporting_industries
+		x = 4
+		y = 1
+		relative_position_id = VIE_industrialization_strategy
 
 		cost = 7
 
-		prerequisite = { focus = VIE_supporting_industries }
+		prerequisite = { focus = VIE_industrialization_strategy }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -956,6 +988,30 @@ focus_tree = {
 			modifier = { factor = 0 can_staff_an_industrial_complex = no }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
+	}
+
+	## v6-fix: anchor moved above its dependents (engine resolves relative_position_id in file order)
+	focus = {
+		id = VIE_supporting_industries
+		icon = economic_civil_industry
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_samsung_partnership
+
+		cost = 7
+
+		prerequisite = { focus = VIE_samsung_partnership }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_supporting_industries"
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			increase_economic_growth = yes
+		}
+
+		ai_will_do = { base = 70 }
 	}
 
 	###############################
@@ -1907,7 +1963,7 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_north_south_expressway }
+		prerequisite = { focus = VIE_doi_moi_continues }
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
 
@@ -1993,13 +2049,13 @@ focus_tree = {
 		id = VIE_formosa_steel_complex
 		icon = economic_civil_industry
 
-		x = -8
-		y = 2
-		relative_position_id = VIE_north_south_expressway
+		x = -2
+		y = 1
+		relative_position_id = VIE_industrialization_strategy
 
 		cost = 7
 
-		prerequisite = { focus = VIE_shipbuilding_vinashin }
+		prerequisite = { focus = VIE_industrialization_strategy }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -2032,11 +2088,11 @@ focus_tree = {
 
 		x = -6
 		y = 1
-		relative_position_id = VIE_north_south_expressway
+		relative_position_id = VIE_industrialization_strategy
 
 		cost = 7
 
-		prerequisite = { focus = VIE_north_south_expressway }
+		prerequisite = { focus = VIE_industrialization_strategy }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -2062,13 +2118,13 @@ focus_tree = {
 		id = VIE_bauxite_tay_nguyen
 		icon = economic_privatisation
 
-		x = -28
-		y = 3
-		relative_position_id = VIE_north_south_expressway
+		x = 3
+		y = 1
+		relative_position_id = VIE_vinacomin_founding
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_vinacomin_founding }
 		mutually_exclusive = { focus = VIE_bauxite_suspend }
 
 		search_filters = { FOCUS_FILTER_ECONOMY }
@@ -2082,6 +2138,7 @@ focus_tree = {
 			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
 			520 = {
 				one_state_industrial_complex = yes
+				add_resource = { type = aluminium amount = 4 }
 			}
 			increase_economic_growth = yes
 			add_stability = -0.02
@@ -2099,13 +2156,13 @@ focus_tree = {
 		id = VIE_bauxite_suspend
 		icon = focus_generic_court
 
-		x = -32
-		y = 3
-		relative_position_id = VIE_north_south_expressway
+		x = -1
+		y = 1
+		relative_position_id = VIE_vinacomin_founding
 
 		cost = 7
 
-		prerequisite = { focus = VIE_petrovietnam_expansion }
+		prerequisite = { focus = VIE_vinacomin_founding }
 		mutually_exclusive = { focus = VIE_bauxite_tay_nguyen }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
@@ -6761,9 +6818,9 @@ focus_tree = {
 		id = VIE_domestic_automotive
 		icon = economic_civil_industry
 
-		x = 4
-		y = 2
-		relative_position_id = VIE_north_south_expressway
+		x = 8
+		y = 1
+		relative_position_id = VIE_supporting_industries
 
 		cost = 7
 
@@ -6795,9 +6852,9 @@ focus_tree = {
 		id = VIE_china_plus_one
 		icon = focus_generic_industrialists
 
-		x = 0
-		y = 2
-		relative_position_id = VIE_north_south_expressway
+		x = -4
+		y = 1
+		relative_position_id = VIE_supporting_industries
 
 		cost = 7
 
@@ -6829,9 +6886,9 @@ focus_tree = {
 		id = VIE_hoa_phat_hrc_steel
 		icon = economic_civil_industry
 
-		x = -10
-		y = 3
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 1
+		relative_position_id = VIE_formosa_steel_complex
 
 		cost = 7
 
@@ -6866,9 +6923,9 @@ focus_tree = {
 		id = VIE_precision_mechanics_molds
 		icon = GFX_focus_generic_industry_2
 
-		x = -8
-		y = 4
-		relative_position_id = VIE_north_south_expressway
+		x = 4
+		y = 1
+		relative_position_id = VIE_supporting_industries
 
 		cost = 7
 
@@ -6901,9 +6958,9 @@ focus_tree = {
 		id = VIE_tier1_vendor_localization
 		icon = economic_avia_industry
 
-		x = -2
-		y = 3
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 1
+		relative_position_id = VIE_supporting_industries
 
 		cost = 7
 
@@ -6936,9 +6993,9 @@ focus_tree = {
 		id = VIE_integrated_auto_supplier_park
 		icon = economic_civil_industry
 
-		x = 10
-		y = 3
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 1
+		relative_position_id = VIE_domestic_automotive
 
 		cost = 7
 
@@ -6972,9 +7029,9 @@ focus_tree = {
 		id = VIE_ev_revolution_batteries
 		icon = GFX_focus_generic_industry_3
 
-		x = 8
-		y = 4
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 1
+		relative_position_id = VIE_integrated_auto_supplier_park
 
 		cost = 7
 
@@ -7009,9 +7066,9 @@ focus_tree = {
 		id = VIE_global_auto_export
 		icon = GFX_focus_generic_diplomatic_treaty
 
-		x = 6
-		y = 5
-		relative_position_id = VIE_north_south_expressway
+		x = 0
+		y = 1
+		relative_position_id = VIE_ev_revolution_batteries
 
 		cost = 7
 
@@ -7040,9 +7097,9 @@ focus_tree = {
 		id = VIE_manufacturing_hub
 		icon = focus_generic_communist_industry
 
-		x = 6
-		y = 3
-		relative_position_id = VIE_north_south_expressway
+		x = -4
+		y = 1
+		relative_position_id = VIE_china_plus_one
 
 		prerequisite = { focus = VIE_intel_hcmc }
 
@@ -7608,9 +7665,9 @@ focus_tree = {
 		id = VIE_rare_earths
 		icon = economic_civil_industry
 
-		x = -34
-		y = 4
-		relative_position_id = VIE_north_south_expressway
+		x = -3
+		y = 2
+		relative_position_id = VIE_vinacomin_founding
 
 		cost = 7
 
@@ -7625,11 +7682,146 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_rare_earths"
 			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			523 = {
+				add_resource = { type = composites amount = 4 }
+			}
 			set_country_flag = VIE_rare_earths_open
 			country_event = { id = vie_dip.17 days = 10 }
 		}
 
 		ai_will_do = { base = 55 }
+	}
+
+	###############################
+	## KHAI KHOANG - 4 focus con. Root VIE_vinacomin_founding da duoc chuyen len truoc
+	## VIE_supporting_industries (xem khoi CONG NGHIEP & KHAI KHOANG o dau cum kinh te) de
+	## tranh forward-ref voi VIE_bauxite_tay_nguyen/VIE_rare_earths.
+	###############################
+	focus = {
+		id = VIE_than_quang_ninh
+		icon = coal_mining
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_vinacomin_founding
+
+		cost = 7
+
+		prerequisite = { focus = VIE_vinacomin_founding }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		# [CAN DOI CHIEU] moc mo rong khai thac than Quang Ninh phuc vu nhiet dien - dat tam.
+		available = {
+			date > 2006.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_than_quang_ninh"
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			increase_economic_growth = yes
+			set_country_flag = VIE_coal_mining_expanded
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_nui_phao_tungsten
+		icon = steel_production
+
+		x = -2
+		y = 2
+		relative_position_id = VIE_vinacomin_founding
+
+		cost = 7
+
+		prerequisite = { focus = VIE_vinacomin_founding }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		# [CAN DOI CHIEU] mo Nui Phao (Dai Tu, Thai Nguyen) van hanh thuong mai 3/2014.
+		available = {
+			date > 2013.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nui_phao_tungsten"
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			523 = {
+				add_resource = { type = tungsten amount = 4 }
+			}
+			increase_economic_growth = yes
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_thach_khe_mine_start
+		icon = focus_generic_improve_roads
+
+		x = 0
+		y = 3
+		relative_position_id = VIE_vinacomin_founding
+
+		cost = 7
+
+		prerequisite = { focus = VIE_vinacomin_founding }
+		mutually_exclusive = { focus = VIE_thach_khe_mine_suspend }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
+
+		# [CAN DOI CHIEU] du an mo sat Thach Khe (Ha Tinh) tam dung nam 2016 do su co va vuong moi truong;
+		# day la nhanh giua su "tiep tuc khai thac" thay vi dung theo lich su.
+		available = {
+			date > 2016.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_thach_khe_mine_start"
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			521 = {
+				add_resource = { type = steel amount = 4 }
+			}
+			increase_economic_growth = yes
+			add_stability = -0.02
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_thach_khe_mine_suspend
+		icon = focus_generic_court
+
+		x = 2
+		y = 3
+		relative_position_id = VIE_vinacomin_founding
+
+		cost = 5
+
+		prerequisite = { focus = VIE_vinacomin_founding }
+		mutually_exclusive = { focus = VIE_thach_khe_mine_start }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_STABILITY }
+
+		available = {
+			date > 2016.12.31
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_thach_khe_mine_suspend"
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 3 VIE_ai_historical = yes }
+		}
 	}
 
 	focus = {
