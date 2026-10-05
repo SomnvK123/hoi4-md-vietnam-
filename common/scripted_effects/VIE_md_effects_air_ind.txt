@@ -358,3 +358,58 @@ VIE_apm_uav_finish = {
 	clamp_variable = { var = VIE_apm_uav_tier min = 0 max = 3 }
 	VIE_apm_program_end = yes
 }
+
+########################################################################
+# Khong quan v2 - phan thuong 7 focus Truc 2 (VIE_air_effects_content_and_plan.md muc 4).
+# Bac, MIO, chi phi nam o Decision; focus chi them PP/CP, XP chuan hoa (mastery khi da chon hoc thuyet), tech bonus, accidents -1%.
+########################################################################
+VIE_apm_f1_reward = {
+	add_political_power = 25
+	VIE_airf_xp_10 = yes
+}
+VIE_apm_f2_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_accidents_factor = -0.01 tooltip = VIE_tt_air_accidents_factor }
+	add_political_power = 15
+	VIE_airf_xp_10 = yes
+	VIE_airf_dm_tt = yes
+	force_update_dynamic_modifier = yes
+}
+VIE_apm_f3_reward = {
+	add_political_power = 10
+	VIE_airf_xp_10 = yes
+}
+VIE_apm_f4_reward = {
+	add_command_power = 10
+	add_tech_bonus = {
+		name = VIE_apm_tb_radar
+		bonus = 0.25
+		uses = 1
+		category = CAT_airborne_early_warning
+	}
+	VIE_airf_xp_10 = yes
+}
+VIE_apm_f5_reward = {
+	add_command_power = 10
+	add_tech_bonus = {
+		name = VIE_apm_tb_avionics
+		bonus = 0.25
+		uses = 1
+		category = CAT_avionics
+	}
+	VIE_airf_xp_10 = yes
+}
+VIE_apm_f6_reward = {
+	add_tech_bonus = {
+		name = VIE_apm_tb_drones
+		bonus = 0.25
+		uses = 1
+		category = CAT_drones
+	}
+	VIE_airf_xp_10 = yes
+}
+VIE_apm_f7_reward = {
+	add_political_power = 50
+	add_war_support = 0.03
+	VIE_airf_xp_10 = yes
+}

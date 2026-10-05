@@ -11158,14 +11158,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_law"
 			unlock_decision_category_tooltip = VIE_apm_category
-			if = {
-				limit = { has_selected_air_grand_doctrine = yes }
-				add_mastery = {
-					amount = 10
-					folder = air
-				}
-			}
-			else = { air_experience = 10 }
+			VIE_apm_f1_reward = yes
 		}
 
 		ai_will_do = {
@@ -11192,8 +11185,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_a32"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_a32
+			VIE_apm_f2_reward = yes
 		}
 
 		ai_will_do = {
@@ -11220,8 +11213,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_a31"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_a31
+			VIE_apm_f3_reward = yes
 		}
 
 		ai_will_do = {
@@ -11248,8 +11241,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_radar"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_radar
+			VIE_apm_f4_reward = yes
 		}
 
 		ai_will_do = {
@@ -11279,8 +11272,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_integration"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_integ
+			VIE_apm_f5_reward = yes
 		}
 
 		ai_will_do = {
@@ -11307,8 +11300,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_uav"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_uav
+			VIE_apm_f6_reward = yes
 		}
 
 		ai_will_do = {
@@ -11338,7 +11331,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_mature"
 			set_country_flag = VIE_cap_mature_air_industry
-			air_experience = 10
+			VIE_apm_f7_reward = yes
 		}
 
 		ai_will_do = {
