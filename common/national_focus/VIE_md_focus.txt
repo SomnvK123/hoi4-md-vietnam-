@@ -11095,6 +11095,259 @@ focus_tree = {
 	}
 
 	###############################
+	## TRUC 4 LUC LUONG DAC BIET - DAC CONG / HAI QUAN DANH BO
+	###############################
+	# Thiet ke: VIE_special_forces_review_and_plan.md. Truc doc lap, neo VIE_modernize_vpa; cum o ben trai khoi lf (abs x 142-166, y >= 9).
+	# Thu tu khai bao chong forward-ref: command -> root con -> tru cot -> capstone. Reward trong VIE_md_effects_sf.txt.
+	focus = {
+		id = VIE_sf_command
+		icon = GFX_focus_VIE_sf_command
+
+		x = -48
+		y = 8
+		relative_position_id = VIE_modernize_vpa
+
+		cost = 7
+
+		prerequisite = { focus = VIE_modernize_vpa }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_command"
+			VIE_sf_command_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper
+		icon = GFX_focus_VIE_sf_sapper
+
+		x = -4
+		y = 1
+		relative_position_id = VIE_sf_command
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_command }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper"
+			VIE_sf_sapper_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_marine
+		icon = GFX_focus_VIE_sf_marine
+
+		x = 4
+		y = 1
+		relative_position_id = VIE_sf_command
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_command }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine"
+			VIE_sf_marine_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper_training
+		icon = GFX_focus_VIE_sf_sapper_training
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_sf_sapper
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_sapper }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_training"
+			VIE_sf_sapper_training_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper_equipment
+		icon = GFX_focus_VIE_sf_sapper_equipment
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sf_sapper
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_sapper }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_equipment"
+			VIE_sf_sapper_equipment_reward = yes
+		}
+
+		ai_will_do = {
+			base = 45
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_sf_sapper_command
+		icon = GFX_focus_VIE_sf_sapper_command
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_sf_sapper
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_sapper }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_command"
+			VIE_sf_sapper_command_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper_elite
+		icon = GFX_focus_VIE_sf_sapper_elite
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_sf_sapper
+
+		prerequisite = { focus = VIE_sf_sapper_training }
+		prerequisite = { focus = VIE_sf_sapper_equipment }
+		prerequisite = { focus = VIE_sf_sapper_command }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_elite"
+			VIE_sf_sapper_elite_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_marine_training
+		icon = GFX_focus_VIE_sf_marine_training
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_sf_marine
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_marine }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_training"
+			VIE_sf_marine_training_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_marine_equipment
+		icon = GFX_focus_VIE_sf_marine_equipment
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sf_marine
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_marine }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_equipment"
+			VIE_sf_marine_equipment_reward = yes
+		}
+
+		ai_will_do = {
+			base = 45
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_sf_marine_command
+		icon = GFX_focus_VIE_sf_marine_command
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_sf_marine
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_marine }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_command"
+			VIE_sf_marine_command_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_marine_elite
+		icon = GFX_focus_VIE_sf_marine_elite
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_sf_marine
+
+		prerequisite = { focus = VIE_sf_marine_training }
+		prerequisite = { focus = VIE_sf_marine_equipment }
+		prerequisite = { focus = VIE_sf_marine_command }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_elite"
+			VIE_sf_marine_elite_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	###############################
 	## TRUC 3 KHONG QUAN - XAY DUNG LUC LUONG (chuoi chung T1-T8)
 	###############################
 	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. Nhanh A/B/C (14 focus) o buoc 3; unlock_decision_tooltip them o buoc 4.
