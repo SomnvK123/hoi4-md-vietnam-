@@ -736,6 +736,20 @@ ideas = {
 			}
 		}
 
+		VIE_hegemony_doctrine_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				justify_war_goal_time = -0.25
+				war_support_factor = 0.05
+				army_attack_factor = 0.03
+				stability_factor = -0.02
+			}
+		}
+
 		VIE_sez_idea = {
 			picture = economic_boom
 			allowed = { always = no }

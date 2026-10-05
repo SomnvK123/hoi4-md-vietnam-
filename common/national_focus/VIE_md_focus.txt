@@ -32,6 +32,7 @@ focus_tree = {
 ## v16c (05/10/2026): hang 3 nhanh An ninh: VIE_sec_surveillance_network, VIE_sec_loyalty_vetting, VIE_sec_border_control (1 idea, 1 decision).
 ## v16d (05/10/2026): hang 4 nhanh An ninh: VIE_sec_cyber_sovereignty, VIE_sec_ideological_education, VIE_sec_state_data_center (3 idea, 2 decision, event vie_sec.2; khoi phuc event vie_alt.31).
 ## v16e (05/10/2026): hang 5 nhanh An ninh: khoi phuc VIE_sec_managed_opening (3 prerequisite AND, cost 7); loai 2 hieu ung di san vo tac dung (VIE_bop_reform_small, co VIE_wa_unlocked); them increase_economic_growth.
+## v16f (05/10/2026): hang 6-7 nhanh An ninh: VIE_sec_hegemony_doctrine, VIE_sec_reclaim_paracels, VIE_sec_fortify_spratly, VIE_sec_indochina_buffer (1 idea, 3 event vie_sec.10/11/12; guard chong trung voi paracel_ultimatum, spratly_fortification, indochina_open).
 	continuous_focus_position = { x = 765 y = 2850 }
 	initial_show_position = { focus = VIE_doi_moi_continues }
 
@@ -4824,6 +4825,239 @@ focus_tree = {
 
 		ai_will_do = {
 			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_hegemony_doctrine
+		icon = communist_purge
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_managed_opening
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_managed_opening }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+
+		available = {
+			has_country_flag = VIE_security_active
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_hegemony_doctrine"
+			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
+			if = { limit = { has_idea = VIE_four_nos } remove_ideas = VIE_four_nos }
+			if = { limit = { has_idea = VIE_non_alignment_policy } remove_ideas = VIE_non_alignment_policy }
+			add_ideas = VIE_hegemony_doctrine_idea
+			add_war_support = 0.10
+			add_political_power = 50
+			add_named_threat = { threat = 2 name = VIE_sec_hegemony_threat }
+			# Second step up in defence spending (first: VIE_sec_border_control); skip the MD branch that pays +150 PP at the top level
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = defence_06
+							has_idea = defence_07
+							has_idea = defence_08
+							has_idea = defence_09
+						}
+					}
+				}
+				increase_military_spending = yes
+			}
+			# The Hardline path may not meet the historical SCS events: nudge tension so the Paracels focus can open
+			set_temp_variable = { VIE_tension_add = 1 }
+			VIE_add_scs_tension = yes
+			country_event = { id = vie_sec.10 days = 1 }
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_reclaim_paracels
+		icon = demand_territory2
+
+		x = -4
+		y = 1
+		relative_position_id = VIE_sec_hegemony_doctrine
+
+		prerequisite = { focus = VIE_sec_hegemony_doctrine }
+		will_lead_to_war_with = CHI
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
+
+		available = {
+			has_country_flag = VIE_security_active
+			VIE_scs_escalated_trigger = yes
+			country_exists = CHI
+			NOT = { has_war_with = CHI }
+			# Do not create a second Paracels wargoal if the historical focus or the clash event already did
+			NOT = { has_completed_focus = VIE_paracel_ultimatum }
+			NOT = { has_country_flag = VIE_paracel_clash }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_reclaim_paracels"
+			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_mob = 2 tooltip = VIE_ax_mob_tt }
+			add_state_claim = 813
+			set_temp_variable = { wargoal_on = CHI }
+			add_threat_from_wargoal_effect = yes
+			create_wargoal = {
+				type = take_state_focus
+				target = CHI
+				generator = { 813 }
+			}
+			add_war_support = 0.05
+			army_experience = 15
+			navy_experience = 15
+			set_temp_variable = { VIE_tension_add = 1 }
+			VIE_add_scs_tension = yes
+			add_opinion_modifier = { target = CHI modifier = small_decrease }
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_fortify_spratly
+		icon = focus_generic_large_navy
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_hegemony_doctrine
+
+		cost = 16
+
+		prerequisite = { focus = VIE_sec_hegemony_doctrine }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
+
+		available = {
+			has_country_flag = VIE_security_active
+			# Do not pay twice for the same works as the historical focus
+			NOT = { has_completed_focus = VIE_spratly_fortification }
+			NOT = { has_country_flag = VIE_spratly_fortified }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_fortify_spratly"
+			add_to_variable = { VIE_ax_integ = -1 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
+			set_temp_variable = { treasury_change = -9.5 }
+			modify_treasury_effect = yes
+			add_ideas = VIE_spratly_garrison_idea
+			set_country_flag = VIE_spratly_fortified
+			# Same works as VIE_spratly_fortification (fix D-1: 801 holds the three provinces; fix D-5b: Rach Gia 4284)
+			801 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 11168
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+					province = 11149
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 11134
+				}
+				one_state_air_base = yes
+				one_state_anti_air = yes
+				one_state_radar_station = yes
+			}
+			518 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+					province = 4284
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = modifies_dynamic_modifier_tt
+				MODIFIER = VIE_armed_forces_modifier
+			}
+			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
+			country_event = { id = vie_sec.12 days = 15 }
+		}
+
+		ai_will_do = {
+			base = 30
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_indochina_buffer
+		icon = treaty2
+
+		x = 4
+		y = 1
+		relative_position_id = VIE_sec_hegemony_doctrine
+
+		prerequisite = { focus = VIE_sec_hegemony_doctrine }
+		will_lead_to_war_with = LAO
+		will_lead_to_war_with = CBD
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
+
+		available = {
+			has_country_flag = VIE_security_active
+			country_exists = LAO
+			country_exists = CBD
+			NOT = { has_war_with = LAO }
+			NOT = { has_war_with = CBD }
+			# Already on the friendly historical road: do not swallow the friends
+			NOT = { has_country_flag = VIE_indochina_open }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_indochina_buffer"
+			add_to_variable = { VIE_ax_integ = -3 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_mob = 2 tooltip = VIE_ax_mob_tt }
+			set_temp_variable = { wargoal_on = LAO }
+			add_threat_from_wargoal_effect = yes
+			create_wargoal = {
+				type = annex_everything
+				target = LAO
+			}
+			set_temp_variable = { wargoal_on = CBD }
+			add_threat_from_wargoal_effect = yes
+			create_wargoal = {
+				type = annex_everything
+				target = CBD
+			}
+			add_war_support = 0.05
+			add_stability = -0.03
+			army_experience = 20
+			add_named_threat = { threat = 3 name = VIE_sec_indochina_buffer_threat }
+			country_event = { id = vie_sec.11 days = 1 }
+		}
+
+		ai_will_do = {
+			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
 		}
 	}
