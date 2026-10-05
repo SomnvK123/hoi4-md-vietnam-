@@ -432,3 +432,41 @@ VIE_nav_d5_finish = {
 	hidden_effect = { set_country_flag = VIE_cap_mature_naval_industry }
 	VIE_nav_program_end = yes
 }
+
+########################################################################
+# Hai quan v2 - phan thuong 6 focus Truc 2 (VIE_naval_effects_content_and_plan.md muc 3).
+# Focus giu nguyen XP, unlock decision va event; effect nay chi them PP, exp cong nghiep, modifier.
+# Exp cong bang helper o tren (ke tran 0-100; MRO ke tran 50 neu phu thuoc Nga).
+########################################################################
+VIE_nav_f1_reward = {
+	add_political_power = 25
+	add_ideas = VIE_nav_law_idea
+}
+VIE_nav_f2_reward = {
+	add_political_power = 15
+	set_temp_variable = { VIE_nav_exp_gain = 3 }
+	VIE_nav_add_shipbuilding_exp = yes
+}
+VIE_nav_f3_reward = {
+	add_political_power = 10
+	set_temp_variable = { VIE_nav_exp_gain = 3 }
+	VIE_nav_add_mro_exp = yes
+}
+VIE_nav_f4_reward = {
+	set_temp_variable = { VIE_nav_exp_gain = 3 }
+	VIE_nav_add_shipbuilding_exp = yes
+	add_to_variable = { VIE_af_naval_speed_factor = 0.02 tooltip = VIE_tt_naval_speed_factor }
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nav_f5_reward = {
+	set_temp_variable = { VIE_nav_exp_gain = 3 }
+	VIE_nav_add_integration_exp = yes
+	add_to_variable = { VIE_af_naval_hit_chance = 0.01 tooltip = VIE_tt_naval_hit_chance }
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nav_f6_reward = {
+	add_political_power = 50
+	add_war_support = 0.03
+}

@@ -109,3 +109,9 @@ VIE_hl_debug_category = {
 	visible = { is_debug = yes }
 }
 
+# Bo may An ninh: decision cua nhanh Nha nuoc An ninh (focus goc VIE_sec_security_state dat co VIE_security_active).
+VIE_sec_category = {
+	allowed = { original_tag = VIE }
+	priority = 88
+	visible = { has_country_flag = VIE_security_active }
+}

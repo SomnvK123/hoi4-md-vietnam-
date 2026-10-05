@@ -469,3 +469,24 @@ Thiet ke: `VIE_air_truc3_review_and_plan.md`. Code: `VIE_md_triggers_air_force.t
 
 ### Da bo so voi bao cao
 Hook dem lai slot sau noi chien, `VIE_air_force_category` (doi sang `VIE_airf_category`), `VIE_ai_free`, `unlock_decision_tooltip` toi chuong trinh 1B, dung `VIE_af_air_defence_factor` cho phong khong cua Truc 3.
+
+## Hai quan v2 (VIE_naval_effects_content_and_plan.md)
+| Ten | Loai | Dat boi | Doc boi |
+|---|---|---|---|
+| `VIE_af_naval_hit_chance`, `VIE_af_navy_capital_ship_attack_factor`, `VIE_af_navy_capital_ship_defence_factor` | bien (modifier moi) | `VIE_nf_*_reward`, `VIE_nav_f5_reward`, `VIE_nf_ms3_apply` | `VIE_armed_forces_modifier` |
+| `VIE_nf_ms_camranh`, `VIE_nf_ms_danang`, `VIE_nf_ms_kirpan` | co | `VIE_event_scheduler_nf` | scheduler (chong bat lai) |
+| `VIE_nf_force_priority` (da co) | bien | event `vie_nav_force.30` | `VIE_nf_t7_reward`, `VIE_nf_d1/g1/b1_reward`, `VIE_nf_fav_discount` |
+| `VIE_nf_idea_{asw,firing,mines,replenish}_drill` | timed idea | `VIE_dec_nf_train_*` | - |
+| `VIE_nav_law_idea` | idea | `VIE_nav_f1_reward` | - |
+
+## Khong quan v2 (VIE_air_effects_content_and_plan.md)
+| Ten | Loai | Dat boi | Doc boi |
+|---|---|---|---|
+| `VIE_airf_<t1..c5>_reward` (22), `VIE_apm_f1..f7_reward` (7) | effect | focus Truc 3 / Truc 2 | khong ai (chi focus goi) |
+| `VIE_airf_refresh`, `VIE_airf_fav_discount` | effect | reward / `VIE_airf_d4_finish` | `VIE_airf_force_priority` |
+| `VIE_airf_force_priority`, `VIE_airf_fighter_specialty` | bien | `.30`, `.2` | them: T6 (`force_priority`), B2 (`fighter_specialty`) |
+| `VIE_af_air_ace_generation_chance_factor`, `_air_night_penalty`, `_air_weather_penalty` | bien modifier moi | T1, T2, T4, T7, nhanh A/B/C, moc `.70` | `VIE_armed_forces_modifier` |
+| `VIE_dec_airf_train_aa/_night/_sam/_strike/_uav` | decision | nguoi choi | idea `VIE_airf_idea_*_drill` |
+| `VIE_airf_ms_su30_923`, `_su30_36`, `_expo` | co | `VIE_event_scheduler_airf` | scheduler (dam bao khong ban lai) |
+| `vie_air_force.70/.71/.72` | event | scheduler | `VIE_airf_ms1..3_apply` |
+Da xoa: 10 helper `VIE_airf_add_*` va 4 `VIE_apm_add_*` (0 noi goi sau commit f51d488).

@@ -64,6 +64,10 @@ check(max(v[0] for o in OPTIONS.values() for v in o.values()) <= 0.5, "no single
 print("\n== 2. Modifier (cong don, toan duong) ==")
 print(f"  accidents {ACCIDENTS:+.2f}, detection {DETECTION:+.2f}, air_defence {AIR_DEF:+.2f}, upkeep {UPKEEP:+.2f}, MIO size +{MIO_SIZE}")
 check(ACCIDENTS >= CAPS["accidents"], f"accidents {ACCIDENTS} >= cap {CAPS['accidents']}")
+_f = open(os.path.join(ROOT, "common", "scripted_effects", "VIE_md_effects_air_ind.txt"), encoding="utf-8").read()
+_m = re.search(r"VIE_apm_f2_reward = \{(.*?)\n\}", _f, re.S)
+_focus_acc = sum(float(v) for v in re.findall(r"VIE_af_air_accidents_factor = ([-\d.]+)", _m.group(1))) if _m else 0
+check(ACCIDENTS + _focus_acc >= CAPS["accidents"], f"accidents tiers {ACCIDENTS} + focus F2 {_focus_acc} >= cap {CAPS['accidents']}")
 check(DETECTION + TRUC1_DETECTION_MAX <= CAPS["detection"], f"detection Truc 1+2 {DETECTION + TRUC1_DETECTION_MAX:.2f} <= {CAPS['detection']} (con cho Truc 3)")
 check(AIR_DEF + TRUC1_AIR_DEF <= CAPS["air_def"], f"air_defence Truc 1+2 {AIR_DEF + TRUC1_AIR_DEF:.2f} <= {CAPS['air_def']}")
 check(UPKEEP >= CAPS["upkeep"], f"upkeep {UPKEEP} >= {CAPS['upkeep']}")
@@ -132,8 +136,8 @@ if ev:
         opts = {}
         for ob in re.split(r"\n\toption = \{", b)[1:]:
             nm = re.search(r"name = vie_air_ind\.%d\.(\w)" % n, ob)
-            c = re.search(r"VIE_apm_cost_set = \{ C = ([\d.]+) \}", ob)
-            mo = re.search(r"VIE_apm_time_set = \{ M = (\d+) \}", ob)
+            c = re.search(r"set_temp_variable = \{ VIE_apm_cost = ([\d.]+) \}", ob)
+            mo = re.search(r"set_temp_variable = \{ VIE_apm_months = (\d+) \}", ob)
             if nm and c and mo:
                 opts[nm.group(1)] = (float(c.group(1)), int(mo.group(1)))
         if opts:

@@ -1,0 +1,35 @@
+add_namespace = vie_sec
+
+########################################################################
+# vie_sec.0  The shield takes power  (opened by VIE_sec_security_state)
+########################################################################
+country_event = {
+	id = vie_sec.0
+	title = vie_sec.0.t
+	desc = vie_sec.0.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = vie_sec.0.a
+		log = "[GetDateText]: [This.GetName]: Event vie_sec.0.a executed"
+		ai_chance = { base = 100 }
+	}
+}
+
+########################################################################
+# vie_sec.2  The red generation  (opened by VIE_sec_ideological_education)
+########################################################################
+country_event = {
+	id = vie_sec.2
+	title = vie_sec.2.t
+	desc = vie_sec.2.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = {
+		name = vie_sec.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_sec.2.a executed"
+		ai_chance = { base = 100 }
+	}
+}

@@ -27,6 +27,11 @@ focus_tree = {
 	## v13 (02/10/2026): them 4 focus HOP TAC AN NINH BIEN trong nhanh Bien Dong (VIE_scs_maritime_cooperation, _multilateral_exercise, _cam_ranh_port, _joint_training) + category VIE_scs_cooperation_category; cap VIE_cam_ranh_idea.
 	## v14 (02/10/2026): go 6 focus lua chon dinh huong gia dinh trong nhanh ASEAN (VIE_accept_chinese_influence, VIE_pivot_to_the_west, VIE_join_bri, VIE_military_cooperation_usa, VIE_socialist_bloc, VIE_indo_pacific_partner), cung 4 idea, 2 event vie_int.4/.5 va opinion modifier VIE_western_shift.
 	## v15 (03/10/2026): reformat toan bo file theo VIE_focus_coding_standards.md: dua continuous_focus_position va initial_show_position len truoc shortcuts; dong nhat section header Truc 2 & Truc 3 Khong quan (## SECTION wrapper); chuan hoa khoang cach giua prerequisite va search_filters (25 focus PK-KQ); loai bo double blank lines va trailing whitespace.
+## v16 (05/10/2026): them root VIE_sec_security_state (Nha nuoc An ninh), available ruling_party = 7; cap VIE_security_state_idea, co VIE_security_active, event vie_sec.0.
+## v16b (05/10/2026): hang 2 nhanh An ninh: VIE_sec_cyber_control, VIE_sec_public_order, VIE_sec_security_economy (3 idea, category VIE_sec_category + 2 decision).
+## v16c (05/10/2026): hang 3 nhanh An ninh: VIE_sec_surveillance_network, VIE_sec_loyalty_vetting, VIE_sec_border_control (1 idea, 1 decision).
+## v16d (05/10/2026): hang 4 nhanh An ninh: VIE_sec_cyber_sovereignty, VIE_sec_ideological_education, VIE_sec_state_data_center (3 idea, 2 decision, event vie_sec.2; khoi phuc event vie_alt.31).
+## v16e (05/10/2026): hang 5 nhanh An ninh: khoi phuc VIE_sec_managed_opening (3 prerequisite AND, cost 7); loai 2 hieu ung di san vo tac dung (VIE_bop_reform_small, co VIE_wa_unlocked); them increase_economic_growth.
 	continuous_focus_position = { x = 765 y = 2850 }
 	initial_show_position = { focus = VIE_doi_moi_continues }
 
@@ -94,11 +99,6 @@ focus_tree = {
 	shortcut = {
 		name = VIE_digital_shortcut
 		target = VIE_sci_digital_root
-		scroll_wheel_factor = 0.60
-	}
-	shortcut = {
-		name = VIE_alt_paths_shortcut
-		target = VIE_sec_cyber_control
 		scroll_wheel_factor = 0.60
 	}
 	shortcut = {
@@ -3948,7 +3948,7 @@ focus_tree = {
 	}
 
 	###############################
-	## TRUC 2 HAI QUAN (CNQP): 6 focus. Thiet ke: VIE_naval_truc2_review_and_plan.md muc 5.1.
+	## TRUC 3 HAI QUAN: T1 (VIE_nf_training_standardization), sau do TRUC 2 HAI QUAN (CNQP): 6 focus. Thiet ke: VIE_naval_truc2_review_and_plan.md muc 5.1.
 	## Focus chi doc: focus tien de, ngay, trang thai the gioi, nguon nang luc. Reward buoc 2 chi la
 	## kinh nghiem; event dinh huong va unlock_decision_tooltip them o buoc 4 khi Decision ton tai.
 	###############################
@@ -3973,10 +3973,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_training_standardization"
-			VIE_nf_xp_15 = yes
-			add_to_variable = { VIE_af_experience_gain_navy_factor = 0.05 tooltip = VIE_tt_experience_gain_navy_factor }
+			VIE_nf_t1_reward = yes
 			unlock_decision_category_tooltip = VIE_naval_force_category
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -4006,6 +4004,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_defence_law"
+			VIE_nav_f1_reward = yes
 			unlock_decision_category_tooltip = VIE_naval_industry_category
 			if = {
 				limit = { has_selected_naval_grand_doctrine = yes }
@@ -4041,6 +4040,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_ba_son_shipyards"
+			VIE_nav_f2_reward = yes
 			navy_experience = 10
 			unlock_decision_tooltip = VIE_nav_d1_ba_son
 			country_event = { id = vie_nav_ind.1 }
@@ -4076,6 +4076,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_mro"
+			VIE_nav_f3_reward = yes
 			navy_experience = 10
 			unlock_decision_tooltip = VIE_nav_d2_mro
 		}
@@ -4104,6 +4105,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_small_combatant_construction"
+			VIE_nav_f4_reward = yes
 			navy_experience = 10
 			unlock_decision_tooltip = VIE_nav_d3_small
 		}
@@ -4139,6 +4141,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_systems_integration"
+			VIE_nav_f5_reward = yes
 			navy_experience = 15
 			unlock_decision_tooltip = VIE_nav_d4_integration
 		}
@@ -4167,6 +4170,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_defence_2030"
+			VIE_nav_f6_reward = yes
 			navy_experience = 25
 			unlock_decision_tooltip = VIE_nav_d5_2030
 		}
@@ -4198,9 +4202,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_surface_force"
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+			VIE_nf_t3_reward = yes
 			unlock_decision_tooltip = VIE_nf_d1_surface
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -4230,9 +4233,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_submarine_force"
-			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.02 tooltip = VIE_tt_navy_submarine_attack_factor }
+			VIE_nf_t4_reward = yes
 			unlock_decision_tooltip = VIE_nf_d2_submarine
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -4263,10 +4265,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_command_reform_1"
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
+			VIE_nf_t5_reward = yes
 			unlock_decision_tooltip = VIE_nf_d3_fleet_coord
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -4301,7 +4301,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_first_force"
-			VIE_nf_xp_10 = yes
+			VIE_nf_t6_reward = yes
 			unlock_decision_tooltip = VIE_nf_d4_first_force
 		}
 
@@ -4332,9 +4332,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_command_reform_2"
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
-			VIE_nf_dm_tt = yes
+			VIE_nf_t7_reward = yes
 		}
 
 		ai_will_do = {
@@ -4364,8 +4362,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_medium_force"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_t8_reward = yes
 			unlock_decision_tooltip = VIE_p1b_corvette
 			unlock_decision_tooltip = VIE_p1b_frigate_med
 			unlock_decision_tooltip = VIE_p1b_asw_frigate
@@ -4398,9 +4395,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_operating_range"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
-			add_to_variable = { VIE_af_naval_detection = 0.05 tooltip = VIE_tt_naval_detection }
-			VIE_nf_dm_tt = yes
+			VIE_nf_t9_reward = yes
 		}
 
 		ai_will_do = {
@@ -4428,16 +4423,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial"
-			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.03 tooltip = VIE_tt_naval_strike_attack_factor }
-			VIE_nf_dm_tt = yes
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_nf_priority_1_tt check_variable = { VIE_nf_force_priority = 1 } } }
-				add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
-			}
-			else_if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_nf_priority_3_tt check_variable = { VIE_nf_force_priority = 3 } } }
-				add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
-			}
+			VIE_nf_d1_reward = yes
 		}
 
 		ai_will_do = {
@@ -4465,9 +4451,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial_defence"
-			add_to_variable = { VIE_af_mines_planting_by_fleets_factor = 0.1 tooltip = VIE_tt_mines_planting_by_fleets_factor }
-			add_to_variable = { VIE_af_naval_mines_effect_reduction = 0.05 tooltip = VIE_tt_naval_mines_effect_reduction }
-			VIE_nf_dm_tt = yes
+			VIE_nf_d2_reward = yes
 			unlock_decision_tooltip = VIE_p1b_bastion2
 		}
 
@@ -4495,8 +4479,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial_subs"
-			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.03 tooltip = VIE_tt_navy_submarine_attack_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_d3_reward = yes
 			unlock_decision_tooltip = VIE_p1b_ssk_reg
 		}
 
@@ -4524,9 +4507,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial_command"
-			add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_detection = 0.04 tooltip = VIE_tt_naval_detection }
-			VIE_nf_dm_tt = yes
+			VIE_nf_d4_reward = yes
 		}
 
 		ai_will_do = {
@@ -4554,16 +4535,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_greenwater"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_nf_priority_3_tt check_variable = { VIE_nf_force_priority = 3 } } }
-				add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
-			}
-			else_if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_nf_priority_1_tt check_variable = { VIE_nf_force_priority = 1 } } }
-				add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
-			}
+			VIE_nf_g1_reward = yes
 		}
 
 		ai_will_do = {
@@ -4592,9 +4564,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_regional_frigates"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g2_reward = yes
 			unlock_decision_tooltip = VIE_p1b_ssk_reg
 		}
 
@@ -4622,9 +4592,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_amphibious_fleet"
-			add_to_variable = { VIE_af_naval_invasion_planning_bonus_speed = 0.1 tooltip = VIE_tt_naval_invasion_planning_bonus_speed }
-			add_to_variable = { VIE_af_naval_invasion_capacity = 1 tooltip = VIE_tt_naval_invasion_capacity }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g3_reward = yes
 		}
 
 		ai_will_do = {
@@ -4655,8 +4623,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_lhd_program"
-			add_to_variable = { VIE_af_naval_invasion_capacity = 1 tooltip = VIE_tt_naval_invasion_capacity }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g4_reward = yes
 			unlock_decision_tooltip = VIE_p1b_amphib
 		}
 
@@ -4684,9 +4651,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_regional_command"
-			add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g5_reward = yes
 		}
 
 		ai_will_do = {
@@ -4714,16 +4679,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_bluewater"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_nf_priority_3_tt check_variable = { VIE_nf_force_priority = 3 } } }
-				add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
-			}
-			else_if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_nf_priority_1_tt check_variable = { VIE_nf_force_priority = 1 } } }
-				add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
-			}
+			VIE_nf_b1_reward = yes
 		}
 
 		ai_will_do = {
@@ -4755,8 +4711,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_ocean_escort"
-			add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.05 tooltip = VIE_tt_navy_anti_air_attack_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b2_reward = yes
 			unlock_decision_tooltip = VIE_p1b_destroyer
 		}
 
@@ -4787,8 +4742,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_replenishment"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b3_reward = yes
 		}
 
 		ai_will_do = {
@@ -4818,9 +4772,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_naval_aviation"
-			add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.03 tooltip = VIE_tt_navy_anti_air_attack_factor }
-			add_to_variable = { VIE_af_naval_detection = 0.04 tooltip = VIE_tt_naval_detection }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b4_reward = yes
 			unlock_decision_tooltip = VIE_p1b_carrier
 		}
 
@@ -4853,9 +4805,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_carrier_group"
-			add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.05 tooltip = VIE_tt_naval_coordination }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b5_reward = yes
 			unlock_decision_tooltip = VIE_p1b_ssn
 		}
 
@@ -5404,53 +5354,35 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_sec_cyber_control
-		icon = communist_purge
+		id = VIE_sec_security_state
+		icon = border_guard_nss
 
 		x = 13
-		y = 13
+		y = 12
 		relative_position_id = VIE_doi_moi_continues
 
-		cost = 7
+		cost = 3
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
-		available = {
-			# The control of cyberspace needs the legal basis first (2018 Law on Cybersecurity)
-			has_completed_focus = VIE_cybersecurity_law
-			OR = {
-				emerging_autocracy_are_in_power = yes
-				AND = {
-					custom_trigger_tooltip = { tooltip = VIE_gate_B_le_m6 check_variable = { VIE_sb_B < -5 } }
-					custom_trigger_tooltip = { tooltip = VIE_flag_VIE_security_unlocked_tt has_country_flag = VIE_security_unlocked }
-				}
-			}
-		}
+		# The security regime (slot 7) must already be in power before this lights up
+		available = { check_variable = { ruling_party = 7 } }
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_control"
-			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			if = {
-				limit = {
-					NOT = { emerging_autocracy_are_in_power = yes }
-					NOT = { emerging_communist_state_are_in_power = yes }
-				}
-				set_temp_variable = { party_index = 7 }
-				set_temp_variable = { party_popularity_increase = 0.15 }
-				set_temp_variable = { temp_outlook_increase = 0.15 }
-				hidden_effect = { change_relative_party_popularity = yes }
-				set_temp_variable = { rul_party_temp = 7 }
-				VIE_transition_regime = yes
-			}
-			else_if = {
-				limit = { emerging_communist_state_are_in_power = yes }
-				set_temp_variable = { VIE_rp_add = 10 }
-				custom_effect_tooltip = VIE_hl_rp_p10_tt
-				VIE_hl_add_pressure = yes
-			}
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_security_state"
 			add_ideas = VIE_security_state_idea
-			hidden_effect = { set_country_flag = VIE_security_active }
+			set_country_flag = VIE_security_active
+			add_political_power = 50
+			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_stability = 0.02
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = 3 }
+				change_communist_cadres_opinion = yes
+			}
+			country_event = { id = vie_sec.0 days = 1 }
+			custom_effect_tooltip = VIE_sec_pillars_tt
 		}
 
 		ai_will_do = {
@@ -5460,12 +5392,110 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_sec_cyber_control
+		icon = army_cyberwar
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_sec_security_state
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_state }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_control"
+			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
+			add_stability = 0.02
+			add_ideas = VIE_cyber_control_idea
+			unlock_decision_tooltip = VIE_sec_dec_opinion_campaign
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_public_order
+		icon = border_patrol_increase
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_security_state
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_state }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_public_order"
+			increase_policing_budget = yes
+			set_temp_variable = { desire_change = 0.5 }
+			change_expected_police_spending = yes
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_stability = 0.03
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = 3 }
+				change_communist_cadres_opinion = yes
+			}
+			add_ideas = VIE_public_order_idea
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_security_economy
+		icon = economic_civil_industry
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_sec_security_state
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_state }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_ARMY }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_security_economy"
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
+			add_ideas = VIE_security_economy_idea
+			unlock_decision_tooltip = VIE_sec_dec_fdi_screening
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
 		id = VIE_sec_surveillance_network
 		icon = communist_purge
 
-		x = 11
-		y = 14
-		relative_position_id = VIE_doi_moi_continues
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_cyber_control
 
 		cost = 7
 
@@ -5473,10 +5503,12 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
+		available = { has_country_flag = VIE_security_active }
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_surveillance_network"
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
 			if = {
 				limit = { has_idea = communist_cadres }
 				set_temp_variable = { temp_opinion = -1 }
@@ -5492,24 +5524,262 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_sec_security_economy
-		icon = economic_civil_industry
+		id = VIE_sec_loyalty_vetting
+		icon = the_last_purge
 
-		x = 15
-		y = 14
-		relative_position_id = VIE_doi_moi_continues
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_public_order
 
 		cost = 7
 
-		prerequisite = { focus = VIE_sec_cyber_control }
+		prerequisite = { focus = VIE_sec_public_order }
 
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_CORRUPTION }
+
+		available = { has_country_flag = VIE_security_active }
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_security_economy"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_security_economy_idea
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_loyalty_vetting"
+			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
+			decrease_corruption = yes
+			decrease_economic_growth = yes
+			unlock_decision_tooltip = VIE_sec_dec_purge_disloyal
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_border_control
+		icon = border_guard_nss
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_security_economy
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_economy }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_border_control"
+			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
+			add_stability = 0.01
+			army_experience = 10
+			# One step up in defence spending; the guard skips the MD branch that pays +150 PP instead of raising it
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = defence_06
+							has_idea = defence_07
+							has_idea = defence_08
+							has_idea = defence_09
+						}
+					}
+				}
+				increase_military_spending = yes
+			}
+			# Border posts and hardened checkpoints (same provinces as VIE_provincial_defence_zones; levels stack)
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+			523 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			524 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			521 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			520 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_cyber_sovereignty
+		icon = army_cyberwar
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_surveillance_network
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_surveillance_network }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_sovereignty"
+			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			add_stability = 0.02
+			add_political_power = -50
+			add_ideas = VIE_firewall_idea
+			unlock_decision_tooltip = VIE_sec_dec_social_credit
+			country_event = { id = vie_alt.31 days = 60 }
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_ideological_education
+		icon = focus_generic_education
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_loyalty_vetting
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_loyalty_vetting }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_ideological_education"
+			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
+			# Skip the MD branch that pays +150 PP instead of raising the budget at the top level
+			if = {
+				limit = { NOT = { has_idea = edu_05 } }
+				increase_education_budget = yes
+				set_temp_variable = { desire_change = 0.5 }
+				change_expected_education_spending = yes
+			}
+			add_stability = 0.03
+			add_war_support = 0.02
+			add_ideas = VIE_ideological_education_idea
+			country_event = { id = vie_sec.2 days = 30 }
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_state_data_center
+		icon = economic_civil_industry
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_border_control
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_border_control }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_state_data_center"
+			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			set_temp_variable = { treasury_change = -2.5 }
+			modify_treasury_effect = yes
+			decrease_corruption = yes
+			add_tech_bonus = {
+				name = VIE_sec_state_data_center
+				category = CAT_computing_tech
+				category = CAT_encryption_tech
+				uses = 1
+				bonus = 0.5
+			}
+			add_ideas = VIE_state_data_center_idea
+			unlock_decision_tooltip = VIE_sec_dec_freeze_assets
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_managed_opening
+		icon = election2
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_ideological_education
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_cyber_sovereignty }
+		prerequisite = { focus = VIE_sec_ideological_education }
+		prerequisite = { focus = VIE_sec_state_data_center }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_managed_opening"
+			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
+			add_political_power = 50
+			increase_economic_growth = yes
 		}
 
 		ai_will_do = {
@@ -10676,151 +10946,7 @@ focus_tree = {
 	}
 
 	###############################
-	## CHINH TRI
-	###############################
-	focus = {
-		id = VIE_sec_public_order
-		icon = border_patrol_increase
 
-		x = 13
-		y = 14
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 5
-
-		prerequisite = { focus = VIE_sec_cyber_control }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_public_order"
-			increase_policing_budget = yes
-			set_temp_variable = { desire_change = 0.5 }
-			change_expected_police_spending = yes
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_stability = 0.03
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_cyber_sovereignty
-		icon = army_cyberwar
-
-		x = 11
-		y = 15
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 7
-
-		prerequisite = { focus = VIE_sec_surveillance_network }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_sovereignty"
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
-			add_stability = 0.02
-			add_political_power = -50
-			country_event = { id = vie_alt.31 days = 60 }
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_loyalty_vetting
-		icon = the_last_purge
-
-		x = 13
-		y = 15
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 7
-
-		prerequisite = { focus = VIE_sec_public_order }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_loyalty_vetting"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
-			decrease_corruption = yes
-			decrease_economic_growth = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_border_control
-		icon = border_guard_nss
-
-		x = 15
-		y = 15
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 5
-
-		prerequisite = { focus = VIE_sec_security_economy }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_border_control"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
-			add_stability = 0.01
-			army_experience = 10
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_managed_opening
-		icon = election2
-
-		x = 13
-		y = 16
-		relative_position_id = VIE_doi_moi_continues
-
-		prerequisite = { focus = VIE_sec_loyalty_vetting }
-		prerequisite = { focus = VIE_sec_cyber_sovereignty }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_managed_opening"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			hidden_effect = { set_country_flag = VIE_wa_unlocked }
-			add_political_power = 50
-			VIE_bop_reform_small = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	###############################
 	## KINH TE
 	###############################
 	focus = {
@@ -12127,6 +12253,261 @@ focus_tree = {
 	}
 
 	###############################
+	## TRUC 4 LUC LUONG DAC BIET - DAC CONG / HAI QUAN DANH BO
+	###############################
+	# Thiet ke: VIE_special_forces_review_and_plan.md. Truc doc lap, neo VIE_modernize_vpa; cum o ben trai khoi lf (abs x 142-166, y >= 9).
+	# Thu tu khai bao chong forward-ref: command -> root con -> tru cot -> capstone. Reward trong VIE_md_effects_sf.txt.
+	focus = {
+		id = VIE_sf_command
+		icon = GFX_focus_VIE_sf_command
+
+		x = -48
+		y = 8
+		relative_position_id = VIE_modernize_vpa
+
+		cost = 7
+
+		prerequisite = { focus = VIE_modernize_vpa }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		available = { NOT = { has_active_mission = bankruptcy_incoming_collapse } }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_command"
+			VIE_sf_command_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper
+		icon = GFX_focus_VIE_sf_sapper
+
+		x = -4
+		y = 1
+		relative_position_id = VIE_sf_command
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_command }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper"
+			VIE_sf_sapper_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_marine
+		icon = GFX_focus_VIE_sf_marine
+
+		x = 4
+		y = 1
+		relative_position_id = VIE_sf_command
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_command }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine"
+			VIE_sf_marine_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper_training
+		icon = GFX_focus_VIE_sf_sapper_training
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_sf_sapper
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_sapper }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_training"
+			VIE_sf_sapper_training_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper_equipment
+		icon = GFX_focus_VIE_sf_sapper_equipment
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sf_sapper
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_sapper }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_equipment"
+			VIE_sf_sapper_equipment_reward = yes
+		}
+
+		ai_will_do = {
+			base = 45
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_sf_sapper_command
+		icon = GFX_focus_VIE_sf_sapper_command
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_sf_sapper
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_sapper }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_command"
+			VIE_sf_sapper_command_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_sapper_elite
+		icon = GFX_focus_VIE_sf_sapper_elite
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_sf_sapper
+
+		prerequisite = { focus = VIE_sf_sapper_training }
+		prerequisite = { focus = VIE_sf_sapper_equipment }
+		prerequisite = { focus = VIE_sf_sapper_command }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_sapper_elite"
+			VIE_sf_sapper_elite_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	focus = {
+		id = VIE_sf_marine_training
+		icon = GFX_focus_VIE_sf_marine_training
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_sf_marine
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_marine }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_training"
+			VIE_sf_marine_training_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_marine_equipment
+		icon = GFX_focus_VIE_sf_marine_equipment
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sf_marine
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_marine }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_equipment"
+			VIE_sf_marine_equipment_reward = yes
+		}
+
+		ai_will_do = {
+			base = 45
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_sf_marine_command
+		icon = GFX_focus_VIE_sf_marine_command
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_sf_marine
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sf_marine }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_command"
+			VIE_sf_marine_command_reward = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	focus = {
+		id = VIE_sf_marine_elite
+		icon = GFX_focus_VIE_sf_marine_elite
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_sf_marine
+
+		prerequisite = { focus = VIE_sf_marine_training }
+		prerequisite = { focus = VIE_sf_marine_equipment }
+		prerequisite = { focus = VIE_sf_marine_command }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_marine_elite"
+			VIE_sf_marine_elite_reward = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	###############################
 	## TRUC 3 KHONG QUAN - XAY DUNG LUC LUONG (chuoi chung T1-T8)
 	###############################
 	# Thiet ke: VIE_air_truc3_review_and_plan.md 4.1, 4.2. Nhanh A/B/C (14 focus) o buoc 3; unlock_decision_tooltip them o buoc 4.
@@ -12152,12 +12533,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_training_standardization"
-			VIE_airf_xp_15 = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_experience_gain_air_factor = 0.04 tooltip = VIE_tt_experience_gain_air_factor }
-			force_update_dynamic_modifier = yes
 			unlock_decision_category_tooltip = VIE_airf_category
+			VIE_airf_t1_reward = yes
 		}
 
 		ai_will_do = {
@@ -12194,14 +12571,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_law"
 			unlock_decision_category_tooltip = VIE_apm_category
-			if = {
-				limit = { has_selected_air_grand_doctrine = yes }
-				add_mastery = {
-					amount = 10
-					folder = air
-				}
-			}
-			else = { air_experience = 10 }
+			VIE_apm_f1_reward = yes
 		}
 
 		ai_will_do = {
@@ -12228,8 +12598,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_a32"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_a32
+			VIE_apm_f2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12256,8 +12626,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_a31"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_a31
+			VIE_apm_f3_reward = yes
 		}
 
 		ai_will_do = {
@@ -12284,8 +12654,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_radar"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_radar
+			VIE_apm_f4_reward = yes
 		}
 
 		ai_will_do = {
@@ -12315,8 +12685,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_integration"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_integ
+			VIE_apm_f5_reward = yes
 		}
 
 		ai_will_do = {
@@ -12343,8 +12713,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_uav"
-			air_experience = 10
 			unlock_decision_tooltip = VIE_apm_d_uav
+			VIE_apm_f6_reward = yes
 		}
 
 		ai_will_do = {
@@ -12373,8 +12743,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_apm_mature"
-			hidden_effect = { set_country_flag = VIE_cap_mature_air_industry }
-			air_experience = 10
+			set_country_flag = VIE_cap_mature_air_industry
+			VIE_apm_f7_reward = yes
 		}
 
 		ai_will_do = {
@@ -12405,10 +12775,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_fighter_force"
 			unlock_decision_tooltip = VIE_airf_d1_fighters
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_attack_factor = 0.01 tooltip = VIE_tt_air_attack_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_t2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12439,10 +12806,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_sam_force"
 			unlock_decision_tooltip = VIE_airf_d2_sam
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_t3_reward = yes
 		}
 
 		ai_will_do = {
@@ -12474,10 +12838,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_1"
 			unlock_decision_tooltip = VIE_airf_d3_coordination
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
-			force_update_dynamic_modifier = yes
+			VIE_airf_t4_reward = yes
 		}
 
 		ai_will_do = {
@@ -12513,7 +12874,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_first_force"
 			unlock_decision_tooltip = VIE_airf_d4_first_force
-			VIE_airf_xp_10 = yes
+			VIE_airf_t5_reward = yes
 		}
 
 		ai_will_do = {
@@ -12543,14 +12904,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_2"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
-			force_update_dynamic_modifier = yes
+			VIE_airf_t6_reward = yes
 		}
 
 		ai_will_do = {
@@ -12580,10 +12934,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_medium_force"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_range_factor = 0.03 tooltip = VIE_tt_air_range_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_t7_reward = yes
 		}
 
 		ai_will_do = {
@@ -12613,14 +12964,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_operating_range"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_range_factor = 0.04 tooltip = VIE_tt_air_range_factor }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
-			force_update_dynamic_modifier = yes
+			VIE_airf_t8_reward = yes
 		}
 
 		ai_will_do = {
@@ -12653,11 +12997,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
-			force_update_dynamic_modifier = yes
-			VIE_airf_branch_fit_a = yes
+			VIE_airf_a1_reward = yes
 		}
 
 		ai_will_do = {
@@ -12687,14 +13027,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_layered_defence"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_a2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12724,14 +13057,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_ew_antistealth"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_intercept_efficiency = 0.03 tooltip = VIE_tt_air_intercept_efficiency }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
-			force_update_dynamic_modifier = yes
+			VIE_airf_a3_reward = yes
 		}
 
 		ai_will_do = {
@@ -12760,15 +13086,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads_command"
 			unlock_decision_tooltip = VIE_airf_d5_capstone
-			VIE_airf_xp_20 = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_a4_reward = yes
 		}
 
 		ai_will_do = {
@@ -12796,11 +13114,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_range_factor = 0.04 tooltip = VIE_tt_air_range_factor }
-			force_update_dynamic_modifier = yes
-			VIE_airf_branch_fit_wide = yes
+			VIE_airf_b1_reward = yes
 		}
 
 		ai_will_do = {
@@ -12831,18 +13145,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_fleet"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_attack_factor = 0.03 tooltip = VIE_tt_air_attack_factor }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_superiority_efficiency = 0.02 tooltip = VIE_tt_air_superiority_efficiency }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_cas_efficiency = 0.02 tooltip = VIE_tt_air_cas_efficiency }
-			force_update_dynamic_modifier = yes
+			VIE_airf_b2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12872,10 +13175,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_sustainment"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
-			force_update_dynamic_modifier = yes
+			VIE_airf_b3_reward = yes
 		}
 
 		ai_will_do = {
@@ -12905,10 +13205,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_airlift_tanker"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_range_factor = 0.03 tooltip = VIE_tt_air_range_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_b4_reward = yes
 		}
 
 		ai_will_do = {
@@ -12939,15 +13236,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_wing"
 			unlock_decision_tooltip = VIE_airf_d5_capstone
-			VIE_airf_xp_20 = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_attack_factor = 0.02 tooltip = VIE_tt_air_attack_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_b5_reward = yes
 		}
 
 		ai_will_do = {
@@ -12975,11 +13264,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_unmanned"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
-			force_update_dynamic_modifier = yes
-			VIE_airf_branch_fit_wide = yes
+			VIE_airf_c1_reward = yes
 		}
 
 		ai_will_do = {
@@ -13010,10 +13295,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_isr_uav"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_detection = 0.03 tooltip = VIE_tt_air_detection }
-			force_update_dynamic_modifier = yes
+			VIE_airf_c2_reward = yes
 		}
 
 		ai_will_do = {
@@ -13043,10 +13325,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_datalink"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
-			force_update_dynamic_modifier = yes
+			VIE_airf_c3_reward = yes
 		}
 
 		ai_will_do = {
@@ -13076,10 +13355,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_strike_uav"
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_attack_factor = 0.03 tooltip = VIE_tt_air_attack_factor }
-			force_update_dynamic_modifier = yes
+			VIE_airf_c4_reward = yes
 		}
 
 		ai_will_do = {
@@ -13109,15 +13385,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_teaming"
 			unlock_decision_tooltip = VIE_airf_d5_capstone
-			VIE_airf_xp_20 = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
-			force_update_dynamic_modifier = yes
-			VIE_ap_ensure_af_modifier = yes
-			VIE_airf_dm_tt = yes
-			add_to_variable = { VIE_af_air_intercept_efficiency = 0.02 tooltip = VIE_tt_air_intercept_efficiency }
-			force_update_dynamic_modifier = yes
+			VIE_airf_c5_reward = yes
 		}
 
 		ai_will_do = {

@@ -1,0 +1,103 @@
+# Nhanh Nha nuoc An ninh: decision cua category VIE_sec_category. Mo boi focus hang 2 (VIE_sec_*).
+
+VIE_sec_category = {
+
+	# Tru cot I (VIE_sec_cyber_control): chien dich du luan. Mod khong co he bat on theo tinh -> quy ve on dinh quoc gia.
+	VIE_sec_dec_opinion_campaign = {
+		icon = GFX_decision_VIE_relax_media_scrutiny
+		cost = 50
+		days_re_enable = 180
+
+		visible = { has_completed_focus = VIE_sec_cyber_control }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_opinion_campaign"
+			add_stability = 0.02
+			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+		}
+
+		ai_will_do = { base = 20 }
+	}
+
+	# Tru cot III (VIE_sec_security_economy): tham tra FDI. Gia: integ, market. Loi: von bi dinh huong lai ve tap doan an ninh.
+	VIE_sec_dec_fdi_screening = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 50
+		days_re_enable = 365
+
+		visible = { has_completed_focus = VIE_sec_security_economy }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_fdi_screening"
+			add_to_variable = { VIE_ax_integ = -1 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			set_temp_variable = { treasury_change = 1.5 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = { base = 20 }
+	}
+
+	# Tru cot II, hang 3 (VIE_sec_loyalty_vetting): cach chuc can bo khong trung thanh. Gia: on dinh, cadres. Loi: tich thu tai san.
+	VIE_sec_dec_purge_disloyal = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 50
+		days_re_enable = 180
+
+		visible = { has_completed_focus = VIE_sec_loyalty_vetting }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_purge_disloyal"
+			add_stability = -0.01
+			set_temp_variable = { treasury_change = 1.5 }
+			modify_treasury_effect = yes
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = -2 }
+				change_communist_cadres_opinion = yes
+			}
+		}
+
+		ai_will_do = { base = 20 }
+	}
+
+	# Tru cot I, hang 4 (VIE_sec_cyber_sovereignty): diem tin nhiem xa hoi. Dung du lieu cua surveillance_network;
+	# co VIE_sec_state_data_center thi mien phi (khong cong truc: decision lap, truc da cham clamp).
+	VIE_sec_dec_social_credit = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 25
+		days_re_enable = 90
+
+		visible = { has_completed_focus = VIE_sec_cyber_sovereignty }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_social_credit"
+			add_stability = 0.02
+			if = {
+				limit = { NOT = { has_completed_focus = VIE_sec_state_data_center } }
+				set_temp_variable = { treasury_change = -0.5 }
+				modify_treasury_effect = yes
+			}
+		}
+
+		ai_will_do = { base = 20 }
+	}
+
+	# Tru cot III, hang 4 (VIE_sec_state_data_center): dong bang tai san doi lap. Loi: tich thu. Gia: on dinh.
+	VIE_sec_dec_freeze_assets = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 50
+		days_re_enable = 365
+
+		visible = { has_completed_focus = VIE_sec_state_data_center }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_freeze_assets"
+			add_stability = -0.01
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = { base = 20 }
+	}
+}

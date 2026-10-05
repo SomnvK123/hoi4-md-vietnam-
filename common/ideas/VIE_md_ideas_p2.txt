@@ -644,16 +644,27 @@ ideas = {
 			}
 		}
 
-		VIE_surveillance_idea = {
+		VIE_cyber_control_idea = {
 			picture = generic_political_pressure
 			allowed = { always = no }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
 
 			modifier = {
-				drift_defence_factor = 0.05
-				stability_factor = 0.02
-				trade_opinion_factor = -0.02
+				drift_defence_factor = 0.1
+				research_speed_factor = -0.03
+			}
+		}
+
+		VIE_public_order_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_core_defence_factor = 0.1
+				production_speed_industrial_complex_factor = -0.1
 			}
 		}
 
@@ -664,9 +675,64 @@ ideas = {
 			cancel_if_invalid = no
 
 			modifier = {
-				stability_factor = 0.01
-				country_productivity_growth_modifier = -0.01
-				army_defence_factor = 0.03
+				industrial_capacity_factory = 0.05
+				country_productivity_growth_modifier = -0.015
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		VIE_surveillance_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				encryption_factor = 0.10
+				drift_defence_factor = 0.05
+				stability_factor = 0.02
+				trade_opinion_factor = -0.02
+			}
+		}
+
+		VIE_firewall_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				encryption_factor = 0.05
+				corporate_tax_income_multiplier_modifier = -0.03
+				trade_opinion_factor = -0.03
+			}
+		}
+
+		VIE_ideological_education_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.05
+				manpower_recovery_factor = 0.03
+				research_speed_factor = -0.03
+			}
+		}
+
+		VIE_state_data_center_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				encryption_factor = 0.1
+				civilian_intel_to_others = -0.15
+				political_power_gain = 0.05
+				consumer_goods_factor = 0.02
 			}
 		}
 

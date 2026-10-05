@@ -1,0 +1,113 @@
+########################################################################
+# Hai quan v2: 4 decision huan luyen lap lai duoc (VIE_naval_effects_content_and_plan.md muc 4).
+# Mau VIE_dec_lf_* (VIE_md_decisions_lf.txt): khong complete_effect, thuong o remove_effect sau days_remove,
+# days_re_enable la cooldown, dung category co san VIE_military_readiness_category.
+# Timed idea la hieu ung tam, khong tinh vao tran nf_balance.py.
+########################################################################
+
+VIE_military_readiness_category = {
+
+	VIE_dec_nf_train_asw = {
+		icon = GFX_decision_category_generic_naval
+		cost = 35
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_nf_surface_force
+			OR = {
+				check_variable = { VIE_kilo_qty_delivered > 0 }
+				has_country_flag = VIE_nf_d2_done
+			}
+		}
+		available = { has_war = no }
+
+		days_remove = 120
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_nf_train_asw (complete)"
+			VIE_nf_xp_10 = yes
+			add_timed_idea = { idea = VIE_nf_idea_asw_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_dec_nf_train_firing = {
+		icon = GFX_decision_category_generic_naval
+		cost = 35
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_nf_surface_force
+		}
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_nf_train_firing (complete)"
+			VIE_nf_xp_10 = yes
+			add_timed_idea = { idea = VIE_nf_idea_firing_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_dec_nf_train_mines = {
+		icon = GFX_decision_category_generic_naval
+		cost = 35
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_nf_denial_defence
+		}
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_nf_train_mines (complete)"
+			VIE_nf_xp_10 = yes
+			add_timed_idea = { idea = VIE_nf_idea_mines_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_dec_nf_train_replenish = {
+		icon = GFX_decision_category_generic_naval
+		cost = 40
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_nf_replenishment
+		}
+		available = { has_war = no }
+
+		days_remove = 120
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_nf_train_replenish (complete)"
+			VIE_nf_xp_10 = yes
+			add_timed_idea = { idea = VIE_nf_idea_replenish_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
