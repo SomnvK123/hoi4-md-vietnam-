@@ -132,8 +132,8 @@ if ev:
         opts = {}
         for ob in re.split(r"\n\toption = \{", b)[1:]:
             nm = re.search(r"name = vie_air_ind\.%d\.(\w)" % n, ob)
-            c = re.search(r"VIE_apm_cost_set = \{ C = ([\d.]+) \}", ob)
-            mo = re.search(r"VIE_apm_time_set = \{ M = (\d+) \}", ob)
+            c = re.search(r"set_temp_variable = \{ VIE_apm_cost = ([\d.]+) \}", ob)
+            mo = re.search(r"set_temp_variable = \{ VIE_apm_months = (\d+) \}", ob)
             if nm and c and mo:
                 opts[nm.group(1)] = (float(c.group(1)), int(mo.group(1)))
         if opts:

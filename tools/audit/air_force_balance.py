@@ -22,9 +22,25 @@ TOKENS = {
     "exp": "experience_gain_air_factor", "atk": "air_attack_factor", "sup": "air_superiority_efficiency",
     "cas": "air_cas_efficiency", "mis": "air_mission_efficiency", "rng": "air_range_factor", "det": "air_detection",
     "home": "air_home_defence_factor", "int": "air_intercept_efficiency", "pers": "airforce_personnel_cost_multiplier_modifier",
+    "ace": "air_ace_generation_chance_factor", "night": "air_night_penalty", "wx": "air_weather_penalty",
 }
+NAME2KEY = {v: k for k, v in TOKENS.items()}
+
+
+def reward_pairs(block):
+    """(key, percent) for every add_to_variable = { VIE_af_<token> = <number> } in a block; non-numeric values give percent 0."""
+    out = []
+    for name, val in re.findall(r"add_to_variable = \{ VIE_af_(\w+) = ([-\w.]+)", block):
+        if name in NAME2KEY:
+            try:
+                out.append((NAME2KEY[name], float(val) * 100))
+            except ValueError:
+                out.append((NAME2KEY[name], 0.0))
+    return out
+
+
 # caps over ALL axes (percent)
-CAPS = {"exp": 10, "atk": 10, "sup": 10, "cas": 10, "mis": 16, "rng": 20, "det": 20, "home": 20, "int": 8, "pers": 3}
+CAPS = {"exp": 10, "atk": 10, "sup": 10, "cas": 10, "mis": 16, "rng": 20, "det": 20, "home": 20, "int": 8, "pers": 6, "ace": 10, "night": 6, "wx": 6}
 # already used by other axes (percent): Truc 1 radar B +5 and Truc 2 +6 detection; air_defence_factor is not used by Truc 3
 OTHER_AXES = {"det": 5 + 6}
 AIR_DEF_CAP, AIR_DEF_OTHERS = 20, 6 + 4 + 5 + 3     # Truc 1 air 0.06, Truc 2 0.04, Igla 0.05, TL-01 0.03
@@ -138,7 +154,9 @@ for m in re.finditer(r"\n\tfocus = \{\r?\n\t\tid = (VIE_airf_\w+)", ftxt):
     start = m.start()
     end = ftxt.find("\n\t}", start + 5)
     block = ftxt[start:end]
-    got = {k: float(v) * 100 for k, v in re.findall(r"VIE_airf_add_(\w+) = \{ V = ([-\d.]+) \}", block)}
+    got = {}
+    for k, v in reward_pairs(block):
+        got[k] = got.get(k, 0) + v
     want = FOCUS.get(fid)
     if want is None:
         check(False, f"{fid}: khong co trong bang")
@@ -167,13 +185,13 @@ for name, want in EXPECT.items():
     if not m:
         check(False, f"{name}: khong thay trong code")
         continue
-    got = {(k, round(float(v) * 100, 3)) for k, v in re.findall(r"VIE_airf_add_(\w+) = \{ V = ([-\d.]+) \}", m.group(1))}
+    got = {(k, round(v, 3)) for k, v in reward_pairs(m.group(1))}
     if name == "VIE_airf_d5_finish":
-        got = {(k, 0) for k, _ in re.findall(r"VIE_airf_add_(\w+) = \{ V = (\w+) \}", m.group(1))}
+        got = {(k, 0) for k, _ in reward_pairs(m.group(1))}
     check(got == {(k, float(v)) for k, v in want}, f"{name}: code {sorted(got)} vs bang {sorted(want)}")
 m = re.search(r"VIE_airf_d5_finish = \{(.*?)\n\}", etxt, re.S)
 if m:
-    vals = [float(v) for v in re.findall(r"VIE_airf_bonus = ([\d.]+)", m.group(1))]
+    vals = [float(v) for v in re.findall(r"VIE_airf_bonus = ([\d.]+) \}", m.group(1))]
     check(sorted(vals) == [0.005, 0.01], f"D-E bonus {vals} = 0.25 / 0.5 x capstone base (MIS 2%)")
 
 print()
