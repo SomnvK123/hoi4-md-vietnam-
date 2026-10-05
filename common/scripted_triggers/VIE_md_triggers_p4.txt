@@ -12,8 +12,4 @@ VIE_ai_free = {
 	always = no
 }
 
-# Door D3 (security state): stability below 40%
-VIE_gate_security_stability = {
-	has_stability < 0.40
-}
 

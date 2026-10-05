@@ -27,6 +27,11 @@ focus_tree = {
 	## v13 (02/10/2026): them 4 focus HOP TAC AN NINH BIEN trong nhanh Bien Dong (VIE_scs_maritime_cooperation, _multilateral_exercise, _cam_ranh_port, _joint_training) + category VIE_scs_cooperation_category; cap VIE_cam_ranh_idea.
 	## v14 (02/10/2026): go 6 focus lua chon dinh huong gia dinh trong nhanh ASEAN (VIE_accept_chinese_influence, VIE_pivot_to_the_west, VIE_join_bri, VIE_military_cooperation_usa, VIE_socialist_bloc, VIE_indo_pacific_partner), cung 4 idea, 2 event vie_int.4/.5 va opinion modifier VIE_western_shift.
 	## v15 (03/10/2026): reformat toan bo file theo VIE_focus_coding_standards.md: dua continuous_focus_position va initial_show_position len truoc shortcuts; dong nhat section header Truc 2 & Truc 3 Khong quan (## SECTION wrapper); chuan hoa khoang cach giua prerequisite va search_filters (25 focus PK-KQ); loai bo double blank lines va trailing whitespace.
+## v16 (05/10/2026): them root VIE_sec_security_state (Nha nuoc An ninh), available ruling_party = 7; cap VIE_security_state_idea, co VIE_security_active, event vie_sec.0.
+## v16b (05/10/2026): hang 2 nhanh An ninh: VIE_sec_cyber_control, VIE_sec_public_order, VIE_sec_security_economy (3 idea, category VIE_sec_category + 2 decision).
+## v16c (05/10/2026): hang 3 nhanh An ninh: VIE_sec_surveillance_network, VIE_sec_loyalty_vetting, VIE_sec_border_control (1 idea, 1 decision).
+## v16d (05/10/2026): hang 4 nhanh An ninh: VIE_sec_cyber_sovereignty, VIE_sec_ideological_education, VIE_sec_state_data_center (3 idea, 2 decision, event vie_sec.2; khoi phuc event vie_alt.31).
+## v16e (05/10/2026): hang 5 nhanh An ninh: khoi phuc VIE_sec_managed_opening (3 prerequisite AND, cost 7); loai 2 hieu ung di san vo tac dung (VIE_bop_reform_small, co VIE_wa_unlocked); them increase_economic_growth.
 	continuous_focus_position = { x = 765 y = 2850 }
 	initial_show_position = { focus = VIE_doi_moi_continues }
 
@@ -94,11 +99,6 @@ focus_tree = {
 	shortcut = {
 		name = VIE_digital_shortcut
 		target = VIE_sci_digital_root
-		scroll_wheel_factor = 0.60
-	}
-	shortcut = {
-		name = VIE_alt_paths_shortcut
-		target = VIE_sec_cyber_control
 		scroll_wheel_factor = 0.60
 	}
 
@@ -4394,44 +4394,35 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_sec_cyber_control
-		icon = communist_purge
+		id = VIE_sec_security_state
+		icon = border_guard_nss
 
 		x = 13
-		y = 13
+		y = 12
 		relative_position_id = VIE_doi_moi_continues
 
-		cost = 7
+		cost = 3
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
-		available = {
-			# The control of cyberspace needs the legal basis first (2018 Law on Cybersecurity)
-			has_completed_focus = VIE_cybersecurity_law
-			OR = {
-				check_variable = { ruling_party = 7 }
-				AND = {
-					custom_trigger_tooltip = { tooltip = VIE_gate_B_le_m6 check_variable = { VIE_sb_B < -5 } }
-					has_country_flag = VIE_security_unlocked
-				}
-			}
-		}
+		# The security regime (slot 7) must already be in power before this lights up
+		available = { check_variable = { ruling_party = 7 } }
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_control"
-			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			if = {
-				limit = { NOT = { check_variable = { ruling_party = 7 } } }
-				set_temp_variable = { party_index = 7 }
-				set_temp_variable = { party_popularity_increase = 0.15 }
-				set_temp_variable = { temp_outlook_increase = 0.15 }
-				hidden_effect = { change_relative_party_popularity = yes }
-				set_temp_variable = { rul_party_temp = 7 }
-				VIE_transition_regime = yes
-			}
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_security_state"
 			add_ideas = VIE_security_state_idea
 			set_country_flag = VIE_security_active
+			add_political_power = 50
+			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_stability = 0.02
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = 3 }
+				change_communist_cadres_opinion = yes
+			}
+			country_event = { id = vie_sec.0 days = 1 }
+			custom_effect_tooltip = VIE_sec_pillars_tt
 		}
 
 		ai_will_do = {
@@ -4441,12 +4432,110 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VIE_sec_cyber_control
+		icon = army_cyberwar
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_sec_security_state
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_state }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_control"
+			add_to_variable = { VIE_ax_checks = -2 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
+			add_stability = 0.02
+			add_ideas = VIE_cyber_control_idea
+			unlock_decision_tooltip = VIE_sec_dec_opinion_campaign
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_public_order
+		icon = border_patrol_increase
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_security_state
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_state }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_public_order"
+			increase_policing_budget = yes
+			set_temp_variable = { desire_change = 0.5 }
+			change_expected_police_spending = yes
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_stability = 0.03
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = 3 }
+				change_communist_cadres_opinion = yes
+			}
+			add_ideas = VIE_public_order_idea
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_security_economy
+		icon = economic_civil_industry
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_sec_security_state
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_state }
+
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_ARMY }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_security_economy"
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
+			add_ideas = VIE_security_economy_idea
+			unlock_decision_tooltip = VIE_sec_dec_fdi_screening
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
 		id = VIE_sec_surveillance_network
 		icon = communist_purge
 
-		x = 11
-		y = 14
-		relative_position_id = VIE_doi_moi_continues
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_cyber_control
 
 		cost = 7
 
@@ -4454,10 +4543,12 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
+		available = { has_country_flag = VIE_security_active }
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_surveillance_network"
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
 			if = {
 				limit = { has_idea = communist_cadres }
 				set_temp_variable = { temp_opinion = -1 }
@@ -4473,24 +4564,262 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_sec_security_economy
-		icon = economic_civil_industry
+		id = VIE_sec_loyalty_vetting
+		icon = the_last_purge
 
-		x = 15
-		y = 14
-		relative_position_id = VIE_doi_moi_continues
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_public_order
 
 		cost = 7
 
-		prerequisite = { focus = VIE_sec_cyber_control }
+		prerequisite = { focus = VIE_sec_public_order }
 
-		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_CORRUPTION }
+
+		available = { has_country_flag = VIE_security_active }
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_security_economy"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_market = -2 tooltip = VIE_ax_market_tt }
-			add_ideas = VIE_security_economy_idea
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_loyalty_vetting"
+			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
+			decrease_corruption = yes
+			decrease_economic_growth = yes
+			unlock_decision_tooltip = VIE_sec_dec_purge_disloyal
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_border_control
+		icon = border_guard_nss
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_security_economy
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_security_economy }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_border_control"
+			add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
+			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
+			add_stability = 0.01
+			army_experience = 10
+			# One step up in defence spending; the guard skips the MD branch that pays +150 PP instead of raising it
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = defence_06
+							has_idea = defence_07
+							has_idea = defence_08
+							has_idea = defence_09
+						}
+					}
+				}
+				increase_military_spending = yes
+			}
+			# Border posts and hardened checkpoints (same provinces as VIE_provincial_defence_zones; levels stack)
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+			523 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			524 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			521 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			520 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_cyber_sovereignty
+		icon = army_cyberwar
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_surveillance_network
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_surveillance_network }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_sovereignty"
+			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			add_stability = 0.02
+			add_political_power = -50
+			add_ideas = VIE_firewall_idea
+			unlock_decision_tooltip = VIE_sec_dec_social_credit
+			country_event = { id = vie_alt.31 days = 60 }
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_ideological_education
+		icon = focus_generic_education
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_loyalty_vetting
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_loyalty_vetting }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_ideological_education"
+			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
+			# Skip the MD branch that pays +150 PP instead of raising the budget at the top level
+			if = {
+				limit = { NOT = { has_idea = edu_05 } }
+				increase_education_budget = yes
+				set_temp_variable = { desire_change = 0.5 }
+				change_expected_education_spending = yes
+			}
+			add_stability = 0.03
+			add_war_support = 0.02
+			add_ideas = VIE_ideological_education_idea
+			country_event = { id = vie_sec.2 days = 30 }
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_state_data_center
+		icon = economic_civil_industry
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_border_control
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_border_control }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_state_data_center"
+			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
+			set_temp_variable = { treasury_change = -2.5 }
+			modify_treasury_effect = yes
+			decrease_corruption = yes
+			add_tech_bonus = {
+				name = VIE_sec_state_data_center
+				category = CAT_computing_tech
+				category = CAT_encryption_tech
+				uses = 1
+				bonus = 0.5
+			}
+			add_ideas = VIE_state_data_center_idea
+			unlock_decision_tooltip = VIE_sec_dec_freeze_assets
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 VIE_ai_historical = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_sec_managed_opening
+		icon = election2
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_sec_ideological_education
+
+		cost = 7
+
+		prerequisite = { focus = VIE_sec_cyber_sovereignty }
+		prerequisite = { focus = VIE_sec_ideological_education }
+		prerequisite = { focus = VIE_sec_state_data_center }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { has_country_flag = VIE_security_active }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_managed_opening"
+			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
+			add_political_power = 50
+			increase_economic_growth = yes
 		}
 
 		ai_will_do = {
@@ -9640,151 +9969,6 @@ focus_tree = {
 			base = 55
 			modifier = { factor = 0 can_staff_an_industrial_complex = no }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-	}
-
-	###############################
-	## CHINH TRI
-	###############################
-	focus = {
-		id = VIE_sec_public_order
-		icon = border_patrol_increase
-
-		x = 13
-		y = 14
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 5
-
-		prerequisite = { focus = VIE_sec_cyber_control }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_public_order"
-			increase_policing_budget = yes
-			set_temp_variable = { desire_change = 0.5 }
-			change_expected_police_spending = yes
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_stability = 0.03
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_cyber_sovereignty
-		icon = army_cyberwar
-
-		x = 11
-		y = 15
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 7
-
-		prerequisite = { focus = VIE_sec_surveillance_network }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_cyber_sovereignty"
-			add_to_variable = { VIE_ax_civil = -3 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
-			add_stability = 0.02
-			add_political_power = -50
-			country_event = { id = vie_alt.31 days = 60 }
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_loyalty_vetting
-		icon = the_last_purge
-
-		x = 13
-		y = 15
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 7
-
-		prerequisite = { focus = VIE_sec_public_order }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_loyalty_vetting"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_merit = -3 tooltip = VIE_ax_merit_tt }
-			decrease_corruption = yes
-			decrease_economic_growth = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_border_control
-		icon = border_guard_nss
-
-		x = 15
-		y = 15
-		relative_position_id = VIE_doi_moi_continues
-
-		cost = 5
-
-		prerequisite = { focus = VIE_sec_security_economy }
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_border_control"
-			add_to_variable = { VIE_ax_civil = -2 tooltip = VIE_ax_civil_tt }
-			add_to_variable = { VIE_ax_integ = -2 tooltip = VIE_ax_integ_tt }
-			add_stability = 0.01
-			army_experience = 10
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	focus = {
-		id = VIE_sec_managed_opening
-		icon = election2
-
-		x = 13
-		y = 16
-		relative_position_id = VIE_doi_moi_continues
-
-		prerequisite = { focus = VIE_sec_loyalty_vetting }
-		prerequisite = { focus = VIE_sec_cyber_sovereignty }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_sec_managed_opening"
-			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_civil = 1 tooltip = VIE_ax_civil_tt }
-			set_country_flag = VIE_wa_unlocked
-			add_political_power = 50
-			VIE_bop_reform_small = yes
-		}
-
-		ai_will_do = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
 		}
 	}
 

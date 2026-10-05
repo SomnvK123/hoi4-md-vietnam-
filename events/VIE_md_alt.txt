@@ -91,21 +91,6 @@ country_event = {
 		ai_chance = { base = 100 }
 	}
 
-	# Order first: the security apparatus takes the lead
-	option = {
-		name = vie_alt.3.b
-		trigger = { VIE_gate_security_stability = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.3.b executed"
-		set_country_flag = VIE_security_unlocked
-		custom_effect_tooltip = VIE_gate_note_sec
-		add_stability = 0.02
-		VIE_bop_conservative_medium = yes
-		ai_chance = {
-			base = 3
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
 	# Let the big groups sort it out
 	option = {
 		name = vie_alt.3.c
