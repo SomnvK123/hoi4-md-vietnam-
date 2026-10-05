@@ -68,6 +68,10 @@ VIE_armed_forces_modifier = {
 	# Truc 3 hai quan (VIE_naval_truc3_review_and_plan.md B4): chi phi duy tri nhan su hai quan
 	# (token MD, money_modifier_definitions.txt:30). Ngoai khoi GEN de generator khong ghi de.
 	navy_personnel_cost_multiplier_modifier = VIE_af_navy_personnel_cost_multiplier_modifier
+	# Hai quan v2 (VIE_naval_effects_content_and_plan.md muc 1.2): 3 chieu moi. Ngoai khoi GEN.
+	naval_hit_chance = VIE_af_naval_hit_chance
+	navy_capital_ship_attack_factor = VIE_af_navy_capital_ship_attack_factor
+	navy_capital_ship_defence_factor = VIE_af_navy_capital_ship_defence_factor
 	# Truc 3 khong quan (VIE_air_truc3_review_and_plan.md A3): tan cong khong quan va chi phi nhan su khong quan
 	# (token MD, money_modifier_definitions.txt:37). Ngoai khoi GEN de generator khong ghi de.
 	air_attack_factor = VIE_af_air_attack_factor

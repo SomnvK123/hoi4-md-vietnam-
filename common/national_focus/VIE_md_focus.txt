@@ -2988,7 +2988,7 @@ focus_tree = {
 	}
 
 	###############################
-	## TRUC 2 HAI QUAN (CNQP): 6 focus. Thiet ke: VIE_naval_truc2_review_and_plan.md muc 5.1.
+	## TRUC 3 HAI QUAN: T1 (VIE_nf_training_standardization), sau do TRUC 2 HAI QUAN (CNQP): 6 focus. Thiet ke: VIE_naval_truc2_review_and_plan.md muc 5.1.
 	## Focus chi doc: focus tien de, ngay, trang thai the gioi, nguon nang luc. Reward buoc 2 chi la
 	## kinh nghiem; event dinh huong va unlock_decision_tooltip them o buoc 4 khi Decision ton tai.
 	###############################
@@ -3013,10 +3013,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_training_standardization"
-			VIE_nf_xp_15 = yes
-			add_to_variable = { VIE_af_experience_gain_navy_factor = 0.05 tooltip = VIE_tt_experience_gain_navy_factor }
+			VIE_nf_t1_reward = yes
 			unlock_decision_category_tooltip = VIE_naval_force_category
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -3046,6 +3044,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_defence_law"
+			VIE_nav_f1_reward = yes
 			unlock_decision_category_tooltip = VIE_naval_industry_category
 			if = {
 				limit = { has_selected_naval_grand_doctrine = yes }
@@ -3081,6 +3080,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_ba_son_shipyards"
+			VIE_nav_f2_reward = yes
 			navy_experience = 10
 			unlock_decision_tooltip = VIE_nav_d1_ba_son
 			country_event = { id = vie_nav_ind.1 }
@@ -3116,6 +3116,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_mro"
+			VIE_nav_f3_reward = yes
 			navy_experience = 10
 			unlock_decision_tooltip = VIE_nav_d2_mro
 		}
@@ -3144,6 +3145,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_small_combatant_construction"
+			VIE_nav_f4_reward = yes
 			navy_experience = 10
 			unlock_decision_tooltip = VIE_nav_d3_small
 		}
@@ -3179,6 +3181,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_systems_integration"
+			VIE_nav_f5_reward = yes
 			navy_experience = 15
 			unlock_decision_tooltip = VIE_nav_d4_integration
 		}
@@ -3207,6 +3210,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_naval_defence_2030"
+			VIE_nav_f6_reward = yes
 			navy_experience = 25
 			unlock_decision_tooltip = VIE_nav_d5_2030
 		}
@@ -3238,9 +3242,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_surface_force"
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+			VIE_nf_t3_reward = yes
 			unlock_decision_tooltip = VIE_nf_d1_surface
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -3270,9 +3273,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_submarine_force"
-			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.02 tooltip = VIE_tt_navy_submarine_attack_factor }
+			VIE_nf_t4_reward = yes
 			unlock_decision_tooltip = VIE_nf_d2_submarine
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -3303,10 +3305,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_command_reform_1"
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
+			VIE_nf_t5_reward = yes
 			unlock_decision_tooltip = VIE_nf_d3_fleet_coord
-			VIE_nf_dm_tt = yes
 		}
 
 		ai_will_do = {
@@ -3341,7 +3341,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_first_force"
-			VIE_nf_xp_10 = yes
+			VIE_nf_t6_reward = yes
 			unlock_decision_tooltip = VIE_nf_d4_first_force
 		}
 
@@ -3372,9 +3372,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_command_reform_2"
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
-			VIE_nf_dm_tt = yes
+			VIE_nf_t7_reward = yes
 		}
 
 		ai_will_do = {
@@ -3404,8 +3402,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_medium_force"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_t8_reward = yes
 			unlock_decision_tooltip = VIE_p1b_corvette
 			unlock_decision_tooltip = VIE_p1b_frigate_med
 			unlock_decision_tooltip = VIE_p1b_asw_frigate
@@ -3438,9 +3435,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_operating_range"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
-			add_to_variable = { VIE_af_naval_detection = 0.05 tooltip = VIE_tt_naval_detection }
-			VIE_nf_dm_tt = yes
+			VIE_nf_t9_reward = yes
 		}
 
 		ai_will_do = {
@@ -3468,16 +3463,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial"
-			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.03 tooltip = VIE_tt_naval_strike_attack_factor }
-			VIE_nf_dm_tt = yes
-			if = {
-				limit = { check_variable = { VIE_nf_force_priority = 1 } }
-				add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
-			}
-			else_if = {
-				limit = { check_variable = { VIE_nf_force_priority = 3 } }
-				add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
-			}
+			VIE_nf_d1_reward = yes
 		}
 
 		ai_will_do = {
@@ -3505,9 +3491,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial_defence"
-			add_to_variable = { VIE_af_mines_planting_by_fleets_factor = 0.1 tooltip = VIE_tt_mines_planting_by_fleets_factor }
-			add_to_variable = { VIE_af_naval_mines_effect_reduction = 0.05 tooltip = VIE_tt_naval_mines_effect_reduction }
-			VIE_nf_dm_tt = yes
+			VIE_nf_d2_reward = yes
 			unlock_decision_tooltip = VIE_p1b_bastion2
 		}
 
@@ -3535,8 +3519,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial_subs"
-			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.03 tooltip = VIE_tt_navy_submarine_attack_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_d3_reward = yes
 			unlock_decision_tooltip = VIE_p1b_ssk_reg
 		}
 
@@ -3564,9 +3547,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_denial_command"
-			add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_detection = 0.04 tooltip = VIE_tt_naval_detection }
-			VIE_nf_dm_tt = yes
+			VIE_nf_d4_reward = yes
 		}
 
 		ai_will_do = {
@@ -3594,16 +3575,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_greenwater"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
-			if = {
-				limit = { check_variable = { VIE_nf_force_priority = 3 } }
-				add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
-			}
-			else_if = {
-				limit = { check_variable = { VIE_nf_force_priority = 1 } }
-				add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
-			}
+			VIE_nf_g1_reward = yes
 		}
 
 		ai_will_do = {
@@ -3632,9 +3604,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_regional_frigates"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
-			add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g2_reward = yes
 			unlock_decision_tooltip = VIE_p1b_ssk_reg
 		}
 
@@ -3662,9 +3632,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_amphibious_fleet"
-			add_to_variable = { VIE_af_naval_invasion_planning_bonus_speed = 0.1 tooltip = VIE_tt_naval_invasion_planning_bonus_speed }
-			add_to_variable = { VIE_af_naval_invasion_capacity = 1 tooltip = VIE_tt_naval_invasion_capacity }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g3_reward = yes
 		}
 
 		ai_will_do = {
@@ -3695,8 +3663,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_lhd_program"
-			add_to_variable = { VIE_af_naval_invasion_capacity = 1 tooltip = VIE_tt_naval_invasion_capacity }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g4_reward = yes
 			unlock_decision_tooltip = VIE_p1b_amphib
 		}
 
@@ -3724,9 +3691,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_regional_command"
-			add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
-			VIE_nf_dm_tt = yes
+			VIE_nf_g5_reward = yes
 		}
 
 		ai_will_do = {
@@ -3754,16 +3719,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_bluewater"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
-			if = {
-				limit = { check_variable = { VIE_nf_force_priority = 3 } }
-				add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
-			}
-			else_if = {
-				limit = { check_variable = { VIE_nf_force_priority = 1 } }
-				add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
-			}
+			VIE_nf_b1_reward = yes
 		}
 
 		ai_will_do = {
@@ -3795,8 +3751,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_ocean_escort"
-			add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.05 tooltip = VIE_tt_navy_anti_air_attack_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b2_reward = yes
 			unlock_decision_tooltip = VIE_p1b_destroyer
 		}
 
@@ -3827,8 +3782,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_replenishment"
-			add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b3_reward = yes
 		}
 
 		ai_will_do = {
@@ -3858,9 +3812,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_naval_aviation"
-			add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.03 tooltip = VIE_tt_navy_anti_air_attack_factor }
-			add_to_variable = { VIE_af_naval_detection = 0.04 tooltip = VIE_tt_naval_detection }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b4_reward = yes
 			unlock_decision_tooltip = VIE_p1b_carrier
 		}
 
@@ -3893,9 +3845,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nf_carrier_group"
-			add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
-			add_to_variable = { VIE_af_naval_coordination = 0.05 tooltip = VIE_tt_naval_coordination }
-			VIE_nf_dm_tt = yes
+			VIE_nf_b5_reward = yes
 			unlock_decision_tooltip = VIE_p1b_ssn
 		}
 

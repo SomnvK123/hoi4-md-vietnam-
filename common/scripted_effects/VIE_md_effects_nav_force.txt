@@ -243,6 +243,7 @@ VIE_nf_d4_finish = {
 		add_to_variable = { VIE_af_naval_strike_attack_factor = 0.01 tooltip = VIE_tt_naval_strike_attack_factor }
 		add_to_variable = { VIE_af_navy_max_range_factor = 0.01 tooltip = VIE_tt_navy_max_range_factor }
 	}
+	VIE_nf_fav_discount = yes
 	VIE_nf_dm_tt = yes
 	VIE_nf_program_end = yes
 }
@@ -270,4 +271,392 @@ VIE_nf_d5_finish = {
 	}
 	VIE_nf_dm_tt = yes
 	VIE_nf_program_end = yes
+}
+
+########################################################################
+# Hai quan v2 - phan thuong tung node Truc 3 (VIE_naval_effects_content_and_plan.md muc 2).
+# Moi node mot effect VIE_nf_<ma>_reward; focus chi con log + effect + unlock tooltip.
+# Modifier di vao VIE_af_* cua VIE_armed_forces_modifier; ket thuc bang tooltip + refresh.
+# Gia tri khop tools/audit/nf_balance.py (chay lai khi doi so).
+########################################################################
+
+VIE_nf_refresh = {
+	force_update_dynamic_modifier = yes
+}
+
+VIE_nf_t1_reward = {
+	add_to_variable = { VIE_af_experience_gain_navy_factor = 0.05 tooltip = VIE_tt_experience_gain_navy_factor }
+	add_to_variable = { VIE_af_naval_hit_chance = 0.01 tooltip = VIE_tt_naval_hit_chance }
+	VIE_nf_xp_15 = yes
+	add_political_power = 25
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_t3_reward = {
+	add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_naval_hit_chance = 0.01 tooltip = VIE_tt_naval_hit_chance }
+	VIE_nf_xp_10 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_t4_reward = {
+	add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.02 tooltip = VIE_tt_navy_submarine_attack_factor }
+	add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.01 tooltip = VIE_tt_navy_submarine_defence_factor }
+	VIE_nf_xp_10 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_t5_reward = {
+	add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
+	add_command_power = 15
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_t6_reward = {
+	VIE_nf_xp_10 = yes
+	add_command_power = 10
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_t7_reward = {
+	add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
+	if = {
+		limit = { check_variable = { VIE_nf_force_priority = 1 } }
+		add_to_variable = { VIE_af_naval_hit_chance = 0.015 tooltip = VIE_tt_naval_hit_chance }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_nf_force_priority = 3 } }
+		add_to_variable = { VIE_af_naval_speed_factor = 0.015 tooltip = VIE_tt_naval_speed_factor }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_nf_force_priority = 2 } }
+		add_to_variable = { VIE_af_navy_org_factor = 0.005 tooltip = VIE_tt_navy_org_factor }
+		add_to_variable = { VIE_af_naval_hit_chance = 0.005 tooltip = VIE_tt_naval_hit_chance }
+		add_to_variable = { VIE_af_naval_speed_factor = 0.005 tooltip = VIE_tt_naval_speed_factor }
+	}
+	VIE_nf_xp_10 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_t8_reward = {
+	add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
+	add_to_variable = { VIE_af_naval_speed_factor = 0.01 tooltip = VIE_tt_naval_speed_factor }
+	VIE_nf_xp_10 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_t9_reward = {
+	add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
+	add_to_variable = { VIE_af_naval_detection = 0.05 tooltip = VIE_tt_naval_detection }
+	VIE_nf_xp_15 = yes
+	add_command_power = 15
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_d1_reward = {
+	add_to_variable = { VIE_af_naval_strike_attack_factor = 0.03 tooltip = VIE_tt_naval_strike_attack_factor }
+	add_to_variable = { VIE_af_naval_hit_chance = 0.02 tooltip = VIE_tt_naval_hit_chance }
+	add_to_variable = { VIE_af_navy_max_range_factor = -0.02 tooltip = VIE_tt_navy_max_range_factor }
+	if = {
+		limit = { check_variable = { VIE_nf_force_priority = 1 } }
+		add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_nf_force_priority = 3 } }
+		add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
+	}
+	VIE_nf_xp_15 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_d2_reward = {
+	add_to_variable = { VIE_af_mines_planting_by_fleets_factor = 0.1 tooltip = VIE_tt_mines_planting_by_fleets_factor }
+	add_to_variable = { VIE_af_naval_mines_effect_reduction = 0.05 tooltip = VIE_tt_naval_mines_effect_reduction }
+	add_to_variable = { VIE_af_naval_hit_chance = 0.01 tooltip = VIE_tt_naval_hit_chance }
+	VIE_nf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_nf_tb_denial_missile
+		bonus = 0.25
+		uses = 1
+		category = CAT_as_missiles
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_d3_reward = {
+	add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.03 tooltip = VIE_tt_navy_submarine_attack_factor }
+	add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.02 tooltip = VIE_tt_navy_submarine_defence_factor }
+	VIE_nf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_nf_tb_denial_sub
+		bonus = 0.25
+		uses = 1
+		category = CAT_sub
+		category = CAT_atk_sub
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_d4_reward = {
+	add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_naval_detection = 0.04 tooltip = VIE_tt_naval_detection }
+	add_to_variable = { VIE_af_naval_hit_chance = 0.015 tooltip = VIE_tt_naval_hit_chance }
+	VIE_nf_xp_25 = yes
+	add_political_power = 50
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_g1_reward = {
+	add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
+	add_to_variable = { VIE_af_naval_speed_factor = 0.02 tooltip = VIE_tt_naval_speed_factor }
+	add_to_variable = { VIE_af_navy_personnel_cost_multiplier_modifier = 0.02 tooltip = VIE_tt_navy_personnel_cost }
+	if = {
+		limit = { check_variable = { VIE_nf_force_priority = 3 } }
+		add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_nf_force_priority = 1 } }
+		add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
+	}
+	VIE_nf_xp_15 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_g2_reward = {
+	add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
+	add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.02 tooltip = VIE_tt_navy_anti_air_attack_factor }
+	VIE_nf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_nf_tb_green_frigate
+		bonus = 0.25
+		uses = 1
+		category = CAT_frigate
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_g3_reward = {
+	add_to_variable = { VIE_af_naval_invasion_planning_bonus_speed = 0.1 tooltip = VIE_tt_naval_invasion_planning_bonus_speed }
+	add_to_variable = { VIE_af_naval_invasion_capacity = 1 tooltip = VIE_tt_naval_invasion_capacity }
+	add_to_variable = { VIE_af_naval_speed_factor = 0.01 tooltip = VIE_tt_naval_speed_factor }
+	add_command_power = 10
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_g4_reward = {
+	add_to_variable = { VIE_af_naval_invasion_capacity = 1 tooltip = VIE_tt_naval_invasion_capacity }
+	add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.02 tooltip = VIE_tt_navy_anti_air_attack_factor }
+	VIE_nf_xp_15 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_g5_reward = {
+	add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_naval_coordination = 0.03 tooltip = VIE_tt_naval_coordination }
+	add_to_variable = { VIE_af_naval_hit_chance = 0.01 tooltip = VIE_tt_naval_hit_chance }
+	add_to_variable = { VIE_af_naval_speed_factor = 0.01 tooltip = VIE_tt_naval_speed_factor }
+	VIE_nf_xp_25 = yes
+	add_political_power = 50
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_b1_reward = {
+	add_to_variable = { VIE_af_navy_max_range_factor = 0.05 tooltip = VIE_tt_navy_max_range_factor }
+	add_to_variable = { VIE_af_naval_speed_factor = 0.02 tooltip = VIE_tt_naval_speed_factor }
+	add_to_variable = { VIE_af_navy_capital_ship_defence_factor = 0.02 tooltip = VIE_tt_navy_capital_ship_defence_factor }
+	add_to_variable = { VIE_af_navy_personnel_cost_multiplier_modifier = 0.03 tooltip = VIE_tt_navy_personnel_cost }
+	if = {
+		limit = { check_variable = { VIE_nf_force_priority = 3 } }
+		add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_nf_force_priority = 1 } }
+		add_timed_idea = { idea = VIE_nf_branch_mismatch_idea days = 365 }
+	}
+	VIE_nf_xp_15 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_b2_reward = {
+	add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.05 tooltip = VIE_tt_navy_anti_air_attack_factor }
+	add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.01 tooltip = VIE_tt_navy_submarine_defence_factor }
+	VIE_nf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_nf_tb_blue_destroyer
+		bonus = 0.25
+		uses = 1
+		category = CAT_destroyer
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_b3_reward = {
+	add_to_variable = { VIE_af_navy_max_range_factor = 0.03 tooltip = VIE_tt_navy_max_range_factor }
+	add_to_variable = { VIE_af_navy_org_factor = 0.02 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_navy_personnel_cost_multiplier_modifier = -0.01 tooltip = VIE_tt_navy_personnel_cost }
+	VIE_nf_xp_10 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_b4_reward = {
+	add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.03 tooltip = VIE_tt_navy_anti_air_attack_factor }
+	add_to_variable = { VIE_af_naval_detection = 0.04 tooltip = VIE_tt_naval_detection }
+	add_to_variable = { VIE_af_naval_hit_chance = 0.01 tooltip = VIE_tt_naval_hit_chance }
+	VIE_nf_xp_15 = yes
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_b5_reward = {
+	add_to_variable = { VIE_af_navy_org_factor = 0.03 tooltip = VIE_tt_navy_org_factor }
+	add_to_variable = { VIE_af_naval_coordination = 0.05 tooltip = VIE_tt_naval_coordination }
+	add_to_variable = { VIE_af_navy_capital_ship_attack_factor = 0.02 tooltip = VIE_tt_navy_capital_ship_attack_factor }
+	add_to_variable = { VIE_af_navy_capital_ship_defence_factor = 0.02 tooltip = VIE_tt_navy_capital_ship_defence_factor }
+	VIE_nf_xp_25 = yes
+	add_political_power = 50
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+
+# Giam 14 ngay cost goc node dau nhanh khop voi co cau da chon o D-D (mau VIE_lf_fav_discount cua luc quan).
+# Ven bo -> Ngan chan bien; Tam xa -> Hai quan khu vuc va Hai quan vien duong; Can bang khong giam.
+# Don vi cua reduce_focus_completion_cost suy ra la NGAY (events/VIE_md_p11.txt:193) - xem checklist TESTING.md.
+VIE_nf_fav_discount = {
+	if = {
+		limit = {
+			check_variable = { VIE_nf_force_priority = 1 }
+			NOT = { has_completed_focus = VIE_nf_denial }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_nf_denial
+			cost = 14
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_nf_force_priority = 3 }
+			NOT = { has_completed_focus = VIE_nf_greenwater }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_nf_greenwater
+			cost = 14
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_nf_force_priority = 3 }
+			NOT = { has_completed_focus = VIE_nf_bluewater }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_nf_bluewater
+			cost = 14
+		}
+	}
+}
+
+########################################################################
+# HIEU UNG EVENT MOC hai quan (VIE_naval_effects_content_and_plan.md muc 5). Event va fallback im lang
+# cua scheduler goi CUNG mot effect. Cost tinh bang NGAY (xem checklist TESTING.md): 24 ngay ~ nua tuan x 7.
+# Moc .70 Cang quoc te Cam Ranh (8/3/2016), .71 tau san bay My tham Da Nang (2018-03),
+# .72 An Do trao tang ho ve ham (INS Kirpan, 22/7/2023).
+########################################################################
+VIE_nf_ms1_apply = {
+	add_to_variable = { VIE_af_navy_org_factor = 0.01 tooltip = VIE_tt_navy_org_factor }
+	if = {
+		limit = { has_completed_focus = VIE_nf_operating_range }
+		VIE_nf_xp_10 = yes
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_nf_operating_range
+			cost = 24
+		}
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+VIE_nf_ms2_apply = {
+	VIE_nf_xp_10 = yes
+	add_command_power = 10
+}
+VIE_nf_ms3_apply = {
+	add_to_variable = { VIE_af_naval_hit_chance = 0.01 tooltip = VIE_tt_naval_hit_chance }
+	if = {
+		limit = { has_completed_focus = VIE_nf_ocean_escort }
+		VIE_nf_xp_10 = yes
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_nf_ocean_escort
+			cost = 24
+		}
+	}
+	VIE_nf_dm_tt = yes
+	VIE_nf_refresh = yes
+}
+
+# Scheduler (khuon VIE_event_scheduler_p17): ngay -> VIE_popup_cd -> fallback im lang sau 6 thang.
+# Catch-up (VIE_catch_up = 1, sau noi chien): chi dat co moc da qua, khong ban event, khong ap hieu ung.
+VIE_event_scheduler_nf = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+		if = {
+			limit = {
+				date > 2016.2.29
+				NOT = { has_country_flag = VIE_nf_ms_camranh }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_nf_ms_camranh
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_nav_force.70 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2016.8.31 }
+				set_country_flag = VIE_nf_ms_camranh
+				VIE_nf_ms1_apply = yes
+			}
+		}
+		if = {
+			limit = {
+				date > 2018.3.4
+				NOT = { has_country_flag = VIE_nf_ms_danang }
+			}
+			set_country_flag = VIE_nf_ms_danang
+			country_event = { id = vie_nav_force.71 days = 3 random_days = 15 }
+		}
+		if = {
+			limit = {
+				date > 2023.7.21
+				NOT = { has_country_flag = VIE_nf_ms_kirpan }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_nf_ms_kirpan
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_nav_force.72 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2024.1.31 }
+				set_country_flag = VIE_nf_ms_kirpan
+				VIE_nf_ms3_apply = yes
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { date > 2016.2.29 }
+			set_country_flag = VIE_nf_ms_camranh
+		}
+		if = {
+			limit = { date > 2018.3.4 }
+			set_country_flag = VIE_nf_ms_danang
+		}
+		if = {
+			limit = { date > 2023.7.21 }
+			set_country_flag = VIE_nf_ms_kirpan
+		}
+	}
 }

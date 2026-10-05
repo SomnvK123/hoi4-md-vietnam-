@@ -1094,3 +1094,16 @@ Run once with and once without Arms Against Tyranny is not needed (no MIO on thi
 - [ ] Event pictures (Truc 3): `.1 .2 .10 .11 .30` show their own photo (`GFX_VIE_report_event_vie_air_force_N`), completion events keep the generic picture.
 - [ ] AI observe run to 2030: AI takes T1-T8, D-A..D-D with the historical options, goes branch A only (never B1/C1), no stuck slot; total spend of Truc 3 about 2.8 bn.
 - [ ] Reserved variables nobody reads yet: `VIE_var_air_multirole4`, `VIE_var_uav_delivered` (1B), `VIE_airf_fighter_specialty`, `VIE_airf_sam_orientation` are read only by their own finish effects.
+
+## Naval effects v2 (22 focus VIE_nf_*, 6 focus Truc 2, 4 decision huan luyen, 3 event moc), not yet run in game
+Design: `VIE_naval_effects_content_and_plan.md`. Balance: `python tools/audit/nf_balance.py` (must print PASS; org 18/18 and hit chance 10/10 are exactly at the cap, so rerun after any number change).
+- [ ] Console `effect add_to_variable = { VIE_af_naval_hit_chance = 0.01 }`: `VIE_armed_forces_modifier` tooltip shows the line (same for `VIE_af_navy_capital_ship_attack_factor`, `_defence_factor`). If the engine ignores them, move that axis (plan part 7, risks).
+- [ ] `error.log`: grep `VIE_nf_`, `VIE_nav_f`, `VIE_dec_nf_train`, `vie_nav_force.7`, `force_update_dynamic_modifier`, `reduce_focus_completion_cost`.
+- [ ] Each focus T1..B5 gives its XP / PP / command power and shows the modifier lines in the completion tooltip; T1 gives +25 PP, capstones D4/G5/B5 +50 PP.
+- [ ] T7: with `VIE_nf_force_priority` 1 / 2 / 3 it adds hit chance / org+hit+speed / speed (set it with `set_variable`); at 0 only the base bonus.
+- [ ] D-D finish: Coastal makes `VIE_nf_denial` 14 days cheaper; Extended makes `VIE_nf_greenwater` and `VIE_nf_bluewater` 14 days cheaper; Balanced changes nothing. Checks the unit of `reduce_focus_completion_cost` (shared with the land force test).
+- [ ] D1/G1/B1: matching branch gives +1% org, mismatching gives the 365-day idea `VIE_nf_branch_mismatch_idea`.
+- [ ] Tech bonus names show a title (D2, D3, G2, B2) and are usable once.
+- [ ] Truc 2: F1 gives `VIE_nav_law_idea` and +25 PP; F2..F5 add 3 exp to shipbuilding / MRO / integration (MRO capped at 50 when Russia-dependent); F4 +2% naval speed, F5 +1% hit chance; F6 +50 PP and +3% war support. `python tools/audit/naval_balance.py` still PASS.
+- [ ] Four decisions (`VIE_dec_nf_train_asw/firing/mines/replenish`) in `VIE_military_readiness_category`: hidden until their focus is done (ASW also needs a Kilo or `VIE_nf_d2_done`), 545-day cooldown, +10 XP and 180-day timed idea after 90/120 days.
+- [ ] Milestones: `debug` date 2016-03 / 2018-03 / 2023-07 fires `vie_nav_force.70 / .71 / .72` (after `VIE_popup_cd` expires; fallback applies silently 6 months later); a savegame after civil war (`VIE_catch_up`) sets the flags without firing.

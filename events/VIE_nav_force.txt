@@ -325,3 +325,56 @@ country_event = {
 		ai_chance = { base = 1 }
 	}
 }
+
+########################################################################
+# Hai quan v2: 3 event moc lich su (VIE_naval_effects_content_and_plan.md muc 5).
+# Dat lich boi VIE_event_scheduler_nf (VIE_md_effects_nav_force.txt), KHONG dung trigger_year_* cua MD.
+# No cho MOI nguoi choi; hieu ung nam o VIE_nf_ms*_apply de event va fallback im lang khong lech nhau.
+# .70 Cang quoc te Cam Ranh 2016-03 (pop-up)   .71 tau san bay My tham Da Nang 2018-03 (AN)
+# .72 An Do trao tang ho ve ham 2023-07 (pop-up)
+########################################################################
+
+country_event = {
+	id = vie_nav_force.70
+	title = vie_nav_force.70.t
+	desc = vie_nav_force.70.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_nf_ms1_apply = yes
+	}
+
+	option = {
+		name = vie_nav_force.70.a
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = {
+	id = vie_nav_force.71
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_nav_force.71 executed"
+		VIE_nf_ms2_apply = yes
+	}
+}
+
+country_event = {
+	id = vie_nav_force.72
+	title = vie_nav_force.72.t
+	desc = vie_nav_force.72.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		VIE_nf_ms3_apply = yes
+	}
+
+	option = {
+		name = vie_nav_force.72.a
+		ai_chance = { base = 100 }
+	}
+}

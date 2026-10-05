@@ -469,3 +469,12 @@ Thiet ke: `VIE_air_truc3_review_and_plan.md`. Code: `VIE_md_triggers_air_force.t
 
 ### Da bo so voi bao cao
 Hook dem lai slot sau noi chien, `VIE_air_force_category` (doi sang `VIE_airf_category`), `VIE_ai_free`, `unlock_decision_tooltip` toi chuong trinh 1B, dung `VIE_af_air_defence_factor` cho phong khong cua Truc 3.
+
+## Hai quan v2 (VIE_naval_effects_content_and_plan.md)
+| Ten | Loai | Dat boi | Doc boi |
+|---|---|---|---|
+| `VIE_af_naval_hit_chance`, `VIE_af_navy_capital_ship_attack_factor`, `VIE_af_navy_capital_ship_defence_factor` | bien (modifier moi) | `VIE_nf_*_reward`, `VIE_nav_f5_reward`, `VIE_nf_ms3_apply` | `VIE_armed_forces_modifier` |
+| `VIE_nf_ms_camranh`, `VIE_nf_ms_danang`, `VIE_nf_ms_kirpan` | co | `VIE_event_scheduler_nf` | scheduler (chong bat lai) |
+| `VIE_nf_force_priority` (da co) | bien | event `vie_nav_force.30` | `VIE_nf_t7_reward`, `VIE_nf_d1/g1/b1_reward`, `VIE_nf_fav_discount` |
+| `VIE_nf_idea_{asw,firing,mines,replenish}_drill` | timed idea | `VIE_dec_nf_train_*` | - |
+| `VIE_nav_law_idea` | idea | `VIE_nav_f1_reward` | - |

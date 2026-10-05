@@ -14,15 +14,19 @@ from pathlib import Path
 from collections import Counter
 
 # ---------------------------------------------------------------- modifiers (percent points; + = bonus)
+# v2 (VIE_naval_effects_content_and_plan.md): new axes hit / speed / capatk / capdef / aa / pers.
 SPINE = {  # T1, T3, T4, T5, T7, T8, T9
-    "T1": {"exp": 5},
-    "T3": {"org": 2},
-    "T4": {"subatk": 2},
+    "T1": {"exp": 5, "hit": 1},
+    "T3": {"org": 2, "hit": 1},
+    "T4": {"subatk": 2, "subdef": 1},
     "T5": {"org": 2, "coord": 3},
     "T7": {"org": 2, "coord": 3},
-    "T8": {"range": 3},
+    "T8": {"range": 3, "speed": 1},
     "T9": {"range": 5, "detect": 5},
 }
+T7_DIR = {"coastal": {"hit": 1.5}, "balanced": {"org": 0.5, "hit": 0.5, "speed": 0.5}, "extended": {"speed": 1.5}}
+TRUC2 = {"speed": 2, "hit": 1}  # F4 naval_speed +2, F5 hit +1
+MILESTONES = {"org": 1, "hit": 1}  # vie_nav_force.70 / .72 (plan part 5)
 D_A = {  # level 2 values (level 1 = 2/3 of them)
     "fire": {"strike": 4.5, "org": 1.5},
     "asw": {"subdef": 4.5, "detect": 3},
@@ -32,13 +36,18 @@ D_C = {"coord": 6, "subdef": 2}
 D_D = {  # force_priority -> (modifiers, branch it matches)
     "coastal": ({"strike": 2, "range": -3}, "denial"),
     "balanced": ({"org": 1, "strike": 1, "range": 1}, None),
-    "extended": ({"range": 4, "org": 2}, ("green", "blue")),
+    "extended": ({"range": 4, "org": 2, "pers": 3}, ("green", "blue")),
 }
 MATCH_BONUS = {"org": 1}
 BRANCH = {
-    "denial": [{"strike": 3}, {"mines_plant": 10, "mines_red": 5}, {"subatk": 3}, {"org": 3, "detect": 4}],
-    "green": [{"range": 5}, {"range": 3, "org": 2}, {"inv_plan": 10, "inv_cap": 1}, {"inv_cap": 1}, {"org": 3, "coord": 3}],
-    "blue": [{"range": 5}, {"aa": 5}, {"range": 3}, {"aa": 3, "detect": 4}, {"org": 3, "coord": 5}],
+    "denial": [{"strike": 3, "hit": 2, "range": -2}, {"mines_plant": 10, "mines_red": 5, "hit": 1},
+               {"subatk": 3, "subdef": 2}, {"org": 3, "detect": 4, "hit": 1.5}],
+    "green": [{"range": 5, "speed": 2, "pers": 2}, {"range": 3, "org": 2, "aa": 2},
+              {"inv_plan": 10, "inv_cap": 1, "speed": 1}, {"inv_cap": 1, "aa": 2},
+              {"org": 3, "coord": 3, "hit": 1, "speed": 1}],
+    "blue": [{"range": 5, "speed": 2, "capdef": 2, "pers": 3}, {"aa": 5, "subdef": 1},
+             {"range": 3, "org": 2, "pers": -1}, {"aa": 3, "detect": 4, "hit": 1},
+             {"org": 3, "coord": 5, "capatk": 2, "capdef": 2}],
 }
 # Bien Dong (Luat Bien) feeds the same VIE_armed_forces_modifier: only spratly_fortification (+range 5).
 # Optional, so the worst case always includes it. coord / detect are already at the cap on the Truc 3 worst
@@ -46,7 +55,8 @@ BRANCH = {
 SCS = {"range": 5}
 CARRIER_MULT = 1.5  # B5 modifiers x1.5 once D-E (carrier group) is done
 
-CAPS = {"org": 18, "coord": 20, "detect": 15, "range": 25, "subatk": 10, "subdef": 10, "strike": 10, "exp": 10}
+CAPS = {"org": 18, "coord": 20, "detect": 15, "range": 25, "subatk": 10, "subdef": 10, "strike": 10, "exp": 10,
+        "hit": 10, "speed": 10, "capatk": 8, "capdef": 8, "aa": 12, "pers": 6}
 
 # ---------------------------------------------------------------- money, USD bn
 FORCE_COST = {  # Decision costs
@@ -77,7 +87,9 @@ MD_P90 = 26.45
 SIZE_NAMES = {"org": "navy_org_factor", "coord": "naval_coordination", "detect": "naval_detection",
               "range": "navy_max_range_factor", "subatk": "navy_submarine_attack_factor",
               "subdef": "navy_submarine_defence_factor", "strike": "naval_strike_attack_factor",
-              "exp": "experience_gain_navy_factor"}
+              "exp": "experience_gain_navy_factor", "hit": "naval_hit_chance", "speed": "naval_speed_factor",
+              "capatk": "navy_capital_ship_attack_factor", "capdef": "navy_capital_ship_defence_factor",
+              "aa": "navy_anti_air_attack_factor", "pers": "navy_personnel_cost (net)"}
 
 fails: list[str] = []
 
@@ -101,6 +113,9 @@ def path_totals(branch: str, da: str, db: str, dd: str, carriers: bool):
     add(t, D_B[db])
     add(t, {"coord": D_C["coord"], "subdef": D_C["subdef"]})
     add(t, SCS)
+    add(t, T7_DIR[dd])
+    add(t, TRUC2)
+    add(t, MILESTONES)
     mods, match = D_D[dd]
     add(t, mods)
     ok_match = (match == branch) if isinstance(match, str) else (branch in match if match else True)

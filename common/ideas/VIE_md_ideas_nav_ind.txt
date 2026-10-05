@@ -69,5 +69,18 @@ ideas = {
 				experience_gain_navy_factor = 0.05
 			}
 		}
+
+		# Hai quan v2: Phap lenh quoc phong hai quan (focus VIE_naval_defence_law).
+		VIE_nav_law_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				industrial_capacity_dockyard = 0.03
+				experience_gain_navy_factor = 0.01
+			}
+		}
 	}
 }

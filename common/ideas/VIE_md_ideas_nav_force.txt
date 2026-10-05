@@ -69,5 +69,49 @@ ideas = {
 				experience_gain_navy_factor = 0.02
 			}
 		}
+
+		VIE_nf_idea_asw_drill = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				naval_detection = 0.05
+			}
+		}
+
+		VIE_nf_idea_firing_drill = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				naval_hit_chance = 0.03
+			}
+		}
+
+		VIE_nf_idea_mines_drill = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				mines_planting_by_fleets_factor = 0.1
+			}
+		}
+
+		VIE_nf_idea_replenish_drill = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				navy_max_range_factor = 0.05
+			}
+		}
 	}
 }
