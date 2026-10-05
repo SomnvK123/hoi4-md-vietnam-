@@ -11113,6 +11113,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
+		available = { NOT = { has_active_mission = bankruptcy_incoming_collapse } }
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_sf_command"
 			VIE_sf_command_reward = yes

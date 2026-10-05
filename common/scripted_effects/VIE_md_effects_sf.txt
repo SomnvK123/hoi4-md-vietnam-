@@ -31,13 +31,11 @@ VIE_sf_command_reward = {
 	add_to_variable = { VIE_af_special_forces_cap = 0.01 tooltip = VIE_tt_special_forces_cap }
 	VIE_lf_xp_10 = yes
 	add_command_power = 10
-	set_country_flag = VIE_sf_started
 	VIE_sf_dm_tt = yes
 	VIE_sf_refresh = yes
 }
 VIE_sf_sapper_reward = {
 	VIE_lf_xp_10 = yes
-	set_country_flag = VIE_sf_sapper_started
 }
 VIE_sf_sapper_training_reward = {
 	add_to_variable = { VIE_af_training_time_factor = -0.02 tooltip = VIE_tt_training_time_factor }
@@ -75,7 +73,6 @@ VIE_sf_sapper_elite_reward = {
 }
 VIE_sf_marine_reward = {
 	VIE_lf_xp_10 = yes
-	set_country_flag = VIE_sf_marine_started
 }
 VIE_sf_marine_training_reward = {
 	add_to_variable = { VIE_af_training_time_factor = -0.02 tooltip = VIE_tt_training_time_factor }
