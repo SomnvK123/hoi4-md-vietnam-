@@ -263,6 +263,15 @@ VIE_hl_cleanup = {
 	hidden_effect = { clr_country_flag = VIE_hl_ev6_done }
 	if = { limit = { has_idea = VIE_hl_ideology_work_idea } remove_ideas = VIE_hl_ideology_work_idea }
 	if = { limit = { has_idea = VIE_hl_army_party_work_idea } remove_ideas = VIE_hl_army_party_work_idea }
+	# Security ideas and flag cleanup
+	hidden_effect = { clr_country_flag = VIE_security_active }
+	if = { limit = { has_idea = VIE_security_state_idea } remove_ideas = VIE_security_state_idea }
+	if = { limit = { has_idea = VIE_cyber_control_idea } remove_ideas = VIE_cyber_control_idea }
+	if = { limit = { has_idea = VIE_public_order_idea } remove_ideas = VIE_public_order_idea }
+	if = { limit = { has_idea = VIE_surveillance_idea } remove_ideas = VIE_surveillance_idea }
+	if = { limit = { has_idea = VIE_firewall_idea } remove_ideas = VIE_firewall_idea }
+	if = { limit = { has_idea = VIE_ideological_education_idea } remove_ideas = VIE_ideological_education_idea }
+	if = { limit = { has_idea = VIE_state_data_center_idea } remove_ideas = VIE_state_data_center_idea }
 	clear_variable = VIE_rp
 }
 

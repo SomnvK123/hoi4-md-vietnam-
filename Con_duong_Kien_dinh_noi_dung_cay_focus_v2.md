@@ -3,6 +3,12 @@
 Nội dung cây focus khi CPV Hardline (Communist-State, `ruling_party = 4`) cầm quyền.
 Tài liệu nội dung, chưa code. Bản 2, 04/10/2026. Thay thế bản nháp 1.
 
+> **Bản 4 (05/10/2026) — Hợp nhất Toàn diện Nhánh An ninh & Kiên định (30 Focuses):**
+> - Giải quyết dứt điểm xung đột ID đảng (`ruling_party = 7` vs `4`) và loại bỏ hoàn toàn khối an ninh x=93 trùng lặp.
+> - Hợp nhất thành một cây duy nhất gồm **30 focus**: 25 focus Hardline gốc + 5 focus An ninh chuyên biệt (`VIE_sec_public_order`, `VIE_sec_border_control`, `VIE_sec_surveillance_network`, `VIE_sec_cyber_sovereignty`, `VIE_sec_state_data_center`).
+> - Gộp 6 focus An ninh song sinh: `VIE_sec_security_state` $\rightarrow$ `VIE_hl_unity_of_will`; `VIE_sec_cyber_control` $\rightarrow$ `VIE_hl_cyber_ideology`; `VIE_sec_loyalty_vetting` $\rightarrow$ `VIE_hl_party_rectification`; `VIE_sec_security_economy` $\rightarrow$ `VIE_hl_selective_fdi`; `VIE_sec_ideological_education` $\rightarrow$ `VIE_hl_school_theory`; `VIE_sec_managed_opening` $\rightarrow$ `VIE_hl_steadfast_renewal`.
+> - Tích hợp toàn diện 5 Quyết định An ninh (`VIE_sec_dec_*`) với cơ chế Áp lực cải cách (`VIE_rp`).
+>
 > **Bản 3 (05/10/2026) — thay thế mục 2 và mục 8.** CPV Hardline không còn là khối riêng hay lên nắm quyền qua event Đại hội / decision giữa nhiệm kỳ.
 > - Đại hội XIV có **ba lựa chọn loại trừ nhau** trên cùng hàng: `Tập trung quyền lực`, `Mở rộng giám sát thể chế` (hai hướng CPV ID 19) và `Giữ vững bản chất, kiên định mục tiêu` (`VIE_hl_unity_of_will`, đưa ID 4 lên cầm quyền qua `vie_hl.1`). Điều kiện: CPV ID 19 cầm quyền, BoP < −0,3, đã làm `Đội ngũ cán bộ trong sạch`, sau 30/06/2026. Toàn bộ cây Kiên định treo dưới lựa chọn này.
 > - Đã xóa: lựa chọn `hl_take` ở các event Đại hội XI–XVI, `hl_keep` ở XII–XIV, decision Hội nghị Trung ương bất thường, cờ `VIE_hardline_unlocked`. Giữ `hl_keep` ở Đại hội XV, XVI.
@@ -399,28 +405,25 @@ Không event nào dẫn tới bế tắc. Event 7 thay thế kết cục "Khép 
 - Kết cục: X1 base 60, X2 base 20, X3 base 20. X2 factor 0 nếu AL ≥ 70.
 - Event 7: AI chọn "Lùi một bước" với 80%.
 
-## 8. Bố cục
+## 8. Bố cục Thực tế (Bản 4 — 30 Focus Hợp nhất)
 
-Đã đo lưới thật bằng cách cộng dồn `relative_position_id`. Cây hiện có 379 focus, chạy từ x 6 đến 234, y 0 đến 19, chỉ có một gốc (`VIE_doi_moi_continues` ở (80,0)). Không có x âm, nên vị trí "x −85" ở bản 1 là sai.
+Toàn bộ 30 focus được sắp xếp theo chuẩn lưới MD4 tuyệt đối ($dy = 1, \Delta x \ge 2$), neo gốc vào `VIE_party_centennial_2030` tại (14, 10). Gốc Hardline `VIE_hl_unity_of_will` nằm tại $(16, 12)$.
 
-Cột chính trị của CPV mặc định đã được thiết kế lại (x 4–22, y 1–23: mỗi Đại hội một hàng, các focus "thông qua" ngay dưới, rồi tới Đại hội kế tiếp). Khối Con đường Kiên định vì vậy nằm ở **x 16–29, y 25–32**, ngay dưới cột đó.
+### Bảng Lưới Tọa độ Tuyệt đối (y = 12 đến 18)
 
-Tọa độ tuyệt đối đề xuất. H0 neo vào `VIE_doi_moi_continues` với `x = -57, y = 25` (tuyệt đối (23,25)), các focus khác neo vào H0. Bảng dưới ghi y của bản đầu; cộng thêm 14 để ra y thực tế.
+| Hàng y | Tọa độ Tuyệt đối (x, y) & ID Focus |
+|:---:|---|
+| **y = 12** | **(16, 12)**: `VIE_hl_unity_of_will` (Gốc cây Kiên định) |
+| **y = 13** | **(6, 13)**: `VIE_hl_ideological_foundation`<br>**(16, 13)**: `VIE_hl_party_rectification`<br>**(20, 13)**: `VIE_hl_party_leads_army`<br>**(24, 13)**: `VIE_hl_party_diplomacy` |
+| **y = 14** | **(4, 14)**: `VIE_hl_cyber_ideology`<br>**(8, 14)**: `VIE_hl_school_theory`<br>**(12, 14)**: `VIE_hl_state_sector_leading`<br>**(16, 14)**: `VIE_hl_cadre_centralisation`<br>**(18, 14)**: `VIE_sec_public_order` *(An ninh ghép)*<br>**(20, 14)**: `VIE_hl_army_political_education`<br>**(24, 14)**: `VIE_hl_no_dependence` |
+| **y = 15** | **(4, 15)**: `VIE_sec_surveillance_network` *(An ninh ghép)*<br>**(6, 15)**: `VIE_hl_press_planning`<br>**(8, 15)**: `VIE_hl_fatherland_front`<br>**(10, 15)**: `VIE_hl_key_sectors`<br>**(12, 15)**: `VIE_hl_soe_spearhead`<br>**(14, 15)**: `VIE_hl_no_party_business`<br>**(18, 15)**: `VIE_sec_border_control` *(An ninh ghép)*<br>**(20, 15)**: `VIE_hl_all_people_defence`<br>**(24, 15)**: `VIE_hl_selective_partners` |
+| **y = 16** | **(4, 16)**: `VIE_sec_cyber_sovereignty` *(An ninh ghép)*<br>**(10, 16)**: `VIE_hl_selective_fdi`<br>**(12, 16)**: `VIE_sec_state_data_center` *(An ninh ghép)*<br>**(20, 16)**: `VIE_hl_party_defence_industry` |
+| **y = 17** | **(12, 17)**: `VIE_hl_five_year_plan`<br>**(16, 17)**: `VIE_hl_term_review` |
+| **y = 18** | **(12, 18)**: `VIE_hl_steadfast_renewal`<br>**(16, 18)**: `VIE_hl_party_state_fusion`<br>**(20, 18)**: `VIE_hl_handover` |
 
-| y | Focus (x) |
-|---|---|
-| 11 | H0 (23) |
-| 12 | H1 (18), B1 (22), H2 (26), D1 (30) |
-| 13 | A1 (16), A5 (18), H3 (20), B2 (22), C1 (24), C2 (26), D2 (30) |
-| 14 | A2 (16), A3 (18), B3 (22), C3 (24), D3 (30) |
-| 15 | A4 (16), B4 (22), C4 (26) |
-| 16 | A6 (17) |
-| 17 | E1 (23) |
-| 18 | X1 (19), X2 (23), X3 (27) |
-
-Cột: trụ A ở x 16–18, trụ B ở x 22, trụ C ở x 24–26, trụ D ở x 30. Khoảng cách ngang tối thiểu là 2, đúng yêu cầu của `tools/check_static.py`. Phải chạy lại script này sau khi code để chắc không đè ô.
-
-`search_filters`: POLITICAL, STABILITY, ECONOMY, ARMY (đã có).
+- **Khoảng cách ngang ($\Delta x$):** Tối thiểu 2 ô giữa các focus kề nhau trên cùng hàng.
+- **Bước nhảy dọc ($dy$):** 100% đạt chuẩn $dy = 1$ (liền hàng), không đè ô, không dây chéo.
+- `search_filters`: `POLITICAL`, `STABILITY`, `ECONOMY`, `ARMY`, `RESEARCH`.
 
 ## 9. Kế hoạch code
 

@@ -1,7 +1,18 @@
 # Nhánh An ninh Nội địa & Kiểm soát Không gian mạng — Kiến trúc & Bố cục Hàng ngang (Chuẩn hóa MD4)
 
-> **Tài liệu thiết kế kiến trúc và chuẩn format (04/10/2026)**  
-> **Áp dụng:** Chuẩn hóa và quy tụ toàn bộ 8 focus An ninh Nội địa (`VIE_sec_*`) trong `common/national_focus/VIE_md_focus.txt`.  
+> **CẬP NHẬT QUAN TRỌNG (05/10/2026):**  
+> Nhánh An ninh Nội địa (`VIE_sec_*`) đã được **SÁP NHẬP TOÀN DIỆN** vào cây focus **Con đường Kiên định** (CPV Hardline, `ruling_party = 4`).  
+> - **Lý do:** Khắc phục xung đột ID đảng (`ruling_party = 7` Autocracy vs `4` Communist-State), giải quyết triệt để sự trùng lặp về mục tiêu chính trị, và tích hợp cơ chế Áp lực cải cách (`VIE_rp`).  
+> - **Khối độc lập tại x=93:** Đã được dỡ bỏ khỏi file `VIE_md_focus.txt`.  
+> - **Quy hoạch 30 focus hợp nhất:**  
+>   + Giữ lại **5 focus An ninh chuyên biệt** ghép nối trực tiếp vào các trụ của Hardline: `VIE_sec_public_order` (18, 14), `VIE_sec_border_control` (18, 15), `VIE_sec_surveillance_network` (4, 15), `VIE_sec_cyber_sovereignty` (4, 16), `VIE_sec_state_data_center` (12, 16).  
+>   + Gộp **6 focus An ninh trùng lặp** vào các focus song sinh của Hardline (`VIE_sec_security_state` $\rightarrow$ `VIE_hl_unity_of_will`; `VIE_sec_cyber_control` $\rightarrow$ `VIE_hl_cyber_ideology`; `VIE_sec_loyalty_vetting` $\rightarrow$ `VIE_hl_party_rectification`; `VIE_sec_security_economy` $\rightarrow$ `VIE_hl_selective_fdi`; `VIE_sec_ideological_education` $\rightarrow$ `VIE_hl_school_theory`; `VIE_sec_managed_opening` $\rightarrow$ `VIE_hl_steadfast_renewal`).  
+> - Chi tiết kiến trúc mới xem tại [Con_duong_Kien_dinh_noi_dung_cay_focus_v2.md](Con_duong_Kien_dinh_noi_dung_cay_focus_v2.md).
+
+---
+
+> **Tài liệu lịch sử thiết kế kiến trúc (04/10/2026 - Lưu trữ tham khảo):**  
+> **Áp dụng:** Từng chuẩn hóa 8 focus An ninh Nội địa (`VIE_sec_*`) tại tọa độ x=93 trước khi sáp nhập vào Hardline.  
 > **Kế thừa:** Chuẩn bố cục "Hàng ngang" tại [VIE_focus_coding_standards.md mục 7.3](VIE_focus_coding_standards.md).
 
 ---
