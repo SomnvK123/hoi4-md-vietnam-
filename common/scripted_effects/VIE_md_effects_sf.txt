@@ -1,0 +1,23 @@
+########################################################################
+# Truc 4 luc luong dac biet (tien to VIE_sf_) - helper dung chung.
+# Thiet ke: VIE_special_forces_review_and_plan.md. Reward tung focus (VIE_sf_<ma>_reward) them o buoc 2.
+# Modifier ghi vao bien VIE_af_* cua VIE_armed_forces_modifier; moi reward goi VIE_sf_refresh o cuoi.
+########################################################################
+
+VIE_sf_refresh = {
+	force_update_dynamic_modifier = yes
+}
+
+# ---- Dong tooltip "thay doi dynamic modifier" ----
+VIE_sf_dm_tt = {
+	custom_effect_tooltip = {
+		localization_key = modifies_dynamic_modifier_tt
+		MODIFIER = VIE_armed_forces_modifier
+	}
+}
+
+# ---- Tru cot trang bi: tru ngan sach 5 bn (chuan coding standards muc 6, treasury thu cong) ----
+VIE_sf_equipment_cost = {
+	set_temp_variable = { treasury_change = -5 }
+	modify_treasury_effect = yes
+}

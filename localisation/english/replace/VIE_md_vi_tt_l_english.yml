@@ -67,3 +67,6 @@
  VIE_tt_air_home_defence_factor:0 "$MODIFIER_AIR_HOME_DEFENCE_FACTOR$: $RIGHT|+=%1$"
  VIE_tt_air_intercept_efficiency:0 "$MODIFIER_AIR_INTERCEPT_EFFICIENCY$: $RIGHT|+=%1$"
  VIE_tt_airforce_personnel_cost:0 "Chi phí duy trì không quân: $RIGHT|+=%1$"
+ ### Truc 4 luc luong dac biet (VIE_special_forces_review_and_plan.md buoc 1): 2 tooltip rieng thay cho recon_factor_tt / terrain_penalty_reduction_tt chua xac minh trong MD.
+ VIE_tt_recon_factor:0 "$MODIFIER_RECON_FACTOR$: $RIGHT|+=%1$"
+ VIE_tt_terrain_penalty_reduction:0 "$MODIFIER_TERRAIN_PENALTY_REDUCTION$: $RIGHT|+=%1$"
