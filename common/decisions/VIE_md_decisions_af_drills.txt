@@ -1,0 +1,138 @@
+########################################################################
+# Khong quan v2: 5 decision huan luyen lap lai duoc (VIE_air_effects_content_and_plan.md muc 5).
+# Mau VIE_dec_nf_* (VIE_md_decisions_nf_drills.txt): khong complete_effect, thuong o remove_effect sau days_remove,
+# days_re_enable la cooldown, category co san VIE_military_readiness_category. Timed idea khong tinh vao tran.
+########################################################################
+
+VIE_military_readiness_category = {
+
+	# Huan luyen khong chien
+	VIE_dec_airf_train_aa = {
+		icon = GFX_decision_generic_form_nation
+		cost = 35
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_airf_fighter_force
+		}
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_airf_train_aa (complete)"
+			VIE_airf_xp_10 = yes
+			add_timed_idea = { idea = VIE_airf_idea_aa_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# Huan luyen bay dem, moi thoi tiet
+	VIE_dec_airf_train_night = {
+		icon = GFX_decision_generic_form_nation
+		cost = 35
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_airf_command_reform_1
+		}
+		available = { has_war = no }
+
+		days_remove = 120
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_airf_train_night (complete)"
+			VIE_airf_xp_10 = yes
+			add_timed_idea = { idea = VIE_airf_idea_night_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# Dien tap phong khong tich hop (nhanh A)
+	VIE_dec_airf_train_sam = {
+		icon = GFX_decision_generic_form_nation
+		cost = 35
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_airf_layered_defence
+		}
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_airf_train_sam (complete)"
+			VIE_airf_xp_10 = yes
+			add_timed_idea = { idea = VIE_airf_idea_sam_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# Dien tap danh mat dat, mat bien (nhanh B)
+	VIE_dec_airf_train_strike = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_airf_multirole_fleet
+		}
+		available = { has_war = no }
+
+		days_remove = 120
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_airf_train_strike (complete)"
+			VIE_airf_xp_10 = yes
+			add_timed_idea = { idea = VIE_airf_idea_strike_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	# Dien tap UAV va lien ket du lieu (nhanh C)
+	VIE_dec_airf_train_uav = {
+		icon = GFX_decision_generic_form_nation
+		cost = 35
+		days_re_enable = 545
+
+		visible = {
+			has_completed_focus = VIE_airf_datalink
+		}
+		available = { has_war = no }
+
+		days_remove = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_airf_train_uav (complete)"
+			VIE_airf_xp_10 = yes
+			add_timed_idea = { idea = VIE_airf_idea_uav_drill days = 180 }
+		}
+
+		ai_will_do = {
+			base = 15
+			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}

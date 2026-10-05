@@ -1107,3 +1107,16 @@ Design: `VIE_naval_effects_content_and_plan.md`. Balance: `python tools/audit/nf
 - [ ] Truc 2: F1 gives `VIE_nav_law_idea` and +25 PP; F2..F5 add 3 exp to shipbuilding / MRO / integration (MRO capped at 50 when Russia-dependent); F4 +2% naval speed, F5 +1% hit chance; F6 +50 PP and +3% war support. `python tools/audit/naval_balance.py` still PASS.
 - [ ] Four decisions (`VIE_dec_nf_train_asw/firing/mines/replenish`) in `VIE_military_readiness_category`: hidden until their focus is done (ASW also needs a Kilo or `VIE_nf_d2_done`), 545-day cooldown, +10 XP and 180-day timed idea after 90/120 days.
 - [ ] Milestones: `debug` date 2016-03 / 2018-03 / 2023-07 fires `vie_nav_force.70 / .71 / .72` (after `VIE_popup_cd` expires; fallback applies silently 6 months later); a savegame after civil war (`VIE_catch_up`) sets the flags without firing.
+
+## Air effects v2 (22 focus VIE_airf_*, 7 focus VIE_apm_*, 5 decision huan luyen, 3 event moc), not yet run in game
+Design: `VIE_air_effects_content_and_plan.md`. Balance: `python tools/audit/air_force_balance.py` and `air_ind_balance.py` (both must print ALL PASS; MIS 16/16 and RNG 20/20 on branch B are exactly at the cap, so rerun after any number change).
+- [ ] Console `effect add_to_variable = { VIE_af_air_night_penalty = -0.01 }` (same for `VIE_af_air_weather_penalty`, `VIE_af_air_ace_generation_chance_factor`): the `VIE_armed_forces_modifier` tooltip shows the line with the right sign. If the engine ignores them, drop that axis (plan part 7, R2).
+- [ ] `error.log`: grep `VIE_airf_`, `VIE_apm_f`, `VIE_dec_airf_train`, `vie_air_force.7`, `add_tech_bonus`, `reduce_focus_completion_cost`.
+- [ ] Each Truc 3 focus gives its XP / PP / command power and lists the modifiers in the completion tooltip; T1 +25 PP, capstones A4 / B5 / C5 +50 PP. Truc 2: F1 +25, F2 +15, F3 +10, F7 +50 PP and +3% war support; F4/F5 +10 command power; F2 accidents -1%.
+- [ ] Truc 2 XP goes to mastery once a grand doctrine is chosen (was `air_experience` before).
+- [ ] T6 with `VIE_airf_force_priority` 1 / 2 / 3 (set with `set_variable`): +1 intercept / +0.5 intercept, range, night penalty / +1 range; at 0 base only. B2 with `VIE_airf_fighter_specialty` 1 / 2: +1 superiority / +1 CAS.
+- [ ] D-D finish: structure 1 makes `VIE_airf_iads` 14 days cheaper; structure 3 makes `VIE_airf_multirole` and `VIE_airf_unmanned` 14 days cheaper; structure 2 nothing (unit of `reduce_focus_completion_cost` shared with the land/naval test).
+- [ ] A1 / B1 / C1: matching gives MIS +1, mismatching gives `VIE_airf_branch_mismatch_idea`; costs RNG -2 / PERS +2 / HOME -1 show in the tooltip.
+- [ ] Tech bonus names show a title (T2, T3, A3, B2, C2, F4, F5, F6) and are usable once. Categories are checked by `air_force_balance.py` section 6.
+- [ ] Five decisions (`VIE_dec_airf_train_aa / night / sam / strike / uav`) in `VIE_military_readiness_category`: hidden until their focus is done, 545-day cooldown, +10 XP and 180-day timed idea after 90/120 days.
+- [ ] Milestones: `debug` date 2011-06 / 2016-03 / 2022-12 fires `vie_air_force.70 / .71 / .72` (after `VIE_popup_cd` expires; silent fallback 6 months later); a savegame after civil war (`VIE_catch_up`) sets the flags without firing.
