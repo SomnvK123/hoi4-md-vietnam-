@@ -307,3 +307,60 @@ country_event = {
 		ai_chance = { base = 1 }
 	}
 }
+
+# .70 Moc lich su: Trung doan 923 chuyen sang Su-30MK2V (2011). Hieu ung o VIE_airf_ms1_apply (scheduler fallback goi cung effect).
+country_event = {
+	id = vie_air_force.70
+	title = vie_air_force.70.t
+	desc = vie_air_force.70.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.70 (VIE_airf_ms1_apply)"
+		VIE_airf_ms1_apply = yes
+	}
+
+	option = {
+		name = vie_air_force.70.a
+		ai_chance = { base = 100 }
+	}
+}
+
+# .71 Moc lich su: Hai Su-30MK2 cuoi, du 36 chiec (2/2016). Hieu ung o VIE_airf_ms2_apply (scheduler fallback goi cung effect).
+country_event = {
+	id = vie_air_force.71
+	title = vie_air_force.71.t
+	desc = vie_air_force.71.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.71 (VIE_airf_ms2_apply)"
+		VIE_airf_ms2_apply = yes
+	}
+
+	option = {
+		name = vie_air_force.71.a
+		ai_chance = { base = 100 }
+	}
+}
+
+# .72 Moc lich su: Trien lam Quoc phong quoc te lan dau (12/2022). Hieu ung o VIE_airf_ms3_apply (scheduler fallback goi cung effect).
+country_event = {
+	id = vie_air_force.72
+	title = vie_air_force.72.t
+	desc = vie_air_force.72.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: Event vie_air_force.72 (VIE_airf_ms3_apply)"
+		VIE_airf_ms3_apply = yes
+	}
+
+	option = {
+		name = vie_air_force.72.a
+		ai_chance = { base = 100 }
+	}
+}

@@ -781,3 +781,126 @@ VIE_airf_fav_discount = {
 		}
 	}
 }
+
+########################################################################
+# HIEU UNG EVENT MOC khong quan (VIE_air_effects_content_and_plan.md muc 6). Event va fallback im lang
+# cua scheduler goi CUNG mot effect. Cost tinh bang NGAY (24 ngay ~ nua tuan x 7).
+# Moc .70 Trung doan 923 chuyen sang Su-30MK2V (2011; thang 6 chi co trong bao cao noi bo),
+# .71 hai Su-30MK2 cuoi giao thang 2/2016 (du 36 chiec), .72 Trien lam Quoc phong quoc te lan dau (8-10/12/2022).
+########################################################################
+VIE_airf_ms1_apply = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.01 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	if = {
+		limit = { has_completed_focus = VIE_airf_first_force }
+		VIE_airf_xp_10 = yes
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_airf_first_force
+			cost = 24
+		}
+	}
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_ms2_apply = {
+	VIE_airf_xp_10 = yes
+	add_command_power = 10
+	if = {
+		limit = { has_completed_focus = VIE_airf_medium_force }
+		VIE_airf_xp_10 = yes
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_airf_medium_force
+			cost = 24
+		}
+	}
+}
+VIE_airf_ms3_apply = {
+	add_political_power = 15
+	if = {
+		limit = { has_completed_focus = VIE_apm_radar }
+		VIE_airf_xp_10 = yes
+	}
+	else = {
+		reduce_focus_completion_cost = {
+			focus = VIE_apm_radar
+			cost = 24
+		}
+	}
+}
+
+# Scheduler (khuon VIE_event_scheduler_nf): ngay -> VIE_popup_cd -> fallback im lang sau 6 thang.
+# Catch-up (VIE_catch_up = 1, sau noi chien): chi dat co moc da qua, khong ban event, khong ap hieu ung.
+VIE_event_scheduler_airf = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+		if = {
+			limit = {
+				date > 2011.5.31
+				NOT = { has_country_flag = VIE_airf_ms_su30_923 }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_airf_ms_su30_923
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_air_force.70 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2011.11.30 }
+				set_country_flag = VIE_airf_ms_su30_923
+				VIE_airf_ms1_apply = yes
+			}
+		}
+		if = {
+			limit = {
+				date > 2016.2.29
+				NOT = { has_country_flag = VIE_airf_ms_su30_36 }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_airf_ms_su30_36
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_air_force.71 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2016.8.31 }
+				set_country_flag = VIE_airf_ms_su30_36
+				VIE_airf_ms2_apply = yes
+			}
+		}
+		if = {
+			limit = {
+				date > 2022.12.7
+				NOT = { has_country_flag = VIE_airf_ms_expo }
+			}
+			if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				set_country_flag = VIE_airf_ms_expo
+				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				country_event = { id = vie_air_force.72 days = 3 random_days = 15 }
+			}
+			else_if = {
+				limit = { date > 2023.6.30 }
+				set_country_flag = VIE_airf_ms_expo
+				VIE_airf_ms3_apply = yes
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { date > 2011.5.31 }
+			set_country_flag = VIE_airf_ms_su30_923
+		}
+		if = {
+			limit = { date > 2016.2.29 }
+			set_country_flag = VIE_airf_ms_su30_36
+		}
+		if = {
+			limit = { date > 2022.12.7 }
+			set_country_flag = VIE_airf_ms_expo
+		}
+	}
+}
