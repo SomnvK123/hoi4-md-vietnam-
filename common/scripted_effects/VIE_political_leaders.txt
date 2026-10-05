@@ -95,11 +95,26 @@ set_leader_VIE = {
 			add_to_variable = { Communist-State_leader = 1 }
 			hidden_effect = { kill_country_leader = yes }
 
-			create_country_leader = {
-				name = "Pham Dinh Tuan"
-				ideology = Communist-State
-				traits = {
-					emerging_Communist-State
+			if = {
+				limit = { has_country_flag = VIE_congress9_phieu }
+				create_country_leader = {
+					name = VIE_leader_le_kha_phieu
+					picture = "Le_Kha_Phieu.dds"
+					ideology = Communist-State
+					traits = {
+						emerging_Communist-State
+						cautious
+						stubborn
+					}
+				}
+			}
+			else = {
+				create_country_leader = {
+					name = "Pham Dinh Tuan"
+					ideology = Communist-State
+					traits = {
+						emerging_Communist-State
+					}
 				}
 			}
 

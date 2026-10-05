@@ -27,11 +27,13 @@ VIE_bop_conservative_large = {
 # South China Sea tension (0-3). Caller: set_temp_variable = { VIE_tension_add = N }
 ########################################################################
 VIE_add_scs_tension = {
-	add_to_variable = { VIE_scs_tension = VIE_tension_add }
-	clamp_variable = { var = VIE_scs_tension min = 0 max = 3 }
+	hidden_effect = {
+		add_to_variable = { VIE_scs_tension = VIE_tension_add }
+		clamp_variable = { var = VIE_scs_tension min = 0 max = 3 }
+	}
 	if = {
 		limit = { check_variable = { VIE_scs_tension > 1 } }
-		set_country_flag = VIE_scs_escalated
+		hidden_effect = { set_country_flag = VIE_scs_escalated }
 	}
 }
 
@@ -45,11 +47,22 @@ VIE_add_scs_tension = {
 #   VIE_new_leader_<x>     Congress hand-over: kill, create, remember who holds the post (VIE_gs)
 # VIE_gs: 1 Phieu, 2 Manh, 3 Trong, 4 Dung, 5 To Lam, 6 Congress XV, 7 Congress XVI
 VIE_create_leader_phieu = {
-	create_country_leader = {
-		name = VIE_leader_le_kha_phieu
-		picture = "Le_Kha_Phieu.dds"
-		ideology = Neutral_Communism
-		traits = { neutrality_Neutral_Communism cautious }
+	if = {
+		limit = { check_variable = { ruling_party = 4 } }
+		create_country_leader = {
+			name = VIE_leader_le_kha_phieu
+			picture = "Le_Kha_Phieu.dds"
+			ideology = Communist-State
+			traits = { emerging_Communist-State cautious stubborn }
+		}
+	}
+	else = {
+		create_country_leader = {
+			name = VIE_leader_le_kha_phieu
+			picture = "Le_Kha_Phieu.dds"
+			ideology = Neutral_Communism
+			traits = { neutrality_Neutral_Communism cautious }
+		}
 	}
 }
 VIE_create_leader_manh = {
@@ -174,7 +187,13 @@ VIE_transition_regime = {
 		if = {
 			limit = { has_country_flag = VIE_bop_active }
 			remove_power_balance = { id = VIE_party_balance }
-			clr_country_flag = VIE_bop_active
+			hidden_effect = { clr_country_flag = VIE_bop_active }
+		}
+
+		# Leaving the hardline party (4): drop its ideas and the reform pressure while ruling_party is still 4
+		if = {
+			limit = { check_variable = { ruling_party = 4 } }
+			VIE_hl_cleanup = yes
 		}
 
 		set_temp_variable = { change_leader_temp = 1 }
@@ -188,20 +207,20 @@ VIE_transition_regime = {
 					check_variable = { ruling_party = 4 }
 				}
 			}
-			clr_country_flag = VIE_party_rule_ended
+			hidden_effect = { clr_country_flag = VIE_party_rule_ended }
 			set_power_balance = {
 				id = VIE_party_balance
 				left_side = VIE_conservative_side
 				right_side = VIE_reform_side
 				set_value = 0
 			}
-			set_country_flag = VIE_bop_active
+			hidden_effect = { set_country_flag = VIE_bop_active }
 		}
 		else = {
-			set_country_flag = VIE_party_rule_ended
+			hidden_effect = { set_country_flag = VIE_party_rule_ended }
 			# Party rule is over: set_leader_VIE must build the leader of a later return to slot 19 itself
-			clr_country_flag = VIE_congress_controls_leader
-			set_variable = { VIE_gs = 0 }
+			hidden_effect = { clr_country_flag = VIE_congress_controls_leader }
+			hidden_effect = { set_variable = { VIE_gs = 0 } }
 			# Four Nos do not survive these regimes
 			if = {
 				limit = {
@@ -216,8 +235,8 @@ VIE_transition_regime = {
 		}
 
 		# Blocks other doors for 6 months so two regime changes cannot stack
-		set_country_flag = { flag = VIE_regime_changed_recently value = 1 days = 180 }
-		set_variable = { VIE_regime = ruling_party }
+		hidden_effect = { set_country_flag = { flag = VIE_regime_changed_recently value = 1 days = 180 } }
+		hidden_effect = { set_variable = { VIE_regime = ruling_party } }
 	}
 }
 
@@ -233,7 +252,7 @@ VIE_event_scheduler = {
 	# One-time init (hidden event vie_pol.1)
 	if = {
 		limit = { NOT = { has_country_flag = VIE_md_init_done } }
-		set_country_flag = VIE_md_init_done
+		hidden_effect = { set_country_flag = VIE_md_init_done }
 		if = {
 			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 			country_event = { id = vie_pol.1 }
@@ -248,11 +267,11 @@ VIE_event_scheduler = {
 				date > 2001.3.31
 				NOT = { has_country_flag = VIE_sched_congress_9 }
 			}
-			set_country_flag = VIE_sched_congress_9
+			hidden_effect = { set_country_flag = VIE_sched_congress_9 }
 			VIE_start_congress_term_9 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_pol.2 days = 3 random_days = 15 }
 			}
 		}
@@ -261,11 +280,11 @@ VIE_event_scheduler = {
 				date > 2006.3.31
 				NOT = { has_country_flag = VIE_sched_congress_10 }
 			}
-			set_country_flag = VIE_sched_congress_10
+			hidden_effect = { set_country_flag = VIE_sched_congress_10 }
 			VIE_start_congress_term_10 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_pol.3 days = 3 random_days = 15 }
 			}
 		}
@@ -274,11 +293,11 @@ VIE_event_scheduler = {
 				date > 2010.12.31
 				NOT = { has_country_flag = VIE_sched_congress_11 }
 			}
-			set_country_flag = VIE_sched_congress_11
+			hidden_effect = { set_country_flag = VIE_sched_congress_11 }
 			VIE_start_congress_term_11 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_pol.4 days = 3 random_days = 15 }
 			}
 		}
@@ -287,11 +306,11 @@ VIE_event_scheduler = {
 				date > 2015.12.31
 				NOT = { has_country_flag = VIE_sched_congress_12 }
 			}
-			set_country_flag = VIE_sched_congress_12
+			hidden_effect = { set_country_flag = VIE_sched_congress_12 }
 			VIE_start_congress_term_12 = yes
 			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_pol.5 days = 3 random_days = 15 }
 			}
 		}
@@ -303,7 +322,7 @@ VIE_event_scheduler = {
 			date > 2019.10.31
 			NOT = { has_country_flag = VIE_sched_four_nos }
 		}
-		set_country_flag = VIE_sched_four_nos
+		hidden_effect = { set_country_flag = VIE_sched_four_nos }
 		if = {
 			limit = { has_idea = VIE_non_alignment_policy }
 			swap_ideas = { remove_idea = VIE_non_alignment_policy add_idea = VIE_four_nos }
@@ -318,17 +337,17 @@ VIE_event_scheduler = {
 		}
 		if = {
 			limit = { check_variable = { VIE_catch_up = 1 } }
-			set_country_flag = VIE_sched_nam_cam
+			hidden_effect = { set_country_flag = VIE_sched_nam_cam }
 		}
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }
-			set_country_flag = VIE_sched_nam_cam
-			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			hidden_effect = { set_country_flag = VIE_sched_nam_cam }
+			hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 			country_event = { id = vie_eco.2 days = 3 random_days = 20 }
 		}
 		else_if = {
 			limit = { date > 2003.2.1 }
-			set_country_flag = VIE_sched_nam_cam
+			hidden_effect = { set_country_flag = VIE_sched_nam_cam }
 			VIE_fb_nam_cam = yes
 		}
 	}
@@ -339,10 +358,10 @@ VIE_event_scheduler = {
 			date > 2014.4.30
 			NOT = { has_country_flag = VIE_sched_hd981 }
 		}
-		set_country_flag = VIE_sched_hd981
+		hidden_effect = { set_country_flag = VIE_sched_hd981 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
-			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 			country_event = { id = vie_scs.1 days = 3 random_days = 15 }
 		}
 	}

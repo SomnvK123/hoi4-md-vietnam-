@@ -57,13 +57,14 @@ VIE_apm_time_set = {
 	set_temp_variable = { VIE_apm_months = $M$ }
 }
 # Tham so IDEA (VIE_apm_prog_*), EV (so event an vie_air_ind.<EV>)
-VIE_apm_start_timer = {
-	set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
-	multiply_temp_variable = { VIE_apm_end_days = 30 }
-	round_temp_variable = VIE_apm_end_days
-	add_timed_idea = { idea = $IDEA$ days = VIE_apm_end_days }
-	country_event = { id = vie_air_ind.$EV$ days = VIE_apm_end_days }
-}
+# DISABLED (unused template): the engine validates $PARAM$ placeholders raw at load and logs false errors. Uncomment when a caller passes the parameters.
+#VIE_apm_start_timer = {
+#	set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
+#	multiply_temp_variable = { VIE_apm_end_days = 30 }
+#	round_temp_variable = VIE_apm_end_days
+#	add_timed_idea = { idea = $IDEA$ days = VIE_apm_end_days }
+#	country_event = { id = vie_air_ind.$EV$ days = VIE_apm_end_days }
+#}
 
 # ---- Bac ---------------------------------------------------------------------------------------------------
 # Tham so P = a32 | a31 | radar | integ | uav
@@ -155,7 +156,7 @@ VIE_apm_a32_finish = {
 		air_experience = 5
 		if = {
 			limit = { check_variable = { VIE_apm_a32_choice = 1 } }
-			set_country_flag = VIE_apm_a32_su30_life
+			hidden_effect = { set_country_flag = VIE_apm_a32_su30_life }
 		}
 	}
 	else_if = {
@@ -232,7 +233,7 @@ VIE_apm_a31_finish = {
 		air_experience = 10
 		if = {
 			limit = { check_variable = { VIE_apm_a31_choice = 2 } }
-			set_country_flag = VIE_apm_sam_production
+			hidden_effect = { set_country_flag = VIE_apm_sam_production }
 		}
 	}
 	add_to_variable = { VIE_apm_a31_tier = 1 }
@@ -351,7 +352,7 @@ VIE_apm_uav_finish = {
 		air_experience = 10
 		if = {
 			limit = { check_variable = { VIE_apm_uav_choice = 2 } }
-			set_country_flag = VIE_apm_uav_loitering
+			hidden_effect = { set_country_flag = VIE_apm_uav_loitering }
 		}
 	}
 	add_to_variable = { VIE_apm_uav_tier = 1 }

@@ -96,7 +96,7 @@ country_event = {
 		name = vie_nav_force.10.a
 		log = "[GetDateText]: [This.GetName]: Event vie_nav_force.10.a executed"
 		set_variable = { VIE_nf_sub_orientation = 1 }
-		set_country_flag = VIE_nf_sub_prep
+		hidden_effect = { set_country_flag = VIE_nf_sub_prep }
 		country_event = { id = vie_nav_force.11 }
 		ai_chance = {
 			base = 90
@@ -109,7 +109,7 @@ country_event = {
 		name = vie_nav_force.10.b
 		log = "[GetDateText]: [This.GetName]: Event vie_nav_force.10.b executed"
 		set_variable = { VIE_nf_sub_orientation = 2 }
-		set_country_flag = VIE_nf_sub_prep
+		hidden_effect = { set_country_flag = VIE_nf_sub_prep }
 		country_event = { id = vie_nav_force.11 }
 		ai_chance = {
 			base = 10

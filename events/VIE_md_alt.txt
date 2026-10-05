@@ -32,6 +32,7 @@ country_event = {
 			power_balance_value = { id = VIE_party_balance value < 0.6 }
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.1.b executed"
+		hidden_effect = { set_country_flag = VIE_hardline_unlocked }
 		VIE_bop_conservative_small = yes
 		add_political_power = 25
 		ai_chance = {
@@ -62,7 +63,7 @@ country_event = {
 	option = {
 		name = vie_alt.2.b
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.2.b executed"
-		set_country_flag = VIE_door_d2_open
+		hidden_effect = { set_country_flag = VIE_door_d2_open }
 		add_stability = -0.01
 		add_political_power = -25
 		VIE_bop_reform_small = yes
@@ -96,7 +97,10 @@ country_event = {
 		name = vie_alt.3.b
 		trigger = { VIE_gate_security_stability = yes }
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.3.b executed"
-		set_country_flag = VIE_security_unlocked
+		hidden_effect = {
+			set_country_flag = VIE_security_unlocked
+			set_country_flag = VIE_hardline_unlocked
+		}
 		custom_effect_tooltip = VIE_gate_note_sec
 		add_stability = 0.02
 		VIE_bop_conservative_medium = yes
@@ -132,7 +136,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		set_country_flag = VIE_sez_bill_debated
+		hidden_effect = { set_country_flag = VIE_sez_bill_debated }
 	}
 
 	# Dialogue: hear out the protesters
@@ -149,8 +153,6 @@ country_event = {
 		name = vie_alt.6.b
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.6.b executed"
 		add_stability = -0.01
-		add_to_variable = { VIE_ax_civil = -1 tooltip = VIE_ax_civil_tt }
-		VIE_ax_normalize = yes
 		ai_chance = { base = 40 }
 	}
 }
@@ -173,6 +175,14 @@ country_event = {
 		modify_treasury_effect = yes
 		add_stability = 0.01
 		decrease_corruption = yes
+		# A firm state response while the conservative wing is already ahead opens the hardline plenum
+		if = {
+			limit = {
+				has_country_flag = VIE_bop_active
+				power_balance_value = { id = VIE_party_balance value < -0.4 }
+			}
+			hidden_effect = { set_country_flag = VIE_hardline_unlocked }
+		}
 		ai_chance = { base = 100 }
 	}
 
@@ -275,7 +285,7 @@ country_event = {
 		random_list = {
 			90 = {
 				add_stability = 0.03
-				set_country_flag = VIE_new_constitution_done
+				hidden_effect = { set_country_flag = VIE_new_constitution_done }
 			}
 			10 = { add_stability = -0.03 }
 		}
@@ -287,7 +297,7 @@ country_event = {
 		name = vie_alt.13.b
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.13.b executed"
 		add_stability = 0.01
-		set_country_flag = VIE_new_constitution_done
+		hidden_effect = { set_country_flag = VIE_new_constitution_done }
 		ai_chance = { base = 30 }
 	}
 }
@@ -315,7 +325,7 @@ country_event = {
 			set_temp_variable = { rul_party_temp = 2 }
 			VIE_transition_regime = yes
 		}
-		set_country_flag = VIE_democracy_elected
+		hidden_effect = { set_country_flag = VIE_democracy_elected }
 		country_event = { id = vie_int.6 days = 45 }
 		ai_chance = { base = 50 }
 	}
@@ -333,7 +343,7 @@ country_event = {
 			set_temp_variable = { rul_party_temp = 1 }
 			VIE_transition_regime = yes
 		}
-		set_country_flag = VIE_democracy_elected
+		hidden_effect = { set_country_flag = VIE_democracy_elected }
 		country_event = { id = vie_int.6 days = 45 }
 		ai_chance = { base = 30 }
 	}
@@ -351,7 +361,7 @@ country_event = {
 			set_temp_variable = { rul_party_temp = 3 }
 			VIE_transition_regime = yes
 		}
-		set_country_flag = VIE_democracy_elected
+		hidden_effect = { set_country_flag = VIE_democracy_elected }
 		country_event = { id = vie_int.6 days = 45 }
 		ai_chance = { base = 20 }
 	}

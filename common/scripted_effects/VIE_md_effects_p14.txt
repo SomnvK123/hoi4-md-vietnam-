@@ -77,7 +77,7 @@ VIE_proc_reward_t54_finland = {
 # Chuoi 2 option A - T-54M3: nhan mau thu va bo kit, tu nang cap trong nuoc (lich su).
 # Mo D5 (T-54M noi dia) cua Truc 2.
 VIE_proc_reward_t54m3_prototype = {
-	set_country_flag = VIE_t54m3_prototype
+	hidden_effect = { set_country_flag = VIE_t54m3_prototype }
 	set_temp_variable = { treasury_change = -0.05 }
 	modify_treasury_effect = yes
 }
@@ -113,7 +113,7 @@ VIE_proc_create_t54m_variant = {
 			has_dlc = "No Step Back"
 			NOT = { has_country_flag = VIE_t54m_variant }
 		}
-		set_country_flag = VIE_t54m_variant
+		hidden_effect = { set_country_flag = VIE_t54m_variant }
 		create_equipment_variant = {
 			name = "T-54M"
 			type = medium_tank_chassis_0
@@ -167,7 +167,7 @@ VIE_proc_convert_t54m3 = {
 
 # Chuoi 3 option A - Igla kem quyen san xuat trong nuoc (lich su). Mo D9 (TL-01).
 VIE_proc_reward_igla_license = {
-	set_country_flag = VIE_igla_license
+	hidden_effect = { set_country_flag = VIE_igla_license }
 	set_temp_variable = { treasury_change = -0.35 }
 	modify_treasury_effect = yes
 	# Bao cao muc 1.4 muon enemy_army_bonus_air_superiority_factor -5%. Modifier do
@@ -195,7 +195,7 @@ VIE_proc_reward_igla_purchase_only = {
 
 # Chuoi 4 option A - ky license Galil ACE cho Z111 (lich su). D2 con 730 ngay thay vi 1095.
 VIE_proc_reward_iwi_license = {
-	set_country_flag = VIE_iwi_license
+	hidden_effect = { set_country_flag = VIE_iwi_license }
 	set_temp_variable = { treasury_change = -0.10 }
 	modify_treasury_effect = yes
 }
@@ -212,7 +212,7 @@ VIE_proc_reward_t90_credit = {
 
 # Chuoi 5 option B - 128 xe, tra thang 2.50bn; 2 dot moi dot 64.
 VIE_proc_reward_t90_128 = {
-	set_country_flag = VIE_t90_batch_large
+	hidden_effect = { set_country_flag = VIE_t90_batch_large }
 	set_temp_variable = { treasury_change = -2.50 }
 	modify_treasury_effect = yes
 	country_event = { id = vie_proc_army.15 days = 900 random_days = 30 }
@@ -278,8 +278,8 @@ VIE_proc_deliver_t90_batch = {
 VIE_proc_reward_t90_in_service = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_t90_purchased } }
-		set_country_flag = VIE_t90_purchased
-		set_country_flag = VIE_ev_t90_tanks
+		hidden_effect = { set_country_flag = VIE_t90_purchased }
+		hidden_effect = { set_country_flag = VIE_ev_t90_tanks }
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -299,7 +299,7 @@ VIE_proc_reward_k9_20 = {
 
 # Chuoi 6 option B - mua 40 K9A1, 2.60bn.
 VIE_proc_reward_k9_40 = {
-	set_country_flag = VIE_k9_batch_large
+	hidden_effect = { set_country_flag = VIE_k9_batch_large }
 	set_temp_variable = { treasury_change = -2.60 }
 	modify_treasury_effect = yes
 	country_event = { id = vie_proc_army.20 days = 365 random_days = 30 }
@@ -343,7 +343,7 @@ VIE_proc_deliver_k9 = {
 			add_equipment_to_stockpile = { type = SP_arty_2 amount = 20 producer = KOR }
 		}
 	}
-	set_country_flag = VIE_k9_purchased
+	hidden_effect = { set_country_flag = VIE_k9_purchased }
 }
 
 # Chuoi 6 .21 option B - mua dan dan huong, 0.25bn.
@@ -450,22 +450,22 @@ VIE_fb_proc_k9 = {
 # ngay ca trong catch-up vi no gate focus cho moi che do).
 ########################################################################
 VIE_proc_catch_up = {
-	set_country_flag = VIE_proc_1_done
-	set_country_flag = VIE_proc_2_done
-	set_country_flag = VIE_proc_5_done
-	set_country_flag = VIE_proc_8_done
-	set_country_flag = VIE_proc_11_done
-	set_country_flag = VIE_proc_14_done
-	set_country_flag = VIE_proc_18_done
-	set_country_flag = VIE_proc_30_done
-	set_country_flag = VIE_proc_35_done
-	set_country_flag = VIE_proc_38_done
-	set_country_flag = VIE_t54m3_prototype
-	set_country_flag = VIE_igla_license
-	set_country_flag = VIE_iwi_license
-	set_country_flag = VIE_t90_purchased
-	set_country_flag = VIE_ev_t90_tanks
-	set_country_flag = VIE_k9_purchased
+	hidden_effect = { set_country_flag = VIE_proc_1_done }
+	hidden_effect = { set_country_flag = VIE_proc_2_done }
+	hidden_effect = { set_country_flag = VIE_proc_5_done }
+	hidden_effect = { set_country_flag = VIE_proc_8_done }
+	hidden_effect = { set_country_flag = VIE_proc_11_done }
+	hidden_effect = { set_country_flag = VIE_proc_14_done }
+	hidden_effect = { set_country_flag = VIE_proc_18_done }
+	hidden_effect = { set_country_flag = VIE_proc_30_done }
+	hidden_effect = { set_country_flag = VIE_proc_35_done }
+	hidden_effect = { set_country_flag = VIE_proc_38_done }
+	hidden_effect = { set_country_flag = VIE_t54m3_prototype }
+	hidden_effect = { set_country_flag = VIE_igla_license }
+	hidden_effect = { set_country_flag = VIE_iwi_license }
+	hidden_effect = { set_country_flag = VIE_t90_purchased }
+	hidden_effect = { set_country_flag = VIE_ev_t90_tanks }
+	hidden_effect = { set_country_flag = VIE_k9_purchased }
 }
 
 ########################################################################
@@ -484,13 +484,13 @@ VIE_event_scheduler_p14 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_proc_1_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_proc_1_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_proc_army.1 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2005.12.31 }
-				set_country_flag = VIE_proc_1_done
+				hidden_effect = { set_country_flag = VIE_proc_1_done }
 				VIE_proc_reward_t54_finland = yes
 			}
 		}
@@ -503,14 +503,14 @@ VIE_event_scheduler_p14 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_proc_2_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_proc_2_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_proc_army.2 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2007.6.30 }
 				# lich su: huy hop dong, don ngan sach cho hai quan va khong quan
-				set_country_flag = VIE_proc_2_done
+				hidden_effect = { set_country_flag = VIE_proc_2_done }
 				navy_experience = 10
 				air_experience = 10
 			}
@@ -528,13 +528,13 @@ VIE_event_scheduler_p14 = {
 					country_exists = ISR
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
-				set_country_flag = VIE_proc_5_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_proc_5_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_proc_army.5 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2012.12.31 }
-				set_country_flag = VIE_proc_5_done
+				hidden_effect = { set_country_flag = VIE_proc_5_done }
 				if = {
 					limit = {
 						VIE_proc_gate_army_program = yes
@@ -560,13 +560,13 @@ VIE_event_scheduler_p14 = {
 					country_exists = SOV
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
-				set_country_flag = VIE_proc_8_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_proc_8_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_proc_army.8 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2013.12.31 }
-				set_country_flag = VIE_proc_8_done
+				hidden_effect = { set_country_flag = VIE_proc_8_done }
 				if = {
 					limit = {
 						VIE_proc_gate_army_program = yes
@@ -592,13 +592,13 @@ VIE_event_scheduler_p14 = {
 					country_exists = ISR
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
-				set_country_flag = VIE_proc_11_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_proc_11_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_proc_army.11 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2015.12.31 }
-				set_country_flag = VIE_proc_11_done
+				hidden_effect = { set_country_flag = VIE_proc_11_done }
 				if = {
 					limit = {
 						VIE_proc_gate_z_factories_done = yes
@@ -626,13 +626,13 @@ VIE_event_scheduler_p14 = {
 					NOT = { has_war_with = SOV }
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
-				set_country_flag = VIE_proc_14_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_proc_14_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_proc_army.14 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2018.12.31 }
-				set_country_flag = VIE_proc_14_done
+				hidden_effect = { set_country_flag = VIE_proc_14_done }
 				if = {
 					limit = {
 						VIE_proc_gate_army_program = yes
@@ -665,13 +665,13 @@ VIE_event_scheduler_p14 = {
 					NOT = { has_war_with = KOR }
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
-				set_country_flag = VIE_proc_18_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_proc_18_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_proc_army.18 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2026.12.31 }
-				set_country_flag = VIE_proc_18_done
+				hidden_effect = { set_country_flag = VIE_proc_18_done }
 				if = {
 					limit = {
 						country_exists = KOR
@@ -700,13 +700,13 @@ VIE_event_scheduler_p14 = {
 						country_exists = SOV
 						NOT = { has_country_flag = VIE_popup_cd }
 					}
-					set_country_flag = VIE_proc_30_done
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_proc_30_done }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_proc_army.30 days = 3 random_days = 15 }
 				}
 				else_if = {
 					limit = { date > 2011.12.31 }
-					set_country_flag = VIE_proc_30_done
+					hidden_effect = { set_country_flag = VIE_proc_30_done }
 					VIE_fb_none = yes
 				}
 			}
@@ -722,13 +722,13 @@ VIE_event_scheduler_p14 = {
 						country_exists = SOV
 						NOT = { has_country_flag = VIE_popup_cd }
 					}
-					set_country_flag = VIE_proc_35_done
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_proc_35_done }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_proc_army.35 days = 3 random_days = 15 }
 				}
 				else_if = {
 					limit = { date > 2017.12.31 }
-					set_country_flag = VIE_proc_35_done
+					hidden_effect = { set_country_flag = VIE_proc_35_done }
 					VIE_fb_none = yes
 				}
 			}
@@ -744,13 +744,13 @@ VIE_event_scheduler_p14 = {
 						country_exists = FRA
 						NOT = { has_country_flag = VIE_popup_cd }
 					}
-					set_country_flag = VIE_proc_38_done
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_proc_38_done }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_proc_army.38 days = 3 random_days = 15 }
 				}
 				else_if = {
 					limit = { date > 2016.12.31 }
-					set_country_flag = VIE_proc_38_done
+					hidden_effect = { set_country_flag = VIE_proc_38_done }
 					VIE_fb_none = yes
 				}
 			}

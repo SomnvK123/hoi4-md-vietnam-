@@ -1,6 +1,6 @@
 ﻿l_english:
- VIE_state_modifier:0 "Mô hình Nhà nước & Năng lực Thể chế"
- VIE_state_modifier_desc:0 "Phản ánh mô hình nhà nước và năng lực thể chế của Việt Nam theo 4 trục: Bộ máy, Chính trị, Kinh tế, Đối ngoại.\n\n§YChỉ số hiện tại (-10 đến +10):§!\n• Năng lực Bộ máy: §Y[?VIE_sb_A|0]§! ([VIE_AxZone_A])\n• Không gian Chính trị: §Y[?VIE_sb_B|0]§! ([VIE_AxZone_B])\n• Mô hình Kinh tế: §Y[?VIE_sb_C|0]§! ([VIE_AxZone_C])\n• Định hướng Đối ngoại: §Y[?VIE_sb_D|0]§! ([VIE_AxZone_D])\n\n§gVùng giữa (-1 đến +1) không có hiệu ứng. Vùng 2 đến 5 nhận một nửa, từ 6 trở đi nhận đủ hiệu ứng của cực.§!"
+ VIE_state_modifier:0 "Nhà nước & Thể chế"
+ VIE_state_modifier_desc:0 "Tình trạng thể chế của nhà nước.[VIE_HlPressureLine]"
  VIE_ax_size:0 "Quy mô Bộ máy"
  VIE_ax_size_tt:0 "Năng lực Bộ máy (quy mô cồng kềnh): $RIGHT|+=0$"
  VIE_ax_merit:0 "Chất lượng Công vụ"
@@ -19,15 +19,28 @@
  VIE_ax_mob_tt:0 "Không gian Chính trị (huy động quần chúng, thiên về kiểm soát): $RIGHT|+=0$"
  VIE_ax_west:0 "Gắn kết Phương Tây"
  VIE_ax_west_tt:0 "Đối ngoại (gắn kết phương Tây): $RIGHT|+=0$"
-
- # Category:
- VIE_statebuilding_category:0 "Xây dựng Nhà nước & Năng lực Thể chế"
- VIE_statebuilding_category_desc:0 "Các chính sách điều chỉnh bộ máy, mô hình kinh tế, không gian chính trị và đối ngoại của Việt Nam.\n\n§Y=== NĂNG LỰC THỂ CHẾ: 4 TRỤC NHÀ NƯỚC ===§!\n§gThang -10 đến +10. Thanh xanh: nghiêng về cực phải, thanh đỏ: nghiêng về cực trái. Mỗi quyết sách mở một lựa chọn đẩy trục sang trái hoặc phải.§!\n§YA. Năng lực Bộ máy§!\n   §gBảo trợ§! [VIE_AxBar_A] §gKiến tạo§!\n   §Y[VIE_AxZone_A]§! (§Y[?VIE_sb_A|0]§!)\n§YB. Không gian Chính trị§!\n   §gKiểm soát§! [VIE_AxBar_B] §gPhản biện§!\n   §Y[VIE_AxZone_B]§! (§Y[?VIE_sb_B|0]§!)\n§YC. Mô hình Kinh tế§!\n   §gNhà nước§! [VIE_AxBar_C] §gThị trường§!\n   §Y[VIE_AxZone_C]§! (§Y[?VIE_sb_C|0]§!)\n§YD. Định hướng Đối ngoại§!\n   §gTự chủ§! [VIE_AxBar_D] §gHội nhập§!\n   §Y[VIE_AxZone_D]§! (§Y[?VIE_sb_D|0]§!)\n§g(Cập nhật hàng tháng và ngay sau khi hoàn thành Focus / Quyết sách. Quyết sách mờ: cần hoàn thành Focus tương ứng.)§!"
+ VIE_ax_size_pole_pos:0 "Cồng kềnh"
+ VIE_ax_size_pole_neg:0 "Tinh gọn"
+ VIE_ax_merit_pole_pos:0 "Chuyên nghiệp"
+ VIE_ax_merit_pole_neg:0 "Bảo trợ"
+ VIE_ax_decent_pole_pos:0 "Phân cấp"
+ VIE_ax_decent_pole_neg:0 "Tập trung"
+ VIE_ax_checks_pole_pos:0 "Ràng buộc"
+ VIE_ax_checks_pole_neg:0 "Tập quyền"
+ VIE_ax_market_pole_pos:0 "Thị trường"
+ VIE_ax_market_pole_neg:0 "Kế hoạch hóa"
+ VIE_ax_civil_pole_pos:0 "Cởi mở"
+ VIE_ax_civil_pole_neg:0 "Kiểm soát"
+ VIE_ax_integ_pole_pos:0 "Hội nhập"
+ VIE_ax_integ_pole_neg:0 "Tự chủ"
+ VIE_ax_mob_pole_pos:0 "Huy động"
+ VIE_ax_mob_pole_neg:0 "Phi huy động"
+ VIE_ax_west_pole_pos:0 "Phương Tây"
+ VIE_ax_west_pole_neg:0 "Đa phương hóa"
 
  # Decisions:
 
  # Events:
-
 
 
  vie_axis.4.t:0 "Cảnh báo: Khủng hoảng Thể chế Đa tầng"
@@ -37,7 +50,7 @@
  VIE_negotiated_transition_idea_desc:0 "Đảng cầm quyền nhượng bộ từ thế mạnh (Slater & Wong): các bên còn tin nhau, thể chế cũ đóng vai người bảo đảm cho thể chế mới."
  VIE_fragile_transition_idea:0 "Chuyển đổi mong manh"
  VIE_fragile_transition_idea_desc:0 "Dân chủ đến sau sụp đổ hoặc đảo chính, không qua thương lượng: bộ máy đứt gãy, niềm tin thấp. Giảm dần khi Củng cố dân chủ hoàn tất."
- VIE_gate_note_sec:0 "Nhánh Nhà nước An ninh chỉ mở khi Không gian Chính trị <= -6 (hiện tại: [?VIE_sb_B|0])"
+ VIE_gate_note_sec:0 "Nhánh Nhà nước An ninh được mở khóa"
  VIE_home_fighter:0 "Tiêm kích nội địa"
  VIE_axbar_m10:0 "§g§!§R||||||||||§!§W|§!§g||||||||||§!"
  VIE_axbar_m09:0 "§g|§!§R|||||||||§!§W|§!§g||||||||||§!"
@@ -70,7 +83,6 @@
  VIE_sb_C:0 "Mô hình Kinh tế"
  VIE_sb_D_tt:0 "Định hướng Đối ngoại: $RIGHT|+=0$"
  VIE_sb_D:0 "Định hướng Đối ngoại"
- VIE_gate_B_le_m6:0 "Không gian Chính trị <= -6 (hiện tại: [?VIE_sb_B|0])"
 
  # Zone names (<= -6 / -5..-2 / -1..+1 / +2..+5 / >= +6)
  VIE_zone_A_1:0 "Bộ máy bảo trợ"
@@ -94,33 +106,4 @@
  VIE_zone_D_4:0 "Hội nhập sâu"
  VIE_zone_D_5:0 "Liên kết phương Tây"
 
- # Decisions (each opens event vie_sb.N)
- VIE_sb_apparatus:0 "Cải cách Bộ máy"
- VIE_sb_apparatus_desc:0 "Điều chỉnh cách vận hành bộ máy nhà nước: củng cố đội ngũ hiện có, hoặc thi tuyển cạnh tranh và tinh gọn đầu mối. Mở thêm lựa chọn khi đã có các focus chống tham nhũng và luân chuyển cán bộ."
- VIE_sb_politics:0 "Điều chỉnh Không gian Chính trị"
- VIE_sb_politics_desc:0 "Quyết định mức siết hay nới đối với báo chí, phản biện xã hội và trật tự nội bộ. Siết thì ổn định hơn nhưng kém cởi mở, nới thì ngược lại."
- VIE_sb_economy:0 "Định hướng Kinh tế"
- VIE_sb_economy_desc:0 "Quyết định vai trò của khu vực nhà nước so với thị trường và các địa phương năng động: giữ vai trò chủ đạo của doanh nghiệp nhà nước, hoặc thí điểm cơ chế đặc thù và cởi trói."
- VIE_sb_foreign:0 "Chính sách Đối ngoại"
- VIE_sb_foreign_desc:0 "Quyết định mức độ gắn kết với thế giới: giữ tự chủ chiến lược, hoặc chủ động đàm phán hiệp định thương mại và đầu tư mới."
 
- # Events vie_sb.1-4
- vie_sb.1.t:0 "Cải cách Bộ máy"
- vie_sb.1.d:0 "Bộ Nội vụ trình phương án điều chỉnh bộ máy. Một bên muốn giữ ổn định đội ngũ cán bộ hiện có, bên kia muốn thi tuyển cạnh tranh và cắt giảm đầu mối. Cả hai đều có cái giá của mình."
- vie_sb.1.a:0 "Củng cố đội ngũ, giữ ổn định cán bộ"
- vie_sb.1.b:0 "Thi tuyển cạnh tranh và tinh gọn đầu mối"
- vie_sb.1.c:0 "Mở chiến dịch chống tham nhũng"
- vie_sb.1.d:0 "Luân chuyển cán bộ chủ chốt"
- vie_sb.2.t:0 "Không gian Chính trị"
- vie_sb.2.d:0 "Dư luận và các cơ quan chức năng đang đưa ra những ý kiến trái chiều về mức độ kiểm soát thông tin và phản biện xã hội."
- vie_sb.2.a:0 "Siết chặt kỷ cương và trật tự xã hội"
- vie_sb.2.b:0 "Cởi mở không gian báo chí và phản biện"
- vie_sb.2.c:0 "Mở tham vấn công chúng về chính sách"
- vie_sb.3.t:0 "Định hướng Kinh tế"
- vie_sb.3.d:0 "Cần quyết định hướng đi cho giai đoạn tới: tăng cường vai trò chủ đạo của kinh tế nhà nước, hay trao thêm quyền thí điểm cho địa phương và khu vực tư nhân."
- vie_sb.3.a:0 "Tăng vai trò chủ đạo của doanh nghiệp nhà nước"
- vie_sb.3.b:0 "Thí điểm cơ chế đặc thù cho địa phương và cởi trói"
- vie_sb.4.t:0 "Chính sách Đối ngoại"
- vie_sb.4.d:0 "Các đối tác đang chờ tín hiệu: Việt Nam nên ưu tiên giữ tự chủ chiến lược hay đẩy nhanh hội nhập qua các hiệp định mới?"
- vie_sb.4.a:0 "Giữ tự chủ chiến lược"
- vie_sb.4.b:0 "Đàm phán hiệp định thương mại và đầu tư mới"

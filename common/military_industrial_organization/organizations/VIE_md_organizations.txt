@@ -13,7 +13,7 @@ VIE_viettel_manufacturer = {
 	task_capacity = 3
 
 	equipment_type = { cnc_equipment_type mio_cat_eq_only_uav guided_missile_equipment sam_missile_equipment }
-	research_categories = { CAT_cnc CAT_drones CAT_a_uav CAT_naval_radar CAT_as_missiles CAT_missile CAT_electrical_tech }
+	research_categories = { CAT_military_electronics CAT_drones CAT_air_drones CAT_naval_radar CAT_missiles CAT_cruise_missiles }
 	research_bonus = 0.08
 	ai_will_do = { base = 10 }
 
@@ -180,7 +180,7 @@ VIE_gdt_manufacturer = {
 	task_capacity = 3
 
 	equipment_type = { infantry_weapons_type artillery_equipment util_vehicle_type AA_Equipment L_AT_Equipment mio_cat_all_armor }
-	research_categories = { CAT_inf_wep CAT_inf CAT_artillery CAT_sp_arty CAT_sp_r_arty CAT_at CAT_util }
+	research_categories = { CAT_infantry_weapons CAT_infantry CAT_artillery CAT_self_propelled_artillery CAT_anti_tank CAT_utility_vehicles }
 	research_bonus = 0.06
 	ai_will_do = { base = 10 }
 
@@ -435,7 +435,7 @@ VIE_vaeco_manufacturer = {
 	task_capacity = 2
 
 	equipment_type = { mio_cat_eq_only_all_light_aircraft mio_cat_helicopters mio_cat_eq_only_transport }
-	research_categories = { CAT_heli CAT_trans_heli CAT_trans_plane CAT_training CAT_air_eqp }
+	research_categories = { CAT_helicopters CAT_transport_helicopters CAT_heavy_aircraft CAT_aircraft CAT_light_aircraft }
 	research_bonus = 0.06
 	ai_will_do = { base = 10 }
 

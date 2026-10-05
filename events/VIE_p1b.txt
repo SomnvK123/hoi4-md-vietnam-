@@ -104,7 +104,7 @@ country_event = {
 	option = {
 		name = vie_p1b.3.b
 		log = "[GetDateText]: [This.GetName]: Event vie_p1b.3.b executed"
-		set_country_flag = VIE_p1b_use_debt
+		hidden_effect = { set_country_flag = VIE_p1b_use_debt }
 		VIE_p1b_contract = yes
 		ai_chance = {
 			base = 5

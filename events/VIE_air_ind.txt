@@ -24,7 +24,7 @@ country_event = {
 		VIE_apm_charge = yes
 		set_temp_variable = { VIE_apm_months = 12 }
 		set_variable = { VIE_apm_a32_choice = 1 }
-		clr_country_flag = VIE_apm_a32_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a32_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -43,7 +43,7 @@ country_event = {
 		VIE_apm_charge = yes
 		set_temp_variable = { VIE_apm_months = 24 }
 		set_variable = { VIE_apm_a32_choice = 2 }
-		clr_country_flag = VIE_apm_a32_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a32_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -72,7 +72,7 @@ country_event = {
 		VIE_apm_charge = yes
 		set_temp_variable = { VIE_apm_months = 30 }
 		set_variable = { VIE_apm_a32_choice = 1 }
-		clr_country_flag = VIE_apm_a32_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a32_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -91,7 +91,7 @@ country_event = {
 		VIE_apm_charge = yes
 		set_temp_variable = { VIE_apm_months = 24 }
 		set_variable = { VIE_apm_a32_choice = 2 }
-		clr_country_flag = VIE_apm_a32_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a32_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -121,7 +121,7 @@ country_event = {
 		VIE_apm_charge = yes
 		set_temp_variable = { VIE_apm_months = 30 }
 		set_variable = { VIE_apm_a32_choice = 1 }
-		clr_country_flag = VIE_apm_a32_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a32_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -141,7 +141,7 @@ country_event = {
 		VIE_apm_charge = yes
 		set_temp_variable = { VIE_apm_months = 30 }
 		set_variable = { VIE_apm_a32_choice = 2 }
-		clr_country_flag = VIE_apm_a32_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a32_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -192,7 +192,7 @@ country_event = {
 		VIE_apm_disc_pechora = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 1 }
-		clr_country_flag = VIE_apm_a31_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a31_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -212,7 +212,7 @@ country_event = {
 		VIE_apm_disc_pechora = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 2 }
-		clr_country_flag = VIE_apm_a31_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a31_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -241,7 +241,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 1 }
-		clr_country_flag = VIE_apm_a31_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a31_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -260,7 +260,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 30 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 2 }
-		clr_country_flag = VIE_apm_a31_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a31_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -289,7 +289,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 1 }
-		clr_country_flag = VIE_apm_a31_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a31_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -309,7 +309,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_a31_choice = 2 }
-		clr_country_flag = VIE_apm_a31_pending
+		hidden_effect = { clr_country_flag = VIE_apm_a31_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -359,7 +359,7 @@ country_event = {
 		VIE_apm_disc_radar_fast = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 1 }
-		clr_country_flag = VIE_apm_radar_pending
+		hidden_effect = { clr_country_flag = VIE_apm_radar_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -379,7 +379,7 @@ country_event = {
 		VIE_apm_disc_radar_fast = yes
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 2 }
-		clr_country_flag = VIE_apm_radar_pending
+		hidden_effect = { clr_country_flag = VIE_apm_radar_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -408,7 +408,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 1 }
-		clr_country_flag = VIE_apm_radar_pending
+		hidden_effect = { clr_country_flag = VIE_apm_radar_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -427,7 +427,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 2 }
-		clr_country_flag = VIE_apm_radar_pending
+		hidden_effect = { clr_country_flag = VIE_apm_radar_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -456,7 +456,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 30 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 1 }
-		clr_country_flag = VIE_apm_radar_pending
+		hidden_effect = { clr_country_flag = VIE_apm_radar_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -475,7 +475,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 30 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_radar_choice = 2 }
-		clr_country_flag = VIE_apm_radar_pending
+		hidden_effect = { clr_country_flag = VIE_apm_radar_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -524,7 +524,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 1 }
-		clr_country_flag = VIE_apm_integ_pending
+		hidden_effect = { clr_country_flag = VIE_apm_integ_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -543,7 +543,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 2 }
-		clr_country_flag = VIE_apm_integ_pending
+		hidden_effect = { clr_country_flag = VIE_apm_integ_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -572,7 +572,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 1 }
-		clr_country_flag = VIE_apm_integ_pending
+		hidden_effect = { clr_country_flag = VIE_apm_integ_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -591,7 +591,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 2 }
-		clr_country_flag = VIE_apm_integ_pending
+		hidden_effect = { clr_country_flag = VIE_apm_integ_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -620,7 +620,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 1 }
-		clr_country_flag = VIE_apm_integ_pending
+		hidden_effect = { clr_country_flag = VIE_apm_integ_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -639,7 +639,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_integ_choice = 2 }
-		clr_country_flag = VIE_apm_integ_pending
+		hidden_effect = { clr_country_flag = VIE_apm_integ_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -688,7 +688,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 12 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 1 }
-		clr_country_flag = VIE_apm_uav_pending
+		hidden_effect = { clr_country_flag = VIE_apm_uav_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -716,7 +716,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 24 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 1 }
-		clr_country_flag = VIE_apm_uav_pending
+		hidden_effect = { clr_country_flag = VIE_apm_uav_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -735,7 +735,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 18 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 2 }
-		clr_country_flag = VIE_apm_uav_pending
+		hidden_effect = { clr_country_flag = VIE_apm_uav_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -764,7 +764,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 1 }
-		clr_country_flag = VIE_apm_uav_pending
+		hidden_effect = { clr_country_flag = VIE_apm_uav_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days
@@ -783,7 +783,7 @@ country_event = {
 		set_temp_variable = { VIE_apm_months = 36 }
 		VIE_apm_charge = yes
 		set_variable = { VIE_apm_uav_choice = 2 }
-		clr_country_flag = VIE_apm_uav_pending
+		hidden_effect = { clr_country_flag = VIE_apm_uav_pending }
 		set_temp_variable = { VIE_apm_end_days = VIE_apm_months }
 		multiply_temp_variable = { VIE_apm_end_days = 30 }
 		round_temp_variable = VIE_apm_end_days

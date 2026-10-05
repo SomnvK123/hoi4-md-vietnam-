@@ -81,7 +81,7 @@ country_event = {
 			air_experience = 25
 			add_tech_bonus = {
 				name = VIE_home_fighter
-				category = CAT_mr_fighter
+				category = CAT_medium_aircraft
 				uses = 1
 				bonus = 1.0
 			}
@@ -139,7 +139,7 @@ country_event = {
 		set_temp_variable = { treasury_change = -1 }
 		modify_treasury_effect = yes
 		add_stability = 0.01
-		set_country_flag = VIE_birth_support
+		hidden_effect = { set_country_flag = VIE_birth_support }
 		ai_chance = { base = 70 }
 	}
 

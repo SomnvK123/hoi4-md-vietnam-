@@ -1,0 +1,66 @@
+# Vietnam submod triggers: "Con duong Kien dinh" (CPV Hardline, MD ruling party index 4 = Communist-State).
+# Design: Con_duong_Kien_dinh_noi_dung_cay_focus_v2.md. Code plan: Con_duong_Kien_dinh_plan_code.md.
+
+# The hardline party (index 4) is in power. Every focus of the tree checks this, so the whole tree closes
+# the moment the party loses power; finished focuses keep their rewards.
+VIE_hl_in_power = {
+	original_tag = VIE
+	OR = {
+		emerging_communist_state_are_in_power = yes
+		emerging_communist_state_are_in_coalition = yes
+	}
+}
+
+# The conservative wing clearly leads the balance of power (below -0.3, inside the conservative range).
+# Deliberately shallower than VIE_bop_is_hardline (below -0.6): summing every conservative effect in the mod,
+# -0.6 is out of reach before 2011, while -0.3 is reachable with a consistently conservative course.
+# VIE_hl_take_power resets the balance to -0.5 afterwards.
+VIE_hl_bop_leads_conservative = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_bop_lead_tt
+		has_country_flag = VIE_bop_active
+		power_balance_value = {
+			id = VIE_party_balance
+			value < -0.3
+		}
+	}
+}
+
+# Taking power: the third choice of the Congress XIV row (focus VIE_hl_unity_of_will).
+VIE_hl_can_take_power_congress = {
+	OR = {
+		neutrality_neutral_communism_are_in_power = yes
+		neutrality_neutral_communism_are_in_coalition = yes
+	}
+	VIE_hl_bop_leads_conservative = yes
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_no_recent_change_tt
+		NOT = { has_country_flag = VIE_regime_changed_recently }
+		NOT = { has_country_flag = VIE_hardline_retired }
+	}
+}
+
+# At least three of the four pillars are finished (last focus of each pillar: A5, B5, C5, D5).
+VIE_hl_pillars_three = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_pillars_three_tt
+		count_triggers = {
+			amount = 3
+			has_completed_focus = VIE_hl_five_year_plan
+			has_completed_focus = VIE_hl_party_defence_industry
+			has_completed_focus = VIE_hl_fatherland_front
+			has_completed_focus = VIE_hl_no_dependence
+		}
+	}
+}
+
+VIE_hl_pillars_all = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_pillars_all_tt
+		has_completed_focus = VIE_hl_five_year_plan
+		has_completed_focus = VIE_hl_party_defence_industry
+		has_completed_focus = VIE_hl_fatherland_front
+		has_completed_focus = VIE_hl_no_dependence
+	}
+}
+

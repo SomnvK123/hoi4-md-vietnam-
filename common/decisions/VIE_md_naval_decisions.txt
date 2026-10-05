@@ -24,7 +24,7 @@ VIE_naval_procurement_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_naval_late_gepard1"
-			set_country_flag = VIE_gepard1_late
+			hidden_effect = { set_country_flag = VIE_gepard1_late }
 			country_event = { id = vie_naval.10 }
 		}
 
@@ -51,7 +51,7 @@ VIE_naval_procurement_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_naval_late_bastion"
-			set_country_flag = VIE_bastion_late
+			hidden_effect = { set_country_flag = VIE_bastion_late }
 			country_event = { id = vie_naval.30 }
 		}
 
@@ -78,7 +78,7 @@ VIE_naval_procurement_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_naval_late_kilo"
-			set_country_flag = VIE_kilo_late
+			hidden_effect = { set_country_flag = VIE_kilo_late }
 			country_event = { id = vie_naval.20 }
 		}
 
@@ -107,7 +107,7 @@ VIE_naval_procurement_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_naval_late_gepard2"
-			set_country_flag = VIE_gepard2_late
+			hidden_effect = { set_country_flag = VIE_gepard2_late }
 			country_event = { id = vie_naval.12 }
 		}
 
@@ -159,11 +159,11 @@ VIE_naval_procurement_category = {
 					NOT = { has_country_flag = VIE_molniya_p2_contracted }
 					has_country_flag = VIE_cap_ba_son_yard
 				}
-				set_country_flag = VIE_molniya_p2_late
+				hidden_effect = { set_country_flag = VIE_molniya_p2_late }
 				country_event = { id = vie_naval.3 }
 			}
 			else = {
-				set_country_flag = VIE_molniya_p1_late
+				hidden_effect = { set_country_flag = VIE_molniya_p1_late }
 				country_event = { id = vie_naval.1 }
 			}
 		}
@@ -195,7 +195,7 @@ VIE_naval_procurement_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_naval_late_sigma"
-			set_country_flag = VIE_sigma_late
+			hidden_effect = { set_country_flag = VIE_sigma_late }
 			country_event = { id = vie_naval.41 }
 		}
 

@@ -1,0 +1,81 @@
+# Vietnam Submod: Army National Spirits Revamp
+# Provides tangible, thematic national spirits reflecting the modernization of the Vietnam People's Army (VPA).
+
+ideas = {
+	country = {
+
+		# Focus VIE_lf_army_reform: Streamlining & Organizational Reform
+		VIE_military_streamlining = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				army_org_factor = 0.05
+				army_morale_factor = 0.05
+				army_personnel_cost_multiplier_modifier = -0.05
+			}
+		}
+
+		# Focus VIE_lf_fs_mobile_force: Mobile Strike Corps Doctrine
+		VIE_mobile_doctrine_spirit = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				army_speed_factor = 0.06
+				breakthrough_factor = 0.05
+				army_fuel_consumption_factor = -0.05
+			}
+		}
+
+		# Focus VIE_lf_fs_main_corps: Main Regular Corps (Corps 12 & 34)
+		VIE_regular_corps_spirit = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				army_org_factor = 0.05
+				army_defence_factor = 0.05
+				max_planning = 0.10
+			}
+		}
+
+		# Focus VIE_lf_fs_depth_defence: In-depth & Territorial People's Defence
+		VIE_depth_defence_spirit = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				max_dig_in_factor = 0.08
+				land_night_attack = 0.05
+				conscription_factor = 0.05
+			}
+		}
+
+		# Focus VIE_lf_cap_cyber_ew: Cyber Command (Command 86)
+		VIE_cyber_command_86 = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				recon_factor = 0.10
+				decryption_factor = 0.10
+				coordination_bonus = 0.05
+			}
+		}
+
+		# Focus VIE_lf_force_complete: Modern Army of the People 2030 (Capstone)
+		VIE_vpa_modern_army_power = {
+			picture = army_planning
+			cancel_if_invalid = no
+
+			modifier = {
+				army_org_factor = 0.08
+				army_attack_factor = 0.06
+				army_defence_factor = 0.06
+				attrition = -0.10
+				experience_gain_army_factor = 0.10
+			}
+		}
+	}
+}

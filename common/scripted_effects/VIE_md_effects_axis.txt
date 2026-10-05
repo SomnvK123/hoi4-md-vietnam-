@@ -1,216 +1,260 @@
 # Scripted effects for Vietnam State-Building.
 # Nine hidden axis variables (VIE_ax_<x>, written by ~370 focuses) are normalized to -10..+10, then folded
 # every month into FOUR visible axes (see VIE_statebuilding_4axis_design.md):
-#   A Nang luc Bo may       VIE_sb_A = merit_norm - size_norm/2               + VIE_sb_A_dec
-#   B Khong gian Chinh tri  VIE_sb_B = civil_norm + (checks_norm - mob_norm)/2 + VIE_sb_B_dec
-#   C Mo hinh Kinh te       VIE_sb_C = market_norm + decent_norm/2            + VIE_sb_C_dec
-#   D Dinh huong Doi ngoai  VIE_sb_D = integ_norm + west_norm/2               + VIE_sb_D_dec
-# The *_dec offsets are written only by the four state-building decisions (events vie_sb.*), so the monthly
-# recompute never wipes a decision's effect. Modifier, factions and gates read A..D only.
+#   A Nang luc Bo may       VIE_sb_A = merit_norm - size_norm/2
+#   B Khong gian Chinh tri  VIE_sb_B = civil_norm + (checks_norm - mob_norm)/2
+#   C Mo hinh Kinh te       VIE_sb_C = market_norm + decent_norm/2
+#   D Dinh huong Doi ngoai  VIE_sb_D = integ_norm + west_norm/2
+# The four visible axes are a pure function of the nine hidden axes (the state-building decisions and their
+# offsets were removed). Modifier, factions and gates read A..D only.
 
 VIE_ax_init = {
-	if = {
-		limit = {
-			NOT = { has_dynamic_modifier = { modifier = VIE_state_modifier } }
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { has_dynamic_modifier = { modifier = VIE_state_modifier } }
+			}
+			add_dynamic_modifier = { modifier = VIE_state_modifier }
 		}
-		add_dynamic_modifier = { modifier = VIE_state_modifier }
-	}
-	if = {
-		limit = {
-			NOT = { has_country_flag = VIE_ax_initialized }
+		if = {
+			limit = {
+				NOT = { has_country_flag = VIE_ax_initialized }
+			}
+			hidden_effect = { set_country_flag = VIE_ax_initialized }
+			# The axis effects were removed from every focus/event/decision: all axes stay at 0, so the state modifier is neutral.
+			set_variable = { VIE_ax_size = 0 }
+			set_variable = { VIE_ax_merit = 0 }
+			set_variable = { VIE_ax_decent = 0 }
+			set_variable = { VIE_ax_checks = 0 }
+			set_variable = { VIE_ax_market = 0 }
+			set_variable = { VIE_ax_civil = 0 }
+			set_variable = { VIE_ax_integ = 0 }
+			set_variable = { VIE_ax_mob = 0 }
+			set_variable = { VIE_ax_west = 0 }
+			VIE_ax_normalize = yes
 		}
-		set_country_flag = VIE_ax_initialized
-		set_variable = { VIE_ax_size = 3 }
-		set_variable = { VIE_ax_merit = -2 }
-		set_variable = { VIE_ax_decent = 1 }
-		set_variable = { VIE_ax_checks = -2 }
-		set_variable = { VIE_ax_market = -2 }
-		set_variable = { VIE_ax_civil = -3 }
-		set_variable = { VIE_ax_integ = 0 }
-		set_variable = { VIE_ax_mob = 0 }
-		set_variable = { VIE_ax_west = 0 }
-		set_variable = { VIE_sb_A_dec = 0 }
-		set_variable = { VIE_sb_B_dec = 0 }
-		set_variable = { VIE_sb_C_dec = 0 }
-		set_variable = { VIE_sb_D_dec = 0 }
-		VIE_ax_normalize = yes
 	}
 }
 
 VIE_ax_normalize = {
-	# Recursion guard: set flag FIRST before calling VIE_ax_init to prevent
-	# mutual infinite recursion (VIE_ax_normalize → VIE_ax_init → VIE_ax_normalize → ...).
-	# VIE_ax_init checks this flag and skips its body if already set.
-	if = {
-		limit = { NOT = { has_country_flag = VIE_ax_initialized } }
-		set_country_flag = VIE_ax_initialized
-		VIE_ax_init = yes
-	}
+	hidden_effect = {
+		# Recursion guard: set flag FIRST before calling VIE_ax_init to prevent
+		# mutual infinite recursion (VIE_ax_normalize → VIE_ax_init → VIE_ax_normalize → ...).
+		# VIE_ax_init checks this flag and skips its body if already set.
+		if = {
+			limit = { NOT = { has_country_flag = VIE_ax_initialized } }
+			hidden_effect = { set_country_flag = VIE_ax_initialized }
+			VIE_ax_init = yes
+		}
 
-	# 1. Size (SPAN 12)
-	set_variable = { VIE_ax_size_norm = VIE_ax_size }
-	multiply_variable = { var = VIE_ax_size_norm value = 10 }
-	divide_variable = { var = VIE_ax_size_norm value = 12 }
-	clamp_variable = { var = VIE_ax_size_norm min = -10 max = 10 }
-	round_variable = VIE_ax_size_norm
+		# 1. Size (SPAN 12)
+		set_variable = { VIE_ax_size_norm = VIE_ax_size }
+		multiply_variable = { var = VIE_ax_size_norm value = 10 }
+		divide_variable = { var = VIE_ax_size_norm value = 12 }
+		clamp_variable = { var = VIE_ax_size_norm min = -10 max = 10 }
+		round_variable = VIE_ax_size_norm
 
-	# 2. Merit (SPAN 59)
-	set_variable = { VIE_ax_merit_norm = VIE_ax_merit }
-	multiply_variable = { var = VIE_ax_merit_norm value = 10 }
-	divide_variable = { var = VIE_ax_merit_norm value = 59 }
-	clamp_variable = { var = VIE_ax_merit_norm min = -10 max = 10 }
-	round_variable = VIE_ax_merit_norm
+		# 2. Merit (SPAN 59)
+		set_variable = { VIE_ax_merit_norm = VIE_ax_merit }
+		multiply_variable = { var = VIE_ax_merit_norm value = 10 }
+		divide_variable = { var = VIE_ax_merit_norm value = 59 }
+		clamp_variable = { var = VIE_ax_merit_norm min = -10 max = 10 }
+		round_variable = VIE_ax_merit_norm
 
-	# 3. Decent (SPAN 24)
-	set_variable = { VIE_ax_decent_norm = VIE_ax_decent }
-	multiply_variable = { var = VIE_ax_decent_norm value = 10 }
-	divide_variable = { var = VIE_ax_decent_norm value = 24 }
-	clamp_variable = { var = VIE_ax_decent_norm min = -10 max = 10 }
-	round_variable = VIE_ax_decent_norm
+		# 3. Decent (SPAN 24)
+		set_variable = { VIE_ax_decent_norm = VIE_ax_decent }
+		multiply_variable = { var = VIE_ax_decent_norm value = 10 }
+		divide_variable = { var = VIE_ax_decent_norm value = 24 }
+		clamp_variable = { var = VIE_ax_decent_norm min = -10 max = 10 }
+		round_variable = VIE_ax_decent_norm
 
-	# 4. Checks (SPAN 19)
-	set_variable = { VIE_ax_checks_norm = VIE_ax_checks }
-	multiply_variable = { var = VIE_ax_checks_norm value = 10 }
-	divide_variable = { var = VIE_ax_checks_norm value = 19 }
-	clamp_variable = { var = VIE_ax_checks_norm min = -10 max = 10 }
-	round_variable = VIE_ax_checks_norm
+		# 4. Checks (SPAN 19)
+		set_variable = { VIE_ax_checks_norm = VIE_ax_checks }
+		multiply_variable = { var = VIE_ax_checks_norm value = 10 }
+		divide_variable = { var = VIE_ax_checks_norm value = 19 }
+		clamp_variable = { var = VIE_ax_checks_norm min = -10 max = 10 }
+		round_variable = VIE_ax_checks_norm
 
-	# 5. Market (SPAN 41)
-	set_variable = { VIE_ax_market_norm = VIE_ax_market }
-	multiply_variable = { var = VIE_ax_market_norm value = 10 }
-	divide_variable = { var = VIE_ax_market_norm value = 41 }
-	clamp_variable = { var = VIE_ax_market_norm min = -10 max = 10 }
-	round_variable = VIE_ax_market_norm
+		# 5. Market (SPAN 41)
+		set_variable = { VIE_ax_market_norm = VIE_ax_market }
+		multiply_variable = { var = VIE_ax_market_norm value = 10 }
+		divide_variable = { var = VIE_ax_market_norm value = 41 }
+		clamp_variable = { var = VIE_ax_market_norm min = -10 max = 10 }
+		round_variable = VIE_ax_market_norm
 
-	# 6. Civil (SPAN 14)
-	set_variable = { VIE_ax_civil_norm = VIE_ax_civil }
-	multiply_variable = { var = VIE_ax_civil_norm value = 10 }
-	divide_variable = { var = VIE_ax_civil_norm value = 14 }
-	clamp_variable = { var = VIE_ax_civil_norm min = -10 max = 10 }
-	round_variable = VIE_ax_civil_norm
+		# 6. Civil (SPAN 14)
+		set_variable = { VIE_ax_civil_norm = VIE_ax_civil }
+		multiply_variable = { var = VIE_ax_civil_norm value = 10 }
+		divide_variable = { var = VIE_ax_civil_norm value = 14 }
+		clamp_variable = { var = VIE_ax_civil_norm min = -10 max = 10 }
+		round_variable = VIE_ax_civil_norm
 
-	# 7. Integ (SPAN 98)
-	set_variable = { VIE_ax_integ_norm = VIE_ax_integ }
-	multiply_variable = { var = VIE_ax_integ_norm value = 10 }
-	divide_variable = { var = VIE_ax_integ_norm value = 98 }
-	clamp_variable = { var = VIE_ax_integ_norm min = -10 max = 10 }
-	round_variable = VIE_ax_integ_norm
+		# 7. Integ (SPAN 98)
+		set_variable = { VIE_ax_integ_norm = VIE_ax_integ }
+		multiply_variable = { var = VIE_ax_integ_norm value = 10 }
+		divide_variable = { var = VIE_ax_integ_norm value = 98 }
+		clamp_variable = { var = VIE_ax_integ_norm min = -10 max = 10 }
+		round_variable = VIE_ax_integ_norm
 
-	# 8. Mob (SPAN 12)
-	set_variable = { VIE_ax_mob_norm = VIE_ax_mob }
-	multiply_variable = { var = VIE_ax_mob_norm value = 10 }
-	divide_variable = { var = VIE_ax_mob_norm value = 12 }
-	clamp_variable = { var = VIE_ax_mob_norm min = -10 max = 10 }
-	round_variable = VIE_ax_mob_norm
+		# 8. Mob (SPAN 12)
+		set_variable = { VIE_ax_mob_norm = VIE_ax_mob }
+		multiply_variable = { var = VIE_ax_mob_norm value = 10 }
+		divide_variable = { var = VIE_ax_mob_norm value = 12 }
+		clamp_variable = { var = VIE_ax_mob_norm min = -10 max = 10 }
+		round_variable = VIE_ax_mob_norm
 
-	# 9. West (SPAN 29)
-	set_variable = { VIE_ax_west_norm = VIE_ax_west }
-	multiply_variable = { var = VIE_ax_west_norm value = 10 }
-	divide_variable = { var = VIE_ax_west_norm value = 29 }
-	clamp_variable = { var = VIE_ax_west_norm min = -10 max = 10 }
-	round_variable = VIE_ax_west_norm
+		# 9. West (SPAN 29)
+		set_variable = { VIE_ax_west_norm = VIE_ax_west }
+		multiply_variable = { var = VIE_ax_west_norm value = 10 }
+		divide_variable = { var = VIE_ax_west_norm value = 29 }
+		clamp_variable = { var = VIE_ax_west_norm min = -10 max = 10 }
+		round_variable = VIE_ax_west_norm
 
-	# ---- Fold the nine hidden axes into the four visible ones ----
-	# A = merit - size/2 (+ decision offset)
-	set_variable = { VIE_sb_A = VIE_ax_merit_norm }
-	set_temp_variable = { sb_half = VIE_ax_size_norm }
-	divide_variable = { var = sb_half value = 2 }
-	subtract_from_variable = { var = VIE_sb_A value = sb_half }
-	add_to_variable = { var = VIE_sb_A value = VIE_sb_A_dec }
-	clamp_variable = { var = VIE_sb_A min = -10 max = 10 }
-	round_variable = VIE_sb_A
+		# ---- Fold the nine hidden axes into the four visible ones ----
+		# A = merit - size/2
+		set_variable = { VIE_sb_A = VIE_ax_merit_norm }
+		set_temp_variable = { sb_half = VIE_ax_size_norm }
+		divide_variable = { var = sb_half value = 2 }
+		subtract_from_variable = { var = VIE_sb_A value = sb_half }
+		clamp_variable = { var = VIE_sb_A min = -10 max = 10 }
+		round_variable = VIE_sb_A
 
-	# B = civil + (checks - mob)/2 (+ decision offset)
-	set_variable = { VIE_sb_B = VIE_ax_civil_norm }
-	set_temp_variable = { sb_half = VIE_ax_checks_norm }
-	subtract_from_variable = { var = sb_half value = VIE_ax_mob_norm }
-	divide_variable = { var = sb_half value = 2 }
-	add_to_variable = { var = VIE_sb_B value = sb_half }
-	add_to_variable = { var = VIE_sb_B value = VIE_sb_B_dec }
-	clamp_variable = { var = VIE_sb_B min = -10 max = 10 }
-	round_variable = VIE_sb_B
+		# B = civil + (checks - mob)/2
+		set_variable = { VIE_sb_B = VIE_ax_civil_norm }
+		set_temp_variable = { sb_half = VIE_ax_checks_norm }
+		subtract_from_variable = { var = sb_half value = VIE_ax_mob_norm }
+		divide_variable = { var = sb_half value = 2 }
+		add_to_variable = { var = VIE_sb_B value = sb_half }
+		clamp_variable = { var = VIE_sb_B min = -10 max = 10 }
+		round_variable = VIE_sb_B
 
-	# C = market + decent/2 (+ decision offset)
-	set_variable = { VIE_sb_C = VIE_ax_market_norm }
-	set_temp_variable = { sb_half = VIE_ax_decent_norm }
-	divide_variable = { var = sb_half value = 2 }
-	add_to_variable = { var = VIE_sb_C value = sb_half }
-	add_to_variable = { var = VIE_sb_C value = VIE_sb_C_dec }
-	clamp_variable = { var = VIE_sb_C min = -10 max = 10 }
-	round_variable = VIE_sb_C
+		# C = market + decent/2
+		set_variable = { VIE_sb_C = VIE_ax_market_norm }
+		set_temp_variable = { sb_half = VIE_ax_decent_norm }
+		divide_variable = { var = sb_half value = 2 }
+		add_to_variable = { var = VIE_sb_C value = sb_half }
+		clamp_variable = { var = VIE_sb_C min = -10 max = 10 }
+		round_variable = VIE_sb_C
 
-	# D = integ + west/2 (+ decision offset)
-	set_variable = { VIE_sb_D = VIE_ax_integ_norm }
-	set_temp_variable = { sb_half = VIE_ax_west_norm }
-	divide_variable = { var = sb_half value = 2 }
-	add_to_variable = { var = VIE_sb_D value = sb_half }
-	add_to_variable = { var = VIE_sb_D value = VIE_sb_D_dec }
-	clamp_variable = { var = VIE_sb_D min = -10 max = 10 }
-	round_variable = VIE_sb_D
+		# D = integ + west/2
+		set_variable = { VIE_sb_D = VIE_ax_integ_norm }
+		set_temp_variable = { sb_half = VIE_ax_west_norm }
+		divide_variable = { var = sb_half value = 2 }
+		add_to_variable = { var = VIE_sb_D value = sb_half }
+		clamp_variable = { var = VIE_sb_D min = -10 max = 10 }
+		round_variable = VIE_sb_D
 
-	# Zone level per axis: 0 in -1..+1, +-0.5 in 2..5, +-1 from 6 (half / full pole effect)
-	VIE_sb_calc_level = { AX = A }
-	VIE_sb_calc_level = { AX = B }
-	VIE_sb_calc_level = { AX = C }
-	VIE_sb_calc_level = { AX = D }
+		# Zone level per axis: 0 in -1..+1, +-0.5 in 2..5, +-1 from 6 (half / full pole effect)
+		# Zone level of axis A: 0 in -1..+1, +-0.5 in 2..5, +-1 from 6
+		set_variable = { VIE_sb_A_lv = 0 }
+		if = {
+			limit = { check_variable = { VIE_sb_A > 1 } }
+			set_variable = { VIE_sb_A_lv = 0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_A > 5 } }
+			set_variable = { VIE_sb_A_lv = 1 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_A < -1 } }
+			set_variable = { VIE_sb_A_lv = -0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_A < -5 } }
+			set_variable = { VIE_sb_A_lv = -1 }
+		}
+		# Zone level of axis B: 0 in -1..+1, +-0.5 in 2..5, +-1 from 6
+		set_variable = { VIE_sb_B_lv = 0 }
+		if = {
+			limit = { check_variable = { VIE_sb_B > 1 } }
+			set_variable = { VIE_sb_B_lv = 0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_B > 5 } }
+			set_variable = { VIE_sb_B_lv = 1 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_B < -1 } }
+			set_variable = { VIE_sb_B_lv = -0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_B < -5 } }
+			set_variable = { VIE_sb_B_lv = -1 }
+		}
+		# Zone level of axis C: 0 in -1..+1, +-0.5 in 2..5, +-1 from 6
+		set_variable = { VIE_sb_C_lv = 0 }
+		if = {
+			limit = { check_variable = { VIE_sb_C > 1 } }
+			set_variable = { VIE_sb_C_lv = 0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_C > 5 } }
+			set_variable = { VIE_sb_C_lv = 1 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_C < -1 } }
+			set_variable = { VIE_sb_C_lv = -0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_C < -5 } }
+			set_variable = { VIE_sb_C_lv = -1 }
+		}
+		# Zone level of axis D: 0 in -1..+1, +-0.5 in 2..5, +-1 from 6
+		set_variable = { VIE_sb_D_lv = 0 }
+		if = {
+			limit = { check_variable = { VIE_sb_D > 1 } }
+			set_variable = { VIE_sb_D_lv = 0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_D > 5 } }
+			set_variable = { VIE_sb_D_lv = 1 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_D < -1 } }
+			set_variable = { VIE_sb_D_lv = -0.5 }
+		}
+		if = {
+			limit = { check_variable = { VIE_sb_D < -5 } }
+			set_variable = { VIE_sb_D_lv = -1 }
+		}
 
-	# Modifier variables, each linear in the zone level (left pole = negative level)
-	# A: left = patronage (+PP, -efficiency); right = professional (-PP, +efficiency)
-	set_variable = { VIE_sb_pp_mod = VIE_sb_A_lv }
-	multiply_variable = { var = VIE_sb_pp_mod value = -0.06 }
-	set_variable = { VIE_sb_eff_mod = VIE_sb_A_lv }
-	multiply_variable = { var = VIE_sb_eff_mod value = 0.05 }
-	set_temp_variable = { sb_t = VIE_sb_D_lv }
-	multiply_variable = { var = sb_t value = -0.02 }
-	add_to_variable = { var = VIE_sb_eff_mod value = sb_t }
+		# Modifier variables, each linear in the zone level (left pole = negative level)
+		# A: left = patronage (+PP, -efficiency); right = professional (-PP, +efficiency)
+		set_variable = { VIE_sb_pp_mod = VIE_sb_A_lv }
+		multiply_variable = { var = VIE_sb_pp_mod value = -0.06 }
+		set_variable = { VIE_sb_eff_mod = VIE_sb_A_lv }
+		multiply_variable = { var = VIE_sb_eff_mod value = 0.05 }
+		set_temp_variable = { sb_t = VIE_sb_D_lv }
+		multiply_variable = { var = sb_t value = -0.02 }
+		add_to_variable = { var = VIE_sb_eff_mod value = sb_t }
 
-	# B: left = security (+stability, +war support, -research); right = open (-stability, +research)
-	# C: left = state-led (+military industry, +stability); right = market (+construction, +productivity, -stability)
-	set_variable = { VIE_sb_stab_mod = VIE_sb_B_lv }
-	multiply_variable = { var = VIE_sb_stab_mod value = -0.08 }
-	set_temp_variable = { sb_t = VIE_sb_C_lv }
-	multiply_variable = { var = sb_t value = -0.04 }
-	add_to_variable = { var = VIE_sb_stab_mod value = sb_t }
-	set_variable = { VIE_sb_war_mod = VIE_sb_B_lv }
-	multiply_variable = { var = VIE_sb_war_mod value = -0.05 }
-	set_variable = { VIE_sb_res_mod = VIE_sb_B_lv }
-	multiply_variable = { var = VIE_sb_res_mod value = 0.05 }
-	set_temp_variable = { sb_t = VIE_sb_D_lv }
-	multiply_variable = { var = sb_t value = 0.03 }
-	add_to_variable = { var = VIE_sb_res_mod value = sb_t }
-	set_variable = { VIE_sb_mil_mod = VIE_sb_C_lv }
-	multiply_variable = { var = VIE_sb_mil_mod value = -0.08 }
-	set_variable = { VIE_sb_build_mod = VIE_sb_C_lv }
-	multiply_variable = { var = VIE_sb_build_mod value = 0.08 }
-	set_variable = { VIE_sb_prod_mod = VIE_sb_C_lv }
-	multiply_variable = { var = VIE_sb_prod_mod value = 0.03 }
+		# B: left = security (+stability, +war support, -research); right = open (-stability, +research)
+		# C: left = state-led (+military industry, +stability); right = market (+construction, +productivity, -stability)
+		set_variable = { VIE_sb_stab_mod = VIE_sb_B_lv }
+		multiply_variable = { var = VIE_sb_stab_mod value = -0.08 }
+		set_temp_variable = { sb_t = VIE_sb_C_lv }
+		multiply_variable = { var = sb_t value = -0.04 }
+		add_to_variable = { var = VIE_sb_stab_mod value = sb_t }
+		set_variable = { VIE_sb_war_mod = VIE_sb_B_lv }
+		multiply_variable = { var = VIE_sb_war_mod value = -0.05 }
+		set_variable = { VIE_sb_res_mod = VIE_sb_B_lv }
+		multiply_variable = { var = VIE_sb_res_mod value = 0.05 }
+		set_temp_variable = { sb_t = VIE_sb_D_lv }
+		multiply_variable = { var = sb_t value = 0.03 }
+		add_to_variable = { var = VIE_sb_res_mod value = sb_t }
+		set_variable = { VIE_sb_mil_mod = VIE_sb_C_lv }
+		multiply_variable = { var = VIE_sb_mil_mod value = -0.08 }
+		set_variable = { VIE_sb_build_mod = VIE_sb_C_lv }
+		multiply_variable = { var = VIE_sb_build_mod value = 0.08 }
+		set_variable = { VIE_sb_prod_mod = VIE_sb_C_lv }
+		multiply_variable = { var = VIE_sb_prod_mod value = 0.03 }
 
-	# D: left = self-reliant (+efficiency, see above); right = integrated (+trade opinion, +research)
-	set_variable = { VIE_sb_trade_mod = VIE_sb_D_lv }
-	multiply_variable = { var = VIE_sb_trade_mod value = 0.05 }
+		# D: left = self-reliant (+efficiency, see above); right = integrated (+trade opinion, +research)
+		set_variable = { VIE_sb_trade_mod = VIE_sb_D_lv }
+		multiply_variable = { var = VIE_sb_trade_mod value = 0.05 }
 
-	VIE_ax_faction_check = yes
-	VIE_ax_events_check = yes
-}
-
-# Zone level of one visible axis ($AX$ = A, B, C or D): 0 in -1..+1, +-0.5 in 2..5, +-1 from 6.
-VIE_sb_calc_level = {
-	set_variable = { VIE_sb_$AX$_lv = 0 }
-	if = {
-		limit = { check_variable = { VIE_sb_$AX$ > 1 } }
-		set_variable = { VIE_sb_$AX$_lv = 0.5 }
-	}
-	if = {
-		limit = { check_variable = { VIE_sb_$AX$ > 5 } }
-		set_variable = { VIE_sb_$AX$_lv = 1 }
-	}
-	if = {
-		limit = { check_variable = { VIE_sb_$AX$ < -1 } }
-		set_variable = { VIE_sb_$AX$_lv = -0.5 }
-	}
-	if = {
-		limit = { check_variable = { VIE_sb_$AX$ < -5 } }
-		set_variable = { VIE_sb_$AX$_lv = -1 }
+		VIE_ax_faction_check = yes
+		VIE_ax_events_check = yes
 	}
 }
 
@@ -310,7 +354,7 @@ VIE_ax_events_check = {
 				check_variable = { VIE_sb_A < -3 }
 			}
 		}
-		set_country_flag = VIE_axis_4_fired
+		hidden_effect = { set_country_flag = VIE_axis_4_fired }
 		country_event = { id = vie_axis.4 days = 10 }
 	}
 }

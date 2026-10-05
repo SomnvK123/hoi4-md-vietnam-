@@ -44,7 +44,7 @@
  ### Hai modifier chi phi la modifier TIEN cua MD (color_type = bad), nen dung chu thuong thay vi $MODIFIER_X$.
  VIE_tt_army_org_factor:0 "$MODIFIER_ARMY_ORG_FACTOR$: $RIGHT|+=%1$"
  VIE_tt_experience_gain_army_factor:0 "$MODIFIER_EXPERIENCE_GAIN_ARMY_FACTOR$: $RIGHT|+=%1$"
- VIE_tt_supply_consumption_factor:0 "$MODIFIER_SUPPLY_CONSUMPTION_FACTOR$: $RIGHT|+=%1$"
+ VIE_tt_supply_consumption_factor:0 "$MODIFIER_SUPPLY_CONSUMPTION_FACTOR$: $RIGHT|-=%1$"
  VIE_tt_conscription_factor:0 "$MODIFIER_CONSCRIPTION_FACTOR$: $RIGHT|+=%1$"
  VIE_tt_army_personnel_cost:0 "Chi phí duy trì lục quân: $RIGHT|+=%1$"
  VIE_tt_equipment_cost:0 "Chi phí trang bị: $RIGHT|+=%1$"

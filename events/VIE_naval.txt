@@ -163,7 +163,7 @@ country_event = {
 	option = {
 		name = vie_naval.10.c
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.10.c executed"
-		set_country_flag = VIE_gepard1_missed
+		hidden_effect = { set_country_flag = VIE_gepard1_missed }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 }
@@ -210,7 +210,7 @@ country_event = {
 	option = {
 		name = vie_naval.11.c
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.11.c executed"
-		set_country_flag = VIE_gepard1_missed
+		hidden_effect = { set_country_flag = VIE_gepard1_missed }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 }
@@ -257,7 +257,7 @@ country_event = {
 	option = {
 		name = vie_naval.12.c
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.12.c executed"
-		set_country_flag = VIE_gepard2_cancelled
+		hidden_effect = { set_country_flag = VIE_gepard2_cancelled }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 }
@@ -326,7 +326,7 @@ country_event = {
 	option = {
 		name = vie_naval.20.e
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.20.e executed"
-		set_country_flag = VIE_kilo_missed
+		hidden_effect = { set_country_flag = VIE_kilo_missed }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 }
@@ -346,7 +346,7 @@ country_event = {
 	option = {
 		name = vie_naval.21.a
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.21.a executed"
-		set_country_flag = VIE_kilo_training_full
+		hidden_effect = { set_country_flag = VIE_kilo_training_full }
 		VIE_naval_contract_kilo = yes
 		ai_chance = {
 			base = 90
@@ -417,7 +417,7 @@ country_event = {
 	option = {
 		name = vie_naval.30.g
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.30.g executed"
-		set_country_flag = VIE_bastion_missed
+		hidden_effect = { set_country_flag = VIE_bastion_missed }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 }
@@ -500,7 +500,7 @@ country_event = {
 	option = {
 		name = vie_naval.40.a
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.40.a executed"
-		set_country_flag = VIE_sigma_historical
+		hidden_effect = { set_country_flag = VIE_sigma_historical }
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -522,7 +522,7 @@ country_event = {
 	option = {
 		name = vie_naval.40.c
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.40.c executed"
-		set_country_flag = VIE_sigma_cancelled
+		hidden_effect = { set_country_flag = VIE_sigma_cancelled }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 }
@@ -579,7 +579,7 @@ country_event = {
 	option = {
 		name = vie_naval.41.e
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.41.e executed"
-		set_country_flag = VIE_sigma_missed
+		hidden_effect = { set_country_flag = VIE_sigma_missed }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 }
@@ -666,7 +666,7 @@ country_event = {
 	option = {
 		name = vie_naval.43.b
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.43.b executed"
-		set_country_flag = VIE_sigma_use_debt
+		hidden_effect = { set_country_flag = VIE_sigma_use_debt }
 		VIE_naval_contract_sigma = yes
 		ai_chance = {
 			base = 5
@@ -680,7 +680,7 @@ country_event = {
 	option = {
 		name = vie_naval.43.c
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.43.c executed"
-		set_country_flag = VIE_sigma_missed
+		hidden_effect = { set_country_flag = VIE_sigma_missed }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 }
@@ -691,7 +691,7 @@ country_event = {
 	option = {
 		name = vie_naval.43.e
 		log = "[GetDateText]: [This.GetName]: Event vie_naval.43.e executed"
-		set_country_flag = VIE_sigma_cancelled
+		hidden_effect = { set_country_flag = VIE_sigma_cancelled }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 }

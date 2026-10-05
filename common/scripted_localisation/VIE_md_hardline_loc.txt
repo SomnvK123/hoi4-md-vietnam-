@@ -1,0 +1,27 @@
+# One line for the state modifier tooltip (VIE_state_modifier_desc): reform pressure of the hardline branch.
+# Empty unless the hardline party rules, so other regimes see no change.
+defined_text = {
+	name = VIE_HlPressureLine
+
+	text = {
+		trigger = { NOT = { check_variable = { ruling_party = 4 } } }
+		localization_key = VIE_hl_rp_line_none
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_rp > 79 } }
+		localization_key = VIE_hl_rp_line_4
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_rp > 55 } }
+		localization_key = VIE_hl_rp_line_3
+	}
+
+	text = {
+		trigger = { check_variable = { VIE_rp > 30 } }
+		localization_key = VIE_hl_rp_line_2
+	}
+
+	text = { localization_key = VIE_hl_rp_line_1 }
+}

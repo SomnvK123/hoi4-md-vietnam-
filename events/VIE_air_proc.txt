@@ -53,9 +53,9 @@ country_event = {
 		name = vie_air_proc.3.c
 		trigger = { date < 2004.12.31 }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_proc.3.c executed"
-		clr_country_flag = VIE_ap_su30_1_offered
-		clr_country_flag = VIE_ap_su30_1_gate_seen
-		set_country_flag = { flag = VIE_ap_su30_1_wait value = 1 days = 365 }
+		hidden_effect = { clr_country_flag = VIE_ap_su30_1_offered }
+		hidden_effect = { clr_country_flag = VIE_ap_su30_1_gate_seen }
+		hidden_effect = { set_country_flag = { flag = VIE_ap_su30_1_wait value = 1 days = 365 } }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -180,9 +180,9 @@ country_event = {
 		name = vie_air_proc.9.c
 		trigger = { date < 2013.12.31 }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_proc.9.c executed"
-		clr_country_flag = VIE_ap_su30_4_offered
-		clr_country_flag = VIE_ap_su30_4_gate_seen
-		set_country_flag = { flag = VIE_ap_su30_4_wait value = 1 days = 365 }
+		hidden_effect = { clr_country_flag = VIE_ap_su30_4_offered }
+		hidden_effect = { clr_country_flag = VIE_ap_su30_4_gate_seen }
+		hidden_effect = { set_country_flag = { flag = VIE_ap_su30_4_wait value = 1 days = 365 } }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -224,9 +224,9 @@ country_event = {
 		name = vie_air_proc.2.c
 		trigger = { date < 2005.12.31 }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_proc.2.c executed"
-		clr_country_flag = VIE_ap_s300_offered
-		clr_country_flag = VIE_ap_s300_gate_seen
-		set_country_flag = { flag = VIE_ap_s300_wait value = 1 days = 365 }
+		hidden_effect = { clr_country_flag = VIE_ap_s300_offered }
+		hidden_effect = { clr_country_flag = VIE_ap_s300_gate_seen }
+		hidden_effect = { set_country_flag = { flag = VIE_ap_s300_wait value = 1 days = 365 } }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -495,9 +495,9 @@ country_event = {
 		name = vie_air_proc.14.c
 		trigger = { date < 2019.12.31 }
 		log = "[GetDateText]: [This.GetName]: Event vie_air_proc.14.c executed"
-		clr_country_flag = VIE_ap_yak130_offered
-		clr_country_flag = VIE_ap_yak130_gate_seen
-		set_country_flag = { flag = VIE_ap_yak130_wait value = 1 days = 365 }
+		hidden_effect = { clr_country_flag = VIE_ap_yak130_offered }
+		hidden_effect = { clr_country_flag = VIE_ap_yak130_gate_seen }
+		hidden_effect = { set_country_flag = { flag = VIE_ap_yak130_wait value = 1 days = 365 } }
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }

@@ -35,7 +35,7 @@ country_event = {
 		set_temp_variable = { treasury_change = -0.5 }
 		modify_treasury_effect = yes
 		add_stability = 0.02
-		set_country_flag = VIE_petro_crisis_handled
+		hidden_effect = { set_country_flag = VIE_petro_crisis_handled }
 	}
 
 	# Phương án B: Thả nổi theo biến động thế giới (Khủng hoảng thiếu nhiên liệu tạm thời)
@@ -44,6 +44,6 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_petro.1.b executed"
 		add_timed_idea = { idea = VIE_fuel_shortage_crisis days = 365 }
 		add_stability = -0.04
-		set_country_flag = VIE_petro_crisis_handled
+		hidden_effect = { set_country_flag = VIE_petro_crisis_handled }
 	}
 }

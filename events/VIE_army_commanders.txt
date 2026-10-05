@@ -14,8 +14,8 @@ country_event = {
 		recruit_character = VIE_army_tran_cong_duc
 		recruit_character = VIE_army_nguyen_ba_luc
 		recruit_character = VIE_army_truong_manh_dung
-		set_country_flag = VIE_army_expansion_recruited
-		clr_country_flag = VIE_army_expansion_event_pending
+		hidden_effect = { set_country_flag = VIE_army_expansion_recruited }
+		hidden_effect = { clr_country_flag = VIE_army_expansion_event_pending }
 	}
 
 	option = {
@@ -52,8 +52,8 @@ country_event = {
 		retire_character = VIE_army_nguyen_huy_hieu
 		retire_character = VIE_army_nguyen_van_duoc
 		retire_character = VIE_Phi_Quoc_Tuan
-		set_country_flag = VIE_md_roster_recruited_2015
-		clr_country_flag = VIE_md_roster_event_pending
+		hidden_effect = { set_country_flag = VIE_md_roster_recruited_2015 }
+		hidden_effect = { clr_country_flag = VIE_md_roster_event_pending }
 	}
 
 	option = {

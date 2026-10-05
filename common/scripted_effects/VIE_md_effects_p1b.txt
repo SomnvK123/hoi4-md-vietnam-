@@ -45,7 +45,7 @@ VIE_p1b_pay = {
 		set_temp_variable = { debt_change = VIE_naval_cost }
 		multiply_temp_variable = { debt_change = 1.1 }
 		modify_debt_effect = yes
-		clr_country_flag = VIE_p1b_use_debt
+		hidden_effect = { clr_country_flag = VIE_p1b_use_debt }
 	}
 	else = {
 		set_temp_variable = { treasury_change = VIE_naval_cost }
@@ -97,39 +97,39 @@ VIE_p1b_contract = {
 VIE_p1b_cancel = {
 	if = {
 		limit = { check_variable = { VIE_p1b_cur = 1 } }
-		set_country_flag = VIE_p1b_corvette_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_corvette_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 2 } }
-		set_country_flag = VIE_p1b_frigate_med_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_frigate_med_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 3 } }
-		set_country_flag = VIE_p1b_asw_frigate_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_asw_frigate_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 4 } }
-		set_country_flag = VIE_p1b_ssk_reg_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_ssk_reg_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 6 } }
-		set_country_flag = VIE_p1b_bastion2_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_bastion2_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 7 } }
-		set_country_flag = VIE_p1b_amphib_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_amphib_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 8 } }
-		set_country_flag = VIE_p1b_destroyer_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_destroyer_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 10 } }
-		set_country_flag = VIE_p1b_carrier_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_carrier_cancelled }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_p1b_cur = 11 } }
-		set_country_flag = VIE_p1b_ssn_cancelled
+		hidden_effect = { set_country_flag = VIE_p1b_ssn_cancelled }
 	}
 }
 
@@ -181,7 +181,7 @@ VIE_p1b_load_corvette = {
 VIE_p1b_ensure_variant_corvette = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_corvette_done } }
-		set_country_flag = VIE_p1b_variant_corvette_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_corvette_done }
 		create_equipment_variant = {
 			name = "VIE Corvette Class"
 			type = corvette_hull_4
@@ -203,7 +203,7 @@ VIE_p1b_ensure_variant_corvette = {
 }
 
 VIE_p1b_contract_corvette = {
-	set_country_flag = VIE_p1b_corvette_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_corvette_contracted }
 	set_variable = { VIE_p1b_corvette_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_corvette_qty_delivered = 0 }
 	set_variable = { VIE_p1b_corvette_localization = VIE_p1b_loc }
@@ -321,7 +321,7 @@ VIE_p1b_load_frigate_med = {
 VIE_p1b_ensure_variant_frigate_med = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_frigate_med_done } }
-		set_country_flag = VIE_p1b_variant_frigate_med_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_frigate_med_done }
 		create_equipment_variant = {
 			name = "VIE Frigate Class"
 			type = frigate_hull_4
@@ -345,7 +345,7 @@ VIE_p1b_ensure_variant_frigate_med = {
 }
 
 VIE_p1b_contract_frigate_med = {
-	set_country_flag = VIE_p1b_frigate_med_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_frigate_med_contracted }
 	set_variable = { VIE_p1b_frigate_med_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_frigate_med_qty_delivered = 0 }
 	set_variable = { VIE_p1b_frigate_med_localization = VIE_p1b_loc }
@@ -464,7 +464,7 @@ VIE_p1b_load_asw_frigate = {
 VIE_p1b_ensure_variant_asw_frigate = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_asw_frigate_done } }
-		set_country_flag = VIE_p1b_variant_asw_frigate_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_asw_frigate_done }
 		create_equipment_variant = {
 			name = "VIE ASW Frigate Class"
 			type = frigate_hull_4
@@ -488,7 +488,7 @@ VIE_p1b_ensure_variant_asw_frigate = {
 }
 
 VIE_p1b_contract_asw_frigate = {
-	set_country_flag = VIE_p1b_asw_frigate_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_asw_frigate_contracted }
 	set_variable = { VIE_p1b_asw_frigate_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_asw_frigate_qty_delivered = 0 }
 	set_variable = { VIE_p1b_asw_frigate_localization = VIE_p1b_loc }
@@ -599,7 +599,7 @@ VIE_p1b_load_ssk_reg = {
 VIE_p1b_ensure_variant_ssk_reg = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_ssk_reg_done } }
-		set_country_flag = VIE_p1b_variant_ssk_reg_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_ssk_reg_done }
 		create_equipment_variant = {
 			name = "VIE Regional SSK Class"
 			type = attack_submarine_hull_4
@@ -620,7 +620,7 @@ VIE_p1b_ensure_variant_ssk_reg = {
 }
 
 VIE_p1b_contract_ssk_reg = {
-	set_country_flag = VIE_p1b_ssk_reg_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_ssk_reg_contracted }
 	set_variable = { VIE_p1b_ssk_reg_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_ssk_reg_qty_delivered = 0 }
 	set_variable = { VIE_p1b_ssk_reg_localization = VIE_p1b_loc }
@@ -721,7 +721,7 @@ VIE_p1b_load_bastion2 = {
 }
 
 VIE_p1b_contract_bastion2 = {
-	set_country_flag = VIE_p1b_bastion2_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_bastion2_contracted }
 	set_variable = { VIE_p1b_bastion2_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_bastion2_qty_delivered = 0 }
 	set_variable = { VIE_p1b_bastion2_localization = VIE_p1b_loc }
@@ -804,7 +804,7 @@ VIE_p1b_load_amphib = {
 VIE_p1b_ensure_variant_amphib = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_amphib_done } }
-		set_country_flag = VIE_p1b_variant_amphib_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_amphib_done }
 		create_equipment_variant = {
 			name = "VIE Amphibious Class"
 			type = helicopter_operator_hull_3
@@ -828,7 +828,7 @@ VIE_p1b_ensure_variant_amphib = {
 }
 
 VIE_p1b_contract_amphib = {
-	set_country_flag = VIE_p1b_amphib_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_amphib_contracted }
 	set_variable = { VIE_p1b_amphib_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_amphib_qty_delivered = 0 }
 	set_variable = { VIE_p1b_amphib_localization = VIE_p1b_loc }
@@ -941,7 +941,7 @@ VIE_p1b_load_destroyer = {
 VIE_p1b_ensure_variant_destroyer = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_destroyer_done } }
-		set_country_flag = VIE_p1b_variant_destroyer_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_destroyer_done }
 		create_equipment_variant = {
 			name = "VIE Destroyer Class"
 			type = destroyer_hull_4
@@ -967,7 +967,7 @@ VIE_p1b_ensure_variant_destroyer = {
 }
 
 VIE_p1b_contract_destroyer = {
-	set_country_flag = VIE_p1b_destroyer_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_destroyer_contracted }
 	set_variable = { VIE_p1b_destroyer_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_destroyer_qty_delivered = 0 }
 	set_variable = { VIE_p1b_destroyer_localization = VIE_p1b_loc }
@@ -1073,7 +1073,7 @@ VIE_p1b_load_carrier = {
 VIE_p1b_ensure_variant_carrier = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_carrier_done } }
-		set_country_flag = VIE_p1b_variant_carrier_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_carrier_done }
 		create_equipment_variant = {
 			name = "VIE Light Carrier Class"
 			type = carrier_hull_3
@@ -1099,7 +1099,7 @@ VIE_p1b_ensure_variant_carrier = {
 }
 
 VIE_p1b_contract_carrier = {
-	set_country_flag = VIE_p1b_carrier_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_carrier_contracted }
 	set_variable = { VIE_p1b_carrier_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_carrier_qty_delivered = 0 }
 	set_variable = { VIE_p1b_carrier_localization = VIE_p1b_loc }
@@ -1198,7 +1198,7 @@ VIE_p1b_load_ssn = {
 VIE_p1b_ensure_variant_ssn = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_p1b_variant_ssn_done } }
-		set_country_flag = VIE_p1b_variant_ssn_done
+		hidden_effect = { set_country_flag = VIE_p1b_variant_ssn_done }
 		create_equipment_variant = {
 			name = "VIE SSN Class"
 			type = attack_submarine_hull_5
@@ -1219,7 +1219,7 @@ VIE_p1b_ensure_variant_ssn = {
 }
 
 VIE_p1b_contract_ssn = {
-	set_country_flag = VIE_p1b_ssn_contracted
+	hidden_effect = { set_country_flag = VIE_p1b_ssn_contracted }
 	set_variable = { VIE_p1b_ssn_qty_ordered = VIE_p1b_qty }
 	set_variable = { VIE_p1b_ssn_qty_delivered = 0 }
 	set_variable = { VIE_p1b_ssn_localization = VIE_p1b_loc }

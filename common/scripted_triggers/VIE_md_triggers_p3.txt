@@ -11,6 +11,6 @@ VIE_corruption_high_trigger = {
 
 # Reading helpers for Balance-of-power tooltips in focuses
 VIE_bop_is_hardline = {
-	has_country_flag = VIE_bop_active
+	hidden_trigger = { has_country_flag = VIE_bop_active }
 	power_balance_value = { id = VIE_party_balance value < -0.6 }
 }

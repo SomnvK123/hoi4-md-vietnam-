@@ -5,15 +5,20 @@
 VIE_party_rule_active = {
 	original_tag = VIE
 	OR = {
-		check_variable = { ruling_party = 19 }
-		check_variable = { ruling_party = 4 }
+		neutrality_neutral_communism_are_in_power = yes
+		neutrality_neutral_communism_are_in_coalition = yes
+		emerging_communist_state_are_in_power = yes
+		emerging_communist_state_are_in_coalition = yes
 	}
-	NOT = { has_country_flag = VIE_party_rule_ended }
+	hidden_trigger = { NOT = { has_country_flag = VIE_party_rule_ended } }
 }
 
 # South China Sea tension has reached level 2 or more (unlocks the assertive maritime focuses).
 VIE_scs_escalated_trigger = {
-	check_variable = { VIE_scs_tension > 1 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_scs_escalated_tt
+		check_variable = { VIE_scs_tension > 1 }
+	}
 }
 
 # Balance-of-power readers (need VIE_bop_active, i.e. Party rule and the balance initialised)
@@ -45,10 +50,16 @@ VIE_era_2021 = {
 
 # Set by event vie_pol.8 (Fourteenth Congress, Jan 2026)
 VIE_fourteenth_congress_held = {
-	has_country_flag = VIE_congress14_done
+	custom_trigger_tooltip = {
+		tooltip = VIE_fourteenth_congress_held_tt
+		has_country_flag = VIE_congress14_done
+	}
 }
 
 # Set by event vie_dip.1 (US arms embargo lifted, May 2016)
 VIE_us_arms_open_tt = {
-	has_country_flag = VIE_us_arms_open
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_us_arms_open_tt_tt
+			has_country_flag = VIE_us_arms_open
+	}
 }

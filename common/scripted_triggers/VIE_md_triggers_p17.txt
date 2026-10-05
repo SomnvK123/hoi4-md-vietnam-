@@ -30,18 +30,30 @@ VIE_lf_gate_open = {
 # Bien duoc dat = 0 o on_startup (co guard VIE_lf_vars_init).
 # ---------------------------------------------------------------------
 VIE_lf_arm_slot_free = {
-	check_variable = { VIE_lf_arm_count < 3 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_lf_arm_slot_free_tt
+			check_variable = { VIE_lf_arm_count < 3 }
+	}
 }
 VIE_lf_cap_slot_free = {
-	check_variable = { VIE_lf_cap_count < 2 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_lf_cap_slot_free_tt
+			check_variable = { VIE_lf_cap_count < 2 }
+	}
 }
 
 # HD can du 3 binh chung da hoan tat phan dao tao; MOD can du 2 linh vuc da hoan tat node cuoi.
 VIE_lf_arm_done_3 = {
-	check_variable = { VIE_lf_arm_done > 2 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_lf_arm_done_3_tt
+			check_variable = { VIE_lf_arm_done > 2 }
+	}
 }
 VIE_lf_cap_done_2 = {
-	check_variable = { VIE_lf_cap_done > 1 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_lf_cap_done_2_tt
+			check_variable = { VIE_lf_cap_done > 1 }
+	}
 }
 
 # ---------------------------------------------------------------------

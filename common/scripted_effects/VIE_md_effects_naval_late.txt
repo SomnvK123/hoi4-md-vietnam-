@@ -9,10 +9,10 @@
 ########################################################################
 
 VIE_naval_late_start_gepard1 = {
-	set_country_flag = VIE_gepard1_s1
-	set_country_flag = VIE_gepard1_s2
-	set_country_flag = VIE_gepard1_s3
-	set_country_flag = VIE_gepard1_s4
+	hidden_effect = { set_country_flag = VIE_gepard1_s1 }
+	hidden_effect = { set_country_flag = VIE_gepard1_s2 }
+	hidden_effect = { set_country_flag = VIE_gepard1_s3 }
+	hidden_effect = { set_country_flag = VIE_gepard1_s4 }
 	set_temp_variable = { treasury_change = VIE_gepard1_qty_ordered }
 	multiply_temp_variable = { treasury_change = -0.04375 }
 	modify_treasury_effect = yes
@@ -20,10 +20,10 @@ VIE_naval_late_start_gepard1 = {
 }
 
 VIE_naval_late_start_gepard2 = {
-	set_country_flag = VIE_gepard2_s1
-	set_country_flag = VIE_gepard2_s2
-	set_country_flag = VIE_gepard2_s3
-	set_country_flag = VIE_gepard2_s4
+	hidden_effect = { set_country_flag = VIE_gepard2_s1 }
+	hidden_effect = { set_country_flag = VIE_gepard2_s2 }
+	hidden_effect = { set_country_flag = VIE_gepard2_s3 }
+	hidden_effect = { set_country_flag = VIE_gepard2_s4 }
 	set_temp_variable = { treasury_change = VIE_gepard2_qty_ordered }
 	multiply_temp_variable = { treasury_change = -0.0875 }
 	modify_treasury_effect = yes
@@ -31,14 +31,14 @@ VIE_naval_late_start_gepard2 = {
 }
 
 VIE_naval_late_start_kilo = {
-	set_country_flag = VIE_kilo_s1
-	set_country_flag = VIE_kilo_s2
-	set_country_flag = VIE_kilo_s3
-	set_country_flag = VIE_kilo_s4
-	set_country_flag = VIE_kilo_s5
-	set_country_flag = VIE_kilo_s6
-	set_country_flag = VIE_kilo_s7
-	set_country_flag = VIE_kilo_s8
+	hidden_effect = { set_country_flag = VIE_kilo_s1 }
+	hidden_effect = { set_country_flag = VIE_kilo_s2 }
+	hidden_effect = { set_country_flag = VIE_kilo_s3 }
+	hidden_effect = { set_country_flag = VIE_kilo_s4 }
+	hidden_effect = { set_country_flag = VIE_kilo_s5 }
+	hidden_effect = { set_country_flag = VIE_kilo_s6 }
+	hidden_effect = { set_country_flag = VIE_kilo_s7 }
+	hidden_effect = { set_country_flag = VIE_kilo_s8 }
 	set_temp_variable = { treasury_change = VIE_kilo_qty_ordered }
 	multiply_temp_variable = { treasury_change = -0.0833 }
 	modify_treasury_effect = yes
@@ -58,10 +58,10 @@ VIE_naval_late_start_kilo = {
 }
 
 VIE_naval_late_start_bastion = {
-	set_country_flag = VIE_bastion_s1
-	set_country_flag = VIE_bastion_s2
-	set_country_flag = VIE_bastion_s3
-	set_country_flag = VIE_bastion_s4
+	hidden_effect = { set_country_flag = VIE_bastion_s1 }
+	hidden_effect = { set_country_flag = VIE_bastion_s2 }
+	hidden_effect = { set_country_flag = VIE_bastion_s3 }
+	hidden_effect = { set_country_flag = VIE_bastion_s4 }
 	set_temp_variable = { treasury_change = VIE_bastion_qty_ordered }
 	multiply_temp_variable = { treasury_change = -0.0375 }
 	modify_treasury_effect = yes
@@ -69,10 +69,10 @@ VIE_naval_late_start_bastion = {
 }
 
 VIE_naval_late_start_molniya_p1 = {
-	set_country_flag = VIE_molniya_s1
-	set_country_flag = VIE_molniya_s2
-	set_country_flag = VIE_molniya_s3
-	set_country_flag = VIE_molniya_s4
+	hidden_effect = { set_country_flag = VIE_molniya_s1 }
+	hidden_effect = { set_country_flag = VIE_molniya_s2 }
+	hidden_effect = { set_country_flag = VIE_molniya_s3 }
+	hidden_effect = { set_country_flag = VIE_molniya_s4 }
 	set_temp_variable = { treasury_change = VIE_molniya_ru_qty }
 	multiply_temp_variable = { treasury_change = -0.015 }
 	modify_treasury_effect = yes
@@ -80,16 +80,16 @@ VIE_naval_late_start_molniya_p1 = {
 }
 
 VIE_naval_late_start_molniya_p2 = {
-	set_country_flag = VIE_molniya_v1
-	set_country_flag = VIE_molniya_v2
-	set_country_flag = VIE_molniya_v3
-	set_country_flag = VIE_molniya_v4
-	set_country_flag = VIE_molniya_v5
-	set_country_flag = VIE_molniya_v6
-	set_country_flag = VIE_molniya_v7
-	set_country_flag = VIE_molniya_v8
-	set_country_flag = VIE_molniya_v9
-	set_country_flag = VIE_molniya_v10
+	hidden_effect = { set_country_flag = VIE_molniya_v1 }
+	hidden_effect = { set_country_flag = VIE_molniya_v2 }
+	hidden_effect = { set_country_flag = VIE_molniya_v3 }
+	hidden_effect = { set_country_flag = VIE_molniya_v4 }
+	hidden_effect = { set_country_flag = VIE_molniya_v5 }
+	hidden_effect = { set_country_flag = VIE_molniya_v6 }
+	hidden_effect = { set_country_flag = VIE_molniya_v7 }
+	hidden_effect = { set_country_flag = VIE_molniya_v8 }
+	hidden_effect = { set_country_flag = VIE_molniya_v9 }
+	hidden_effect = { set_country_flag = VIE_molniya_v10 }
 	set_temp_variable = { treasury_change = VIE_molniya_vn_qty_ordered }
 	multiply_temp_variable = { treasury_change = -0.0325 }
 	if = {
@@ -251,7 +251,7 @@ VIE_naval_late_ship_kilo = {
 		else = {
 			create_ship = { type = attack_submarine_hull_2 equipment_variant = "Improved Kilo Class" creator = VIE name = "Ha Noi" }
 		}
-		set_country_flag = VIE_ev_kilo_submarines
+		hidden_effect = { set_country_flag = VIE_ev_kilo_submarines }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_kilo_qty_delivered = 1 } }
@@ -338,7 +338,7 @@ VIE_naval_late_ship_bastion = {
 			set_variable = { VIE_bastion_site = VIE_bastion_deploy }
 		}
 		VIE_naval_bastion_site = yes
-		set_country_flag = VIE_ev_bastion_p_coastal_defence
+		hidden_effect = { set_country_flag = VIE_ev_bastion_p_coastal_defence }
 	}
 	else_if = {
 		limit = { check_variable = { VIE_bastion_qty_delivered = 1 } }

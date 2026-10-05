@@ -158,13 +158,14 @@ VIE_airf_time_set = {
 	set_temp_variable = { VIE_airf_months = $M$ }
 }
 # Tham so IDEA (VIE_airf_prog_*), EV (so event an vie_air_force.<EV>). Hen timed idea va event hoan tat cung mot moc.
-VIE_airf_start_timer = {
-	set_temp_variable = { VIE_airf_end_days = VIE_airf_months }
-	multiply_temp_variable = { VIE_airf_end_days = 30 }
-	round_temp_variable = VIE_airf_end_days
-	add_timed_idea = { idea = $IDEA$ days = VIE_airf_end_days }
-	country_event = { id = vie_air_force.$EV$ days = VIE_airf_end_days }
-}
+# DISABLED (unused template): the engine validates $PARAM$ placeholders raw at load and logs false errors. Uncomment when a caller passes the parameters.
+#VIE_airf_start_timer = {
+#	set_temp_variable = { VIE_airf_end_days = VIE_airf_months }
+#	multiply_temp_variable = { VIE_airf_end_days = 30 }
+#	round_temp_variable = VIE_airf_end_days
+#	add_timed_idea = { idea = $IDEA$ days = VIE_airf_end_days }
+#	country_event = { id = vie_air_force.$EV$ days = VIE_airf_end_days }
+#}
 
 ########################################################################
 # Mo nhanh hoc thuyet (A1 / B1 / C1) so voi co cau luc luong da chon o D-D (VIE_airf_force_priority: 1 Phong thu lanh tho,
@@ -212,7 +213,7 @@ VIE_airf_d1_start = {
 		set_temp_variable = { VIE_airf_months = 18 }
 	}
 	VIE_airf_charge = yes
-	clr_country_flag = VIE_airf_d1_pending
+	hidden_effect = { clr_country_flag = VIE_airf_d1_pending }
 	set_temp_variable = { VIE_airf_end_days = VIE_airf_months }
 	multiply_temp_variable = { VIE_airf_end_days = 30 }
 	round_temp_variable = VIE_airf_end_days
@@ -261,7 +262,7 @@ VIE_airf_d1_finish = {
 			force_update_dynamic_modifier = yes
 		}
 	}
-	set_country_flag = VIE_airf_d1_done
+	hidden_effect = { set_country_flag = VIE_airf_d1_done }
 	VIE_airf_program_end = yes
 }
 
@@ -289,7 +290,7 @@ VIE_airf_d2_start = {
 		}
 	}
 	VIE_airf_charge = yes
-	clr_country_flag = VIE_airf_d2_pending
+	hidden_effect = { clr_country_flag = VIE_airf_d2_pending }
 	set_temp_variable = { VIE_airf_end_days = VIE_airf_months }
 	multiply_temp_variable = { VIE_airf_end_days = 30 }
 	round_temp_variable = VIE_airf_end_days
@@ -326,7 +327,7 @@ VIE_airf_d2_finish = {
 		add_to_variable = { VIE_af_air_home_defence_factor = 0.01 tooltip = VIE_tt_air_home_defence_factor }
 		force_update_dynamic_modifier = yes
 	}
-	set_country_flag = VIE_airf_d2_done
+	hidden_effect = { set_country_flag = VIE_airf_d2_done }
 	VIE_airf_program_end = yes
 }
 
@@ -379,7 +380,7 @@ VIE_airf_d4_start = {
 	set_temp_variable = { VIE_airf_cost = 0.6 }
 	set_temp_variable = { VIE_airf_months = 12 }
 	VIE_airf_charge = yes
-	clr_country_flag = VIE_airf_d4_pending
+	hidden_effect = { clr_country_flag = VIE_airf_d4_pending }
 	set_temp_variable = { VIE_airf_end_days = VIE_airf_months }
 	multiply_temp_variable = { VIE_airf_end_days = 30 }
 	round_temp_variable = VIE_airf_end_days

@@ -48,8 +48,8 @@ VIE_event_scheduler_p3 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d4_done } }
-				set_country_flag = VIE_door_d4_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_door_d4_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_alt.1 days = 20 random_days = 20 }
 			}
 		}
@@ -61,8 +61,8 @@ VIE_event_scheduler_p3 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d2_done } }
-				set_country_flag = VIE_door_d2_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_door_d2_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_alt.2 days = 20 random_days = 20 }
 			}
 		}
@@ -77,8 +77,8 @@ VIE_event_scheduler_p3 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d3_done } }
-				set_country_flag = VIE_door_d3_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_door_d3_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_alt.3 days = 20 random_days = 20 }
 			}
 		}
@@ -89,8 +89,8 @@ VIE_event_scheduler_p3 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d6_done } }
-				set_country_flag = VIE_door_d6_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_door_d6_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_alt.6 days = 20 random_days = 20 }
 			}
 		}
@@ -101,8 +101,8 @@ VIE_event_scheduler_p3 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_door_d8_done } }
-				set_country_flag = VIE_door_d8_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_door_d8_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_alt.7 days = 20 random_days = 20 }
 			}
 		}

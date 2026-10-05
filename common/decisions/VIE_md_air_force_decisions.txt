@@ -22,7 +22,7 @@ VIE_airf_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_airf_d1_fighters"
-			set_country_flag = { flag = VIE_airf_d1_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_airf_d1_pending value = 1 days = 30 } }
 			VIE_airf_program_start = yes
 			country_event = { id = vie_air_force.1 }
 		}
@@ -50,7 +50,7 @@ VIE_airf_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_airf_d2_sam"
-			set_country_flag = { flag = VIE_airf_d2_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_airf_d2_pending value = 1 days = 30 } }
 			VIE_airf_program_start = yes
 			country_event = { id = vie_air_force.10 }
 		}
@@ -113,7 +113,7 @@ VIE_airf_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_airf_d4_first_force"
-			set_country_flag = { flag = VIE_airf_d4_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_airf_d4_pending value = 1 days = 30 } }
 			VIE_airf_program_start = yes
 			country_event = { id = vie_air_force.30 }
 		}

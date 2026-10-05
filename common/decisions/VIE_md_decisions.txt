@@ -93,95 +93,6 @@ VIE_military_readiness_category = {
 		ai_will_do = { base = 5 }
 	}
 }
-VIE_statebuilding_category = {
-
-	# Four state-building decisions, one per axis (see VIE_statebuilding_4axis_design.md).
-	# Each opens an event (vie_sb.N) in which the player pushes the axis left or right.
-
-	# A: apparatus (civil service, size, anti-corruption, rotation)
-	VIE_sb_apparatus = {
-		icon = GFX_decision_VIE_civil_service_examination
-		cost = 75
-		days_re_enable = 180
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = {
-			OR = {
-				has_completed_focus = VIE_public_admin_reform
-				has_country_flag = VIE_civil_servant_law_2008
-			}
-		}
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_apparatus"
-			country_event = { id = vie_sb.1 }
-		}
-
-		ai_will_do = { base = 20 }
-	}
-
-	# B: political space (discipline vs open criticism, public consultation)
-	VIE_sb_politics = {
-		icon = GFX_decision_VIE_relax_media_scrutiny
-		cost = 50
-		days_re_enable = 180
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = {
-			OR = {
-				has_completed_focus = VIE_constitution_2013
-				has_completed_focus = VIE_cybersecurity_law
-			}
-		}
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_politics"
-			country_event = { id = vie_sb.2 }
-		}
-
-		ai_will_do = { base = 15 }
-	}
-
-	# C: economic model (state-led vs local pilots and market)
-	VIE_sb_economy = {
-		icon = GFX_decision_VIE_provincial_pilot_program
-		cost = 50
-		days_re_enable = 180
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = {
-			OR = {
-				has_completed_focus = VIE_decentralization
-				has_completed_focus = VIE_wto_negotiations
-			}
-		}
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_economy"
-			country_event = { id = vie_sb.3 }
-		}
-
-		ai_will_do = { base = 20 }
-	}
-
-	# D: external orientation (strategic autonomy vs new trade and investment pacts)
-	VIE_sb_foreign = {
-		icon = GFX_decision_VIE_negotiate_economic_pact
-		cost = 75
-		days_re_enable = 240
-
-		visible = { has_country_flag = VIE_ax_initialized }
-		available = { has_completed_focus = VIE_wto_negotiations }
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_sb_foreign"
-			country_event = { id = vie_sb.4 }
-		}
-
-		ai_will_do = { base = 20 }
-	}
-}
-
 VIE_resolution_category = {
 
 	############################################################
@@ -260,7 +171,7 @@ VIE_resolution_category = {
 		days_remove = 365
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_rn_x_civil_servant_law (remove)"
-			set_country_flag = VIE_civil_servant_law_2008
+			hidden_effect = { set_country_flag = VIE_civil_servant_law_2008 }
 		}
 
 		ai_will_do = { base = 40 }
@@ -426,7 +337,7 @@ VIE_resolution_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_rn_par_1 (remove)"
 			add_stability = 0.02
 			add_political_power = 25
-			set_country_flag = VIE_par1_done
+			hidden_effect = { set_country_flag = VIE_par1_done }
 		}
 
 		ai_will_do = { base = 50 }
@@ -451,7 +362,7 @@ VIE_resolution_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_rn_par_2 (remove)"
 			add_stability = 0.02
 			add_political_power = 25
-			set_country_flag = VIE_par2_done
+			hidden_effect = { set_country_flag = VIE_par2_done }
 		}
 
 		ai_will_do = { base = 50 }
@@ -476,7 +387,7 @@ VIE_resolution_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_rn_par_3 (remove)"
 			add_stability = 0.02
 			add_political_power = 25
-			set_country_flag = VIE_par3_cost_reduction
+			hidden_effect = { set_country_flag = VIE_par3_cost_reduction }
 		}
 
 		ai_will_do = { base = 50 }
@@ -642,10 +553,6 @@ VIE_resolution_category = {
 		days_remove = 90
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_rn_xiii_restructure_center (remove)"
-			add_to_variable = { VIE_ax_checks = -1 tooltip = VIE_ax_checks_tt }
-			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_size = -2 tooltip = VIE_ax_size_tt }
-			VIE_ax_normalize = yes
 		}
 
 		ai_will_do = { base = 60 }
@@ -668,9 +575,6 @@ VIE_resolution_category = {
 		days_remove = 60
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_rn_xiii_merge_provinces (remove)"
-			add_to_variable = { VIE_ax_decent = -2 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_size = -2 tooltip = VIE_ax_size_tt }
-			VIE_ax_normalize = yes
 			add_ideas = VIE_provincial_merger_idea
 		}
 
@@ -694,12 +598,9 @@ VIE_resolution_category = {
 		days_remove = 30
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_rn_xiii_two_tier (remove)"
-			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_size = -2 tooltip = VIE_ax_size_tt }
-			VIE_ax_normalize = yes
 			add_ideas = VIE_two_tier_gov_idea
 			add_timed_idea = { idea = VIE_reorg_disruption days = 365 }
-			set_country_flag = VIE_two_tier_done
+			hidden_effect = { set_country_flag = VIE_two_tier_done }
 			country_event = { id = vie_pol.30 days = 2 }
 		}
 

@@ -32,7 +32,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_a32"
-			set_country_flag = { flag = VIE_apm_a32_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_apm_a32_pending value = 1 days = 30 } }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_a32_tier = 0 } }
@@ -81,7 +81,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_a31"
-			set_country_flag = { flag = VIE_apm_a31_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_apm_a31_pending value = 1 days = 30 } }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_a31_tier = 0 } }
@@ -130,7 +130,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_radar"
-			set_country_flag = { flag = VIE_apm_radar_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_apm_radar_pending value = 1 days = 30 } }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_radar_tier = 0 } }
@@ -179,7 +179,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_integ"
-			set_country_flag = { flag = VIE_apm_integ_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_apm_integ_pending value = 1 days = 30 } }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_integ_tier = 0 } }
@@ -228,7 +228,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_uav"
-			set_country_flag = { flag = VIE_apm_uav_pending value = 1 days = 30 }
+			hidden_effect = { set_country_flag = { flag = VIE_apm_uav_pending value = 1 days = 30 } }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_uav_tier = 0 } }

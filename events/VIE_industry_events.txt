@@ -14,9 +14,8 @@ country_event = {
 	option = {
 		name = vie_ind.1.a
 		log = "[GetDateText]: [This.GetName]: Event vie_ind.1.a executed"
-		set_country_flag = VIE_fdi_open_door
+		hidden_effect = { set_country_flag = VIE_fdi_open_door }
 		increase_economic_growth = yes
-		add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
 		ai_chance = { base = 40 }
 	}
 
@@ -24,7 +23,6 @@ country_event = {
 	option = {
 		name = vie_ind.1.b
 		log = "[GetDateText]: [This.GetName]: Event vie_ind.1.b executed"
-		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
 		add_to_variable = { VIE_ind_localization = 2 tooltip = VIE_ind_localization_tt }
 		add_political_power = -25
 		ai_chance = { base = 60 }
@@ -47,7 +45,6 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_ind.2.a executed"
 		set_temp_variable = { treasury_change = -1 }
 		modify_treasury_effect = yes
-		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
 		if = {
 			limit = { country_exists = USA }
 			add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }

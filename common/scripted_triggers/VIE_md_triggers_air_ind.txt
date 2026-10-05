@@ -167,9 +167,12 @@ VIE_apm_two_of_three = {
 # F7 (cong nghiep truong thanh): du bac o ca nam tru. Mot cho de doi nguong.
 # ---------------------------------------------------------------------
 VIE_apm_mature_ok = {
-	check_variable = { VIE_apm_a32_tier = 3 }
-	check_variable = { VIE_apm_a31_tier > 1 }
-	check_variable = { VIE_apm_radar_tier = 3 }
-	check_variable = { VIE_apm_integ_tier > 1 }
-	check_variable = { VIE_apm_uav_tier > 1 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_apm_mature_ok_tt
+			check_variable = { VIE_apm_a32_tier = 3 }
+			check_variable = { VIE_apm_a31_tier > 1 }
+			check_variable = { VIE_apm_radar_tier = 3 }
+			check_variable = { VIE_apm_integ_tier > 1 }
+			check_variable = { VIE_apm_uav_tier > 1 }
+	}
 }

@@ -18,7 +18,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.10.a executed"
 		VIE_bop_conservative_small = yes
 		add_stability = 0.01
-		set_country_flag = VIE_cyber_law_strict
+		hidden_effect = { set_country_flag = VIE_cyber_law_strict }
 		ai_chance = { base = 80 }
 	}
 

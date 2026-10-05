@@ -17,7 +17,7 @@ country_event = {
 		name = vie_eco.19.a
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.19.a executed"
 		increase_economic_growth = yes
-		set_country_flag = VIE_china_plus_one_open
+		hidden_effect = { set_country_flag = VIE_china_plus_one_open }
 		set_temp_variable = { temp_opinion = 3 }
 		change_industrial_conglomerates_opinion = yes
 		ai_chance = { base = 70 }
@@ -62,7 +62,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.21.b executed"
 		set_temp_variable = { treasury_change = -2 }
 		modify_treasury_effect = yes
-		set_country_flag = VIE_grid_invested
+		hidden_effect = { set_country_flag = VIE_grid_invested }
 		ai_chance = { base = 30 }
 	}
 }
@@ -155,7 +155,7 @@ country_event = {
 		modify_treasury_effect = yes
 		add_political_power = 75
 		add_stability = 0.02
-		set_country_flag = { flag = VIE_apec_year value = 1 days = 365 }
+		hidden_effect = { set_country_flag = { flag = VIE_apec_year value = 1 days = 365 } }
 		ai_chance = { base = 70 }
 	}
 
@@ -164,7 +164,7 @@ country_event = {
 		name = vie_dip.5.b
 		log = "[GetDateText]: [This.GetName]: Event vie_dip.5.b executed"
 		add_political_power = 25
-		set_country_flag = { flag = VIE_apec_year value = 1 days = 365 }
+		hidden_effect = { set_country_flag = { flag = VIE_apec_year value = 1 days = 365 } }
 		ai_chance = { base = 30 }
 	}
 }

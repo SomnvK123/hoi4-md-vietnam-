@@ -105,13 +105,22 @@ VIE_def_ind_export_open = {
 #   >= 8  capstone VIE_path_self_reliant_deterrence (kem da chon nga re)
 # ---------------------------------------------------------------------
 VIE_def_ind_level_ge_4 = {
-	check_variable = { VIE_def_industry_level > 3 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_def_ind_level_ge_4_tt
+			check_variable = { VIE_def_industry_level > 3 }
+	}
 }
 VIE_def_ind_level_ge_8 = {
-	check_variable = { VIE_def_industry_level > 7 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_def_ind_level_ge_8_tt
+			check_variable = { VIE_def_industry_level > 7 }
+	}
 }
 VIE_def_ind_level_ge_2 = {
-	check_variable = { VIE_def_industry_level > 1 }
+	custom_trigger_tooltip = {
+		tooltip = VIE_trig_VIE_def_ind_level_ge_2_tt
+			check_variable = { VIE_def_industry_level > 1 }
+	}
 }
 
 # ---------------------------------------------------------------------

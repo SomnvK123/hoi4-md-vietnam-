@@ -14,7 +14,7 @@ country_event = {
 	option = {
 		name = vie_dip.1.a
 		log = "[GetDateText]: [This.GetName]: Event vie_dip.1.a executed"
-		set_country_flag = VIE_us_arms_open
+		hidden_effect = { set_country_flag = VIE_us_arms_open }
 		add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
 		reverse_add_opinion_modifier = { target = USA modifier = VIE_comprehensive_partnership }
 		add_political_power = 25
@@ -105,7 +105,7 @@ country_event = {
 	option = {
 		name = vie_dip.4.a
 		log = "[GetDateText]: [This.GetName]: Event vie_dip.4.a executed"
-		set_country_flag = VIE_mekong_pressure
+		hidden_effect = { set_country_flag = VIE_mekong_pressure }
 		add_opinion_modifier = { target = CBD modifier = VIE_hd981_defiance }
 		reverse_add_opinion_modifier = { target = CBD modifier = VIE_hd981_defiance }
 		ai_chance = { base = 40 }

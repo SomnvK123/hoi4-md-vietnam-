@@ -68,7 +68,7 @@ VIE_def_industry_category = {
 		# cua MD tu tru 7.5 ty / nha may trong remove_effect.
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_z_factories"
-			set_country_flag = VIE_dec_z_started
+			hidden_effect = { set_country_flag = VIE_dec_z_started }
 		}
 
 		days_remove = 1095
@@ -105,7 +105,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_z_factories_inf
 				bonus = 0.50
 				uses = 2
-				category = CAT_inf_wep
+				category = CAT_infantry_weapons
 			}
 		}
 
@@ -157,7 +157,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_stv"
-			set_country_flag = VIE_dec_stv_started
+			hidden_effect = { set_country_flag = VIE_dec_stv_started }
 			set_temp_variable = { treasury_change = -0.5 }
 			modify_treasury_effect = yes
 		}
@@ -171,7 +171,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_stv_tech
 				bonus = 1.0
 				uses = 1
-				category = CAT_inf_wep
+				category = CAT_infantry_weapons
 			}
 		}
 
@@ -200,7 +200,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_stv_fast"
-			set_country_flag = VIE_dec_stv_started
+			hidden_effect = { set_country_flag = VIE_dec_stv_started }
 			set_temp_variable = { treasury_change = -0.5 }
 			modify_treasury_effect = yes
 		}
@@ -214,7 +214,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_stv_tech
 				bonus = 1.0
 				uses = 1
-				category = CAT_inf_wep
+				category = CAT_infantry_weapons
 			}
 		}
 
@@ -255,7 +255,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_pth"
-			set_country_flag = VIE_dec_pth_started
+			hidden_effect = { set_country_flag = VIE_dec_pth_started }
 			set_temp_variable = { treasury_change = -2.0 }
 			modify_treasury_effect = yes
 		}
@@ -308,7 +308,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_ammo"
-			set_country_flag = VIE_dec_ammo_started
+			hidden_effect = { set_country_flag = VIE_dec_ammo_started }
 			set_temp_variable = { treasury_change = -1.0 }
 			modify_treasury_effect = yes
 		}
@@ -367,7 +367,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_t54m"
-			set_country_flag = VIE_dec_t54m_started
+			hidden_effect = { set_country_flag = VIE_dec_t54m_started }
 			set_temp_variable = { treasury_change = -0.25 }
 			modify_treasury_effect = yes
 		}
@@ -381,7 +381,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_t54m_tech
 				bonus = 0.5
 				uses = 1
-				category = CAT_mbt
+				category = CAT_main_battle_tanks
 			}
 		}
 
@@ -428,7 +428,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_xcb01"
-			set_country_flag = VIE_dec_xcb01_started
+			hidden_effect = { set_country_flag = VIE_dec_xcb01_started }
 			set_temp_variable = { treasury_change = -3.0 }
 			modify_treasury_effect = yes
 		}
@@ -442,7 +442,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_xcb01_tech
 				bonus = 0.5
 				uses = 2
-				category = CAT_ifv
+				category = CAT_infantry_fighting_vehicles
 			}
 		}
 
@@ -475,7 +475,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_xcb01_fast"
-			set_country_flag = VIE_dec_xcb01_started
+			hidden_effect = { set_country_flag = VIE_dec_xcb01_started }
 			set_temp_variable = { treasury_change = -3.0 }
 			modify_treasury_effect = yes
 		}
@@ -489,7 +489,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_xcb01_tech
 				bonus = 0.5
 				uses = 2
-				category = CAT_ifv
+				category = CAT_infantry_fighting_vehicles
 			}
 		}
 
@@ -530,7 +530,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_tl01"
-			set_country_flag = VIE_dec_tl01_started
+			hidden_effect = { set_country_flag = VIE_dec_tl01_started }
 			set_temp_variable = { treasury_change = -0.5 }
 			modify_treasury_effect = yes
 		}
@@ -544,7 +544,7 @@ VIE_def_industry_category = {
 				name = VIE_dec_tl01_tech
 				bonus = 0.5
 				uses = 1
-				category = CAT_aa
+				category = CAT_anti_air
 			}
 		}
 
@@ -604,7 +604,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_k9_localization"
-			set_country_flag = VIE_dec_k9_started
+			hidden_effect = { set_country_flag = VIE_dec_k9_started }
 			set_temp_variable = { treasury_change = -0.5 }
 			modify_treasury_effect = yes
 		}
@@ -654,7 +654,7 @@ VIE_def_industry_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_dec_bm21"
-			set_country_flag = VIE_dec_bm21_started
+			hidden_effect = { set_country_flag = VIE_dec_bm21_started }
 			# 0.5bn chi phi chuong trinh - day la tien NGHIEN CUU, khong phai tien
 			# xay nha may, nen tru tay bang modify_treasury_effect (khong lien quan
 			# one_state_arms_factory).

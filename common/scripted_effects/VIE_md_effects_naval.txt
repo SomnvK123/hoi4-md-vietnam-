@@ -42,35 +42,35 @@ VIE_event_scheduler_naval = {
 				date > 2003.5.31
 				NOT = { has_country_flag = VIE_molniya_p1_offered }
 			}
-			set_country_flag = VIE_molniya_p1_offered
+			hidden_effect = { set_country_flag = VIE_molniya_p1_offered }
 		}
 		if = {
 			limit = {
 				date > 2009.5.31
 				NOT = { has_country_flag = VIE_molniya_p2_offered }
 			}
-			set_country_flag = VIE_molniya_p2_offered
+			hidden_effect = { set_country_flag = VIE_molniya_p2_offered }
 		}
 		if = {
 			limit = { date > 2005.12.31 NOT = { has_country_flag = VIE_gepard1_offered } }
-			set_country_flag = VIE_gepard1_offered
+			hidden_effect = { set_country_flag = VIE_gepard1_offered }
 		}
 		if = {
 			limit = { date > 2006.6.30 NOT = { has_country_flag = VIE_bastion_offered } }
-			set_country_flag = VIE_bastion_offered
+			hidden_effect = { set_country_flag = VIE_bastion_offered }
 		}
 		if = {
 			limit = { date > 2009.11.30 NOT = { has_country_flag = VIE_kilo_offered } }
-			set_country_flag = VIE_kilo_offered
+			hidden_effect = { set_country_flag = VIE_kilo_offered }
 		}
 		if = {
 			limit = { date > 2011.11.30 NOT = { has_country_flag = VIE_gepard2_offered } }
-			set_country_flag = VIE_gepard2_offered
+			hidden_effect = { set_country_flag = VIE_gepard2_offered }
 		}
 		if = {
 			limit = { date > 2011.9.30 NOT = { has_country_flag = VIE_sigma_offered } }
-			set_country_flag = VIE_sigma_offered
-			set_country_flag = VIE_sigma_suspended
+			hidden_effect = { set_country_flag = VIE_sigma_offered }
+			hidden_effect = { set_country_flag = VIE_sigma_suspended }
 		}
 	}
 }
@@ -86,7 +86,7 @@ VIE_event_scheduler_naval = {
 VIE_naval_ensure_variants = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_naval_variants_done } }
-		set_country_flag = VIE_naval_variants_done
+		hidden_effect = { set_country_flag = VIE_naval_variants_done }
 		create_equipment_variant = {
 			name = "Molniya Class"
 			type = corvette_hull_2
@@ -168,7 +168,7 @@ VIE_naval_ensure_variants = {
 ########################################################################
 # Nguoi goi dat truoc VIE_molniya_ru_qty (2 lich su, 4 alt).
 VIE_naval_reward_molniya_p1 = {
-	set_country_flag = VIE_molniya_contracted
+	hidden_effect = { set_country_flag = VIE_molniya_contracted }
 	VIE_naval_pay_molniya_p1 = yes
 	if = {
 		limit = { has_country_flag = VIE_molniya_p1_late }
@@ -178,7 +178,7 @@ VIE_naval_reward_molniya_p1 = {
 
 # Nguoi goi dat truoc VIE_molniya_vn_qty_ordered (6 lich su, 8, 10 alt).
 VIE_naval_reward_molniya_p2 = {
-	set_country_flag = VIE_molniya_p2_contracted
+	hidden_effect = { set_country_flag = VIE_molniya_p2_contracted }
 	VIE_naval_pay_molniya_p2 = yes
 	if = {
 		limit = { has_country_flag = VIE_molniya_p2_late }
@@ -215,23 +215,23 @@ VIE_naval_sched_molniya_p1 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_molniya_p1_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_molniya_p1_offered }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_naval.1 days = 1 random_days = 14 }
 			}
 			else = {
-				set_country_flag = VIE_molniya_p1_gate_seen
+				hidden_effect = { set_country_flag = VIE_molniya_p1_gate_seen }
 			}
 		}
 		else_if = {
 			limit = { date > 2005.12.31 }
 			if = {
 				limit = { has_country_flag = VIE_molniya_p1_gate_seen }
-				set_country_flag = VIE_molniya_p1_offered
+				hidden_effect = { set_country_flag = VIE_molniya_p1_offered }
 				VIE_fb_naval_molniya_p1 = yes
 			}
 			else = {
-				set_country_flag = VIE_molniya_p1_missed
+				hidden_effect = { set_country_flag = VIE_molniya_p1_missed }
 			}
 		}
 	}
@@ -257,23 +257,23 @@ VIE_naval_sched_molniya_p2 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_molniya_p2_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_molniya_p2_offered }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_naval.3 days = 1 random_days = 14 }
 			}
 			else = {
-				set_country_flag = VIE_molniya_p2_gate_seen
+				hidden_effect = { set_country_flag = VIE_molniya_p2_gate_seen }
 			}
 		}
 		else_if = {
 			limit = { date > 2012.12.31 }
 			if = {
 				limit = { has_country_flag = VIE_molniya_p2_gate_seen }
-				set_country_flag = VIE_molniya_p2_offered
+				hidden_effect = { set_country_flag = VIE_molniya_p2_offered }
 				VIE_fb_naval_molniya_p2 = yes
 			}
 			else = {
-				set_country_flag = VIE_molniya_p2_missed
+				hidden_effect = { set_country_flag = VIE_molniya_p2_missed }
 			}
 		}
 	}
@@ -297,7 +297,7 @@ VIE_naval_deliver_molniya = {
 			date > 2007.1.31
 			NOT = { has_country_flag = VIE_molniya_s1 }
 		}
-		set_country_flag = VIE_molniya_s1
+		hidden_effect = { set_country_flag = VIE_molniya_s1 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -315,7 +315,7 @@ VIE_naval_deliver_molniya = {
 			date > 2008.1.31
 			NOT = { has_country_flag = VIE_molniya_s2 }
 		}
-		set_country_flag = VIE_molniya_s2
+		hidden_effect = { set_country_flag = VIE_molniya_s2 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -333,7 +333,7 @@ VIE_naval_deliver_molniya = {
 			date > 2008.7.31
 			NOT = { has_country_flag = VIE_molniya_s3 }
 		}
-		set_country_flag = VIE_molniya_s3
+		hidden_effect = { set_country_flag = VIE_molniya_s3 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -351,7 +351,7 @@ VIE_naval_deliver_molniya = {
 			date > 2009.1.31
 			NOT = { has_country_flag = VIE_molniya_s4 }
 		}
-		set_country_flag = VIE_molniya_s4
+		hidden_effect = { set_country_flag = VIE_molniya_s4 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -370,7 +370,7 @@ VIE_naval_deliver_molniya = {
 			date > 2010.5.31
 			NOT = { has_country_flag = VIE_molniya_domestic_started }
 		}
-		set_country_flag = VIE_molniya_domestic_started
+		hidden_effect = { set_country_flag = VIE_molniya_domestic_started }
 	}
 
 	# ---- pha 2: giao tau (variant VIE, khong phu thuoc Nga) ----
@@ -381,7 +381,7 @@ VIE_naval_deliver_molniya = {
 			date > 2014.6.30
 			NOT = { has_country_flag = VIE_molniya_v1 }
 		}
-		set_country_flag = VIE_molniya_v1
+		hidden_effect = { set_country_flag = VIE_molniya_v1 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-381" }
 		VIE_naval_count_molniya_p2 = yes
@@ -393,7 +393,7 @@ VIE_naval_deliver_molniya = {
 			date > 2014.6.30
 			NOT = { has_country_flag = VIE_molniya_v2 }
 		}
-		set_country_flag = VIE_molniya_v2
+		hidden_effect = { set_country_flag = VIE_molniya_v2 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-382" }
 		VIE_naval_count_molniya_p2 = yes
@@ -405,7 +405,7 @@ VIE_naval_deliver_molniya = {
 			date > 2015.6.1
 			NOT = { has_country_flag = VIE_molniya_v3 }
 		}
-		set_country_flag = VIE_molniya_v3
+		hidden_effect = { set_country_flag = VIE_molniya_v3 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-383" }
 		VIE_naval_count_molniya_p2 = yes
@@ -417,7 +417,7 @@ VIE_naval_deliver_molniya = {
 			date > 2015.6.1
 			NOT = { has_country_flag = VIE_molniya_v4 }
 		}
-		set_country_flag = VIE_molniya_v4
+		hidden_effect = { set_country_flag = VIE_molniya_v4 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-384" }
 		VIE_naval_count_molniya_p2 = yes
@@ -429,7 +429,7 @@ VIE_naval_deliver_molniya = {
 			date > 2017.10.8
 			NOT = { has_country_flag = VIE_molniya_v5 }
 		}
-		set_country_flag = VIE_molniya_v5
+		hidden_effect = { set_country_flag = VIE_molniya_v5 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-385" }
 		VIE_naval_count_molniya_p2 = yes
@@ -441,7 +441,7 @@ VIE_naval_deliver_molniya = {
 			date > 2017.10.8
 			NOT = { has_country_flag = VIE_molniya_v6 }
 		}
-		set_country_flag = VIE_molniya_v6
+		hidden_effect = { set_country_flag = VIE_molniya_v6 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-386" }
 		VIE_naval_count_molniya_p2 = yes
@@ -453,7 +453,7 @@ VIE_naval_deliver_molniya = {
 			date > 2018.4.8
 			NOT = { has_country_flag = VIE_molniya_v7 }
 		}
-		set_country_flag = VIE_molniya_v7
+		hidden_effect = { set_country_flag = VIE_molniya_v7 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-387" }
 		VIE_naval_count_molniya_p2 = yes
@@ -465,7 +465,7 @@ VIE_naval_deliver_molniya = {
 			date > 2018.10.8
 			NOT = { has_country_flag = VIE_molniya_v8 }
 		}
-		set_country_flag = VIE_molniya_v8
+		hidden_effect = { set_country_flag = VIE_molniya_v8 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-388" }
 		VIE_naval_count_molniya_p2 = yes
@@ -477,7 +477,7 @@ VIE_naval_deliver_molniya = {
 			date > 2019.4.8
 			NOT = { has_country_flag = VIE_molniya_v9 }
 		}
-		set_country_flag = VIE_molniya_v9
+		hidden_effect = { set_country_flag = VIE_molniya_v9 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-389" }
 		VIE_naval_count_molniya_p2 = yes
@@ -489,7 +489,7 @@ VIE_naval_deliver_molniya = {
 			date > 2019.10.8
 			NOT = { has_country_flag = VIE_molniya_v10 }
 		}
-		set_country_flag = VIE_molniya_v10
+		hidden_effect = { set_country_flag = VIE_molniya_v10 }
 		VIE_naval_ensure_variants = yes
 		create_ship = { type = corvette_hull_2 equipment_variant = "Molniya Class" creator = VIE name = "HQ-390" }
 		VIE_naval_count_molniya_p2 = yes

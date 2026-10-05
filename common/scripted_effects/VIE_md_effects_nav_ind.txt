@@ -115,7 +115,7 @@ VIE_nav_d1_finish = {
 		set_temp_variable = { VIE_nav_exp_gain = 5 }
 		VIE_nav_add_shipbuilding_exp = yes
 	}
-	set_country_flag = VIE_nav_d1_done
+	hidden_effect = { set_country_flag = VIE_nav_d1_done }
 	VIE_nav_program_end = yes
 }
 
@@ -191,8 +191,8 @@ VIE_nav_d2_finish = {
 			name = VIE_nav_d2_tech_sub
 			bonus = 0.25
 			uses = 1
-			category = CAT_sub
-			category = CAT_atk_sub
+			category = CAT_submarines
+			category = CAT_attack_submarines
 		}
 	}
 	else_if = {
@@ -201,7 +201,7 @@ VIE_nav_d2_finish = {
 			name = VIE_nav_d2_tech_surface
 			bonus = 0.25
 			uses = 1
-			category = CAT_frigate
+			category = CAT_frigates
 			category = CAT_naval_sonar
 		}
 	}
@@ -210,12 +210,12 @@ VIE_nav_d2_finish = {
 			name = VIE_nav_d2_tech_fleet
 			bonus = 0.25
 			uses = 1
-			category = CAT_sub
-			category = CAT_frigate
+			category = CAT_submarines
+			category = CAT_frigates
 			category = CAT_naval_sonar
 		}
 	}
-	set_country_flag = VIE_nav_d2_done
+	hidden_effect = { set_country_flag = VIE_nav_d2_done }
 	VIE_nav_program_end = yes
 }
 
@@ -251,8 +251,8 @@ VIE_nav_d3_finish = {
 			name = VIE_nav_d3_tech_patrol
 			bonus = 0.3
 			uses = 1
-			category = CAT_patrolboat
-			category = CAT_corvette
+			category = CAT_patrol_boats
+			category = CAT_corvettes
 		}
 	}
 	else_if = {
@@ -262,8 +262,8 @@ VIE_nav_d3_finish = {
 			name = VIE_nav_d3_tech_fast
 			bonus = 0.3
 			uses = 1
-			category = CAT_corvette
-			category = CAT_as_missiles
+			category = CAT_corvettes
+			category = CAT_naval_anti_ship_missiles
 		}
 	}
 	else = {
@@ -272,8 +272,8 @@ VIE_nav_d3_finish = {
 			name = VIE_nav_d3_tech_multi
 			bonus = 0.3
 			uses = 1
-			category = CAT_corvette
-			category = CAT_frigate
+			category = CAT_corvettes
+			category = CAT_frigates
 		}
 	}
 	if = {
@@ -289,7 +289,7 @@ VIE_nav_d3_finish = {
 	}
 	VIE_nav_add_shipbuilding_exp = yes
 	VIE_ba_son_mio_size_1 = yes
-	set_country_flag = VIE_nav_d3_done
+	hidden_effect = { set_country_flag = VIE_nav_d3_done }
 	VIE_nav_program_end = yes
 }
 
@@ -345,7 +345,7 @@ VIE_nav_d4_finish = {
 			name = VIE_nav_d4_tech_weapons
 			bonus = 0.25
 			uses = 1
-			category = CAT_as_missiles
+			category = CAT_naval_anti_ship_missiles
 		}
 	}
 	else = {
@@ -354,10 +354,10 @@ VIE_nav_d4_finish = {
 			bonus = 0.25
 			uses = 1
 			category = CAT_naval_electronics
-			category = CAT_as_missiles
+			category = CAT_naval_anti_ship_missiles
 		}
 	}
-	set_country_flag = VIE_nav_d4_done
+	hidden_effect = { set_country_flag = VIE_nav_d4_done }
 	VIE_nav_program_end = yes
 }
 
@@ -392,9 +392,9 @@ VIE_nav_d5_finish = {
 			name = VIE_nav_d5_tech_hulls
 			bonus = 0.4
 			uses = 1
-			category = CAT_corvette
-			category = CAT_frigate
-			category = CAT_destroyer
+			category = CAT_corvettes
+			category = CAT_frigates
+			category = CAT_destroyers
 		}
 	}
 	else_if = {
@@ -403,7 +403,7 @@ VIE_nav_d5_finish = {
 			name = VIE_nav_d5_tech_mro
 			bonus = 0.4
 			uses = 1
-			category = CAT_sub
+			category = CAT_submarines
 			category = CAT_naval_sonar
 		}
 	}
@@ -414,7 +414,7 @@ VIE_nav_d5_finish = {
 			bonus = 0.4
 			uses = 1
 			category = CAT_naval_electronics
-			category = CAT_as_missiles
+			category = CAT_naval_anti_ship_missiles
 		}
 	}
 	else = {
@@ -422,13 +422,13 @@ VIE_nav_d5_finish = {
 			name = VIE_nav_d5_tech_all
 			bonus = 0.25
 			uses = 1
-			category = CAT_frigate
-			category = CAT_sub
+			category = CAT_frigates
+			category = CAT_submarines
 			category = CAT_naval_electronics
-			category = CAT_as_missiles
+			category = CAT_naval_anti_ship_missiles
 		}
 	}
 	add_ideas = VIE_nav_mature_industry_idea
-	set_country_flag = VIE_cap_mature_naval_industry
+	hidden_effect = { set_country_flag = VIE_cap_mature_naval_industry }
 	VIE_nav_program_end = yes
 }

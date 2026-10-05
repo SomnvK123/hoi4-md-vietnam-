@@ -93,7 +93,7 @@ country_event = {
 	option = {
 		name = vie_proc_army.1.a
 		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.1.a executed"
-		set_country_flag = VIE_pl_t72_deal
+		hidden_effect = { set_country_flag = VIE_pl_t72_deal }
 		custom_effect_tooltip = VIE_proc_t72_offer_tt
 		ai_chance = {
 			base = 90
@@ -493,7 +493,7 @@ country_event = {
 		name = vie_proc_army.18.b
 		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.18.b executed"
 		custom_effect_tooltip = VIE_proc_k9_decline_tt
-		set_country_flag = VIE_k9_declined
+		hidden_effect = { set_country_flag = VIE_k9_declined }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -546,7 +546,7 @@ country_event = {
 	option = {
 		name = vie_proc_army.19.c
 		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.19.c executed"
-		set_country_flag = VIE_k9_declined
+		hidden_effect = { set_country_flag = VIE_k9_declined }
 		ai_chance = {
 			base = 5
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -587,7 +587,7 @@ country_event = {
 	option = {
 		name = vie_proc_army.21.a
 		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.21.a executed"
-		set_country_flag = VIE_k9_localization
+		hidden_effect = { set_country_flag = VIE_k9_localization }
 		custom_effect_tooltip = VIE_proc_k9_localization_tt
 		ai_chance = {
 			base = 70
@@ -682,7 +682,7 @@ country_event = {
 	option = {
 		name = vie_proc_army.32.a
 		log = "[GetDateText]: [This.GetName]: Event vie_proc_army.32.a executed"
-		set_country_flag = VIE_bmp3_lessons
+		hidden_effect = { set_country_flag = VIE_bmp3_lessons }
 		army_experience = 10
 		if = {
 			limit = { country_exists = SOV }
@@ -796,7 +796,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		set_country_flag = VIE_155mm_study
+		hidden_effect = { set_country_flag = VIE_155mm_study }
 		if = {
 			limit = { country_exists = FRA }
 			add_opinion_modifier = { target = FRA modifier = small_decrease }

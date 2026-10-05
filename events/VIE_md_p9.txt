@@ -24,8 +24,6 @@ country_event = {
 		name = vie_alt.31.b
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.31.b executed"
 		VIE_bop_reform_small = yes
-		add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
-		VIE_ax_normalize = yes
 		ai_chance = { base = 30 }
 	}
 }

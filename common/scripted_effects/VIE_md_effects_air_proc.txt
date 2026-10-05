@@ -37,23 +37,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_su30_1_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_su30_1_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.3 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_1_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_su30_1_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2005.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_su30_1_gate_seen }
-					set_country_flag = VIE_ap_su30_1_offered
+					hidden_effect = { set_country_flag = VIE_ap_su30_1_offered }
 					VIE_fb_ap_su30_1 = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_1_missed
+					hidden_effect = { set_country_flag = VIE_ap_su30_1_missed }
 				}
 			}
 		}
@@ -71,23 +71,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_su30_2_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_su30_2_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.5 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_2_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_su30_2_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2010.6.30 }
 				if = {
 					limit = { has_country_flag = VIE_ap_su30_2_gate_seen }
-					set_country_flag = VIE_ap_su30_2_offered
+					hidden_effect = { set_country_flag = VIE_ap_su30_2_offered }
 					VIE_fb_ap_su30_2 = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_2_missed
+					hidden_effect = { set_country_flag = VIE_ap_su30_2_missed }
 				}
 			}
 		}
@@ -105,23 +105,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_su30_3_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_su30_3_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.6 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_3_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_su30_3_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2011.6.30 }
 				if = {
 					limit = { has_country_flag = VIE_ap_su30_3_gate_seen }
-					set_country_flag = VIE_ap_su30_3_offered
+					hidden_effect = { set_country_flag = VIE_ap_su30_3_offered }
 					VIE_fb_ap_su30_3 = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_3_missed
+					hidden_effect = { set_country_flag = VIE_ap_su30_3_missed }
 				}
 			}
 		}
@@ -139,23 +139,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_su30_4_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_su30_4_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.9 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_4_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_su30_4_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2014.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_su30_4_gate_seen }
-					set_country_flag = VIE_ap_su30_4_offered
+					hidden_effect = { set_country_flag = VIE_ap_su30_4_offered }
 					VIE_fb_ap_su30_4 = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_su30_4_missed
+					hidden_effect = { set_country_flag = VIE_ap_su30_4_missed }
 				}
 			}
 		}
@@ -175,23 +175,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_s300_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_s300_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.2 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_s300_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_s300_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2006.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_s300_gate_seen }
-					set_country_flag = VIE_ap_s300_offered
+					hidden_effect = { set_country_flag = VIE_ap_s300_offered }
 					VIE_fb_ap_s300 = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_s300_missed
+					hidden_effect = { set_country_flag = VIE_ap_s300_missed }
 				}
 			}
 		}
@@ -209,23 +209,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_pechora_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_pechora_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.7 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_pechora_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_pechora_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2012.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_pechora_gate_seen }
-					set_country_flag = VIE_ap_pechora_offered
+					hidden_effect = { set_country_flag = VIE_ap_pechora_offered }
 					VIE_fb_ap_pechora = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_pechora_missed
+					hidden_effect = { set_country_flag = VIE_ap_pechora_missed }
 				}
 			}
 		}
@@ -243,23 +243,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_spyder_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_spyder_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.10 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_spyder_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_spyder_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2016.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_spyder_gate_seen }
-					set_country_flag = VIE_ap_spyder_offered
+					hidden_effect = { set_country_flag = VIE_ap_spyder_offered }
 					VIE_fb_ap_spyder = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_spyder_missed
+					hidden_effect = { set_country_flag = VIE_ap_spyder_missed }
 				}
 			}
 		}
@@ -279,23 +279,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_india_dca_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_india_dca_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.1 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_india_dca_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_india_dca_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2002.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_india_dca_gate_seen }
-					set_country_flag = VIE_ap_india_dca_offered
+					hidden_effect = { set_country_flag = VIE_ap_india_dca_offered }
 					VIE_fb_ap_india_dca = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_india_dca_missed
+					hidden_effect = { set_country_flag = VIE_ap_india_dca_missed }
 				}
 			}
 		}
@@ -310,12 +310,12 @@ VIE_event_scheduler_air_proc = {
 					NOT = { date > 2009.12.31 }
 					VIE_ap_gate_rom = yes
 				}
-				set_country_flag = VIE_ap_yak52_offered
+				hidden_effect = { set_country_flag = VIE_ap_yak52_offered }
 				VIE_fb_ap_yak52 = yes
 			}
 			else_if = {
 				limit = { date > 2009.12.31 }
-				set_country_flag = VIE_ap_yak52_missed
+				hidden_effect = { set_country_flag = VIE_ap_yak52_missed }
 			}
 		}
 		if = {
@@ -332,23 +332,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_c295_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_c295_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.8 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_c295_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_c295_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2014.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_c295_gate_seen }
-					set_country_flag = VIE_ap_c295_offered
+					hidden_effect = { set_country_flag = VIE_ap_c295_offered }
 					VIE_fb_ap_c295 = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_c295_missed
+					hidden_effect = { set_country_flag = VIE_ap_c295_missed }
 				}
 			}
 		}
@@ -366,23 +366,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_radar_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_radar_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.11 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_radar_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_radar_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2015.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_radar_gate_seen }
-					set_country_flag = VIE_ap_radar_offered
+					hidden_effect = { set_country_flag = VIE_ap_radar_offered }
 					VIE_fb_ap_radar = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_radar_missed
+					hidden_effect = { set_country_flag = VIE_ap_radar_missed }
 				}
 			}
 		}
@@ -397,12 +397,12 @@ VIE_event_scheduler_air_proc = {
 					NOT = { date > 2017.12.31 }
 					VIE_ap_gate_none = yes
 				}
-				set_country_flag = VIE_ap_mig21_retire_offered
+				hidden_effect = { set_country_flag = VIE_ap_mig21_retire_offered }
 				VIE_fb_ap_mig21_retire = yes
 			}
 			else_if = {
 				limit = { date > 2017.12.31 }
-				set_country_flag = VIE_ap_mig21_retire_missed
+				hidden_effect = { set_country_flag = VIE_ap_mig21_retire_missed }
 			}
 		}
 		if = {
@@ -419,23 +419,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_india_train_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_india_train_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.13 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_india_train_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_india_train_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2018.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_india_train_gate_seen }
-					set_country_flag = VIE_ap_india_train_offered
+					hidden_effect = { set_country_flag = VIE_ap_india_train_offered }
 					VIE_fb_ap_india_train = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_india_train_missed
+					hidden_effect = { set_country_flag = VIE_ap_india_train_missed }
 				}
 			}
 		}
@@ -453,23 +453,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_yak130_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_yak130_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.14 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_yak130_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_yak130_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2020.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_yak130_gate_seen }
-					set_country_flag = VIE_ap_yak130_offered
+					hidden_effect = { set_country_flag = VIE_ap_yak130_offered }
 					VIE_fb_ap_yak130 = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_yak130_missed
+					hidden_effect = { set_country_flag = VIE_ap_yak130_missed }
 				}
 			}
 		}
@@ -487,23 +487,23 @@ VIE_event_scheduler_air_proc = {
 				}
 				if = {
 					limit = { NOT = { has_country_flag = VIE_popup_cd } }
-					set_country_flag = VIE_ap_t6c_offered
-					set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+					hidden_effect = { set_country_flag = VIE_ap_t6c_offered }
+					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 					country_event = { id = vie_air_proc.15 days = 1 random_days = 14 }
 				}
 				else = {
-					set_country_flag = VIE_ap_t6c_gate_seen
+					hidden_effect = { set_country_flag = VIE_ap_t6c_gate_seen }
 				}
 			}
 			else_if = {
 				limit = { date > 2024.12.31 }
 				if = {
 					limit = { has_country_flag = VIE_ap_t6c_gate_seen }
-					set_country_flag = VIE_ap_t6c_offered
+					hidden_effect = { set_country_flag = VIE_ap_t6c_offered }
 					VIE_fb_ap_t6c = yes
 				}
 				else = {
-					set_country_flag = VIE_ap_t6c_missed
+					hidden_effect = { set_country_flag = VIE_ap_t6c_missed }
 				}
 			}
 		}
@@ -518,12 +518,12 @@ VIE_event_scheduler_air_proc = {
 					NOT = { date > 2024.12.31 }
 					VIE_ap_gate_cze = yes
 				}
-				set_country_flag = VIE_ap_l39ng_offered
+				hidden_effect = { set_country_flag = VIE_ap_l39ng_offered }
 				VIE_fb_ap_l39ng = yes
 			}
 			else_if = {
 				limit = { date > 2024.12.31 }
-				set_country_flag = VIE_ap_l39ng_missed
+				hidden_effect = { set_country_flag = VIE_ap_l39ng_missed }
 			}
 		}
 		VIE_ap_deliver_air_misc = yes
@@ -535,112 +535,112 @@ VIE_event_scheduler_air_proc = {
 				date > 2005.12.31
 				NOT = { has_country_flag = VIE_ap_su30_1_offered }
 			}
-			set_country_flag = VIE_ap_su30_1_offered
+			hidden_effect = { set_country_flag = VIE_ap_su30_1_offered }
 		}
 		if = {
 			limit = {
 				date > 2010.6.30
 				NOT = { has_country_flag = VIE_ap_su30_2_offered }
 			}
-			set_country_flag = VIE_ap_su30_2_offered
+			hidden_effect = { set_country_flag = VIE_ap_su30_2_offered }
 		}
 		if = {
 			limit = {
 				date > 2011.6.30
 				NOT = { has_country_flag = VIE_ap_su30_3_offered }
 			}
-			set_country_flag = VIE_ap_su30_3_offered
+			hidden_effect = { set_country_flag = VIE_ap_su30_3_offered }
 		}
 		if = {
 			limit = {
 				date > 2014.12.31
 				NOT = { has_country_flag = VIE_ap_su30_4_offered }
 			}
-			set_country_flag = VIE_ap_su30_4_offered
+			hidden_effect = { set_country_flag = VIE_ap_su30_4_offered }
 		}
 		if = {
 			limit = {
 				date > 2006.12.31
 				NOT = { has_country_flag = VIE_ap_s300_offered }
 			}
-			set_country_flag = VIE_ap_s300_offered
+			hidden_effect = { set_country_flag = VIE_ap_s300_offered }
 		}
 		if = {
 			limit = {
 				date > 2012.12.31
 				NOT = { has_country_flag = VIE_ap_pechora_offered }
 			}
-			set_country_flag = VIE_ap_pechora_offered
+			hidden_effect = { set_country_flag = VIE_ap_pechora_offered }
 		}
 		if = {
 			limit = {
 				date > 2016.12.31
 				NOT = { has_country_flag = VIE_ap_spyder_offered }
 			}
-			set_country_flag = VIE_ap_spyder_offered
+			hidden_effect = { set_country_flag = VIE_ap_spyder_offered }
 		}
 		if = {
 			limit = {
 				date > 2002.12.31
 				NOT = { has_country_flag = VIE_ap_india_dca_offered }
 			}
-			set_country_flag = VIE_ap_india_dca_offered
+			hidden_effect = { set_country_flag = VIE_ap_india_dca_offered }
 		}
 		if = {
 			limit = {
 				date > 2009.12.31
 				NOT = { has_country_flag = VIE_ap_yak52_offered }
 			}
-			set_country_flag = VIE_ap_yak52_offered
+			hidden_effect = { set_country_flag = VIE_ap_yak52_offered }
 		}
 		if = {
 			limit = {
 				date > 2014.12.31
 				NOT = { has_country_flag = VIE_ap_c295_offered }
 			}
-			set_country_flag = VIE_ap_c295_offered
+			hidden_effect = { set_country_flag = VIE_ap_c295_offered }
 		}
 		if = {
 			limit = {
 				date > 2015.12.31
 				NOT = { has_country_flag = VIE_ap_radar_offered }
 			}
-			set_country_flag = VIE_ap_radar_offered
+			hidden_effect = { set_country_flag = VIE_ap_radar_offered }
 		}
 		if = {
 			limit = {
 				date > 2017.12.31
 				NOT = { has_country_flag = VIE_ap_mig21_retire_offered }
 			}
-			set_country_flag = VIE_ap_mig21_retire_offered
+			hidden_effect = { set_country_flag = VIE_ap_mig21_retire_offered }
 		}
 		if = {
 			limit = {
 				date > 2018.12.31
 				NOT = { has_country_flag = VIE_ap_india_train_offered }
 			}
-			set_country_flag = VIE_ap_india_train_offered
+			hidden_effect = { set_country_flag = VIE_ap_india_train_offered }
 		}
 		if = {
 			limit = {
 				date > 2020.12.31
 				NOT = { has_country_flag = VIE_ap_yak130_offered }
 			}
-			set_country_flag = VIE_ap_yak130_offered
+			hidden_effect = { set_country_flag = VIE_ap_yak130_offered }
 		}
 		if = {
 			limit = {
 				date > 2024.12.31
 				NOT = { has_country_flag = VIE_ap_t6c_offered }
 			}
-			set_country_flag = VIE_ap_t6c_offered
+			hidden_effect = { set_country_flag = VIE_ap_t6c_offered }
 		}
 		if = {
 			limit = {
 				date > 2024.12.31
 				NOT = { has_country_flag = VIE_ap_l39ng_offered }
 			}
-			set_country_flag = VIE_ap_l39ng_offered
+			hidden_effect = { set_country_flag = VIE_ap_l39ng_offered }
 		}
 	}
 }
@@ -653,79 +653,82 @@ VIE_event_scheduler_air_proc = {
 # Co VIE_ap_<P>_wait (option "hoan", co ngay het han) tam dung viec chao lai.
 # Hieu ung lich su khi het cua so: VIE_fb_ap_<P> (dung CHUNG voi option A cua event that).
 ########################################################################
-VIE_ap_window_b = {
-	if = {
-		limit = {
-			NOT = { has_country_flag = VIE_ap_$P$_offered }
-			NOT = { has_country_flag = VIE_ap_$P$_missed }
-		}
-		if = {
-			limit = {
-				date > $FROM$
-				NOT = { date > $END$ }
-				NOT = { has_country_flag = VIE_ap_$P$_wait }
-				VIE_ap_gate_$GATE$ = yes
-			}
-			if = {
-				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_ap_$P$_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
-				country_event = { id = vie_air_proc.$N$ days = 1 random_days = 14 }
-			}
-			else = {
-				set_country_flag = VIE_ap_$P$_gate_seen
-			}
-		}
-		else_if = {
-			limit = { date > $END$ }
-			if = {
-				limit = { has_country_flag = VIE_ap_$P$_gate_seen }
-				set_country_flag = VIE_ap_$P$_offered
-				VIE_fb_ap_$P$ = yes
-			}
-			else = {
-				set_country_flag = VIE_ap_$P$_missed
-			}
-		}
-	}
-}
+# DISABLED (unused template): the engine validates $PARAM$ placeholders raw at load and logs false errors. Uncomment when a caller passes the parameters.
+#VIE_ap_window_b = {
+#	if = {
+#		limit = {
+#			NOT = { has_country_flag = VIE_ap_$P$_offered }
+#			NOT = { has_country_flag = VIE_ap_$P$_missed }
+#		}
+#		if = {
+#			limit = {
+#				date > $FROM$
+#				NOT = { date > $END$ }
+#				NOT = { has_country_flag = VIE_ap_$P$_wait }
+#				VIE_ap_gate_$GATE$ = yes
+#			}
+#			if = {
+#				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+#				set_country_flag = VIE_ap_$P$_offered
+#				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+#				country_event = { id = vie_air_proc.$N$ days = 1 random_days = 14 }
+#			}
+#			else = {
+#				set_country_flag = VIE_ap_$P$_gate_seen
+#			}
+#		}
+#		else_if = {
+#			limit = { date > $END$ }
+#			if = {
+#				limit = { has_country_flag = VIE_ap_$P$_gate_seen }
+#				set_country_flag = VIE_ap_$P$_offered
+#				VIE_fb_ap_$P$ = yes
+#			}
+#			else = {
+#				set_country_flag = VIE_ap_$P$_missed
+#			}
+#		}
+#	}
+#}
 
 ########################################################################
 # Template Class C (im lang): vao cua so + cong dat -> ap dung ket qua lich su ngay.
 # Tham so: P, GATE, FROM, END nhu tren (khong co N).
 ########################################################################
-VIE_ap_window_c = {
-	if = {
-		limit = {
-			NOT = { has_country_flag = VIE_ap_$P$_offered }
-			NOT = { has_country_flag = VIE_ap_$P$_missed }
-		}
-		if = {
-			limit = {
-				date > $FROM$
-				NOT = { date > $END$ }
-				VIE_ap_gate_$GATE$ = yes
-			}
-			set_country_flag = VIE_ap_$P$_offered
-			VIE_fb_ap_$P$ = yes
-		}
-		else_if = {
-			limit = { date > $END$ }
-			set_country_flag = VIE_ap_$P$_missed
-		}
-	}
-}
+# DISABLED (unused template): the engine validates $PARAM$ placeholders raw at load and logs false errors. Uncomment when a caller passes the parameters.
+#VIE_ap_window_c = {
+#	if = {
+#		limit = {
+#			NOT = { has_country_flag = VIE_ap_$P$_offered }
+#			NOT = { has_country_flag = VIE_ap_$P$_missed }
+#		}
+#		if = {
+#			limit = {
+#				date > $FROM$
+#				NOT = { date > $END$ }
+#				VIE_ap_gate_$GATE$ = yes
+#			}
+#			set_country_flag = VIE_ap_$P$_offered
+#			VIE_fb_ap_$P$ = yes
+#		}
+#		else_if = {
+#			limit = { date > $END$ }
+#			set_country_flag = VIE_ap_$P$_missed
+#		}
+#	}
+#}
 
 # Nhanh catch-up: chi dat co "da xay ra" khi cua so da qua (tham so P, END).
-VIE_ap_catchup_mark = {
-	if = {
-		limit = {
-			date > $END$
-			NOT = { has_country_flag = VIE_ap_$P$_offered }
-		}
-		set_country_flag = VIE_ap_$P$_offered
-	}
-}
+# DISABLED (unused template): the engine validates $PARAM$ placeholders raw at load and logs false errors. Uncomment when a caller passes the parameters.
+#VIE_ap_catchup_mark = {
+#	if = {
+#		limit = {
+#			date > $END$
+#			NOT = { has_country_flag = VIE_ap_$P$_offered }
+#		}
+#		set_country_flag = VIE_ap_$P$_offered
+#	}
+#}
 
 ########################################################################
 # Tien. Don vi ty USD (modify_treasury_effect / modify_debt_effect cua MD).
@@ -835,7 +838,7 @@ VIE_ap_seller_influence = {
 # Dot 1 - 4 chiec (lich su), giao 11/2004.
 VIE_ap_reward_su30_1_a = {
 	set_variable = { VIE_ap_su30_1_qty = 4 }
-	set_country_flag = { flag = VIE_ap_su30_1_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_1_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.12 }
 	modify_treasury_effect = yes
 	if = {
@@ -847,9 +850,9 @@ VIE_ap_reward_su30_1_a = {
 }
 # Dot 1 - 6 chiec + goi chuyen loai, giao cham 6 thang.
 VIE_ap_reward_su30_1_b = {
-	set_country_flag = VIE_ap_su30_1_late
+	hidden_effect = { set_country_flag = VIE_ap_su30_1_late }
 	set_variable = { VIE_ap_su30_1_qty = 6 }
-	set_country_flag = { flag = VIE_ap_su30_1_lead value = 1 days = 480 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_1_lead value = 1 days = 480 } }
 	set_temp_variable = { treasury_change = -0.20 }
 	modify_treasury_effect = yes
 	air_experience = 10
@@ -867,7 +870,7 @@ VIE_fb_ap_su30_1 = {
 # Dot 2 - 8 chiec KHONG kem vu khi (lich su): thieu dan cho toi khi dot 3 chot.
 VIE_ap_reward_su30_2_a = {
 	set_variable = { VIE_ap_su30_2_qty = 8 }
-	set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.40 }
 	add_to_temp_variable = { treasury_change = 0.16 }
 	modify_treasury_effect = yes
@@ -887,7 +890,7 @@ VIE_ap_reward_su30_2_a = {
 # Dot 2 - 8 chiec kem vu khi: san sang ngay, khong co idea.
 VIE_ap_reward_su30_2_b = {
 	set_variable = { VIE_ap_su30_2_qty = 8 }
-	set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.52 }
 	add_to_temp_variable = { treasury_change = 0.21 }
 	modify_treasury_effect = yes
@@ -903,7 +906,7 @@ VIE_ap_reward_su30_2_b = {
 # Dot 2 - chi 6 chiec, van khong kem vu khi.
 VIE_ap_reward_su30_2_c = {
 	set_variable = { VIE_ap_su30_2_qty = 6 }
-	set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_2_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.30 }
 	add_to_temp_variable = { treasury_change = 0.12 }
 	modify_treasury_effect = yes
@@ -927,7 +930,7 @@ VIE_fb_ap_su30_2 = {
 # Dot 3 - 12 chiec kem vu khi va phu tung (lich su): go idea thieu dan cua dot 2.
 VIE_ap_reward_su30_3_a = {
 	set_variable = { VIE_ap_su30_3_qty = 12 }
-	set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -1.00 }
 	add_to_temp_variable = { treasury_change = 0.40 }
 	modify_treasury_effect = yes
@@ -944,7 +947,7 @@ VIE_ap_reward_su30_3_a = {
 # Dot 3 - 12 chiec chi than may: ha hieu suat nhiem vu 24 thang.
 VIE_ap_reward_su30_3_b = {
 	set_variable = { VIE_ap_su30_3_qty = 12 }
-	set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.62 }
 	add_to_temp_variable = { treasury_change = 0.25 }
 	modify_treasury_effect = yes
@@ -962,7 +965,7 @@ VIE_ap_reward_su30_3_b = {
 # Dot 3 - chi 8 chiec.
 VIE_ap_reward_su30_3_c = {
 	set_variable = { VIE_ap_su30_3_qty = 8 }
-	set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_3_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.70 }
 	add_to_temp_variable = { treasury_change = 0.28 }
 	modify_treasury_effect = yes
@@ -989,7 +992,7 @@ VIE_ap_su30_clear_no_munitions = {
 # Dot 4 - 12 chiec (lich su), giao 2014 -> dau 2016.
 VIE_ap_reward_su30_4_a = {
 	set_variable = { VIE_ap_su30_4_qty = 12 }
-	set_country_flag = { flag = VIE_ap_su30_4_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_4_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.60 }
 	add_to_temp_variable = { treasury_change = 0.24 }
 	modify_treasury_effect = yes
@@ -1004,9 +1007,9 @@ VIE_ap_reward_su30_4_a = {
 }
 # Dot 4 - 6 chiec va mo dam phan Su-35S (1B P2 doc co nay; chua ai doc cho toi khi co 1B).
 VIE_ap_reward_su30_4_b = {
-	set_country_flag = VIE_ap_su35_talks
+	hidden_effect = { set_country_flag = VIE_ap_su35_talks }
 	set_variable = { VIE_ap_su30_4_qty = 6 }
-	set_country_flag = { flag = VIE_ap_su30_4_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_su30_4_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.30 }
 	add_to_temp_variable = { treasury_change = 0.12 }
 	modify_treasury_effect = yes
@@ -1031,92 +1034,93 @@ VIE_fb_ap_su30_4 = {
 # LATE_DATE: ngay giao khi co co VIE_ap_<P>_late (E3 option B); cac chuong trinh khac truyen cung DATE.
 # Chi giao khi da ky hop dong (qty > 0) va het thoi gian cho (co VIE_ap_<P>_lead), moi dot mot co VIE_ap_<P>_d<K>. Nguoi thang noi chien khong co co contracted.
 ########################################################################
-VIE_ap_tranche = {
-	if = {
-		limit = {
-			check_variable = { VIE_ap_$P$_qty > 0 }
-			NOT = { has_country_flag = VIE_ap_$P$_lead }
-			NOT = { has_country_flag = VIE_ap_$P$_d$K$ }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_$P$_late }
-					date > $DATE$
-				}
-				AND = {
-					has_country_flag = VIE_ap_$P$_late
-					date > $LATE_DATE$
-				}
-			}
-		}
-		set_country_flag = VIE_ap_$P$_d$K$
-		if = {
-			limit = { NOT = { check_variable = { VIE_ap_$P$_qty < $HI$ } } }
-			if = {
-				limit = { country_exists = SOV }
-				if = {
-					limit = { has_dlc = "By Blood Alone" }
-					add_equipment_to_stockpile = {
-						type = medium_plane_airframe_2
-						variant_name = "Su-30"
-						amount = 4
-						producer = SOV
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = {
-						type = AS_Fighter2
-						amount = 4
-						producer = SOV
-					}
-				}
-			}
-			else = {
-				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
-				if = {
-					limit = { has_dlc = "By Blood Alone" }
-					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
-				}
-				else = {
-					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
-				}
-			}
-			add_to_variable = { VIE_var_air_delivered = 4 }
-		}
-		else_if = {
-			limit = { check_variable = { VIE_ap_$P$_qty > $LO$ } }
-			if = {
-				limit = { country_exists = SOV }
-				if = {
-					limit = { has_dlc = "By Blood Alone" }
-					add_equipment_to_stockpile = {
-						type = medium_plane_airframe_2
-						variant_name = "Su-30"
-						amount = 2
-						producer = SOV
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = {
-						type = AS_Fighter2
-						amount = 2
-						producer = SOV
-					}
-				}
-			}
-			else = {
-				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
-				if = {
-					limit = { has_dlc = "By Blood Alone" }
-					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
-				}
-				else = {
-					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
-				}
-			}
-			add_to_variable = { VIE_var_air_delivered = 2 }
-		}
-	}
-}
+# DISABLED (unused template): the engine validates $PARAM$ placeholders raw at load and logs false errors. Uncomment when a caller passes the parameters.
+#VIE_ap_tranche = {
+#	if = {
+#		limit = {
+#			check_variable = { VIE_ap_$P$_qty > 0 }
+#			NOT = { has_country_flag = VIE_ap_$P$_lead }
+#			NOT = { has_country_flag = VIE_ap_$P$_d$K$ }
+#			OR = {
+#				AND = {
+#					NOT = { has_country_flag = VIE_ap_$P$_late }
+#					date > $DATE$
+#				}
+#				AND = {
+#					has_country_flag = VIE_ap_$P$_late
+#					date > $LATE_DATE$
+#				}
+#			}
+#		}
+#		set_country_flag = VIE_ap_$P$_d$K$
+#		if = {
+#			limit = { NOT = { check_variable = { VIE_ap_$P$_qty < $HI$ } } }
+#			if = {
+#				limit = { country_exists = SOV }
+#				if = {
+#					limit = { has_dlc = "By Blood Alone" }
+#					add_equipment_to_stockpile = {
+#						type = medium_plane_airframe_2
+#						variant_name = "Su-30"
+#						amount = 4
+#						producer = SOV
+#					}
+#				}
+#				else = {
+#					add_equipment_to_stockpile = {
+#						type = AS_Fighter2
+#						amount = 4
+#						producer = SOV
+#					}
+#				}
+#			}
+#			else = {
+#				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+#				if = {
+#					limit = { has_dlc = "By Blood Alone" }
+#					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 4 }
+#				}
+#				else = {
+#					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 4 }
+#				}
+#			}
+#			add_to_variable = { VIE_var_air_delivered = 4 }
+#		}
+#		else_if = {
+#			limit = { check_variable = { VIE_ap_$P$_qty > $LO$ } }
+#			if = {
+#				limit = { country_exists = SOV }
+#				if = {
+#					limit = { has_dlc = "By Blood Alone" }
+#					add_equipment_to_stockpile = {
+#						type = medium_plane_airframe_2
+#						variant_name = "Su-30"
+#						amount = 2
+#						producer = SOV
+#					}
+#				}
+#				else = {
+#					add_equipment_to_stockpile = {
+#						type = AS_Fighter2
+#						amount = 2
+#						producer = SOV
+#					}
+#				}
+#			}
+#			else = {
+#				# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
+#				if = {
+#					limit = { has_dlc = "By Blood Alone" }
+#					add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 2 }
+#				}
+#				else = {
+#					add_equipment_to_stockpile = { type = AS_Fighter2 amount = 2 }
+#				}
+#			}
+#			add_to_variable = { VIE_var_air_delivered = 2 }
+#		}
+#	}
+#}
 
 VIE_ap_deliver_su30 = {
 	# E6 bi lo (SOV mat / chien tranh suot cua so): idea thieu dan cua E5 khong con dieu kien go nao khac.
@@ -1141,7 +1145,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_1_d1
+		hidden_effect = { set_country_flag = VIE_ap_su30_1_d1 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_1_qty < 4 } } }
 			if = {
@@ -1225,7 +1229,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_1_d2
+		hidden_effect = { set_country_flag = VIE_ap_su30_1_d2 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_1_qty < 8 } } }
 			if = {
@@ -1310,7 +1314,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_2_d1
+		hidden_effect = { set_country_flag = VIE_ap_su30_2_d1 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_2_qty < 4 } } }
 			if = {
@@ -1394,7 +1398,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_2_d2
+		hidden_effect = { set_country_flag = VIE_ap_su30_2_d2 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_2_qty < 8 } } }
 			if = {
@@ -1479,7 +1483,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_3_d1
+		hidden_effect = { set_country_flag = VIE_ap_su30_3_d1 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_3_qty < 4 } } }
 			if = {
@@ -1563,7 +1567,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_3_d2
+		hidden_effect = { set_country_flag = VIE_ap_su30_3_d2 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_3_qty < 8 } } }
 			if = {
@@ -1647,7 +1651,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_3_d3
+		hidden_effect = { set_country_flag = VIE_ap_su30_3_d3 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_3_qty < 12 } } }
 			if = {
@@ -1732,7 +1736,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_4_d1
+		hidden_effect = { set_country_flag = VIE_ap_su30_4_d1 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_4_qty < 4 } } }
 			if = {
@@ -1816,7 +1820,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_4_d2
+		hidden_effect = { set_country_flag = VIE_ap_su30_4_d2 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_4_qty < 8 } } }
 			if = {
@@ -1900,7 +1904,7 @@ VIE_ap_deliver_su30 = {
 				}
 			}
 		}
-		set_country_flag = VIE_ap_su30_4_d3
+		hidden_effect = { set_country_flag = VIE_ap_su30_4_d3 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_su30_4_qty < 12 } } }
 			if = {
@@ -2004,7 +2008,7 @@ VIE_ap_air_def = {
 # E2 - S-300PMU1: 2 tieu doan (lich su) / 1 tieu doan. Giao 2005-08 va 2006-12 (dot 2 noi suy).
 VIE_ap_reward_s300_a = {
 	set_variable = { VIE_ap_s300_qty = 2 }
-	set_country_flag = { flag = VIE_ap_s300_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_s300_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.30 }
 	modify_treasury_effect = yes
 	if = {
@@ -2016,7 +2020,7 @@ VIE_ap_reward_s300_a = {
 }
 VIE_ap_reward_s300_b = {
 	set_variable = { VIE_ap_s300_qty = 1 }
-	set_country_flag = { flag = VIE_ap_s300_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_s300_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.16 }
 	modify_treasury_effect = yes
 	if = {
@@ -2033,7 +2037,7 @@ VIE_fb_ap_s300 = {
 # E7 - Pechora-2TM: tren 30 be (lich su, scope 2) / 15 be (scope 1). Truc 2 A31 doc VIE_ap_pechora_scope.
 VIE_ap_reward_pechora_a = {
 	set_variable = { VIE_ap_pechora_scope = 2 }
-	set_country_flag = { flag = VIE_ap_pechora_lead value = 1 days = 150 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_pechora_lead value = 1 days = 150 } }
 	set_temp_variable = { treasury_change = -0.15 }
 	modify_treasury_effect = yes
 	if = {
@@ -2045,7 +2049,7 @@ VIE_ap_reward_pechora_a = {
 }
 VIE_ap_reward_pechora_b = {
 	set_variable = { VIE_ap_pechora_scope = 1 }
-	set_country_flag = { flag = VIE_ap_pechora_lead value = 1 days = 150 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_pechora_lead value = 1 days = 150 } }
 	set_temp_variable = { treasury_change = -0.08 }
 	modify_treasury_effect = yes
 	if = {
@@ -2062,7 +2066,7 @@ VIE_fb_ap_pechora = {
 # E10 - SPYDER: 5 he thong (lich su) / 3 he thong + nghien cuu Barak-8 (1B P8 doc VIE_ap_barak_research).
 VIE_ap_reward_spyder_a = {
 	set_variable = { VIE_ap_spyder_qty = 5 }
-	set_country_flag = { flag = VIE_ap_spyder_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_spyder_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.25 }
 	modify_treasury_effect = yes
 	if = {
@@ -2073,9 +2077,9 @@ VIE_ap_reward_spyder_a = {
 	}
 }
 VIE_ap_reward_spyder_b = {
-	set_country_flag = VIE_ap_barak_research
+	hidden_effect = { set_country_flag = VIE_ap_barak_research }
 	set_variable = { VIE_ap_spyder_qty = 3 }
-	set_country_flag = { flag = VIE_ap_spyder_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_spyder_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.18 }
 	modify_treasury_effect = yes
 	if = {
@@ -2105,7 +2109,7 @@ VIE_ap_deliver_sam = {
 			NOT = { has_country_flag = VIE_ap_s300_d1 }
 			date > 2005.7.31
 		}
-		set_country_flag = VIE_ap_s300_d1
+		hidden_effect = { set_country_flag = VIE_ap_s300_d1 }
 		if = {
 			limit = { has_dlc = "Gotterdammerung" }
 			set_technology = { SAM1 = 1 SAM2 = 1 }
@@ -2132,7 +2136,7 @@ VIE_ap_deliver_sam = {
 			NOT = { check_variable = { VIE_ap_s300_qty < 2 } }
 			date > 2006.12.30
 		}
-		set_country_flag = VIE_ap_s300_d2
+		hidden_effect = { set_country_flag = VIE_ap_s300_d2 }
 		if = {
 			limit = { has_dlc = "Gotterdammerung" }
 			set_technology = { SAM1 = 1 SAM2 = 1 }
@@ -2158,7 +2162,7 @@ VIE_ap_deliver_sam = {
 			NOT = { has_country_flag = VIE_ap_pechora_d1 }
 			date > 2011.5.31
 		}
-		set_country_flag = VIE_ap_pechora_d1
+		hidden_effect = { set_country_flag = VIE_ap_pechora_d1 }
 		if = {
 			limit = { check_variable = { VIE_ap_pechora_scope = 2 } }
 			if = {
@@ -2203,7 +2207,7 @@ VIE_ap_deliver_sam = {
 			NOT = { has_country_flag = VIE_ap_spyder_d1 }
 			date > 2016.11.30
 		}
-		set_country_flag = VIE_ap_spyder_d1
+		hidden_effect = { set_country_flag = VIE_ap_spyder_d1 }
 		if = {
 			limit = { has_dlc = "Gotterdammerung" }
 			set_technology = { SAM1 = 1 }
@@ -2228,7 +2232,7 @@ VIE_ap_deliver_sam = {
 			NOT = { has_country_flag = VIE_ap_spyder_d2 }
 			date > 2017.11.30
 		}
-		set_country_flag = VIE_ap_spyder_d2
+		hidden_effect = { set_country_flag = VIE_ap_spyder_d2 }
 		if = {
 			limit = { NOT = { check_variable = { VIE_ap_spyder_qty < 4 } } }
 			if = {
@@ -2267,7 +2271,7 @@ VIE_ap_deliver_sam = {
 			NOT = { check_variable = { VIE_ap_spyder_qty < 5 } }
 			date > 2018.5.31
 		}
-		set_country_flag = VIE_ap_spyder_d3
+		hidden_effect = { set_country_flag = VIE_ap_spyder_d3 }
 		if = {
 			limit = { has_dlc = "Gotterdammerung" }
 			set_technology = { SAM1 = 1 }
@@ -2384,7 +2388,7 @@ VIE_fb_ap_yak52 = {
 # E8 - C-295M: 3 chiec (lich su) / 2 / 4. Giao moi chiec mot dot, tu 2015-03.
 VIE_ap_reward_c295_a = {
 	set_variable = { VIE_ap_c295_qty = 3 }
-	set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.10 }
 	modify_treasury_effect = yes
 	if = {
@@ -2396,7 +2400,7 @@ VIE_ap_reward_c295_a = {
 }
 VIE_ap_reward_c295_b = {
 	set_variable = { VIE_ap_c295_qty = 2 }
-	set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.07 }
 	modify_treasury_effect = yes
 	if = {
@@ -2408,7 +2412,7 @@ VIE_ap_reward_c295_b = {
 }
 VIE_ap_reward_c295_c = {
 	set_variable = { VIE_ap_c295_qty = 4 }
-	set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_c295_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.14 }
 	modify_treasury_effect = yes
 	if = {
@@ -2461,7 +2465,7 @@ VIE_ap_reward_radar_b = {
 # C: chi them 0.01 ngay (thap hon A 0.03); Truc 2 Radar doc VIE_ap_radar_viettel_fast (chua ai doc).
 VIE_ap_reward_radar_c = {
 	VIE_ap_ensure_af_modifier = yes
-	set_country_flag = VIE_ap_radar_viettel_fast
+	hidden_effect = { set_country_flag = VIE_ap_radar_viettel_fast }
 	set_temp_variable = { treasury_change = -0.04 }
 	modify_treasury_effect = yes
 	custom_effect_tooltip = {
@@ -2509,7 +2513,7 @@ VIE_fb_ap_india_train = {
 # E14 - Yak-130: A mua 12 chiec (lich su, da mua 12), B tu choi, C hoan (xu ly trong event).
 VIE_ap_reward_yak130_a = {
 	set_variable = { VIE_ap_yak130_qty = 12 }
-	set_country_flag = { flag = VIE_ap_yak130_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_yak130_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.35 }
 	modify_treasury_effect = yes
 	if = {
@@ -2520,7 +2524,7 @@ VIE_ap_reward_yak130_a = {
 	}
 }
 VIE_ap_reward_yak130_b = {
-	set_country_flag = VIE_ap_yak130_declined
+	hidden_effect = { set_country_flag = VIE_ap_yak130_declined }
 }
 VIE_fb_ap_yak130 = {
 	VIE_ap_reward_yak130_a = yes
@@ -2529,7 +2533,7 @@ VIE_fb_ap_yak130 = {
 # E15 - T-6C: A 12 chiec (0.15; 0.12 neu Truc 3 da xong T1), B 6 chiec 0.08.
 VIE_ap_reward_t6c_a = {
 	set_variable = { VIE_ap_t6c_qty = 12 }
-	set_country_flag = { flag = VIE_ap_t6c_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_t6c_lead value = 1 days = 300 } }
 	if = {
 		limit = { VIE_ap_training_standardized = yes }
 		set_temp_variable = { treasury_change = -0.12 }
@@ -2548,7 +2552,7 @@ VIE_ap_reward_t6c_a = {
 }
 VIE_ap_reward_t6c_b = {
 	set_variable = { VIE_ap_t6c_qty = 6 }
-	set_country_flag = { flag = VIE_ap_t6c_lead value = 1 days = 300 }
+	hidden_effect = { set_country_flag = { flag = VIE_ap_t6c_lead value = 1 days = 300 } }
 	set_temp_variable = { treasury_change = -0.08 }
 	modify_treasury_effect = yes
 	if = {
@@ -2570,13 +2574,13 @@ VIE_fb_ap_l39ng = {
 			check_variable = { treasury > 0.3 }
 		}
 		set_variable = { VIE_ap_l39ng_qty = 18 }
-		set_country_flag = { flag = VIE_ap_l39ng_lead value = 1 days = 300 }
+		hidden_effect = { set_country_flag = { flag = VIE_ap_l39ng_lead value = 1 days = 300 } }
 		set_temp_variable = { treasury_change = -0.18 }
 		modify_treasury_effect = yes
 	}
 	else = {
 		set_variable = { VIE_ap_l39ng_qty = 12 }
-		set_country_flag = { flag = VIE_ap_l39ng_lead value = 1 days = 300 }
+		hidden_effect = { set_country_flag = { flag = VIE_ap_l39ng_lead value = 1 days = 300 } }
 		set_temp_variable = { treasury_change = -0.12 }
 		modify_treasury_effect = yes
 	}
@@ -2599,7 +2603,7 @@ VIE_ap_deliver_air_misc = {
 	# ---- C-295 (moi chiec mot dot, qty >= K)
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d1 } date > 2015.2.28 }
-		set_country_flag = VIE_ap_c295_d1
+		hidden_effect = { set_country_flag = VIE_ap_c295_d1 }
 		if = {
 			limit = { country_exists = SPR }
 			if = {
@@ -2613,7 +2617,7 @@ VIE_ap_deliver_air_misc = {
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d2 } date > 2015.8.31 NOT = { check_variable = { VIE_ap_c295_qty < 2 } } }
-		set_country_flag = VIE_ap_c295_d2
+		hidden_effect = { set_country_flag = VIE_ap_c295_d2 }
 		if = {
 			limit = { country_exists = SPR }
 			if = {
@@ -2627,7 +2631,7 @@ VIE_ap_deliver_air_misc = {
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d3 } date > 2016.2.29 NOT = { check_variable = { VIE_ap_c295_qty < 3 } } }
-		set_country_flag = VIE_ap_c295_d3
+		hidden_effect = { set_country_flag = VIE_ap_c295_d3 }
 		if = {
 			limit = { country_exists = SPR }
 			if = {
@@ -2641,7 +2645,7 @@ VIE_ap_deliver_air_misc = {
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_c295_qty > 0 } NOT = { has_country_flag = VIE_ap_c295_lead } NOT = { has_country_flag = VIE_ap_c295_d4 } date > 2016.8.31 NOT = { check_variable = { VIE_ap_c295_qty < 4 } } }
-		set_country_flag = VIE_ap_c295_d4
+		hidden_effect = { set_country_flag = VIE_ap_c295_d4 }
 		if = {
 			limit = { country_exists = SPR }
 			if = {
@@ -2656,7 +2660,7 @@ VIE_ap_deliver_air_misc = {
 	# ---- Yak-130
 	if = {
 		limit = { check_variable = { VIE_ap_yak130_qty > 0 } NOT = { has_country_flag = VIE_ap_yak130_lead } NOT = { has_country_flag = VIE_ap_yak130_d1 } date > 2021.5.31 }
-		set_country_flag = VIE_ap_yak130_d1
+		hidden_effect = { set_country_flag = VIE_ap_yak130_d1 }
 		if = {
 			limit = { country_exists = SOV }
 			if = {
@@ -2670,7 +2674,7 @@ VIE_ap_deliver_air_misc = {
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_yak130_qty > 0 } NOT = { has_country_flag = VIE_ap_yak130_lead } NOT = { has_country_flag = VIE_ap_yak130_d2 } date > 2022.5.31 }
-		set_country_flag = VIE_ap_yak130_d2
+		hidden_effect = { set_country_flag = VIE_ap_yak130_d2 }
 		if = {
 			limit = { country_exists = SOV }
 			if = {
@@ -2685,7 +2689,7 @@ VIE_ap_deliver_air_misc = {
 	# ---- T-6C
 	if = {
 		limit = { check_variable = { VIE_ap_t6c_qty > 0 } NOT = { has_country_flag = VIE_ap_t6c_lead } NOT = { has_country_flag = VIE_ap_t6c_d1 } date > 2024.10.31 }
-		set_country_flag = VIE_ap_t6c_d1
+		hidden_effect = { set_country_flag = VIE_ap_t6c_d1 }
 		if = {
 			limit = { country_exists = USA }
 			if = {
@@ -2699,7 +2703,7 @@ VIE_ap_deliver_air_misc = {
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_t6c_qty > 0 } NOT = { has_country_flag = VIE_ap_t6c_lead } NOT = { has_country_flag = VIE_ap_t6c_d2 } date > 2026.5.31 }
-		set_country_flag = VIE_ap_t6c_d2
+		hidden_effect = { set_country_flag = VIE_ap_t6c_d2 }
 		if = {
 			limit = { check_variable = { VIE_ap_t6c_qty > 6 } }
 			if = {
@@ -2729,7 +2733,7 @@ VIE_ap_deliver_air_misc = {
 	# ---- L-39NG
 	if = {
 		limit = { check_variable = { VIE_ap_l39ng_qty > 0 } NOT = { has_country_flag = VIE_ap_l39ng_lead } NOT = { has_country_flag = VIE_ap_l39ng_d1 } date > 2024.7.31 }
-		set_country_flag = VIE_ap_l39ng_d1
+		hidden_effect = { set_country_flag = VIE_ap_l39ng_d1 }
 		if = {
 			limit = { country_exists = CZE }
 			if = {
@@ -2743,7 +2747,7 @@ VIE_ap_deliver_air_misc = {
 	}
 	if = {
 		limit = { check_variable = { VIE_ap_l39ng_qty > 0 } NOT = { has_country_flag = VIE_ap_l39ng_lead } NOT = { has_country_flag = VIE_ap_l39ng_d2 } date > 2025.2.28 }
-		set_country_flag = VIE_ap_l39ng_d2
+		hidden_effect = { set_country_flag = VIE_ap_l39ng_d2 }
 		if = {
 			limit = { country_exists = CZE }
 			if = {
@@ -2763,7 +2767,7 @@ VIE_ap_deliver_air_misc = {
 			check_variable = { VIE_ap_l39ng_qty > 12 }
 			date > 2025.8.31
 		}
-		set_country_flag = VIE_ap_l39ng_d3
+		hidden_effect = { set_country_flag = VIE_ap_l39ng_d3 }
 		if = {
 			limit = { country_exists = CZE }
 			if = {

@@ -4,7 +4,7 @@ VIE_event_scheduler_p16 = {
 			date > 2014.12.31
 			NOT = { has_country_flag = VIE_md_roster_recruited_2015 }
 		}
-		set_country_flag = VIE_md_roster_event_pending
+		hidden_effect = { set_country_flag = VIE_md_roster_event_pending }
 		country_event = { id = vie_army_commanders.2 days = 1 }
 	}
 	if = {
@@ -13,7 +13,7 @@ VIE_event_scheduler_p16 = {
 			NOT = { has_country_flag = VIE_army_expansion_recruited }
 			NOT = { has_country_flag = VIE_army_expansion_event_pending }
 		}
-		set_country_flag = VIE_army_expansion_event_pending
+		hidden_effect = { set_country_flag = VIE_army_expansion_event_pending }
 		country_event = { id = vie_army_commanders.1 days = 1 }
 	}
 }

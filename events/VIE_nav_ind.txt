@@ -139,7 +139,7 @@ country_event = {
 
 	immediate = {
 		log = "[GetDateText]: [This.GetName]: Event vie_nav_ind.60 (Ba Son usable)"
-		set_country_flag = VIE_cap_ba_son_yard
+		hidden_effect = { set_country_flag = VIE_cap_ba_son_yard }
 		set_variable = { VIE_var_ba_son_tier = VIE_ba_son_invest }
 	}
 
@@ -242,7 +242,7 @@ country_event = {
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_nav_ind.11.a executed"
 		set_variable = { VIE_mro_source = 1 }
-		set_country_flag = VIE_mro_russia_dependent
+		hidden_effect = { set_country_flag = VIE_mro_russia_dependent }
 		country_event = { id = vie_nav_ind.12 }
 		ai_chance = {
 			base = 90

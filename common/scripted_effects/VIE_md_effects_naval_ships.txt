@@ -35,23 +35,23 @@ VIE_naval_sched_gepard1 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_gepard1_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_gepard1_offered }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_naval.10 days = 1 random_days = 14 }
 			}
 			else = {
-				set_country_flag = VIE_gepard1_gate_seen
+				hidden_effect = { set_country_flag = VIE_gepard1_gate_seen }
 			}
 		}
 		else_if = {
 			limit = { date > 2008.12.31 }
 			if = {
 				limit = { has_country_flag = VIE_gepard1_gate_seen }
-				set_country_flag = VIE_gepard1_offered
+				hidden_effect = { set_country_flag = VIE_gepard1_offered }
 				VIE_fb_naval_gepard1 = yes
 			}
 			else = {
-				set_country_flag = VIE_gepard1_missed
+				hidden_effect = { set_country_flag = VIE_gepard1_missed }
 			}
 		}
 	}
@@ -73,23 +73,23 @@ VIE_naval_sched_bastion = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_bastion_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_bastion_offered }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_naval.30 days = 1 random_days = 14 }
 			}
 			else = {
-				set_country_flag = VIE_bastion_gate_seen
+				hidden_effect = { set_country_flag = VIE_bastion_gate_seen }
 			}
 		}
 		else_if = {
 			limit = { date > 2009.12.31 }
 			if = {
 				limit = { has_country_flag = VIE_bastion_gate_seen }
-				set_country_flag = VIE_bastion_offered
+				hidden_effect = { set_country_flag = VIE_bastion_offered }
 				VIE_fb_naval_bastion = yes
 			}
 			else = {
-				set_country_flag = VIE_bastion_missed
+				hidden_effect = { set_country_flag = VIE_bastion_missed }
 			}
 		}
 	}
@@ -111,23 +111,23 @@ VIE_naval_sched_kilo = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_kilo_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_kilo_offered }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_naval.20 days = 1 random_days = 14 }
 			}
 			else = {
-				set_country_flag = VIE_kilo_gate_seen
+				hidden_effect = { set_country_flag = VIE_kilo_gate_seen }
 			}
 		}
 		else_if = {
 			limit = { date > 2011.12.31 }
 			if = {
 				limit = { has_country_flag = VIE_kilo_gate_seen }
-				set_country_flag = VIE_kilo_offered
+				hidden_effect = { set_country_flag = VIE_kilo_offered }
 				VIE_fb_naval_kilo = yes
 			}
 			else = {
-				set_country_flag = VIE_kilo_missed
+				hidden_effect = { set_country_flag = VIE_kilo_missed }
 			}
 		}
 	}
@@ -150,23 +150,23 @@ VIE_naval_sched_gepard2 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_gepard2_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_gepard2_offered }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_naval.12 days = 1 random_days = 14 }
 			}
 			else = {
-				set_country_flag = VIE_gepard2_gate_seen
+				hidden_effect = { set_country_flag = VIE_gepard2_gate_seen }
 			}
 		}
 		else_if = {
 			limit = { date > 2014.12.31 }
 			if = {
 				limit = { has_country_flag = VIE_gepard2_gate_seen }
-				set_country_flag = VIE_gepard2_offered
+				hidden_effect = { set_country_flag = VIE_gepard2_offered }
 				VIE_fb_naval_gepard2 = yes
 			}
 			else = {
-				set_country_flag = VIE_gepard2_missed
+				hidden_effect = { set_country_flag = VIE_gepard2_missed }
 			}
 		}
 	}
@@ -227,7 +227,7 @@ VIE_naval_pay_kilo = {
 
 # Hop dong: nguoi goi dat truoc bien so luong (va cau hinh / trien khai / huan luyen).
 VIE_naval_contract_gepard1 = {
-	set_country_flag = VIE_gepard1_contracted
+	hidden_effect = { set_country_flag = VIE_gepard1_contracted }
 	VIE_naval_pay_gepard1 = yes
 	if = {
 		limit = { has_country_flag = VIE_gepard1_late }
@@ -235,7 +235,7 @@ VIE_naval_contract_gepard1 = {
 	}
 }
 VIE_naval_contract_gepard2 = {
-	set_country_flag = VIE_gepard2_contracted
+	hidden_effect = { set_country_flag = VIE_gepard2_contracted }
 	VIE_naval_pay_gepard2 = yes
 	if = {
 		limit = { has_country_flag = VIE_gepard2_late }
@@ -243,7 +243,7 @@ VIE_naval_contract_gepard2 = {
 	}
 }
 VIE_naval_contract_kilo = {
-	set_country_flag = VIE_kilo_contracted
+	hidden_effect = { set_country_flag = VIE_kilo_contracted }
 	VIE_naval_pay_kilo = yes
 	if = {
 		limit = { has_country_flag = VIE_kilo_late }
@@ -251,7 +251,7 @@ VIE_naval_contract_kilo = {
 	}
 }
 VIE_naval_contract_bastion = {
-	set_country_flag = VIE_bastion_contracted
+	hidden_effect = { set_country_flag = VIE_bastion_contracted }
 	VIE_naval_pay_bastion = yes
 	if = {
 		limit = { has_country_flag = VIE_bastion_late }
@@ -271,7 +271,7 @@ VIE_fb_naval_gepard2 = {
 }
 VIE_fb_naval_kilo = {
 	set_variable = { VIE_kilo_qty_ordered = 6 }
-	set_country_flag = VIE_kilo_training_full
+	hidden_effect = { set_country_flag = VIE_kilo_training_full }
 	VIE_naval_contract_kilo = yes
 }
 VIE_fb_naval_bastion = {
@@ -290,7 +290,7 @@ VIE_naval_deliver_gepard1 = {
 			date > 2011.2.28
 			NOT = { has_country_flag = VIE_gepard1_s1 }
 		}
-		set_country_flag = VIE_gepard1_s1
+		hidden_effect = { set_country_flag = VIE_gepard1_s1 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_gepard1_config = 2 } }
@@ -321,7 +321,7 @@ VIE_naval_deliver_gepard1 = {
 			date > 2011.7.31
 			NOT = { has_country_flag = VIE_gepard1_s2 }
 		}
-		set_country_flag = VIE_gepard1_s2
+		hidden_effect = { set_country_flag = VIE_gepard1_s2 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_gepard1_config = 2 } }
@@ -352,7 +352,7 @@ VIE_naval_deliver_gepard1 = {
 			date > 2012.1.31
 			NOT = { has_country_flag = VIE_gepard1_s3 }
 		}
-		set_country_flag = VIE_gepard1_s3
+		hidden_effect = { set_country_flag = VIE_gepard1_s3 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_gepard1_config = 2 } }
@@ -383,7 +383,7 @@ VIE_naval_deliver_gepard1 = {
 			date > 2012.7.31
 			NOT = { has_country_flag = VIE_gepard1_s4 }
 		}
-		set_country_flag = VIE_gepard1_s4
+		hidden_effect = { set_country_flag = VIE_gepard1_s4 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_gepard1_config = 2 } }
@@ -418,7 +418,7 @@ VIE_naval_deliver_gepard2 = {
 			date > 2017.5.31
 			NOT = { has_country_flag = VIE_gepard2_s1 }
 		}
-		set_country_flag = VIE_gepard2_s1
+		hidden_effect = { set_country_flag = VIE_gepard2_s1 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -437,7 +437,7 @@ VIE_naval_deliver_gepard2 = {
 			date > 2018.2.28
 			NOT = { has_country_flag = VIE_gepard2_s2 }
 		}
-		set_country_flag = VIE_gepard2_s2
+		hidden_effect = { set_country_flag = VIE_gepard2_s2 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -456,7 +456,7 @@ VIE_naval_deliver_gepard2 = {
 			date > 2018.8.31
 			NOT = { has_country_flag = VIE_gepard2_s3 }
 		}
-		set_country_flag = VIE_gepard2_s3
+		hidden_effect = { set_country_flag = VIE_gepard2_s3 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -475,7 +475,7 @@ VIE_naval_deliver_gepard2 = {
 			date > 2019.2.28
 			NOT = { has_country_flag = VIE_gepard2_s4 }
 		}
-		set_country_flag = VIE_gepard2_s4
+		hidden_effect = { set_country_flag = VIE_gepard2_s4 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -502,7 +502,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s1 }
 		}
-		set_country_flag = VIE_kilo_s1
+		hidden_effect = { set_country_flag = VIE_kilo_s1 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -513,7 +513,7 @@ VIE_naval_deliver_kilo = {
 		}
 		add_to_variable = { VIE_kilo_qty_delivered = 1 }
 		add_to_variable = { VIE_var_hulls_delivered = 1 }
-		set_country_flag = VIE_ev_kilo_submarines
+		hidden_effect = { set_country_flag = VIE_ev_kilo_submarines }
 	}
 	if = {
 		limit = {
@@ -525,7 +525,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s2 }
 		}
-		set_country_flag = VIE_kilo_s2
+		hidden_effect = { set_country_flag = VIE_kilo_s2 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -547,7 +547,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s3 }
 		}
-		set_country_flag = VIE_kilo_s3
+		hidden_effect = { set_country_flag = VIE_kilo_s3 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -569,7 +569,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s4 }
 		}
-		set_country_flag = VIE_kilo_s4
+		hidden_effect = { set_country_flag = VIE_kilo_s4 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -591,7 +591,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s5 }
 		}
-		set_country_flag = VIE_kilo_s5
+		hidden_effect = { set_country_flag = VIE_kilo_s5 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -613,7 +613,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s6 }
 		}
-		set_country_flag = VIE_kilo_s6
+		hidden_effect = { set_country_flag = VIE_kilo_s6 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -635,7 +635,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s7 }
 		}
-		set_country_flag = VIE_kilo_s7
+		hidden_effect = { set_country_flag = VIE_kilo_s7 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -657,7 +657,7 @@ VIE_naval_deliver_kilo = {
 			}
 			NOT = { has_country_flag = VIE_kilo_s8 }
 		}
-		set_country_flag = VIE_kilo_s8
+		hidden_effect = { set_country_flag = VIE_kilo_s8 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { country_exists = SOV }
@@ -677,7 +677,7 @@ VIE_naval_deliver_kilo = {
 			NOT = { check_variable = { VIE_kilo_qty_delivered < VIE_kilo_qty_ordered } }
 			NOT = { has_country_flag = VIE_opp_sub_mro }
 		}
-		set_country_flag = VIE_opp_sub_mro
+		hidden_effect = { set_country_flag = VIE_opp_sub_mro }
 		if = {
 			limit = {
 				has_country_flag = VIE_kilo_training_full
@@ -713,7 +713,7 @@ VIE_naval_deliver_bastion = {
 			date > 2011.5.31
 			NOT = { has_country_flag = VIE_bastion_s1 }
 		}
-		set_country_flag = VIE_bastion_s1
+		hidden_effect = { set_country_flag = VIE_bastion_s1 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_bastion_deploy = 4 } }
@@ -724,7 +724,7 @@ VIE_naval_deliver_bastion = {
 		}
 		VIE_naval_bastion_site = yes
 		add_to_variable = { VIE_bastion_qty_delivered = 1 }
-		set_country_flag = VIE_ev_bastion_p_coastal_defence
+		hidden_effect = { set_country_flag = VIE_ev_bastion_p_coastal_defence }
 	}
 	if = {
 		limit = {
@@ -733,7 +733,7 @@ VIE_naval_deliver_bastion = {
 			date > 2011.5.31
 			NOT = { has_country_flag = VIE_bastion_s2 }
 		}
-		set_country_flag = VIE_bastion_s2
+		hidden_effect = { set_country_flag = VIE_bastion_s2 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_bastion_deploy = 4 } }
@@ -752,7 +752,7 @@ VIE_naval_deliver_bastion = {
 			date > 2011.11.30
 			NOT = { has_country_flag = VIE_bastion_s3 }
 		}
-		set_country_flag = VIE_bastion_s3
+		hidden_effect = { set_country_flag = VIE_bastion_s3 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_bastion_deploy = 4 } }
@@ -771,7 +771,7 @@ VIE_naval_deliver_bastion = {
 			date > 2012.5.31
 			NOT = { has_country_flag = VIE_bastion_s4 }
 		}
-		set_country_flag = VIE_bastion_s4
+		hidden_effect = { set_country_flag = VIE_bastion_s4 }
 		VIE_naval_ensure_variants = yes
 		if = {
 			limit = { check_variable = { VIE_bastion_deploy = 4 } }
@@ -791,6 +791,6 @@ VIE_naval_deliver_bastion = {
 			NOT = { check_variable = { VIE_bastion_qty_delivered < VIE_bastion_qty_ordered } }
 			NOT = { has_country_flag = VIE_ext_naval_missile }
 		}
-		set_country_flag = VIE_ext_naval_missile
+		hidden_effect = { set_country_flag = VIE_ext_naval_missile }
 	}
 }

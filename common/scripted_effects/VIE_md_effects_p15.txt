@@ -131,7 +131,7 @@ VIE_d1_reward = {
 	VIE_build_arms_factory_auto = yes
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_2 = yes
-	set_country_flag = VIE_dec_z_factories_done
+	hidden_effect = { set_country_flag = VIE_dec_z_factories_done }
 }
 
 # D2 - Sung STV (Z111). 1 nha may (7.5 ty), 3000 sung, +1 level, MIO +1 size.
@@ -142,7 +142,7 @@ VIE_d2_reward = {
 	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 3000 }
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_stv_done
+	hidden_effect = { set_country_flag = VIE_dec_stv_done }
 }
 
 # D3 - Phao tu hanh banh lop dong PTH (Z751, VDI). 24 phao, +1 level, MIO +1 size.
@@ -169,7 +169,7 @@ VIE_d3_reward = {
 	}
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_pth_done
+	hidden_effect = { set_country_flag = VIE_dec_pth_done }
 }
 
 # D4 - Dan phao noi dia (122/130/152mm). attrition -10%, +1 level, MIO +1 size.
@@ -183,7 +183,7 @@ VIE_d4_reward = {
 	add_to_variable = { VIE_af_attrition = -0.10 tooltip = VIE_tt_attrition }
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_ammo_done
+	hidden_effect = { set_country_flag = VIE_dec_ammo_done }
 }
 
 # D5 - T-54M noi dia (Z153; FCS Indra, ERA trong nuoc). Can VIE_t54m3_prototype
@@ -194,7 +194,7 @@ VIE_d5_reward = {
 	VIE_proc_convert_t54m3 = yes
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_t54m_done
+	hidden_effect = { set_country_flag = VIE_dec_t54m_done }
 }
 
 # D6 - XCB-01. 50 xe, mechanized_attack_factor +5%, flame chassis -5% build cost.
@@ -221,7 +221,7 @@ VIE_d6_reward = {
 	add_ideas = VIE_xcb01_mechanized_idea
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_xcb01_done
+	hidden_effect = { set_country_flag = VIE_dec_xcb01_done }
 }
 
 # D7 - Hien dai hoa BM-21, dan rocket 122mm. Chuyen doi 36 BM-21 sang ban so hoa.
@@ -255,7 +255,7 @@ VIE_d7_reward = {
 	army_experience = 10
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_bm21_done
+	hidden_effect = { set_country_flag = VIE_dec_bm21_done }
 }
 
 # D8 - Noi dia hoa bao duong va dan K9. +50% CAT_artillery, MIO +1 size.
@@ -264,7 +264,7 @@ VIE_d7_reward = {
 VIE_d8_reward = {
 	add_ideas = VIE_k9_localization_idea
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_k9_localization_done
+	hidden_effect = { set_country_flag = VIE_dec_k9_localization_done }
 }
 
 # D9 - Ten lua vac vai TL-01 (Z131). Can VIE_igla_license tu .8 option A (Truc 1).
@@ -279,7 +279,7 @@ VIE_d9_reward = {
 	add_to_variable = { VIE_af_air_defence_factor = 0.03 tooltip = VIE_tt_air_defence_factor }
 	VIE_def_ind_add_level = yes
 	VIE_gdt_mio_size_1 = yes
-	set_country_flag = VIE_dec_tl01_done
+	hidden_effect = { set_country_flag = VIE_dec_tl01_done }
 }
 
 ########################################################################
@@ -311,7 +311,7 @@ VIE_proc_create_pth_variant = {
 			has_dlc = "No Step Back"
 			NOT = { has_country_flag = VIE_pth_variant }
 		}
-		set_country_flag = VIE_pth_variant
+		hidden_effect = { set_country_flag = VIE_pth_variant }
 		create_equipment_variant = {
 			name = "PTH-152"
 			type = medium_tank_artillery_chassis_2
@@ -344,7 +344,7 @@ VIE_proc_create_xcb01_variant = {
 			has_dlc = "No Step Back"
 			NOT = { has_country_flag = VIE_xcb01_variant }
 		}
-		set_country_flag = VIE_xcb01_variant
+		hidden_effect = { set_country_flag = VIE_xcb01_variant }
 		create_equipment_variant = {
 			name = "XCB-01"
 			type = medium_tank_flame_chassis_4
@@ -377,7 +377,7 @@ VIE_proc_create_bm21m_variant = {
 			has_dlc = "No Step Back"
 			NOT = { has_country_flag = VIE_bm21m_variant }
 		}
-		set_country_flag = VIE_bm21m_variant
+		hidden_effect = { set_country_flag = VIE_bm21m_variant }
 		create_equipment_variant = {
 			name = "BM-21M"
 			type = medium_tank_rocket_chassis_0
@@ -409,16 +409,16 @@ VIE_proc_create_bm21m_variant = {
 ########################################################################
 VIE_def_ind_catch_up = {
 	set_variable = { VIE_def_industry_level = 9 }
-	set_country_flag = VIE_dec_z_factories_done
-	set_country_flag = VIE_dec_stv_done
-	set_country_flag = VIE_dec_pth_done
-	set_country_flag = VIE_dec_ammo_done
-	set_country_flag = VIE_dec_t54m_done
-	set_country_flag = VIE_dec_bm21_done
-	set_country_flag = VIE_dec_tl01_done
-	set_country_flag = VIE_def_ind_sched_1_done
-	set_country_flag = VIE_def_ind_sched_2_done
-	set_country_flag = VIE_def_ind_sched_4_done
+	hidden_effect = { set_country_flag = VIE_dec_z_factories_done }
+	hidden_effect = { set_country_flag = VIE_dec_stv_done }
+	hidden_effect = { set_country_flag = VIE_dec_pth_done }
+	hidden_effect = { set_country_flag = VIE_dec_ammo_done }
+	hidden_effect = { set_country_flag = VIE_dec_t54m_done }
+	hidden_effect = { set_country_flag = VIE_dec_bm21_done }
+	hidden_effect = { set_country_flag = VIE_dec_tl01_done }
+	hidden_effect = { set_country_flag = VIE_def_ind_sched_1_done }
+	hidden_effect = { set_country_flag = VIE_def_ind_sched_2_done }
+	hidden_effect = { set_country_flag = VIE_def_ind_sched_4_done }
 	set_variable = { VIE_def_ind_export_count = 5 }
 }
 
@@ -444,13 +444,13 @@ VIE_event_scheduler_p15 = {
 					VIE_def_ind_level_ge_2 = yes
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
-				set_country_flag = VIE_def_ind_sched_1_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_def_ind_sched_1_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_def_ind.1 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2023.6.30 }
-				set_country_flag = VIE_def_ind_sched_1_done
+				hidden_effect = { set_country_flag = VIE_def_ind_sched_1_done }
 				VIE_gdt_mio_funds_100 = yes
 			}
 		}
@@ -464,13 +464,13 @@ VIE_event_scheduler_p15 = {
 					VIE_def_ind_level_ge_2 = yes
 					NOT = { has_country_flag = VIE_popup_cd }
 				}
-				set_country_flag = VIE_def_ind_sched_2_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_def_ind_sched_2_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_def_ind.1 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2025.6.30 }
-				set_country_flag = VIE_def_ind_sched_2_done
+				hidden_effect = { set_country_flag = VIE_def_ind_sched_2_done }
 				VIE_gdt_mio_funds_100 = yes
 			}
 		}
@@ -493,8 +493,8 @@ VIE_event_scheduler_p15 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_def_ind_t90_transfer_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_def_ind_t90_transfer_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_def_ind.2 days = 3 random_days = 20 }
 			}
 		}
@@ -520,8 +520,8 @@ VIE_event_scheduler_p15 = {
 				NOT = { has_country_flag = VIE_def_ind_export_clock }
 				NOT = { has_country_flag = VIE_popup_cd }
 			}
-			set_country_flag = { flag = VIE_def_ind_export_clock value = 1 days = 365 }
-			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			hidden_effect = { set_country_flag = { flag = VIE_def_ind_export_clock value = 1 days = 365 } }
+			hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 			country_event = { id = vie_def_ind.3 days = 3 random_days = 20 }
 		}
 
@@ -538,13 +538,13 @@ VIE_event_scheduler_p15 = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_def_ind_sched_4_done
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_def_ind_sched_4_done }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_def_ind.4 days = 3 random_days = 15 }
 			}
 			else_if = {
 				limit = { date > 2025.6.30 }
-				set_country_flag = VIE_def_ind_sched_4_done
+				hidden_effect = { set_country_flag = VIE_def_ind_sched_4_done }
 				VIE_all_mio_funds_150 = yes
 			}
 		}

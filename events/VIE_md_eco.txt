@@ -18,7 +18,7 @@ country_event = {
 		add_ideas = VIE_wto_member
 		VIE_bop_reform_small = yes
 		increase_economic_growth = yes
-		set_country_flag = VIE_wto_member_flag
+		hidden_effect = { set_country_flag = VIE_wto_member_flag }
 	}
 }
 

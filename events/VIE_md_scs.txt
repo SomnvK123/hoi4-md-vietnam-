@@ -17,7 +17,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		set_country_flag = VIE_hd981_active
+		hidden_effect = { set_country_flag = VIE_hd981_active }
 	}
 
 	# Restraint: quiet diplomacy
@@ -126,8 +126,8 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		clr_country_flag = VIE_hd981_active
-		set_country_flag = VIE_hd981_done
+		hidden_effect = { clr_country_flag = VIE_hd981_active }
+		hidden_effect = { set_country_flag = VIE_hd981_done }
 	}
 
 	option = {

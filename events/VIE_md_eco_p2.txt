@@ -126,7 +126,7 @@ country_event = {
 		modify_treasury_effect = yes
 		add_stability = -0.02
 		VIE_bop_reform_small = yes
-		set_country_flag = VIE_formosa_open
+		hidden_effect = { set_country_flag = VIE_formosa_open }
 		ai_chance = { base = 60 }
 	}
 
@@ -137,7 +137,7 @@ country_event = {
 		add_stability = -0.04
 		add_political_power = 25
 		VIE_bop_conservative_small = yes
-		set_country_flag = VIE_formosa_covered
+		hidden_effect = { set_country_flag = VIE_formosa_covered }
 		ai_chance = {
 			base = 40
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -287,7 +287,7 @@ country_event = {
 		name = vie_eco.11.a
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.11.a executed"
 		add_political_power = -25
-		set_country_flag = VIE_tariff_negotiating
+		hidden_effect = { set_country_flag = VIE_tariff_negotiating }
 		country_event = { id = vie_eco.12 days = 60 random_days = 30 }
 		ai_chance = { base = 80 }
 	}

@@ -1,0 +1,255 @@
+# "Con duong Kien dinh" (CPV Hardline) ideas. Same shape as VIE_md_ideas_congress.txt: never offered by the
+# normal idea screen, added and removed by scripted effects only.
+ideas = {
+	country = {
+
+		# Reform pressure 56-79 (see VIE_hl_update_pressure_idea)
+		VIE_hl_pressure_tense_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.03
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# Reform pressure 80-100
+		VIE_hl_pressure_crisis_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.08
+				country_productivity_growth_modifier = -0.03
+			}
+		}
+
+		# ---- Focus tree ideas (VIE_md_focus.txt, block "Con duong Kien dinh"). Dropped by VIE_hl_cleanup.
+
+		# H2
+		VIE_hl_ideology_work_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				drift_defence_factor = 0.05
+			}
+		}
+
+		# A1
+		VIE_hl_state_leading_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		# A1, timed 730 days
+		VIE_hl_state_transition_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# A3, timed 730 days
+		VIE_hl_soe_spearhead_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		# A4, timed 365 days
+		VIE_hl_fdi_slowdown_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# A6
+		VIE_hl_planning_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				industrial_capacity_factory = 0.05
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# B1
+		VIE_hl_army_party_work_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_org_regain = 0.05
+			}
+		}
+
+		# B3
+		VIE_hl_all_people_defence_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				conscription_factor = 0.03
+			}
+		}
+
+		# C1
+		VIE_hl_cyber_content_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				drift_defence_factor = 0.05
+				stability_factor = 0.01
+			}
+		}
+
+		# C2, timed 730 days
+		VIE_hl_school_theory_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				research_speed_factor = -0.02
+			}
+		}
+
+		# X1
+		VIE_hl_controlled_renewal_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.03
+				country_productivity_growth_modifier = 0.01
+			}
+		}
+
+		# vie_hl.3, "ignore": investors hold back, timed 365 days
+		VIE_hl_investors_wary_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.02
+			}
+		}
+
+		# vie_hl.7, "persist": the self-reliance period, timed 730 days (VIE_hl_add_pressure caps the pressure at 80)
+		VIE_hl_self_reliance_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.05
+				country_productivity_growth_modifier = -0.04
+				trade_opinion_factor = -0.10
+				production_speed_industrial_complex_factor = 0.10
+			}
+		}
+
+		# X2
+		VIE_hl_fusion_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.03
+				research_speed_factor = -0.03
+			}
+		}
+
+		# Tu luc Quoc phong
+		VIE_hl_defense_self_reliance_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				industrial_capacity_factory = 0.05
+				army_org_factor = 0.05
+			}
+		}
+
+		# Lien bang Dong Duong XHCN
+		VIE_hl_indochina_union_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.05
+				compliance_growth = 0.10
+			}
+		}
+
+		# Phao dai XHCN Bat kha Xam pham (Capstone)
+		VIE_hl_unbreakable_fortress_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_gain = 0.5
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				defence = 0.10
+			}
+		}
+	}
+}

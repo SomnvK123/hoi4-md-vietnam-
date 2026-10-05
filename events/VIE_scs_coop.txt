@@ -61,7 +61,6 @@ country_event = {
 				country_exists = AST
 			}
 		}
-		add_to_variable = { VIE_ax_west = 1 tooltip = VIE_ax_west_tt }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {
@@ -112,7 +111,7 @@ country_event = {
 			NOT = { has_war_with = JAP }
 			NOT = { has_country_flag = VIE_scs_pc_JAP }
 		}
-		set_country_flag = { flag = VIE_scs_pc_JAP days = 1095 }
+		hidden_effect = { set_country_flag = { flag = VIE_scs_pc_JAP days = 1095 } }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {
@@ -142,7 +141,7 @@ country_event = {
 			NOT = { has_war_with = RAJ }
 			NOT = { has_country_flag = VIE_scs_pc_RAJ }
 		}
-		set_country_flag = { flag = VIE_scs_pc_RAJ days = 1095 }
+		hidden_effect = { set_country_flag = { flag = VIE_scs_pc_RAJ days = 1095 } }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {
@@ -172,7 +171,7 @@ country_event = {
 			NOT = { has_war_with = USA }
 			NOT = { has_country_flag = VIE_scs_pc_USA }
 		}
-		set_country_flag = { flag = VIE_scs_pc_USA days = 1095 }
+		hidden_effect = { set_country_flag = { flag = VIE_scs_pc_USA days = 1095 } }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {
@@ -202,7 +201,7 @@ country_event = {
 			NOT = { has_war_with = FRA }
 			NOT = { has_country_flag = VIE_scs_pc_FRA }
 		}
-		set_country_flag = { flag = VIE_scs_pc_FRA days = 1095 }
+		hidden_effect = { set_country_flag = { flag = VIE_scs_pc_FRA days = 1095 } }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {
@@ -228,7 +227,7 @@ country_event = {
 			NOT = { has_war_with = AST }
 			NOT = { has_country_flag = VIE_scs_pc_AST }
 		}
-		set_country_flag = { flag = VIE_scs_pc_AST days = 1095 }
+		hidden_effect = { set_country_flag = { flag = VIE_scs_pc_AST days = 1095 } }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {
@@ -258,7 +257,7 @@ country_event = {
 			NOT = { has_war_with = SOV }
 			NOT = { has_country_flag = VIE_scs_pc_SOV }
 		}
-		set_country_flag = { flag = VIE_scs_pc_SOV days = 1095 }
+		hidden_effect = { set_country_flag = { flag = VIE_scs_pc_SOV days = 1095 } }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {
@@ -284,7 +283,7 @@ country_event = {
 			NOT = { has_war_with = CHI }
 			NOT = { has_country_flag = VIE_scs_pc_CHI }
 		}
-		set_country_flag = { flag = VIE_scs_pc_CHI days = 1095 }
+		hidden_effect = { set_country_flag = { flag = VIE_scs_pc_CHI days = 1095 } }
 		if = {
 			limit = { has_selected_naval_grand_doctrine = yes }
 			add_mastery = {

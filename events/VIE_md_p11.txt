@@ -40,7 +40,7 @@ country_event = {
 		name = vie_alt.23.c
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.23.c executed"
 		add_timed_idea = { idea = VIE_public_anger days = 365 }
-		set_country_flag = VIE_wa_suppressed
+		hidden_effect = { set_country_flag = VIE_wa_suppressed }
 		VIE_bop_conservative_medium = yes
 		ai_chance = {
 			base = 10
@@ -91,13 +91,13 @@ country_event = {
 		}
 		add_war_support = 0.10
 		navy_experience = 20
-		set_country_flag = VIE_paracel_clash
+		hidden_effect = { set_country_flag = VIE_paracel_clash }
 		if = {
 			limit = { has_completed_focus = VIE_limited_war_doctrine }
-			set_country_flag = { flag = VIE_war_clock value = 1 days = 60 }
+			hidden_effect = { set_country_flag = { flag = VIE_war_clock value = 1 days = 60 } }
 		}
 		else = {
-			set_country_flag = { flag = VIE_war_clock value = 1 days = 120 }
+			hidden_effect = { set_country_flag = { flag = VIE_war_clock value = 1 days = 120 } }
 		}
 		ai_chance = {
 			base = 10

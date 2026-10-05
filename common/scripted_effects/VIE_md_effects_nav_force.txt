@@ -134,7 +134,7 @@ VIE_nf_d1_finish = {
 		}
 	}
 	VIE_nf_dm_tt = yes
-	set_country_flag = VIE_nf_d1_done
+	hidden_effect = { set_country_flag = VIE_nf_d1_done }
 	VIE_nf_program_end = yes
 }
 
@@ -181,7 +181,7 @@ VIE_nf_d2_finish = {
 		add_to_variable = { VIE_af_naval_detection = 0.01 tooltip = VIE_tt_naval_detection }
 	}
 	VIE_nf_dm_tt = yes
-	set_country_flag = VIE_nf_d2_done
+	hidden_effect = { set_country_flag = VIE_nf_d2_done }
 	VIE_nf_program_end = yes
 }
 

@@ -4,12 +4,6 @@ VIE_military_readiness_category = {
 	visible = { has_completed_focus = VIE_modernize_vpa }
 }
 
-VIE_statebuilding_category = {
-	allowed = { original_tag = VIE }
-	priority = 90
-	visible = { has_country_flag = VIE_ax_initialized }
-}
-
 # "Thuc hien Nghi quyet": Party-Congress-term decisions (see VIE_congress_spine_redesign.md section 6).
 VIE_resolution_category = {
 	allowed = { original_tag = VIE }
@@ -24,7 +18,7 @@ VIE_resolution_category = {
 # focus VIE_def_industry_law (Phap lenh CNQP 02/2008/PL-UBTVQH12, hieu luc
 # 01/07/2008) - dung y bao cao muc 2.2: "Nhom decision CNQP Luc quan hien khi
 # hoan tat VIE_tank_modernization", ma focus do da bi v11 xoa.
-# priority 92: chen giua VIE_resolution_category (95) va VIE_statebuilding_category (90).
+# priority 92: chen giua VIE_resolution_category (95) va 90 (cu: VIE_statebuilding_category, da bo).
 VIE_def_industry_category = {
 	allowed = { original_tag = VIE }
 	priority = 92
@@ -97,3 +91,21 @@ VIE_airf_category = {
 	priority = 86
 	visible = { has_completed_focus = VIE_airf_training_standardization }
 }
+
+# "Con duong Kien dinh": Indochinese Unification category (visible after Party-State Fusion X2)
+VIE_hl_indochina_category = {
+	allowed = { original_tag = VIE }
+	priority = 88
+	visible = {
+		VIE_hl_in_power = yes
+		has_country_flag = VIE_hl_fusion_done
+	}
+}
+
+# "Con duong Kien dinh" (CPV Hardline): debug-only decisions for the reform pressure (VIE_md_hardline_decisions.txt).
+VIE_hl_debug_category = {
+	allowed = { original_tag = VIE }
+	priority = 80
+	visible = { is_debug = yes }
+}
+

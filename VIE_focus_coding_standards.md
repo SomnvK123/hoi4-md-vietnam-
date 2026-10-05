@@ -215,6 +215,49 @@ change_industrial_conglomerates_opinion = yes
 
 ---
 
+## 6b. ĐIỀU KIỆN ĐẢNG CẦM QUYỀN (RULING PARTY TRIGGERS — MD UPSTREAM STANDARD)
+
+> **Quy chuẩn Cách 1 (Áp dụng toàn bộ mod — đồng bộ 100% với cây Đức và các cây chuẩn của MD):**  
+> Tuyệt đối **KHÔNG** dùng raw engine script (như `check_variable = { ruling_party = N }`) hay tự chế tooltip thô (như `Đảng cầm quyền có ID 4`) trong điều kiện `available` của focus.  
+> Thay vào đó, **BẮT BUỘC dùng trực tiếp scripted triggers gốc của MD** (`common/scripted_triggers/01_political_triggers.txt`).
+
+### Tại sao dùng trigger gốc của MD?
+Khi gọi trigger gốc của MD:
+1. Game tự động render icon font của đảng (`£...`).
+2. Tên đảng hiển thị màu vàng chuẩn bản địa hóa (`§Y[GetPartyName]§!`).
+3. Dòng trạng thái chuẩn game: `is in Power.` (khi cầm quyền) hoặc `is in coalition.` (khi tham gia liên minh).
+4. Khớp hoàn toàn với giao diện các nhánh chính trị lớn của MD (Đức, Mỹ, Nga, Pháp...).
+
+### Cặp trigger chuẩn theo đảng:
+Khi kiểm tra một đảng có nắm quyền (cầm quyền hoặc liên minh):
+```pdx
+OR = {
+    <ideology_slug>_are_in_power = yes
+    <ideology_slug>_are_in_coalition = yes
+}
+```
+
+### Bảng tra cứu trigger cho Việt Nam:
+
+| Đảng trong mod VIE | MD Ideology Slug | Trigger cầm quyền | Trigger liên minh | Scripted trigger mod (đã bọc) |
+|---|---|---|---|---|
+| **Đảng Cộng sản Việt Nam (CPV mặc định, ID 19)** | `neutrality_neutral_communism` | `neutrality_neutral_communism_are_in_power = yes` | `neutrality_neutral_communism_are_in_coalition = yes` | — |
+| **Đường lối Kiên định (CPV Hardline, ID 4)** | `emerging_communist_state` | `emerging_communist_state_are_in_power = yes` | `emerging_communist_state_are_in_coalition = yes` | `VIE_hl_in_power = yes` |
+| **Chính quyền An ninh / Quân sự (Autocracy, ID 7)** | `emerging_autocracy` | `emerging_autocracy_are_in_power = yes` | `emerging_autocracy_are_in_coalition = yes` | — |
+| **Cộng sản nói chung (ID 19 HOẶC ID 4)** | Cả 2 đảng trên | Gọi cả 4 trigger MD gốc | Gọi cả 4 trigger MD gốc | `VIE_party_rule_active = yes` |
+
+### Quy tắc viết trong `available`:
+- **Trong nhánh Con đường Kiên định (25 focus):**
+  Dùng trigger chuẩn `VIE_hl_in_power = yes` (bên trong đã dùng `emerging_communist_state_are_in_power` và `emerging_communist_state_are_in_coalition`).
+- **Trong focus chuyển giao chế độ / an ninh (như `VIE_sec_cyber_control`):**
+  Dùng trực tiếp `emerging_autocracy_are_in_power = yes` và `emerging_autocracy_are_in_coalition = yes`.
+- **Trong điều kiện Đại hội XIV chuyển giao sang Kiên định (`VIE_hl_can_take_power_congress`):**
+  Dùng trực tiếp `neutrality_neutral_communism_are_in_power = yes` và `neutrality_neutral_communism_are_in_coalition = yes`.
+- **Điều kiện phủ định (NOT):**
+  Dùng trực tiếp: `NOT = { emerging_communist_state_are_in_power = yes }` hoặc `NOT = { VIE_hl_in_power = yes }`, không bọc custom tooltip thô ráp.
+
+---
+
 ## 7. LAYOUT & TỌA ĐỘ
 
 ### 7.1 Quy tắc gap (khoảng cách y trong chuỗi)
@@ -241,7 +284,65 @@ focus = { id = VIE_child   x = 0   y = 1  relative_position_id = VIE_anchor }
 focus = { id = VIE_anchor  x = 10  y = 0 }
 ```
 
-### 7.3 State references quan trọng
+### 7.3 CHUẨN BỐ CỤC "HÀNG NGANG" (áp dụng cho TOÀN BỘ cây, chốt 05/10/2026)
+
+Nguồn: yêu cầu của chủ dự án sau khi dựng lại cột chính trị của CPV mặc định (Đại hội IX–XIV). Đây là chuẩn bắt buộc cho mọi nhánh mới và mọi nhánh được sửa lại.
+
+**Nguyên tắc chung: cây ngắn, ngang, ít đường nối.** Tránh chuỗi dọc 3 tầng trở lên. Dàn các focus cùng cấp thành MỘT hàng ngang dưới focus cha.
+
+**Quy tắc 1: neo vào focus cha (kiểu Modern Day).**
+- Mỗi focus có `relative_position_id` = một focus cha thuộc `prerequisite` của nó, không neo hết vào một gốc xa.
+- `y = 1` (ngay dưới cha) là mặc định. `y = 2` chỉ cho điểm hội tụ nằm dưới một hàng con. Hiếm khi dùng `y >= 3`.
+- `x = 0` thẳng dưới cha, anh em lệch nhau ±2 (gap tối thiểu 2).
+- Đo thực tế trên cây MD (Thái Lan 384 focus, Ba Lan 672 focus): 86–96% focus neo vào một tiền đề của chính nó, 85–93% nằm `dy = 1`, `dx = 0` là phổ biến nhất.
+- Anchor phải khai báo TRƯỚC con trong file (xem 7.2). Cha trước, con sau.
+
+**Quy tắc 2: một "mốc" → một hàng → mốc kế tiếp.**
+- Mốc (hub) là focus cha của cả hàng, ví dụ Đại hội N. Mọi thứ mốc đó thông qua nằm trên MỘT hàng ngang ngay dưới.
+- Mốc kế tiếp nằm dưới hàng đó (`y = 2` so với mốc trước) và có `prerequisite` riêng cho từng focus trong hàng (AND) nếu muốn bắt buộc làm hết. Một khối `prerequisite = { focus = A focus = B }` là OR, đừng nhầm.
+- Độ cao của một nhiệm kỳ luôn là 2 hàng (mốc + hàng ngang), không phụ thuộc số focus.
+
+**Quy tắc 3: phụ thuộc giữa anh em dùng `available`, không dùng `prerequisite`.**
+- Nếu B cần A và cả hai đứng cùng hàng: B có `prerequisite` = mốc cha, cộng `available = { has_completed_focus = A }`.
+- Xếp B ngay cạnh A để người chơi thấy quan hệ.
+- Phụ thuộc chéo nhiệm kỳ hoặc chéo nhánh cũng dùng `available`, không kéo đường nối dài. Chỉ giữ `prerequisite` cho quan hệ cha trực tiếp.
+- Hệ quả: người chơi chỉ thấy phụ thuộc qua dòng "Requires/Has completed focus" trong tooltip, không thấy trên cây. Đổi lại cây gọn.
+
+**Quy tắc 4: bề ngang.**
+- Hàng tối đa khoảng 8 focus (gap 2 = rộng 14–16 ô). Nhiều hơn thì chia thành hai hàng bằng một focus trung gian hoặc hai nhóm cha.
+- Căn giữa hàng quanh x của mốc cha.
+
+**Quy tắc 5: hiển thị tooltip (không để chữ thô).**
+- Mọi `has_country_flag`, `check_variable` trong `available` bọc `custom_trigger_tooltip` với câu tiếng Việt. Khi nó nằm trong `NOT`, phải có key `<key>_NOT` (engine tự tìm hậu tố `_NOT`).
+- `set_country_flag` / `clr_country_flag` trong phần thưởng bọc `hidden_effect`.
+- Không dùng `bypass` hiển thị lộ liễu (khung "will bypass the focus" dễ gây hiểu lầm). Thay bằng quy tắc chuỗi đơn giản.
+- Điều kiện đảng cầm quyền: **BẮT BUỘC dùng trigger gốc của MD (Cách 1 - chi tiết tại mục 6b)**. Tuyệt đối không dùng `check_variable = { ruling_party = N }` hay tooltip "ID party" thô. Game sẽ tự render icon đảng, tên đảng và trạng thái "is in Power" / "is in coalition".
+- Phần thưởng luôn hiện trong tooltip: không bọc toàn bộ reward trong `if = { limit = ... }` (tooltip sẽ báo "no effect"). Việc dọn trạng thái lỗi thời đặt trong `hidden_effect`.
+
+**Kiểm tra sau mỗi lần sửa bố cục** (script ở `tools/check_static.py`, cộng đoạn kiểm tra tọa độ tuyệt đối):
+- Không hai focus cùng ô; không hai focus cùng hàng cách nhau dưới 2.
+- Không focus nào nằm trên tiền đề của nó.
+- Không forward reference.
+- `check_static.py` không thêm lỗi so với baseline (hiện 90).
+
+**Tình trạng áp dụng (cập nhật 05/10/2026, lần 3, sau khi hoàn tác):**
+
+| Khối | Trạng thái |
+|---|---|
+| Cột chính trị CPV mặc định (Đại hội IX–XIV) và khối Con đường Kiên định | Theo chuẩn: một hàng ngang mỗi nhiệm kỳ; hardline là lựa chọn thứ ba của Đại hội XIV. |
+| Mọi nhánh còn lại (kinh tế, hạ tầng, năng lượng, số, tài chính, ASEAN, Biển Đông, an ninh, quân sự...) | **Đã hoàn tác về bố cục tay ban đầu.** Hai lần dàn lại bằng thuật toán tự động (`tidy_layout.py`) cho kết quả sai: nhánh bị dồn lẫn, hàng lá quá dài, chuỗi dọc không được làm gọn. **Không dùng công cụ tự động cho các nhánh này nữa.** |
+| Neo vào focus cha (quy tắc 1) | Còn hiệu lực cho toàn cây (không đổi vị trí trên màn hình). |
+
+**Cách làm tiếp cho từng nhánh (chủ dự án chốt):** phân tích cấu trúc thiết kế của nhánh (focus nào là mốc, focus nào thuộc nhóm nào, phụ thuộc nào), rồi đặt x, y thủ công sao cho các focus liên quan nằm gần nhau nhưng không sát cạnh nhau (khoảng cách tối thiểu 2, nên 2–3), theo đúng kiểu nhánh chính trị. Làm từng nhánh một, kiểm tra tĩnh sau mỗi nhánh, mở game xem trước khi sang nhánh kế tiếp.
+
+**Quy trình đề xuất cho mỗi nhánh còn lại:**
+1. Liệt kê focus, tiền đề, `available` của nhánh (script đọc file).
+2. Chọn mốc (hub) và gom focus thành các hàng theo mốc.
+3. Chuyển phụ thuộc anh em và phụ thuộc chéo sang `available`.
+4. Đặt vị trí theo quy tắc 1–4, xếp theo thứ tự cha trước con.
+5. Chạy kiểm tra tĩnh, so với baseline, rồi mới sang nhánh sau.
+
+### 7.4 State references quan trọng
 
 | State ID | Tên | Chủ | Ghi chú |
 |----------|-----|-----|---------|
@@ -440,6 +541,7 @@ Lưu ý: tool xuất LF → chuyển lại CRLF cho khớp file hiện có. Vali
 □ mutually_exclusive: đảm bảo A mx B VÀ B mx A
 □ search_filters dùng đúng tên filter (xem Section 4)
 □ available: dùng has_country_flag thay vì has_completed_focus cho focus có thể skip
+□ Điều kiện đảng cầm quyền: dùng trigger MD gốc (*_are_in_power / *_are_in_coalition hoặc VIE_hl_in_power), KHÔNG check ID party
 □ completion_reward: dòng đầu là log = "..."
 □ KHÔNG dùng check_variable >= / <=  →  dùng > / <
 □ Timed flag: set_country_flag = { flag = X days = N value = 1 }
@@ -457,6 +559,7 @@ Lưu ý: tool xuất LF → chuyển lại CRLF cho khớp file hiện có. Vali
 
 | File | Nội dung |
 |------|----------|
+| [`VIE_focus_coding_standards.md` mục 7.3](file:///d:/HOI4Mods/md_vietnam/VIE_focus_coding_standards.md) | Chuẩn bố cục hàng ngang (05/10/2026) |
 | [`VIE_review_3_axes_md_conventions.md`](file:///d:/HOI4Mods/md_vietnam/VIE_review_3_axes_md_conventions.md) | Audit lỗi convention chi tiết |
 | [`VIE_md_states_reference.md`](file:///d:/HOI4Mods/md_vietnam/VIE_md_states_reference.md) | State ID, owner, province |
 | [`VIE_v9_flag_mapping.md`](file:///d:/HOI4Mods/md_vietnam/VIE_v9_flag_mapping.md) | Flag mapping cho vũ khí extract v9 |

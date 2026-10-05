@@ -22,7 +22,7 @@
 VIE_naval_ensure_sigma_variant = {
 	if = {
 		limit = { NOT = { has_country_flag = VIE_naval_sigma_variant_done } }
-		set_country_flag = VIE_naval_sigma_variant_done
+		hidden_effect = { set_country_flag = VIE_naval_sigma_variant_done }
 		create_equipment_variant = {
 			name = "Sigma Class"
 			type = frigate_hull_3
@@ -61,30 +61,30 @@ VIE_naval_sched_sigma = {
 			}
 			if = {
 				limit = { NOT = { has_country_flag = VIE_popup_cd } }
-				set_country_flag = VIE_sigma_offered
-				set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+				hidden_effect = { set_country_flag = VIE_sigma_offered }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				country_event = { id = vie_naval.40 days = 1 random_days = 14 }
 			}
 			else = {
-				set_country_flag = VIE_sigma_gate_seen
+				hidden_effect = { set_country_flag = VIE_sigma_gate_seen }
 			}
 		}
 		else_if = {
 			limit = { date > 2014.12.31 }
 			if = {
 				limit = { has_country_flag = VIE_sigma_gate_seen }
-				set_country_flag = VIE_sigma_offered
+				hidden_effect = { set_country_flag = VIE_sigma_offered }
 				VIE_fb_naval_sigma = yes
 			}
 			else = {
-				set_country_flag = VIE_sigma_missed
+				hidden_effect = { set_country_flag = VIE_sigma_missed }
 			}
 		}
 	}
 }
 
 VIE_fb_naval_sigma = {
-	set_country_flag = VIE_sigma_suspended
+	hidden_effect = { set_country_flag = VIE_sigma_suspended }
 }
 
 # Nhanh Historical: sau khi chon "tiep tuc dam phan", thang 08/2013 ban .44 (dam phan dat thoa
@@ -99,9 +99,9 @@ VIE_naval_sigma_review = {
 		}
 		if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } date < 2015.1.1 }
-			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 			country_event = { id = vie_naval.44 days = 1 random_days = 14 }
-			set_country_flag = VIE_sigma_suspended
+			hidden_effect = { set_country_flag = VIE_sigma_suspended }
 		}
 		else_if = {
 			limit = { date > 2014.12.31 }
@@ -145,7 +145,7 @@ VIE_naval_sigma_funding_check = {
 
 # Ky hop dong. Thanh toan bang ngan kho; neu VIE_sigma_use_debt thi vay (no = cost x 1,1).
 VIE_naval_contract_sigma = {
-	set_country_flag = VIE_sigma_contracted
+	hidden_effect = { set_country_flag = VIE_sigma_contracted }
 	VIE_naval_sigma_cost = yes
 	if = {
 		limit = { has_country_flag = VIE_sigma_use_debt }

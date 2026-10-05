@@ -17,7 +17,7 @@ on_actions = {
 					recruit_character = VIE_army_pham_van_tra
 					recruit_character = VIE_army_nguyen_huy_hieu
 					recruit_character = VIE_army_nguyen_van_duoc
-					set_country_flag = VIE_army_phase1_recruited
+					hidden_effect = { set_country_flag = VIE_army_phase1_recruited }
 				}
 				# Air force step 0 (later steps: VIE_event_scheduler_air). The two upstream air chiefs are not air
 				# officers (a political general and an army/academy general), so they are retired, not replaced.
@@ -33,11 +33,18 @@ on_actions = {
 					recruit_character = VIE_air_nguyen_van_phiet
 					retire_character = VIE_Tran_Quang_Phuong
 					retire_character = VIE_Tran_Viet_Khoa
-					set_country_flag = VIE_air_phase0_done
+					hidden_effect = { set_country_flag = VIE_air_phase0_done }
 				}
 				# Initialise the 9-axis state-building system at game start,
 				# before the first on_monthly tick fires, to prevent stack overflow.
 				VIE_ax_init = yes
+
+				# Khoi tao Chinh tri ngay tu ngay dau: Tong Bi thu Le Kha Phieu & BoP Dang
+				if = {
+					limit = { NOT = { has_country_flag = VIE_md_init_done } }
+					hidden_effect = { set_country_flag = VIE_md_init_done }
+					country_event = { id = vie_pol.1 }
+				}
 
 				# Truc 2 (CNQP Luc quan): bien level. HOI4 coi bien chua dat = 0 nen ve
 				# ky thuat khong bat buoc, nhung VIE_nationalist_regime_TDD.md muc 7.3 cua
@@ -54,7 +61,7 @@ on_actions = {
 					limit = { NOT = { has_country_flag = VIE_def_ind_vars_init } }
 					set_variable = { VIE_def_industry_level = 0 }
 					set_variable = { VIE_def_ind_export_count = 0 }
-					set_country_flag = VIE_def_ind_vars_init
+					hidden_effect = { set_country_flag = VIE_def_ind_vars_init }
 				}
 
 				# Truc 3 (xay dung luc luong Luc quan): 4 bien dem cho gioi han 3/4 binh chung va
@@ -65,7 +72,15 @@ on_actions = {
 					set_variable = { VIE_lf_arm_done = 0 }
 					set_variable = { VIE_lf_cap_count = 0 }
 					set_variable = { VIE_lf_cap_done = 0 }
-					set_country_flag = VIE_lf_vars_init
+					hidden_effect = { set_country_flag = VIE_lf_vars_init }
+				}
+
+				# Air Force procurement reserved variables (read in triggers)
+				if = {
+					limit = { NOT = { has_country_flag = VIE_air_proc_vars_init } }
+					set_variable = { VIE_var_air_multirole4 = 0 }
+					set_variable = { VIE_var_uav_delivered = 0 }
+					hidden_effect = { set_country_flag = VIE_air_proc_vars_init }
 				}
 
 				# Party Congress spine (see VIE_congress_spine_redesign.md): saves from before
@@ -84,7 +99,7 @@ on_actions = {
 				# 2026 fork and VIE_era_of_rising now gate on. Re-derive that flag from the idea.
 				if = {
 					limit = { has_idea = VIE_two_tier_gov_idea }
-					set_country_flag = VIE_two_tier_done
+					hidden_effect = { set_country_flag = VIE_two_tier_done }
 				}
 			}
 		}

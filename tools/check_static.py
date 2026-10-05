@@ -95,8 +95,20 @@ for p in txts:
     calls|=set(re.findall(r'\b(VIE_\w+)\s*=\s*yes',rd(p)))
 for c in sorted(calls-defs): err.append('scripted effect/trigger called but not defined: '+c)
 # ---- events
-evs=set()
-for p in glob.glob('events/*.txt'): evs|=set(re.findall(r'\bid\s*=\s*(vie_\w+\.\d+)',rd(p)))
+evs=set(); hidden_evs=set()
+for p in glob.glob('events/*.txt'):
+    t = rd(p)
+    for m in re.finditer(r'(?:country_event|news_event)\s*=\s*\{', t):
+        st = m.end(); d = 1; i = st
+        while d and i < len(t):
+            d += {'{': 1, '}': -1}.get(t[i], 0); i += 1
+        blk = t[st:i]
+        id_m = re.search(r'\bid\s*=\s*(vie_\w+\.\d+)', blk)
+        if id_m:
+            eid = id_m.group(1)
+            evs.add(eid)
+            if re.search(r'\bhidden\s*=\s*yes\b', blk):
+                hidden_evs.add(eid)
 called=set()
 for p in txts: called|=set(re.findall(r'country_event\s*=\s*\{\s*id\s*=\s*(vie_\w+\.\d+)',rd(p)))|set(re.findall(r'news_event\s*=\s*\{\s*id\s*=\s*(vie_\w+\.\d+)',rd(p)))
 for e in sorted(called-evs): err.append('event fired but not defined: '+e)
@@ -118,7 +130,7 @@ for i in ideas:
         for k in (i,i+'_desc'):
             if k not in loc: warn.append('missing loc: '+k)
 for e in evs:
-    if e in ('vie_pol.1',): continue
+    if e in hidden_evs or e in ('vie_pol.1',): continue
     for k in (e+'.t',e+'.d'):
         if k not in loc: err.append('missing loc: '+k)
 decs=re.findall(r'(?m)^\t(VIE_\w+)\s*=\s*\{',rd('common/decisions/VIE_md_decisions.txt'))
@@ -170,13 +182,13 @@ known_vars = {'ruling_party', 'rul_party_temp', 'treasury', 'stability', 'has_wa
               'liberalism_leader', 'neutral_Social_leader', 'oligarchism_leader', 'socialism_leader'}
 mod_vars = set()
 for p in txts:
-    t = rd(p)
+    t = strip(rd(p))
     for v in re.findall(r'(?:set_variable|add_to_variable|set_temp_variable|divide_variable|multiply_variable|clamp_variable|round_variable)\s*=\s*\{\s*(?:var\s*=\s*)?(\w+)', t):
         mod_vars.add(v)
     for v in re.findall(r'round_variable\s*=\s*(\w+)', t):
         mod_vars.add(v)
 for p in txts:
-    for m in re.findall(r'check_variable\s*=\s*\{\s*(?:var\s*=\s*)?(\w+)', rd(p)):
+    for m in re.findall(r'check_variable\s*=\s*\{\s*(?:var\s*=\s*)?(\w+)', strip(rd(p))):
         if m not in known_vars and m not in mod_vars:
             err.append('%s: check_variable references unknown variable %s' % (p, m))
 
