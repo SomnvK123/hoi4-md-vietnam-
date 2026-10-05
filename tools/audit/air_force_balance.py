@@ -220,6 +220,17 @@ if m:
     vals = [float(v) for v in re.findall(r"VIE_airf_bonus = ([\d.]+) \}", m.group(1))]
     check(sorted(vals) == [0.005, 0.01], f"D-E bonus {vals} = 0.25 / 0.5 x capstone base (MIS 2%)")
 
+# ---------------------------------------------------------------- 6. tech bonus categories exist in MD
+print("\n== 6. Category add_tech_bonus (khong quan) co trong file tech cua MD ==")
+import glob
+ref = ""
+for fp in glob.glob(os.path.join(ROOT, "tools", "audit", "md_ref", "tech_*.txt")):
+    ref += open(fp, encoding="utf-8", errors="ignore").read()
+for fn in ("VIE_md_effects_air_force.txt", "VIE_md_effects_air_ind.txt"):
+    txt = open(os.path.join(ROOT, "common", "scripted_effects", fn), encoding="utf-8").read()
+    for cat in sorted(set(re.findall(r"category = (CAT_\w+)", txt))):
+        check(re.search(r"\b%s\b" % cat, ref) is not None, f"{fn}: {cat}")
+
 print()
 if fails:
     print(f"{len(fails)} FAIL")
