@@ -431,6 +431,7 @@ VIE_airf_d4_finish = {
 		add_to_variable = { VIE_af_air_range_factor = 0.01 tooltip = VIE_tt_air_range_factor }
 		force_update_dynamic_modifier = yes
 	}
+	VIE_airf_fav_discount = yes
 	VIE_airf_program_end = yes
 }
 
