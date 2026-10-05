@@ -187,7 +187,7 @@ for fid, want in FOCUS.items():
     check({k: round(v, 3) for k, v in got.items()} == {k: float(v) for k, v in want.items()}, f"{fid}: code {got} vs bang {want}")
     block = ftxt[ftxt.find("id = " + fid):]
     block = block[:block.find("\n\t}")]
-    check(("VIE_airf_%s_reward = yes" % REWARD_CODE[fid]) in block or "VIE_airf_add_" in block or "add_to_variable" in block,
+    check(("VIE_airf_%s_reward = yes" % REWARD_CODE[fid]) in block,
           f"{fid}: focus goi {name} (hoac con reward cu)")
 print(f"  {present}/{len(FOCUS)} focus Truc 3 co effect")
 

@@ -80,45 +80,6 @@ VIE_apm_viettel_mio_size = {
 	}
 }
 
-# ---- Modifier thuoc Truc 2 (VIE_armed_forces_modifier; VIE_ap_ensure_af_modifier o VIE_md_effects_air_proc.txt) ----
-# Tham so V = gia tri cong (am = giam). Tran dat trong tools/audit/air_ind_balance.py (khong kep trong game vi bien dung chung).
-VIE_apm_add_accidents = {
-	VIE_ap_ensure_af_modifier = yes
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_air_accidents_factor = $V$ tooltip = VIE_tt_air_accidents_factor }
-	force_update_dynamic_modifier = yes
-}
-VIE_apm_add_detection = {
-	VIE_ap_ensure_af_modifier = yes
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_air_detection = $V$ tooltip = VIE_tt_air_detection }
-	force_update_dynamic_modifier = yes
-}
-VIE_apm_add_air_def = {
-	VIE_ap_ensure_af_modifier = yes
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_air_defence_factor = $V$ tooltip = VIE_tt_air_defence_factor }
-	force_update_dynamic_modifier = yes
-}
-VIE_apm_add_upkeep = {
-	VIE_ap_ensure_af_modifier = yes
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_equipment_cost_multiplier_modifier = $V$ tooltip = VIE_tt_equipment_cost }
-	force_update_dynamic_modifier = yes
-}
-
 ########################################################################
 # TRU A32 (dai tu khung may bay). Decision VIE_apm_d_a32, event vie_air_ind.11 / .12 / .13 (chon), .19 (hoan tat).
 # Bac hien tai (truoc khi tang) cho biet bac nao vua xong. VIE_apm_a32_choice = lua chon cua bac dang chay.

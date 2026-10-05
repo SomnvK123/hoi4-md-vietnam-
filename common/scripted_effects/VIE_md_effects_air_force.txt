@@ -3,8 +3,8 @@
 # Thiet ke: VIE_air_truc3_review_and_plan.md (4.2-4.6). Namespace event: vie_air_force. Gate: VIE_md_triggers_air_force.txt.
 #
 # Quy uoc (giong VIE_md_effects_nav_force.txt va VIE_md_effects_air_ind.txt):
-#  - Modifier van hanh ghi thang vao VIE_af_* cua VIE_armed_forces_modifier bang VIE_airf_add_<token> { V }; moi helper gan
-#    modifier neu chua co (VIE_ap_ensure_af_modifier), them tooltip va force_update_dynamic_modifier.
+#  - Modifier van hanh ghi thang vao VIE_af_* cua VIE_armed_forces_modifier bang add_to_variable trong VIE_airf_<ma>_reward (khoi
+#    cuoi file); moi reward goi VIE_ap_ensure_af_modifier mot lan, roi dm_tt va force_update_dynamic_modifier.
 #  - Truc 3 KHONG dung air_defence_factor (da co 0,18 tu Truc 1, Truc 2 va luc quan) va khong ghi VIE_cap_* hay bac Truc 2 (R5).
 #  - Slot: VIE_var_airf_program_active (0-2). +1 khi bam Decision, -1 o event hoan tat. Tu chua boi VIE_airf_slot_heal
 #    (khong con hook noi chien). Co cho VIE_airf_d<N>_pending xoa boi moi option cua event chon.
@@ -54,68 +54,6 @@ VIE_airf_dm_tt = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
 	}
-}
-
-# ---- Cong V vao VIE_af_<token> (tham so V, am = giam). Tran cong don Truc 1+2+3: tools/audit/air_force_balance.py ----
-VIE_airf_add_exp = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_experience_gain_air_factor = $V$ tooltip = VIE_tt_experience_gain_air_factor }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_atk = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_attack_factor = $V$ tooltip = VIE_tt_air_attack_factor }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_sup = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_superiority_efficiency = $V$ tooltip = VIE_tt_air_superiority_efficiency }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_cas = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_cas_efficiency = $V$ tooltip = VIE_tt_air_cas_efficiency }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_mis = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_mission_efficiency = $V$ tooltip = VIE_tt_air_mission_efficiency }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_rng = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_range_factor = $V$ tooltip = VIE_tt_air_range_factor }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_det = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_detection = $V$ tooltip = VIE_tt_air_detection }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_home = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_home_defence_factor = $V$ tooltip = VIE_tt_air_home_defence_factor }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_int = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_air_intercept_efficiency = $V$ tooltip = VIE_tt_air_intercept_efficiency }
-	force_update_dynamic_modifier = yes
-}
-VIE_airf_add_pers = {
-	VIE_ap_ensure_af_modifier = yes
-	VIE_airf_dm_tt = yes
-	add_to_variable = { VIE_af_airforce_personnel_cost_multiplier_modifier = $V$ tooltip = VIE_tt_airforce_personnel_cost }
-	force_update_dynamic_modifier = yes
 }
 
 # ---- Slot chuong trinh luc luong (toi da 2 chay cung luc) ----
