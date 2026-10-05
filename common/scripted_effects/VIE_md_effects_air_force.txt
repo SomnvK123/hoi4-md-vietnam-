@@ -477,3 +477,306 @@ VIE_airf_d5_finish = {
 	}
 	VIE_airf_program_end = yes
 }
+
+
+########################################################################
+# Khong quan v2 - phan thuong tung node Truc 3 (VIE_air_effects_content_and_plan.md muc 2).
+# Moi node mot effect VIE_airf_<ma>_reward; focus chi con log + unlock tooltip + effect.
+# Gia tri khop tools/audit/air_force_balance.py (chay lai khi doi so).
+########################################################################
+
+VIE_airf_refresh = {
+	force_update_dynamic_modifier = yes
+}
+
+VIE_airf_t1_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_experience_gain_air_factor = 0.04 tooltip = VIE_tt_experience_gain_air_factor }
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.03 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	VIE_airf_xp_15 = yes
+	add_political_power = 25
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_t2_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_attack_factor = 0.01 tooltip = VIE_tt_air_attack_factor }
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.02 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	VIE_airf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_airf_tb_a2a
+		bonus = 0.25
+		uses = 1
+		category = CAT_air_to_air_weapons
+	}
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_t3_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+	VIE_airf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_airf_tb_sam
+		bonus = 0.25
+		uses = 1
+		category = CAT_surface_to_air_missiles
+	}
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_t4_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+	add_to_variable = { VIE_af_air_night_penalty = -0.01 tooltip = VIE_tt_air_night_penalty }
+	add_command_power = 15
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_t5_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	VIE_airf_xp_10 = yes
+	add_command_power = 10
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_t6_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+	add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
+	if = {
+		limit = { check_variable = { VIE_airf_force_priority = 1 } }
+		add_to_variable = { VIE_af_air_intercept_efficiency = 0.01 tooltip = VIE_tt_air_intercept_efficiency }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_airf_force_priority = 3 } }
+		add_to_variable = { VIE_af_air_range_factor = 0.01 tooltip = VIE_tt_air_range_factor }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_airf_force_priority = 2 } }
+		add_to_variable = { VIE_af_air_intercept_efficiency = 0.005 tooltip = VIE_tt_air_intercept_efficiency }
+		add_to_variable = { VIE_af_air_range_factor = 0.005 tooltip = VIE_tt_air_range_factor }
+		add_to_variable = { VIE_af_air_night_penalty = -0.005 tooltip = VIE_tt_air_night_penalty }
+	}
+	VIE_airf_xp_10 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_t7_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_range_factor = 0.03 tooltip = VIE_tt_air_range_factor }
+	add_to_variable = { VIE_af_air_weather_penalty = -0.01 tooltip = VIE_tt_air_weather_penalty }
+	VIE_airf_xp_10 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_t8_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_range_factor = 0.04 tooltip = VIE_tt_air_range_factor }
+	add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
+	VIE_airf_xp_15 = yes
+	add_command_power = 15
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_a1_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+	add_to_variable = { VIE_af_air_intercept_efficiency = 0.005 tooltip = VIE_tt_air_intercept_efficiency }
+	add_to_variable = { VIE_af_air_range_factor = -0.02 tooltip = VIE_tt_air_range_factor }
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.015 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	VIE_airf_branch_fit_a = yes
+	VIE_airf_xp_15 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_a2_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
+	add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+	add_to_variable = { VIE_af_air_weather_penalty = -0.01 tooltip = VIE_tt_air_weather_penalty }
+	add_to_variable = { VIE_af_air_superiority_efficiency = 0.015 tooltip = VIE_tt_air_superiority_efficiency }
+	VIE_airf_xp_10 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_a3_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_intercept_efficiency = 0.03 tooltip = VIE_tt_air_intercept_efficiency }
+	add_to_variable = { VIE_af_air_detection = 0.02 tooltip = VIE_tt_air_detection }
+	add_to_variable = { VIE_af_air_night_penalty = -0.01 tooltip = VIE_tt_air_night_penalty }
+	add_to_variable = { VIE_af_air_weather_penalty = -0.01 tooltip = VIE_tt_air_weather_penalty }
+	add_to_variable = { VIE_af_air_superiority_efficiency = 0.01 tooltip = VIE_tt_air_superiority_efficiency }
+	VIE_airf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_airf_tb_ew
+		bonus = 0.25
+		uses = 1
+		category = CAT_air_countermeasures
+	}
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_a4_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+	add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = VIE_tt_air_home_defence_factor }
+	add_to_variable = { VIE_af_air_night_penalty = -0.01 tooltip = VIE_tt_air_night_penalty }
+	add_to_variable = { VIE_af_air_attack_factor = 0.01 tooltip = VIE_tt_air_attack_factor }
+	VIE_airf_xp_20 = yes
+	add_political_power = 50
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_b1_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_range_factor = 0.04 tooltip = VIE_tt_air_range_factor }
+	add_to_variable = { VIE_af_air_weather_penalty = -0.01 tooltip = VIE_tt_air_weather_penalty }
+	add_to_variable = { VIE_af_airforce_personnel_cost_multiplier_modifier = 0.02 tooltip = VIE_tt_airforce_personnel_cost }
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.01 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	VIE_airf_branch_fit_wide = yes
+	VIE_airf_xp_15 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_b2_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_attack_factor = 0.03 tooltip = VIE_tt_air_attack_factor }
+	add_to_variable = { VIE_af_air_superiority_efficiency = 0.02 tooltip = VIE_tt_air_superiority_efficiency }
+	add_to_variable = { VIE_af_air_cas_efficiency = 0.02 tooltip = VIE_tt_air_cas_efficiency }
+	if = {
+		limit = { check_variable = { VIE_airf_fighter_specialty = 1 } }
+		add_to_variable = { VIE_af_air_superiority_efficiency = 0.01 tooltip = VIE_tt_air_superiority_efficiency }
+	}
+	else_if = {
+		limit = { check_variable = { VIE_airf_fighter_specialty = 2 } }
+		add_to_variable = { VIE_af_air_cas_efficiency = 0.01 tooltip = VIE_tt_air_cas_efficiency }
+	}
+	VIE_airf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_airf_tb_multirole
+		bonus = 0.25
+		uses = 1
+		category = CAT_medium_aircraft
+	}
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_b3_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+	add_to_variable = { VIE_af_air_weather_penalty = -0.02 tooltip = VIE_tt_air_weather_penalty }
+	add_to_variable = { VIE_af_air_night_penalty = -0.01 tooltip = VIE_tt_air_night_penalty }
+	add_to_variable = { VIE_af_airforce_personnel_cost_multiplier_modifier = -0.01 tooltip = VIE_tt_airforce_personnel_cost }
+	VIE_airf_xp_10 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_b4_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_range_factor = 0.03 tooltip = VIE_tt_air_range_factor }
+	VIE_airf_xp_15 = yes
+	add_command_power = 10
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_b5_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+	add_to_variable = { VIE_af_air_attack_factor = 0.02 tooltip = VIE_tt_air_attack_factor }
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.02 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	VIE_airf_xp_20 = yes
+	add_political_power = 50
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_c1_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_detection = 0.01 tooltip = VIE_tt_air_detection }
+	add_to_variable = { VIE_af_air_home_defence_factor = -0.01 tooltip = VIE_tt_air_home_defence_factor }
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.015 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	add_to_variable = { VIE_af_air_night_penalty = -0.005 tooltip = VIE_tt_air_night_penalty }
+	VIE_airf_branch_fit_wide = yes
+	VIE_airf_xp_15 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_c2_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_detection = 0.03 tooltip = VIE_tt_air_detection }
+	add_to_variable = { VIE_af_air_night_penalty = -0.015 tooltip = VIE_tt_air_night_penalty }
+	add_to_variable = { VIE_af_air_weather_penalty = -0.01 tooltip = VIE_tt_air_weather_penalty }
+	VIE_airf_xp_10 = yes
+	add_tech_bonus = {
+		name = VIE_airf_tb_uav
+		bonus = 0.25
+		uses = 1
+		category = CAT_air_drones
+	}
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_c3_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+	add_to_variable = { VIE_af_air_weather_penalty = -0.01 tooltip = VIE_tt_air_weather_penalty }
+	add_to_variable = { VIE_af_air_superiority_efficiency = 0.01 tooltip = VIE_tt_air_superiority_efficiency }
+	VIE_airf_xp_10 = yes
+	add_command_power = 10
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_c4_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_attack_factor = 0.03 tooltip = VIE_tt_air_attack_factor }
+	add_to_variable = { VIE_af_air_range_factor = 0.01 tooltip = VIE_tt_air_range_factor }
+	VIE_airf_xp_15 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_c5_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = VIE_tt_air_mission_efficiency }
+	add_to_variable = { VIE_af_air_intercept_efficiency = 0.02 tooltip = VIE_tt_air_intercept_efficiency }
+	add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.01 tooltip = VIE_tt_air_ace_generation_chance_factor }
+	add_to_variable = { VIE_af_air_night_penalty = -0.01 tooltip = VIE_tt_air_night_penalty }
+	VIE_airf_xp_20 = yes
+	add_political_power = 50
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+
+# Giam 14 ngay cost goc node dau nhanh khop voi co cau da chon o D-D (mau VIE_nf_fav_discount).
+# Phong thu lanh tho -> A1; Tam xa -> B1 va C1; Can bang khong giam. Don vi reduce_focus_completion_cost la NGAY (xem TESTING.md).
+VIE_airf_fav_discount = {
+	if = {
+		limit = {
+			check_variable = { VIE_airf_force_priority = 1 }
+			NOT = { has_completed_focus = VIE_airf_iads }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_airf_iads
+			cost = 14
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_airf_force_priority = 3 }
+			NOT = { has_completed_focus = VIE_airf_multirole }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_airf_multirole
+			cost = 14
+		}
+	}
+	if = {
+		limit = {
+			check_variable = { VIE_airf_force_priority = 3 }
+			NOT = { has_completed_focus = VIE_airf_unmanned }
+		}
+		reduce_focus_completion_cost = {
+			focus = VIE_airf_unmanned
+			cost = 14
+		}
+	}
+}

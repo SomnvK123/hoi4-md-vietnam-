@@ -45,18 +45,29 @@ CAPS = {"exp": 10, "atk": 10, "sup": 10, "cas": 10, "mis": 16, "rng": 20, "det":
 OTHER_AXES = {"det": 5 + 6}
 AIR_DEF_CAP, AIR_DEF_OTHERS = 20, 6 + 4 + 5 + 3     # Truc 1 air 0.06, Truc 2 0.04, Igla 0.05, TL-01 0.03
 
-# focus id -> {token: percent}; capstone (A4, B5, C5) base is also what D-E multiplies
+# focus id -> {token: percent}; capstone (A4, B5, C5) base is also what D-E multiplies.
+# Values = kept + new (VIE_air_effects_content_and_plan.md part 2). Direction-dependent bonuses (T6, B2) live in DIRECTION below.
 FOCUS = {
-    "VIE_airf_training_standardization": {"exp": 4}, "VIE_airf_fighter_force": {"atk": 1}, "VIE_airf_sam_force": {"home": 2},
-    "VIE_airf_command_reform_1": {"mis": 2}, "VIE_airf_first_force": {}, "VIE_airf_command_reform_2": {"mis": 2, "det": 1},
-    "VIE_airf_medium_force": {"rng": 3}, "VIE_airf_operating_range": {"rng": 4, "det": 1},
-    "VIE_airf_iads": {"home": 2}, "VIE_airf_layered_defence": {"det": 2, "home": 2}, "VIE_airf_ew_antistealth": {"int": 3, "det": 2},
-    "VIE_airf_iads_command": {"mis": 2, "home": 2},
-    "VIE_airf_multirole": {"rng": 4}, "VIE_airf_multirole_fleet": {"atk": 3, "sup": 2, "cas": 2}, "VIE_airf_sustainment": {"mis": 2},
-    "VIE_airf_airlift_tanker": {"rng": 3}, "VIE_airf_multirole_wing": {"mis": 2, "atk": 2},
-    "VIE_airf_unmanned": {"det": 1}, "VIE_airf_isr_uav": {"det": 3}, "VIE_airf_datalink": {"mis": 2}, "VIE_airf_strike_uav": {"atk": 3},
-    "VIE_airf_teaming": {"mis": 2, "int": 2},
+    "VIE_airf_training_standardization": {"exp": 4, "ace": 3}, "VIE_airf_fighter_force": {"atk": 1, "ace": 2},
+    "VIE_airf_sam_force": {"home": 2}, "VIE_airf_command_reform_1": {"mis": 2, "night": -1}, "VIE_airf_first_force": {},
+    "VIE_airf_command_reform_2": {"mis": 2, "det": 1}, "VIE_airf_medium_force": {"rng": 3, "wx": -1},
+    "VIE_airf_operating_range": {"rng": 4, "det": 1},
+    "VIE_airf_iads": {"home": 2, "int": 0.5, "rng": -2, "ace": 1.5},
+    "VIE_airf_layered_defence": {"det": 2, "home": 2, "wx": -1, "sup": 1.5},
+    "VIE_airf_ew_antistealth": {"int": 3, "det": 2, "night": -1, "wx": -1, "sup": 1},
+    "VIE_airf_iads_command": {"mis": 2, "home": 2, "night": -1, "atk": 1},
+    "VIE_airf_multirole": {"rng": 4, "wx": -1, "pers": 2, "ace": 1},
+    "VIE_airf_multirole_fleet": {"atk": 3, "sup": 2, "cas": 2}, "VIE_airf_sustainment": {"mis": 2, "wx": -2, "night": -1, "pers": -1},
+    "VIE_airf_airlift_tanker": {"rng": 3}, "VIE_airf_multirole_wing": {"mis": 2, "atk": 2, "ace": 2},
+    "VIE_airf_unmanned": {"det": 1, "home": -1, "ace": 1.5, "night": -0.5}, "VIE_airf_isr_uav": {"det": 3, "night": -1.5, "wx": -1},
+    "VIE_airf_datalink": {"mis": 2, "wx": -1, "sup": 1}, "VIE_airf_strike_uav": {"atk": 3, "rng": 1},
+    "VIE_airf_teaming": {"mis": 2, "int": 2, "ace": 1, "night": -1},
 }
+# direction-dependent extras (read from VIE_airf_force_priority / VIE_airf_fighter_specialty); worst case taken in section 1
+T6_DIR = {0: {}, 1: {"int": 1}, 2: {"int": 0.5, "rng": 0.5, "night": -0.5}, 3: {"rng": 1}}
+B2_SPEC = {"sup": {"sup": 1}, "gnd": {"cas": 1}}
+MS1 = {"ace": 1}   # milestone vie_air_force.70 (step 6), given to every player
+REWARD_CODE = {f: c for f, c in zip(FOCUS, "t1 t2 t3 t4 t5 t6 t7 t8 a1 a2 a3 a4 b1 b2 b3 b4 b5 c1 c2 c3 c4 c5".split())}
 CHAIN = [f for f in FOCUS if f.split("_", 2)[2] in (
     "training_standardization", "fighter_force", "sam_force", "command_reform_1", "first_force", "command_reform_2",
     "medium_force", "operating_range")]
@@ -66,6 +77,7 @@ BRANCH = {
     "C": ["VIE_airf_unmanned", "VIE_airf_isr_uav", "VIE_airf_datalink", "VIE_airf_strike_uav", "VIE_airf_teaming"],
 }
 CAPSTONE = {"A": "VIE_airf_iads_command", "B": "VIE_airf_multirole_wing", "C": "VIE_airf_teaming"}
+D_E_BASE = {"A": {"mis": 2, "home": 2}, "B": {"mis": 2, "atk": 2}, "C": {"mis": 2, "int": 2}}   # what VIE_airf_d5_finish multiplies
 DE_BONUS = 0.5      # D-E level 2 adds +50% of the capstone base (level 1: +25%)
 
 # Decisions (level 2 = x1.5). D-A specialty, D-B (early orientation adds HOME +1), D-C stages, D-D force structure
@@ -93,6 +105,10 @@ def path_total(branch, spec, prio, level, early):
     d = defaultdict(float)
     for f in CHAIN + BRANCH[branch]:
         add(d, FOCUS[f])
+    add(d, T6_DIR[prio])
+    add(d, MS1)
+    if branch == "B":
+        add(d, B2_SPEC[spec])
     add(d, D_A[spec], 1.5 if level == 2 else 1.0)
     add(d, D_B, 1.5 if level == 2 else 1.0)
     if early:
@@ -100,9 +116,11 @@ def path_total(branch, spec, prio, level, early):
     for s in D_C:
         add(d, s)
     add(d, D_D[prio])
-    add(d, FOCUS[CAPSTONE[branch]], DE_BONUS if level == 2 else 0.25)
+    add(d, D_E_BASE[branch], DE_BONUS if level == 2 else 0.25)
     if (branch == "A" and prio == 1) or (branch in "BC" and prio == 3):
         d["mis"] += 1                       # branch fit bonus (VIE_airf_branch_fit_*)
+    for k in ("night", "wx"):               # penalties: negative value = improvement, caps are on the magnitude
+        d[k] = -d[k]
     return d
 
 
@@ -149,21 +167,29 @@ except OSError:
     ftxt = ""
     check(False, "cannot read focus file")
 present = 0
-for m in re.finditer(r"\n\tfocus = \{\r?\n\t\tid = (VIE_airf_\w+)", ftxt):
-    fid = m.group(1)
-    start = m.start()
-    end = ftxt.find("\n\t}", start + 5)
-    block = ftxt[start:end]
-    got = {}
-    for k, v in reward_pairs(block):
-        got[k] = got.get(k, 0) + v
-    want = FOCUS.get(fid)
-    if want is None:
-        check(False, f"{fid}: khong co trong bang")
+effects_path = os.path.join(ROOT, "common", "scripted_effects", "VIE_md_effects_air_force.txt")
+try:
+    etxt0 = open(effects_path, encoding="utf-8").read()
+except OSError:
+    etxt0 = ""
+    check(False, "cannot read effects file")
+for fid, want in FOCUS.items():
+    name = "VIE_airf_%s_reward" % REWARD_CODE[fid]
+    m = re.search(r"\n%s = \{(.*?)\n\}" % name, etxt0, re.S)
+    if not m:
+        check(False, f"{fid}: effect {name} khong thay")
         continue
+    body = re.sub(r"\n\t(?:else_)?if = \{.*?\n\t\}", "", m.group(1), flags=re.S)   # drop direction-dependent branches
+    got = {}
+    for k, v in reward_pairs(body):
+        got[k] = got.get(k, 0) + v
     present += 1
     check({k: round(v, 3) for k, v in got.items()} == {k: float(v) for k, v in want.items()}, f"{fid}: code {got} vs bang {want}")
-print(f"  {present}/{len(FOCUS)} focus Truc 3 co trong code")
+    block = ftxt[ftxt.find("id = " + fid):]
+    block = block[:block.find("\n\t}")]
+    check(("VIE_airf_%s_reward = yes" % REWARD_CODE[fid]) in block or "VIE_airf_add_" in block or "add_to_variable" in block,
+          f"{fid}: focus goi {name} (hoac con reward cu)")
+print(f"  {present}/{len(FOCUS)} focus Truc 3 co effect")
 
 # Decisions: every (token, value) written by a *_finish effect must be the one the table gives (levels x1 / x1.5, early +1, ...)
 print("\n== 5. Doi chieu Decision trong code ==")
