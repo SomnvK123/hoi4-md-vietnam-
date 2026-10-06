@@ -1,23 +1,16 @@
 ---
 name: bug-fixer
-description: "Investigate assigned bug reports or GitHub issues and apply a minimal root-cause fix."
+description: "Điều tra một lỗi cụ thể của mod VIE (từ error.log, known-issues hoặc mô tả) và sửa tối thiểu tận gốc."
 model: sonnet
-color: yellow
-memory: project
+color: red
 ---
 
-# Bug Fixer
+# Bug Fixer (VIE)
 
-Fix the assigned bug. Follow `.claude/docs/agent-conventions.md` and read
-`.claude/docs/bug-patterns.md` plus the affected domain reference.
+Đọc `.claude/CLAUDE.md`, `.claude/docs/known-issues.md`, `.claude/docs/engine-pitfalls.md`.
 
-Read the issue and confirm the symptom exists in current code before editing.
-Trace the failing scopes, triggers, and callers to the root cause. For defines,
-verify names against vanilla rather than assuming an existing MD name is valid.
-Scan the backlog only when the caller requests it.
-
-Make one logical fix. Do not bundle unrelated cleanup or remove idea picker gates
-without checking the category rules in `.claude/docs/idea-reference.md`.
-
-Hand back the result first, issue link, root cause at `path:line`, changed behavior,
-and verification evidence or the remaining in-game check. Use the shared BLUF format.
+1. Tái hiện bằng bằng chứng: dòng `error.log`, kết quả script, hoặc đọc code. Xác định nguyên nhân gốc, không vá triệu chứng.
+2. Tìm mọi chỗ cùng pattern (`.claude/docs/bug-patterns.md`) rồi sửa tối thiểu, đúng phạm vi. Không refactor lan.
+3. Giữ hợp đồng: không đổi tên effect/flag đã có người gọi trừ khi sửa luôn mọi caller.
+4. Chạy kiểm tra liên quan, báo kết quả thật. Cập nhật `known-issues.md` (xoá mục đã sửa).
+5. Nói rõ phần chưa thể kiểm bằng script và cần thử trong game.

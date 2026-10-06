@@ -1,13 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 tools/*)",
-      "Bash(./tools/*)",
       "Bash(python tools/*)",
-      "Bash(pre-commit run:*)",
-      "Bash(python -m pre_commit run:*)",
-      "Bash(python3 -m pre_commit run:*)",
-      "Bash(xxd:*)",
+      "Bash(python3 tools/*)",
+      "PowerShell(python tools/*)",
+      "PowerShell(python3 tools/*)",
       "Bash(grep:*)",
       "Bash(rg:*)",
       "Bash(find:*)",
@@ -25,30 +22,17 @@
       "Bash(git branch:*)",
       "Bash(git grep:*)",
       "Bash(git rev-parse:*)",
-      "Bash(gh run:*)",
-      "Bash(gh issue view:*)",
-      "Bash(gh issue list:*)",
-      "Bash(gh pr view:*)",
-      "Bash(gh pr list:*)",
-      "PowerShell(python tools/*)",
-      "PowerShell(python3 tools/*)",
-      "PowerShell(pre-commit run:*)",
-      "PowerShell(python -m pre_commit run:*)",
-      "PowerShell(python3 -m pre_commit run:*)",
       "PowerShell(git status:*)",
       "PowerShell(git log:*)",
       "PowerShell(git diff:*)",
       "PowerShell(git show:*)",
       "PowerShell(git branch:*)",
       "PowerShell(git grep:*)",
-      "mcp__md",
       "Edit",
       "Write"
     ]
   },
   "env": {
-    "CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS": "10",
-    "CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION": "20",
-    "CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH": "1"
+    "PYTHONIOENCODING": "utf-8"
   }
 }

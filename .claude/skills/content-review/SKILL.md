@@ -1,51 +1,21 @@
 ---
 name: content-review
-description: "Check a file or the branch diff against the full MD content review checklist (economic, political, visual, military, AI, code) with blocker tags. Use when asked to content-review country content or verify content-guideline compliance before merge."
+description: 'Review nội dung mod VIE (focus, effect, decision, event, idea, loc) trong một file hoặc diff so với checklist của repo. Dùng khi người dùng muốn review trước khi merge.'
 ---
 
-**Syntax:** `/content-review [file_path]`. With a path, review that file. Without one,
-review every file the branch changes against `main`.
+Review nội dung. Phạm vi: $ARGUMENTS (mặc định `git diff main...HEAD`).
 
-## 1. Gather context
+Đọc skill `md-focus-standard` (mục 9 là checklist), `.claude/docs/bug-patterns.md`, `.claude/docs/conventions.md`, `.claude/docs/known-issues.md`.
 
-- File mode: read the file and identify its type.
-- Branch mode: `git diff origin/main...HEAD` and `git log origin/main..HEAD --oneline`.
+Checklist (mỗi mục gắn nhãn BLOCKER hoặc NIT):
+- **Tham chiếu chéo**: effect/trigger/idea/event/loc tồn tại; không bịa token MD. `/validate refs` và `/validate event`.
+- **Cây focus**: toạ độ, anchor, prerequisite, vòng lặp. `/validate focus`. Gate không còn trỏ focus đã xoá.
+- **Tiền và công trình**: trừ tiền qua scripted effect hoặc `modify_treasury_effect`; công trình province có `province =`;
+  mọi `NNN = {` là state VIE (`/validate prov`).
+- **Scope và vòng đời**: `country_exists` trước khi nhắm nước khác, cờ có nơi set/clear, không gate chết, không bypass bất khả.
+- **AI**: `ai_will_do` / `ai_chance` có mặt, guard bankruptcy cho chi tiêu lớn.
+- **Loc**: đủ key, đúng bản đang hiển thị (`replace/`), không mã màu lạ.
+- **Cân bằng**: nếu đụng trục quân sự, chạy script `*_balance.py` tương ứng, phải in `PASS`.
+- **Thiết kế**: khớp file thiết kế `VIE_*.md` của hệ thống, không phá quyết định đã chốt.
 
-Read `docs/src/content/resources/content-review-guide.md`,
-`docs/src/content/resources/new-general-guidelines.md`, and
-`.claude/docs/content-guidelines.md`. The first two are the full checklist. The third is
-a summary.
-
-## 2. Apply the checklist
-
-Check each file against the categories in `content-guidelines.md`. Skip categories that
-do not apply to the file type.
-
-For a focus tree, run the Variety check as a comparison against Iran
-(`05_iran.txt`) or Spain (`05_spain.txt`), not in isolation.
-
-Sweep the whole file for these three. Sampling undercounts them:
-
-- Treasury double-charge. The scripted building effects (`one_random_arms_factory`,
-  `two_random_*`, `one_office_construction`, and the rest in
-  `common/scripted_effects/`) charge treasury themselves unless
-  `set_temp_variable = { skip_payment = 1 }` is set first. A focus that calls one and
-  also adds an explicit `treasury_change` with `modify_treasury_effect` pays twice. A
-  raw `add_building_construction` with one explicit charge is correct.
-- Referenced loc keys. Check that every `tooltip = <key>`, idea key, and modifier `_tt`
-  key the tree references resolves in `localisation/english/`, not only the keys the
-  diff adds.
-- Dynamic-modifier first add. An `add_dynamic_modifier` without a
-  `NOT = { has_dynamic_modifier = { modifier = X } }` guard double-applies when another
-  focus reachable in the same branch adds the same modifier.
-
-## 3. Output
-
-Per file: the path and type, then a numbered issue list with category labels
-(`[Economic]`, `[Political]`, `[Visual]`, `[Military]`, `[AI]`, `[Code]`, `[Variety]`,
-`[Misc]`) and line numbers. Mark anything that must be fixed before merge `[blocker]`.
-End with a count per category, or "No content issues found."
-
-When the branch has an open PR, a title or body that does not match the diff is a
-`[blocker]`. Name what the body claims that the diff lacks and what the diff contains
-that the body omits. A missing body counts.
+Báo theo mức nghiêm trọng, mỗi lỗi có `file:dòng`, kịch bản hỏng, và nói rõ điều gì chưa kiểm trong game.

@@ -14,7 +14,6 @@ VIE_resolution_category = {
 			VIE_hl_can_take_power_congress = yes
 		}
 		cost = 100
-		days_remove = 30
 		fire_only_once = yes
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_extraordinary_plenum"
@@ -43,7 +42,6 @@ VIE_hl_indochina_category = {
 			LAO = { has_war = no }
 		}
 		cost = 50
-		days_remove = 14
 		fire_only_once = yes
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_ultimatum_laos"
@@ -66,7 +64,6 @@ VIE_hl_indochina_category = {
 			CBD = { has_war = no }
 		}
 		cost = 50
-		days_remove = 14
 		fire_only_once = yes
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_ultimatum_cambodia"

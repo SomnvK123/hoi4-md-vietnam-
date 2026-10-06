@@ -1,23 +1,26 @@
 ---
 name: validate
-description: 'Run the Millennium Dawn validation tools and summarize errors by category as file:line. Use only when the user explicitly asks to validate, e.g. "/validate", "run the validators". Args: "staged" and/or "strict".'
+description: 'Chạy bộ kiểm tra tĩnh của mod VIE (focus, tham chiếu chéo, event, state/province, loc, gfx) và tóm tắt lỗi theo file:dòng. Dùng khi người dùng gọi /validate hoặc yêu cầu chạy kiểm tra.'
 disable-model-invocation: true
 ---
 
-Run the Millennium Dawn validation tools and summarize the results.
+Chạy bộ kiểm tra của mod và báo kết quả thật. Tham số (tuỳ chọn): $ARGUMENTS
+(`focus`, `refs`, `event`, `prov`, `loc`, `gfx`, hoặc để trống để chạy tất cả).
 
-Supported arguments: `staged` (only validate git-staged files), `strict` (fail on errors), or both.
-Requested arguments: $ARGUMENTS
+Chạy từ gốc repo, đặt `PYTHONIOENCODING=utf-8`:
 
-Steps:
+| Nhóm | Lệnh |
+|---|---|
+| focus | `python tools/audit/audit.py` |
+| refs | `python tools/audit/live.py` |
+| event | `python tools/audit/ev.py` |
+| prov | `python tools/audit/prov.py` |
+| loc | `python tools/audit_loc_errors.py` và `python tools/verify_all_loc.py` |
+| gfx | `python tools/audit_dds_and_gfx.py` |
 
-1. Build the command flags from the arguments:
-   - If "staged" is present, add `--staged`
-   - If "strict" is present, add `--strict`
-2. Run from the project root:
-   ```
-   python3 tools/validation/run_all_validators.py <flags>
-   ```
-3. Present results grouped by validator category (variables/flags, scripted localisation, decisions, events, etc.)
-4. For each category with errors, show each error as: `file:line — description`
-5. End with a summary line: total error count, or "All validators passed" if clean
+Khi diễn giải kết quả, đọc `.claude/docs/validation.md` và `.claude/docs/known-issues.md`:
+- Nếu `live.py` in `DEFS:` với `effect: 0`, bộ định nghĩa rỗng (đường dẫn hỏng). Báo "kết quả không dùng được", đừng liệt kê
+  hàng trăm MISSING như lỗi mod.
+- Loại các báo nhầm đã biết (event ẩn thiếu loc, `GFX_report_event_generic_*`).
+- Mỗi lỗi thật ghi `file:dòng — mô tả`. Kết thúc bằng một dòng tổng: số lỗi thật theo nhóm, hoặc "Sạch" cho nhóm đã chạy.
+- Nói rõ nhóm nào không chạy được và vì sao. Đây là kiểm tra tĩnh, không thay thế chạy trong game.

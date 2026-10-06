@@ -106,8 +106,8 @@ VIE_lf_n2_reward = {
 	VIE_lf_xp_20 = yes
 	add_equipment_to_stockpile = { type = util_vehicle_type amount = 400 producer = VIE }
 	add_equipment_to_stockpile = { type = support_equipment_1 amount = 200 producer = VIE }
-	671 = { one_state_fuel_reserve = yes }
-	672 = { one_state_fuel_reserve = yes }
+	522 = { one_state_fuel_reserve = yes }
+	519 = { one_state_fuel_reserve = yes }
 	add_tech_bonus = {
 		name = VIE_lf_n2_tech
 		bonus = 1.0
@@ -316,7 +316,7 @@ VIE_lf_cb_reward = {
 	VIE_lf_xp_15 = yes
 	add_command_power = 20
 	522 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
-	673 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+	521 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
 	if = {
 		limit = { NOT = { has_country_flag = VIE_lf_tpl_sapper_elite } }
 		hidden_effect = { set_country_flag = VIE_lf_tpl_sapper_elite }
@@ -476,9 +476,12 @@ VIE_lf_fd1_reward = {
 	hidden_effect = { set_country_flag = VIE_lf_depth }
 	add_ideas = VIE_depth_defence_spirit
 	VIE_lf_xp_20 = yes
-	522 = { add_building_construction = { type = bunker level = 2 instant_build = yes } }
-	519 = { add_building_construction = { type = bunker level = 2 instant_build = yes } }
-	518 = { add_building_construction = { type = bunker level = 2 instant_build = yes } }
+	# Cost: 1 bn per bunker level (V7 construction price); 3 provinces x level 2 = 6 bn.
+	set_temp_variable = { treasury_change = -6.0 }
+	modify_treasury_effect = yes
+	522 = { add_building_construction = { type = bunker level = 2 instant_build = yes province = 10129 } } # Ha Noi
+	519 = { add_building_construction = { type = bunker level = 2 instant_build = yes province = 4401 } } # Ho Chi Minh City
+	518 = { add_building_construction = { type = bunker level = 2 instant_build = yes province = 12133 } } # Can Tho
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -494,8 +497,11 @@ VIE_lf_fd2_reward = {
 	VIE_lf_xp_15 = yes
 	add_manpower = 40000
 	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 3000 producer = VIE }
-	522 = { add_building_construction = { type = bunker level = 1 instant_build = yes } }
-	673 = { add_building_construction = { type = bunker level = 1 instant_build = yes } }
+	# Cost: 1 bn per bunker level (V7 construction price); 2 provinces x level 1 = 2 bn.
+	set_temp_variable = { treasury_change = -2.0 }
+	modify_treasury_effect = yes
+	522 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 10129 } } # Ha Noi
+	521 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 10309 } } # Da Nang
 	if = {
 		limit = { NOT = { has_country_flag = VIE_lf_tpl_militia_elite } }
 		hidden_effect = { set_country_flag = VIE_lf_tpl_militia_elite }
@@ -623,8 +629,11 @@ VIE_lf_l1_reward = {
 	VIE_lf_xp_20 = yes
 	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 2000 producer = VIE }
 	add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = VIE }
-	671 = { add_building_construction = { type = bunker level = 1 instant_build = yes } }
-	672 = { add_building_construction = { type = bunker level = 1 instant_build = yes } }
+	# Cost: 1 bn per bunker level (V7 construction price); 2 provinces x level 1 = 2 bn.
+	set_temp_variable = { treasury_change = -2.0 }
+	modify_treasury_effect = yes
+	523 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 1157 } } # Ha Long
+	524 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 4529 } } # Dien Bien Phu
 	add_tech_bonus = {
 		name = VIE_lf_l1_tech
 		bonus = 1.0
@@ -654,8 +663,11 @@ VIE_lf_l1_reward = {
 VIE_lf_l2_reward = {
 	VIE_lf_xp_20 = yes
 	add_command_power = 20
-	522 = { add_building_construction = { type = bunker level = 1 instant_build = yes } }
-	519 = { add_building_construction = { type = bunker level = 1 instant_build = yes } }
+	# Cost: 1 bn per bunker level (V7 construction price); 2 provinces x level 1 = 2 bn.
+	set_temp_variable = { treasury_change = -2.0 }
+	modify_treasury_effect = yes
+	522 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 10129 } } # Ha Noi
+	519 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 4401 } } # Ho Chi Minh City
 	add_equipment_to_stockpile = { type = util_vehicle_type amount = 200 producer = VIE }
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
@@ -683,7 +695,7 @@ VIE_lf_a1_reward = {
 	VIE_lf_xp_20 = yes
 	add_equipment_to_stockpile = { type = AA_Equipment amount = 120 producer = VIE }
 	522 = { one_state_anti_air = yes }
-	671 = { one_state_anti_air = yes }
+	519 = { one_state_anti_air = yes }
 	add_tech_bonus = {
 		name = VIE_lf_a1_tech
 		bonus = 1.0
@@ -714,7 +726,7 @@ VIE_lf_a2_reward = {
 	VIE_lf_xp_20 = yes
 	add_command_power = 20
 	522 = { one_state_radar_station = yes }
-	673 = { one_state_radar_station = yes }
+	521 = { one_state_radar_station = yes }
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -742,8 +754,8 @@ VIE_lf_y1_reward = {
 	VIE_lf_xp_25 = yes
 	add_command_power = 25
 	add_equipment_to_stockpile = { type = Air_UAV1 amount = 40 producer = VIE }
-	671 = { one_state_network_infrastructure = yes }
-	672 = { one_state_network_infrastructure = yes }
+	522 = { one_state_network_infrastructure = yes }
+	519 = { one_state_network_infrastructure = yes }
 	add_tech_bonus = {
 		name = VIE_lf_y1_tech
 		bonus = 1.0
@@ -805,7 +817,7 @@ VIE_lf_mod_reward = {
 	set_temp_variable = { treasury_change = -2.0 }
 	modify_treasury_effect = yes
 	increase_military_spending = yes
-	671 = { one_state_arms_factory = yes }
+	519 = { one_state_arms_factory = yes }
 	set_temp_variable = { temp_opinion = 10 }
 	change_the_military_opinion = yes
 	add_tech_bonus = {
@@ -869,7 +881,7 @@ VIE_lf_cap_reward = {
 	set_temp_variable = { treasury_change = -3.0 }
 	modify_treasury_effect = yes
 	increase_military_spending = yes
-	672 = { one_state_arms_factory = yes }
+	522 = { one_state_arms_factory = yes }
 	set_temp_variable = { temp_opinion = 15 }
 	change_the_military_opinion = yes
 	custom_effect_tooltip = {

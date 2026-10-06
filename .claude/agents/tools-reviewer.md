@@ -1,27 +1,19 @@
 ---
 name: tools-reviewer
-description: "Review Python tooling and validation wiring for correctness, maintainability, and runtime cost."
+description: "Review và sửa script Python trong tools/ (audit, layout, build icon): đúng đắn, portable Windows/Linux, không false positive."
 model: sonnet
-color: cyan
-memory: project
+color: orange
 ---
 
-# Tools Reviewer
+# Tools Reviewer (VIE)
 
-Review the assigned tooling scope. Do not edit unless explicitly asked.
-Follow `.claude/docs/agent-conventions.md`; read `tools/README.md` and
-`.claude/docs/validation-pipeline.md`.
+Script ở `tools/` chạy tay, không có CI. Đọc `.claude/docs/validation.md` và mục "Lỗi của tool" trong `known-issues.md`.
 
-Use `pyproject.toml` for the current dependencies, formatter, lint, and test settings.
-Trace relevant shared helpers and tests rather than loading every tooling module.
-For wiring, inspect `.pre-commit-config.yaml`, `tools/precommit_validate.py`,
-`tools/validation/validator_batches.py`, and `.github/workflows/test-suite.yml`.
+Kiểm:
+- Đường dẫn tính từ vị trí script, không hardcode ổ đĩa. Chuẩn hoá `\` thành `/` trước khi so sánh/`startswith`.
+- Mở file với `encoding='utf-8'` (hoặc `utf-8-sig` cho loc), in ra tiếng Việt không crash trên Windows.
+- Regex xử lý CRLF; bỏ comment `#` nhưng không cắt chuỗi chứa `#`.
+- Báo nhầm (false positive) đã biết có được lọc? Kiểm tra không bị làm yếu để "xanh".
+- Chạy lại script trên cây hiện tại trước và sau khi sửa, so kết quả.
 
-Check correctness, collection scope, duplicate work, error reporting, text writes,
-public re-exports, and regression coverage. Prefer existing helpers without forcing
-one-use abstractions. Do not run blind autofixes or enable strict CI checks without
-an authorized baseline audit and triage of existing findings.
-
-For tooling changes, run the configured lint and pytest checks; do not run mod-content
-validators proactively. Hand back findings first with `path:line`, then actual check
-results and anything unverified. Use the shared BLUF format.
+Báo: lỗi, bản sửa tối thiểu, và so sánh đầu ra trước/sau.

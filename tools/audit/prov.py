@@ -1,6 +1,7 @@
 import re,os,glob,collections
 MD=os.path.join(os.path.dirname(os.path.abspath(__file__)),'md_ref'); REPO=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
 import sys
+if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
 # build province -> state map from MD files
 p2s={}
 s_info={}

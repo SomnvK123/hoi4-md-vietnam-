@@ -1,24 +1,20 @@
 ---
 name: event-builder
-description: "Create or fix event chains, including scopes, tooltips, English localisation, and caller wiring."
+description: "Tạo hoặc sửa chuỗi event VIE: namespace, scope, loc, người gọi (caller) và scheduler."
 model: sonnet
-color: cyan
-memory: project
+color: blue
 ---
 
-# Event Builder
+# Event Builder (VIE)
 
-Author or audit the assigned events. Follow `.claude/docs/agent-conventions.md`.
-Read `.claude/docs/event-reference.md` and `.claude/docs/localisation-rules.md`.
+Đọc `.claude/docs/conventions.md` (mục Event), `.claude/docs/engine-pitfalls.md` và `.claude/docs/localisation.md`.
 
-Confirm the target file's namespace and unused IDs before adding events. Trace the
-caller and recipient scopes, including delayed delivery. Wire every new event to
-its actual source and add matching English title, description, and option keys.
+Kiểm cho mỗi event:
+- File có `add_namespace` đúng, id `vie_xxx.N` không trùng (`python tools/audit/ev.py`).
+- `is_triggered_only = yes` và có caller thật (scheduler trong `common/scripted_effects/*`, on_action, focus, decision).
+- Scope: `FROM`/`ROOT`/`PREV` đúng, `country_exists` trước khi bắn sang nước khác, tính tới nước đã chết khi `days = N` hết hạn.
+- Option có `log` đúng id của event, `ai_chance`; option tốn tiền/PP có `ai_chance` tính khả năng chi trả.
+- Loc `.t`, `.d`, `.a`, `.b`... (event `hidden = yes` không cần), ảnh event tồn tại.
+- Vòng đời cờ: ai set, ai clear, ai đọc.
 
-Use the reference's dispatch, logging, picture, notification, and tooltip rules.
-Check building effects before charging treasury; they may already charge internally.
-New party entries also require `.claude/docs/party-loc-reference.md`.
-
-Hand back changed paths and caller wiring, plus anything still needing in-game
-verification. For a requested draft, provide complete event and localisation blocks.
-Otherwise do not repeat code already edited. Use the shared BLUF format.
+Báo lại: file đổi, chuỗi event (id → ai gọi), kết quả `ev.py` và `live.py`, và điều chưa thử trong game.

@@ -1,4 +1,5 @@
-import re, os, collections, json
+import re, os, sys, collections, json
+if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
 ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
 ARCHIVE=('v10_removed_nationalist_focuses.txt','v11_removed_military_all_subbranches.txt',
          'v11_removed_military_other_focuses.txt','common/national_focus/VIE_md_focus.txt.bak')
@@ -9,7 +10,7 @@ live={}
 for dp,ds,fns in os.walk(ROOT):
     if '.git' in dp: continue
     for fn in fns:
-        p=os.path.relpath(os.path.join(dp,fn),ROOT)
+        p=os.path.relpath(os.path.join(dp,fn),ROOT).replace(os.sep,'/')
         if p in ARCHIVE or p.endswith('.bak'): continue
         if fn.endswith(('.txt','.mod','.gfx')): live[p]=read(os.path.join(dp,fn))
 
@@ -71,7 +72,7 @@ PATS={
              (r'\bremove_decision\s*=\s*(VIE_[A-Za-z_0-9]+)',''),(r'\bhas_decision\s*=\s*(VIE_[A-Za-z_0-9]+)',''),
              (r'\bcomplete_decision\s*=\s*(VIE_[A-Za-z_0-9]+)','')],
  'dec_cat':[(r'\bunlock_decision_category\s*=\s*(VIE_[A-Za-z_0-9]+)',''),(r'\badd_decision_category\s*=\s*(VIE_[A-Za-z_0-9]+)','')],
- 'dyn_mod':[(r'modifier\s*=\s*(VIE_[A-Za-z_0-9]+)',''),(r'\bremove_dynamic_modifier\s*=\s*(VIE_[A-Za-z_0-9]+)','')],
+ 'dyn_mod':[(r'\b(?:add|has|remove)_dynamic_modifier\s*=\s*\{\s*modifier\s*=\s*(VIE_[A-Za-z_0-9]+)',''),(r'\bMODIFIER\s*=\s*(VIE_[A-Za-z_0-9]+)','')],
  'opinion':[(r'modifier\s*=\s*(VIE_[A-Za-z_0-9]+)','')],
  'rule':[(r'\brule\s*=\s*(VIE_[A-Za-z_0-9]+)','')],
  'rule_opt':[(r'\boption\s*=\s*(VIE_[A-Za-z_0-9]+)','')],

@@ -1,37 +1,19 @@
 ---
 name: new-focus
-description: 'Scaffold a new country focus tree file with a correctly structured root focus and localisation stubs. Use when asked to create, start, or scaffold a focus tree for a country, e.g. "/new-focus SER". Takes the 3-letter TAG.'
+description: 'Thêm một hoặc nhiều focus mới vào cây focus VIE kèm reward effect, loc và icon. Ví dụ: "/new-focus VIE_xyz dưới VIE_abc". Dùng khi cần tạo focus mới.'
 ---
 
-Scaffold a new focus tree file for a country in Millennium Dawn.
+Thêm focus mới vào `common/national_focus/VIE_md_focus.txt`. Yêu cầu: $ARGUMENTS
 
-Country TAG (3-letter code): $ARGUMENTS
-
-Steps:
-
-1. Confirm the TAG is valid (3 uppercase letters). If $ARGUMENTS is empty, ask the user for the TAG.
-
-2. Check if `common/national_focus/05_<TAG>.txt` already exists (uppercase TAG). If it does, warn the user before proceeding.
-
-3. Create the file at `common/national_focus/05_<TAG>.txt` (uppercase TAG) with:
-   - A `focus_tree` container block with the correct `id`, `country` filter, and a placeholder `continuous_focus_position`
-   - One starter focus block following the required property order (see "Property order" in `.claude/docs/focus-tree-reference.md`)
-   - The root focus id following the pattern `TAG_start`
-   - All tags capitalised in script IDs (e.g. `SER_free_market_capitalism`, not `ser_free_market_capitalism`)
-   - `relative_position_id` on all focuses after the root (all focus trees must use relative positioning)
-   - Logging in completion_reward: `log = "[GetDateText]: [Root.GetName]: Focus TAG_start"`
-   - `search_filters` (required on all focuses)
-   - `ai_will_do` (required on all focuses)
-   - Commented-out optional blocks (allow_branch, prerequisite, mutually_exclusive, bypass, cancel, select_effect, bypass_effect) as scaffolding hints; remind the user to remove any that stay empty (empty trigger blocks are bloat)
-   - Omit default values: `cancel_if_invalid = yes`, `continue_if_invalid = no`, `available_if_capitulated = no`
-
-4. Create the minimum localisation entry. If `localisation/english/MD_focus_<TAG>_l_english.yml` exists, append to it; otherwise create it with the `l_english:` header. Add keys for `TAG_start` and `TAG_start_desc`. Follow localisation rules: UTF-8 with BOM, 1-space indent, no trailing version numbers.
-
-5. Remind the user of next steps:
-
-   **Immediate setup:**
-   - Add `shared_focus` lines if the country should use shared trees (EU, AU, etc.)
-   - Set a real icon instead of the placeholder
-   - Fill in `continuous_focus_position` after building out the tree
-
-   Then follow the **Focus Tree Lifecycle Checklist** (docs/src/content/resources/focus-tree-lifecycle-checklist.md) and **Content Review Guide** (docs/src/content/resources/content-review-guide.md) for ideas, decisions, history, OOB, leaders, namelists, events, and merge standards.
+1. Đọc skill `md-focus-standard` (chuẩn MD: reward đa dạng, AI guard, tooltip) và `.claude/docs/conventions.md` (mục Focus, Tiền và công trình) và `VIE_focus_coding_standards.md`
+   (thứ tự trường, bố cục hàng ngang). Hỏi lại nếu thiếu: id, cha (prerequisite), nội dung reward, điều kiện mở.
+2. Tìm focus cùng nhánh, chọn `relative_position_id` là một prerequisite của focus mới, `y = 1`, x lệch anh em ±2.
+   Chèn focus **sau** anchor của nó trong file.
+3. Viết focus đúng thứ tự trường, `search_filters` 1 dòng, `log` ở dòng đầu reward, `ai_will_do` cuối.
+   Reward dài thì viết effect `VIE_<prefix>_<id>_reward` trong `common/scripted_effects/VIE_md_effects_<chủ đề>.txt`.
+4. Mọi effect/trigger/idea dùng phải tồn tại thật. Tiền trừ bằng scripted effect công trình hoặc `modify_treasury_effect`;
+   chi từ ~5 tỷ thêm `FOCUS_FILTER_EXPENDITURE` và guard bankruptcy.
+5. Thêm loc `VIE_<id>` và `VIE_<id>_desc` (có dấu) vào file loc của hệ thống; nếu key đã có ở `replace/`, sửa bản đó.
+   Icon: dùng sprite có thật (`interface/*.gfx`) hoặc build bằng `tools/build_*_focus_icons.py`.
+6. Chạy `/validate focus`, `/validate refs`, `/validate loc`. Ghi dòng `## vN (dd/mm/yyyy)` ở đầu file focus.
+7. Báo: id, vị trí (x, y, anchor), file đã đổi, kết quả kiểm tra, việc còn lại để thử trong game.

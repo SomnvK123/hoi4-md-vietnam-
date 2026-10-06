@@ -1,77 +1,63 @@
-# Bug Patterns
+# Bug patterns
 
-Scan patterns are greppable signatures for codebase sweeps. Adversarial questions are what-could-go-wrong checks for a diff. Reviewers apply both.
+Pattern grep được để quét toàn repo, và câu hỏi phản biện để kiểm một diff. Bẫy engine chi tiết ở
+[engine-pitfalls.md](engine-pitfalls.md).
 
-Also read [Scripting Edge Cases](scripting-edge-cases.md) and
-[Data Structures](hoi4-data-structures.md) for scope, state, and trigger semantics.
+## Pattern quét được
 
-## Scan patterns
+Chạy bằng Grep trên `common/` và `events/`. Mỗi kết quả phải đọc ngữ cảnh trước khi kết luận là lỗi.
 
-- `swap_ideas` where `remove_idea` and `add_idea` are the same (no-op — usually the final tier of an upgrade chain still running the swap), or `remove_idea` doesn't match the `limit` condition
-- Event options with `name =` referencing a different event's ID, or duplicate option names within one event (copy-paste errors)
-- `give_resource_rights` / `transfer_state` targeting wrong state IDs
-- Variables accumulated monthly without being reset first
-- Events sending responses to the wrong country (wrong FROM/PREV/ROOT scope)
-- `else_if` with the same `limit` as the preceding `if` (unreachable — lives in the `if`'s shadow)
-- `tag` instead of `original_tag` in idea `allowed` blocks (breaks civil war tags)
-- `set_cosmetic_tag = original_tag` (should be `drop_cosmetic_tag = yes`)
-- Missing `country_exists` guard before firing an event to a potentially non-existent tag
-- `AND` of conditions that can never be simultaneously true (e.g. `exists = no` + `is_in_faction_with = X`) in `cancel` or `available` — rethink as `OR` or fix the logic. Caveat: flags and variables persist on dead/unreleased tags, so `NOT = { country_exists = X }` next to `X = { has_country_flag = ... }` is satisfiable and often intentional (subject-release systems); only live-country properties (subject status, opinion, ideas, war) make it a true contradiction
-- `for_each_scope_loop` iterating a numeric-index array (only works on scope objects; use `for_each_loop`)
-- GUI buttons with a `trigger` block but no `effects` block (button renders, clicking does nothing)
-- OOB templates using equipment variants the country cannot have at game start (wrong tech level or missing DLC variant)
-- Wrong capitalisation in `has_idea` / `add_ideas` / `remove_ideas` — case-sensitive, fails silently
-- `not_locked_faction` trigger in faction rules (non-existent; use `is_locked_faction = no`)
-- Stacked multipliers producing near-zero denominators (clamp before division)
-- `add_building_construction` for `naval_base` missing `province`
-- Scripted trigger defined twice in the same file (second definition silently overwrites the first)
-- Merge-conflict markers left in a file
-- Defines with names or namespaces absent from vanilla's `00_defines.lua`; verify before reuse
-- New subideology parties missing registration in `common/scripted_localisation/00_MD_politicsview_scripted_localisation.txt`
+- `add_building_construction` với `type = bunker | coastal_bunker | naval_base | land_fort` mà không có
+  `province =` (công trình province bị bỏ qua hoặc báo lỗi). Công trình cấp state (`infrastructure`,
+  `industrial_complex`...) không cần province nhưng phải trừ tiền.
+- `add_building_construction` thô cho nhà máy/hạ tầng thay vì `one_state_*` / `one_random_*` (không trừ tiền).
+- `NNN = { ... }` với state không thuộc VIE (VIE: 518-524, 526, 801, 802, 813, 816). Mọi số state khác phải
+  xác minh chủ sở hữu 2000 (`prov.py`).
+- `swap_ideas` có `remove_idea` trùng `add_idea`, hoặc `remove_idea` không khớp `limit`.
+- Event option `name =` trỏ sang id event khác, hoặc option trùng tên trong một event.
+- `else_if` có `limit` giống `if` liền trước (không bao giờ chạy tới).
+- `tag =` thay `original_tag =` trong `allowed` của idea/decision (vỡ khi nội chiến). `targeted_modifier = { tag = }` đúng.
+- `set_cosmetic_tag = original_tag` (đúng là `drop_cosmetic_tag = yes`).
+- `country_event` / scope vào TAG mà không có `country_exists` (nước đó có thể đã biến mất).
+- Biến cộng dồn hằng tháng mà không reset trước.
+- `for_each_scope_loop` lặp mảng chỉ số (đúng là `for_each_loop`).
+- Nút scripted GUI có `trigger` mà không có `effects`.
+- `has_idea` / `add_ideas` / `remove_ideas` sai hoa thường (im lặng thất bại).
+- Scripted effect/trigger định nghĩa hai lần (bản sau ghi đè bản trước).
+- Marker merge conflict (`<<<<<<<`, `=======`, `>>>>>>>`).
+- `dirty = global.date` hoặc `global.num_days` (vẽ lại GUI mỗi tick).
+- Cờ chỉ được `has_country_flag` mà không có `set_country_flag` ở đâu (gate chết). Ngược lại cờ set mà không đọc.
+- Loc key dùng trong `custom_*_tooltip` mà không có định nghĩa (script `live.py` bắt).
 
-## Adversarial questions
+## Câu hỏi phản biện cho mỗi khối thay đổi
 
-Ask these systematically against every changed block. If the answer is "no, it's not handled", flag it.
+**Tồn tại và scope**
+- Scope vào một TAG, hoặc ban thưởng cho nước khác: có `country_exists` không? Nước đó có thể đã chết lúc effect chạy.
+- Scope vào `var:target`: đã guard `check_variable = { var:target > 0 }`? Biến chưa set đọc 0.
+- `FROM` trong decision/focus không nhắm mục tiêu: nó rơi về `ROOT`. Nếu code giả định `FROM` là nước khác thì tự nhắm chính mình.
 
-**Existence & Scope Guards**
+**Thời điểm và chuyển trạng thái**
+- `available = { always = no }` cùng `bypass`: bypass có thực sự đạt được không? Nếu không, người chơi khoá cứng vĩnh viễn.
+- Gate dựa trên một focus đã bị xoá ở v9 đến v11: phải đã re-point sang cờ hoặc focus còn sống.
+- `days_remove` không có `remove_effect` đi kèm: hiệu ứng hết hạn mà không hoàn lại.
+- `fire_only_once` + `days_remove` trên một decision: kiểm hành vi mong muốn.
+- Event fire sang nước khác với `days = N`: nếu nước đó chết hoặc đang chiến tranh với ROOT lúc hết hạn thì sao?
+- Event tự fire lại chính nó: có điều kiện dừng không?
 
-- Scope into a tag (`TAG = { ... }`) or grant focus rewards to another country: guarded by `country_exists` or equivalent? The target may be dead by the time the effect runs.
-- Variable-stored country reference scoped into (`var:target = { ... }`): is there a `check_variable = { var:target > 0 }` guard first? Uninitialized variables default to 0 or -1.
-- `FROM` used as a sender-country reference in a non-targeted decision or focus: there `FROM` falls back to `ROOT`. If the code assumes `FROM` is a different country, it silently targets itself.
+**Biến và mảng**
+- Chia cho biến: đã clamp hoặc guard `> 0`?
+- Chỉ số mảng động `array^i`: `i` có bị chặn không?
+- Biến đọc trước khi ghi ở một nhánh thực thi nào đó?
+- `add_stability` / `add_war_support` ngoài `-1.0 .. 1.0` bị cắt im lặng.
+- Hai biến `VIE_af_*` cộng cùng một lượng cho hai mục đích khác nhau (đã chạm trần modifier chưa; xem
+  `tools/audit/*_balance.py`)?
 
-**Timing & State Transitions**
+**Hai chiều với người chơi**
+- Hiệu ứng vĩnh viễn lên nước khác không qua event (không cho người chơi quyết định)?
+- `will_lead_to_war_with = TAG` mà không có wargoal thật trong reward (tooltip nói dối), và ngược lại focus dẫn tới
+  chiến tranh mà thiếu `will_lead_to_war_with`.
 
-- `available = { always = no }` paired with a `bypass`: if the bypass trigger is unreachable (e.g., depends on a skipped event chain), the player is permanently hard-locked. Verify the bypass can actually fire.
-- `fire_only_once = yes` combined with `days_remove` on the same decision: the engine handles this inconsistently; one clause usually silently overrides the other.
-- Event fired to another country (`country_event = { id = X days = N }`): what if the target no longer exists when the delay expires? What if already at war with ROOT?
-- `on_action` events referencing scoped variables from the triggering context: verify the variable is still valid in the event's scope.
-- Event option firing its own event ID: infinite loop.
-- `days_remove` without a paired `remove_effect`: the idea/modifier lapses on the timer but its effect never reverses.
-
-**Variable & Array Safety**
-
-- Division by any variable: denominator clamped or guarded `> 0`? Near-zero denominators silently produce extreme values.
-- Dynamic array subscript (`array^i`): is `i` bounded? Negative or out-of-range indices silently read garbage or the last element.
-- Variable read before write in all paths: any `var:X` consumed before `set_variable` in every execution path.
-- `add_stability` / `add_war_support` given a value outside `-1.0`..`1.0`: silently clamped (a `5` means `1.0`), usually a mistake.
-
-**Silent NOPs & Dead Logic**
-
-- `clr_country_flag` / `clr_global_flag` on a flag never set: harmless, but signals the author did not trace the flag lifecycle.
-- `random_list` with all weights 0, or every `ai_chance` at `base = 0`: nothing is ever selected.
-
-**Cross-Country Mechanics**
-
-- Permanent effects applied directly to another nation (not via event): target player has no agency. Includes `add_timed_idea` to a tag, force-joining factions, etc.
-- `will_lead_to_war_with = TAG` without an actual wargoal granted in the same `completion_reward`: the tooltip lies.
-- Focus that sends an event (or chained events) declaring war at the owner's scope needs `will_lead_to_war_with` too, even with no direct wargoal in `completion_reward` (checked by `check_common_mistakes.py`; wargoal grants count as demands).
-
-**GUI & Script-Glue Edge Cases**
-
-- `dirty` variable set to `global.date` or `global.num_days`: forces GUI redraw every tick.
-- Scripted GUI `context_type = diplomatic_action`: verify it is wired to a real diplomatic action token; miswired ones silently fail.
-
-**Content Edge Cases**
-
-- Cores added without 80% compliance or an integration system: free cores are banned.
-- Buildings added without monetary cost in a focus/decision: use scripted treasury effects.
+**Nội dung**
+- Core hay công trình được cấp miễn phí? Công trình phải trừ tiền (xem conventions).
+- Số liệu trong loc có khớp effect không?
+- Một tooltip hiện ra có đủ thông tin (reward không bọc hết trong `if`/`limit`, gate cờ bọc `custom_trigger_tooltip`)?
