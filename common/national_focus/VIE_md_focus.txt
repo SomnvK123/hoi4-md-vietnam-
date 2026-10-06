@@ -31,7 +31,8 @@ focus_tree = {
 ## v16b (05/10/2026): hang 2 nhanh An ninh: VIE_sec_cyber_control, VIE_sec_public_order, VIE_sec_security_economy (3 idea, category VIE_sec_category + 2 decision).
 ## v16c (05/10/2026): hang 3 nhanh An ninh: VIE_sec_surveillance_network, VIE_sec_loyalty_vetting, VIE_sec_border_control (1 idea, 1 decision).
 ## v16d (05/10/2026): hang 4 nhanh An ninh: VIE_sec_cyber_sovereignty, VIE_sec_ideological_education, VIE_sec_state_data_center (3 idea, 2 decision, event vie_sec.2; khoi phuc event vie_alt.31).
-## v16e (05/10/2026): hang 5 nhanh An ninh: khoi phuc VIE_sec_managed_opening (3 prerequisite AND, cost 7); loai 2 hieu ung di san vo tac dung (VIE_bop_reform_small, co VIE_wa_unlocked); them increase_economic_growth.
+	## v16e (05/10/2026): hang 5 nhanh An ninh: khoi phuc VIE_sec_managed_opening (3 prerequisite AND, cost 7); loai 2 hieu ung di san vo tac dung (VIE_bop_reform_small, co VIE_wa_unlocked); them increase_economic_growth.
+	## v16f (06/10/2026): can moc focus resolution Dai hoi XIII/XIV theo ngay khai mac chinh thuc (26/01/2021, 20/01/2026); scheduler Dai hoi IX-XIV queue event dung ngay khai mac, bo random_days.
 	continuous_focus_position = { x = 765 y = 2850 }
 	initial_show_position = { focus = VIE_doi_moi_continues }
 
@@ -393,7 +394,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
-			date > 2021.1.24
+			date > 2021.1.25
 			custom_trigger_tooltip = { tooltip = VIE_flag_VIE_sched_congress_13_tt has_country_flag = VIE_sched_congress_13 }
 		}
 
@@ -430,7 +431,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
-			date > 2026.1.18
+			date > 2026.1.19
 			custom_trigger_tooltip = { tooltip = VIE_flag_VIE_sched_congress_14_tt has_country_flag = VIE_sched_congress_14 }
 		}
 
@@ -3990,6 +3991,7 @@ focus_tree = {
 			add_opinion_modifier = { target = CAN modifier = VIE_trade_agreement }
 			reverse_add_opinion_modifier = { target = CAN modifier = VIE_trade_agreement }
 			VIE_bop_reform_small = yes
+			VIE_hl_integration_valve = yes
 		}
 
 		ai_will_do = {
@@ -4029,6 +4031,7 @@ focus_tree = {
 			reverse_add_opinion_modifier = { target = ITA modifier = VIE_trade_agreement }
 			add_opinion_modifier = { target = HOL modifier = VIE_trade_agreement }
 			reverse_add_opinion_modifier = { target = HOL modifier = VIE_trade_agreement }
+			VIE_hl_integration_valve = yes
 		}
 
 		ai_will_do = {
@@ -5922,6 +5925,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_constitution_2013"
+			# Mo khong gian bao chi sau khi thi hanh Hien phap 2013; kich hoat cua ngo xa hoi dan su.
+			hidden_effect = { set_country_flag = VIE_press_relaxed }
 			add_to_variable = { VIE_ax_checks = 2 tooltip = VIE_ax_checks_tt }
 			VIE_bop_reform_small = yes
 			add_stability = 0.02
@@ -6931,6 +6936,7 @@ focus_tree = {
 			increase_economic_growth = yes
 			set_temp_variable = { treasury_change = 2 }
 			modify_treasury_effect = yes
+			VIE_hl_integration_valve = yes
 		}
 
 		ai_will_do = {
@@ -6961,6 +6967,7 @@ focus_tree = {
 				change_communist_cadres_opinion = yes
 			}
 			add_ideas = VIE_investment_grade_idea
+			VIE_hl_integration_valve = yes
 		}
 
 		ai_will_do = {

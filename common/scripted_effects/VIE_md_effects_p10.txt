@@ -3,6 +3,7 @@
 VIE_event_scheduler_p10 = {
 	if = {
 		limit = { VIE_party_rule_active = yes }
+		# Dai hoi XV-XVI chua co ngay khai mac lich su; giu cua so hien tai cho toi khi co moc xac nhan.
 		if = {
 			limit = {
 				date > 2030.12.31

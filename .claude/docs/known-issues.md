@@ -44,8 +44,7 @@ không prerequisite mâu thuẫn mutex, không toạ độ trùng, không forwar
   `VIE_blue_water_idea`, `VIE_modern_*_2030_idea`, `VIE_democratic_*`, `VIE_negotiated_transition_idea`,
   `VIE_vinacomin_idea`, `VIE_rare_earth_*`, ... (danh sách đầy đủ: chạy `live.py`, mục `IDEAS defined but never granted`).
   Một số có thể được cấp qua tên ghép động, kiểm bằng grep trước khi xoá.
-- **Balance of Power oligarch** (`common/bop/VIE_md_bop_p3.txt`, `VIE_md_effects_p3b.txt`): mọi effect gate bằng cờ
-  `VIE_bop_oli_active`, và không có `set_country_flag` nào đặt cờ này. Mã chết cùng các key loc `VIE_oli_*`.
+- ~~Balance of Power oligarch~~: đã xoá 06/10/2026 (`VIE_md_bop_p3.txt`, `VIE_md_effects_p3b.txt` và 17 dòng loc `VIE_oli_*`/`VIE_oligarch_balance`). `grep` không còn tham chiếu nào.
 - **Loc chết**: theo `VIE_repo_health_report.md` (30/09) hơn 40% key loc không còn được tham chiếu sau khi xoá focus v9 đến v11.
   Chưa đếm lại.
 - **545 key loc trùng** giữa `localisation/english/` và `replace/`, 444 key khác nội dung. Bản trong `replace/` thắng,

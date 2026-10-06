@@ -273,19 +273,3 @@ VIE_hl_cleanup = {
 	if = { limit = { has_idea = VIE_state_data_center_idea } remove_ideas = VIE_state_data_center_idea }
 	clear_variable = VIE_rp
 }
-
-# Integration focus relief valve:
-# Lowers reform pressure by 4, but slight cadres dissent if not fully consolidated
-VIE_hl_integration_valve = {
-	if = {
-		limit = { VIE_hl_in_power = yes }
-		set_temp_variable = { VIE_rp_add = -4 }
-		VIE_hl_add_pressure = yes
-		if = {
-			limit = { NOT = { has_completed_focus = VIE_hl_five_year_plan } }
-			set_temp_variable = { temp_opinion = -2 }
-			change_communist_cadres_opinion = yes
-			VIE_bop_reform_small = yes
-		}
-	}
-}

@@ -10,7 +10,7 @@ Submod của Millennium Dawn, chơi Việt Nam (`VIE`) từ 2000 đến 2026. `d
 - **Hệ trục** `VIE_ax_*` (9 chiều), chuẩn hoá hằng tháng bằng `VIE_ax_normalize`, hiển thị qua
   `common/scripted_localisation/VIE_md_axis_bars.txt`, đổ vào dynamic modifier `VIE_state_modifier`
   (biến `VIE_sb_*_mod`). Thiết kế: `VIE_statebuilding_*.md`.
-- **Balance of Power** `VIE_party_balance` (`common/bop/`). Band oligarch trong `VIE_md_bop_p3.txt` là mã chết.
+- **Balance of Power** `VIE_party_balance` (`common/bop/VIE_md_bop.txt`). Band oligarch đã xoá.
 - **Biến nhiệm kỳ** `VIE_congress_term` (8 → 14), suy lại mỗi `on_startup`.
 - **Scheduler**: một hook `on_monthly` duy nhất ở `common/on_actions/VIE_md_on_actions.txt`, guard
   `original_tag = VIE` để vẫn chạy sau nội chiến. Thêm scheduler mới thì thêm vào đúng khối này.
