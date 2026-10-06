@@ -37,7 +37,7 @@ VIE_befriend_partners = {
 	ai_strategy = { type = befriend id = "CHI" value = 50 }
 }
 
-# Vietnam never starts a war on China, and joins no bloc: the Four Nos also block factions through an idea.
+# Strongly discourage AI-initiated wars against China. MD uses -4000 for hard diplomatic restraints.
 VIE_avoid_war_with_china = {
 	allowed = { original_tag = VIE }
 	enable = {
@@ -45,10 +45,10 @@ VIE_avoid_war_with_china = {
 	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = declare_war id = "CHI" value = -300 }
+	ai_strategy = { type = declare_war id = "CHI" value = -4000 }
 }
 
-# Neighbours and the other ASEAN members: the Sea disputes are handled through the SCS focuses and decisions, not by war.
+# Neighbours and other ASEAN members: handle sea disputes through focuses and decisions, not AI-initiated wars.
 VIE_avoid_war_with_neighbours = {
 	allowed = { original_tag = VIE }
 	enable = {
@@ -56,15 +56,15 @@ VIE_avoid_war_with_neighbours = {
 	}
 	abort_when_not_enabled = yes
 
-	ai_strategy = { type = declare_war id = "LAO" value = -200 }
-	ai_strategy = { type = declare_war id = "CBD" value = -200 }
-	ai_strategy = { type = declare_war id = "SIA" value = -200 }
-	ai_strategy = { type = declare_war id = "PHI" value = -200 }
-	ai_strategy = { type = declare_war id = "MAY" value = -200 }
-	ai_strategy = { type = declare_war id = "IND" value = -200 }
-	ai_strategy = { type = declare_war id = "BRU" value = -200 }
-	ai_strategy = { type = declare_war id = "SIN" value = -200 }
-	ai_strategy = { type = declare_war id = "BRM" value = -200 }
+	ai_strategy = { type = declare_war id = "LAO" value = -4000 }
+	ai_strategy = { type = declare_war id = "CBD" value = -4000 }
+	ai_strategy = { type = declare_war id = "SIA" value = -4000 }
+	ai_strategy = { type = declare_war id = "PHI" value = -4000 }
+	ai_strategy = { type = declare_war id = "MAY" value = -4000 }
+	ai_strategy = { type = declare_war id = "IND" value = -4000 }
+	ai_strategy = { type = declare_war id = "BRU" value = -4000 }
+	ai_strategy = { type = declare_war id = "SIN" value = -4000 }
+	ai_strategy = { type = declare_war id = "BRM" value = -4000 }
 }
 
 # Already fighting and losing: no new fronts.
@@ -80,4 +80,45 @@ VIE_hold_new_wars_while_losing = {
 	ai_strategy = { type = declare_war id = "LAO" value = -4000 }
 	ai_strategy = { type = declare_war id = "CBD" value = -4000 }
 	ai_strategy = { type = declare_war id = "SIA" value = -4000 }
+}
+
+# Historical force mix: favor light infantry and reduce expensive mechanized/armor roles.
+# The role IDs are supplied by MD's generic ai_templates; these are ratio adjustments,
+# not hard caps or a replacement for MD's production logic.
+VIE_historical_force_mix = {
+	allowed = {
+		original_tag = VIE
+		ai_for_units_is_not_disabled = yes
+	}
+	enable = { VIE_ai_historical = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = role_ratio id = L_Inf value = 25 }
+	ai_strategy = { type = role_ratio id = infantry value = 10 }
+	ai_strategy = { type = role_ratio id = Militia value = 2 }
+	ai_strategy = { type = role_ratio id = apc_mechanized value = -20 }
+	ai_strategy = { type = role_ratio id = ifv_mechanized value = -20 }
+	ai_strategy = { type = role_ratio id = armor value = -20 }
+	ai_strategy = { type = role_ratio id = marines value = -5 }
+	ai_strategy = { type = role_ratio id = Air_mech value = -3 }
+	ai_strategy = { type = role_ratio id = Special_Forces value = -5 }
+}
+
+# Coastal defense and sea denial: prioritize affordable escorts and attack submarines.
+# Keep the VIE cruiser design available at a low target ratio; this is not a ship-count cap.
+VIE_historical_naval_mix = {
+	allowed = {
+		original_tag = VIE
+		ai_for_units_is_not_disabled = yes
+	}
+	enable = { VIE_ai_historical = yes }
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = role_ratio id = naval_corvettes value = 25 }
+	ai_strategy = { type = role_ratio id = naval_frigate value = 30 }
+	ai_strategy = { type = role_ratio id = naval_destroyer value = 10 }
+	ai_strategy = { type = role_ratio id = naval_attack_submarine value = 25 }
+	ai_strategy = { type = role_ratio id = naval_missile_submarine value = 2 }
+	ai_strategy = { type = role_ratio id = naval_helicopter_operator value = 5 }
+	ai_strategy = { type = role_ratio id = naval_cruiser value = 2 }
 }

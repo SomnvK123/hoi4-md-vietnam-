@@ -1795,6 +1795,7 @@ focus_tree = {
 
 		ai_will_do = {
 			base = 20
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 			modifier = { factor = 0 check_variable = { VIE_rp > 69 } }
 		}
 	}

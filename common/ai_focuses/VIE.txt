@@ -1,0 +1,96 @@
+# VIE historical research profile.
+# These country overrides replace the matching MD generic blocks, so every
+# retained generic weight is stated explicitly. Research order remains affected
+# by technology ai_will_do, date gates, GDP gates and existing MD rules.
+
+ai_focus_defense_VIE = {
+	research = {
+		CAT_fortifications = 6
+		CAT_anti_tank = 4
+		CAT_anti_air = 5
+		CAT_surface_to_air_missiles = 5
+		CAT_artillery = 4
+		CAT_land_drones = 3
+		CAT_body_armor = 2
+	}
+}
+
+ai_focus_military_equipment_VIE = {
+	research = {
+		CAT_infantry = 3
+		CAT_small_arms = 10
+		CAT_night_vision = 4
+		CAT_command_and_control_equipment = 4
+		CAT_support_weapons = 5
+		CAT_special_forces_equipment = 4
+
+		CAT_anti_tank = 6
+		CAT_anti_air = 7
+
+		CAT_artillery = 4
+		CAT_transport_helicopters = 2
+	}
+}
+
+ai_focus_military_advancements_VIE = {
+	research = {
+		CAT_special_forces_equipment = 2
+		CAT_support_weapons = 8
+		CAT_night_vision = 6
+
+		CAT_armor = 4
+		CAT_tanks = 2
+		CAT_armored_personnel_carriers = 3
+		CAT_infantry_fighting_vehicles = 2
+
+		CAT_utility_vehicles = 5
+		CAT_helicopters = 3
+		CAT_artillery = 4
+		CAT_anti_air = 4
+		CAT_surface_to_air_missiles = 4
+	}
+}
+
+ai_focus_naval_VIE = {
+	research = {
+		CAT_naval = 3
+		CAT_naval_modules = 3
+
+		CAT_destroyers = 2
+		CAT_frigates = 4
+		CAT_corvettes = 5
+		CAT_cruisers = 5
+		CAT_landing_craft = 2
+
+		CAT_helicopter_operators = 3
+
+		CAT_attack_submarines = 3
+	}
+}
+
+ai_focus_naval_air_VIE = {
+	research = {
+		CAT_light_aircraft = 4
+		CAT_medium_aircraft = 4
+		CAT_air_to_naval_weapons = 4
+	}
+}
+
+ai_focus_aviation_VIE = {
+	research = {
+		CAT_aircraft = 6
+		CAT_air_modules = 3
+		CAT_air_weapons = 3
+
+		CAT_heavy_aircraft = 3
+		CAT_air_to_ground_weapons = 4
+
+		CAT_transport_helicopters = 4
+		CAT_attack_helicopters = 2
+
+		CAT_medium_aircraft = 3
+		CAT_light_aircraft = 2
+		CAT_air_drones = -4
+		CAT_surface_to_air_missiles = 3
+	}
+}

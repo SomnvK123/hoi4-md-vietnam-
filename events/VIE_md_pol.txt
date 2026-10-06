@@ -51,6 +51,8 @@ country_event = {
 		ai_chance = {
 			base = 100
 			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+			# Take the first eligible hardline transfer instead of leaving it to weighted chance.
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_bop_leans_conservative = yes }
 		}
 	}
 
@@ -66,8 +68,8 @@ country_event = {
 		add_stability = 0.05
 		add_political_power = 50
 		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
+			base = 10000
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 }
@@ -143,7 +145,10 @@ country_event = {
 		VIE_new_leader_trong = yes
 		VIE_bop_conservative_small = yes
 		add_political_power = 50
-		ai_chance = { base = 100 }
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
+		}
 	}
 
 	option = {
@@ -170,8 +175,8 @@ country_event = {
 		add_stability = 0.03
 		add_political_power = 50
 		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
+			base = 10000
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 }
@@ -201,6 +206,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
 		}
 	}
 
@@ -223,6 +229,7 @@ country_event = {
 		ai_chance = {
 			base = 4
 			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
 		}
 	}
 
@@ -251,8 +258,8 @@ country_event = {
 		add_stability = 0.03
 		add_political_power = 50
 		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
+			base = 10000
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 
@@ -283,7 +290,10 @@ country_event = {
 		add_political_power = 50
 		VIE_bop_conservative_small = yes
 		hidden_effect = { set_country_flag = VIE_trong_third_term_confirmed }
-		ai_chance = { base = 100 }
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
+		}
 	}
 
 	# Government camp path: the reforming leadership is confirmed
@@ -296,7 +306,10 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.b executed"
 		add_political_power = 50
 		VIE_bop_reform_small = yes
-		ai_chance = { base = 100 }
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
+		}
 	}
 
 	# Neither path recorded (e.g. Twelfth Congress skipped): simply confirm the leadership
@@ -309,7 +322,10 @@ country_event = {
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.c executed"
 		add_political_power = 50
-		ai_chance = { base = 100 }
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
+		}
 	}
 
 	# Hardline path: the vanguard leadership is reaffirmed
@@ -338,8 +354,8 @@ country_event = {
 		add_stability = 0.03
 		add_political_power = 50
 		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
+			base = 10000
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 
@@ -394,7 +410,10 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.a executed"
 		add_political_power = 100
 		VIE_bop_conservative_small = yes
-		ai_chance = { base = 100 }
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
+		}
 	}
 
 	option = {
@@ -405,7 +424,10 @@ country_event = {
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.b executed"
 		add_political_power = 50
-		ai_chance = { base = 100 }
+		ai_chance = {
+			base = 100
+			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
+		}
 	}
 
 	# Hardline path: the era of unbreakable socialist strength
@@ -434,8 +456,8 @@ country_event = {
 		add_stability = 0.03
 		add_political_power = 50
 		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
+			base = 10000
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 

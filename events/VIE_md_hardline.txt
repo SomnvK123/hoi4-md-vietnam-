@@ -185,7 +185,7 @@ country_event = {
 		add_political_power = 50
 		ai_chance = {
 			base = 15
-			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 }

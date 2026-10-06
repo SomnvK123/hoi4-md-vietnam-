@@ -2,6 +2,23 @@ on_actions = {
 	on_startup = {
 		effect = {
 			VIE = {
+				# Persist the selected AI profile as global path flags, matching the MD path convention.
+				# on_startup also runs on save load, so clear both before applying the current game rule.
+				clr_global_flag = VIE_AI_PATH_HISTORICAL
+				clr_global_flag = VIE_AI_PATH_HARDLINE
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = VIE_ai_behavior
+							option = VIE_AI_HARDLINE
+						}
+					}
+					set_global_flag = VIE_AI_PATH_HARDLINE
+				}
+				else = {
+					set_global_flag = VIE_AI_PATH_HISTORICAL
+				}
+
 				# 2000-2014 army roster (see VIE_land_forces_implementation_plan_v2.md). on_startup also runs on
 				# every save load, so the flag keeps this from recruiting twice; vie_army_commanders.2 retires
 				if = {

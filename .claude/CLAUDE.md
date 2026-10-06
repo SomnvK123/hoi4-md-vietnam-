@@ -60,6 +60,10 @@ python tools/verify_all_loc.py
 
 `settings.json` đặt `PYTHONIOENCODING=utf-8` để các script in tiếng Việt không crash trên Windows.
 
+## AI design
+
+Before designing or editing Vietnam AI paths, plans, strategies, research, templates, equipment, theaters, or naval behavior, read [docs/ai-strategy-design.md](docs/ai-strategy-design.md) and [docs/ai-subsystems-reference.md](docs/ai-subsystems-reference.md).
+
 ## Commit
 
 Dạng `feat: ...`, `fix: ...`, `docs: ...`, mô tả ngắn bằng tiếng Anh hoặc Việt không dấu như lịch sử git.

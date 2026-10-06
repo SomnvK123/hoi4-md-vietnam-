@@ -1,10 +1,20 @@
-# Vietnam submod: alternative-history game rule (Phase 4). Rule token: VIE_alt_history
-#   plausible  : the only option; alternatives exist behind their historical conditions
+# Vietnam AI behaviour game rule. Historical remains the locked-by-default choice set;
+# Hardline selectively enables only the AI choices explicitly whitelisted for this path.
 
-# The AI always follows the historical line for now (the old "historical" rule option and the HISTORICAL AI path,
-# made permanent): every ai_will_do / ai_chance with "factor = 0 VIE_ai_historical = yes" is switched off for the AI.
+# Keep the broad historical-choice kill switch permanent. Hardline exceptions use VIE_ai_hardline
+# directly so selecting this path cannot unlock unrelated alternative-history choices.
 VIE_ai_historical = {
 	always = yes
+}
+
+# Selected AI profile; separate from VIE_ai_historical, which remains the broad
+# historical-choice lock for whitelisted and non-whitelisted alternative choices.
+VIE_ai_historical_path = {
+	has_global_flag = VIE_AI_PATH_HISTORICAL
+}
+
+VIE_ai_hardline = {
+	has_global_flag = VIE_AI_PATH_HARDLINE
 }
 
 # Decisions marked "AI only when VIE_ai_free" stay off for the AI (historical line is permanent).

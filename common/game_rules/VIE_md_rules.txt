@@ -11,15 +11,19 @@ VIE_alt_history = {
 	}
 }
 
-# AI behaviour when Vietnam is AI-controlled: only the default (no path). The path options were removed
-# (VIE_HISTORICAL / VIE_REFORM / VIE_HARDLINE / VIE_WESTERN / RANDOM) together with their global flags.
+# AI behaviour when Vietnam is AI-controlled. Historical remains the default route.
 VIE_ai_behavior = {
 	name = "VIE_AI_BEHAVIOR"
 	group = "RULE_GROUP_AI_BEHAVIOR"
 	default = {
-		name = NO_PATH
-		text = "RULE_OPTION_MD_NO_PATH"
-		desc = "RULE_OPTION_MD_NO_PATH_DESC"
+		name = VIE_AI_HISTORICAL
+		text = "VIE_AI_HISTORICAL_TEXT"
+		desc = "VIE_AI_HISTORICAL_DESC"
+	}
+	option = {
+		name = VIE_AI_HARDLINE
+		text = "VIE_AI_HARDLINE_TEXT"
+		desc = "VIE_AI_HARDLINE_DESC"
 	}
 }
 
