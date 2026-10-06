@@ -254,7 +254,6 @@ VIE_hl_cleanup = {
 	hidden_effect = { clr_country_flag = VIE_hl_self_reliance_extended }
 	# One-time reaction events and tree markers: a later return to the hardline party starts the branch afresh
 	hidden_effect = { clr_country_flag = VIE_hl_tree_open }
-	hidden_effect = { clr_country_flag = VIE_hl_e1_done }
 	hidden_effect = { clr_country_flag = VIE_hl_fusion_done }
 	hidden_effect = { clr_country_flag = VIE_hl_sovereignty_line }
 	hidden_effect = { clr_country_flag = VIE_hl_ev2_done }
