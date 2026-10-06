@@ -1059,7 +1059,7 @@ VIE_event_scheduler_p10 = {
 				NOT = { check_variable = { VIE_catch_up = 1 } }
 				NOT = { has_country_flag = VIE_yugoslav_cd }
 				NOT = { has_country_flag = VIE_popup_cd }
-				has_country_flag = VIE_tc_active
+				has_idea = VIE_four_nos
 			}
 			random = {
 				chance = 3
@@ -1135,7 +1135,7 @@ VIE_event_scheduler_p10 = {
 	if = {
 		limit = {
 			NOT = { has_country_flag = VIE_news_tc }
-			has_country_flag = VIE_tc_active
+			has_completed_focus = VIE_four_nos_doctrine
 		}
 		hidden_effect = { set_country_flag = VIE_news_tc }
 		if = {

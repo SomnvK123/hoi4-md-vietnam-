@@ -37,7 +37,7 @@
  VIE_tt_air_strategic_bomber_defence_factor:0 "$MODIFIER_AIR_STRATEGIC_BOMBER_DEFENCE_FACTOR$: $RIGHT|+=%1$"
  ### D4 (Trục 2) dùng VIE_af_attrition. Key attrition_tt mà bản v11 đã xoá từng dùng
  ### KHÔNG tồn tại trong MD lẫn repo (đã tra MD_dm_modifiers, MD_tooltips,
- ### replaced_from_vanilla_modifiers) — tức đó là key chết. Tạo key riêng theo
+ ### replaced_from_vanilla_modifiers) - tức đó là key chết. Tạo key riêng theo
  ### đúng pattern của file này: $MODIFIER_X$: $RIGHT|+=%1$
  VIE_tt_attrition:0 "$MODIFIER_ATTRITION$: $RIGHT|+=%1$"
  ### Truc 3 (VIE_truc3_review_and_plan.md muc 5.5): tooltip cho 6 modifier moi cua VIE_armed_forces_modifier.

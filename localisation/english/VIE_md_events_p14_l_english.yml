@@ -3,57 +3,57 @@
  ### ============================================================
  ### Trục 1: Mua sắm lục quân (namespace vie_proc_army)
  ### Bước 2: chuỗi 1 (.1, .2) · Bước 3: chuỗi 2 (.5, .6) và chuỗi 3 (.8)
- ### Các chuỗi còn lại thêm vào file này ở bước 4–6.
+ ### Các chuỗi còn lại thêm vào file này ở bước 4-6.
  ###
  ### Khối "PLACEHOLDER" ở cuối file là key tạm cho các event còn hidden = yes.
  ### Chúng chỉ tồn tại để error.log sạch (chuẩn của repo, tools/TESTING.md mục 0).
- ### XÓA TỪNG DÒNG PLACEHOLDER khi viết event thật ở bước 4–6, thay bằng bản dịch
+ ### XÓA TỪNG DÒNG PLACEHOLDER khi viết event thật ở bước 4-6, thay bằng bản dịch
  ### thật. Đừng xóa cả khối một lần: event còn hidden mà mất key thì log báo lỗi.
  ### ============================================================
 
- ### vie_proc_army.1 — Phần Lan chuyển giao ~70 T-54/55 (02/2005)
+ ### vie_proc_army.1 - Phần Lan chuyển giao ~70 T-54/55 (02/2005)
  vie_proc_army.1.t:0 "Xe tăng cũ từ châu Âu"
- vie_proc_army.1.d:0 "Helsinki đề nghị chuyển giao khoảng 70 chiếc T-54 và T-55 đã qua sử dụng với giá gần như tượng trưng. Kho dự trữ thời Chiến tranh Lạnh của Phần Lan đang dư thừa sau khi nước này tái cơ cấu lực lượng, và Hà Nội là một trong số ít bên còn vận hành dòng xe này nên có thể hấp thụ chúng ngay. Đây là trang bị cũ, nhưng với các đơn vị huấn luyện và lực lượng dự bị thì giá trị sử dụng vẫn còn: thân xe lành lặn, pháo và hệ thống ngắm vẫn đạt chuẩn, và quan trọng nhất là chi phí bảo dưỡng thấp vì dây chuyền hậu cần T-54/55 trong nước đã chạy hàng chục năm.\n\nCùng lúc đó, Warsaw cũng ngỏ ý bán 150 chiếc T-72. Đề nghị này nặng ký hơn về mặt kỹ thuật — T-72 là xe thế hệ sau, giáp composite và pháo 125mm nòng trơn — nhưng đi kèm chi phí bảo dưỡng và huấn luyện kíp xe hoàn toàn mới, trong khi ngân sách quốc phòng đang phải chia cho hải quân và không quân."
+ vie_proc_army.1.d:0 "Helsinki đề nghị chuyển giao khoảng 70 chiếc T-54 và T-55 đã qua sử dụng với giá gần như tượng trưng. Kho dự trữ thời Chiến tranh Lạnh của Phần Lan đang dư thừa sau khi nước này tái cơ cấu lực lượng, và Hà Nội là một trong số ít bên còn vận hành dòng xe này nên có thể hấp thụ chúng ngay. Đây là trang bị cũ, nhưng với các đơn vị huấn luyện và lực lượng dự bị thì giá trị sử dụng vẫn còn: thân xe lành lặn, pháo và hệ thống ngắm vẫn đạt chuẩn, và quan trọng nhất là chi phí bảo dưỡng thấp vì dây chuyền hậu cần T-54/55 trong nước đã chạy hàng chục năm.\n\nCùng lúc đó, Warsaw cũng ngỏ ý bán 150 chiếc T-72. Đề nghị này nặng ký hơn về mặt kỹ thuật - T-72 là xe thế hệ sau, giáp composite và pháo 125mm nòng trơn - nhưng đi kèm chi phí bảo dưỡng và huấn luyện kíp xe hoàn toàn mới, trong khi ngân sách quốc phòng đang phải chia cho hải quân và không quân."
  vie_proc_army.1.a:0 "Nhận cả hai: lấy T-54/55 và đàm phán tiếp 150 T-72 với Ba Lan"
  vie_proc_army.1.b:0 "Chỉ nhận T-54/55, chưa mở rộng kho xe tăng"
  VIE_proc_t72_offer_tt:0 "§YBa Lan§! sẽ chờ câu trả lời cuối cùng trong năm tới. Khi đó có thể hủy hợp đồng để dồn ngân sách cho hải quân và không quân, hoặc giữ lại và nhận §Y150 xe T-72§! với chi phí khoảng §R0,40 tỷ§! từ ngân khố."
 
- ### vie_proc_army.2 — T-72 Ba Lan: hủy hay giữ (2006)
+ ### vie_proc_army.2 - T-72 Ba Lan: hủy hay giữ (2006)
  vie_proc_army.2.t:0 "Quyết định về 150 chiếc T-72"
  vie_proc_army.2.d:0 "Đàm phán với Warsaw đã kéo dài hơn một năm mà chưa đi đến hợp đồng cuối cùng. Bộ Tổng tham mưu chia làm hai hướng. Một bên lập luận rằng 150 chiếc T-72 sẽ thay đổi chất lượng lực lượng tăng thiết giáp: giáp composite, pháo 125mm nòng trơn bắn được tên lửa chống tăng qua nòng, và hệ thống nạp đạn tự động giúp giảm kíp xe xuống ba người. Bên kia chỉ ra rằng số xe này là hàng đã qua sử dụng, cần một dây chuyền bảo dưỡng riêng biệt vì không dùng chung phụ tùng với T-54/55, và kíp xe phải huấn luyện lại từ đầu. Trong khi đó hải quân và không quân đều đang chờ vốn: các chương trình tàu tuần tra và máy bay tiêm kích đã bị hoãn hai lần.\n\nGiá mà Warsaw đưa ra không được công bố; ước tính của Vụ Kế hoạch và Đầu tư vào khoảng 0,40 tỷ trong ngân khố, chưa tính chi phí bảo dưỡng dài hạn."
  vie_proc_army.2.a:0 "Hủy hợp đồng, dồn ngân sách cho hải quân và không quân"
  vie_proc_army.2.b:0 "Giữ hợp đồng: nhận 150 chiếc T-72"
 
- ### vie_proc_army.5 — T-54M3, mẫu thử Israel (2009–2010)
+ ### vie_proc_army.5 - T-54M3, mẫu thử Israel (2009-2010)
  vie_proc_army.5.t:0 "Gói nâng cấp T-54 từ Israel"
- vie_proc_army.5.d:0 "Một nhà thầu quốc phòng Israel đưa ra gói hiện đại hóa cho thân xe T-54 và T-55: pháo chính mới, hệ thống điều khiển hỏa lực, giáp phản ứng nổ và động cơ cải tiến. Họ đề nghị chuyển giao trước một mẫu thử cùng bộ kit để phía Việt Nam tự đánh giá.\n\nCó hai đường. Nhận mẫu thử và bộ kit rồi tự làm trong nước thì rẻ — chỉ khoảng 0,05 tỷ — và quan trọng hơn là giữ được quyền chủ động: Nhà máy Z153 sẽ nắm công nghệ, tự nâng cấp dần theo ngân sách từng năm. Cái giá phải trả là thời gian; phải vài năm nữa mới có một lô xe hoàn chỉnh, và trong lúc đó lực lượng tăng thiết giáp vẫn dùng xe nguyên bản.\n\nĐường kia là ký luôn gói nâng cấp hàng loạt cho 100 xe. Nhanh, chất lượng đồng đều, nhưng đắt gấp nhiều lần — ước tính 0,75 tỷ — và toàn bộ phần việc giá trị cao nằm ở nhà thầu nước ngoài. Z153 sẽ chỉ lắp ráp theo bộ kit giao sẵn, không tích lũy được công nghệ nền, nghĩa là không mở đường cho một chương trình T-54M nội địa về sau."
+ vie_proc_army.5.d:0 "Một nhà thầu quốc phòng Israel đưa ra gói hiện đại hóa cho thân xe T-54 và T-55: pháo chính mới, hệ thống điều khiển hỏa lực, giáp phản ứng nổ và động cơ cải tiến. Họ đề nghị chuyển giao trước một mẫu thử cùng bộ kit để phía Việt Nam tự đánh giá.\n\nCó hai đường. Nhận mẫu thử và bộ kit rồi tự làm trong nước thì rẻ - chỉ khoảng 0,05 tỷ - và quan trọng hơn là giữ được quyền chủ động: Nhà máy Z153 sẽ nắm công nghệ, tự nâng cấp dần theo ngân sách từng năm. Cái giá phải trả là thời gian; phải vài năm nữa mới có một lô xe hoàn chỉnh, và trong lúc đó lực lượng tăng thiết giáp vẫn dùng xe nguyên bản.\n\nĐường kia là ký luôn gói nâng cấp hàng loạt cho 100 xe. Nhanh, chất lượng đồng đều, nhưng đắt gấp nhiều lần - ước tính 0,75 tỷ - và toàn bộ phần việc giá trị cao nằm ở nhà thầu nước ngoài. Z153 sẽ chỉ lắp ráp theo bộ kit giao sẵn, không tích lũy được công nghệ nền, nghĩa là không mở đường cho một chương trình T-54M nội địa về sau."
  vie_proc_army.5.a:0 "Nhận mẫu thử và bộ kit, tự nâng cấp trong nước"
  vie_proc_army.5.b:0 "Ký gói nâng cấp hàng loạt 100 xe của Israel"
  vie_proc_army.5.c:0 "Không, giữ nguyên đoàn xe T-54/55"
- VIE_proc_t54m3_prototype_tt:0 "Nhận §Ymẫu thử T-54M3§! và bộ kit. Mở khóa chương trình §YT-54M nội địa§! tại Nhà máy Z153 (quyết định thuộc nhóm Công nghiệp quốc phòng Lục quân, mở từ 2012) — chậm hơn nhưng tự chủ công nghệ."
- VIE_proc_t54m3_package_tt:0 "Nâng cấp §Y100 xe§! theo gói Israel, hoàn tất sau khoảng §Y3 năm§!. Vì đã mua trọn gói nên §Rchương trình T-54M nội địa sẽ không mở§! — Z153 không tích lũy được công nghệ nền."
+ VIE_proc_t54m3_prototype_tt:0 "Nhận §Ymẫu thử T-54M3§! và bộ kit. Mở khóa chương trình §YT-54M nội địa§! tại Nhà máy Z153 (quyết định thuộc nhóm Công nghiệp quốc phòng Lục quân, mở từ 2012) - chậm hơn nhưng tự chủ công nghệ."
+ VIE_proc_t54m3_package_tt:0 "Nâng cấp §Y100 xe§! theo gói Israel, hoàn tất sau khoảng §Y3 năm§!. Vì đã mua trọn gói nên §Rchương trình T-54M nội địa sẽ không mở§! - Z153 không tích lũy được công nghệ nền."
 
- ### vie_proc_army.8 — Igla kèm quyền sản xuất (2009)
+ ### vie_proc_army.8 - Igla kèm quyền sản xuất (2009)
  vie_proc_army.8.t:0 "Tên lửa vác vai Igla"
- vie_proc_army.8.d:0 "Phía Nga đồng ý cung cấp tổ hợp tên lửa phòng không vác vai Igla cho các đơn vị bộ đội. Điểm đáng chú ý không nằm ở bản thân số tên lửa, mà ở điều khoản đi kèm: Nga sẵn sàng cấp linh kiện để lắp ráp trong nước, và có thể chuyển giao cả quyền sản xuất.\n\nMua thành phẩm thì rẻ hơn — khoảng 0,25 tỷ — và nhận hàng nhanh. Nhưng toàn bộ vòng đời trang bị sẽ phụ thuộc vào nguồn cung nước ngoài: mỗi lần cần bổ sung, mỗi lần bảo dưỡng lớn, đều phải đàm phán lại.\n\nMua kèm quyền sản xuất đắt hơn khoảng 0,10 tỷ, nhưng Nhà máy Z131 sẽ lắp ráp được trong nước. Đây chính là bước đệm để sau này tự phát triển một dòng tên lửa vác vai nội địa, và là điều kiện để mở chương trình đó."
+ vie_proc_army.8.d:0 "Phía Nga đồng ý cung cấp tổ hợp tên lửa phòng không vác vai Igla cho các đơn vị bộ đội. Điểm đáng chú ý không nằm ở bản thân số tên lửa, mà ở điều khoản đi kèm: Nga sẵn sàng cấp linh kiện để lắp ráp trong nước, và có thể chuyển giao cả quyền sản xuất.\n\nMua thành phẩm thì rẻ hơn - khoảng 0,25 tỷ - và nhận hàng nhanh. Nhưng toàn bộ vòng đời trang bị sẽ phụ thuộc vào nguồn cung nước ngoài: mỗi lần cần bổ sung, mỗi lần bảo dưỡng lớn, đều phải đàm phán lại.\n\nMua kèm quyền sản xuất đắt hơn khoảng 0,10 tỷ, nhưng Nhà máy Z131 sẽ lắp ráp được trong nước. Đây chính là bước đệm để sau này tự phát triển một dòng tên lửa vác vai nội địa, và là điều kiện để mở chương trình đó."
  vie_proc_army.8.a:0 "Mua kèm quyền sản xuất trong nước"
  vie_proc_army.8.b:0 "Chỉ mua thành phẩm"
  vie_proc_army.8.c:0 "Không mua"
  VIE_proc_igla_license_tt:0 "Nhận §Yquyền sản xuất Igla§! trong nước. Mở khóa chương trình §YTL-01§! tại Nhà máy Z131 (quyết định thuộc nhóm Công nghiệp quốc phòng Lục quân, mở từ 2017)."
- VIE_proc_igla_purchase_tt:0 "Chỉ nhận tên lửa thành phẩm, §Rkhông có quyền sản xuất§! — chương trình TL-01 nội địa sẽ không mở."
+ VIE_proc_igla_purchase_tt:0 "Chỉ nhận tên lửa thành phẩm, §Rkhông có quyền sản xuất§! - chương trình TL-01 nội địa sẽ không mở."
 
- ### vie_proc_army.11 — License Galil ACE cho Z111 (2013–2014)
+ ### vie_proc_army.11 - License Galil ACE cho Z111 (2013-2014)
  vie_proc_army.11.t:0 "Súng trường thế hệ mới cho Z111"
- vie_proc_army.11.d:0 "Nhà máy Z111 đã lắp ráp súng bộ binh theo giấy phép nhiều năm, nhưng dây chuyền đang dựa trên các thiết kế cũ. Israeli Weapon Industries đề nghị chuyển giao license sản xuất dòng Galil ACE — súng trường tấn công hiện đại, độ chính xác cao, ray gắn phụ kiện theo chuẩn quốc tế, và quan trọng nhất là đã được kiểm chứng qua thực chiến.  Giá chuyển giao không được công bố; ước tính khoảng 0,10 tỷ trong ngân khố.\n\nĐổi lại, Z111 có thể bắt đầu sản xuất sớm hơn khoảng một năm so với tự thiết kế, và quan trọng hơn là tiếp nhận toàn bộ quy trình công nghệ — dung sai, nhiệt luyện, kiểm tra chất lượng nòng — thứ không thể mua bằng bản vẽ.  Phương án còn lại là tự thiết kế trong nước. Chậm hơn, nhưng không phụ thuộc license nước ngoài và không phải trả phí gia hạn."
+ vie_proc_army.11.d:0 "Nhà máy Z111 đã lắp ráp súng bộ binh theo giấy phép nhiều năm, nhưng dây chuyền đang dựa trên các thiết kế cũ. Israeli Weapon Industries đề nghị chuyển giao license sản xuất dòng Galil ACE - súng trường tấn công hiện đại, độ chính xác cao, ray gắn phụ kiện theo chuẩn quốc tế, và quan trọng nhất là đã được kiểm chứng qua thực chiến.  Giá chuyển giao không được công bố; ước tính khoảng 0,10 tỷ trong ngân khố.\n\nĐổi lại, Z111 có thể bắt đầu sản xuất sớm hơn khoảng một năm so với tự thiết kế, và quan trọng hơn là tiếp nhận toàn bộ quy trình công nghệ - dung sai, nhiệt luyện, kiểm tra chất lượng nòng - thứ không thể mua bằng bản vẽ.  Phương án còn lại là tự thiết kế trong nước. Chậm hơn, nhưng không phụ thuộc license nước ngoài và không phải trả phí gia hạn."
  vie_proc_army.11.a:0 "Ký license Galil ACE cho Z111"
  vie_proc_army.11.b:0 "Không ký, tự thiết kế trong nước"
  VIE_proc_iwi_license_tt:0 "Z111 nhận §Ylicense Galil ACE§!. Chương trình §Ysúng STV§! (quyết định thuộc nhóm Công nghiệp quốc phòng Lục quân) sẽ hoàn tất sau §G730 ngày§! thay vì 1095 ngày."
  VIE_proc_iwi_decline_tt:0 "Z111 tự thiết kế. Chương trình §Ysúng STV§! vẫn mở nhưng hoàn tất sau §R1095 ngày§!."
 
- ### vie_proc_army.14 — T-90S/SK (ký 2016)
+ ### vie_proc_army.14 - T-90S/SK (ký 2016)
  vie_proc_army.14.t:0 "Hợp đồng T-90 với Nga"
- vie_proc_army.14.d:0 "Sau nhiều năm đàm phán, Rosoboronexport đưa ra đề nghị cuối cùng về việc cung cấp xe tăng chiến đấu chủ lực T-90. Đây sẽ là bước nhảy thế hệ đầu tiên của lực lượng tăng thiết giáp kể từ khi tiếp nhận T-54: pháo nòng trơn 125mm bắn được tên lửa chống tăng qua nòng, giáp phản ứng nổ Kontakt-5, hệ thống nạp đạn tự động, và kính ngắm ảnh nhiệt cho tác chiến đêm.\n\nVấn đề là tiền. Ngân sách quốc phòng đang gánh cùng lúc nhiều chương trình, và kho dự trữ ngoại hối không còn dư dả sau giai đoạn tái cơ cấu ngân hàng. Phía Nga sẵn sàng cấp tín dụng, nghĩa là nhận xe trước và trả dần — đổi lại tổng chi phí sẽ cao hơn và khoản nợ chủ quyền tăng lên.\n\nBa phương án về quy mô đang được cân nhắc, cùng với khả năng không mua gì và tiếp tục nâng cấp thân xe T-54/55 trong nước."
- vie_proc_army.14.a:0 "64 xe theo tín dụng Nga — nhận trước, trả dần"
+ vie_proc_army.14.d:0 "Sau nhiều năm đàm phán, Rosoboronexport đưa ra đề nghị cuối cùng về việc cung cấp xe tăng chiến đấu chủ lực T-90. Đây sẽ là bước nhảy thế hệ đầu tiên của lực lượng tăng thiết giáp kể từ khi tiếp nhận T-54: pháo nòng trơn 125mm bắn được tên lửa chống tăng qua nòng, giáp phản ứng nổ Kontakt-5, hệ thống nạp đạn tự động, và kính ngắm ảnh nhiệt cho tác chiến đêm.\n\nVấn đề là tiền. Ngân sách quốc phòng đang gánh cùng lúc nhiều chương trình, và kho dự trữ ngoại hối không còn dư dả sau giai đoạn tái cơ cấu ngân hàng. Phía Nga sẵn sàng cấp tín dụng, nghĩa là nhận xe trước và trả dần - đổi lại tổng chi phí sẽ cao hơn và khoản nợ chủ quyền tăng lên.\n\nBa phương án về quy mô đang được cân nhắc, cùng với khả năng không mua gì và tiếp tục nâng cấp thân xe T-54/55 trong nước."
+ vie_proc_army.14.a:0 "64 xe theo tín dụng Nga - nhận trước, trả dần"
  vie_proc_army.14.b:0 "128 xe, thanh toán trực tiếp"
  vie_proc_army.14.c:0 "Chỉ 32 xe cho một tiểu đoàn thử nghiệm"
  vie_proc_army.14.d_opt:0 "Không mua, tiếp tục nâng cấp T-54/55 trong nước"
@@ -62,23 +62,23 @@
  VIE_proc_t90_32_tt:0 "Trừ §R0,65 tỷ§! ngân khố. Giao §Y32 xe§! một đợt duy nhất."
  VIE_proc_t90_decline_tt:0 "Không nhận xe tăng mới. §RChuyển giao bảo dưỡng T-90§! sẽ không diễn ra."
 
- ### vie_proc_army.15 / .16 — giao T-90
+ ### vie_proc_army.15 / .16 - giao T-90
  vie_proc_army.15.t:0 "T-90 đợt đầu tiên đã về"
- vie_proc_army.15.d:0 "Chuyến tàu chở lô T-90 đầu tiên đã cập cảng. Kíp xe đã hoàn tất khóa huấn luyện chuyển loại tại Nga và sẵn sàng tiếp nhận. So với T-54/55 đang biên chế, đây là khác biệt một thế hệ: giáp phản ứng nổ, kính ngắm ảnh nhiệt, tên lửa chống tăng bắn qua nòng, và hệ thống nạp đạn tự động giúp giảm kíp xe xuống ba người.\n\nLô xe này sẽ được biên chế cho đơn vị chủ lực, và dây chuyền bảo dưỡng trong nước sẽ phải xây dựng lại từ đầu — một việc mà phía Nga đã đồng ý chuyển giao công nghệ."
+ vie_proc_army.15.d:0 "Chuyến tàu chở lô T-90 đầu tiên đã cập cảng. Kíp xe đã hoàn tất khóa huấn luyện chuyển loại tại Nga và sẵn sàng tiếp nhận. So với T-54/55 đang biên chế, đây là khác biệt một thế hệ: giáp phản ứng nổ, kính ngắm ảnh nhiệt, tên lửa chống tăng bắn qua nòng, và hệ thống nạp đạn tự động giúp giảm kíp xe xuống ba người.\n\nLô xe này sẽ được biên chế cho đơn vị chủ lực, và dây chuyền bảo dưỡng trong nước sẽ phải xây dựng lại từ đầu - một việc mà phía Nga đã đồng ý chuyển giao công nghệ."
  vie_proc_army.15.a:0 "Biên chế vào đơn vị chủ lực"
  vie_proc_army.16.t:0 "T-90 đợt hai đã về"
  vie_proc_army.16.d:0 "Lô T-90 còn lại của hợp đồng đã được giao. Với số xe này, lực lượng tăng thiết giáp có đủ trang bị để tổ chức lại thành các đơn vị T-90 hoàn chỉnh thay vì trộn lẫn với T-54/55 nâng cấp.\n\nDây chuyền bảo dưỡng trong nước đã tiếp nhận xong công nghệ chuyển giao từ đợt đầu, nên lô xe này đưa vào biên chế nhanh hơn."
  vie_proc_army.16.a:0 "Hoàn tất biên chế"
 
- ### vie_proc_army.18 đến .40 — chuỗi 6 (K9A1) và chuỗi 7-9 (alt-history)
+ ### vie_proc_army.18 đến .40 - chuỗi 6 (K9A1) và chuỗi 7-9 (alt-history)
  vie_proc_army.18.t:0 "Hàn Quốc chào bán pháo tự hành K9"
- vie_proc_army.18.d:0 "Hanwha Techwin, qua kênh thương mại chính phủ KOTRA, đề nghị cung cấp pháo tự hành K9 Thunder — loại pháo 155mm/52 caliber bánh xích đã được Hàn Quốc biên chế từ năm 2000 và xuất khẩu sang nhiều nước. Tầm bắn trên 40 km, tốc độ bắn 6 đến 8 phát mỗi phút, và khả năng bắn loạt rồi cơ động ngay để tránh phản pháo.\n\nĐây sẽ là bước chuyển lớn về chất cho pháo binh Việt Nam, vốn đang dùng các hệ 122mm, 130mm và 152mm kéo xe. Nhưng chuẩn 155mm cũng nghĩa là phải xây lại toàn bộ dây chuyền đạn, thuốc phóng và huấn luyện pháo thủ — một khoản đầu tư dài hạn chứ không chỉ là mua xe.\n\nPhía Hàn Quốc đề nghị tổ chức đánh giá kỹ thuật trước khi đàm phán giá."
+ vie_proc_army.18.d:0 "Hanwha Techwin, qua kênh thương mại chính phủ KOTRA, đề nghị cung cấp pháo tự hành K9 Thunder - loại pháo 155mm/52 caliber bánh xích đã được Hàn Quốc biên chế từ năm 2000 và xuất khẩu sang nhiều nước. Tầm bắn trên 40 km, tốc độ bắn 6 đến 8 phát mỗi phút, và khả năng bắn loạt rồi cơ động ngay để tránh phản pháo.\n\nĐây sẽ là bước chuyển lớn về chất cho pháo binh Việt Nam, vốn đang dùng các hệ 122mm, 130mm và 152mm kéo xe. Nhưng chuẩn 155mm cũng nghĩa là phải xây lại toàn bộ dây chuyền đạn, thuốc phóng và huấn luyện pháo thủ - một khoản đầu tư dài hạn chứ không chỉ là mua xe.\n\nPhía Hàn Quốc đề nghị tổ chức đánh giá kỹ thuật trước khi đàm phán giá."
  vie_proc_army.18.a:0 "Tổ chức đánh giá kỹ thuật"
  vie_proc_army.18.b:0 "Không quan tâm, tiếp tục với pháo kéo xe"
  vie_proc_army.19.t:0 "Kết quả đánh giá K9A1"
  vie_proc_army.19.d:0 "Đoàn đánh giá đã hoàn tất thử nghiệm. Kết luận kỹ thuật là tích cực: K9A1 đạt yêu cầu về tầm bắn, độ chính xác và khả năng cơ động trên địa hình Việt Nam; kíp xe Việt Nam làm chủ trang bị nhanh hơn dự kiến.\n\nVấn đề còn lại là quy mô và tiền. Mua 20 xe đủ để biên chế một tiểu đoàn, huấn luyện được khung cán bộ và giữ phương án mở rộng sau này. Mua 40 xe thì có ngay hai tiểu đoàn nhưng gấp đôi chi phí. Cả hai đều phải tính thêm khoản xây dựng dây chuyền đạn 155mm trong nước.\n\nGiá chào khoảng 250 đến 276 triệu USD cho lô 20 xe."
- vie_proc_army.19.a:0 "Mua 20 xe — một tiểu đoàn"
- vie_proc_army.19.b:0 "Mua 40 xe — hai tiểu đoàn"
+ vie_proc_army.19.a:0 "Mua 20 xe - một tiểu đoàn"
+ vie_proc_army.19.b:0 "Mua 40 xe - hai tiểu đoàn"
  vie_proc_army.19.c:0 "Không mua"
  vie_proc_army.20.t:0 "K9A1 đã về"
  vie_proc_army.20.d:0 "Lô pháo tự hành K9A1 Thunder đầu tiên đã được bàn giao. Kíp xe hoàn tất khóa huấn luyện tại Hàn Quốc và sẵn sàng tiếp nhận. Đây là hệ pháo tự hành bánh xích hiện đại đầu tiên của pháo binh Việt Nam: 155mm/52 caliber, tầm bắn trên 40 km, nạp đạn bán tự động, và có thể bắn loạt ba phát trong 15 giây rồi cơ động ngay.\n\nSo với pháo kéo xe đang biên chế, khác biệt lớn nhất không nằm ở tầm bắn mà ở khả năng sống sót: bắn xong di chuyển ngay thì phản pháo đối phương không kịp khóa mục tiêu.\n\nViệc bảo dưỡng và đạn dược hiện vẫn phụ thuộc hoàn toàn vào nguồn nhập."
@@ -93,25 +93,25 @@
  vie_proc_army.30.a:0 "Nhận xe thử nghiệm"
  vie_proc_army.30.b:0 "Từ chối"
  vie_proc_army.31.t:0 "Báo cáo đánh giá BMP-3"
- vie_proc_army.31.d:0 "Sau sáu tháng thử nghiệm, đoàn đánh giá gửi báo cáo. Ba vấn đề chính.\n\nGiá thành: kể cả khi mua số lượng lớn, chi phí mỗi xe cao hơn đáng kể so với ngân sách dành cho trang bị bộ binh, trong khi số lượng cần thiết để thay đổi chất lượng lực lượng là rất lớn.\n\nĐộ phức tạp: hệ thống điều khiển hỏa lực và nạp đạn đòi hỏi trình độ bảo dưỡng cao hơn hẳn BMP-1/2; các xưởng trong nước chưa đáp ứng được nếu không có chuyển giao công nghệ kèm theo.\n\nĐịa hình: xe nặng gần 19 tấn, áp lực lên nền đất lớn, khó cơ động trên địa hình đồng bằng sông nước và đường yếu — đúng loại địa hình mà phần lớn kịch bản phòng thủ của Việt Nam đặt ra."
+ vie_proc_army.31.d:0 "Sau sáu tháng thử nghiệm, đoàn đánh giá gửi báo cáo. Ba vấn đề chính.\n\nGiá thành: kể cả khi mua số lượng lớn, chi phí mỗi xe cao hơn đáng kể so với ngân sách dành cho trang bị bộ binh, trong khi số lượng cần thiết để thay đổi chất lượng lực lượng là rất lớn.\n\nĐộ phức tạp: hệ thống điều khiển hỏa lực và nạp đạn đòi hỏi trình độ bảo dưỡng cao hơn hẳn BMP-1/2; các xưởng trong nước chưa đáp ứng được nếu không có chuyển giao công nghệ kèm theo.\n\nĐịa hình: xe nặng gần 19 tấn, áp lực lên nền đất lớn, khó cơ động trên địa hình đồng bằng sông nước và đường yếu - đúng loại địa hình mà phần lớn kịch bản phòng thủ của Việt Nam đặt ra."
  vie_proc_army.31.a:0 "Đưa ra quyết định"
  vie_proc_army.32.t:0 "Quyết định về BMP-3"
- vie_proc_army.32.d:0 "Báo cáo đánh giá đã rõ: BMP-3 không phù hợp để trang bị hàng loạt. Nhưng sáu tháng thử nghiệm không phải là lãng phí — đoàn đánh giá đã thu được dữ liệu chi tiết về hệ thống điều khiển hỏa lực, cách bố trí động cơ phía sau, và những yêu cầu thực tế khi vận hành một xe chiến đấu bộ binh hiện đại.\n\nCâu hỏi còn lại là có mua một tiểu đoàn để giữ năng lực hay dừng hẳn."
+ vie_proc_army.32.d:0 "Báo cáo đánh giá đã rõ: BMP-3 không phù hợp để trang bị hàng loạt. Nhưng sáu tháng thử nghiệm không phải là lãng phí - đoàn đánh giá đã thu được dữ liệu chi tiết về hệ thống điều khiển hỏa lực, cách bố trí động cơ phía sau, và những yêu cầu thực tế khi vận hành một xe chiến đấu bộ binh hiện đại.\n\nCâu hỏi còn lại là có mua một tiểu đoàn để giữ năng lực hay dừng hẳn."
  vie_proc_army.32.a:0 "Không mua, nhưng giữ lại bài học kỹ thuật"
  vie_proc_army.32.b:0 "Mua một tiểu đoàn khoảng 30 xe"
  vie_proc_army.35.t:0 "Nga chào bán TOS-1A"
- vie_proc_army.35.d:0 "Phía Nga đưa ra đề nghị cung cấp hệ thống pháo phản lực nhiệt áp TOS-1A Solntsepyok. Đây là loại vũ khí đặc thù: 24 ống phóng 220mm đặt trên khung gầm xe tăng, bắn đạn nhiệt áp tạo sóng xung kích và nhiệt độ cực cao trong khu vực kín.\n\nGiá trị chiến thuật nằm ở khả năng chế áp trận địa phòng ngự kiên cố, công sự và lực lượng ẩn nấp trong địa hình phức tạp — đúng loại mục tiêu mà pháo phản lực thông thường xử lý kém hiệu quả.\n\nĐổi lại: tầm bắn ngắn hơn pháo phản lực hiện có (chỉ khoảng 6 km với đạn thường), xe mang đạn rất dễ tổn thương nên phải có hộ tống, và chi phí mỗi phát bắn cao."
+ vie_proc_army.35.d:0 "Phía Nga đưa ra đề nghị cung cấp hệ thống pháo phản lực nhiệt áp TOS-1A Solntsepyok. Đây là loại vũ khí đặc thù: 24 ống phóng 220mm đặt trên khung gầm xe tăng, bắn đạn nhiệt áp tạo sóng xung kích và nhiệt độ cực cao trong khu vực kín.\n\nGiá trị chiến thuật nằm ở khả năng chế áp trận địa phòng ngự kiên cố, công sự và lực lượng ẩn nấp trong địa hình phức tạp - đúng loại mục tiêu mà pháo phản lực thông thường xử lý kém hiệu quả.\n\nĐổi lại: tầm bắn ngắn hơn pháo phản lực hiện có (chỉ khoảng 6 km với đạn thường), xe mang đạn rất dễ tổn thương nên phải có hộ tống, và chi phí mỗi phát bắn cao."
  vie_proc_army.35.a:0 "Biên chế 12 xe"
  vie_proc_army.35.b:0 "Không mua"
  vie_proc_army.38.t:0 "Pháp chào bán pháo CAESAR"
- vie_proc_army.38.d:0 "Nexter của Pháp giới thiệu CAESAR — pháo tự hành bánh lốp 155mm/52 caliber đặt trên khung gầm xe tải. Khác với K9 bánh xích, CAESAR nhẹ hơn nhiều, cơ động trên đường bộ tốt, và có thể vận chuyển bằng máy bay.\n\nĐây là lần đầu một nhà cung cấp phương Tây tiếp cận Việt Nam về pháo binh cỡ lớn. Nếu đàm phán thành công, đó không chỉ là một hợp đồng trang bị mà còn là tín hiệu về hướng đa dạng hóa nguồn cung."
+ vie_proc_army.38.d:0 "Nexter của Pháp giới thiệu CAESAR - pháo tự hành bánh lốp 155mm/52 caliber đặt trên khung gầm xe tải. Khác với K9 bánh xích, CAESAR nhẹ hơn nhiều, cơ động trên đường bộ tốt, và có thể vận chuyển bằng máy bay.\n\nĐây là lần đầu một nhà cung cấp phương Tây tiếp cận Việt Nam về pháo binh cỡ lớn. Nếu đàm phán thành công, đó không chỉ là một hợp đồng trang bị mà còn là tín hiệu về hướng đa dạng hóa nguồn cung."
  vie_proc_army.38.a:0 "Mở đàm phán"
  vie_proc_army.38.b:0 "Không quan tâm"
  vie_proc_army.39.t:0 "Điều kiện của phía Pháp"
- vie_proc_army.39.d:0 "Đàm phán kéo dài sáu tháng và gặp ba vướng mắc.\n\nGiá: CAESAR đắt hơn đáng kể so với phương án châu Á cho cùng năng lực, và Pháp không có cơ chế tín dụng ưu đãi.\n\nChuyển giao công nghệ: phía Pháp đặt điều kiện chặt về người dùng cuối, kiểm tra định kỳ và cam kết không tái xuất — những ràng buộc mà Hà Nội không quen chấp nhận trong các hợp đồng quốc phòng.\n\nChuẩn đạn: 155mm khác hoàn toàn hệ 122mm, 130mm và 152mm đang dùng. Chuyển sang nghĩa là bỏ toàn bộ kho đạn hiện có và xây lại dây chuyền sản xuất từ đầu."
+ vie_proc_army.39.d:0 "Đàm phán kéo dài sáu tháng và gặp ba vướng mắc.\n\nGiá: CAESAR đắt hơn đáng kể so với phương án châu Á cho cùng năng lực, và Pháp không có cơ chế tín dụng ưu đãi.\n\nChuyển giao công nghệ: phía Pháp đặt điều kiện chặt về người dùng cuối, kiểm tra định kỳ và cam kết không tái xuất - những ràng buộc mà Hà Nội không quen chấp nhận trong các hợp đồng quốc phòng.\n\nChuẩn đạn: 155mm khác hoàn toàn hệ 122mm, 130mm và 152mm đang dùng. Chuyển sang nghĩa là bỏ toàn bộ kho đạn hiện có và xây lại dây chuyền sản xuất từ đầu."
  vie_proc_army.39.a:0 "Tiếp tục đàm phán"
  vie_proc_army.40.t:0 "Đàm phán CAESAR đổ vỡ"
- vie_proc_army.40.d:0 "Sau hơn một năm, đàm phán với Nexter chính thức dừng mà không có hợp đồng. Hai bên không tìm được tiếng nói chung về giá và điều kiện chuyển giao công nghệ.\n\nNhưng quá trình này để lại một thứ có giá trị: bộ phận kỹ thuật đã nắm được đầy đủ đặc tính của chuẩn 155mm/52 caliber — từ kích thước buồng đạn, thuốc phóng, đến yêu cầu về nòng và giá đỡ. Đây là chuẩn NATO mà hiện không có nhà cung cấp nào khác ngoài phương Tây và Hàn Quốc dùng.\n\nViệc tiếp theo là nghiên cứu nghiêm túc xem chuẩn này có đáng để chuyển sang hay không."
+ vie_proc_army.40.d:0 "Sau hơn một năm, đàm phán với Nexter chính thức dừng mà không có hợp đồng. Hai bên không tìm được tiếng nói chung về giá và điều kiện chuyển giao công nghệ.\n\nNhưng quá trình này để lại một thứ có giá trị: bộ phận kỹ thuật đã nắm được đầy đủ đặc tính của chuẩn 155mm/52 caliber - từ kích thước buồng đạn, thuốc phóng, đến yêu cầu về nòng và giá đỡ. Đây là chuẩn NATO mà hiện không có nhà cung cấp nào khác ngoài phương Tây và Hàn Quốc dùng.\n\nViệc tiếp theo là nghiên cứu nghiêm túc xem chuẩn này có đáng để chuyển sang hay không."
  vie_proc_army.40.a:0 "Lập chương trình nghiên cứu chuẩn 155mm"
 
  ### Tooltip cho chuoi 6-9
@@ -120,9 +120,9 @@
  VIE_proc_k9_20_tt:0 "Trừ §R1,30 tỷ§! ngân khố. Giao §Y20 xe§! sau khoảng một năm."
  VIE_proc_k9_40_tt:0 "Trừ §R2,60 tỷ§! ngân khố. Giao §Y40 xe§! sau khoảng một năm."
  VIE_proc_k9_localization_tt:0 "Mở quyết định §Ynội địa hóa bảo dưỡng và đạn K9§! (thuộc nhóm Công nghiệp quốc phòng Lục quân, cần thêm chương trình pháo tự hành nội địa)."
- VIE_proc_bmp3_lessons_tt:0 "Đặt cờ §Ybài học BMP-3§!. Chương trình §YXCB-01§! (quyết định thuộc nhóm Công nghiệp quốc phòng Lục quân) sẽ hoàn tất sau §G1095 ngày§! thay vì 1460 ngày — vì đã có sẵn dữ liệu thử nghiệm."
+ VIE_proc_bmp3_lessons_tt:0 "Đặt cờ §Ybài học BMP-3§!. Chương trình §YXCB-01§! (quyết định thuộc nhóm Công nghiệp quốc phòng Lục quân) sẽ hoàn tất sau §G1095 ngày§! thay vì 1460 ngày - vì đã có sẵn dữ liệu thử nghiệm."
  VIE_proc_155mm_study_tt:0 "Đặt cờ §Ynghiên cứu chuẩn 155mm§!. Chuỗi §YK9A1§! sẽ mở từ §Y2021§! thay vì 2023, và thời gian từ đánh giá tới quyết định mua rút còn §G365 ngày§! thay vì 900 ngày."
 
  ### ============================================================
- ### PLACEHOLDER — key tạm cho event còn hidden = yes. Xóa từng dòng ở bước 4–6.
+ ### PLACEHOLDER - key tạm cho event còn hidden = yes. Xóa từng dòng ở bước 4-6.
  ### ============================================================

@@ -117,17 +117,30 @@ except OSError:
 if code:
     sched = code[code.index("VIE_event_scheduler_air_proc = {"):code.index("# Template Class B")]
     found = {}
-    for m in re.finditer(r"VIE_ap_window_([bc]) = \{ P = (\w+) GATE = (\w+)(?: N = (\d+))? FROM = (\d+)\.(\d+)\.(\d+) END = (\d+)\.(\d+)\.(\d+) \}", sched):
-        cls, p, gate, n, fy, fm, fd, ey, em, ed = m.groups()
-        found[p] = (cls.upper(), int(n) if n else None, int(fy), int(fm), int(ey))
     for name, (cls, ev, start, end, cost, planes) in PROGRAMS.items():
-        got = found.get(name)
-        if not got:
+        idx = sched.find(f"VIE_ap_{name}_offered")
+        if idx == -1:
             check(False, f"{name}: no window call in scheduler")
             continue
-        gcls, gev, fy, fm, ey = got
-        # FROM is the last day BEFORE the window: first eligible month = FROM month + 1
+        next_idx = len(sched)
+        for other in PROGRAMS:
+            if other != name:
+                oi = sched.find(f"VIE_ap_{other}_offered", idx + 10)
+                if oi != -1 and oi < next_idx:
+                    next_idx = oi
+        prog_block = sched[idx:next_idx]
+        m_from = re.search(r"date\s*>\s*(\d+)\.(\d+)\.(\d+)", prog_block)
+        m_end = re.search(r"date\s*>\s*(\d+)\.(\d+)\.(\d+)", prog_block[m_from.end():]) if m_from else None
+        if not m_from or not m_end:
+            check(False, f"{name}: date boundaries missing in scheduler block")
+            continue
+        fy, fm, fd = int(m_from.group(1)), int(m_from.group(2)), int(m_from.group(3))
+        ey, em, ed = int(m_end.group(1)), int(m_end.group(2)), int(m_end.group(3))
         first = (fy, fm + 1) if fm < 12 else (fy + 1, 1)
+        ev_m = re.search(r"country_event\s*=\s*\{\s*id\s*=\s*vie_air_proc\.(\d+)", prog_block)
+        gcls = "B" if ev_m else "C"
+        gev = int(ev_m.group(1)) if ev_m else None
+        found[name] = (gcls, gev, fy, fm, ey)
         check(gcls == cls and gev == ev and first == start and ey == end,
               f"{name}: code class {gcls} event {gev} from {first} to {ey}")
     check(set(found) == set(PROGRAMS), "scheduler windows == PROGRAMS keys")

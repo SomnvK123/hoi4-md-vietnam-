@@ -333,18 +333,6 @@ ideas = {
 			}
 		}
 
-		VIE_bastion_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				coastal_bunker_effectiveness_factor = 0.15
-				amphibious_invasion_defence = 0.1
-			}
-		}
-
 		VIE_provincial_defence_idea = {
 			picture = army_planning
 			allowed = { always = no }
@@ -532,51 +520,6 @@ ideas = {
 			}
 		}
 
-
-
-
-
-
-
-		VIE_democratic_consolidation = {
-			picture = generic_political_reform
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = 0.05
-				trade_opinion_factor = 0.05
-				political_power_gain = 0.03
-			}
-		}
-
-		VIE_democratic_transition_idea = {
-			picture = generic_political_pressure
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = -0.03
-			}
-		}
-
-
-
-
-		VIE_china_pressure_idea = {
-			picture = financial_crisis
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = -0.02
-				consumer_goods_factor = 0.02
-			}
-		}
-
 		VIE_indochina_idea = {
 			picture = generic_diplomatic_treaty
 			allowed = { always = no }
@@ -586,48 +529,6 @@ ideas = {
 			modifier = {
 				war_support_factor = 0.02
 				drift_defence_factor = 0.02
-			}
-		}
-
-
-
-		VIE_import_shock_idea = {
-			picture = financial_crisis
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = -0.03
-				stability_factor = -0.03
-				consumer_goods_factor = 0.03
-			}
-		}
-
-
-
-
-		VIE_yugoslav_model_idea = {
-			picture = generic_neutrality
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = 0.04
-				political_power_gain = 0.03
-			}
-		}
-
-		VIE_civil_unrest_idea = {
-			picture = generic_political_pressure
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				stability_factor = -0.04
-				country_productivity_growth_modifier = -0.02
 			}
 		}
 
@@ -665,19 +566,6 @@ ideas = {
 			modifier = {
 				army_core_defence_factor = 0.1
 				production_speed_industrial_complex_factor = -0.1
-			}
-		}
-
-		VIE_security_economy_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				industrial_capacity_factory = 0.05
-				country_productivity_growth_modifier = -0.015
-				consumer_goods_factor = 0.02
 			}
 		}
 
@@ -749,11 +637,6 @@ ideas = {
 			}
 		}
 
-
-
-
-
-
 		VIE_sez_unrest_idea = {
 			picture = generic_political_pressure
 			allowed = { always = no }
@@ -764,40 +647,6 @@ ideas = {
 				stability_factor = -0.04
 			}
 		}
-
-
-
-
-
-		VIE_bubble_burst_idea = {
-			picture = financial_crisis
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = -0.03
-				stability_factor = -0.04
-			}
-		}
-
-		VIE_bubble_burst_mild_idea = {
-			picture = financial_crisis
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = -0.01
-				stability_factor = -0.02
-			}
-		}
-
-
-
-
-
-
 
 		VIE_public_admin_idea = {
 			picture = generic_political_reform
@@ -1015,21 +864,6 @@ ideas = {
 			}
 		}
 
-		VIE_reserve_force_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				mobilization_speed = 0.15
-				conscription_factor = 0.05
-				land_reinforce_rate = 0.02
-				training_time_army_factor = -0.1
-				army_defence_factor = 0.05
-			}
-		}
-
 		VIE_cam_ranh_idea = {
 			picture = generic_diplomatic_treaty
 			allowed = { always = no }
@@ -1045,21 +879,6 @@ ideas = {
 				experience_gain_navy_factor = 0.01
 			}
 		}
-
-		VIE_air_dominance_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				air_superiority_efficiency = 0.05
-				air_intercept_efficiency = 0.05
-				naval_strike_attack_factor = 0.05
-				air_detection = 0.1
-			}
-		}
-
 
 		VIE_digital_nation_idea = {
 			picture = digitalize_idea
@@ -1097,10 +916,6 @@ ideas = {
 			}
 		}
 
-
-
-
-
 		VIE_energy_security_idea = {
 			picture = energy_preferred_renewable_idea
 			allowed = { always = no }
@@ -1114,28 +929,6 @@ ideas = {
 		}
 
 		# ---- Military additions (E branch, 2026-09-20)
-		VIE_corps_restructure_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				army_org_factor = 0.03
-				planning_speed = 0.05
-			}
-		}
-		VIE_pilot_training_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				air_training_xp_gain_factor = 0.1
-				air_accidents_factor = -0.1
-			}
-		}
 		VIE_force_47_idea = {
 			picture = army_planning
 			allowed = { always = no }
@@ -1217,70 +1010,5 @@ ideas = {
 		}
 
 		# ---- Armed forces development (army / navy / air branches)
-		VIE_expeditionary_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				army_speed_factor = 0.05
-				amphibious_invasion = 0.1
-				send_volunteer_size = 2
-				army_defence_factor = -0.03
-			}
-		}
-		VIE_iron_triangle_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				max_dig_in = 2
-				land_night_attack = 0.1
-				army_morale_factor = 0.05
-				army_core_defence_factor = 0.05
-			}
-		}
-		VIE_blue_water_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				navy_max_range_factor = 0.2
-				naval_hit_chance = 0.05
-				navy_capital_ship_attack_factor = 0.05
-				coastal_bunker_effectiveness_factor = -0.1
-			}
-		}
-		VIE_sea_control_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				naval_hit_chance = 0.05
-				naval_coordination = 0.05
-				naval_night_attack = 0.1
-				mines_planting_by_fleets_factor = 0.15
-			}
-		}
-		VIE_full_spectrum_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				air_superiority_efficiency = 0.05
-				air_night_penalty = -0.2
-				air_range_factor = 0.1
-				army_bonus_air_superiority_factor = 0.05
-			}
-		}
-	}
+}
 }

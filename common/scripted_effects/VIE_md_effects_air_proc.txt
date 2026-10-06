@@ -66,7 +66,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2008.5.31
 					NOT = { date > 2010.6.30 }
-					NOT = { has_country_flag = VIE_ap_su30_2_wait }
 					VIE_ap_gate_sov = yes
 				}
 				if = {
@@ -100,7 +99,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2009.8.31
 					NOT = { date > 2011.6.30 }
-					NOT = { has_country_flag = VIE_ap_su30_3_wait }
 					VIE_ap_gate_sov = yes
 				}
 				if = {
@@ -204,7 +202,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2008.12.31
 					NOT = { date > 2012.12.31 }
-					NOT = { has_country_flag = VIE_ap_pechora_wait }
 					VIE_ap_gate_blr = yes
 				}
 				if = {
@@ -238,7 +235,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2014.12.31
 					NOT = { date > 2016.12.31 }
-					NOT = { has_country_flag = VIE_ap_spyder_wait }
 					VIE_ap_gate_isr = yes
 				}
 				if = {
@@ -274,7 +270,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2000.2.29
 					NOT = { date > 2002.12.31 }
-					NOT = { has_country_flag = VIE_ap_india_dca_wait }
 					VIE_ap_gate_raj = yes
 				}
 				if = {
@@ -327,7 +322,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2012.12.31
 					NOT = { date > 2014.12.31 }
-					NOT = { has_country_flag = VIE_ap_c295_wait }
 					VIE_ap_gate_spr = yes
 				}
 				if = {
@@ -361,7 +355,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2012.12.31
 					NOT = { date > 2015.12.31 }
-					NOT = { has_country_flag = VIE_ap_radar_wait }
 					VIE_ap_gate_cze_or_isr = yes
 				}
 				if = {
@@ -414,7 +407,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2016.11.30
 					NOT = { date > 2018.12.31 }
-					NOT = { has_country_flag = VIE_ap_india_train_wait }
 					VIE_ap_gate_raj = yes
 				}
 				if = {
@@ -482,7 +474,6 @@ VIE_event_scheduler_air_proc = {
 				limit = {
 					date > 2021.12.31
 					NOT = { date > 2024.12.31 }
-					NOT = { has_country_flag = VIE_ap_t6c_wait }
 					VIE_ap_gate_usa = yes
 				}
 				if = {
@@ -1303,16 +1294,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_2_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_2_lead }
 			NOT = { has_country_flag = VIE_ap_su30_2_d1 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_2_late }
-					date > 2010.11.30
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_2_late
-					date > 2010.11.30
-				}
-			}
+date > 2010.11.30
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_2_d1 }
 		if = {
@@ -1387,16 +1369,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_2_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_2_lead }
 			NOT = { has_country_flag = VIE_ap_su30_2_d2 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_2_late }
-					date > 2011.5.31
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_2_late
-					date > 2011.5.31
-				}
-			}
+date > 2011.5.31
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_2_d2 }
 		if = {
@@ -1472,16 +1445,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_3_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_3_lead }
 			NOT = { has_country_flag = VIE_ap_su30_3_d1 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_3_late }
-					date > 2011.11.30
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_3_late
-					date > 2011.11.30
-				}
-			}
+date > 2011.11.30
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_3_d1 }
 		if = {
@@ -1556,16 +1520,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_3_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_3_lead }
 			NOT = { has_country_flag = VIE_ap_su30_3_d2 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_3_late }
-					date > 2012.5.31
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_3_late
-					date > 2012.5.31
-				}
-			}
+date > 2012.5.31
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_3_d2 }
 		if = {
@@ -1640,16 +1595,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_3_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_3_lead }
 			NOT = { has_country_flag = VIE_ap_su30_3_d3 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_3_late }
-					date > 2012.11.30
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_3_late
-					date > 2012.11.30
-				}
-			}
+date > 2012.11.30
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_3_d3 }
 		if = {
@@ -1725,16 +1671,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_4_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_4_lead }
 			NOT = { has_country_flag = VIE_ap_su30_4_d1 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_4_late }
-					date > 2014.11.30
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_4_late
-					date > 2014.11.30
-				}
-			}
+date > 2014.11.30
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_4_d1 }
 		if = {
@@ -1809,16 +1746,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_4_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_4_lead }
 			NOT = { has_country_flag = VIE_ap_su30_4_d2 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_4_late }
-					date > 2015.7.31
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_4_late
-					date > 2015.7.31
-				}
-			}
+date > 2015.7.31
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_4_d2 }
 		if = {
@@ -1893,16 +1821,7 @@ VIE_ap_deliver_su30 = {
 			check_variable = { VIE_ap_su30_4_qty > 0 }
 			NOT = { has_country_flag = VIE_ap_su30_4_lead }
 			NOT = { has_country_flag = VIE_ap_su30_4_d3 }
-			OR = {
-				AND = {
-					NOT = { has_country_flag = VIE_ap_su30_4_late }
-					date > 2016.1.31
-				}
-				AND = {
-					has_country_flag = VIE_ap_su30_4_late
-					date > 2016.1.31
-				}
-			}
+date > 2016.1.31
 		}
 		hidden_effect = { set_country_flag = VIE_ap_su30_4_d3 }
 		if = {

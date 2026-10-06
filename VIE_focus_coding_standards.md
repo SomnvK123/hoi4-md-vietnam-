@@ -1,7 +1,7 @@
 # VIE Focus Tree — Coding Standards & Architecture Guide
 > Áp dụng cho: `common/national_focus/VIE_md_focus.txt`  
-> Cơ sở: MD upstream (`.claude/docs/focus-tree-reference.md`, `search-filters.md`, `tools/standardization/standardize_focus_tree.py`, `tools/validation/validate_focus_tree.py`) — đối chiếu 03/10/2026  
-> File hiện tại: v15, 357 focus, đã chạy qua `standardize_focus_tree.py` + `validate_focus_tree.py` của MD
+> Cơ sở: Chuẩn Millennium Dawn (MD) và bộ quy chuẩn tại `.claude/docs/` (`conventions.md`, `engine-pitfalls.md`, `bug-patterns.md`) — cập nhật 06/10/2026  
+> File hiện tại: v16g, 412 focus, kiểm định tự động qua bộ công cụ `tools/audit/` của submod
 
 ---
 
@@ -20,7 +20,7 @@ focus_tree = {
     continuous_focus_position = { x = 765 y = 2850 }
     initial_show_position = { focus = VIE_doi_moi_continues }
 
-    shortcut = { name = ... target = ... scroll_wheel_factor = 0.60 }
+    shortcut = { name = ... target = ... scroll_wheel_factor = 0.80 }
     ...
 
     ###############################

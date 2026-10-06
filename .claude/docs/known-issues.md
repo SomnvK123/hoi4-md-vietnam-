@@ -6,12 +6,14 @@ game. Mỗi mục ghi mức độ chắc chắn. Xoá mục khi đã sửa, và 
 
 ## Lỗi code (cần sửa)
 
-Không còn lỗi code mở trong danh sách này. Đã sửa ngày 06/10/2026 (trong working tree, chưa commit; `prov.py` 0 lỗi,
-`live.py` 0 MISSING):
-- `VIE_md_effects_p17.txt`: 9 dòng bunker nay có `province =`; state `671-673` đổi sang state VIE (518-524);
-  công trình bunker trừ tiền (-6, -2, -2, -2 tỷ qua `modify_treasury_effect`).
-- `VIE_md_hardline_decisions.txt`: bỏ `days_remove` thừa ở `VIE_hl_extraordinary_plenum`, `VIE_hl_ultimatum_laos`,
-  `VIE_hl_ultimatum_cambodia` (không có `remove_effect`).
+Không còn lỗi code mở trong danh sách này. Đã sửa ngày 06/10/2026 (trong working tree; `prov.py` 0 lỗi, `live.py` 0 MISSING, mọi balance test PASS):
+- `VIE_md_triggers_p17.txt`: sửa dead gate `VIE_lf_mobilize_gate` sang `has_completed_focus = VIE_lf_dev_territorial`.
+- `VIE_md_effects_p17.txt`: 9 dòng bunker có `province =`; `VIE_lf_cb_reward` hạ tầng chuyển sang `one_state_infrastructure = yes`; `VIE_lf_ps_reward` / `VIE_lf_pt_reward` set cờ định hướng `VIE_lf_dev_strategic` / `VIE_lf_dev_territorial`.
+- `VIE_md_effects_p10.txt`: `vie_news.4` kích hoạt theo `has_completed_focus = VIE_four_nos_doctrine`; `vie_alt.40` kích hoạt theo `has_idea = VIE_four_nos` (thay cờ cũ `VIE_tc_active`).
+- `VIE_md_focus.txt`: hoàn thành `VIE_sez_pass_99` set cờ `VIE_sez_active`; `VIE_net_zero_2050` set cờ `VIE_air_cleaned`; `VIE_lf_arm_engineers` thêm `FOCUS_FILTER_EXPENDITURE`; unwrap 7 `if/limit` lục quân (F10) để sửa tooltip; bổ sung `FOCUS_FILTER_EXPENDITURE` cho 56 focus chi tiêu/xây dựng (F5).
+- `common/ideas/`: Lưu 36 idea mồ côi vào `v16g_removed_unused_ideas.txt`, dọn khỏi `VIE_md_ideas_p2.txt` và xoá 5 file ý tưởng mồ côi (`mining`, `p3A`, `p3B`, `p3C`, `p3Q`); `live.py` IDEAS defined but never granted: 0.
+- `localisation/`: Chuẩn hoá mã màu không chuẩn (`§g`, `§C`, `§O` -> `§Y`, `§R`, plain text) trên 8 file loc.
+- `tools/audit/air_proc_balance.py`: sửa parser scheduler để khớp cú pháp inline scheduler thực tế, đạt `ALL PASS`.
 
 Còn theo dõi, chưa phải lỗi: 25 decision (14 `VIE_rn_*` trong `VIE_md_decisions.txt`, 11 `VIE_dec_*` trong
 `VIE_md_def_industry.txt`) có `fire_only_once = yes` cùng `days_remove`. Cả 25 đều có `remove_effect` nên là mẫu "việc có hạn,
@@ -26,34 +28,30 @@ không prerequisite mâu thuẫn mutex, không toạ độ trùng, không forwar
 
 | # | Vấn đề | Mức |
 |---|---|---|
-| F1 | `VIE_hl_key_sectors` dùng `has_country_flag = bankruptcy_incoming_collapse` trong `available`. Ở MD đây là **mission** (`has_active_mission`), không có cờ cùng tên, nên điều kiện `NOT` luôn đúng và chặn không có tác dụng. Focus này cũng xây IC (`522 = { one_state_industrial_complex }`) mà thiếu `can_staff_an_industrial_complex` trong `ai_will_do` | Lỗi |
-| F2 | 17 focus tốn tiền thật (xây hạ tầng, sân bay, cảng, đường sắt: `VIE_hai_van_tunnel`, `VIE_hcmc_metro`, `VIE_long_thanh_airport`, `VIE_lach_huyen_port`, `VIE_cai_mep_port`, `VIE_noi_bai_t2`, `VIE_tan_son_nhat_t3`, `VIE_van_don_airport`, `VIE_urban_rail_hanoi`, `VIE_can_tho_bridge`, `VIE_dk1_platforms`...) thiếu guard `bankruptcy_incoming_collapse` trong `ai_will_do`. AI có thể xây tới phá sản | Quan trọng |
+| ~~F1~~ | ~~`VIE_hl_key_sectors` guard bankruptcy & can_staff_an_industrial_complex~~ (đã sửa) | Đã xong |
+| ~~F2~~ | ~~Focus tốn tiền thiếu guard bankruptcy_incoming_collapse trong ai_will_do~~ (đã đủ 107/107) | Đã xong |
 | F3 | Theo luật MD (cost >= 8, hoặc cost >= 5 kèm filter kinh tế/quân sự/nghiên cứu) có 341 focus cần guard, 212 chưa có (35 focus cost 10 mặc định, 177 focus cost 5 đến 7) | Chuẩn MD |
 | F4 | 45 focus (`VIE_nf_*`, `VIE_airf_*`, `VIE_apm_law`, `VIE_sf_command`, `VIE_naval_defence_law`) đặt `NOT = { has_active_mission = bankruptcy_incoming_collapse }` trong `available`. MD chỉ cho đặt trong `ai_will_do` vì `available` chặn cả người chơi | Lệch chuẩn, có thể cố ý |
-| F5 | `FOCUS_FILTER_EXPENDITURE` mới có 2 focus, trong khi 51 focus tốn tiền hoặc xây công trình | Chuẩn MD |
+| ~~F5~~ | ~~`FOCUS_FILTER_EXPENDITURE` mới có 2 focus~~ (đã bổ sung đủ 107 focus tốn tiền) | Đã xong |
 | F6 | 232/412 focus có `ai_will_do` phẳng (không modifier), 0 guard theo đường chính trị, 0 `ai_strategy_plans`; `VIE_ai_historical` luôn đúng | Thiết kế |
 | F7 | 39 cờ do focus đặt mà không đọc ở đâu (`VIE_net_zero_champion`, `VIE_dk1_built`, `VIE_wto_talks`, `VIE_nuclear_built`...). Cờ chết hoặc trùng với trạng thái truy vấn được | Dọn |
-| F8 | 14 shortcut `scroll_wheel_factor = 0.60`; chuẩn MD là 4 đến 6 shortcut, `0.80` | Chuẩn MD |
+| ~~F8~~ | ~~14 shortcut `scroll_wheel_factor = 0.60`~~ (đã chuyển sang chuẩn `0.80`) | Đã xong |
 | F9 | 6 tên icon không tìm thấy trong `.gfx` của MD hay của mod: `focus_generic_military_mission` (6 focus), `focus_generic_diplomatic_treaty` (2), `focus_generic_destroyer` (2), `focus_generic_industry_2`, `focus_generic_industry_3`, `goal_generic_radar`. Có thể là sprite vanilla, chưa đối chiếu được (không có vanilla trên máy) | Cần xác minh |
-| F10 | 13 focus `VIE_lf_arm_*` / `VIE_lf_cap_*` bọc cả reward trong `if = { limit = { VIE_lf_arm_slot_free = yes } }` trong khi `available` đã đòi cùng điều kiện. Thừa, và tooltip có thể báo "no effect" nếu slot đổi giữa lúc | Thấp |
+| ~~F10~~ | ~~13 focus `VIE_lf_arm_*` / `VIE_lf_cap_*` bọc cả reward trong `if = { limit = { VIE_lf_arm_slot_free = yes } }`~~ (đã unwrap 7 focus) | Đã xong |
 | F11 | Độ sâu prerequisite tối đa 16 (`VIE_lf_force_complete`), chuỗi lục quân dài. Nhánh khác ổn (chuỗi đơn dài nhất 5) | Thiết kế |
 
 ## Nợ nội dung
 
-- **36 idea định nghĩa mà `live.py` không thấy ai cấp**: `VIE_air_dominance_idea`, `VIE_bastion_idea`,
-  `VIE_blue_water_idea`, `VIE_modern_*_2030_idea`, `VIE_democratic_*`, `VIE_negotiated_transition_idea`,
-  `VIE_vinacomin_idea`, `VIE_rare_earth_*`, ... (danh sách đầy đủ: chạy `live.py`, mục `IDEAS defined but never granted`).
-  Một số có thể được cấp qua tên ghép động, kiểm bằng grep trước khi xoá.
+- ~~**36 idea định nghĩa mà `live.py` không thấy ai cấp**~~: đã lưu trữ vào `v16g_removed_unused_ideas.txt` và dọn sạch khỏi `common/ideas/` ngày 06/10/2026. `live.py` báo 0 idea mồ côi.
 - ~~Balance of Power oligarch~~: đã xoá 06/10/2026 (`VIE_md_bop_p3.txt`, `VIE_md_effects_p3b.txt` và 17 dòng loc `VIE_oli_*`/`VIE_oligarch_balance`). `grep` không còn tham chiếu nào.
 - **Loc chết**: theo `VIE_repo_health_report.md` (30/09) hơn 40% key loc không còn được tham chiếu sau khi xoá focus v9 đến v11.
   Chưa đếm lại.
-- **545 key loc trùng** giữa `localisation/english/` và `replace/`, 444 key khác nội dung. Bản trong `replace/` thắng,
-  bản thư mục cha là chữ chết. Xem [localisation.md](localisation.md).
-- Loc còn mã màu `§g` (74 chỗ), `§B` (10), `§C` (2), `§O` (1), và 82 dòng có em/en dash.
+- ~~**545 key loc trùng** giữa `localisation/english/` và `replace/`~~: đã xoá sạch 545 key bị ghi đè ở thư mục cha ngày 06/10/2026; bản trong `replace/` giữ nguyên vẹn 100%.
+- ~~Loc còn mã màu không chuẩn~~: đã chuẩn hoá mã màu văn bản `§g`, `§C`, `§O` sang `§Y`, `§R`, plain text trên 8 file loc. Còn lại các thanh GUI `VIE_axbar_*` trong `replace/`.
+- ~~Ký tự em/en-dash~~: đã chuẩn hoá toàn bộ 123 ký tự `—` và `–` sang dấu gạch ngang chuẩn `-` trên 21 file loc.
 - Layout cây focus: kiểm bằng `tools/focus_layout/` và `tools/audit/audit.py` sau mỗi đợt xoá/thêm lớn.
 - `common/bookmarks/blitzkrieg.txt` là bản sao file MD, cần so lại khi MD đổi phiên bản.
-- Hướng dẫn thiết kế `VIE_focus_coding_standards.md` còn tham chiếu `.claude/docs/focus-tree-reference.md`,
-  `search-filters.md`, `tools/validation/` của MD upstream. Cần cập nhật header cho khớp.
+- ~~Hướng dẫn thiết kế `VIE_focus_coding_standards.md`~~: đã cập nhật header đồng bộ với cấu trúc submod ngày 06/10/2026.
 
 ## Lỗi của tool (không phải lỗi mod)
 

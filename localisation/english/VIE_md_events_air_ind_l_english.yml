@@ -3,18 +3,18 @@
  ### Truc 2 khong quan (CNQP hang khong - phong khong): focus va category (vie_air_ind)
 
  VIE_apm_law:0 "Thể chế Công nghiệp Quốc phòng Hàng không"
- VIE_apm_law_desc:0 "Quân chủng Phòng không – Không quân không tự sản xuất máy bay chiến đấu, nhưng ngành đại tu, tên lửa, radar và tích hợp hệ thống cần một khung thể chế riêng để nâng năng lực từng bước."
+ VIE_apm_law_desc:0 "Quân chủng Phòng không - Không quân không tự sản xuất máy bay chiến đấu, nhưng ngành đại tu, tên lửa, radar và tích hợp hệ thống cần một khung thể chế riêng để nâng năng lực từng bước."
  VIE_apm_a32:0 "Nhà máy A32: đại tu và kéo dài niên hạn"
  VIE_apm_a32_desc:0 "Nhà máy A32 ở Đà Nẵng đại tu máy bay chiến đấu cho Quân chủng: từ Su-27 bằng tài liệu mua ngoài, đến kéo dài niên hạn Su-22 và Su-27, rồi Su-30MK2."
  VIE_apm_a31:0 "Nhà máy A31: tên lửa phòng không"
  VIE_apm_a31_desc:0 "Nhà máy A31 hiện đại hóa các tổ hợp tên lửa phòng không đời cũ như S-75 và S-125, với linh kiện điện tử sản xuất trong nước, và bảo dưỡng S-300."
- VIE_apm_radar:0 "Radar và chỉ huy – điều khiển nội địa"
+ VIE_apm_radar:0 "Radar và chỉ huy - điều khiển nội địa"
  VIE_apm_radar_desc:0 "Viettel phát triển radar cảnh giới và hệ điều khiển hỏa lực số, từ radar tầm thấp đến radar 3D và radar chống tàng hình."
  VIE_apm_integration:0 "Tích hợp vũ khí và hệ thống đa nguồn"
  VIE_apm_integration_desc:0 "Đội bay và phòng không của Việt Nam đến từ nhiều nguồn: Nga, Israel, Séc, Mỹ. Tích hợp liên kết dữ liệu, vũ khí và chuẩn chỉ huy là điều kiện để mua sắm đa nguồn."
  VIE_apm_uav:0 "Chương trình UAV nội địa"
  VIE_apm_uav_desc:0 "Từ mục tiêu bay M-100CT đến UAV trinh sát và tấn công do Viettel phát triển."
- VIE_apm_mature:0 "Công nghiệp hàng không – phòng không trưởng thành"
+ VIE_apm_mature:0 "Công nghiệp hàng không - phòng không trưởng thành"
  VIE_apm_mature_desc:0 "Năm trụ đã đạt năng lực đủ để các chương trình mua sắm giả định có thể nội địa hóa một phần."
  VIE_apm_category:0 "Công nghiệp Quốc phòng Hàng không"
  VIE_apm_category_desc:0 "Các chương trình nâng năng lực cho đại tu máy bay, tên lửa phòng không, radar, tích hợp hệ thống và UAV. Mỗi trụ nâng từng bậc; tối đa hai chương trình chạy cùng lúc."
@@ -24,7 +24,7 @@
  VIE_apm_prog_a31:0 "Đang nâng năng lực Nhà máy A31"
  VIE_apm_prog_a31_desc:0 "Nhà máy A31 đang hiện đại hóa tổ hợp tên lửa phòng không."
  VIE_apm_prog_radar:0 "Đang phát triển radar Viettel"
- VIE_apm_prog_radar_desc:0 "Viettel đang phát triển radar cảnh giới và hệ chỉ huy – điều khiển."
+ VIE_apm_prog_radar_desc:0 "Viettel đang phát triển radar cảnh giới và hệ chỉ huy - điều khiển."
  VIE_apm_prog_integ:0 "Đang tích hợp hệ thống đa nguồn"
  VIE_apm_prog_integ_desc:0 "Các nhóm kỹ sư đang tích hợp liên kết dữ liệu và vũ khí từ nhiều nguồn."
  VIE_apm_prog_uav:0 "Đang phát triển UAV nội địa"
@@ -58,7 +58,7 @@
  VIE_apm_radar_gate_tt:0 "Đủ điều kiện cho bậc kế của chương trình radar Viettel (focus và ngày)"
  VIE_apm_d_a31:0 "Nâng năng lực Nhà máy A31"
  VIE_apm_d_a31_desc:0 "Nhà máy A31 hiện đại hóa tổ hợp tên lửa phòng không đời cũ (S-75, S-125) bằng linh kiện điện tử trong nước, rồi bảo dưỡng S-300PMU1.\n\nTăng phòng không, giảm chi phí duy trì, và nuôi tổ chức công nghiệp Viettel."
- VIE_apm_d_radar:0 "Nâng năng lực radar và chỉ huy – điều khiển"
+ VIE_apm_d_radar:0 "Nâng năng lực radar và chỉ huy - điều khiển"
  VIE_apm_d_radar_desc:0 "Viettel phát triển radar cảnh giới và hệ điều khiển hỏa lực số: từ radar tầm thấp đến radar 3D và radar chống tàng hình.\n\nTăng khả năng phát hiện trên không."
 
  vie_air_ind.21.t:0 "Nâng cấp tổ hợp S-75 và S-125"
@@ -90,7 +90,7 @@
  vie_air_ind.33.a:0 "Ưu tiên radar chống tàng hình RV-02."
  vie_air_ind.33.b:0 "Ưu tiên radar 3D VRS-MSSS."
  vie_air_ind.39.t:0 "Chương trình radar Viettel hoàn tất một giai đoạn"
- vie_air_ind.39.d:0 "Chương trình radar và chỉ huy – điều khiển đã hoàn tất một giai đoạn; khả năng phát hiện trên không tăng."
+ vie_air_ind.39.d:0 "Chương trình radar và chỉ huy - điều khiển đã hoàn tất một giai đoạn; khả năng phát hiện trên không tăng."
  vie_air_ind.39.a:0 "Tốt."
 
  ### Trụ Tích hợp và UAV (bước 6)

@@ -81,7 +81,7 @@ VIE_lf_fav_cyber = {
 VIE_lf_mobilize_gate = {
 	OR = {
 		has_country_flag = VIE_lf_depth
-		has_country_flag = VIE_lf_dev_territorial
+		has_completed_focus = VIE_lf_dev_territorial
 		has_war = yes
 		VIE_scs_escalated_trigger = yes
 	}
