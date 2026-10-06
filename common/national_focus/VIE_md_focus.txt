@@ -34,6 +34,7 @@ focus_tree = {
 	## v16e (05/10/2026): hang 5 nhanh An ninh: khoi phuc VIE_sec_managed_opening (3 prerequisite AND, cost 7); loai 2 hieu ung di san vo tac dung (VIE_bop_reform_small, co VIE_wa_unlocked); them increase_economic_growth.
 	## v16f (06/10/2026): can moc focus resolution Dai hoi XIII/XIV theo ngay khai mac chinh thuc (26/01/2021, 20/01/2026); scheduler Dai hoi IX-XIV queue event dung ngay khai mac, bo random_days.
 	## v16g (06/10/2026): sua dead gate VIE_lf_mobilize_gate, unwrap 7 if/limit luc quan sua loi tooltip, set co VIE_sez_active va VIE_air_cleaned, gan FOCUS_FILTER_EXPENDITURE cho 56 focus chi tieu/xay dung, don 36 idea du thua, chuan hoa ma mau loc.
+	## v16h (06/10/2026): bo 3 shortcut menu dieu huong trai (VIE_corruption_shortcut, VIE_col_diplomacy_shortcut, VIE_wto_shortcut).
 	continuous_focus_position = { x = 765 y = 2850 }
 	initial_show_position = { focus = VIE_doi_moi_continues }
 
@@ -49,11 +50,6 @@ focus_tree = {
 		scroll_wheel_factor = 0.80
 	}
 	shortcut = {
-		name = VIE_corruption_shortcut
-		target = VIE_anti_corruption_steering
-		scroll_wheel_factor = 0.80
-	}
-	shortcut = {
 		name = VIE_army_shortcut
 		target = VIE_modernize_vpa
 		scroll_wheel_factor = 0.80
@@ -64,18 +60,8 @@ focus_tree = {
 		scroll_wheel_factor = 0.80
 	}
 	shortcut = {
-		name = VIE_col_diplomacy_shortcut
-		target = VIE_16_words
-		scroll_wheel_factor = 0.80
-	}
-	shortcut = {
 		name = VIE_asean_shortcut
 		target = VIE_asean_integration
-		scroll_wheel_factor = 0.80
-	}
-	shortcut = {
-		name = VIE_wto_shortcut
-		target = VIE_wto_negotiations
 		scroll_wheel_factor = 0.80
 	}
 	shortcut = {
