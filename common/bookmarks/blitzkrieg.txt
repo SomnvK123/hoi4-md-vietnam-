@@ -139,6 +139,22 @@ bookmarks = {
 				GCC_behead_the_snake
 			}
 		}
+		#Australia
+		"AST" = {
+			history = "AST_MOD_MILLENNIUM_DAWN_DESC"
+			ideology = democratic
+			version = base_game
+			ideas = {
+				reconciliation_discontent
+				mining_industrialists_ast
+				boat_arrivals_ast
+			}
+			focuses = {
+				AST_the_howard_government
+				AST_its_mabo_its_the_vibe
+				AST_a_nation_worth_preserving
+			}
+		}
 		#END OF NEW CONTENT. WHEN ADDING NEW COUNTRY TO TOP, MOVE LAST COUNTRY TO MINORS
 
 		#MINORS (OLD CONTENT) IN ALPHABETICAL NAME ORDER
@@ -157,23 +173,6 @@ bookmarks = {
 				PER_whispers_of_power
 				PER_liberation_of_the_qods
 				PER_oath_of_barandaz
-			}
-		}
-		#Australia
-		"AST" = {
-			minor = yes
-			history = "AST_MOD_MILLENNIUM_DAWN_DESC"
-			ideology = democratic
-			version = base_game
-			ideas = {
-				reconciliation_discontent
-				mining_industrialists_ast
-				boat_arrivals_ast
-			}
-			focuses = {
-				AST_the_howard_government
-				AST_its_mabo_its_the_vibe
-				AST_a_nation_worth_preserving
 			}
 		}
 		#Abkhazia

@@ -1,6 +1,6 @@
 ideas = {
 	country = {
-		# Tự chủ Thép cuộn cán nóng HRC (Hòa Phát Dung Quất)
+		# Tu chu Thep cuon can nong HRC (Hoa Phat Dung Quat)
 		VIE_hrc_steel_self_reliance = {
 			picture = economic_civil_industry
 			allowed = { always = no }
@@ -14,7 +14,7 @@ ideas = {
 			}
 		}
 
-		# Khuôn mẫu & Cơ khí Chính xác CNC (Giải quyết bài toán ốc vít)
+		# Khuon mau & Co khi Chinh xac CNC (Giai quyet bai toan oc vit)
 		VIE_precision_molds_idea = {
 			picture = economic_civil_industry
 			allowed = { always = no }
@@ -27,7 +27,7 @@ ideas = {
 			}
 		}
 
-		# Mạng lưới Doanh nghiệp Cung ứng Cấp 1 (Tier-1 Suppliers)
+		# Mang luoi Doanh nghiep Cung ung Cap 1 (Tier-1 Suppliers)
 		VIE_tier1_suppliers_idea = {
 			picture = economic_civil_industry
 			allowed = { always = no }
@@ -40,7 +40,7 @@ ideas = {
 			}
 		}
 
-		# Cụm Công nghiệp Phụ trợ Ô tô Tích hợp Cát Hải
+		# Cum Cong nghiep Phu tro O to Tich hop Cat Hai
 		VIE_auto_supplier_cluster_idea = {
 			picture = economic_civil_industry
 			allowed = { always = no }
@@ -53,7 +53,7 @@ ideas = {
 			}
 		}
 
-		# Cách mạng Xe điện & Tổ hợp Pin VinES
+		# Cach mang Xe dien & To hop Pin VinES
 		VIE_ev_mobility_idea = {
 			picture = economic_civil_industry
 			allowed = { always = no }
@@ -67,7 +67,7 @@ ideas = {
 			}
 		}
 
-		# Thương hiệu Công nghiệp Quốc gia Vươn ra Toàn cầu (Nasdaq)
+		# Thuong hieu Cong nghiep Quoc gia Vuon ra Toan cau (Nasdaq)
 		VIE_global_brand_recognition = {
 			picture = economic_boom
 			allowed = { always = no }

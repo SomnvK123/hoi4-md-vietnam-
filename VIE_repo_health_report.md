@@ -35,7 +35,7 @@ common/
   bop/                VIE_party_balance + VIE_oligarch_balance
   dynamic_modifiers/  VIE_armed_forces_modifier, VIE_state_modifier
   opinion_modifiers/  14 modifier (ASEAN, HD-981, hiệp định biên giới…)
-  game_rules/         VIE_alt_history (Plausible/Historical/Free), VIE_ai_behavior (5 path + RANDOM)
+  game_rules/         VIE_ai_behavior (Historical/Hardline), rule_vie_alt_procurement
   on_actions/         on_monthly (13 scheduler), on_startup, on_civil_war_end
   bookmarks/          blitzkrieg.txt — copy toàn bộ file của MD, chèn khối "VIE"
   military_industrial_organization/  4 organization
@@ -63,7 +63,7 @@ v10/v11_removed_*.txt 3 file lưu trữ focus đã xoá (144 KB)
 - **Biến nhiệm kỳ** `VIE_congress_term` (8→14), tự suy lại mỗi `on_startup` từ cờ scheduler → tương thích save cũ.
 - **3 decision category**: `VIE_military_readiness_category` (gate `VIE_modernize_vpa`), `VIE_statebuilding_category` (gate cờ `VIE_ax_initialized`), `VIE_resolution_category` ("Thực hiện Nghị quyết", gate `VIE_party_rule_active` + term > 8).
 - **13 event scheduler** (`VIE_event_scheduler` … `_p13`) treo trên `on_monthly`, guard bằng `original_tag = VIE` để vẫn chạy sau nội chiến.
-- **Game rule** `VIE_alt_history` điều khiển dải chế độ giả định; `VIE_ai_behavior` → cờ global `VIE_AI_PATH_*` đọc bởi `ai_will_do` và `ai_chance`.
+- **Game rule** `rule_vie_alt_procurement` mở các chuỗi mua sắm giả định; `VIE_ai_behavior` → cờ global `VIE_AI_PATH_*` đọc bởi `ai_will_do` và `ai_chance`. Rule `VIE_alt_history` một lựa chọn, không có reader, đã xoá ngày 07/10/2026.
 
 ---
 
@@ -111,7 +111,7 @@ Commit `f05cfa1` xoá nội dung nhưng để lại khung chết:
 |---|---|
 | `events/VIE_md_mil.txt` | **29 byte** — chỉ còn `# Events for military branch`. Đã **mất** `add_namespace = vie_mil` |
 | `common/ideas/VIE_md_ideas_mil.txt` | **28 byte** — `ideas = { country = { } }` rỗng |
-| `common/scripted_effects/VIE_md_mil_gauges.txt` | 2 effect **rỗng** `VIE_mil_gauges_monthly` / `_p2` — **vẫn được gọi mỗi tháng** trong `VIE_md_on_actions.txt` |
+| `common/scripted_effects/VIE_md_mil_gauges.txt` | Đã xoá ngày 07/10/2026: hai effect rỗng không còn caller trong code hiện hành. |
 | `common/national_focus/VIE_md_focus.txt` | `VIE_modernize_vpa` là **root mồ côi**: 0 con, đứng một mình ở x=266 y=1 |
 | `VIE_military_readiness_category` | gate `visible = { has_completed_focus = VIE_modernize_vpa }` → **mở ngay sau 1 focus duy nhất**, 4 decision quân sự trở thành nguồn exp miễn phí gần như không điều kiện |
 

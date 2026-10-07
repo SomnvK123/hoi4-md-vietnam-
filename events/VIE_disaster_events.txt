@@ -1,7 +1,7 @@
 add_namespace = vie_disaster
 
 ########################################################################
-# vie_disaster.1  Siêu bão Biển Đông đổ bộ Miền Trung & Vịnh Bắc Bộ
+# vie_disaster.1  Sieu bao Bien Dong do bo Mien Trung & Vinh Bac Bo
 ########################################################################
 country_event = {
 	id = vie_disaster.1
@@ -9,19 +9,10 @@ country_event = {
 	desc = vie_disaster.1.d
 	picture = GFX_report_event_generic_ruins
 
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
 
-	trigger = {
-		tag = VIE
-		date > 2013.9.1
-	}
-
-	mean_time_to_happen = {
-		months = 6
-	}
-
-	# Phương án A: Đã có Luật Phòng thủ dân sự (hệ thống chỉ huy và lực lượng cứu hộ)
+	# Phuong an A: Da co Luat Phong thu dan su (he thong chi huy va luc luong cuu ho)
 	option = {
 		name = vie_disaster.1.a
 		trigger = {
@@ -37,7 +28,7 @@ country_event = {
 		}
 	}
 
-	# Phương án B: Mới có Luật Phòng, chống thiên tai
+	# Phuong an B: Moi co Luat Phong, chong thien tai
 	option = {
 		name = vie_disaster.1.b
 		trigger = {
@@ -50,7 +41,7 @@ country_event = {
 		add_stability = -0.01
 	}
 
-	# Phương án C: Chưa chuẩn bị (Thảm họa thiên tai)
+	# Phuong an C: Chua chuan bi (Tham hoa thien tai)
 	option = {
 		name = vie_disaster.1.c
 		trigger = {

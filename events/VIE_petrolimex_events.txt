@@ -1,7 +1,7 @@
 add_namespace = vie_petro
 
 ########################################################################
-# vie_petro.1  Cơn Khủng hoảng Đứt gãy Nguồn cung Xăng dầu (2022)
+# vie_petro.1  Con Khung hoang Dut gay Nguon cung Xang dau (2022)
 ########################################################################
 country_event = {
 	id = vie_petro.1
@@ -9,20 +9,10 @@ country_event = {
 	desc = vie_petro.1.d
 	picture = GFX_report_event_generic_factory
 
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
 
-	trigger = {
-		tag = VIE
-		date > 2022.6.1
-		NOT = { has_country_flag = VIE_petro_crisis_handled }
-	}
-
-	mean_time_to_happen = {
-		months = 3
-	}
-
-	# Phương án A: Điều động Petrolimex mở bán 24/7 gánh toàn bộ thị trường
+	# Phuong an A: Dieu dong Petrolimex mo ban 24/7 ganh toan bo thi truong
 	option = {
 		name = vie_petro.1.a
 		trigger = {
@@ -38,7 +28,7 @@ country_event = {
 		hidden_effect = { set_country_flag = VIE_petro_crisis_handled }
 	}
 
-	# Phương án B: Thả nổi theo biến động thế giới (Khủng hoảng thiếu nhiên liệu tạm thời)
+	# Phuong an B: Tha noi theo bien dong the gioi (Khung hoang thieu nhien lieu tam thoi)
 	option = {
 		name = vie_petro.1.b
 		log = "[GetDateText]: [This.GetName]: Event vie_petro.1.b executed"

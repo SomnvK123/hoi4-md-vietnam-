@@ -21,7 +21,7 @@ VIE_ax_init = {
 				NOT = { has_country_flag = VIE_ax_initialized }
 			}
 			hidden_effect = { set_country_flag = VIE_ax_initialized }
-			# The axis effects were removed from every focus/event/decision: all axes stay at 0, so the state modifier is neutral.
+			# Khoi tao bien truc an mot lan; reward focus tiep tuc thay doi cac bien nay sau khi bat dau game.
 			set_variable = { VIE_ax_size = 0 }
 			set_variable = { VIE_ax_merit = 0 }
 			set_variable = { VIE_ax_decent = 0 }
@@ -39,7 +39,7 @@ VIE_ax_init = {
 VIE_ax_normalize = {
 	hidden_effect = {
 		# Recursion guard: set flag FIRST before calling VIE_ax_init to prevent
-		# mutual infinite recursion (VIE_ax_normalize → VIE_ax_init → VIE_ax_normalize → ...).
+		# mutual infinite recursion (VIE_ax_normalize -> VIE_ax_init -> VIE_ax_normalize -> ...).
 		# VIE_ax_init checks this flag and skips its body if already set.
 		if = {
 			limit = { NOT = { has_country_flag = VIE_ax_initialized } }

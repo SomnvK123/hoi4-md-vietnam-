@@ -33,6 +33,7 @@ focus_tree = {
 ## v16d (05/10/2026): hang 4 nhanh An ninh: VIE_sec_cyber_sovereignty, VIE_sec_ideological_education, VIE_sec_state_data_center (3 idea, 2 decision, event vie_sec.2; khoi phuc event vie_alt.31).
 	## v16e (05/10/2026): hang 5 nhanh An ninh: khoi phuc VIE_sec_managed_opening (3 prerequisite AND, cost 7); loai 2 hieu ung di san vo tac dung (VIE_bop_reform_small, co VIE_wa_unlocked); them increase_economic_growth.
 	## v16f (06/10/2026): can moc focus resolution Dai hoi XIII/XIV theo ngay khai mac chinh thuc (26/01/2021, 20/01/2026); scheduler Dai hoi IX-XIV queue event dung ngay khai mac, bo random_days.
+	## v16g (07/10/2026): gop reward truc VIE_militia_law va VIE_provincial_defence_zones; bo XP/axis tang trung lap, bo bonus supply trung voi idea, giu tong gia tri truc cua provincial defence va chuan hoa nhanh mastery/XP.
 	## v16g (06/10/2026): sua dead gate VIE_lf_mobilize_gate, unwrap 7 if/limit luc quan sua loi tooltip, set co VIE_sez_active va VIE_air_cleaned, gan FOCUS_FILTER_EXPENDITURE cho 56 focus chi tieu/xay dung, don 36 idea du thua, chuan hoa ma mau loc.
 	## v16h (06/10/2026): bo 3 shortcut menu dieu huong trai (VIE_corruption_shortcut, VIE_col_diplomacy_shortcut, VIE_wto_shortcut).
 	continuous_focus_position = { x = 765 y = 2850 }
@@ -520,9 +521,9 @@ focus_tree = {
 	}
 
 #############################################################
-	## CON ĐƯỜNG KIÊN ĐỊNH (CPV HARDLINE - RULING PARTY 4)
-	## Cây độc lập hoàn toàn, 25 focus (H0 -> X3)
-	## Bố cục 4 trụ song song + trục trung tâm (Y=23..31, X=6..22)
+	## CON DUONG KIEN DINH (CPV HARDLINE - RULING PARTY 4)
+	## Cay doc lap hoan toan, 25 focus (H0 -> X3)
+	## Bo cuc 4 tru song song + truc trung tam (Y=23..31, X=6..22)
 	#############################################################
 
 	#############################################################
@@ -5332,7 +5333,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_provincial_defence_zones"
 			set_temp_variable = { treasury_change = -3 }
 			modify_treasury_effect = yes
-			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
+			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
 			add_ideas = VIE_provincial_defence_idea
 			# Bunkers are province buildings: build them on the provinces that touch a neighbour's border
 			# FIX D-6 (2026-09-30): comment cu ghi "(China in 523/524, Laos and
@@ -5390,7 +5391,6 @@ focus_tree = {
 					}
 				}
 			}
-			add_to_variable = { VIE_ax_decent = -1 tooltip = VIE_ax_decent_tt }
 			add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt }
 			if = {
 				limit = { has_idea = communist_cadres }
@@ -5405,7 +5405,6 @@ focus_tree = {
 			}
 			add_to_variable = { VIE_af_planning_speed = 0.05 tooltip = VIE_tt_planning_speed }
 			add_to_variable = { VIE_af_max_planning = 0.05 tooltip = VIE_tt_max_planning }
-			add_to_variable = { VIE_af_supply_consumption_factor = -0.03 tooltip = VIE_tt_supply_consumption_factor }
 			if = {
 				limit = { has_selected_land_grand_doctrine = yes }
 				add_mastery = {
@@ -10434,10 +10433,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_militia_law"
-			add_to_variable = { VIE_ax_decent = 1 tooltip = VIE_ax_decent_tt }
-			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }
 			VIE_bop_conservative_small = yes
-			army_experience = 10
 			add_stability = 0.01
 			add_to_variable = { VIE_ax_decent = 2 tooltip = VIE_ax_decent_tt }
 			add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }

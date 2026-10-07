@@ -112,7 +112,7 @@
 | **Foreign influence** | "Ảnh hưởng ≥ 50%" ⚠10 | ✅ `influence_higher_40/50/60…` gọi trong scope nước bị ảnh hưởng (`MD:common/scripted_triggers/00_influence_scripted_triggers.txt:327,341`). `change_influence_percentage` (`MD:common/scripted_effects/00_influence_scripted_effects.txt:1054`) | Dùng trực tiếp |
 | **Diplomacy** | Faction mới; gỡ ASEAN ⚠9; cấm vận ⚠ | ✅ `create_faction_from_template` với `faction_template_generic_regional_security` (`MD:common/factions/templates/01_generic_archetypes.txt:198`). ✅ ASEAN là idea `ASEAN_Member`; `on_remove` tự gỡ khỏi `global.ASEAN_Member` (`MD:common/ideas/asean.txt:3`), tiền lệ `BRM_leave_asean`. ✅ Thang trừng phạt `increase_sanctions`/`decrease_sanctions` (`MD:common/scripted_effects/00_sanctions_scripted_effects.txt:2,30`) | Dùng trực tiếp. Không tự thêm `unsc_arms_embargo` vì idea đó thuộc hệ thống UNSC |
 | **Civil war** | `MD_start_scaled_protest_civil_war` | ✅ Có (`MD:common/scripted_effects/00_protests_effects.txt:435`), nhưng mod đã có hệ sụp đổ riêng: `VIE_collapse_check`, `VIE_col_start_civil_war` với phe nổi dậy 22, 20, 13, 5 và state cụ thể (✅ `mod:common/scripted_effects/VIE_md_effects_p3.txt:18,42,158`). `VIE_col_pick_rebel` **chưa bao giờ chọn 20** | Đường D đi qua hệ sụp đổ của mod (hook H3) |
-| **AI** | Game rule mới `VIE_nat_ai_behavior` | ✅ Mod có `VIE_alt_history` (historical/plausible/free) và `VIE_ai_behavior` với cờ `VIE_AI_PATH_*` (`mod:common/game_rules/VIE_md_rules.txt:2,28`). Cờ `VIE_AI_PATH_NATIONALIST` **đã được focus đọc nhưng chưa bao giờ được đặt** | Thêm 2 option vào `VIE_ai_behavior`, không tạo rule mới |
+| **AI** | Game rule mới `VIE_nat_ai_behavior` | Mod có `VIE_ai_behavior` với cờ `VIE_AI_PATH_*`; `VIE_alt_history` từng được ghi nhận nhưng audit ngày 07/10/2026 xác nhận chỉ có lựa chọn mặc định, không có reader, nên đã xoá. Cờ `VIE_AI_PATH_NATIONALIST` **đã được focus đọc nhưng chưa bao giờ được đặt** | Thêm 2 option vào `VIE_ai_behavior`, không tạo rule mới |
 
 ### 3.2 Ánh xạ biến "cây gốc" của báo cáo sang mod thật
 
@@ -149,7 +149,7 @@ Mức độ: **Chặn** (không code được như viết), **Cao** (code đư�
 | I-10 | `CAM`, `IND`, `military_industrial_complex` | Sai tag hoặc faction (G4, G5) | Chặn |
 | I-11 | Dynamic modifier 13 khóa | Làm cây thành danh sách bonus. Trùng `VIE_armed_forces_modifier` | TB |
 | I-12 | `unsc_arms_embargo` do event thêm vào | Idea thuộc hệ thống UNSC (`MD:common/scripted_effects/01_international_systems_effects.txt:1473`); tự thêm sẽ lệch logic gỡ của UNSC | TB |
-| I-13 | Game rule mới `VIE_nat_ai_behavior` | Trùng `VIE_ai_behavior` và `VIE_alt_history` | TB |
+| I-13 | Game rule mới `VIE_nat_ai_behavior` | Trùng `VIE_ai_behavior` | TB |
 | I-14 | `ban_party_scripted_call` với "index của đảng cũ" | VIE đã `set_partyall_banned`; chỉ đảng cầm quyền không bị cấm | Thấp |
 | I-15 | "Cờ nguyên bản" chỉ là ghi chú | Không đổi cosmetic tag thì MD tự hiện cờ Đại Việt hoặc VNCH (✅ `MD:gfx/flags/VIE_AUTH_S_nationalist.tga`, `VIE_nationalist.tga`). Biến thể thứ ba `VIE_AUTH_SS_nationalist.tga` (sao trắng trong vòng xanh trên nền đỏ–vàng) chưa nhận dạng được nguồn gốc | Cao |
 | I-16 | Đổi biến thể bằng `change_ruling_party_effect` trực tiếp | Bỏ qua `VIE_transition_regime`, nên BoP và các flag của mod bị lệch | Cao |
@@ -177,7 +177,7 @@ Mức độ: **Chặn** (không code được như viết), **Cao** (code đư�
 | Dynamic modifier 13 khóa | Idea swap (charter, capstone) + `VIE_af_*` | Mỗi focus có phần thưởng khác **loại** |
 | `VIE_nat_investor_flight` | `VIE_fdi_confidence_shock` (timed) | Tự nối với hệ sụp đổ |
 | `unsc_arms_embargo` | `international_sanctions` (đã chặn thị trường vũ khí qua `can_access_market = no`) | Không đụng hệ UNSC |
-| Game rule mới | Option mới trong `VIE_ai_behavior` + ngưỡng nới trong chế độ `free` của `VIE_alt_history` | Một chỗ cấu hình |
+| Game rule mới | Option mới trong `VIE_ai_behavior` | Một chỗ cấu hình |
 | Tầng 3: claim, wargoal, đổi tên | Event [FR] `vie_nat.25` không có phần thưởng | Giữ hiện tượng bên lề như một cám dỗ có giá, không vẽ bản đồ |
 | T02 chiến dịch Hoàng Sa | Focus có sẵn `VIE_paracel_ultimatum` | Không trùng |
 | Nhánh M 18 focus | 4 focus riêng của chế độ; capstone đọc các focus quân sự đã có | Dải thưởng cho nhánh quân sự hiện có, không nhân đôi nó |

@@ -1,7 +1,7 @@
 add_namespace = vie_auto
 
 ########################################################################
-# vie_auto.1  Rung Chuông Niêm Yết trên Sàn Giao Dịch Quốc Tế
+# vie_auto.1  Rung Chuong Niem Yet tren San Giao Dich Quoc Te
 ########################################################################
 country_event = {
 	id = vie_auto.1
@@ -23,7 +23,7 @@ country_event = {
 }
 
 ########################################################################
-# vie_auto.2  Liên Minh Xe Điện & Mạng Lưới Trạm Sạc Xanh Toàn Quốc
+# vie_auto.2  Lien Minh Xe Dien & Mang Luoi Tram Sac Xanh Toan Quoc
 ########################################################################
 country_event = {
 	id = vie_auto.2
@@ -31,19 +31,8 @@ country_event = {
 	desc = vie_auto.2.d
 	picture = GFX_report_event_generic_factory
 
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes
-
-	trigger = {
-		tag = VIE
-		has_completed_focus = VIE_ev_revolution_batteries
-		has_completed_focus = VIE_petrolimex_green_ev_hubs
-		NOT = { has_country_flag = VIE_green_mobility_alliance_active }
-	}
-
-	mean_time_to_happen = {
-		days = 20
-	}
 
 	option = {
 		name = vie_auto.2.a

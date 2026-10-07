@@ -128,7 +128,7 @@ Cân bằng ròng ba hướng sau chỉnh (cặp First Force Structure): Chính 
 ## G4 · Không khóa ngày là **ngoại lệ duy nhất** trong ba trục
 
 Trục 1 dùng cửa sổ + ETD; Trục 2 khóa **hầu hết** decision và focus bằng ngày (`date > 2008.6.30`, `2012`, `2013`, `2017`, `2021`; chỉ D4, D7, D8 đi theo cờ); báo cáo hải quân có cột "Ngày" cho từng focus (T1 ≥ 2005, T6 ≥ 2012…). Trục 3 không khóa gì (mục 3.10: "Không khóa ngày cho #1–#3"), nên AI có thể làm cải cách quân đội kiểu 2022 vào năm 2002.
-Mod đã có công cụ đúng cho việc này: game rule `VIE_alt_history` (historical / plausible / free), và tiền lệ trong repo: `VIE_militia_law` (`date > 2019.6.30`), `VIE_force_47` (`> 2017.11.30`), `VIE_un_peacekeeping` (`> 2013.12.31`).
+Các mốc ngày trong repo (`VIE_militia_law`, `VIE_force_47`, `VIE_un_peacekeeping`) là mẫu gate còn hiệu lực. `VIE_alt_history` từng được đề xuất làm rule chế độ, nhưng audit ngày 07/10/2026 cho thấy rule chỉ có lựa chọn mặc định và không có reader; đã xoá, nên đề xuất dùng nó làm gate không còn áp dụng.
 
 **Vá (Q10, mặc định: khóa mềm):** N1 `available = VIE_lf_gate_open`, với
 `VIE_lf_gate_open = OR { date > 2019.2.10 ; AND { VIE_ai_free ; date > 2012.12.31 ; VIE_def_ind_level_ge_2 } }`.

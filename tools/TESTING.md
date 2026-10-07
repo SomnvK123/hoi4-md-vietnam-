@@ -331,7 +331,7 @@ Re-running `python3 blockX.py` rewrites the block between `# ==== GEN:X begin/en
    `VIE_air_superiority_wing` needs `VIE_air_superiority_ops`. Check that the fork partner really blocks these via the `available` text.
 5. Defence industry (10, `VIE_def_*`) + missiles (8, `VIE_msl_*`). MIO (Arms Against Tyranny only): 4 companies in the Defense Companies window
    (Viettel, GDT/Z factories, Ba Son, VAECO); each `VIE_def_*` company focus adds size/funds/free trait picks. Nuclear chain (`VIE_msl_nuclear_power` ..
-   `VIE_msl_deterrent_doctrine`) needs Gotterdammerung, threat > 0.25 for the threshold, rule VIE_alt_history != historical, and the MD special project
+   `VIE_msl_deterrent_doctrine`) needs Gotterdammerung, threat > 0.25 for the threshold, and the MD special project
    `sp_nuclear_warhead_program` for the last two. Both are hypothetical and gated behind NOT Four Nos.
 6. Equipment variants (needs the DLC the MD source used + Arms Against Tyranny, otherwise a stockpile fallback or nothing): sp_artillery, armor_modernization,
    missile_boats, blue_destroyers, submarine_expansion, uav_armed. Watch error.log for "module"/"slot" errors: variants were copied 1:1 from CHI/DEN/GRE/NED focuses.
@@ -1039,7 +1039,7 @@ Run every item twice: with / without By Blood Alone, and with / without Gotterda
 - [ ] **T1 (BBA Su-30):** after `.3` option A and 2004-11 the stockpile holds 4 aircraft named "Su-30" (SOV variant), usable in a new air wing. Non-BBA: 4 `AS_Fighter2`. `VIE_var_air_delivered` = 4 (`effect` can read it with `show_variable` / tooltip).
 - [ ] Schedule: Su-30 totals 8 / 12 / 12 across 2010-12 ... 2016-02, `VIE_var_air_delivered` = 36 by 2016-02; > 11 by 2011-06.
 - [ ] **T3 (GOT SAM):** `.2` option A: tech SAM1+SAM2 present, 62 `sam_missile_equipment_3` in 2005-08 and again 2006-12, `VIE_var_sam_lr` = 2. Without GOT: no error, only `VIE_af_air_defence_factor` +0.02 and `VIE_var_sam_lr` = 2. `.7`: 60 (scope 2) or 30 `sam_missile_equipment_2` in 2011-06. `.10`: 48, 48 (24 if 3 systems), 24.
-- [ ] **T4 (T-6C):** BBA, `.15` A then 2024-11: 5 aircraft appear without `variant_name`. If nothing appears, switch `VIE_ap_give_t6c` to `variant_name = "Aero L-39"` producer CZE.
+- [ ] **T4 (T-6C):** BBA, `.15` A then 2024-11: 5 aircraft appear without `variant_name`. If nothing appears, inspect the inline T-6C branch in `VIE_ap_deliver_air_misc`; check variant behavior before changing equipment type.
 - [ ] Class C: `yak52` (2007), `mig21_retire` (2016, +0.03 bn, idea `VIE_ap_mig21_retired_idea`, `VIE_ap_mig21_extension_idea` removed), `l39ng` (2024-08/2025-03, 12 or 18 aircraft): no popup.
 - [ ] Wait option: `.3` C then nothing for 365 days, popup again; `.14` C same. After the window ends with no offer: `VIE_ap_<p>_missed`.
 - [ ] `effect set_country_flag = { flag = VIE_popup_cd days = 45 }` in 2004-01: `.3` slips a month; held to 2005-12: silent fallback gives the 4 aircraft, flag `_offered` set, no `_missed`.

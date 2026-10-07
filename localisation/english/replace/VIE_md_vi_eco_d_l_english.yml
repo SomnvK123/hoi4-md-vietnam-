@@ -13,10 +13,6 @@
 
  # --- Mở rộng Hà Nội 2008 ---
 
- # --- Bauxite Tây Nguyên 2009 ---
- VIE_bauxite_suspend:0 "Dừng Khai thác Bauxite Tây Nguyên"
- VIE_bauxite_suspend_desc:0 "§YGiả định:§! Trước lo ngại về môi trường và an ninh Tây Nguyên, dự án khai thác bauxite Tân Rai và Nhân Cơ bị dừng lại."
-
  # --- Đường sắt tốc độ cao 2010 ---
  VIE_hsr_2010_reject:0 "Quốc hội Bác Dự án Đường sắt Cao tốc"
  VIE_hsr_2010_reject_desc:0 "Ngày 19/6/2010, Quốc hội bác dự án đường sắt tốc độ cao Bắc - Nam trị giá khoảng 56 tỷ USD, cho rằng chưa đủ điều kiện."
@@ -58,8 +54,6 @@
  vie_eco.30.b:0 "Giữ kín người mua và giá bán"
 
  # --- Idea ---
- VIE_bauxite_environmental_idea:0 "Giám sát Môi trường Tây Nguyên"
- VIE_bauxite_environmental_idea_desc:0 "Quy trình đánh giá tác động môi trường chặt chẽ hơn làm chậm các dự án công nghiệp mới trong khu vực."
  VIE_grid_curtailment_idea:0 "Quá tải Lưới truyền tải"
  VIE_grid_curtailment_idea_desc:0 "Công suất điện mặt trời tăng nhanh hơn khả năng giải tỏa của lưới điện, buộc phải cắt giảm sản lượng."
  VIE_gold_pressure_idea:0 "Áp lực Tỷ giá từ Thị trường Vàng"

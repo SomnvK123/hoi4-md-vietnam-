@@ -81,11 +81,11 @@ VIE_def_industry_category = {
 			# Chot: 50% cho sung bo binh (D1 la nen cho STV o D2, huong can day nhanh
 			# nhat) va 30% cho hai category phao.
 			#
-			# ⚠️ TEN TOKEN DA PHAI SUA. Tai TOAN BO 24 file common/technologies/ cua MD
+			# WARNING: TEN TOKEN DA PHAI SUA. Tai TOAN BO 24 file common/technologies/ cua MD
 			# (195 token CAT_*) va doi chieu:
-			#   bao cao CAT_inf_wep   -> ❌ khong ton tai -> dung CAT_infantry_weapons ✅
-			#   bao cao CAT_art_ammo  -> ❌ khong ton tai -> dung CAT_artillery_ammunition ✅
-			#   bao cao CAT_artillery -> ✅ co that (57 lan trong artillery.txt)
+			#   bao cao CAT_inf_wep   -> [X] khong ton tai -> dung CAT_infantry_weapons [OK]
+			#   bao cao CAT_art_ammo  -> [X] khong ton tai -> dung CAT_artillery_ammunition [OK]
+			#   bao cao CAT_artillery -> [OK] co that (57 lan trong artillery.txt)
 			# Repo van con dung CAT_inf_wep o 5 cho khac (focus + MIO
 			# VIE_md_organizations.txt:183) - tong cong 31/41 token CAT_* ma repo dung
 			# khong co trong MD. Do la NO CU cua repo, ngoai pham vi Truc 2; cac file
@@ -116,7 +116,7 @@ VIE_def_industry_category = {
 	}
 
 	############################################################
-	# D2 - Sung STV (Z111)  —  HAI BIEN THE THOI GIAN
+	# D2 - Sung STV (Z111)  -  HAI BIEN THE THOI GIAN
 	############################################################
 	# Bao cao 2.2: mo 2017.1.1, 730 ngay neu co VIE_iwi_license (tu .11 option A
 	# cua Truc 1), 1095 ngay neu khong. Chi phi 0.5bn + 1 nha may 7.5bn.
@@ -392,7 +392,7 @@ VIE_def_industry_category = {
 	}
 
 	############################################################
-	# D6 - Xe chien dau bo binh XCB-01  —  HAI BIEN THE THOI GIAN
+	# D6 - Xe chien dau bo binh XCB-01  -  HAI BIEN THE THOI GIAN
 	############################################################
 	# Bao cao 2.2: mo 2021.1.1, 1460 ngay (1095 neu co VIE_bmp3_lessons), 3.0bn.
 	# Thuong: 50 XCB-01, mechanized_attack_factor +5%, flame chassis -5% build cost.

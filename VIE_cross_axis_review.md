@@ -273,7 +273,7 @@ Thiết kế và plan: `VIE_truc3_review_and_plan.md`. Trục 3 (30 focus `VIE_l
 
 | Đọc | Ở đâu | Điều kiện |
 |---|---|---|
-| `VIE_def_ind_level_ge_2` | `VIE_lf_gate_open` (cổng của `VIE_lf_army_reform`) | chỉ ở game rule `VIE_alt_history = free`, sau 2012 |
+| ~~`VIE_def_ind_level_ge_2`~~ | ~~`VIE_lf_gate_open`~~ | Thiết kế gate cũ, không còn áp dụng: `VIE_alt_history` đã bị xoá ngày 07/10/2026 vì chỉ có lựa chọn mặc định và không có reader. |
 
 **Trục 3 đặt, Trục 1 và 2 đọc (bước 8, chỉ chỉnh trọng số AI)**
 

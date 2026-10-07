@@ -61,7 +61,7 @@ Một gốc `VIE_modernize_vpa` chia **bốn cột**:
 | Không quân (28) | sân bay kiên cố, SAM tầm xa, cảnh báo sớm, UAV, VAECO | ngã rẽ **ưu thế trên không ↔ tấn công chiều sâu** (SEAD, ALCM — giả định) |
 | Công nghiệp quốc phòng + tên lửa (18) | Viettel, nhà máy Z, Ba Son, VAECO, tên lửa bờ, chuỗi hạt nhân giả định | gắn **MIO** (cần DLC Arms Against Tyranny); nhánh hạt nhân khóa DLC Götterdämmerung |
 
-Nhánh hạt nhân đòi cả: DLC, `threat > 0.25`, luật chơi `VIE_alt_history ≠ historical`, không còn Bốn Không, và dự án đặc biệt `sp_nuclear_warhead_program`.
+Nhánh hạt nhân cần được đối chiếu trực tiếp với trigger hiện hành. Báo cáo cũ ghi luật chơi `VIE_alt_history ≠ historical`, nhưng audit ngày 07/10/2026 xác nhận rule đó chỉ có lựa chọn mặc định, không có reader, và đã bị xoá; đừng coi điều kiện ấy là gate đang hoạt động.
 
 ### 2.4 Dải chế độ giả định (159)
 

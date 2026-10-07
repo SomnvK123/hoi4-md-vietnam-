@@ -19,8 +19,7 @@
 #        Khong chan Truc 1: D1 mo 2008.7.1 + days_remove 1095 -> xong som nhat
 #        07/2011, trung khop moc tam. Doi khi Truc 2 land = sua 1 dong.
 #   Q4 = CHOT TREN THUC TE: giu rule rieng rule_vie_alt_procurement nhu bao cao
-#        muc 6.3 de xuat. VIE_alt_history dieu khien dai che do, khong lien quan
-#        mua sam, nen tach rieng la dung. Muon gop lai = sua VIE_proc_alt_allowed.
+#        muc 6.3 de xuat. Rule nay chi dieu khien mua sam alt-history.
 #   Q5 = CHUA CHOT, khong chan buoc 2. Hien .15/.16/.20 de hidden = yes (class C
 #        im lang) nen 2018 con 6 pop-up, 2019 con 5 - gan sat muc 5/nam cua
 #        tools/TESTING.md. Chi that su can o buoc 5-6 khi viet chuoi T-90 va K9
@@ -46,7 +45,7 @@ VIE_proc_gate_army_program = {
 
 # ---------------------------------------------------------------------
 # Q4 - Rule alt-history rieng cho mua sam.
-# Giu tach biet khoi VIE_alt_history (rule do dieu khien dai che do gia dinh).
+# Rule mua sam co vong doi rieng; khong ghep vao cac gate chinh tri.
 # Chuoi 7 (BMP-3), 8 (TOS-1A) va 9 (CAESAR) chi vao lich khi rule nay bat.
 # ---------------------------------------------------------------------
 VIE_proc_alt_allowed = {

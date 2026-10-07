@@ -39,6 +39,7 @@ không prerequisite mâu thuẫn mutex, không toạ độ trùng, không forwar
 | F9 | 6 tên icon không tìm thấy trong `.gfx` của MD hay của mod: `focus_generic_military_mission` (6 focus), `focus_generic_diplomatic_treaty` (2), `focus_generic_destroyer` (2), `focus_generic_industry_2`, `focus_generic_industry_3`, `goal_generic_radar`. Có thể là sprite vanilla, chưa đối chiếu được (không có vanilla trên máy) | Cần xác minh |
 | ~~F10~~ | ~~13 focus `VIE_lf_arm_*` / `VIE_lf_cap_*` bọc cả reward trong `if = { limit = { VIE_lf_arm_slot_free = yes } }`~~ (đã unwrap 7 focus) | Đã xong |
 | F11 | Độ sâu prerequisite tối đa 16 (`VIE_lf_force_complete`), chuỗi lục quân dài. Nhánh khác ổn (chuỗi đơn dài nhất 5) | Thiết kế |
+| F12 | Sprite idea `generic_military_mission` (2 idea), `generic_central_planning` và `generic_privatisation` chưa thấy sprite idea tương ứng trong MD (`generic_central_planning` chỉ có sprite focus); chưa xác minh vanilla trong game | Cần xác minh trong game |
 
 ## Nợ nội dung
 
@@ -46,7 +47,7 @@ không prerequisite mâu thuẫn mutex, không toạ độ trùng, không forwar
 - ~~Balance of Power oligarch~~: đã xoá 06/10/2026 (`VIE_md_bop_p3.txt`, `VIE_md_effects_p3b.txt` và 17 dòng loc `VIE_oli_*`/`VIE_oligarch_balance`). `grep` không còn tham chiếu nào.
 - **Loc chết**: theo `VIE_repo_health_report.md` (30/09) hơn 40% key loc không còn được tham chiếu sau khi xoá focus v9 đến v11.
   Chưa đếm lại.
-- ~~**545 key loc trùng** giữa `localisation/english/` và `replace/`~~: đã xoá sạch 545 key bị ghi đè ở thư mục cha ngày 06/10/2026; bản trong `replace/` giữ nguyên vẹn 100%.
+- Loc trùng: đã xoá 545 key bị ghi đè ở thư mục cha ngày 06/10/2026. Rà soát ngày 07/10 phát hiện thêm 4 key bauxite/đất hiếm trùng trong `replace/`; giữ nội dung đầy đủ ở `VIE_md_vi_eco_mining_l_english.yml` và xoá bản cũ ở `eco_d`, `p2_b`, `p2_c`.
 - ~~Loc còn mã màu không chuẩn~~: đã chuẩn hoá mã màu văn bản `§g`, `§C`, `§O` sang `§Y`, `§R`, plain text trên 8 file loc. Còn lại các thanh GUI `VIE_axbar_*` trong `replace/`.
 - ~~Ký tự em/en-dash~~: đã chuẩn hoá toàn bộ 123 ký tự `—` và `–` sang dấu gạch ngang chuẩn `-` trên 21 file loc.
 - Layout cây focus: kiểm bằng `tools/focus_layout/` và `tools/audit/audit.py` sau mỗi đợt xoá/thêm lớn.

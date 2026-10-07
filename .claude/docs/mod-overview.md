@@ -14,8 +14,8 @@ Submod của Millennium Dawn, chơi Việt Nam (`VIE`) từ 2000 đến 2026. `d
 - **Biến nhiệm kỳ** `VIE_congress_term` (8 → 14), suy lại mỗi `on_startup`.
 - **Scheduler**: một hook `on_monthly` duy nhất ở `common/on_actions/VIE_md_on_actions.txt`, guard
   `original_tag = VIE` để vẫn chạy sau nội chiến. Thêm scheduler mới thì thêm vào đúng khối này.
-- **Game rule** `VIE_alt_history` (Plausible / Historical / Free) và `VIE_ai_behavior`
-  (cờ global `VIE_AI_PATH_*`, đọc bởi `ai_will_do` / `ai_chance`).
+- **Game rule** `VIE_ai_behavior` (cờ global `VIE_AI_PATH_*`, đọc bởi `ai_will_do` / `ai_chance`)
+  và `rule_vie_alt_procurement` (mở các chuỗi mua sắm giả định).
 - **Hệ thống quân sự**: trục Lục quân (`VIE_lf_*`), Hải quân (`VIE_nf_*`, `VIE_naval_*`, `VIE_nav_*`),
   Không quân (`VIE_airf_*`, `VIE_apm_*`, `VIE_ap_*`), Lực lượng đặc biệt (`VIE_sf_*`), chế độ cứng rắn
   (`VIE_hl_*`), an ninh / Biển Đông (`VIE_sec_*`, `VIE_scs_*`). Modifier quân sự gộp ở dynamic modifier

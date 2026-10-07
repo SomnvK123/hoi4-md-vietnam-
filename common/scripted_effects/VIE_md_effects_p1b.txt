@@ -134,7 +134,7 @@ VIE_p1b_cancel = {
 }
 
 ########################################################################
-# P1 Hộ vệ hạm nhẹ (corvette)
+# P1 Ho ve ham nhe (corvette)
 ########################################################################
 VIE_p1b_load_corvette = {
 	set_variable = { VIE_p1b_cur = 1 }
@@ -275,7 +275,7 @@ VIE_p1b_deliver_corvette = {
 }
 
 ########################################################################
-# P2 Khinh hạm cỡ trung (frigate_med)
+# P2 Khinh ham co trung (frigate_med)
 ########################################################################
 VIE_p1b_load_frigate_med = {
 	set_variable = { VIE_p1b_cur = 2 }
@@ -419,7 +419,7 @@ VIE_p1b_deliver_frigate_med = {
 }
 
 ########################################################################
-# P3 Khinh hạm chống ngầm (asw_frigate)
+# P3 Khinh ham chong ngam (asw_frigate)
 ########################################################################
 VIE_p1b_load_asw_frigate = {
 	set_variable = { VIE_p1b_cur = 3 }
@@ -562,7 +562,7 @@ VIE_p1b_deliver_asw_frigate = {
 }
 
 ########################################################################
-# P4 Tàu ngầm tấn công khu vực (ssk_reg)
+# P4 Tau ngam tan cong khu vuc (ssk_reg)
 ########################################################################
 VIE_p1b_load_ssk_reg = {
 	set_variable = { VIE_p1b_cur = 4 }
@@ -694,7 +694,7 @@ VIE_p1b_deliver_ssk_reg = {
 }
 
 ########################################################################
-# P6 Bastion-P mở rộng (bastion2)
+# P6 Bastion-P mo rong (bastion2)
 ########################################################################
 VIE_p1b_load_bastion2 = {
 	set_variable = { VIE_p1b_cur = 6 }
@@ -759,7 +759,7 @@ VIE_p1b_deliver_bastion2 = {
 }
 
 ########################################################################
-# P7 Tàu đổ bộ trực thăng (amphib)
+# P7 Tau do bo truc thang (amphib)
 ########################################################################
 VIE_p1b_load_amphib = {
 	set_variable = { VIE_p1b_cur = 7 }
@@ -894,7 +894,7 @@ VIE_p1b_deliver_amphib = {
 }
 
 ########################################################################
-# P8 Khu trục hạm (destroyer)
+# P8 Khu truc ham (destroyer)
 ########################################################################
 VIE_p1b_load_destroyer = {
 	set_variable = { VIE_p1b_cur = 8 }
@@ -1038,7 +1038,7 @@ VIE_p1b_deliver_destroyer = {
 }
 
 ########################################################################
-# P10 Tàu sân bay hạng nhẹ (carrier)
+# P10 Tau san bay hang nhe (carrier)
 ########################################################################
 VIE_p1b_load_carrier = {
 	set_variable = { VIE_p1b_cur = 10 }
@@ -1163,7 +1163,7 @@ VIE_p1b_deliver_carrier = {
 }
 
 ########################################################################
-# P11 Tàu ngầm hạt nhân (ssn)
+# P11 Tau ngam hat nhan (ssn)
 ########################################################################
 VIE_p1b_load_ssn = {
 	set_variable = { VIE_p1b_cur = 11 }

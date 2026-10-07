@@ -330,11 +330,9 @@ Mục 1.5 ghi *"Tổng 3.10 (lịch sử)"*, nhưng chính mục 1.4 chuỗi 5 o
 
 Đúng phải là: **treasury 1.85bn + nợ 1.25bn = 3.10bn tổng chi phí**. Mục V ("Tổng kết số liệu") cũng ghi *"Kịch bản lịch sử tốn 33.35bn treasury"* — cùng lỗi cộng gộp. Không phá code, nhưng sẽ làm bạn cân bằng sai ngân sách.
 
-## C8 · `rule_vie_alt_procurement` trùng chức năng với rule đã có
+## C8 · Đã xử lý: rule mua sắm riêng
 
-Mod đã có `VIE_alt_history` (`common/game_rules/VIE_md_rules.txt`) với 3 option **Plausible / Historical / Free**, và `VIE_ai_behavior` với 5 path. Thêm rule thứ ba tên `rule_vie_alt_procurement` → người chơi thấy 3 nút "alt history" khác nhau cho một nước.
-
-Hai lựa chọn: (a) tái dùng `VIE_alt_history` — chuỗi 7–9 chỉ vào lịch khi `option = free`; (b) giữ rule riêng nhưng đặt `group = "MD_FOCUS_TREE_RULES"` ✅ (hợp lệ) và ghi rõ trong loc rằng nó **chỉ** điều khiển mua sắm. → **cần bạn chốt (Q4)**.
+Audit ngày 07/10/2026 xác nhận `VIE_alt_history` chỉ có một lựa chọn mặc định và không có reader trong code. Rule rỗng đã bị xoá. Giữ `rule_vie_alt_procurement` làm gate duy nhất cho các chuỗi mua sắm giả định 7–9; đề xuất tái dùng `VIE_alt_history` trong báo cáo cũ không còn áp dụng.
 
 Lưu ý convention: MD viết `name = yes` / `name = VIE_HISTORICAL` **không có dấu ngoặc kép**. Báo cáo viết `name = "VIE_ALT_OFF"` — bỏ ngoặc kép cho khớp `has_game_rule = { rule = … option = VIE_ALT_ON }`.
 
@@ -642,7 +640,7 @@ VIE_deliver_t90 = {
 ### Game rule (vá C8)
 ```pdx
 # Alternate-history army procurement (BMP-3 / TOS-1A / CAESAR chains).
-# Separate from VIE_alt_history, which drives the regime bands.
+# Dedicated rule for hypothetical procurement chains only.
 rule_vie_alt_procurement = {
 	name = "RULE_VIE_ALT_PROCUREMENT"
 	group = "MD_FOCUS_TREE_RULES"
@@ -712,7 +710,7 @@ add_timed_idea = { idea = VIE_t54m3_upgrade days = 3650 }	# army_armor_defence_f
 
 **Q3 · Thứ tự thi công Trục 1 vs Trục 2.** `.11` gate theo D1 (Trục 2), D1 lại gate theo `VIE_tank_modernization` (đã xoá). Code Trục 1 trước với gate tạm, hay làm Trục 2 D1 trước?
 
-**Q4 · Rule alt-history.** Tái dùng `VIE_alt_history` sẵn có (option `free`), hay thêm `rule_vie_alt_procurement` riêng như báo cáo?
+**Q4 · Đã chốt.** Dùng `rule_vie_alt_procurement`; rule `VIE_alt_history` cũ đã bị xoá vì chỉ có lựa chọn mặc định và không có reader.
 
 **Q5 · Ngân sách pop-up.** Năm 2016 / 2018 / 2019 / 2023 sẽ lên 6–7 pop-up, vượt luật "tối đa 5/năm" trong `TESTING.md`. (a) Nới luật lên 7, (b) hạ một số event Trục 1 xuống `hidden = yes` chỉ ghi log + hiệu ứng (mất tính kể chuyện), hay (c) dời một vài event kinh tế/chính trị sẵn có sang năm khác?
 

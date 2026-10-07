@@ -42,7 +42,7 @@ SU30_DELIVERIES = [((2004, 11), 4), ((2010, 12), 4), ((2011, 6), 4), ((2011, 12)
 BASELINE_POPUPS = {2003: 6 + 1, 2008: 6, 2012: 8, 2014: 8, 2018: 6, 2020: 6, 2021: 12, 2022: 6, 2023: 6, 2024: 7}
 POPUP_TARGET = 7
 POPUP_KNOWN_EXCEPTIONS = {2012, 2014, 2021}  # already over before air; air must not add to them
-# air_defence_factor added by Truc 1 (VIE_ap_air_def): S-300 2 x 0.01, Pechora 0.02, SPYDER 2 x 0.01
+# air_defence_factor added by Truc 1 delivery effects: S-300 2 x 0.01, Pechora 0.02, SPYDER 2 x 0.01
 AIR_DEF_TRUC1 = 0.02 + 0.02 + 0.02
 AIR_DEF_CAP_TRUC1 = 0.06
 HISTORICAL_TOTAL_RANGE = (3.6, 4.1)           # report 5.4: ~3.85 bn

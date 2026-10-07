@@ -29,6 +29,9 @@ on_actions = {
 				VIE_apm_slot_heal = yes
 				VIE_airf_slot_heal = yes
 				VIE_hl_monthly = yes
+				# Tinh lai cac truc state-building sau cac effect hang thang.
+				VIE_ax_normalize = yes
+				VIE_event_scheduler_historical_events = yes
 			}
 		}
 	}

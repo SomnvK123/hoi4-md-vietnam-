@@ -53,7 +53,7 @@ VIE_create_leader_phieu = {
 			name = VIE_leader_le_kha_phieu
 			picture = "Le_Kha_Phieu.dds"
 			ideology = Communist-State
-			traits = { emerging_Communist-State cautious stubborn }
+			traits = { emerging_communist_state cautious stubborn }
 		}
 	}
 	else = {

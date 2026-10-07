@@ -63,7 +63,14 @@ country_event = {
 		add_political_power = 100
 		add_stability = 0.02
 		VIE_bop_conservative_small = yes
-		ai_chance = { base = 70 }
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				VIE_ai_hardline = yes
+				VIE_hl_can_take_power_congress = yes
+			}
+		}
 	}
 
 	option = {
@@ -75,6 +82,11 @@ country_event = {
 		ai_chance = {
 			base = 30
 			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = {
+				factor = 0
+				VIE_ai_hardline = yes
+				VIE_hl_can_take_power_congress = yes
+			}
 		}
 	}
 
@@ -104,8 +116,9 @@ country_event = {
 		add_stability = 0.03
 		add_political_power = 50
 		ai_chance = {
-			base = 5
+			base = 10000
 			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 
@@ -125,7 +138,14 @@ country_event = {
 		add_political_power = 100
 		add_stability = 0.02
 		VIE_bop_conservative_small = yes
-		ai_chance = { base = 70 }
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 0
+				VIE_ai_hardline = yes
+				VIE_hl_can_take_power_congress = yes
+			}
+		}
 	}
 
 	option = {
@@ -137,6 +157,11 @@ country_event = {
 		ai_chance = {
 			base = 30
 			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = {
+				factor = 0
+				VIE_ai_hardline = yes
+				VIE_hl_can_take_power_congress = yes
+			}
 		}
 	}
 
@@ -166,8 +191,9 @@ country_event = {
 		add_stability = 0.03
 		add_political_power = 50
 		ai_chance = {
-			base = 5
+			base = 10000
 			modifier = { factor = 0 VIE_ai_historical = yes }
+			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
 		}
 	}
 

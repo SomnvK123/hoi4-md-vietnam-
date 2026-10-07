@@ -77,14 +77,14 @@ ideas = {
 		# D8 - Noi dia hoa bao duong va dan K9. Bao cao muc 2.2 ghi "+50% CAT_artillery".
 		# Dung CAT_artillery. Da kiem tra lai ky o buoc 5 (xem ben duoi).
 		#
-		# ⚠️ DA XAC MINH LAI (buoc 4): tai TOAN BO 24 file common/technologies/ cua MD
+		# WARNING: DA XAC MINH LAI (buoc 4): tai TOAN BO 24 file common/technologies/ cua MD
 		# (195 token CAT_*). Ket qua:
-		#   CAT_artillery                 ✅ CO that (57 lan trong artillery.txt)
-		#   CAT_self_propelled_artillery  ❌ KHONG co trong technologies (chi la
+		#   CAT_artillery                 [OK] CO that (57 lan trong artillery.txt)
+		#   CAT_self_propelled_artillery  [X] KHONG co trong technologies (chi la
 		#                                    research_category cua MIO)
-		#   CAT_sp_arty                   ❌ KHONG ton tai
-		#   CAT_sp_r_arty                 ❌ KHONG ton tai
-		#   CAT_inf_wep                   ❌ KHONG ton tai (dung: CAT_infantry_weapons)
+		#   CAT_sp_arty                   [X] KHONG ton tai
+		#   CAT_sp_r_arty                 [X] KHONG ton tai
+		#   CAT_inf_wep                   [X] KHONG ton tai (dung: CAT_infantry_weapons)
 		# Buoc 1 toi da ket luan NGUOC (tuong CAT_self_propelled_artillery khong co va
 		# CAT_sp_arty co) vi chi tra mot file MD_artillery.txt thay vi ca 24 file.
 		#

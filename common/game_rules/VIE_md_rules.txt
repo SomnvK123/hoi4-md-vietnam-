@@ -1,16 +1,3 @@
-# Vietnam submod game rule (Phase 4). Add-on file: MD's own common/game_rules/00_game_rules.txt is untouched.
-VIE_alt_history = {
-	name = "RULE_VIE_ALT_HISTORY"
-	group = "MD_AI_RULES"
-	icon = "GFX_production_licenses"
-
-	default = {
-		name = plausible
-		text = "RULE_VIE_ALT_HISTORY_PLAUSIBLE"
-		desc = "RULE_VIE_ALT_HISTORY_PLAUSIBLE_DESC"
-	}
-}
-
 # AI behaviour when Vietnam is AI-controlled. Historical remains the default route.
 VIE_ai_behavior = {
 	name = "VIE_AI_BEHAVIOR"
@@ -28,7 +15,7 @@ VIE_ai_behavior = {
 }
 
 # Truc 1 (mua sam luc quan): bat ba chuoi alt-history BMP-3 / TOS-1A / CAESAR.
-# Tach biet khoi VIE_alt_history (rule do dieu khien dai che do gia dinh).
+# Rule rieng cho cac chuoi mua sam alt-history.
 # Group MD_FOCUS_TREE_RULES da xac minh ton tai trong MD (rule_salafist_branch dung).
 # Ten option khong dat trong ngoac kep, theo dung convention cua MD va cua
 # VIE_ai_behavior o tren.

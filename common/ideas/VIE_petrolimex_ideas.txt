@@ -1,6 +1,6 @@
 ideas = {
 	country = {
-		# Mạng lưới Phân phối Xăng dầu Petrolimex
+		# Mang luoi Phan phoi Xang dau Petrolimex
 		VIE_petrolimex_idea = {
 			picture = oil_production
 			allowed = { always = no }
@@ -13,7 +13,7 @@ ideas = {
 			}
 		}
 
-		# Dự trữ Xăng dầu Chiến lược Quốc gia (SPR 90 ngày)
+		# Du tru Xang dau Chien luoc Quoc gia (SPR 90 ngay)
 		VIE_strategic_fuel_reserve_idea = {
 			picture = oil_production
 			allowed = { always = no }
@@ -27,7 +27,7 @@ ideas = {
 			}
 		}
 
-		# Cơ chế DPPA & Thị trường Bán lẻ Điện Cạnh tranh
+		# Co che DPPA & Thi truong Ban le Dien Canh tranh
 		VIE_dppa_reform_idea = {
 			picture = energy_preferred_renewable_idea
 			allowed = { always = no }
@@ -41,7 +41,7 @@ ideas = {
 			}
 		}
 
-		# Cơn sốc thiếu hụt nguồn cung xăng dầu (Tạm thời 365 ngày)
+		# Con soc thieu hut nguon cung xang dau (Tam thoi 365 ngay)
 		VIE_fuel_shortage_crisis = {
 			picture = oil_production
 			allowed = { always = no }

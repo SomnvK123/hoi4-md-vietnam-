@@ -385,14 +385,14 @@ Class C (khong event): `yak52`, `mig21_retire`, `l39ng`.
 ### Bien
 | Bien | Khoang | Dat boi | Doc boi |
 |---|---|---|---|
-| `VIE_var_air_delivered` | >= 0 | `VIE_ap_give_su30` (+1 moi tiem kich Su-30 giao; huan luyen, van tai khong tinh) | Truc 3 T5 (`> 11`), Truc 2 (chua co) |
+| `VIE_var_air_delivered` | >= 0 | `VIE_ap_deliver_su30` (+1 moi tiem kich Su-30 giao; huan luyen, van tai khong tinh; logic cap trang bi viet inline) | Truc 3 T5 (`> 11`), Truc 2 (chua co) |
 | `VIE_var_sam_lr` | >= 0 | `VIE_ap_deliver_sam` (+1 moi tieu doan S-300 giao; SPYDER va Pechora khong tinh) | Truc 3 D-E nhanh A, 1B P8 (chua co) |
 | `VIE_ap_<p>_qty` | so chiec / tieu doan / he thong dat mua; `> 0` = da ky hop dong (thay co `_contracted` cu) | `VIE_ap_reward_<p>_*`, `VIE_fb_ap_l39ng` | giao hang |
-| `VIE_af_air_defence_factor` | cong don | `VIE_ap_air_def` (S-300 2 x 0.01, Pechora 0.02, SPYDER 2 x 0.01; tran Truc 1 0.06) | `VIE_armed_forces_modifier` |
+| `VIE_af_air_defence_factor` | cong don | `VIE_ap_deliver_sam` cong inline (S-300 2 x 0.01, Pechora 0.02, SPYDER 2 x 0.01; tran Truc 1 0.06) | `VIE_armed_forces_modifier` |
 | `VIE_af_air_detection` | cong don | `.11` (A 0.03 / B 0.05 / C 0.01) | `VIE_armed_forces_modifier` |
 
 ### Anh huong ben ban
-`VIE_ap_seller_influence = { S = <TAG> PCT = 1 }` (MD `change_influence_percentage`, tag_index = ben ban, influence_target mac dinh = VIE) goi o cuoi moi reward `VIE_ap_reward_*` va `VIE_fb_ap_l39ng` (SOV, BLR, ISR, SPR, CZE, RAJ, USA). Khong goi o lua chon tu choi / hoan / tu dao tao.
+Anh huong ben ban duoc cap inline trong reward qua MD `change_influence_percentage` (tag_index = ben ban, influence_target mac dinh = VIE), co guard nuoc ban con ton tai. Khong cap o lua chon tu choi / hoan / tu dao tao. Cac helper `VIE_ap_seller_influence` va `VIE_ap_air_def` da bo vi khong co caller.
 
 ### Trigger (VIE_md_triggers_air_proc.txt)
 `VIE_ap_gate_sov/_raj/_rom/_blr/_spr/_isr/_cze/_usa/_none/_cze_or_isr` (doi tac con ton tai, khong chien tranh), (da bo `VIE_ap_has_bba/_has_got/_can_fund`: khong ai goi; `has_dlc` viet truc tiep nhu MD, option mo rong dung `check_variable = { treasury > X }`),

@@ -742,83 +742,6 @@ VIE_ap_pay_split = {
 }
 
 ########################################################################
-# Cap trang bi (mau MD 05_algeria.txt). BBA -> loai BBA + variant_name + producer; else -> loai non-BBA.
-# Su-30: BBA medium_plane_airframe_2 / variant "Su-30" cua SOV (SOV - Russia.txt); non-BBA AS_Fighter2 (Q-A3 da chot).
-# Cong ky E3/E5/E6/E9 doi SOV ton tai luc ky; luc giao SOV co the da mat -> nhanh du phong khong producer.
-# Tham so QTY. Cong VIE_var_air_delivered (chi tiem kich).
-########################################################################
-VIE_ap_give_su30 = {
-	if = {
-		limit = { country_exists = SOV }
-		if = {
-			limit = { has_dlc = "By Blood Alone" }
-			add_equipment_to_stockpile = {
-				type = medium_plane_airframe_2
-				variant_name = "Su-30"
-				amount = $QTY$
-				producer = SOV
-			}
-		}
-		else = {
-			add_equipment_to_stockpile = {
-				type = AS_Fighter2
-				amount = $QTY$
-				producer = SOV
-			}
-		}
-	}
-	else = {
-		# SOV da mat tag: variant "Su-30" thuoc SOV nen khong dung duoc; cap thiet bi mac dinh khong producer.
-		if = {
-			limit = { has_dlc = "By Blood Alone" }
-			add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = $QTY$ }
-		}
-		else = {
-			add_equipment_to_stockpile = { type = AS_Fighter2 amount = $QTY$ }
-		}
-	}
-	add_to_variable = { VIE_var_air_delivered = $QTY$ }
-}
-
-########################################################################
-# Ten lua phong khong (chi co Gotterdammerung: missile_defense.txt allow_branch). Khong GOT -> khong lam gi,
-# nguoi goi phai tu cap idea/modifier. Bac tech theo nam: SAM1 1975 -> equipment_2, SAM2 1985 -> equipment_3.
-# VIE co san SAM, SAM0 (+ sp_missile_project) khi co GOT. Tham so QTY, PROD (tag nha san xuat).
-########################################################################
-VIE_ap_give_sam2 = {
-	if = {
-		limit = { has_dlc = "Gotterdammerung" }
-		set_technology = { SAM1 = 1 }
-		if = {
-			limit = { country_exists = $PROD$ }
-			add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = $QTY$ producer = $PROD$ }
-		}
-	}
-}
-
-VIE_ap_give_sam3 = {
-	if = {
-		limit = { has_dlc = "Gotterdammerung" }
-		set_technology = { SAM1 = 1 SAM2 = 1 }
-		if = {
-			limit = { country_exists = $PROD$ }
-			add_equipment_to_stockpile = { type = sam_missile_equipment_3 amount = $QTY$ producer = $PROD$ }
-		}
-	}
-}
-
-# Mua vu khi tang anh huong cua ben ban len VIE (mau MD, 05_algeria.txt: percent_change / tag_index;
-# influence_target mac dinh = THIS = VIE). Gia tri nho (1%): Truc 1 co 6 hop dong SOV nen tong ~6%. TODO(balance).
-VIE_ap_seller_influence = {
-	if = {
-		limit = { country_exists = $S$ }
-		set_temp_variable = { percent_change = $PCT$ }
-		set_temp_variable = { tag_index = $S$ }
-		change_influence_percentage = yes
-	}
-}
-
-########################################################################
 # SU-30MK2 - 4 dot (E3, E5, E6, E9). Event vie_air_proc.3 / .5 / .6 / .9.
 # Gia (ty USD, [?] tru khi ghi): .3 0.12 [ok] / .5 0.40 [ok] / .6 1.00 [~ nguon lech] / .9 0.60 [ok].
 # Tu 0.4 ty tro len chia 60% ngan kho / 40% no (nhu T-90 luc quan). TODO(gia) neu doi.
@@ -1913,17 +1836,6 @@ VIE_ap_ensure_af_modifier = {
 	}
 }
 
-# +V vao VIE_af_air_defence_factor (kem tooltip, mau p14)
-VIE_ap_air_def = {
-	VIE_ap_ensure_af_modifier = yes
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_air_defence_factor = $V$ tooltip = VIE_tt_air_defence_factor }
-	force_update_dynamic_modifier = yes
-}
-
 # E2 - S-300PMU1: 2 tieu doan (lich su) / 1 tieu doan. Giao 2005-08 va 2006-12 (dot 2 noi suy).
 VIE_ap_reward_s300_a = {
 	set_variable = { VIE_ap_s300_qty = 2 }
@@ -2017,7 +1929,7 @@ VIE_fb_ap_spyder = {
 #   S-300: tieu doan 1 giao 2005-08 (62 ten lua, nguon), tieu doan 2 giao 2006-12 (noi suy).
 #   Pechora: 2011-06 (thu nghiem tai A31 thang 3/2011): scope 2 -> 60 ten lua, scope 1 -> 30.
 #   SPYDER: 2016-12 (2 he thong, 48), 2017-12 (2 he thong, 48; neu chi 3 he thong: 24), 2018-06 (he thong thu 5, 24).
-# Khong co GOT: VIE_ap_give_sam* khong lam gi; bo dem va modifier van chay.
+# Khong co GOT: khong cap thiet bi SAM; bo dem va modifier van cap nhat.
 ########################################################################
 VIE_ap_deliver_sam = {
 	# S-300 tieu doan 1
@@ -2215,58 +2127,6 @@ VIE_ap_deliver_sam = {
 # Gia: [ok] E1 0.05, E8 0.10, E14 0.35, E15 0.15, E16 0.12; con lai [?]. TODO(gia).
 # Cac tranche duoi day dung tham so cua nhom Su-30 (VIE_ap_tranche) chi cho Su-30; o day viet tay.
 ########################################################################
-
-VIE_ap_give_c295 = {
-	if = {
-		limit = { country_exists = SPR }
-		if = {
-			limit = { has_dlc = "By Blood Alone" }
-			add_equipment_to_stockpile = { type = large_plane_air_transport_airframe_2 variant_name = "Airbus C-295" amount = $QTY$ producer = SPR }
-		}
-		else = {
-			add_equipment_to_stockpile = { type = transport_plane3 amount = $QTY$ producer = SPR }
-		}
-	}
-}
-
-VIE_ap_give_yak130 = {
-	if = {
-		limit = { country_exists = SOV }
-		if = {
-			limit = { has_dlc = "By Blood Alone" }
-			add_equipment_to_stockpile = { type = small_plane_strike_airframe_2 variant_name = "Yak-130" amount = $QTY$ producer = SOV }
-		}
-		else = {
-			add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = $QTY$ producer = SOV }
-		}
-	}
-}
-
-VIE_ap_give_t6c = {
-	if = {
-		limit = { country_exists = USA }
-		if = {
-			limit = { has_dlc = "By Blood Alone" }
-			add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 amount = $QTY$ producer = USA }
-		}
-		else = {
-			add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = $QTY$ producer = USA }
-		}
-	}
-}
-
-VIE_ap_give_l39ng = {
-	if = {
-		limit = { country_exists = CZE }
-		if = {
-			limit = { has_dlc = "By Blood Alone" }
-			add_equipment_to_stockpile = { type = small_plane_strike_airframe_1 variant_name = "Aero L-39" amount = $QTY$ producer = CZE }
-		}
-		else = {
-			add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = $QTY$ producer = CZE }
-		}
-	}
-}
 
 # E1 - Hop tac quoc phong An Do (3/2000): A dai tu + dao tao (lich su), B chi dao tao.
 VIE_ap_reward_india_dca_a = {
