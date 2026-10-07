@@ -2,7 +2,7 @@ ideas = {
 	country = {
 		# Binh chung Cuu ho - Cuu nan
 		VIE_military_rescue_idea = {
-			picture = generic_military_mission
+			picture = VIE_military_rescue
 			allowed = { always = no }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no

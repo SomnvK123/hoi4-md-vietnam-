@@ -1,0 +1,39 @@
+spriteTypes = {
+	# 21st-Century Vietnam Idea Icons (National Spirits & Government Laws)
+
+	# 1. Binh chung Cuu ho - Cuu nan / Phong thu dan su (Bao Yagi)
+	spriteType = {
+		name = "GFX_idea_VIE_military_rescue"
+		texturefile = "gfx/interface/ideas/VIE_idea_military_rescue.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_military_mission"
+		texturefile = "gfx/interface/ideas/VIE_idea_military_rescue.dds"
+	}
+
+	# 2. Tu chu Cong nghe Quoc phong & Ran de noi dia
+	spriteType = {
+		name = "GFX_idea_VIE_self_reliant_deterrence"
+		texturefile = "gfx/interface/ideas/VIE_idea_self_reliant_deterrence.dds"
+	}
+
+	# 3. Doanh nghiep Quoc phong Nong cot
+	spriteType = {
+		name = "GFX_idea_VIE_def_ind_core"
+		texturefile = "gfx/interface/ideas/VIE_idea_def_ind_core.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_central_planning"
+		texturefile = "gfx/interface/ideas/VIE_idea_def_ind_core.dds"
+	}
+
+	# 4. Co phan hoa & Thoai von Doanh nghiep
+	spriteType = {
+		name = "GFX_idea_VIE_def_ind_divest"
+		texturefile = "gfx/interface/ideas/VIE_idea_def_ind_divest.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_privatisation"
+		texturefile = "gfx/interface/ideas/VIE_idea_def_ind_divest.dds"
+	}
+}

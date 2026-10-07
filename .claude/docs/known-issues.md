@@ -39,7 +39,7 @@ không prerequisite mâu thuẫn mutex, không toạ độ trùng, không forwar
 | F9 | 6 tên icon không tìm thấy trong `.gfx` của MD hay của mod: `focus_generic_military_mission` (6 focus), `focus_generic_diplomatic_treaty` (2), `focus_generic_destroyer` (2), `focus_generic_industry_2`, `focus_generic_industry_3`, `goal_generic_radar`. Có thể là sprite vanilla, chưa đối chiếu được (không có vanilla trên máy) | Cần xác minh |
 | ~~F10~~ | ~~13 focus `VIE_lf_arm_*` / `VIE_lf_cap_*` bọc cả reward trong `if = { limit = { VIE_lf_arm_slot_free = yes } }`~~ (đã unwrap 7 focus) | Đã xong |
 | F11 | Độ sâu prerequisite tối đa 16 (`VIE_lf_force_complete`), chuỗi lục quân dài. Nhánh khác ổn (chuỗi đơn dài nhất 5) | Thiết kế |
-| F12 | Sprite idea `generic_military_mission` (2 idea), `generic_central_planning` và `generic_privatisation` chưa thấy sprite idea tương ứng trong MD (`generic_central_planning` chỉ có sprite focus); chưa xác minh vanilla trong game | Cần xác minh trong game |
+| ~~F12~~ | ~~Sprite idea `generic_military_mission` (2 idea), `generic_central_planning` và `generic_privatisation`~~: Đã tạo 4 icon 21st-century chuyên biệt chuẩn 60x68 DDS và khai báo trong `interface/VIE_md_ideas.gfx` ngày 07/10/2026. | Đã xong |
 
 ## Nợ nội dung
 

@@ -39,7 +39,7 @@ ideas = {
 
 		# Nga re Core: giu doanh nghiep quan doi lam nong cot.
 		VIE_def_ind_core_idea = {
-			picture = generic_central_planning
+			picture = VIE_def_ind_core
 			cancel_if_invalid = no
 
 			modifier = {
@@ -51,7 +51,7 @@ ideas = {
 
 		# Nga re Divest: co phan hoa, thoai von khoi doanh nghiep khong thiet yeu.
 		VIE_def_ind_divest_idea = {
-			picture = generic_privatisation
+			picture = VIE_def_ind_divest
 			cancel_if_invalid = no
 
 			modifier = {
@@ -63,7 +63,7 @@ ideas = {
 
 		# Capstone: tu chu ve cong nghe quoc phong, ran de bang nang luc noi dia.
 		VIE_self_reliant_deterrence_idea = {
-			picture = generic_military_mission
+			picture = VIE_self_reliant_deterrence
 			cancel_if_invalid = no
 
 			modifier = {
