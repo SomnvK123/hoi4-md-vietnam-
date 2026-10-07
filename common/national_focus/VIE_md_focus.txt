@@ -127,7 +127,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_grassroots_democracy
-		icon = election2
+		icon = GFX_focus_VIE_grassroots_democracy
 
 		x = -70
 		y = 2
@@ -154,7 +154,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_anti_corruption_steering
-		icon = blr_anti_corruption_law
+		icon = GFX_focus_VIE_anti_corruption_steering
 
 		x = -70
 		y = 4
@@ -183,7 +183,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_prepare_congress_9
-		icon = legislative_palace
+		icon = GFX_focus_VIE_prepare_congress_9
 
 		x = -66
 		y = 1
@@ -211,7 +211,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_resolution_congress_9
-		icon = legislative_palace
+		icon = GFX_focus_VIE_resolution_congress_9
 
 		x = -66
 		y = 2
@@ -252,7 +252,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_resolution_congress_10
-		icon = legislative_palace
+		icon = GFX_focus_VIE_resolution_congress_10
 
 		x = -66
 		y = 3
@@ -289,7 +289,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_resolution_congress_11
-		icon = legislative_palace
+		icon = GFX_focus_VIE_resolution_congress_11
 
 		x = -66
 		y = 4
@@ -326,7 +326,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_resolution_congress_12
-		icon = legislative_palace
+		icon = GFX_focus_VIE_resolution_congress_12
 
 		x = -66
 		y = 5
@@ -368,7 +368,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_resolution_congress_13
-		icon = legislative_palace
+		icon = GFX_focus_VIE_resolution_congress_13
 
 		x = -66
 		y = 6
@@ -405,7 +405,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_resolution_congress_14
-		icon = legislative_palace
+		icon = GFX_focus_VIE_resolution_congress_14
 
 		x = -66
 		y = 7
@@ -442,7 +442,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_party_members_private_business
-		icon = economic_privatisation
+		icon = GFX_focus_VIE_party_members_private_business
 
 		x = -72
 		y = 4
@@ -474,7 +474,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_platform_2011
-		icon = legislative_palace
+		icon = GFX_focus_VIE_platform_2011
 
 		x = -68
 		y = 5
@@ -497,7 +497,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_tw4_party_building
-		icon = Generic_Political_Purge
+		icon = GFX_focus_VIE_tw4_party_building
 
 		x = -70
 		y = 5
@@ -3439,7 +3439,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_mass_mobilization
-		icon = election2
+		icon = GFX_focus_VIE_mass_mobilization
 
 		x = -62
 		y = 2
@@ -3469,7 +3469,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_rule_of_law_state
-		icon = legislative_palace
+		icon = GFX_focus_VIE_rule_of_law_state
 
 		x = -62
 		y = 5
@@ -3502,7 +3502,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_party_discipline
-		icon = Generic_Political_Purge
+		icon = GFX_focus_VIE_party_discipline
 
 		x = -72
 		y = 7
@@ -3540,7 +3540,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_streamline_apparatus
-		icon = Election
+		icon = GFX_focus_VIE_streamline_apparatus
 
 		x = -64
 		y = 6
@@ -3580,7 +3580,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_era_of_rising
-		icon = economic_prosperity2
+		icon = GFX_focus_VIE_era_of_rising
 
 		x = -66
 		y = 9
@@ -4067,7 +4067,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_resolution_57_68
-		icon = economic_black_market
+		icon = GFX_focus_VIE_resolution_57_68
 
 		x = -62
 		y = 7
@@ -5840,7 +5840,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_national_assembly_role
-		icon = Election
+		icon = GFX_focus_VIE_national_assembly_role
 
 		x = -70
 		y = 3
@@ -5867,7 +5867,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_ethnic_policy
-		icon = focus_generic_land_redistribution
+		icon = GFX_focus_VIE_ethnic_policy
 
 		x = -72
 		y = 3
@@ -5896,7 +5896,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_constitution_2013
-		icon = legislative_palace
+		icon = GFX_focus_VIE_constitution_2013
 
 		x = -62
 		y = 6
@@ -5932,7 +5932,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_higher_education_law
-		icon = focus_generic_education
+		icon = GFX_focus_VIE_higher_education_law
 
 		x = -60
 		y = 7
@@ -5973,7 +5973,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_education_law_2019
-		icon = focus_generic_court
+		icon = GFX_focus_VIE_education_law_2019
 
 		x = -60
 		y = 8
@@ -6005,7 +6005,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_disaster_law_2013
-		icon = Dutch_Watermanagement
+		icon = GFX_focus_VIE_disaster_law_2013
 
 		x = -58
 		y = 7
@@ -6032,7 +6032,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_civil_defense_law_2023
-		icon = focus_generic_military_mission
+		icon = GFX_focus_VIE_civil_defense_law_2023
 
 		x = -58
 		y = 8
@@ -6064,7 +6064,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_cybersecurity_law
-		icon = army_cyberwar
+		icon = GFX_focus_VIE_cybersecurity_law
 
 		x = -60
 		y = 6
@@ -6097,7 +6097,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_anti_corruption_law
-		icon = blr_anti_corruption_law
+		icon = GFX_focus_VIE_anti_corruption_law
 
 		x = -68
 		y = 4
@@ -6133,7 +6133,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_asset_declaration
-		icon = investigation
+		icon = GFX_focus_VIE_asset_declaration
 
 		x = -72
 		y = 5
@@ -6159,7 +6159,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_state_audit
-		icon = focus_generic_financial_agreement
+		icon = GFX_focus_VIE_state_audit
 
 		x = -68
 		y = 3
@@ -6194,7 +6194,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_party_inspection
-		icon = Generic_Political_Purge
+		icon = GFX_focus_VIE_party_inspection
 
 		x = -72
 		y = 6
@@ -6223,7 +6223,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_asset_recovery
-		icon = money
+		icon = GFX_focus_VIE_asset_recovery
 
 		x = -72
 		y = 8
@@ -6256,7 +6256,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_clean_cadres
-		icon = focus_generic_freedom_council
+		icon = GFX_focus_VIE_clean_cadres
 
 		x = -72
 		y = 9
@@ -6286,7 +6286,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_public_admin_reform
-		icon = Decentralization
+		icon = GFX_focus_VIE_public_admin_reform
 
 		x = -62
 		y = 3
@@ -6321,7 +6321,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_decentralization
-		icon = decentralized_economy
+		icon = GFX_focus_VIE_decentralization
 
 		x = -62
 		y = 4
@@ -6349,7 +6349,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_e_government
-		icon = economic_sciencer
+		icon = GFX_focus_VIE_e_government
 
 		x = -64
 		y = 7
@@ -6392,7 +6392,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_institutional_bottlenecks
-		icon = focus_generic_improve_the_administration
+		icon = GFX_focus_VIE_institutional_bottlenecks
 
 		x = -62
 		y = 8
@@ -6427,7 +6427,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_party_centennial_2030
-		icon = legislative_palace
+		icon = GFX_focus_VIE_party_centennial_2030
 
 		x = -66
 		y = 10
@@ -11477,7 +11477,7 @@ focus_tree = {
 	# ==== GEN:R begin ====
 	focus = {
 		id = VIE_concentration_of_power
-		icon = Generic_Political_Purge
+		icon = GFX_focus_VIE_concentration_of_power
 
 		x = -68
 		y = 8
@@ -11522,7 +11522,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_institutional_opening
-		icon = election2
+		icon = GFX_focus_VIE_institutional_opening
 
 		x = -64
 		y = 8
@@ -11560,7 +11560,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_cadre_accountability
-		icon = communist_purge
+		icon = GFX_focus_VIE_cadre_accountability
 
 		x = -74
 		y = 8
@@ -11590,7 +11590,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_peoples_oversight
-		icon = focus_generic_freedom_council
+		icon = GFX_focus_VIE_peoples_oversight
 
 		x = -70
 		y = 7
@@ -11620,7 +11620,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_digital_anticorruption
-		icon = army_cyberwar
+		icon = GFX_focus_VIE_digital_anticorruption
 
 		x = -68
 		y = 7
