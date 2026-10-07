@@ -1,4 +1,4 @@
-"""Script to build Focus Icons for Vietnam Diplomacy & Foreign Affairs (Cluster 2: 9 Focuses)
+"""Redesigned Focus Icons for Vietnam Diplomacy (Cluster 2: 9 Focuses)
 Cluster 2: Trục ASEAN, Đa phương & Biểu tượng Cây tre
 13. asean_integration: Đường lối Đối ngoại (Root focus)
 14. asean_chair: Năm Chủ tịch ASEAN và thúc đẩy COC
@@ -35,7 +35,7 @@ DDS_DIR = ROOT / "gfx" / "interface" / "goals"
 TARGET_SIZE = (93, 91)
 
 # =========================================================================
-# COMMON UTILITIES: DDS SAVER, STARS, LAURELS, SHADOWS
+# COMMON UTILITIES
 # =========================================================================
 
 def save_game_ready_icon(canvas: Image.Image, stem: str):
@@ -88,10 +88,10 @@ def create_gold_star(size: int) -> Image.Image:
     for i in range(5):
         tip = pts[i * 2]
         center = (cx, cy)
-        valley_left = pts[(i * 2 - 1) % 10]
-        draw.polygon([center, tip, valley_left], fill=(255, 248, 125, 170))
-        valley_right = pts[(i * 2 + 1) % 10]
-        draw.polygon([center, tip, valley_right], fill=(185, 135, 10, 180))
+        v_left = pts[(i * 2 - 1) % 10]
+        v_right = pts[(i * 2 + 1) % 10]
+        draw.polygon([center, tip, v_left], fill=(255, 248, 125, 170))
+        draw.polygon([center, tip, v_right], fill=(185, 135, 10, 180))
     return im
 
 
@@ -112,7 +112,6 @@ def create_gold_star_with_glow(size: int, shadow_blur: float = 1.3) -> Image.Ima
 def create_golden_laurel_wreath(width: int = 86, height: int = 74) -> Image.Image:
     im = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(im)
-
     cx, cy = width / 2, height / 2 + 6
     rx, ry = width * 0.43, height * 0.45
 
@@ -124,13 +123,9 @@ def create_golden_laurel_wreath(width: int = 86, height: int = 74) -> Image.Imag
     for side in (-1, 1):
         for i in range(num_leaves):
             t = i / (num_leaves - 1)
-            ang = math.pi * 0.55 + t * math.pi * 0.85
-            if side == 1:
-                ang = math.pi * 0.45 - t * math.pi * 0.85
-
+            ang = math.pi * 0.55 + t * math.pi * 0.85 if side == -1 else math.pi * 0.45 - t * math.pi * 0.85
             px = cx + rx * math.cos(ang)
             py = cy + ry * math.sin(ang)
-
             tang_x = -rx * math.sin(ang)
             tang_y = ry * math.cos(ang)
             tang_len = math.hypot(tang_x, tang_y) + 1e-5
@@ -139,12 +134,10 @@ def create_golden_laurel_wreath(width: int = 86, height: int = 74) -> Image.Imag
 
             leaf_ang = math.atan2(tang_y, tang_x) + (0.45 if side == -1 else -0.45)
             leaf_len = 8.5
-            leaf_w = 4.2
-
             tip_x = px + leaf_len * math.cos(leaf_ang)
             tip_y = py + leaf_len * math.sin(leaf_ang)
-            norm_x = -math.sin(leaf_ang) * (leaf_w * 0.5)
-            norm_y = math.cos(leaf_ang) * (leaf_w * 0.5)
+            norm_x = -math.sin(leaf_ang) * 2.1
+            norm_y = math.cos(leaf_ang) * 2.1
 
             pts = [
                 (px, py),
@@ -154,7 +147,6 @@ def create_golden_laurel_wreath(width: int = 86, height: int = 74) -> Image.Imag
             ]
             draw.polygon(pts, fill=c_leaf, outline=c_shadow)
             draw.line([(px, py), (tip_x, tip_y)], fill=c_leaf_hl, width=1)
-
     return im
 
 
@@ -172,357 +164,375 @@ def apply_ambient_drop_shadow(canvas: Image.Image, radius: float = 1.8) -> Image
     return out
 
 
-def load_md_goal(rel_path: str, target_box: tuple = (76, 68), enhance_color: float = 1.25) -> Image.Image:
-    p = MD_GOALS / rel_path
-    if not p.exists():
-        return Image.new("RGBA", target_box, (0, 0, 0, 0))
-    im = Image.open(p).convert("RGBA")
-    if enhance_color != 1.0:
-        im = ImageEnhance.Color(im).enhance(enhance_color)
-    im = ImageEnhance.Contrast(im).enhance(1.15)
-    im.thumbnail(target_box, Image.Resampling.LANCZOS)
-    return im
-
-
 # =========================================================================
-# 9 CLUSTER 2 ICON BUILDERS
+# 9 CLUSTER 2 BUILDERS
 # =========================================================================
 
-# 13. VIE_asean_integration: Đường lối Đối ngoại (Root)
+# 13. VIE_asean_integration: La bàn thiên văn ngoại giao, Quốc huy Việt Nam & Bó lúa ASEAN
 def build_asean_integration() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    # Base ASEAN mutual trade / world globe
-    base = load_md_goal("00_organizations/asean_mutual_trade.dds", target_box=(84, 70), enhance_color=1.3)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 9), base)
+    laurel = create_golden_laurel_wreath(90, 78)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 8), laurel)
 
-    laurel = create_golden_laurel_wreath(88, 76)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
+    # Celestial Diplomatic Astrolabe Compass & Vietnam National Crest
+    comp = Image.new("RGBA", (52, 50), (0, 0, 0, 0))
+    cdraw = ImageDraw.Draw(comp)
 
-    # 4-Direction Diplomatic Golden Compass with Vietnam Crest Core
-    compass = Image.new("RGBA", (44, 44), (0, 0, 0, 0))
-    cdraw = ImageDraw.Draw(compass)
-    # Outer gold compass ring
-    cdraw.ellipse([2, 2, 41, 41], fill=(235, 195, 45, 255), outline=(130, 90, 15, 255), width=2)
-    cdraw.ellipse([5, 5, 38, 38], fill=(20, 45, 100, 255), outline=(255, 225, 75, 255), width=1)
+    # Outer Astrolabe Gold Ring with engraved cardinal markings
+    cdraw.ellipse([2, 2, 49, 47], fill=(235, 195, 45, 255), outline=(130, 90, 15, 255), width=2)
+    cdraw.ellipse([6, 6, 45, 43], fill=(15, 40, 95, 255), outline=(255, 225, 75, 255), width=1)
 
-    # 4-point star compass rose
-    cx, cy = 22, 22
-    for tip_x, tip_y in [(cx, 4), (cx, 40), (4, cy), (40, cy)]:
-        cdraw.polygon([(cx, cy), (tip_x, tip_y), (cx + (tip_y - cy) * 0.35, cy + (tip_x - cx) * 0.35)], fill=(255, 235, 100, 255))
-        cdraw.polygon([(cx, cy), (tip_x, tip_y), (cx - (tip_y - cy) * 0.35, cy - (tip_x - cx) * 0.35)], fill=(185, 135, 15, 255))
+    # 8-Direction Star Compass Rose
+    cx, cy = 25, 24
+    for i in range(8):
+        ang = i * math.pi / 4 - math.pi / 2
+        r_tip = 19 if i % 2 == 0 else 14
+        tip_x = cx + r_tip * math.cos(ang)
+        tip_y = cy + r_tip * math.sin(ang)
+        ang_left = ang + 0.35
+        ang_right = ang - 0.35
+        w_p = 5.5
+        cdraw.polygon([(cx, cy), (tip_x, tip_y), (cx + w_p * math.cos(ang_left), cy + w_p * math.sin(ang_left))], fill=(255, 240, 120, 255))
+        cdraw.polygon([(cx, cy), (tip_x, tip_y), (cx + w_p * math.cos(ang_right), cy + w_p * math.sin(ang_right))], fill=(185, 135, 15, 255))
 
-    # Central crimson seal of Vietnam
-    cdraw.ellipse([14, 14, 30, 30], fill=(215, 25, 25, 255), outline=(255, 230, 75, 255), width=1)
-    s_core = create_gold_star(9)
-    compass.paste(s_core, (18, 17), s_core)
+    # Core National Coat of Arms Seal (Quốc huy Việt Nam)
+    cdraw.ellipse([15, 14, 35, 34], fill=(218, 37, 29, 255), outline=(255, 222, 35, 255), width=2)
+    s_core = create_gold_star(11)
+    comp.paste(s_core, (19, 18), s_core)
 
-    canvas.paste(compass, ((TARGET_SIZE[0] - compass.width) // 2, 28), compass)
+    canvas.paste(comp, ((TARGET_SIZE[0] - comp.width) // 2, 24), comp)
 
-    # Top gold star
-    star = create_gold_star_with_glow(22)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
+    # Radiant capstone gold star
+    star = create_gold_star_with_glow(24)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -2), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "asean_integration")
     return canvas
 
 
-# 14. VIE_asean_chair: Năm Chủ tịch ASEAN và thúc đẩy COC
+# 14. VIE_asean_chair: Đĩa gốm men lam 10 nhánh lúa vàng ASEAN & Búa chủ tịch cẩm lai nẹp vàng
 def build_asean_chair() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    base = load_md_goal("00_organizations/asean_mutual_trade.dds", target_box=(82, 68), enhance_color=1.35)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 10), base)
+    laurel = create_golden_laurel_wreath(88, 76)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
 
-    laurel = create_golden_laurel_wreath(86, 74)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 10), laurel)
-
-    # ASEAN Chairman Gavel & Crest
-    chair = Image.new("RGBA", (44, 40), (0, 0, 0, 0))
+    # ASEAN Emblem Medallion on Ceramic Cobalt Disc
+    chair = Image.new("RGBA", (50, 48), (0, 0, 0, 0))
     cdraw = ImageDraw.Draw(chair)
-    # ASEAN emblem disk (red circle, yellow padi stalks, blue border)
-    cdraw.ellipse([4, 2, 39, 37], fill=(210, 25, 25, 255), outline=(25, 60, 145, 255), width=3)
-    # Golden sheaf of 10 padi stalks
+
+    # Cobalt blue outer rim with gold rim
+    cdraw.ellipse([4, 2, 45, 43], fill=(20, 55, 135, 255), outline=(235, 195, 45, 255), width=2)
+    # Bright red central circle
+    cdraw.ellipse([9, 7, 40, 38], fill=(218, 37, 29, 255), outline=(255, 255, 255, 255), width=1)
+
+    # Official Sheaf of 10 Padi Stalks in gold tied with red string
     for i in range(-4, 5):
-        cdraw.line([(22 + i * 2, 12), (22 + i * 1.5, 30)], fill=(255, 225, 65, 255), width=2)
-    # Gavel of chairmanship diagonally resting across
-    cdraw.polygon([(6, 12), (18, 6), (22, 14), (10, 20)], fill=(235, 195, 45, 255), outline=(130, 90, 15, 255), width=1)
-    cdraw.line([(14, 13), (38, 35)], fill=(150, 95, 25, 255), width=4)
-    cdraw.line([(14, 13), (38, 35)], fill=(245, 215, 75, 255), width=2)
+        ox = i * 2.2
+        cdraw.line([(24 + ox, 14), (24 + ox * 0.7, 34)], fill=(255, 225, 65, 255), width=2)
+    # Red binding ribbon around stalks
+    cdraw.rectangle([18, 22, 30, 25], fill=(200, 20, 20, 255), outline=(255, 235, 95, 255))
 
-    canvas.paste(chair, ((TARGET_SIZE[0] - chair.width) // 2, 32), chair)
+    # Chairman Gavel resting diagonally in 3D perspective
+    cdraw.polygon([(8, 14), (20, 6), (24, 14), (12, 22)], fill=(235, 195, 45, 255), outline=(130, 90, 15, 255), width=1)
+    cdraw.line([(16, 14), (42, 40)], fill=(130, 80, 20, 255), width=4)
+    cdraw.line([(16, 14), (42, 40)], fill=(245, 215, 75, 255), width=2)
 
-    star = create_gold_star_with_glow(20)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, 0), star)
+    canvas.paste(chair, ((TARGET_SIZE[0] - chair.width) // 2, 26), chair)
+
+    star = create_gold_star_with_glow(22)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "asean_chair")
     return canvas
 
 
-# 15. VIE_code_of_conduct: Bộ Quy tắc Ứng xử ở Biển Đông (COC)
+# 15. VIE_code_of_conduct: Tập hiệp ước pháp lý DOC/COC, bồ câu trắng & ngọn hải đăng Trường Sa
 def build_code_of_conduct() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    base = load_md_goal("00_diplomacy/diplomatic_treaty.dds", target_box=(82, 68), enhance_color=1.2)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 10), base)
+    laurel = create_golden_laurel_wreath(88, 76)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
 
-    laurel = create_golden_laurel_wreath(86, 74)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 10), laurel)
-
-    # DOC/COC Legal Treaty Scroll with Maritime Waves & Peace Dove
-    coc = Image.new("RGBA", (44, 40), (0, 0, 0, 0))
+    # Legal Treaty Parchment Scroll & White Peace Dove over Ocean Reefs
+    coc = Image.new("RGBA", (50, 48), (0, 0, 0, 0))
     cdraw = ImageDraw.Draw(coc)
-    # Scroll paper
-    cdraw.rounded_rectangle([4, 6, 40, 36], radius=3, fill=(245, 240, 220, 255), outline=(190, 145, 30, 255), width=2)
-    # Maritime waves across scroll bottom
-    cdraw.chord([6, 22, 38, 36], 0, 180, fill=(25, 95, 175, 255))
-    # Code of conduct lines
-    for y in [10, 14, 18]:
-        cdraw.line([(8, y), (36, y)], fill=(40, 45, 55, 255), width=2)
-    # White Peace Dove silhouette over waves
-    cdraw.polygon([(16, 22), (22, 16), (28, 20), (25, 25), (19, 26)], fill=(255, 255, 255, 255), outline=(215, 175, 45, 255))
-    # Olive branch
-    cdraw.line([(24, 19), (29, 17)], fill=(60, 160, 60, 255), width=1)
 
-    canvas.paste(coc, ((TARGET_SIZE[0] - coc.width) // 2, 32), coc)
+    # Leather & Parchment Treaty Codex in navy and cream
+    cdraw.rounded_rectangle([5, 8, 44, 42], radius=4, fill=(248, 244, 225, 255), outline=(190, 145, 30, 255), width=2)
+    # Ocean waves at scroll base
+    cdraw.chord([7, 26, 42, 40], 0, 180, fill=(25, 95, 175, 255))
+    # Treaty clauses lines
+    for y in [13, 18, 23]:
+        cdraw.line([(9, y), (36, y)], fill=(45, 55, 70, 255), width=2)
 
-    star = create_gold_star_with_glow(20)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, 0), star)
+    # Peace Dove with spread wings in pure white
+    cdraw.polygon([(18, 26), (25, 18), (32, 22), (28, 29), (22, 30)], fill=(255, 255, 255, 255), outline=(215, 175, 45, 255))
+    # Green olive branch
+    cdraw.line([(28, 21), (34, 18)], fill=(45, 160, 50, 255), width=2)
+
+    # Truong Sa Lighthouse beacon in distance
+    cdraw.polygon([(36, 12), (40, 12), (39, 24), (37, 24)], fill=(218, 37, 29, 255), outline=(255, 222, 35, 255))
+    cdraw.polygon([(38, 12), (44, 8), (44, 16)], fill=(255, 245, 160, 160))
+
+    canvas.paste(coc, ((TARGET_SIZE[0] - coc.width) // 2, 26), coc)
+
+    star = create_gold_star_with_glow(22)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "code_of_conduct")
     return canvas
 
 
-# 16. VIE_un_security_council: Ủy viên không thường trực Hội đồng Bảo an LHQ
+# 16. VIE_un_security_council: Hội trường bàn móng ngựa HĐBA LHQ & Biển tên mạ vàng "VIET NAM"
 def build_un_security_council() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    base = load_md_goal("00_organizations/united_nations.dds", target_box=(82, 68), enhance_color=1.3)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 10), base)
+    laurel = create_golden_laurel_wreath(88, 76)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
 
-    laurel = create_golden_laurel_wreath(86, 74)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 10), laurel)
+    # UN Security Council Horseshoe Chamber Assembly
+    un = Image.new("RGBA", (52, 48), (0, 0, 0, 0))
+    udraw = ImageDraw.Draw(un)
 
-    # UN Security Council Horseshoe Table & "VIET NAM" Plate
-    un_box = Image.new("RGBA", (46, 38), (0, 0, 0, 0))
-    udraw = ImageDraw.Draw(un_box)
-    # UN sky blue medallion
-    udraw.ellipse([6, 2, 40, 36], fill=(70, 150, 230, 255), outline=(235, 195, 45, 255), width=2)
-    # Horseshoe assembly table in navy
-    udraw.arc([10, 8, 36, 34], 0, 180, fill=(255, 255, 255, 255), width=4)
-    # Vietnam Nameplate at center
-    udraw.rounded_rectangle([13, 24, 33, 34], radius=2, fill=(215, 25, 25, 255), outline=(255, 225, 75, 255), width=1)
-    s_un = create_gold_star(6)
-    un_box.paste(s_un, (20, 26), s_un)
+    # UN Sky Blue Medallion with Olive Branches
+    udraw.ellipse([6, 2, 45, 41], fill=(65, 145, 225, 255), outline=(235, 195, 45, 255), width=2)
 
-    canvas.paste(un_box, ((TARGET_SIZE[0] - un_box.width) // 2, 34), un_box)
+    # Horseshoe Council Assembly Table in white leather & gold
+    udraw.arc([11, 8, 40, 36], 0, 180, fill=(255, 255, 255, 255), width=5)
+    udraw.arc([14, 11, 37, 33], 0, 180, fill=(235, 195, 45, 255), width=2)
 
-    star = create_gold_star_with_glow(20)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, 0), star)
+    # Member microphones representation
+    for ang_deg in [30, 60, 90, 120, 150]:
+        ang_rad = ang_deg * math.pi / 180
+        mx = 25.5 + 13 * math.cos(ang_rad)
+        my = 22 + 13 * math.sin(ang_rad)
+        udraw.ellipse([mx - 1, my - 1, mx + 1, my + 1], fill=(30, 30, 30, 255))
+
+    # Prominent Gilded Vietnam Nameplate at Forefront
+    udraw.rounded_rectangle([14, 28, 38, 40], radius=3, fill=(218, 37, 29, 255), outline=(255, 222, 35, 255), width=1)
+    s_un = create_gold_star(7)
+    un.paste(s_un, (22, 30), s_un)
+
+    canvas.paste(un, ((TARGET_SIZE[0] - un.width) // 2, 26), un)
+
+    star = create_gold_star_with_glow(22)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "un_security_council")
     return canvas
 
 
-# 17. VIE_multilateral_champion: Quốc gia đa phương uy tín
+# 17. VIE_multilateral_champion: Địa cầu đa phương viền kinh tuyến vàng, bục diễn đàn & bút ký vàng
 def build_multilateral_champion() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    base = load_md_goal("00_diplomacy/focus_generic_approach_the_west.dds", target_box=(82, 68), enhance_color=1.3)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 10), base)
+    laurel = create_golden_laurel_wreath(90, 78)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 8), laurel)
 
-    laurel = create_golden_laurel_wreath(88, 76)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
-
-    # Multilateral Globe with Rostrum and Golden Quill
-    multi = Image.new("RGBA", (44, 40), (0, 0, 0, 0))
+    # Multilateral Summit Rostrum & Crystal Azure Globe
+    multi = Image.new("RGBA", (50, 48), (0, 0, 0, 0))
     mdraw = ImageDraw.Draw(multi)
-    # Globe in deep azure with golden lat/long lines
-    mdraw.ellipse([4, 2, 39, 37], fill=(30, 85, 160, 255), outline=(235, 195, 45, 255), width=2)
-    for rad in [14, 24, 34]:
-        mdraw.ellipse([21 - rad // 2, 19 - rad // 2, 21 + rad // 2, 19 + rad // 2], outline=(255, 235, 95, 160))
-    # Multilateral rostrum podium at front
-    mdraw.polygon([(14, 20), (28, 20), (26, 36), (16, 36)], fill=(235, 195, 45, 255), outline=(130, 90, 15, 255))
-    mdraw.rectangle([17, 24, 25, 30], fill=(210, 25, 25, 255))
-    s_pod = create_gold_star(5)
-    multi.paste(s_pod, (18, 25), s_pod)
 
-    canvas.paste(multi, ((TARGET_SIZE[0] - multi.width) // 2, 32), multi)
+    # Globe in azure blue with golden lat/long grid
+    mdraw.ellipse([4, 2, 45, 43], fill=(30, 85, 160, 255), outline=(235, 195, 45, 255), width=2)
+    for rad in [14, 26, 36]:
+        mdraw.ellipse([25 - rad // 2, 22 - rad // 2, 25 + rad // 2, 22 + rad // 2], outline=(255, 235, 95, 160))
 
-    star = create_gold_star_with_glow(22)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
+    # International Summit Rostrum Podium with Microphones
+    mdraw.polygon([(16, 22), (34, 22), (31, 42), (19, 42)], fill=(235, 195, 45, 255), outline=(130, 90, 15, 255))
+    # Red national crest banner on rostrum
+    mdraw.rectangle([20, 26, 30, 34], fill=(218, 37, 29, 255), outline=(255, 222, 35, 255))
+    s_pod = create_gold_star(6)
+    multi.paste(s_pod, (22, 27), s_pod)
+
+    # Golden Fountain Pen signing treaty at right
+    mdraw.polygon([(36, 12), (40, 16), (28, 28), (24, 24)], fill=(255, 235, 95, 255), outline=(160, 110, 15, 255))
+
+    canvas.paste(multi, ((TARGET_SIZE[0] - multi.width) // 2, 26), multi)
+
+    star = create_gold_star_with_glow(24)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -2), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "multilateral_champion")
     return canvas
 
 
-# 18. VIE_apec_host: Đăng cai APEC
+# 18. VIE_apec_host: Cánh buồm APEC 3D đa sắc, Cầu Rồng Đà Nẵng & Thái Bình Dương tỏa ánh hào quang
 def build_apec_host() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    base = load_md_goal("00_trade/ExpandTrade.dds", target_box=(82, 68), enhance_color=1.3)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 10), base)
+    laurel = create_golden_laurel_wreath(88, 76)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
 
-    laurel = create_golden_laurel_wreath(86, 74)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 10), laurel)
-
-    # APEC Pacific Rim Summit Emblem (Stylized Sails & Globe)
-    apec = Image.new("RGBA", (44, 40), (0, 0, 0, 0))
+    # Dynamic APEC Sails Emblem & Pacific Rim Horizon
+    apec = Image.new("RGBA", (50, 48), (0, 0, 0, 0))
     adraw = ImageDraw.Draw(apec)
-    # Pacific Ocean disk in aquamarine
-    adraw.ellipse([4, 4, 39, 39], fill=(20, 110, 160, 255), outline=(235, 195, 45, 255), width=2)
-    # Stylized multi-colored APEC sails: Green, Blue, Red
-    adraw.polygon([(10, 32), (18, 12), (22, 32)], fill=(35, 160, 65, 255), outline=(255, 255, 255, 200))
-    adraw.polygon([(18, 32), (24, 8), (28, 32)], fill=(30, 95, 195, 255), outline=(255, 255, 255, 200))
-    adraw.polygon([(24, 32), (32, 14), (34, 32)], fill=(215, 35, 35, 255), outline=(255, 255, 255, 200))
-    # Sunbeam over Pacific
-    adraw.arc([6, 6, 38, 38], 200, 340, fill=(255, 230, 75, 255), width=2)
 
-    canvas.paste(apec, ((TARGET_SIZE[0] - apec.width) // 2, 32), apec)
+    # Pacific Ocean Disc in turquoise-cyan
+    adraw.ellipse([4, 4, 45, 45], fill=(20, 110, 165, 255), outline=(235, 195, 45, 255), width=2)
 
-    star = create_gold_star_with_glow(20)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, 0), star)
+    # Stylized 3D Multi-colored APEC Sails: Emerald Green, Deep Azure, Scarlet Red
+    # Green sail
+    adraw.polygon([(10, 36), (20, 12), (24, 36)], fill=(35, 165, 75, 255), outline=(255, 255, 255, 220))
+    # Blue sail
+    adraw.polygon([(20, 36), (28, 8), (32, 36)], fill=(25, 95, 205, 255), outline=(255, 255, 255, 220))
+    # Red sail
+    adraw.polygon([(28, 36), (38, 14), (40, 36)], fill=(218, 37, 29, 255), outline=(255, 255, 255, 220))
+
+    # Golden Sunbeam rising over Pacific Rim
+    adraw.arc([6, 6, 44, 44], 200, 340, fill=(255, 230, 75, 255), width=2)
+
+    canvas.paste(apec, ((TARGET_SIZE[0] - apec.width) // 2, 26), apec)
+
+    star = create_gold_star_with_glow(22)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "apec_host")
     return canvas
 
 
-# 19. VIE_mekong_commission: Ủy hội sông Mê Kông (MRC)
+# 19. VIE_mekong_commission: Dải lụa sông Mê Kông ngọc bích, giọt nước sinh thái & vòng 6 nước ven sông
 def build_mekong_commission() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    base = load_md_goal("00_economy/economic_water_supply.dds", target_box=(82, 68), enhance_color=1.3)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 10), base)
+    laurel = create_golden_laurel_wreath(88, 76)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
 
-    laurel = create_golden_laurel_wreath(86, 74)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 10), laurel)
-
-    # Mekong River Commission (MRC) Hydrological Emblem
-    mrc = Image.new("RGBA", (44, 40), (0, 0, 0, 0))
+    # MRC Hydrological River Basin & Ecological Droplet
+    mrc = Image.new("RGBA", (50, 48), (0, 0, 0, 0))
     mdraw = ImageDraw.Draw(mrc)
-    # Emerald river basin disk
-    mdraw.ellipse([4, 2, 39, 37], fill=(25, 130, 115, 255), outline=(235, 195, 45, 255), width=2)
-    # Meandering Mekong river wave in bright aqua
-    pts_river = [(10, 34), (16, 26), (24, 28), (28, 16), (26, 6), (30, 6), (32, 18), (28, 32), (18, 32), (12, 36)]
-    mdraw.polygon(pts_river, fill=(80, 220, 240, 255), outline=(255, 255, 255, 220))
-    # Golden water droplet
-    mdraw.ellipse([18, 14, 26, 24], fill=(255, 230, 75, 255), outline=(140, 95, 15, 255))
 
-    canvas.paste(mrc, ((TARGET_SIZE[0] - mrc.width) // 2, 32), mrc)
+    # Emerald River Basin Disc
+    mdraw.ellipse([4, 2, 45, 43], fill=(25, 135, 120, 255), outline=(235, 195, 45, 255), width=2)
 
-    star = create_gold_star_with_glow(20)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, 0), star)
+    # Meandering Mekong River ribbon flowing through the disc
+    pts_river = [(10, 40), (18, 30), (28, 32), (32, 18), (28, 6), (33, 6), (37, 20), (32, 36), (20, 36), (12, 42)]
+    mdraw.polygon(pts_river, fill=(80, 225, 245, 255), outline=(255, 255, 255, 240))
+
+    # Golden Ecological Freshwater Droplet in center
+    mdraw.ellipse([20, 16, 30, 28], fill=(255, 230, 75, 255), outline=(140, 95, 15, 255), width=1)
+    s_drop = create_gold_star(6)
+    mrc.paste(s_drop, (22, 18), s_drop)
+
+    canvas.paste(mrc, ((TARGET_SIZE[0] - mrc.width) // 2, 26), mrc)
+
+    star = create_gold_star_with_glow(22)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "mekong_commission")
     return canvas
 
 
-# 20. VIE_mekong_dams_response: Đáp lại các đập thượng nguồn
+# 20. VIE_mekong_dams_response: Thân đập thủy điện bê tông xả bọt trắng, tháp cảm biến & bông lúa miền Tây
 def build_mekong_dams_response() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    base = load_md_goal("00_energy_resources/water_dam.dds", target_box=(82, 68), enhance_color=1.3)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 10), base)
+    laurel = create_golden_laurel_wreath(88, 76)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 9), laurel)
 
-    laurel = create_golden_laurel_wreath(86, 74)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 10), laurel)
-
-    # Mega-dam barrier & telemetry monitoring radar gauge
-    dam = Image.new("RGBA", (44, 40), (0, 0, 0, 0))
+    # Hydroelectric Dam Spillway Wall & Telemetry Sensor Mast
+    dam = Image.new("RGBA", (50, 48), (0, 0, 0, 0))
     ddraw = ImageDraw.Draw(dam)
-    # Dam concrete spillway in industrial steel-gray
-    ddraw.polygon([(4, 12), (39, 12), (35, 36), (8, 36)], fill=(150, 155, 165, 255), outline=(70, 75, 80, 255), width=2)
-    # Dam floodgate slots
-    for x in [12, 20, 28]:
-        ddraw.rectangle([x, 14, x + 4, 30], fill=(25, 85, 150, 255))
-        # Gushing water spray
-        ddraw.line([(x + 2, 30), (x + 2, 36)], fill=(120, 210, 255, 255), width=2)
-    # Sensor telemetry tower on dam crown
-    ddraw.polygon([(20, 4), (24, 4), (23, 12), (21, 12)], fill=(235, 195, 45, 255))
-    ddraw.arc([16, 0, 28, 8], 180, 360, fill=(255, 230, 80, 255), width=2)
 
-    canvas.paste(dam, ((TARGET_SIZE[0] - dam.width) // 2, 32), dam)
+    # Massive Concrete Dam Wall
+    ddraw.polygon([(4, 14), (45, 14), (41, 42), (8, 42)], fill=(155, 160, 170, 255), outline=(70, 75, 85, 255), width=2)
+    # Sluice Floodgates with gushing water spray
+    for x in [13, 23, 33]:
+        ddraw.rectangle([x, 16, x + 5, 34], fill=(25, 85, 150, 255))
+        # White foam rushing down
+        ddraw.line([(x + 2, 34), (x + 2, 42)], fill=(160, 230, 255, 255), width=2)
 
-    star = create_gold_star_with_glow(20)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, 0), star)
+    # Telemetry Monitoring Mast on dam crest
+    ddraw.polygon([(23, 4), (27, 4), (26, 14), (24, 14)], fill=(235, 195, 45, 255))
+    ddraw.arc([18, 0, 32, 10], 180, 360, fill=(255, 230, 80, 255), width=2)
+
+    # Golden Rice Stalk guarding against drought at bottom
+    ddraw.arc([6, 36, 44, 46], 0, 180, fill=(255, 222, 35, 255), width=2)
+
+    canvas.paste(dam, ((TARGET_SIZE[0] - dam.width) // 2, 26), dam)
+
+    star = create_gold_star_with_glow(22)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -1), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "mekong_dams_response")
     return canvas
 
 
-# 21. VIE_bamboo_diplomacy: Bản lĩnh ngoại giao cây tre Việt Nam (Capstone)
+# 21. VIE_bamboo_diplomacy: KIỆT TÁC 3D NGOẠI GIAO CÂY TRE VIỆT NAM (CAPSTONE)
+# "Gốc vững, thân chắc, cành uyển chuyển"
 def build_bamboo_diplomacy() -> Image.Image:
     canvas = Image.new("RGBA", TARGET_SIZE, (0, 0, 0, 0))
 
-    # Base grand financial agreement / diplomatic halo
-    base = load_md_goal("00_diplomacy/focus_generic_financial_agreement.dds", target_box=(86, 72), enhance_color=1.35)
-    canvas.paste(base, ((TARGET_SIZE[0] - base.width) // 2, 8), base)
+    # Triumphant golden laurel wreath
+    laurel = create_golden_laurel_wreath(92, 80)
+    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 7), laurel)
 
-    # Triumphant full golden laurel wreath
-    laurel = create_golden_laurel_wreath(90, 78)
-    canvas.paste(laurel, ((TARGET_SIZE[0] - laurel.width) // 2, 8), laurel)
-
-    # Magnificent 3D Golden Bamboo Grove (Lũy Tre Việt Nam)
-    # Concept: "Gốc vững, thân chắc, cành uyển chuyển"
-    bamboo = Image.new("RGBA", (50, 46), (0, 0, 0, 0))
+    # Majestic 3D Golden Bamboo Grove (Lũy Tre Ngà Việt Nam)
+    bamboo = Image.new("RGBA", (56, 52), (0, 0, 0, 0))
     bdraw = ImageDraw.Draw(bamboo)
 
-    # Earth mound with deep roots (Gốc vững)
-    bdraw.ellipse([4, 34, 45, 45], fill=(120, 80, 25, 255), outline=(215, 175, 45, 255), width=1)
-    # Deep golden root lines
-    for rx in [12, 18, 25, 32, 38]:
-        bdraw.line([(rx, 38), (rx + (rx - 25) * 0.4, 44)], fill=(235, 195, 45, 255), width=2)
+    # Fertile Mother Earth Mound with Deep Gilded Roots (GỐC VỮNG)
+    bdraw.ellipse([4, 38, 51, 51], fill=(110, 70, 20, 255), outline=(215, 175, 45, 255), width=2)
+    for rx in [12, 19, 28, 36, 44]:
+        bdraw.line([(rx, 42), (rx + (rx - 28) * 0.45, 50)], fill=(235, 195, 45, 255), width=2)
 
-    # 3 Sturdy Bamboo Culms (Thân chắc) in golden-emerald bamboo shades
-    # Center culm
-    cx = 25
-    for seg_y in [30, 22, 14, 6]:
-        bdraw.rounded_rectangle([cx - 4, seg_y, cx + 4, seg_y + 7], radius=2, fill=(235, 195, 45, 255), outline=(130, 90, 15, 255), width=1)
-        bdraw.line([(cx - 5, seg_y + 7), (cx + 5, seg_y + 7)], fill=(255, 235, 95, 255), width=2)
+    # Sturdy Segmented Golden Culms (THÂN CHẮC)
+    # Center dominant culm
+    cx = 28
+    for seg_y in [32, 23, 14, 5]:
+        bdraw.rounded_rectangle([cx - 4, seg_y, cx + 4, seg_y + 8], radius=2, fill=(245, 205, 55, 255), outline=(140, 95, 15, 255), width=1)
+        # Ring joint node
+        bdraw.line([(cx - 5, seg_y + 8), (cx + 5, seg_y + 8)], fill=(255, 240, 120, 255), width=2)
 
-    # Left bending culm
-    for i, seg_y in enumerate([32, 24, 17, 10]):
-        ox = -8 - i * 1.5
-        bdraw.rounded_rectangle([cx + ox - 3, seg_y, cx + ox + 3, seg_y + 6], radius=2, fill=(180, 195, 45, 255), outline=(100, 110, 15, 255), width=1)
+    # Left resilient culm bending dynamically with wind
+    for i, seg_y in enumerate([34, 25, 17, 9]):
+        ox = -9 - i * 1.8
+        bdraw.rounded_rectangle([cx + ox - 3, seg_y, cx + ox + 3, seg_y + 7], radius=2, fill=(195, 210, 50, 255), outline=(110, 120, 15, 255), width=1)
+        bdraw.line([(cx + ox - 4, seg_y + 7), (cx + ox + 4, seg_y + 7)], fill=(255, 240, 110, 255), width=2)
 
-    # Right bending culm
-    for i, seg_y in enumerate([32, 24, 17, 10]):
-        ox = 8 + i * 1.5
-        bdraw.rounded_rectangle([cx + ox - 3, seg_y, cx + ox + 3, seg_y + 6], radius=2, fill=(180, 195, 45, 255), outline=(100, 110, 15, 255), width=1)
+    # Right resilient culm
+    for i, seg_y in enumerate([34, 25, 17, 9]):
+        ox = 9 + i * 1.8
+        bdraw.rounded_rectangle([cx + ox - 3, seg_y, cx + ox + 3, seg_y + 7], radius=2, fill=(195, 210, 50, 255), outline=(110, 120, 15, 255), width=1)
+        bdraw.line([(cx + ox - 4, seg_y + 7), (cx + ox + 4, seg_y + 7)], fill=(255, 240, 110, 255), width=2)
 
-    # Graceful bamboo leaves swaying in wind (Cành uyển chuyển)
-    leaf_pts = [
-        # Left cluster
-        [(15, 10), (6, 5), (10, 12)],
-        [(14, 16), (4, 15), (11, 20)],
-        # Right cluster
-        [(35, 10), (44, 5), (40, 12)],
-        [(36, 16), (46, 15), (39, 20)],
-        # Top cluster
-        [(25, 6), (19, 0), (22, 8)],
-        [(25, 6), (31, 0), (28, 8)],
+    # Graceful Cascading Leaves swaying in breeze (CÀNH UYỂN CHUYỂN)
+    leaf_polys = [
+        # Left foliage
+        [(16, 9), (4, 4), (9, 13)],
+        [(15, 16), (2, 14), (8, 21)],
+        [(12, 24), (2, 25), (8, 30)],
+        # Right foliage
+        [(39, 9), (51, 4), (46, 13)],
+        [(40, 16), (53, 14), (47, 21)],
+        [(43, 24), (53, 25), (47, 30)],
+        # Top canopy foliage
+        [(28, 5), (19, 0), (24, 7)],
+        [(28, 5), (37, 0), (32, 7)],
     ]
-    for pts in leaf_pts:
-        bdraw.polygon(pts, fill=(255, 235, 95, 255), outline=(140, 120, 20, 255))
+    for pts in leaf_polys:
+        bdraw.polygon(pts, fill=(255, 235, 95, 255), outline=(150, 130, 20, 255))
 
-    # Center golden seal of Vietnam on culm base
-    bdraw.ellipse([18, 22, 32, 36], fill=(215, 25, 25, 255), outline=(255, 230, 75, 255), width=1)
-    s_bam = create_gold_star(8)
-    bamboo.paste(s_bam, (21, 25), s_bam)
+    # Core Red Emblem with Gold Star on bamboo trunk
+    bdraw.ellipse([20, 23, 36, 39], fill=(218, 37, 29, 255), outline=(255, 222, 35, 255), width=2)
+    s_bam = create_gold_star(9)
+    bamboo.paste(s_bam, (23, 26), s_bam)
 
-    canvas.paste(bamboo, ((TARGET_SIZE[0] - bamboo.width) // 2, 26), bamboo)
+    canvas.paste(bamboo, ((TARGET_SIZE[0] - bamboo.width) // 2, 24), bamboo)
 
-    # Radiant summit 3D Gold Star
-    star = create_gold_star_with_glow(24)
-    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -2), star)
+    # Radiant Summit 3D Star of Vietnam illuminating the grove
+    star = create_gold_star_with_glow(26)
+    canvas.paste(star, ((TARGET_SIZE[0] - star.width) // 2, -3), star)
 
     canvas = apply_ambient_drop_shadow(canvas)
     save_game_ready_icon(canvas, "bamboo_diplomacy")
@@ -531,7 +541,7 @@ def build_bamboo_diplomacy() -> Image.Image:
 
 def main():
     print("=" * 60)
-    print("BUILDING CLUSTER 2: 9 DIPLOMACY FOCUS ICONS")
+    print("REBUILDING CLUSTER 2: 9 REDESIGNED DIPLOMACY FOCUS ICONS")
     print("=" * 60)
 
     builders = [
@@ -549,7 +559,7 @@ def main():
     for stem, fn in builders:
         fn()
 
-    print("\nCluster 2 complete! 9 icons rendered & saved.")
+    print("\nCluster 2 Redesign complete! 9 icons rendered & saved.")
 
 
 if __name__ == "__main__":
