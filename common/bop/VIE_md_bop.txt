@@ -8,6 +8,8 @@ VIE_party_balance = {
 	initial_value = -0.1
 	left_side = VIE_conservative_side
 	right_side = VIE_reform_side
+	decision_category = VIE_party_balance_category
+
 
 	range = {
 		id = VIE_mid_range

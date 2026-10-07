@@ -19,6 +19,7 @@ Repo KHÔNG phải repo upstream MD. Không có `Changelog.txt`, `.github/`, `to
 | Tìm bug theo pattern, review diff | [docs/bug-patterns.md](docs/bug-patterns.md) |
 | Bẫy engine (scope, guard, FROM...) | [docs/engine-pitfalls.md](docs/engine-pitfalls.md) |
 | Lỗi đã biết còn tồn đọng | [docs/known-issues.md](docs/known-issues.md) |
+| Thiết kế mỹ thuật & Icon toàn bộ submod | [docs/art-style-guide/README.md](docs/art-style-guide/README.md) |
 
 Tài liệu thiết kế nằm ở gốc repo (`VIE_*.md`, `Con_duong_Kien_dinh_*.md`). Trước khi đổi một hệ thống
 (trục quân sự, không quân, hải quân, lực lượng đặc biệt, chế độ, state-building) hãy đọc file thiết kế

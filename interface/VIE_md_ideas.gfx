@@ -36,4 +36,24 @@ spriteTypes = {
 		name = "GFX_idea_generic_privatisation"
 		texturefile = "gfx/interface/ideas/VIE_idea_def_ind_divest.dds"
 	}
+
+	# 5. Co gioi hoa theo chuan XCB-01 (IFV)
+	spriteType = {
+		name = "GFX_idea_VIE_xcb01_mechanized"
+		texturefile = "gfx/interface/ideas/VIE_idea_xcb01_mechanized.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_VIE_xcb01_mechanized_idea"
+		texturefile = "gfx/interface/ideas/VIE_idea_xcb01_mechanized.dds"
+	}
+
+	# 6. Noi dia hoa phao tu hanh K9 (SPG)
+	spriteType = {
+		name = "GFX_idea_VIE_k9_localization"
+		texturefile = "gfx/interface/ideas/VIE_idea_k9_localization.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_VIE_k9_localization_idea"
+		texturefile = "gfx/interface/ideas/VIE_idea_k9_localization.dds"
+	}
 }

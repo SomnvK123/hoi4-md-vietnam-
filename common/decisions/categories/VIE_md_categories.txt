@@ -115,3 +115,14 @@ VIE_sec_category = {
 	priority = 88
 	visible = { has_country_flag = VIE_security_active }
 }
+
+# Cán cân Định hướng của Đảng (liên kết với VIE_party_balance trong common/bop/VIE_md_bop.txt)
+VIE_party_balance_category = {
+	allowed = { original_tag = VIE }
+	priority = 100
+	visible = {
+		has_country_flag = VIE_bop_active
+	}
+}
+
+

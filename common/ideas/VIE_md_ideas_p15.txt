@@ -13,7 +13,7 @@ ideas = {
 		# (bao cao muc 6.5 canh bao dung diem nay). IFV trong MD dung archetype
 		# medium_tank_flame_chassis (VIE_variant_research.md muc 2).
 		VIE_xcb01_mechanized_idea = {
-			picture = army_planning
+			picture = VIE_xcb01_mechanized
 			cancel_if_invalid = no
 
 			modifier = {
@@ -102,7 +102,7 @@ ideas = {
 		# nhung chi ap cho 1 category hep, va D8 la decision cuoi chuoi (can D3 xong
 		# + VIE_k9_purchased + VIE_k9_localization) nen khong som duoc.
 		VIE_k9_localization_idea = {
-			picture = army_planning
+			picture = VIE_k9_localization
 			cancel_if_invalid = no
 
 			# CAT_self_propelled_artillery KHONG ton tai trong common/technologies/
