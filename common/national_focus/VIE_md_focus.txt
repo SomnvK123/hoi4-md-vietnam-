@@ -2763,7 +2763,7 @@ focus_tree = {
 	## v6-fix: anchor moved above its dependents (engine resolves relative_position_id in file order)
 	focus = {
 		id = VIE_asean_integration
-		icon = trade_with_asean
+		icon = GFX_focus_VIE_asean_integration
 
 		x = -34
 		y = 12
@@ -2799,7 +2799,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_border_settlement
-		icon = treaty2
+		icon = GFX_focus_VIE_border_settlement
 
 		x = -14
 		y = 2
@@ -5457,7 +5457,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_asean_chair
-		icon = trade_with_asean
+		icon = GFX_focus_VIE_asean_chair
 
 		x = -4
 		y = 1
@@ -5489,7 +5489,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_un_security_council
-		icon = refuse_treaty2
+		icon = GFX_focus_VIE_un_security_council
 
 		x = -2
 		y = 1
@@ -5513,7 +5513,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_us_comprehensive_partnership
-		icon = renounce_treaty
+		icon = GFX_focus_VIE_us_comprehensive_partnership
 
 		x = 0
 		y = 2
@@ -5542,7 +5542,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_us_embargo_lifted
-		icon = forceful_treaty
+		icon = GFX_focus_VIE_us_embargo_lifted
 
 		x = 0
 		y = 3
@@ -5579,7 +5579,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_csp_network
-		icon = focus_generic_approach_the_west
+		icon = GFX_focus_VIE_csp_network
 
 		x = 8
 		y = 3
@@ -5617,7 +5617,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_bamboo_diplomacy
-		icon = focus_generic_financial_agreement
+		icon = GFX_focus_VIE_bamboo_diplomacy
 
 		x = 8
 		y = 4
@@ -5648,7 +5648,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_special_relations_laos
-		icon = focus_generic_conference
+		icon = GFX_focus_VIE_special_relations_laos
 
 		x = -10
 		y = 1
@@ -5673,7 +5673,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_cambodia_relations
-		icon = demand_territory3
+		icon = GFX_focus_VIE_cambodia_relations
 
 		x = -6
 		y = 1
@@ -5773,7 +5773,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_indochina_solidarity
-		icon = treaty2
+		icon = GFX_focus_VIE_indochina_solidarity
 
 		x = -8
 		y = 2
@@ -5810,7 +5810,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_indochina_federation
-		icon = treaty2
+		icon = GFX_focus_VIE_indochina_federation
 
 		x = -8
 		y = 3
@@ -7065,7 +7065,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_16_words
-		icon = trade_with_china
+		icon = GFX_focus_VIE_16_words
 
 		x = -14
 		y = 3
@@ -7091,7 +7091,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_border_trade_gates
-		icon = border
+		icon = GFX_focus_VIE_border_trade_gates
 
 		x = -12
 		y = 4
@@ -7120,7 +7120,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_defence_hotline
-		icon = peace
+		icon = GFX_focus_VIE_defence_hotline
 
 		x = -14
 		y = 4
@@ -7153,7 +7153,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_code_of_conduct
-		icon = focus_generic_conference
+		icon = GFX_focus_VIE_code_of_conduct
 
 		x = -4
 		y = 2
@@ -7193,7 +7193,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_shared_future
-		icon = treaty
+		icon = GFX_focus_VIE_shared_future
 
 		x = -12
 		y = 5
@@ -7608,7 +7608,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_gulf_of_tonkin
-		icon = treaty
+		icon = GFX_focus_VIE_gulf_of_tonkin
 
 		x = -14
 		y = 1
@@ -7636,7 +7636,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_apec_host
-		icon = focus_generic_conference
+		icon = GFX_focus_VIE_apec_host
 
 		x = 4
 		y = 1
@@ -7662,7 +7662,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_us_carrier_visit
-		icon = trade_with_america
+		icon = GFX_focus_VIE_us_carrier_visit
 
 		x = 0
 		y = 4
@@ -7695,7 +7695,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_us_tariff_deal
-		icon = trade_with_america
+		icon = GFX_focus_VIE_us_tariff_deal
 
 		x = 2
 		y = 4
@@ -7735,7 +7735,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_cambodia_border
-		icon = border
+		icon = GFX_focus_VIE_cambodia_border
 
 		x = -6
 		y = 2
@@ -7760,7 +7760,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_mekong_commission
-		icon = economic_water_supply
+		icon = GFX_focus_VIE_mekong_commission
 
 		x = -10
 		y = 2
@@ -7783,7 +7783,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_mekong_dams_response
-		icon = Dutch_Watermanagement
+		icon = GFX_focus_VIE_mekong_dams_response
 
 		x = -10
 		y = 3
@@ -7810,7 +7810,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_funan_techo_response
-		icon = treaty2
+		icon = GFX_focus_VIE_funan_techo_response
 
 		x = -6
 		y = 3
@@ -7840,7 +7840,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_india_partnership
-		icon = trade_with_india
+		icon = GFX_focus_VIE_india_partnership
 
 		x = 10
 		y = 2
@@ -7870,7 +7870,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_japan_partnership
-		icon = trade_with_japan
+		icon = GFX_focus_VIE_japan_partnership
 
 		x = 6
 		y = 1
@@ -7902,7 +7902,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_korea_partnership
-		icon = trade_with_east_timor
+		icon = GFX_focus_VIE_korea_partnership
 
 		x = 6
 		y = 2
@@ -7934,7 +7934,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_australia_partnership
-		icon = trade_with_australia
+		icon = GFX_focus_VIE_australia_partnership
 
 		x = 12
 		y = 2
@@ -7962,7 +7962,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_france_eu
-		icon = trade_with_europe
+		icon = GFX_focus_VIE_france_eu
 
 		x = 14
 		y = 2
@@ -7994,7 +7994,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_gulf_investment
-		icon = trade_with_iran
+		icon = GFX_focus_VIE_gulf_investment
 
 		x = 6
 		y = 3
@@ -8023,7 +8023,7 @@ focus_tree = {
 
 	focus = {
 		id = VIE_global_south_ties
-		icon = trade_with_east_africa
+		icon = GFX_focus_VIE_global_south_ties
 
 		x = 10
 		y = 3
@@ -11411,7 +11411,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_us_engagement
-		icon = trade_with_america
+		icon = GFX_focus_VIE_us_engagement
 
 		x = 0
 		y = 1
@@ -11445,7 +11445,7 @@ focus_tree = {
 	###############################
 	focus = {
 		id = VIE_multilateral_champion
-		icon = focus_generic_conference
+		icon = GFX_focus_VIE_multilateral_champion
 
 		x = -2
 		y = 2

@@ -1,0 +1,204 @@
+ID: VIE_asean_integration
+Title: Đường lối Đối ngoại
+Icon: trade_with_asean
+Prereqs: []
+Desc: Đường lối đối ngoại độc lập, tự chủ, hòa bình, hợp tác và phát triển, đa phương hóa, đa dạng hóa quan hệ quốc tế: \
+
+ID: VIE_border_settlement
+Title: Hoàn tất Phân giới Cắm mốc Biên giới
+Icon: treaty2
+Prereqs: ['VIE_gulf_of_tonkin']
+Desc: Hiệp ước biên giới trên đất liền được phê chuẩn, các cột mốc chủ quyền được dựng lên dọc đường biên. Việc loại bỏ các tranh chấp tồn đọng trong lịch sử giúp hai bên giao thương hòa bình.
+
+ID: VIE_asean_chair
+Title: Năm Chủ tịch ASEAN và thúc đẩy COC
+Icon: trade_with_asean
+Prereqs: ['VIE_asean_integration']
+Desc: Việt Nam giữ chức chủ tịch ASEAN năm 2010 (và lần nữa năm 2020), đăng cai các hội nghị thượng đỉnh và định ra chương trình nghị sự.
+
+ID: VIE_un_security_council
+Title: Ủy viên không thường trực Hội đồng Bảo an
+Icon: refuse_treaty2
+Prereqs: ['VIE_asean_integration']
+Desc: Việt Nam làm ủy viên không thường trực nhiệm kỳ 2008-09 và 2020-21.
+
+ID: VIE_us_comprehensive_partnership
+Title: Đối tác toàn diện với Hoa Kỳ
+Icon: renounce_treaty
+Prereqs: ['VIE_us_engagement']
+Desc: Năm 2013, Hà Nội và Washington thiết lập quan hệ đối tác toàn diện.
+
+ID: VIE_us_embargo_lifted
+Title: Dỡ bỏ cấm vận vũ khí của Mỹ
+Icon: forceful_treaty
+Prereqs: ['VIE_us_comprehensive_partnership']
+Desc: Thông báo năm 2016 mở cửa cho vũ khí phương Tây mà không đụng đến Bốn Không.
+
+ID: VIE_csp_network
+Title: Các đối tác chiến lược toàn diện
+Icon: focus_generic_approach_the_west
+Prereqs: ['VIE_india_partnership', 'VIE_korea_partnership', 'VIE_us_comprehensive_partnership']
+Desc: Đến năm 2023, Việt Nam đã nâng quan hệ với Hoa Kỳ và các cường quốc lớn khác lên mức đối tác cao nhất.
+
+ID: VIE_bamboo_diplomacy
+Title: Bản lĩnh ngoại giao cây tre Việt Nam
+Icon: focus_generic_financial_agreement
+Prereqs: ['VIE_csp_network', 'VIE_un_security_council', 'VIE_csp_network']
+Desc: Gốc vững, thân chắc, cành uyển chuyển. Việt Nam giữ mọi cường quốc lớn ở gần, và không ai phải bị chọn.
+
+ID: VIE_special_relations_laos
+Title: Quan hệ đặc biệt với Lào
+Icon: focus_generic_conference
+Prereqs: ['VIE_asean_integration']
+Desc: Những đồng chí cũ và láng giềng gần: quan hệ an ninh, thương mại và thủy điện gắn kết hai nước.
+
+ID: VIE_cambodia_relations
+Title: Quan hệ với Campuchia
+Icon: demand_territory3
+Prereqs: ['VIE_asean_integration']
+Desc: Phân định biên giới, thương mại và hợp tác Mê Kông với Phnom Penh.
+
+ID: VIE_indochina_solidarity
+Title: Đoàn kết Đông Dương
+Icon: treaty2
+Prereqs: ['VIE_special_relations_laos', 'VIE_cambodia_relations', 'VIE_special_relations_laos', 'VIE_cambodia_relations']
+Desc: Việt Nam, Lào và Campuchia phối hợp quốc phòng và ngoại giao. Ý tưởng cũ về một liên bang Đông Dương trở lại.
+
+ID: VIE_indochina_federation
+Title: Liên bang Đông Dương
+Icon: treaty2
+Prereqs: ['VIE_indochina_solidarity']
+Desc: Đưa Lào và Campuchia vào một liên bang duy nhất. Mở khóa quyết định thành lập có sẵn khi các tiểu bang cần thiết được nắm giữ hoặc thành chư hầu.
+
+ID: VIE_16_words
+Title: Phương châm 16 chữ và tinh thần 4 tốt
+Icon: trade_with_china
+Prereqs: ['VIE_border_settlement']
+Desc: 'Láng giềng hữu nghị, hợp tác toàn diện, ổn định lâu dài, hướng tới tương lai.' Một công thức để giữ hòa bình với Bắc Kinh.
+
+ID: VIE_border_trade_gates
+Title: Cửa khẩu thương mại biên giới
+Icon: border
+Prereqs: ['VIE_16_words']
+Desc: Các cửa khẩu ở phía Bắc được mở cho hàng hóa và tiểu thương.
+
+ID: VIE_defence_hotline
+Title: Đường dây nóng quốc phòng và tránh va chạm
+Icon: peace
+Prereqs: ['VIE_16_words']
+Desc: Các bộ trưởng quốc phòng thỏa thuận một đường dây trực tiếp và quy tắc xử lý sự cố trên biển.
+
+ID: VIE_code_of_conduct
+Title: Bộ Quy tắc Ứng xử ở Biển Đông
+Icon: focus_generic_conference
+Prereqs: ['VIE_asean_chair', 'VIE_defence_hotline']
+Desc: Việt Nam cùng ASEAN thúc đẩy một bộ quy tắc có tính ràng buộc và ngăn nó bị pha loãng.
+
+ID: VIE_shared_future
+Title: Cộng đồng chia sẻ tương lai
+Icon: treaty
+Prereqs: ['VIE_16_words', 'VIE_code_of_conduct']
+Desc: Bắc Kinh đề xuất một công thức gắn hai nước chặt hơn. Hà Nội chấp nhận cách diễn đạt nhưng giữ các lựa chọn của mình.
+
+ID: VIE_gulf_of_tonkin
+Title: Phân định Vịnh Bắc Bộ
+Icon: treaty
+Prereqs: ['VIE_asean_integration']
+Desc: Hiệp định năm 2000 với Trung Quốc ấn định ranh giới biển và quy tắc đánh bắt trong vịnh.
+
+ID: VIE_apec_host
+Title: Đăng cai APEC
+Icon: focus_generic_conference
+Prereqs: ['VIE_asean_integration']
+Desc: Lãnh đạo các nền kinh tế Thái Bình Dương tụ họp tại thành phố chủ nhà. Đó là cơ hội để giới thiệu đất nước.
+
+ID: VIE_us_carrier_visit
+Title: Tàu sân bay Mỹ ở Đà Nẵng
+Icon: trade_with_america
+Prereqs: ['VIE_us_embargo_lifted']
+Desc: Một tàu sân bay Hoa Kỳ ghé Đà Nẵng lần đầu tiên kể từ chiến tranh. Bắc Kinh đang theo dõi.
+
+ID: VIE_us_tariff_deal
+Title: Khung thuế quan với Mỹ
+Icon: trade_with_america
+Prereqs: ['VIE_us_embargo_lifted', 'VIE_us_carrier_visit']
+Desc: Một thỏa thuận khung giới hạn mức thuế đánh vào hàng xuất khẩu sang Hoa Kỳ để đổi lấy tiếp cận thị trường.
+
+ID: VIE_cambodia_border
+Title: Phân giới cắm mốc biên giới với Campuchia
+Icon: border
+Prereqs: ['VIE_cambodia_relations']
+Desc: Các đoàn công tác chung cắm mốc dọc biên giới với Campuchia.
+
+ID: VIE_mekong_commission
+Title: Ủy hội sông Mê Kông
+Icon: economic_water_supply
+Prereqs: ['VIE_special_relations_laos']
+Desc: Việt Nam làm việc qua ủy hội sông để thúc đẩy quy tắc chia sẻ nước ở thượng nguồn.
+
+ID: VIE_mekong_dams_response
+Title: Đáp lại các đập thượng nguồn
+Icon: Dutch_Watermanagement
+Prereqs: ['VIE_mekong_commission']
+Desc: Các đập ở thượng nguồn giữ nước vào mùa khô. Hà Nội vận động, giám sát và chuẩn bị cho đồng bằng.
+
+ID: VIE_funan_techo_response
+Title: Ứng phó kênh đào Phù Nam Techo
+Icon: treaty2
+Prereqs: ['VIE_cambodia_border', 'VIE_mekong_dams_response']
+Desc: Kênh đào Campuchia dự định sẽ chuyển hướng nước sông Mê Kông. Việt Nam chọn giữa gây sức ép mạnh và làm việc từng chi tiết.
+
+ID: VIE_india_partnership
+Title: Quan hệ đối tác với Ấn Độ
+Icon: trade_with_india
+Prereqs: ['VIE_japan_partnership']
+Desc: Quan hệ đối tác chiến lược toàn diện với New Delhi mang lại vũ khí, hợp tác dầu mỏ và một người bạn có mâu thuẫn riêng với Bắc Kinh.
+
+ID: VIE_japan_partnership
+Title: Quan hệ đối tác với Nhật Bản
+Icon: trade_with_japan
+Prereqs: ['VIE_asean_integration']
+Desc: Nhật Bản là nguồn viện trợ lớn nhất và một nhà đầu tư hàng đầu, đồng thời là đối tác về an ninh hàng hải.
+
+ID: VIE_korea_partnership
+Title: Quan hệ đối tác với Hàn Quốc
+Icon: trade_with_east_timor
+Prereqs: ['VIE_japan_partnership']
+Desc: Các nhà máy Hàn Quốc tuyển dụng hàng trăm nghìn người và các công ty Hàn Quốc nằm trong số nhà đầu tư lớn nhất.
+
+ID: VIE_australia_partnership
+Title: Quan hệ đối tác với Úc
+Icon: trade_with_australia
+Prereqs: ['VIE_japan_partnership']
+Desc: Giáo dục, tài nguyên và các mối liên hệ quốc phòng gắn Canberra với Hà Nội.
+
+ID: VIE_france_eu
+Title: Pháp và Liên minh châu Âu
+Icon: trade_with_europe
+Prereqs: ['VIE_japan_partnership', 'VIE_evfta']
+Desc: Paris và Brussels đề nghị đầu tư, máy bay và hỗ trợ ngoại giao mà không kèm cái giá về an ninh.
+
+ID: VIE_gulf_investment
+Title: Vốn từ vùng Vịnh
+Icon: trade_with_iran
+Prereqs: ['VIE_korea_partnership']
+Desc: Các quỹ đầu tư quốc gia vùng Vịnh rót tiền vào cảng, nhà máy lọc dầu và bất động sản.
+
+ID: VIE_global_south_ties
+Title: Châu Phi và châu Mỹ Latinh
+Icon: trade_with_east_africa
+Prereqs: ['VIE_india_partnership', 'VIE_gulf_investment']
+Desc: Gạo, viễn thông và ngoại giao mang tên Việt Nam đến những nơi trước đây hầu như chưa từng ghé.
+
+ID: VIE_us_engagement
+Title: Bình thường hóa quan hệ với Hoa Kỳ
+Icon: trade_with_america
+Prereqs: ['VIE_asean_integration']
+Desc: Quan hệ ngoại giao được khôi phục năm 1995. Một tổng thống Mỹ thăm Hà Nội trước khi năm kết thúc, lần đầu tiên kể từ khi chiến tranh chấm dứt.
+
+ID: VIE_multilateral_champion
+Title: Quốc gia đa phương uy tín
+Icon: focus_generic_conference
+Prereqs: ['VIE_un_security_council', 'VIE_cptpp_member', 'VIE_evfta']
+Desc: Từ gia nhập ASEAN, WTO đến ghế Hội đồng Bảo an và các hiệp định thương mại thế hệ mới, Việt Nam đã trở thành một tiếng nói đáng tin cậy trong các diễn đàn đa phương. Vai trò trung gian và hòa giải mở thêm nhiều cửa ngoại giao.
+
