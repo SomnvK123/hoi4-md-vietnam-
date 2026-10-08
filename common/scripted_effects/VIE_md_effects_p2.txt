@@ -24,6 +24,7 @@ VIE_fb_inflation = {
 	decrease_economic_growth = yes
 }
 VIE_fb_vinashin = {
+	hidden_effect = { set_country_flag = VIE_vinashin_crisis_processed }
 	set_temp_variable = { treasury_change = -2 }
 	modify_treasury_effect = yes
 }
@@ -241,6 +242,8 @@ VIE_event_scheduler_p2 = {
 		if = {
 			limit = { check_variable = { VIE_catch_up = 1 } }
 			hidden_effect = { set_country_flag = VIE_sched_vinashin }
+			# Bookmark muon: khung xu ly khung hoang da co, khong thu tien lan nua.
+			hidden_effect = { set_country_flag = VIE_vinashin_crisis_processed }
 		}
 		else_if = {
 			limit = { NOT = { has_country_flag = VIE_popup_cd } }

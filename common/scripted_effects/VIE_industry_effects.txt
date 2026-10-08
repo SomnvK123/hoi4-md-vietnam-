@@ -1,0 +1,22 @@
+# Lua chon FDI dung chung cho focus moi va event dang cho trong save cu.
+# Co ket qua giu lua chon mot lan; khong cap lai thuong khi event den muon.
+VIE_ind_choose_open_fdi = {
+	if = {
+		limit = {
+			NOT = { OR = { has_country_flag = VIE_fdi_open_door has_country_flag = VIE_fdi_technology_screening } }
+		}
+		hidden_effect = { set_country_flag = VIE_fdi_open_door }
+		increase_economic_growth = yes
+	}
+}
+
+VIE_ind_choose_screened_fdi = {
+	if = {
+		limit = {
+			NOT = { OR = { has_country_flag = VIE_fdi_open_door has_country_flag = VIE_fdi_technology_screening } }
+		}
+		hidden_effect = { set_country_flag = VIE_fdi_technology_screening }
+		add_to_variable = { VIE_ind_localization = 2 tooltip = VIE_ind_localization_tt }
+		add_political_power = -25
+	}
+}

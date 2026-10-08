@@ -1,0 +1,45 @@
+namespaces declared: {'vie_air_force': ['events\\VIE_air_force.txt'], 'vie_air_ind': ['events\\VIE_air_ind.txt'], 'vie_air_proc': ['events\\VIE_air_proc.txt'], 'vie_army_commanders': ['events\\VIE_army_commanders.txt'], 'vie_auto': ['events\\VIE_automotive_events.txt'], 'vie_def_ind': ['events\\VIE_def_ind.txt'], 'vie_disaster': ['events\\VIE_disaster_events.txt'], 'vie_ind': ['events\\VIE_industry_events.txt'], 'vie_infra': ['events\\VIE_infra_events.txt'], 'vie_lf': ['events\\VIE_land_force.txt'], 'vie_alt': ['events\\VIE_md_alt.txt', 'events\\VIE_md_p10.txt', 'events\\VIE_md_p11.txt', 'events\\VIE_md_p8.txt', 'events\\VIE_md_p9.txt'], 'vie_axis': ['events\\VIE_md_axis.txt'], 'vie_dip': ['events\\VIE_md_dip.txt', 'events\\VIE_md_p10.txt', 'events\\VIE_md_p6.txt', 'events\\VIE_md_p7.txt'], 'vie_eco': ['events\\VIE_md_eco.txt', 'events\\VIE_md_eco_p2.txt', 'events\\VIE_md_p10.txt', 'events\\VIE_md_p5.txt', 'events\\VIE_md_p6.txt', 'events\\VIE_md_p7.txt'], 'vie_hl': ['events\\VIE_md_hardline.txt'], 'vie_int': ['events\\VIE_md_int_col.txt', 'events\\VIE_md_p10.txt', 'events\\VIE_md_p8.txt'], 'vie_col': ['events\\VIE_md_int_col.txt', 'events\\VIE_md_p11.txt'], 'vie_cor': ['events\\VIE_md_p10.txt', 'events\\VIE_md_p5.txt'], 'vie_news': ['events\\VIE_md_p10.txt'], 'vie_pol': ['events\\VIE_md_p10.txt', 'events\\VIE_md_p5.txt', 'events\\VIE_md_pol.txt'], 'vie_scs': ['events\\VIE_md_p10.txt', 'events\\VIE_md_p11.txt', 'events\\VIE_md_p6.txt', 'events\\VIE_md_scs.txt', 'events\\VIE_md_scs_p2.txt'], 'vie_soc': ['events\\VIE_md_p10.txt', 'events\\VIE_md_p7.txt', 'events\\VIE_md_soc.txt'], 'vie_sec': ['events\\VIE_md_sec.txt'], 'vie_naval': ['events\\VIE_naval.txt'], 'vie_nav_force': ['events\\VIE_nav_force.txt'], 'vie_nav_ind': ['events\\VIE_nav_ind.txt'], 'vie_p1b': ['events\\VIE_p1b.txt'], 'vie_petro': ['events\\VIE_petrolimex_events.txt'], 'vie_proc_army': ['events\\VIE_proc_army.txt'], 'vie_scs_coop': ['events\\VIE_scs_coop.txt']}
+event ids: 320
+DUPLICATE event ids: {}
+  events\VIE_air_force.txt: 15 events, prefixes=['vie_air_force'], add_namespace=True
+  events\VIE_air_ind.txt: 20 events, prefixes=['vie_air_ind'], add_namespace=True
+  events\VIE_air_proc.txt: 13 events, prefixes=['vie_air_proc'], add_namespace=True
+  events\VIE_army_commanders.txt: 2 events, prefixes=['vie_army_commanders'], add_namespace=True
+  events\VIE_automotive_events.txt: 2 events, prefixes=['vie_auto'], add_namespace=True
+  events\VIE_def_ind.txt: 4 events, prefixes=['vie_def_ind'], add_namespace=True
+  events\VIE_disaster_events.txt: 1 events, prefixes=['vie_disaster'], add_namespace=True
+  events\VIE_industry_events.txt: 2 events, prefixes=['vie_ind'], add_namespace=True
+  events\VIE_infra_events.txt: 3 events, prefixes=['vie_infra'], add_namespace=True
+  events\VIE_land_force.txt: 5 events, prefixes=['vie_lf'], add_namespace=True
+  events\VIE_md_alt.txt: 9 events, prefixes=['vie_alt'], add_namespace=True
+  events\VIE_md_axis.txt: 1 events, prefixes=['vie_axis'], add_namespace=True
+  events\VIE_md_dip.txt: 4 events, prefixes=['vie_dip'], add_namespace=True
+  events\VIE_md_eco.txt: 2 events, prefixes=['vie_eco'], add_namespace=True
+  events\VIE_md_eco_p2.txt: 11 events, prefixes=['vie_eco'], add_namespace=True
+  events\VIE_md_hardline.txt: 17 events, prefixes=['vie_hl'], add_namespace=True
+  events\VIE_md_int_col.txt: 2 events, prefixes=['vie_int'], add_namespace=True
+  events\VIE_md_p10.txt: 63 events, prefixes=['vie_alt', 'vie_cor', 'vie_dip', 'vie_eco', 'vie_int', 'vie_news', 'vie_pol', 'vie_scs', 'vie_soc'], add_namespace=True
+  events\VIE_md_p11.txt: 4 events, prefixes=['vie_alt', 'vie_scs'], add_namespace=True
+  events\VIE_md_p5.txt: 5 events, prefixes=['vie_cor', 'vie_eco', 'vie_pol'], add_namespace=True
+  events\VIE_md_p6.txt: 6 events, prefixes=['vie_dip', 'vie_eco', 'vie_scs'], add_namespace=True
+  events\VIE_md_p7.txt: 4 events, prefixes=['vie_dip', 'vie_eco', 'vie_soc'], add_namespace=True
+  events\VIE_md_p8.txt: 2 events, prefixes=['vie_alt'], add_namespace=True
+  events\VIE_md_p9.txt: 1 events, prefixes=['vie_alt'], add_namespace=True
+  events\VIE_md_pol.txt: 17 events, prefixes=['vie_pol'], add_namespace=True
+  events\VIE_md_scs.txt: 3 events, prefixes=['vie_scs'], add_namespace=True
+  events\VIE_md_scs_p2.txt: 5 events, prefixes=['vie_scs'], add_namespace=True
+  events\VIE_md_sec.txt: 2 events, prefixes=['vie_sec'], add_namespace=True
+  events\VIE_md_soc.txt: 7 events, prefixes=['vie_soc'], add_namespace=True
+  events\VIE_naval.txt: 21 events, prefixes=['vie_naval'], add_namespace=True
+  events\VIE_nav_force.txt: 15 events, prefixes=['vie_nav_force'], add_namespace=True
+  events\VIE_nav_ind.txt: 17 events, prefixes=['vie_nav_ind'], add_namespace=True
+  events\VIE_p1b.txt: 12 events, prefixes=['vie_p1b'], add_namespace=True
+  events\VIE_petrolimex_events.txt: 1 events, prefixes=['vie_petro'], add_namespace=True
+  events\VIE_proc_army.txt: 20 events, prefixes=['vie_proc_army'], add_namespace=True
+  events\VIE_scs_coop.txt: 2 events, prefixes=['vie_scs_coop'], add_namespace=True
+
+EVENTS never referenced anywhere (defined only): 0
+[]
+
+EVENTS missing title/desc/option loc: 14  (hidden events excluded: 17)
+['vie_air_force.51', 'vie_lf.2', 'vie_lf.4', 'vie_nav_force.51', 'vie_nav_force.71', 'vie_naval.45', 'vie_naval.52', 'vie_naval.54', 'vie_naval.56', 'vie_p1b.12', 'vie_p1b.14', 'vie_p1b.17', 'vie_p1b.18', 'vie_p1b.21']

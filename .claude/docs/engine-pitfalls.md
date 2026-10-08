@@ -49,6 +49,8 @@ tháng, spam log tốn hiệu năng.
 
 - `relative_position_id` giải theo thứ tự file: anchor khai báo trước con, nếu không là lỗi.
 - Phụ thuộc giữa anh em cùng hàng: dùng `available`, không thêm prerequisite chéo (xem `VIE_focus_coding_standards.md`).
+  Riêng công nghiệp v17: chuyển focus phụ thuộc xuống hàng dưới và hiện quan hệ
+  AND/OR bằng prerequisite, theo `VIE_industry_branch_redesign.md` (08/10/2026).
 - `is_triggered_only = yes` và `fire_only_once = yes` không ngăn on_action bắn lại: guard ở `limit` của caller.
 - Loc: getter sai hoa thường (`GetNamewithFlag`) render rỗng và không báo lỗi.
 

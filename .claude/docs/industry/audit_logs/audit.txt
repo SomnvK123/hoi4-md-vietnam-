@@ -1,0 +1,20 @@
+FOCUSES parsed: 416   shortcuts: 11
+initial_show_position: [('focus', '=', 'VIE_doi_moi_continues', 41)]
+
+=== [FOCUS] dangling prerequisite / anchor / mutually_exclusive ===
+  none
+
+=== [FOCUS] duplicate absolute (x,y): 0 ===
+
+=== [FOCUS] missing absolute x/y: 0 ===  []
+
+=== [FOCUS] forward anchor refs (engine reads top-down -> ERROR): 0 ===
+
+=== [FOCUS] prerequisite cycles: 0 ===
+
+=== [FOCUS] roots: 19 ===
+    ['VIE_doi_moi_continues', 'VIE_prepare_congress_9', 'VIE_hl_unity_of_will', 'VIE_enterprise_law', 'VIE_sez_three_zones', 'VIE_sez_postpone', 'VIE_sez_pass_99', 'VIE_asean_integration', 'VIE_law_of_the_sea', 'VIE_state_bank_modernization', 'VIE_modernize_vpa', 'VIE_shared_future', 'VIE_upper_middle_income', 'VIE_soe_gradual_restructuring', 'VIE_soe_rapid_divestment', 'VIE_household_business', 'VIE_airport_master_plan', 'VIE_peoples_defence', 'VIE_sci_digital_root']
+
+=== [FOCUS] no completion_reward: 0 === []
+=== [FOCUS] no icon: 0 === []
+=== [FOCUS] cost distribution: {'5': 68, '7': 284, None: 62, '16': 1, '8': 1} ===

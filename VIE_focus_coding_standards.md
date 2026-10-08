@@ -286,6 +286,14 @@ focus = { id = VIE_anchor  x = 10  y = 0 }
 
 ### 7.3 CHUẨN BỐ CỤC "HÀNG NGANG" (áp dụng cho TOÀN BỘ cây, chốt 05/10/2026)
 
+**Cập nhật 08/10/2026 — nhánh công nghiệp:** yêu cầu đã chốt tại
+[VIE_industry_branch_redesign.md](VIE_industry_branch_redesign.md) thay thế quy tắc
+hub hai hàng và giấu phụ thuộc nội bộ bên dưới cho riêng nhánh này. Các quan hệ
+bắt buộc nội bộ hiện bằng prerequisite AND/OR; con nằm thấp hơn tất cả cha. Có thể
+tăng độ sâu trong vùng ngang cũ. `available` giữ điều kiện ngoài nhánh, cờ lịch sử
+và ngưỡng năng lực. Bypass hai focus FDI chỉ phục vụ lựa chọn đã xảy ra trong event
+của save cũ, có tooltip rõ ràng và không cấp lại reward.
+
 Nguồn: yêu cầu của chủ dự án sau khi dựng lại cột chính trị của CPV mặc định (Đại hội IX–XIV). Đây là chuẩn bắt buộc cho mọi nhánh mới và mọi nhánh được sửa lại.
 
 **Nguyên tắc chung: cây ngắn, ngang, ít đường nối.** Tránh chuỗi dọc 3 tầng trở lên. Dàn các focus cùng cấp thành MỘT hàng ngang dưới focus cha.

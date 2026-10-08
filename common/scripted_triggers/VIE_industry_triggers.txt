@@ -1,0 +1,21 @@
+# Mot nhom duoc tinh mot lan, ke ca khi co nhieu focus trong cung nganh.
+VIE_ind_three_sectors = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_industry_three_sectors
+		count_triggers = {
+			amount = 3
+			has_completed_focus = VIE_offshore_wind_fabrication
+			has_completed_focus = VIE_green_textiles
+			has_completed_focus = VIE_hoa_phat_dung_quat_2
+			AND = {
+				has_completed_focus = VIE_manufacturing_hub
+				has_completed_focus = VIE_tier1_vendor_localization
+			}
+			AND = {
+				has_completed_focus = VIE_chip_design
+				has_completed_focus = VIE_osat_packaging
+			}
+			has_completed_focus = VIE_ev_revolution_batteries
+		}
+	}
+}

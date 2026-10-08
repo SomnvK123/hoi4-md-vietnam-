@@ -1,0 +1,37 @@
+# Trang thai tung nhom trong tooltip capstone; cung dieu kien voi count_triggers.
+defined_text = {
+	name = VIEIndustryShipStatus
+	text = { trigger = { has_completed_focus = VIE_offshore_wind_fabrication } localization_key = VIE_industry_status_done }
+	text = { localization_key = VIE_industry_status_pending }
+}
+defined_text = {
+	name = VIEIndustryTextileStatus
+	text = { trigger = { has_completed_focus = VIE_green_textiles } localization_key = VIE_industry_status_done }
+	text = { localization_key = VIE_industry_status_pending }
+}
+defined_text = {
+	name = VIEIndustrySteelStatus
+	text = { trigger = { has_completed_focus = VIE_hoa_phat_dung_quat_2 } localization_key = VIE_industry_status_done }
+	text = { localization_key = VIE_industry_status_pending }
+}
+defined_text = {
+	name = VIEIndustrySupplyStatus
+	text = {
+		trigger = { has_completed_focus = VIE_manufacturing_hub has_completed_focus = VIE_tier1_vendor_localization }
+		localization_key = VIE_industry_status_done
+	}
+	text = { localization_key = VIE_industry_status_pending }
+}
+defined_text = {
+	name = VIEIndustryChipStatus
+	text = {
+		trigger = { has_completed_focus = VIE_chip_design has_completed_focus = VIE_osat_packaging }
+		localization_key = VIE_industry_status_done
+	}
+	text = { localization_key = VIE_industry_status_pending }
+}
+defined_text = {
+	name = VIEIndustryAutoStatus
+	text = { trigger = { has_completed_focus = VIE_ev_revolution_batteries } localization_key = VIE_industry_status_done }
+	text = { localization_key = VIE_industry_status_pending }
+}

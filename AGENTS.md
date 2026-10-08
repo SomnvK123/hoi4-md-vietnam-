@@ -7,7 +7,7 @@ documentation relevant to the requested change. Preserve existing user changes.
 ## Artwork tasks
 
 For generating, editing, reviewing, exporting or integrating artwork, read
-[md-art](.claude/skills/md-art/SKILL.md), then the asset-specific skill it selects.
+[md-art](.claude/skills/md-art/SKILL.md).
 These are repository instructions; their presence does not imply an image tool
 or a game installation is available.
 

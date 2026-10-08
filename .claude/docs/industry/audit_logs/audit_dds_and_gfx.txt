@@ -1,0 +1,41 @@
+============================================================
+COMPREHENSIVE DDS & GFX AUDIT
+============================================================
+Total DDS files found in gfx/: 405
+
+DDS Format Errors: 0
+DDS Content Warnings: 0
+
+Checking 7 .gfx files in interface/...
+Total spriteType definitions: 306
+Missing texturefiles referenced in .gfx: 0
+
+Focus Tree Icon References:
+  Custom GFX_ references: 231
+  Vanilla / MD fallback icon tags: 185
+  Missing spriteType definitions for GFX_ icons: 0
+Missing event picture sprites in events/: 234
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_force.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_ind.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_ind.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_ind.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_ind.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_air_ind.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_automotive_events.txt: 'GFX_report_event_generic_conference'
+  [MISSING EVENT PIC] in VIE_automotive_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_disaster_events.txt: 'GFX_report_event_generic_ruins'
+  [MISSING EVENT PIC] in VIE_industry_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_industry_events.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_infra_events.txt: 'GFX_report_event_generic_ruins'
+  [MISSING EVENT PIC] in VIE_infra_events.txt: 'GFX_report_event_generic_factory'
+
+============================================================
+AUDIT COMPLETE
+============================================================

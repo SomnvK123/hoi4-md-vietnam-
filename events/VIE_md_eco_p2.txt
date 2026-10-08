@@ -86,6 +86,7 @@ country_event = {
 	option = {
 		name = vie_eco.5.a
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.5.a executed"
+		hidden_effect = { set_country_flag = VIE_vinashin_crisis_processed }
 		set_temp_variable = { treasury_change = -3 }
 		modify_treasury_effect = yes
 		set_temp_variable = { temp_opinion = 3 }
@@ -98,6 +99,7 @@ country_event = {
 	option = {
 		name = vie_eco.5.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.5.b executed"
+		hidden_effect = { set_country_flag = VIE_vinashin_crisis_processed }
 		set_temp_variable = { treasury_change = -1 }
 		modify_treasury_effect = yes
 		add_stability = -0.02

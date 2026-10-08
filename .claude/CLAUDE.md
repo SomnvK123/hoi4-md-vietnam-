@@ -13,14 +13,14 @@ Repo KHÔNG phải repo upstream MD. Không có `Changelog.txt`, `.github/`, `to
 | Việc | Đọc |
 |---|---|
 | Cấu trúc thư mục, prefix, namespace | [docs/mod-overview.md](docs/mod-overview.md) |
-| Viết/sửa focus, effect, decision, event, idea | [docs/conventions.md](docs/conventions.md) và skill `md-focus-standard` (chuẩn MD rút từ cây Đức, Trung, Thái) |
+| Viết/sửa focus, effect, decision, event, idea | [docs/conventions.md](docs/conventions.md) và [skill md-focus](skills/md-focus/SKILL.md) (chuẩn tạo & lập trình focus toàn diện) |
 | Viết/sửa localisation | [docs/localisation.md](docs/localisation.md) |
-| Chạy kiểm tra, đọc kết quả | [docs/validation.md](docs/validation.md) |
+| Chạy kiểm tra, đọc kết quả | [docs/validation.md](docs/validation.md) và [skill validate](skills/validate/SKILL.md) (kiểm tra tĩnh, loc và review diff) |
 | Tìm bug theo pattern, review diff | [docs/bug-patterns.md](docs/bug-patterns.md) |
 | Bẫy engine (scope, guard, FROM...) | [docs/engine-pitfalls.md](docs/engine-pitfalls.md) |
 | Lỗi đã biết còn tồn đọng | [docs/known-issues.md](docs/known-issues.md) |
 | Thiết kế mỹ thuật & Icon toàn bộ submod | [docs/art-style-guide/README.md](docs/art-style-guide/README.md) |
-| Tạo/sửa/xuất/tích hợp ảnh: focus, idea, decision, event, portrait, UI | [skill md-art](skills/md-art/SKILL.md), rồi skill chuyên biệt theo consumer |
+| Tạo/sửa/xuất/tích hợp ảnh: focus, idea, decision, event, portrait, UI | [skill md-art](skills/md-art/SKILL.md) (cẩm nang mỹ thuật toàn diện 6 consumer) |
 
 Mỹ thuật: đọc profile thực tế trước khi gen. Focus VIE 93×91, idea 60×68,
 decision TGA 33×32, event 210×176, portrait 156×210/38×51 là các profile đã đo,

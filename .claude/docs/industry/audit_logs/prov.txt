@@ -1,0 +1,27 @@
+MD Vietnam-related states parsed: [518, 519, 520, 521, 522, 523, 524, 526, 801, 802, 813, 816]
+province->state map size: 81
+
+=== every "province = N" / "generator" / "states = {" in the mod, validated against MD ===
+  common\national_focus\VIE_md_focus.txt:4173  province 11168 -> state 801 (owner VIE)  coastal: Southwest Cay (dao)
+  common\national_focus\VIE_md_focus.txt:4179  province 11149 -> state 801 (owner VIE)  coastal: Collins Reef (dao)
+  common\national_focus\VIE_md_focus.txt:4185  province 11134 -> state 801 (owner VIE)  coastal: Spratly Is (dao)
+  common\national_focus\VIE_md_focus.txt:4198  province 4284 -> state 518 (owner VIE)  coastal: Rach Gia (coastal - MD dat naval_base 4 o day)
+  common\national_focus\VIE_md_focus.txt:4250  province 14178 -> state 518 (owner VIE)  coastal: Phu Quoc (dao)
+  common\scripted_effects\VIE_md_effects_naval_ships.txt:697  province 4119 -> state 522 (owner VIE)  coastal: Hai Phong (coastal)
+  common\scripted_effects\VIE_md_effects_naval_ships.txt:701  province 10309 -> state 521 (owner VIE)  coastal: Da Nang (coastal)
+  common\scripted_effects\VIE_md_effects_naval_ships.txt:704  province 10162 -> state 519 (owner VIE)  coastal: Nha Trang (coastal)
+  common\scripted_effects\VIE_md_effects_p17.txt:482  province 10129 -> state 522 (owner VIE)  INLAND: Ha Noi (KHONG giap bien)
+  common\scripted_effects\VIE_md_effects_p17.txt:483  province 4401 -> state 519 (owner VIE)  coastal: Ho Chi Minh City (coastal)
+  common\scripted_effects\VIE_md_effects_p17.txt:484  province 12133 -> state 518 (owner VIE)  INLAND: Can Tho (KHONG giap bien)
+  common\scripted_effects\VIE_md_effects_p17.txt:503  province 10129 -> state 522 (owner VIE)  INLAND: Ha Noi (KHONG giap bien)
+  common\scripted_effects\VIE_md_effects_p17.txt:504  province 10309 -> state 521 (owner VIE)  coastal: Da Nang (coastal)
+  common\scripted_effects\VIE_md_effects_p17.txt:637  province 1157 -> state 523 (owner VIE)  coastal: Ha Long (coastal)
+  common\scripted_effects\VIE_md_effects_p17.txt:638  province 4529 -> state 524 (owner VIE)  
+  common\scripted_effects\VIE_md_effects_p17.txt:671  province 10129 -> state 522 (owner VIE)  INLAND: Ha Noi (KHONG giap bien)
+  common\scripted_effects\VIE_md_effects_p17.txt:672  province 4401 -> state 519 (owner VIE)  coastal: Ho Chi Minh City (coastal)
+
+=== "NNN = { ... }" state-scope blocks: state ownership at 2000 start ===
+
+=== PROVINCE MISMATCH: state-scope block vs province id ===
+
+=== TỔNG HỢP LỖI: 0 ===

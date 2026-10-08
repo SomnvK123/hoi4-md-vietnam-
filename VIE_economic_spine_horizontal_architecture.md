@@ -4,6 +4,8 @@
 > **Áp dụng:** Tái cấu trúc toàn bộ khối Kinh tế trong `common/national_focus/VIE_md_focus.txt`.  
 > **Kế thừa:** Chuẩn bố cục "Hàng ngang" tại [VIE_focus_coding_standards.md mục 7.3](VIE_focus_coding_standards.md) và mô hình Hub-Spine của nhánh Chính trị ([Con_duong_Kien_dinh_noi_dung_cay_focus_v2.md](Con_duong_Kien_dinh_noi_dung_cay_focus_v2.md)).
 
+> **Cập nhật 08/10/2026:** Nhánh công nghiệp dùng [thiết kế v17](VIE_industry_branch_redesign.md). Quy tắc hub hai hàng và chuyển mọi phụ thuộc nội bộ sang `available` trong tài liệu này không còn áp dụng cho nhánh công nghiệp. Các phần khác giữ phạm vi hiện tại.
+
 ---
 
 ## 0. Vấn đề của nhánh Kinh tế cũ & Giải pháp chuẩn hóa
@@ -141,53 +143,41 @@ Nhánh Kinh tế phân bố bên phải nhánh Chính trị, tỏa ra từ gốc
 
 ---
 
-### 2.4 TRỤC 4: Công nghiệp hóa – Hiện đại hóa & Công nghệ cao
-* **Gốc (Hub 4):** `VIE_industrialization_strategy` (Chiến lược CNH-HĐH Đại hội IX).
+### 2.4 TRỤC 4: Công nghiệp hóa và công nghệ — v17
 
-#### Cấu trúc Hub & Hàng ngang:
-1. **Hàng 1 (Công nghiệp nền tảng, dy = 1 dưới `industrialization_strategy`):**
-   * `VIE_shipbuilding_vinashin` (Đóng tàu Vinashin / SBIC, $dx = -4$)
-   * `VIE_formosa_steel_complex` (Khu liên hợp thép Formosa, $dx = -2$)
-   * `VIE_textile_garment_exports` (Xuất khẩu Dệt may, $dx = 0$)
-   * `VIE_samsung_partnership` (Hợp tác chiến lược Samsung - Điện tử Bắc Ninh/Thái Nguyên, $dx = 2$)
-   * `VIE_supporting_industries` (Phát triển Công nghiệp hỗ trợ, $dx = 4$)
-2. **Hàng 2 (Nâng cấp chuỗi giá trị & Chuỗi cung ứng, dy = 1):**
-   * Dưới Thép: `VIE_hoa_phat_hrc_steel` (Thép cán nóng HRC Hòa Phát Dung Quất, $dx = -2$)
-   * Dưới Dệt may: `VIE_cptpp_yarn_forward` (Quy tắc xuất xứ từ sợi trở đi CPTPP, $dx = 0$)
-   * Dưới Điện tử & Phụ trợ:
-     * `VIE_china_plus_one` (Đón sóng dịch chuyển Trung Quốc + 1, $dx = 2$)
-     * `VIE_tier1_vendor_localization` (Nội địa hóa nhà cung ứng cấp 1, $dx = 4$)
-3. **Hàng 3 (Bán dẫn & Công nghiệp Ô tô, dy = 1):**
-   * **Mốc Hub Bán dẫn:** `VIE_semiconductor_ambition` (Chiến lược Công nghiệp Bán dẫn Quốc gia)
-     * `VIE_intel_hcmc` (Nhà máy đóng gói Intel TP.HCM, $dx = -3$)
-     * `VIE_chip_design` (Trung tâm thiết kế vi mạch, $dx = -1$)
-     * `VIE_osat_packaging` (Đóng gói và kiểm thử bán dẫn OSAT, $dx = 1$)
-     * `VIE_chip_engineers` (Đào tạo 50.000 kỹ sư bán dẫn, $dx = 3$)
-     * `VIE_semiconductor_fab` (Nhà máy chế tạo chip nội địa Fab, dy = 1 hội tụ dưới các focus trên)
-   * **Mốc Hub Ô tô:** `VIE_domestic_automotive` (Công nghiệp ô tô trong nước)
-     * `VIE_ev_revolution_batteries` (Xe điện & Tổ hợp pin LFP, $dx = -1$)
-     * `VIE_global_auto_export` (Xuất khẩu xe điện toàn cầu, $dx = 1$)
-4. **Hàng 4 (Chính sách CNH thế hệ mới & Đích đến 2030, dy = 1):**
-   * `VIE_nq23_industrial_policy` (Nghị quyết 23-NQ/TW về chính sách công nghiệp quốc gia, $dx = -3$)
-   * `VIE_nq29_industrialization_2045` (Nghị quyết 29-NQ/TW tiếp tục đẩy mạnh CNH-HĐH, $dx = -1$)
-   * `VIE_modern_industrial_nation_2030` (Nước công nghiệp hiện đại 2030 - Capstone hội tụ, $dx = 1$)
+Thiết kế hiện hành: [VIE_industry_branch_redesign.md](VIE_industry_branch_redesign.md).
+Nhánh có 39 focus (35 ID cũ và 4 chính sách mới), x=124..140, y=1..9.
+
+- Formosa, Hòa Phát, Samsung, Intel và công nghiệp hỗ trợ có lối vào độc lập.
+- Đóng tàu, dệt may, thép, ô tô và điện tử phát triển song song.
+- Trung tâm chế tạo cần phụ trợ AND (Samsung OR China+1).
+- China+1 có cặp lựa chọn FDI; Apple cần một lựa chọn và trung tâm chế tạo.
+- Bán dẫn có cặp lựa chọn hỗ trợ; thiết kế, đóng gói, đào tạo cùng mở sau một lựa chọn.
+  Fab thử nghiệm yêu cầu đủ cả ba, hai đường có tổng hỗ trợ bằng nhau.
+- NQ23 dẫn đến NQ29; quỹ đầu tư và năng suất song song, không buộc khu công nghiệp
+  sinh thái hoặc quỹ hỗ trợ thành điều kiện của toàn bộ chính sách.
+- Đích cuối cần năng suất, ≥45 điểm nội địa hóa và ≥3/6 nhóm; không khóa năm với
+  người chơi, không bắt buộc bán dẫn hoặc xe điện.
+
+Quan hệ nội bộ hiện trên cây bằng prerequisite AND/OR. `available` dành cho điều
+kiện ngoài nhánh, ngày của dự án có tên, cờ xử lý sự kiện và ngưỡng năng lực.
 
 ---
 
 ## 3. Bảng Ánh xạ Chuyển đổi: Prerequisite $\rightarrow$ Available (Cắt đường nối rối)
 
-Để loại bỏ hoàn toàn các đường nối chéo ngang màn hình, toàn bộ các quan hệ phụ thuộc sau đây được chuyển đổi:
+Bảng lịch sử dưới đây áp dụng cho các nhánh chưa tái thiết kế. Công nghiệp v17 dùng prerequisite cho phụ thuộc nội bộ; chỉ giữ điều kiện ngoài nhánh trong `available`:
 
 | Focus | Cha trực tiếp (`prerequisite`) | Điều kiện logic chuyển sang `available = {}` |
 |---|---|---|
 | `VIE_fdi_attraction` | `VIE_bilateral_trade_agreement_usa` | `available = { has_completed_focus = VIE_equitization_soes }` (thay vì 2 prerequisite kéo chéo) |
 | `VIE_wto_reforms` | `VIE_fdi_attraction` | `available = { has_completed_focus = VIE_wto_negotiations }` |
-| `VIE_chip_engineers` | `VIE_semiconductor_ambition` | `available = { has_completed_focus = VIE_higher_education_law }` (cắt dây chéo sang nhánh Giáo dục) |
+| `VIE_chip_engineers` | OR hai focus ưu tiên bán dẫn (v17) | `available = { has_completed_focus = VIE_higher_education_law }` (cắt dây chéo sang nhánh Giáo dục) |
 | `VIE_net_zero_2050` | `VIE_power_plan_8` | `available = { has_completed_focus = VIE_jetp_partnership }` |
 | `VIE_cptpp_member` | `VIE_fdi_attraction` | `available = { date > 2018.1.1 }` |
 | `VIE_evfta` | `VIE_fdi_attraction` | `available = { date > 2020.6.30 }` |
-| `VIE_tier1_vendor_localization` | `VIE_supporting_industries` | `available = { has_completed_focus = VIE_samsung_partnership }` |
-| `VIE_semiconductor_ambition` | `VIE_industrialization_strategy` | `available = { has_completed_focus = VIE_intel_hcmc }` |
+| `VIE_tier1_vendor_localization` (v17) | `VIE_supporting_industries` | Không cần Samsung; không còn khóa năm |
+| `VIE_semiconductor_ambition` (v17) | `VIE_intel_hcmc` | Không còn khóa năm của người chơi |
 | `VIE_revive_nuclear` | `VIE_shelve_nuclear` | `available = { date > 2024.1.1 has_completed_focus = VIE_power_plan_8 }` |
 
 ---
@@ -203,6 +193,8 @@ Tất cả các ngã rẽ đều sử dụng `mutually_exclusive = { focus = ...
 5. **Giá điện mặt trời 2017:** `VIE_solar_boom` $\longleftrightarrow$ `VIE_solar_auction` (Cha: `VIE_power_plan_8`).
 6. **Đặc khu kinh tế 2018:** `VIE_sez_postpone` $\longleftrightarrow$ `VIE_sez_pass_99` (Cha: `VIE_sez_three_zones`).
 7. **Điện hạt nhân Ninh Thuận:** `VIE_shelve_nuclear` $\longleftrightarrow$ `VIE_build_nuclear_plant` (Cha: `VIE_ninh_thuan_nuclear`).
+8. **Chiến lược FDI v17:** `VIE_fdi_fast_track` $\longleftrightarrow$ `VIE_fdi_technology_screening` (Cha: `VIE_china_plus_one`).
+9. **Hỗ trợ bán dẫn v17:** `VIE_chip_design_packaging_priority` $\longleftrightarrow$ `VIE_chip_pilot_fab_priority` (Cha: `VIE_semiconductor_ambition`).
 
 ---
 
