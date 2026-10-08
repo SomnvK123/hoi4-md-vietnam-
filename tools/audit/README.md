@@ -23,6 +23,12 @@ Ba file `.json` mà `audit.py` / `xref.py` sinh ra khi chạy nằm trong `.giti
 
 Yêu cầu: Python 3.8+. Không có dependency ngoài thư viện chuẩn.
 
+`industry.py` (Python 3.10+) kiểm riêng 39 focus công nghiệp v17: 64 tổ hợp nhóm
+ngành, ngưỡng điểm, hai đường FDI, sự kiện save cũ, hai mức hỗ trợ bán dẫn và cổng
+Vinashin. Bộ kiểm tra dùng một phần nhỏ trigger/effect đã khai báo và từ chối token
+chưa hỗ trợ; không mô phỏng runtime HOI4. So đồ trước/sau tái xuất bằng
+`tools/focus_layout/industry_diagram.py` (Pillow).
+
 ---
 
 ## `live.py` — đối chiếu tham chiếu chéo (quan trọng nhất)

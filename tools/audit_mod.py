@@ -8,8 +8,9 @@ Enhanced audit - deeper checks:
 """
 import os, re, glob
 from collections import Counter, defaultdict
+from pathlib import Path
 
-MOD = "d:/HOI4Mods/md_vietnam"
+MOD = str(Path(__file__).resolve().parent.parent)
 
 errors = []
 warnings = []

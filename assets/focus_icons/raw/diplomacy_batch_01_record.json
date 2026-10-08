@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-08",
+  "generator": "OpenAI built-in image_gen",
+  "revision": 2,
+  "references": [
+    {
+      "url": "https://baotanghanoi.com.vn/tranh-co-dong-tai-hien-sinh-dong-chang-duong-80-nam-quoc-hoi-viet-nam-06-01-1946-06-01-2026/",
+      "role": "Poster composition: action, national flag, broad color masses; two collection images visually viewed in browser.",
+      "image_urls": [
+        "https://baotanghanoi.com.vn/wp-content/uploads/2026/01/141-709x1024.jpg",
+        "https://baotanghanoi.com.vn/wp-content/uploads/2026/01/142-709x1024.jpg"
+      ]
+    },
+    {
+      "url": "https://www.vietnam.vn/to-tham-tinh-huu-nghi-viet-nam-lao-qua-cac-tac-pham-dieu-khac-va-tranh-co-dong-cuc-hop-tac-quoc-te",
+      "role": "Vietnam-Laos friendship artwork: shared action and solidarity; exhibition photo visually viewed.",
+      "image_urls": [
+        "https://icd.gov.vn/wp-content/uploads/2022/08/Trai-dieu-khac-09.jpg"
+      ]
+    },
+    {
+      "url": "https://baochinhphu.vn/nam-chu-tich-asean-vi-the-va-vai-tro-viet-nam-102263888.htm",
+      "role": "ASEAN gavel handover gesture, photographed November 2019; visually viewed.",
+      "image_urls": [
+        "https://bcp.cdnchinhphu.vn/Uploaded/hatheluc/2019_11_10/a_HAT0546ddd.jpg"
+      ]
+    },
+    {
+      "url": "https://www.vietnamplus.vn/viet-nam-thanh-vien-chu-dong-tich-cuc-cua-hoi-dong-bao-an-post702456.vnp",
+      "role": "Security Council membership and active participation, 2008-09 and 2020-21; article consulted, not a reconstruction of one photographed meeting."
+    },
+    {
+      "url": "https://www.vietnamplus.vn/topic/ngoai-giao-cay-tre-1218.vnp",
+      "role": "Bamboo metaphor: rooted principles, resilient culms, flexible branches."
+    }
+  ],
+  "reference_use": "Research only; sources not copied or supplied as imagegen edit targets. Stylized institutional motifs are not certified official logos.",
+  "source_type": "AI-generated",
+  "rights_or_license": "No photographic or upstream artwork license claimed.",
+  "prompt_manifest": "diplomacy_batch_01_prompts.json",
+  "rebuild": "python assets/focus_icons/raw/export_diplomacy_batch_01.py",
+  "export_recipe": "RGBA contain 91x89, centered 93x91; write_dds helper only",
+  "protected_assets_sha256": {
+    "assets\\focus_icons\\raw\\asean_integration.png": "32caaf35ccff7de71db9d254c207f719d61deb791ee2e63624b0439c3c0710e2",
+    "assets\\focus_icons\\png\\asean_integration.png": "1533d4e78501b83af407f0107add2f7c0695cfeb697ed7f3bd79046db9b117d1",
+    "gfx\\interface\\goals\\asean_integration.dds": "3433d33da46dcc78891df71219df4a60f42110080a25e4e7dc9e1313d937b8f6",
+    "assets\\focus_icons\\raw\\border_settlement.png": "649958b5cc39d62cc021077a5c7f18e3d2cc704fa5ed4e8ff2b82a5d91fb1132",
+    "assets\\focus_icons\\png\\border_settlement.png": "0c8f4de2ff0c17b128acb0bd6ef5d74b2f4dd882c3fc3bc38cb6c8dfece7fd2e",
+    "gfx\\interface\\goals\\border_settlement.dds": "4e8c7af36b74625121083ac57dcc1d2c5a76d17b96591d17a98fc4e281cfc0e2"
+  },
+  "assets": [
+    {
+      "asset_id": "VIE_asean_chair",
+      "sprite": "GFX_focus_VIE_asean_chair",
+      "master": "assets\\focus_icons\\raw\\asean_chair.png",
+      "master_size": [
+        1270,
+        1239
+      ],
+      "master_sha256": "e10b3cb7a1027003e258bfc4ea0e050d7130b16eab1af7ad782abb44cc878612",
+      "png": "assets\\focus_icons\\png\\asean_chair.png",
+      "png_sha256": "a95e39db968e96350cf270e08ec75f88c19ad78126cf0d79b80dfa457d3728a3",
+      "dds": "gfx\\interface\\goals\\asean_chair.dds",
+      "dds_sha256": "3b9b0de3d7520aa34c0f748a513318a752399482861d9aa9ebe9a2c327b9b68b",
+      "final_size": [
+        93,
+        91
+      ],
+      "codec": "RGB32 BGRA, no mipmaps",
+      "dds_bytes": 33980,
+      "frame_count": 1,
+      "alpha_border": "pass",
+      "rgba_round_trip": "pass",
+      "integration": "existing sprite and focus mapping verified",
+      "in_game_check": "unrun"
+    },
+    {
+      "asset_id": "VIE_un_security_council",
+      "sprite": "GFX_focus_VIE_un_security_council",
+      "master": "assets\\focus_icons\\raw\\un_security_council.png",
+      "master_size": [
+        1269,
+        1239
+      ],
+      "master_sha256": "428990bc3e0091b421ed90c4d096266745a8f382bdfb0309ee5f090a8ba9b69a",
+      "png": "assets\\focus_icons\\png\\un_security_council.png",
+      "png_sha256": "24a98d286c3895442814c00ddda644d9dd9fa958c6a67068d8aa60bb698dc9cc",
+      "dds": "gfx\\interface\\goals\\un_security_council.dds",
+      "dds_sha256": "f889f7bbd4658f476528ec087cb4ea479aaf239e14ced4e25e065fe694771cf4",
+      "final_size": [
+        93,
+        91
+      ],
+      "codec": "RGB32 BGRA, no mipmaps",
+      "dds_bytes": 33980,
+      "frame_count": 1,
+      "alpha_border": "pass",
+      "rgba_round_trip": "pass",
+      "integration": "existing sprite and focus mapping verified",
+      "in_game_check": "unrun"
+    },
+    {
+      "asset_id": "VIE_special_relations_laos",
+      "sprite": "GFX_focus_VIE_special_relations_laos",
+      "master": "assets\\focus_icons\\raw\\special_relations_laos.png",
+      "master_size": [
+        1268,
+        1240
+      ],
+      "master_sha256": "cd0e7ee02884407a0875bf4b1bc7416ae3dda5e97dd30ba1329f4b9c93072995",
+      "png": "assets\\focus_icons\\png\\special_relations_laos.png",
+      "png_sha256": "11e289600f7341334a154dd36aaf85eb6424f894fedad6d28c58b46999139823",
+      "dds": "gfx\\interface\\goals\\special_relations_laos.dds",
+      "dds_sha256": "438985f5cb8e140cf6c8d13b22f9350a93d146e8c68a1421605d239af27cb2cd",
+      "final_size": [
+        93,
+        91
+      ],
+      "codec": "RGB32 BGRA, no mipmaps",
+      "dds_bytes": 33980,
+      "frame_count": 1,
+      "alpha_border": "pass",
+      "rgba_round_trip": "pass",
+      "integration": "existing sprite and focus mapping verified",
+      "in_game_check": "unrun"
+    },
+    {
+      "asset_id": "VIE_bamboo_diplomacy",
+      "sprite": "GFX_focus_VIE_bamboo_diplomacy",
+      "master": "assets\\focus_icons\\raw\\bamboo_diplomacy.png",
+      "master_size": [
+        1268,
+        1240
+      ],
+      "master_sha256": "b7daac1ffd2eae5e176edd7ef1d922cbf075c1c541dd26dc4dc63a1b57fa53ca",
+      "png": "assets\\focus_icons\\png\\bamboo_diplomacy.png",
+      "png_sha256": "84e11a31a2d3065b508ca22839287430591a5f1603a704cd151948ede9a80a60",
+      "dds": "gfx\\interface\\goals\\bamboo_diplomacy.dds",
+      "dds_sha256": "bd77c10cfff9abbc0902a0f823feaacbb40d315f58ada9366f4e4f1e7ea4d59f",
+      "final_size": [
+        93,
+        91
+      ],
+      "codec": "RGB32 BGRA, no mipmaps",
+      "dds_bytes": 33980,
+      "frame_count": 1,
+      "alpha_border": "pass",
+      "rgba_round_trip": "pass",
+      "integration": "existing sprite and focus mapping verified",
+      "in_game_check": "unrun"
+    }
+  ],
+  "known_limitations": "AI symbolic illustrations, not historical photographs or official emblems; in-game hover untested.",
+  "visual_review": {
+    "date": "2026-10-08",
+    "reviewer": "Codex",
+    "method": "Native 93x91 side by side on dark and light backgrounds, then large preview",
+    "result": "Primary gestures and silhouettes distinct; fine table, root and leaf details secondary at native scale; user approval pending"
+  },
+  "audit": {
+    "command": "python tools/audit_dds_and_gfx.py",
+    "dds_format_errors": 0,
+    "dds_content_warnings": 0,
+    "missing_texturefiles": 0,
+    "missing_custom_focus_sprites": 0,
+    "event_picture_reference_warnings": 234,
+    "warning_note": "Existing event-picture references outside this artwork change; no event mappings changed.",
+    "log": "assets/focus_icons/previews/diplomacy_batch_01/audit_dds_and_gfx.txt"
+  }
+}
