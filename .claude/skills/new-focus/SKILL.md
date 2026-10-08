@@ -14,6 +14,8 @@ Thêm focus mới vào `common/national_focus/VIE_md_focus.txt`. Yêu cầu: $AR
 4. Mọi effect/trigger/idea dùng phải tồn tại thật. Tiền trừ bằng scripted effect công trình hoặc `modify_treasury_effect`;
    chi từ ~5 tỷ thêm `FOCUS_FILTER_EXPENDITURE` và guard bankruptcy.
 5. Thêm loc `VIE_<id>` và `VIE_<id>_desc` (có dấu) vào file loc của hệ thống; nếu key đã có ở `replace/`, sửa bản đó.
-   Icon: dùng sprite có thật (`interface/*.gfx`) hoặc build bằng `tools/build_*_focus_icons.py`.
+   Icon: dùng sprite có thật (`interface/*.gfx`); khi cần tạo/sửa ảnh, đọc
+   [md-art](../md-art/SKILL.md) và [md-focus-art](../md-focus-art/SKILL.md).
+   Chỉ dùng builder phù hợp đã đọc code; tránh rebuild cả nhánh hoặc ghi đè mẫu đã chọn.
 6. Chạy `/validate focus`, `/validate refs`, `/validate loc`. Ghi dòng `## vN (dd/mm/yyyy)` ở đầu file focus.
 7. Báo: id, vị trí (x, y, anchor), file đã đổi, kết quả kiểm tra, việc còn lại để thử trong game.

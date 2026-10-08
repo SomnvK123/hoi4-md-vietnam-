@@ -24,3 +24,6 @@ Khi diễn giải kết quả, đọc `.claude/docs/validation.md` và `.claude/
 - Loại các báo nhầm đã biết (event ẩn thiếu loc, `GFX_report_event_generic_*`).
 - Mỗi lỗi thật ghi `file:dòng — mô tả`. Kết thúc bằng một dòng tổng: số lỗi thật theo nhóm, hoặc "Sạch" cho nhóm đã chạy.
 - Nói rõ nhóm nào không chạy được và vì sao. Đây là kiểm tra tĩnh, không thay thế chạy trong game.
+- Với gfx, xem [md-art](../md-art/SKILL.md) và skill theo loại: kiểm thêm TGA,
+  mapping idea/decision/portrait, alpha/canvas và GUI frame/state mà audit không bao phủ.
+  Reference generic cần tra provider; không chỉ bỏ qua mọi cảnh báo dựa vào tiền tố.

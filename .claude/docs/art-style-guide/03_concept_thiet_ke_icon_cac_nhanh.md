@@ -1,5 +1,12 @@
 # Tập 3: Ý Tưởng Thiết Kế Mỹ Thuật Chi Tiết Cho Các Nhánh Focus
 
+> Trạng thái: thư viện concept, không là dữ liệu gameplay live hoặc quy định engine.
+> Tọa độ, năm và số lượng focus phải kiểm lại trong code; vật thể/camera/khung là
+> phương án để thử, không bắt buộc cho idea, decision, event hoặc portrait.
+> Những ngưỡng màu/layer và tuyên bố “AAA” bên dưới không là tiêu chí nghiệm thu.
+> Áp dụng [hệ thống mỹ thuật hiện hành](07_unified_art_system.md) và
+> [profile kỹ thuật đã đo](04_giai_phap_cong_nghe_va_quy_trinh_san_xuat.md).
+
 > **Mục tiêu:** Xây dựng khung hướng dẫn tạo hình (concept art blueprint) độc bản và nhất quán cho toàn bộ các nhánh trong cây mục tiêu quốc gia Việt Nam; kết hợp bộ hồ sơ chi tiết mẫu mực cho 34 tiêu điểm nhánh Ngoại giao Cây tre & Quốc tế (`VIE_asean_integration` subtree) làm chuẩn mực tiên phong cho toàn submod `md_vietnam`.  
 > **Quy chuẩn mỹ thuật:** Tuyệt đối xóa bỏ mô-típ rập khuôn (hai cờ bắt chéo + vòng nguyệt quế + huy hiệu dẹt). Mỗi focus là một bức họa kỹ thuật số 3D thu nhỏ mang ngôn ngữ điện ảnh, chất cảm sơn dầu Paradox/MD, ánh sáng kịch tính Chiaroscuro và biểu tượng chính trị - lịch sử sâu sắc.
 

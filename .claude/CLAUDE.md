@@ -20,6 +20,13 @@ Repo KHÔNG phải repo upstream MD. Không có `Changelog.txt`, `.github/`, `to
 | Bẫy engine (scope, guard, FROM...) | [docs/engine-pitfalls.md](docs/engine-pitfalls.md) |
 | Lỗi đã biết còn tồn đọng | [docs/known-issues.md](docs/known-issues.md) |
 | Thiết kế mỹ thuật & Icon toàn bộ submod | [docs/art-style-guide/README.md](docs/art-style-guide/README.md) |
+| Tạo/sửa/xuất/tích hợp ảnh: focus, idea, decision, event, portrait, UI | [skill md-art](skills/md-art/SKILL.md), rồi skill chuyên biệt theo consumer |
+
+Mỹ thuật: đọc profile thực tế trước khi gen. Focus VIE 93×91, idea 60×68,
+decision TGA 33×32, event 210×176, portrait 156×210/38×51 là các profile đã đo,
+không là chuẩn duy nhất của MD. Nguồn và quy tắc hiện hành ở art-style-guide tập 4/6/7.
+Không áp HUD neon hoặc badge vàng lên mọi loại ảnh. Hai mẫu ngoại giao đã chọn
+vẫn là mốc của nhóm ngoại giao; giữ source và báo kiểm file/in-game riêng.
 
 Tài liệu thiết kế nằm ở gốc repo (`VIE_*.md`, `Con_duong_Kien_dinh_*.md`). Trước khi đổi một hệ thống
 (trục quân sự, không quân, hải quân, lực lượng đặc biệt, chế độ, state-building) hãy đọc file thiết kế

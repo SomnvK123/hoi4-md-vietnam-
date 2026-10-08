@@ -1,5 +1,11 @@
 # Tập 2: Ngôn Ngữ Thị Giác Tranh Cổ Động & Hệ Thống Biểu Trưng Quốc Gia Việt Nam
 
+> Trạng thái: tư liệu concept/văn hóa, không là quy chuẩn kỹ thuật hoặc nguồn xác nhận
+> logo chính thức. Các yêu cầu toàn cục về sơn dầu, số màu, độ bão hòa và layer trong
+> bản cũ được thay bằng [hệ thống mỹ thuật hiện hành](07_unified_art_system.md).
+> Đối chiếu cờ, quốc huy, quân phục và mốc lịch sử với nguồn đáng tin trước generation;
+> việc mô tả “chính xác tuyệt đối” trong concept không chứng minh ảnh AI đã đúng.
+
 > **Mục tiêu:** Khảo cứu cội nguồn thẩm mỹ của mỹ thuật đồ họa cổ động cách mạng, hệ thống biểu tượng chính trị, quân sự, an ninh, kinh tế, biển đảo và ngoại giao thời kỳ Đổi Mới; từ đó thiết lập bộ quy chuẩn hình ảnh mang đậm hồn cốt dân tộc, chuẩn xác tuyệt đối về mặt lịch sử - chính trị và giàu giá trị biểu cảm nghệ thuật cho toàn bộ submod `md_vietnam`.
 
 ---

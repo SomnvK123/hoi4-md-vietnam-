@@ -1,258 +1,300 @@
-# Tập 4: Giải Pháp Công Nghệ & Quy Trình Sản Xuất Mỹ Thuật Game Chuẩn AAA
+# Tập 4: Quy trình tạo, xuất, tích hợp và kiểm định tài nguyên
 
-> **Mục tiêu:** Thiết lập quy trình sản xuất (production pipeline) kỹ thuật số hoàn chỉnh, từ khâu phác thảo ý tưởng, chuẩn hóa tư liệu, áp dụng kỹ thuật vẽ sơn dầu kỹ thuật số (digital overpainting), kết xuất đổ bóng đa tầng (multi-layer shading) đến quy trình biên dịch file DDS 32-bit BGRA chuẩn xác tuyệt đối theo tiêu chuẩn engine Clausewitz của Paradox Interactive và Millennium Dawn.
+## 1. Profile kỹ thuật dựa trên consumer
 
----
+Đo ngày 08/10/2026; chi tiết nguồn và số lượng ở
+[đánh giá phân tích](06_review_modern_day_analysis.md).
+Các profile là mặc định đã dùng trong VIE, không là chuẩn toàn engine/MD.
+Trước asset mới, đọc .gfx/.gui/field gameplay và mẫu cùng slot.
 
-## 1. Nguyên Tắc Cốt Lõi: Chấm Dứt Hội Họa Hình Học Thô Sơ
+| Loại | Canvas VIE đã đo | Nền/alpha | Export hiện có |
+|---|---|---|---|
+| Focus | 93×91 | rời trên alpha | RGB32 DDS BGRA, không mipmap |
+| Idea / spirit | 60×68 | rời trên alpha | RGB32 DDS BGRA |
+| Decision | 33×32 | rời trên alpha | RGBA TGA |
+| Category texture hiện có | 52×40 | rời trên alpha | RGBA TGA; cần kiểm code còn dùng |
+| Event picture | 210×176 | cảnh kín | DDS BC1/DXT1 |
+| Portrait large | 156×210 | theo asset/slot | RGB32 DDS hoặc BC1/DXT1 |
+| Portrait small | 38×51 | theo asset/slot | RGB32 DDS |
+| BoP / MIO / trait / flag / other UI | phải tra slot | theo consumer | không suy ra từ focus |
 
-Qua kết quả kiểm định định lượng ở Tập 1, nguyên nhân cốt tử khiến các icon trước bị đánh giá là **"xấu quá xấu, giống phim hoạt hình 16-bit phẳng"** là do phụ thuộc vào các hàm vẽ vector/hình học phẳng thô sơ (`PIL.ImageDraw.polygon`, `rectangle`, `ellipse`) chỉ tạo ra **24 đến 46 màu phẳng**.
+Idea 64×64, decision 44×44, event 450×150 có thể dùng ở nơi khác,
+nhưng không thay profile VIE hiện có nếu chưa kiểm GUI.
+Master lớn theo tỷ lệ slot, không buộc mọi master vuông. Generator có thể trả
+canvas khác yêu cầu; đọc file thật và xuất theo tỷ lệ thay vì báo kích thước từ prompt.
 
-Trong khi đó, một icon game chuẩn của Paradox và Millennium Dawn là **một bức tiểu họa sơn dầu kỹ thuật số (painterly miniature)** sở hữu từ **3.000 đến 4.200 màu sắc chuyển tiếp (color gradient steps)**.
+## 2. Hợp đồng xuất và DDS
 
-```text
-┌──────────────────────────────────────────────┐
-│  SAI LẦM CŨ: HÌNH HỌC PHẲNG (24 MÀU)        │
-│  - Màu tô đơn sắc (Flat fill)                 │
-│  - Cạnh răng cưa hoặc viền đen cứng          │  ──► KẾT QUẢ: "Xấu quá xấu, clip-art"
-│  - Không có đổ bóng tiếp xúc (No AO)         │
-│  - Không có ánh sáng viền (No Rim Light)      │
-└──────────────────────────────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────┐
-│  QUY TRÌNH MỚI: PAINTERLY AAA (3.500+ MÀU)   │
-│  - Phối hợp 6 lớp độ sâu (6-Layer Depth)     │
-│  - Kim loại phi ảnh thực (NMM shading)       │  ──► KẾT QUẢ: Đạt chuẩn thẩm mỹ Paradox
-│  - Đổ bóng tối môi trường (Ambient Occlusion)│
-│  - Ánh sáng kịch tính Chiaroscuro            │
-│  - Hậu kỳ khử bết màu & bơm hạt vi mô        │
-└──────────────────────────────────────────────┘
-```
+RGBA mô tả kênh logic khi xử lý ảnh. DDS A8R8G8B8 với masks dưới đây dùng byte
+BGRA trên đĩa little-endian. Chỉ viết tên “ARGB 8.8.8.8” chưa đảm bảo channel order đúng.
 
----
+RGB32 DDS dùng trong các builder VIE:
+- Magic: DDS + dấu cách; 4 byte.
+- Header: 124 byte (tổng prefix+header 128).
+- Pixel format: size 32, flags 0x41, FourCC=0, bitcount 32.
+- R/G/B/A masks: 0x00FF0000 / 0x0000FF00 / 0x000000FF / 0xFF000000.
+- Pitch = width×4; không mipmap cho profile export hiện tại.
+- Dung lượng chỉ khi RGB32 một level: 128 + width×height×4.
 
-## 2. Quy Chuẩn Kỹ Thuật Định Dạng Tệp Của Engine Clausewitz
+| RGB32 canvas | Dung lượng |
+|---|---:|
+| 93×91 | 33.980 byte |
+| 60×68 | 16.448 byte |
+| 33×32 (nếu chọn DDS thay TGA) | 4.352 byte |
+| 52×40 (nếu chọn DDS thay TGA) | 8.448 byte |
+| 210×176 (nếu chọn RGB32 thay BC1) | 147.968 byte |
+| 156×210 | 131.168 byte |
+| 38×51 | 7.880 byte |
 
-Để một biểu tượng mục tiêu quốc gia (National Focus Goal Icon) hiển thị hoàn hảo, không bị méo mó, nhòe hình hoặc crash game, quy chuẩn kỹ thuật bắt buộc phải thỏa mãn:
+Không áp công thức này lên TGA/DXT. BC1/DXT1 mã hóa block 4×4, 8 byte/block;
+một level không mipmap có 128 + ceil(width/4)×ceil(height/4)×8 byte.
+VIE event 210×176 BC1 một level là 18.784 byte. BC3/DXT5 có 16 byte/block
+và alpha khác; chọn khi consumer cần và encoder đã kiểm hỗ trợ.
 
-### 2.1 Kích thước và Tỷ lệ Khung hình (Canvas Geometry)
-* **Kích thước hiển thị chuẩn trong game:** Chiều rộng $93 \text{ px} \times$ Chiều cao $91 \text{ px}$ (hoặc canvas $100 \times 88 \text{ px}$ tùy nhánh giao diện).
-* **Kích thước thiết kế gốc (Master Canvas):** Để giữ được độ chi tiết và sắc nét tối đa trước khi thu nhỏ, toàn bộ tranh vẽ được dựng ở độ phân giải gấp đôi hoặc gấp bốn:
-  - Master Canvas: $512 \times 512 \text{ px}$ hoặc $256 \times 256 \text{ px}$.
-  - Sau khi hoàn thiện, áp dụng thuật toán nội suy **Lanczos Resampling** thu nhỏ về đúng kích thước chuẩn $93 \times 91 \text{ px}$.
-* **Quy chuẩn viền Alpha (1px Alpha Border):**
-  - Rìa ngoài cùng (tọa độ $x=0, x=92, y=0, y=90$) bắt buộc phải có giá trị kênh Alpha $= 0$ (hoàn toàn trong suốt).
-  - Điều này ngăn chặn hiện tượng engine Clausewitz bị tràn màu biên (texture bleeding) khi áp dụng shader viền sáng vàng nhấp nháy (`goal_shine_strip`) của cây focus tree.
+Compression có trade-off: BC1 dễ có block artifacts/banding và chỉ alpha 1-bit
+ở chế độ hỗ trợ transparency; không dùng như RGBA mềm cho lá/cờ/portrait cutout.
+Không kết luận file nén hợp lệ gây crash chỉ vì khác byte count RGB32.
+Đổi format cần đọc lại file và kiểm consumer trong game khi có runtime.
 
-### 2.2 Cấu trúc Tệp DDS 32-bit BGRA Uncompressed
-Paradox Interactive sử dụng chuẩn DirectDraw Surface (DDS) không nén (A8R8G8B8 / BGRA 32-bit):
-* **Magic Bytes:** `0x44 0x44 0x53 0x20` ("DDS ").
-* **DDS Header:** Đúng 124 bytes.
-* **Pixel Format Flags:** `DDPF_RGB | DDPF_ALPHAPIXELS` (`0x00000041`).
-* **Mặt nạ kênh màu (Channel Masks):**
-  - Red Mask: `0x00FF0000`
-  - Green Mask: `0x0000FF00`
-  - Blue Mask: `0x000000FF`
-  - Alpha Mask: `0xFF000000`
-* **Dung lượng tệp cố định tuyệt đối:** Với ảnh $93 \times 91$ px ở độ sâu 32-bit (4 bytes/pixel), dung lượng tệp DDS không nén phải đạt chính xác:
-  $$\text{Dung lượng} = 128 \text{ bytes header} + (93 \times 91 \times 4) \text{ bytes pixel} = 128 + 33.852 = 33.980 \text{ bytes}$$
-* Bất kỳ file nào có dung lượng khác $33.980 \text{ bytes}$ (ví dụ file nén DXT1 4KB hay DXT5 8KB) đều có nguy cơ bị suy giảm dải màu và sinh lỗi hiển thị sọc đen nhòe trong game.
+Alpha icon: ngoài silhouette phải trong suốt thật; kiểm kênh alpha, không
+suy từ nền checkerboard trong preview. Focus VIE xuất border 1 px alpha=0.
+Cảnh event kín không bắt buộc border alpha; portrait theo slot, không cắt vòng tròn.
+Đừng dùng crop/resize kéo méo hoặc sharpening/noise để đạt “2.500 màu”.
 
-### 2.3 Quy Chuẩn Thông Số Toàn Bộ Hệ Sinh Thái Đồ Họa Của Submod
+## 3. Quy trình từ yêu cầu đến triển khai
 
-| Loại Tài Nguyên (Asset Type) | Kích Thước Canvas (Pixel) | Chuẩn Nén & Độ Sâu Kênh | Dung Lượng File DDS Bắt Buộc | Đặc Điểm Kỹ Thuật Viền Alpha |
-| :--- | :---: | :---: | :---: | :--- |
-| **National Focus Goals** | $93 \times 91$ px | 32-bit BGRA Uncompressed | **$33.980$ bytes** | Bắt buộc 1px alpha border (Alpha = 0 quanh mép). |
-| **National Spirits / Ideas** | $64 \times 64$ px | 32-bit BGRA Uncompressed | **$16.512$ bytes** | Biểu trưng cô đọng, viền ngoài mượt mà không lóa. |
-| **Decision / Category Icons**| $44 \times 44$ hoặc $64 \times 64$ px | 32-bit BGRA Uncompressed | **$7.872$** hoặc **$16.512$ bytes**| Icon đơn sắc mạ vàng / viền phát quang. |
-| **Event Pictures** | $450 \times 150$ px | DXT5 hoặc 32-bit BGRA | **$270.128$ bytes** (32-bit) | Bức họa phong cảnh / sự kiện lịch sử không alpha. |
-| **Leader Portraits** | $156 \times 210$ px | 32-bit BGRA Uncompressed | **$131.168$ bytes** | Chân dung nhân vật phong cách sơn dầu cổ điển. |
+### Bước A: brief và phạm vi
 
----
+Đọc [md-art](../../skills/md-art/SKILL.md), chọn skill theo loại, xem git status.
+Lập [brief](templates/asset-brief.md): ID, nghĩa, năm, consumer, canvas,
+frame, alpha, nguồn tham chiếu và sample hay triển khai.
+Tra live code trước; không lấy ngày/tọa độ ở concept làm dữ kiện gameplay.
 
-## 3. Quy Trình 6 Bước Sản Xuất Mỹ Thuật (AAA Pipeline)
+Texture có nhiều alias/consumer: xác định tác động trước khi thay.
+Dùng sprite VIE riêng cho asset mới; tránh redefine generic base/MD.
 
-```text
-[BƯỚC 1]             [BƯỚC 2]             [BƯỚC 3]
-Phác Thảo Bố Cục  ──► Chuẩn Hóa Phôi Biểu ──► Digital Painting
-(Value Sketch)       Trưng & Cờ Chuẩn      & NMM Shading
-                           │
-                           ▼
-[BƯỚC 6]             [BƯỚC 5]             [BƯỚC 4]
-Biên Dịch DDS     ◄── Hậu Kỳ Sắc Nét     ◄── Ghép Lớp Đa Tầng
-& GFX Clausewitz     & Khử Bết Màu (Noise)   (6-Layer Depth)
-```
+### Bước B: reference board
 
----
+Lấy mẫu cùng slot, xem ảnh thật, ghi nguồn/version và điều cần học:
+silhouette, frame, vật liệu, palette, độ chi tiết, alpha.
+Một board nhỏ cho nhóm mới đủ để quyết định; không tải toàn MD cho một icon.
 
-### Bước 1: Phác Thảo Bố Cục & Phân Bổ Mảng Sáng Tối (Value Sketch)
-* **Xác định tỷ lệ vàng (Focal Point):** Đặt vật thể trung tâm (centerpiece) của focus vào vùng $1/3$ khung hình hoặc trung tâm đối xứng có điểm tựa.
-* **Bản vẽ thang độ xám (Grayscale Blockout):** 
-  - Trước khi lên màu, vẽ bản phác thảo đen trắng để kiểm tra độ tương phản sáng tối (luminance contrast).
-  - Quy tắc 3 vùng giá trị:
-    * Vùng sáng nhất (Highlights): $80 - 100\%$ độ sáng (chiếm khoảng $15\%$ diện tích ảnh).
-    * Vùng trung gian (Midtones): $40 - 75\%$ độ sáng (chiếm khoảng $60\%$ diện tích ảnh).
-    * Vùng tối sâu (Deep Shadows): $10 - 30\%$ độ sáng (chiếm khoảng $25\%$ diện tích ảnh).
-  - Nếu bản vẽ thang độ xám nhìn rõ ràng từ khoảng cách xa (khi thu nhỏ 1 inch trên màn hình), bố cục đó đạt tiêu chuẩn.
+Nếu chỉ có local sample không rõ nguồn, ghi “reference cục bộ chưa xác thực”.
+Có nguồn upstream: lưu commit + URL + hash. Không tự lấy nguồn mạng có license
+chưa biết rồi ghi public domain; generation AI không được gán license ảnh chụp.
 
----
+### Bước C: prompt và generation
 
-### Bước 2: Chuẩn Hóa Phôi Biểu Trưng & Quốc Kỳ Chính Quy
-* **Quốc kỳ Việt Nam chuẩn Hiến pháp 2013:**
-  - Nền đỏ chuẩn: `#DA251D` (RGB: `218, 37, 29`).
-  - Sao vàng 5 cánh: Màu `#FFDE23` (RGB: `255, 222, 35`). Đỉnh trên luôn hướng góc $90^\circ$ thẳng đứng.
-  - Tỷ lệ: Chiều rộng bằng $2/3$ chiều dài. Bán kính từ tâm đến đỉnh sao bằng $0.38 \times \text{chiều rộng}$.
-* **Chuyển hóa 3D cho lá cờ:**
-  - Không để cờ phẳng lỳ. Áp dụng bản đồ biến dạng sóng sin mềm mại (sine-wave displacement map) tạo nếp gấp vải lụa bay trong gió.
-  - Sống nếp gấp đón sáng chuyển sắc cam rực (`#FF5722`); hốc nếp gấp khuất sáng chuyển sắc đỏ huyết dụ (`#7A1414`).
-  - Sao vàng được vẽ vát cạnh 10 mặt đa giác nổi khối 3D (faceted gold prism).
-* **Các biểu trưng đối tác quốc tế:** Sử dụng tệp vector chính xác của Liên Hợp Quốc, ASEAN, APEC, cờ các đối tác lớn (Mỹ, Trung, Nga, Nhật, Hàn, Ấn, Pháp, Úc...) được xử lý hiệu ứng vải dập nổi trang trọng.
+Mỗi prompt phải có:
+- chủ thể/ý nghĩa và năm;
+- một focal point, phụ cảnh phục vụ câu chuyện;
+- mức stylization theo slot, frame hoặc không frame;
+- palette/vật liệu/ánh sáng khớp board;
+- transparency hoặc cảnh kín;
+- chi tiết chính xác và tránh artifact;
+- yêu cầu dễ đọc ở final canvas.
 
----
+Công cụ ảnh có sẵn dùng để tạo/chỉnh artwork; xem reference trước edit.
+Không tự tạo artwork bằng ImageDraw để thay yêu cầu gen.
+Python/Pillow dùng kiểm tra, resize/conversion phục vụ export theo workflow
+được hỗ trợ. Chỉnh logo/chữ hoặc mỹ thuật bằng phương thức mà công cụ/yêu cầu
+hiện tại cho phép; không âm thầm dùng pipeline khác.
 
-### Bước 3: Kỹ Thuật Hội Họa Kỹ Thuật Số & Lên Màu Kim Loại (NMM)
-Đây là khâu quan trọng nhất biến đổi hình ảnh từ thô sơ thành tác phẩm sơn dầu nghệ thuật:
+Một câu “Millennium Dawn style” không đủ. Không nhét suffix --ar/--no vào
+công cụ không hỗ trợ. Thông số codec/canvas final thuộc bước export;
+generator trả PNG master không tự cung cấp DDS game-ready.
 
-#### 1. Áp dụng kỹ thuật Chiaroscuro 3 nguồn sáng
-* **Nguồn sáng chính (Key Light - 5500K - Vàng ấm rực rỡ):** Chiếu từ góc trên bên trái ($45^\circ$), làm nổi bật mặt phẳng hướng sáng của vật thể.
-* **Nguồn sáng phụ bù tối (Fill Light - 8000K - Xanh lam lạnh):** Chiếu từ góc dưới bên phải với cường độ bằng $30\%$ nguồn sáng chính, phản chiếu sắc xanh của bầu trời/môi trường vào các hốc tối, giúp vùng tối không bị chết màu đen kịt.
-* **Ánh sáng viền kim loại (Rim Light / Kicker - Trắng chói hoặc vàng kim):** Quét sắc lẹm dọc sống lưng và mép viền của vật thể, tách biệt hoàn toàn chủ thể khỏi phông nền hậu cảnh.
+### Bước D: review ở final size
 
-#### 2. Kỹ thuật lên màu Kim loại phi ảnh thực (Non-Photorealistic Metal - NMM)
-Thay vì dùng màu phẳng (vàng bệt `#FFFF00`), áp dụng dải chuyển tiếp sơn dầu đa tầng:
-* **Dải NMM Vàng Kim (Royal Gold):**
-  $$\text{Nâu đất thẫm } \#2D1D08 \longrightarrow \text{Hổ phách } \#8B5A00 \longrightarrow \text{Vàng đồng } \#C5A059 \longrightarrow \text{Vàng ròng } \#FFD700 \longrightarrow \text{Trắng kem chói } \#FFF8DC$$
-* **Dải NMM Đồng Thau Đông Sơn (Bronze):**
-  $$\text{Nâu gỉ đen } \#1F1206 \longrightarrow \text{Xanh rêu patina } \#2E4A3E \longrightarrow \text{Đồng đỏ } \#B87333 \longrightarrow \text{Đồng vàng } \#D4AF37$$
-* **Dải NMM Thép Chiến Hạm & Vũ Khí (Polished Steel):**
-  $$\text{Xám than chì } \#1A202C \longrightarrow \text{Xanh đá thẫm } \#2D3748 \longrightarrow \text{Xám bạc } \#A0AEC0 \longrightarrow \text{Trắng thép sáng } \#EDF2F7$$
+Review sample lớn để nhận ý tưởng, nhưng bắt buộc xem 1:1 sau downsample.
+Kiểm nền tối, nền sáng và checkerboard; ghép/preview bằng công cụ được hỗ trợ.
+Chủ thể phải nhận ra ngay; frame/texture không làm cùng nhóm nặng hơn.
 
-#### 3. Đổ bóng tiếp xúc môi trường (Ambient Occlusion Pass)
-Tại các khe rãnh giao nhau giữa hai vật thể (ví dụ: chân cột mốc tiếp xúc với bậc thềm đá, dây nẹp vàng tiếp xúc với thân cờ), áp dụng lớp cọ mềm màu đen nâu nhân tính (Multiply blending) với bán kính $2 - 4\text{ px}$. Lớp bóng này tạo cảm giác các vật thể thực sự "ngồi" vững chắc trên không gian 3 chiều.
+Chữ/logo/cờ: kiểm từng chi tiết; prompt “accurate” không là chứng nhận.
+Không bịa logo chính thức từ ảnh AI. Portrait cần đối chiếu likeness và thời kỳ.
 
----
+Yêu cầu xem mẫu: bàn giao mẫu. Đã yêu cầu tích hợp: tiếp tục bước E/F,
+không hỏi lại duyệt workflow đã rõ. Không tự mở rộng thêm cả nhánh.
 
-### Bước 4: Kiến Trúc Ghép Lớp Đa Tầng (6-Layer Depth Engine)
-Mỗi icon hoàn chỉnh được tổ chức thành 6 lớp ảnh độc lập được hòa trộn theo chế độ kỹ thuật số chuyên dụng:
+### Bước E: export có thể tái lập
 
-```text
-┌────────────────────────────────────────────────────────┐
-│ Layer 5: Hiệu ứng ánh sáng & Lóe sáng (Screen / Add)  │ ◄── Vệt quét laser, tia sáng kim la bàn, bụi vàng
-├────────────────────────────────────────────────────────┤
-│ Layer 4: Khung biểu trưng & Tiền cảnh (Normal)        │ ◄── Vành nguyệt quế, nhành tre ngà, dải tua rua lụa
-├────────────────────────────────────────────────────────┤
-│ Layer 3: Vật thể trung tâm 3D (Centerpiece)           │ ◄── Cột mốc granite, tháp Pha That Luang, siêu hạm
-├────────────────────────────────────────────────────────┤
-│ Layer 2: Bóng đổ tiếp xúc trung cảnh (Multiply AO)    │ ◄── Bóng đổ của vật thể chính xuống hậu cảnh
-├────────────────────────────────────────────────────────┤
-│ Layer 1: Hậu cảnh & Bầu trời (Normal)                  │ ◄── Đại dương xanh thẳm, dãy Trường Sơn mờ sương
-├────────────────────────────────────────────────────────┤
-│ Layer 0: Vầng hào quang nền (Vignette / Backdrop)     │ ◄── Hào quang mặt trời tỏa tròn sau lưng chủ thể
-└────────────────────────────────────────────────────────┘
-```
+Giữ master; không đổi tên extension để “chuyển format”.
+Resize giữ tỷ lệ. Với complete badge ngoại giao, chứa toàn ảnh trong 91×89
+rồi đặt giữa 93×91; không mask tròn/đóng khung thêm.
+Centerpiece chưa có frame có quy trình khác, xem
+[tập 5](05_nghien_cuu_va_thiet_ke_khung_focus.md).
 
----
+Dùng hàm write_dds(path, image) ở tools/build_vie_focus_icons.py cho RGB32;
+nó nhận size của ảnh. Import helper không đồng nghĩa chạy builder hàng loạt.
+Đọc code trước khi dùng builders khác: chúng có thể overwrite .gfx, tải ảnh,
+tạo placeholders hoặc rebuild nhiều stems.
 
-### Bước 5: Hậu Kỳ Sắc Nét, Cân Bằng Trắc Quang & Khử Bết Màu
-Trước khi xuất file, tiến hành chu trình hậu kỳ tự động:
+Lưu master ở assets/<nhóm>/raw/, PNG xuất ở png/, export trong gfx/ theo slot.
+Kèm [hồ sơ asset](templates/asset-record.md) và câu lệnh rebuild nếu không tự rõ.
+Kiểm round-trip PNG → DDS màu/alpha và header; TGA đọc lại mode/size/alpha.
+Không khẳng định master còn alpha nếu file thực tế không có.
 
-1. **Khử bết màu dải gradient (Dithering & Micro-noise Injection):**
-   - Khi chuyển đổi từ 16 triệu màu về dải màu nhỏ hơn, hiện tượng bết màu (color banding) thường tạo các vòng tròn đồng tâm xấu xí.
-   - Giải pháp: Bơm một lớp nhiễu vi mô hạt Perlin (Gaussian Micro-Noise) với biên độ cực nhỏ ($1.5\%$) phủ đều toàn bộ ảnh. Lớp hạt này mô phỏng hoàn hảo độ nhám của thớ toan vẽ tranh sơn dầu thật, đồng thời làm nhuyễn các dải chuyển màu.
-2. **Làm sắc nét chi tiết thu nhỏ (Smart Unsharp Masking):**
-   - Áp dụng bộ lọc Unsharp Mask:
-     * Bán kính (Radius): $1.2 \text{ px}$
-     * Tỷ lệ (Amount): $120\%$
-     * Ngưỡng (Threshold): $2$
-   - Giúp các góc cạnh kim loại, chữ khắc bia đá và ngôi sao vàng hiển thị đanh thép, không bị mờ đục ở độ phân giải nhỏ.
-3. **Kiểm định trắc quang định lượng:**
-   - Sử dụng script phân tích trắc quang để bảo đảm các chỉ số đạt chuẩn Paradox:
-     * Độ sáng trung bình (Mean Luminance): Đạt từ $70$ đến $90$ (không quá tối, không bị cháy sáng).
-     * Độ lệch chuẩn độ sáng (Standard Deviation): Đạt từ $50$ đến $65$ (độ tương phản kịch tính Chiaroscuro).
-     * Tổng số màu sắc chuyển tiếp (Unique Colors): Đạt tối thiểu $\ge 2.500$ màu (thay vì 24 màu phẳng như bản cũ).
+### Bước F: mapping và nghiệm thu
 
----
+Consumer đi theo đường cụ thể ở mục 5. Giữ mapping cũ nếu chỉ thay texture.
+Thêm block sprite nhỏ khi cần, không recreate file .gfx.
+Không đổi gameplay/cost/effects/vị trí khi yêu cầu chỉ đổi artwork.
 
-### Bước 6: Biên Dịch DDS 32-bit Chuẩn & Đăng Ký GFX Trong Mod
+Chạy audit file liên quan, tự kiểm loại field mà audit không bao phủ.
+Game không có: báo “đã tích hợp texture/sprite, chưa xem trong game”.
+Có game: xem đúng slot, hover/disabled, đúng event/character/year.
+Không dùng preview ở localhost; screenshot/image trực tiếp đủ cho review.
 
-#### 1. Quy trình nạp ảnh và xuất DDS
-* Sử dụng mã nguồn Python tối ưu chuyển đổi từ ảnh master RGBA sang cấu trúc nhị phân DDS:
-  - Header chuẩn 128 bytes.
-  - Sắp xếp kênh pixel theo trật tự `BGRA` (Blue, Green, Red, Alpha).
-  - Tự động áp dụng mặt nạ viền trong suốt 1px.
-  - Kiểm tra dung lượng xuất xưởng đúng chính xác $33.980 \text{ bytes}$.
+## 4. Prompt templates theo loại
 
-#### 2. Đăng ký tài nguyên trong `interface/VIE_md_focus_icons.gfx`
-Mỗi focus tương ứng với một khối định nghĩa `spriteType`:
-```pdx
-spriteType = {
-	name = "GFX_focus_VIE_bamboo_diplomacy"
-	texturefile = "gfx/interface/goals/bamboo_diplomacy.dds"
-}
-```
+Thay nội dung trong dấu ngoặc nhọn bằng brief thật. Đây là gợi ý câu chữ,
+không params bắt buộc hay style chính thức của một model.
 
-#### 3. Gắn sprite vào tiêu điểm trong `common/national_focus/VIE_md_focus.txt`
-```pdx
-focus = {
-	id = VIE_bamboo_diplomacy
-	icon = GFX_focus_VIE_bamboo_diplomacy
-	...
-}
-```
+**Focus ngoại giao**
+~~~text
+One complete diplomatic focus badge about {policy/year}, dominated by {centerpiece},
+restrained modern emblem illustration with sculpted brass and {material},
+{reference-matched wreath/frame}, directional warm light with cool fill,
+navy/jade accents, clear silhouette readable at 93x91,
+full badge visible with padding, transparent outside silhouette.
+No unrelated HUD, no rectangular backdrop, no tiny caption.
+~~~
 
----
+**Idea / spirit**
+~~~text
+Compact symbolic illustration of {persistent state/buff/debuff},
+one bold {motif}, restrained {branch material/palette}, lightweight frame or no frame,
+large simple value shapes, readable at 60x68, transparent outside.
+No landscape scene, no miniature focus wreath, no tiny lettering.
+~~~
 
-## 4. Bộ Tiêu Chuẩn Kiểm Định Chất Lượng (Quality Assurance Checklist)
+**Decision / category**
+~~~text
+A compact action glyph for {action}, dominated by {one symbol},
+few large shapes with restrained dimensional shading,
+{category palette}, readable at {verified final size}, transparent outside.
+No decorative badge crown, no fine text, no dense map, no broad glow.
+~~~
 
-Trước khi một icon được phê duyệt đưa vào mod chính thức, icon đó bắt buộc phải vượt qua bảng kiểm soát 7 tiêu chí:
+**Event**
+~~~text
+A modern historical editorial illustration of {event} in {place/year},
+{verified subjects} doing {one action}, realistic period-appropriate materials,
+{camera/composition matched to 210x176}, quieter background and clear focal point,
+opaque scene, no emblem border, no caption or invented text.
+~~~
 
-| Tiêu Chí Kiểm Định | Chỉ Số Mục Tiêu | Phương Pháp Kiểm Tra | Đạt / Không Đạt |
-| :--- | :--- | :--- | :---: |
-| **1. Tính chuẩn xác Quốc kỳ & Quốc huy** | Cờ đỏ `#DA251D`, sao vàng `#FFDE23`, cánh đứng $90^\circ$, không sọc ngang sai. | Soi kính lúp pixel & Trắc nghiệm lịch sử. | **BẮT BUỘC** |
-| **2. Độ phong phú màu sắc** | $\ge 2.500$ màu sắc chuyển tiếp tự nhiên. | Chạy script đếm màu độc bản (`len(colors)`). | **BẮT BUỘC** |
-| **3. Độ tương phản Chiaroscuro** | Độ sáng trung bình $70 - 90$, Độ lệch chuẩn $\ge 50$. | Script trắc quang đo biểu đồ histogram. | **BẮT BUỘC** |
-| **4. Chiều sâu không gian 3D** | Rõ ràng 3 lớp Tiền cảnh - Trung cảnh - Hậu cảnh; có đổ bóng tiếp xúc AO. | Thẩm định mỹ thuật thị giác. | **BẮT BUỘC** |
-| **5. Tính độc bản của ý niệm** | Không lặp lại mô-típ "2 cờ chéo + nguyệt quế tròn"; bám sát concept Tập 3. | Đối chiếu kịch bản mỹ thuật Tập 3. | **BẮT BUỘC** |
-| **6. Định dạng file DDS** | Đúng $33.980 \text{ bytes}$, 32-bit BGRA uncompressed, viền alpha 1px sạch. | Script kiểm tra mã nhị phân tệp. | **BẮT BUỘC** |
-| **7. Hiển thị thực tế trong game** | Hiển thị sắc nét trên nền game HOI4, hiệu ứng quét sáng (`shine`) mượt mà không lỗi viền. | Chạy test mod trực tiếp trong engine. | **BẮT BUỘC** |
+**Portrait**
+~~~text
+An editorial painted portrait of {identified person} at {age/year/role},
+preserve facial likeness from the supplied verified references,
+{verified clothing/insignia}, head and shoulders with safe headroom,
+restrained lighting and simple backdrop, large portrait framing 156x210,
+a separate face-focused small crop will be exported at 38x51.
+No invented decorations, no badge frame, no altered identity.
+~~~
 
----
+**UI/BoP/MIO**
+~~~text
+A {verified UI slot} symbol representing {state/trait/organization},
+{motif}, {reference-matched material and line weight},
+consistent silhouette scale with its sibling states,
+readable at {verified size}, {alpha/frame requirements}.
+No assumed focus wreath; follow the documented {frame/state contract}.
+~~~
 
-## 5. Lộ Trình Triển Khai Thực Chiến Cho Toàn Bộ 34 Focus
+Không dùng template portrait nếu thiếu reference nhận diện.
+Không gọi logo AI hoặc cảnh AI là bản chính thức/ảnh tư liệu.
 
-Để bảo đảm chất lượng mỹ thuật đồng bộ và tiến độ khoa học, quá trình sản xuất lại toàn bộ 34 focus được chia làm 3 đợt triển khai mạch lạc:
+## 5. Consumer và đường dẫn VIE
 
-```text
-                  ĐỢT 1 (9 Focus Trọng Điểm & Cốt Lõi)
-         VIE_asean_integration, VIE_bamboo_diplomacy, VIE_16_words,
-     VIE_border_settlement, VIE_gulf_of_tonkin, VIE_special_relations_laos,
-    VIE_cambodia_relations, VIE_us_engagement, VIE_japan_partnership.
-                                   │
-                                   ▼
-                  ĐỢT 2 (12 Focus Đa Phương & Láng Giềng)
-        VIE_asean_chair, VIE_code_of_conduct, VIE_apec_host,
-       VIE_un_security_council, VIE_multilateral_champion,
-     VIE_mekong_commission, VIE_mekong_dams_response, VIE_cambodia_border,
-   VIE_funan_techo_response, VIE_indochina_solidarity, VIE_border_trade_gates,
-                          VIE_defence_hotline.
-                                   │
-                                   ▼
-               ĐỢT 3 (13 Focus Đối Tác Toàn Cầu & Chiến Lược)
-     VIE_us_comprehensive_partnership, VIE_us_embargo_lifted, VIE_us_carrier_visit,
-       VIE_us_tariff_deal, VIE_korea_partnership, VIE_india_partnership,
-       VIE_australia_partnership, VIE_france_eu, VIE_gulf_investment,
-          VIE_global_south_ties, VIE_csp_network, VIE_shared_future,
-                       VIE_indochina_federation.
-```
+| Loại | Field và mapping cần đọc | Export thường dùng |
+|---|---|---|
+| Focus | icon full GFX_focus_VIE_* → .gfx texturefile | gfx/interface/goals/ |
+| Idea | picture token → GFX_idea_<token> | gfx/interface/ideas/ |
+| Decision/category | icon theo block live → sprite đã định nghĩa | gfx/interface/decisions/ |
+| Event | picture full sprite → VIE_md_event_pictures.gfx | gfx/event_pictures/ |
+| Character | portraits army/civilian large/small path hoặc advisor mapping | gfx/leaders/VIE/ và small/ |
+| BoP/MIO/trait/UI | icon/sprite/GUI slot thực tế, frame/state | tra consumer |
 
----
+Ví dụ đang tồn tại, không phải ID cần thêm:
+- VIE_asean_integration → GFX_focus_VIE_asean_integration →
+  gfx/interface/goals/asean_integration.dds.
+- GFX_idea_VIE_military_rescue →
+  gfx/interface/ideas/VIE_idea_military_rescue.dds.
+- GFX_decision_VIE_civil_service_examination →
+  gfx/interface/decisions/VIE_civil_service_examination.tga.
+- VIE_army_phung_quang_thanh có army large/small paths trong character file.
 
-## 6. Tổng Kết
+Không phải mọi field dùng cùng tiền tố. Kiểm số frame/scale/effect nếu sprite
+có thuộc tính ấy; không tạo sprite sheet bằng cách nối file tùy ý.
+Sprite từ MD/base game có thể không xuất hiện trong checkout submod.
 
-Đề án nghiên cứu và thiết kế mỹ thuật với bộ 4 tập tài liệu:
-1. [01_hoi4_md_art_style_analysis.md](./01_hoi4_md_art_style_analysis.md)
-2. [02_vietnamese_propaganda_and_symbolic_art.md](./02_vietnamese_propaganda_and_symbolic_art.md)
-3. [03_concept_thiet_ke_icon_cac_nhanh.md](./03_concept_thiet_ke_icon_cac_nhanh.md)
-4. [04_giai_phap_cong_nghe_va_quy_trinh_san_xuat.md](./04_giai_phap_cong_nghe_va_quy_trinh_san_xuat.md)
+## 6. Lệnh kiểm tra không sửa tài nguyên
 
-đã tạo nên một cơ sở lý luận mỹ thuật vững chắc, khoa học và thực chiến. Việc áp dụng chuẩn mực hội họa sơn dầu kỹ thuật số kết hợp với tinh hoa tranh cổ động và tư tưởng ngoại giao dân tộc sẽ nâng tầm mod Millennium Dawn Vietnam lên đẳng cấp thẩm mỹ chuyên nghiệp, xứng đáng với tầm vóc lịch sử của đất nước.
+Chạy từ gốc repository. Inventory này đo cả TGA, không dựa vào bảng ghi nhớ:
+
+~~~bash
+python3 - <<'PY'
+from collections import Counter
+from pathlib import Path
+from PIL import Image
+for folder in ("gfx/interface/goals", "gfx/interface/ideas",
+               "gfx/interface/decisions", "gfx/event_pictures", "gfx/leaders/VIE"):
+    result = Counter()
+    for path in Path(folder).rglob("*"):
+        if path.suffix.lower() in (".dds", ".tga", ".png"):
+            with Image.open(path) as img:
+                img.load()
+                result[(img.size, img.mode, path.suffix.lower())] += 1
+    print(folder, dict(result))
+PY
+python3 tools/audit_dds_and_gfx.py
+~~~
+
+Ví dụ kiểm round-trip cho hai focus đã tích hợp:
+
+~~~bash
+python3 - <<'PY'
+from pathlib import Path
+from PIL import Image
+import struct
+for stem in ("asean_integration", "border_settlement"):
+    png = Path("assets/focus_icons/png") / (stem + ".png")
+    dds = Path("gfx/interface/goals") / (stem + ".dds")
+    with Image.open(png) as p, Image.open(dds) as d:
+        p.load(); d.load()
+        assert p.size == d.size == (93, 91)
+        assert p.convert("RGBA").tobytes() == d.convert("RGBA").tobytes()
+        a = d.convert("RGBA").getchannel("A")
+        for box in ((0,0,93,1),(0,90,93,91),(0,0,1,91),(92,0,93,91)):
+            assert a.crop(box).getextrema() == (0, 0)
+    data = dds.read_bytes()
+    assert data[:4] == b"DDS " and len(data) == 33980
+    pf = struct.unpack("<II4s5I", data[76:108])
+    assert pf == (32, 0x41, b"\0\0\0\0", 32,
+                  0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000)
+    print(stem, "export verified")
+PY
+~~~
+
+Kiểm này xác minh hai file hiện có; thay asset thì cập nhật hồ sơ/profile thích hợp.
+Đây không là bài test xem trong game.
+
+## 7. QA phân lớp và giới hạn công cụ
+
+| Lớp | Cần xác minh | Điều không thể suy ra |
+|---|---|---|
+| File | decode, size, alpha, masks/codec, frames | thẩm mỹ hoặc game render đúng |
+| Mapping | ID → sprite/path → file; aliases | GUI/slot nằm ngoài checkout tự động đúng |
+| Visual 1:1 | chủ thể, palette, frame, crop/likeness | chỉ master đẹp là đủ |
+| Runtime | popup/panel, hover/disabled, đúng năm | audit exit=0 là runtime pass |
+
+tools/audit_dds_and_gfx.py hiện kiểm DDS, texture .gfx, focus GFX và một phần
+event pictures. Không kiểm đủ TGA, idea picture, decision/category fields,
+character paths hoặc GUI state. Nó in cảnh báo generic MD references không có
+trong submod; phải tra provider trước kết luận thiếu. Đọc output dù exit=0.
+
+Chạy tools/audit/live.py nếu đổi ID/reference có liên quan; audit cây chỉ cần
+khi đổi cấu trúc focus. Không chạy suite gameplay không liên quan cho thay pixel.
+Giữ status/diff sạch ngoài phạm vi và báo cả skipped/unrun checks.

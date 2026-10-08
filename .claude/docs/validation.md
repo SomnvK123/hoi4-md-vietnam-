@@ -1,6 +1,7 @@
 # Kiểm tra (validation)
 
-Repo không có CI, pre-commit hay pytest. Kiểm tra là các script Python thư viện chuẩn trong `tools/`,
+Repo không có CI, pre-commit hay pytest. Kiểm tra là các script Python trong `tools/`
+(audit dữ liệu chủ yếu dùng thư viện chuẩn; audit ảnh cần Pillow),
 chạy tay từ gốc repo. Không có công cụ nào chạy được HOI4, nên "đã qua script" chưa có nghĩa là
 "chạy được trong game". Chi tiết từng script: `tools/audit/README.md`. Kịch bản test trong game:
 `tools/TESTING.md` (phần đầu là hướng dẫn hiện hành, phần sau là nhật ký lịch sử).
@@ -22,6 +23,12 @@ mà crash `UnicodeEncodeError` thì đặt `PYTHONIOENCODING=utf-8` (đã có tr
 | Layout cây | `tools/focus_layout/` (xem README trong đó) | Không tăng span, không gap < 2 |
 
 Luôn đọc kết quả thật trước khi báo "sạch". Nếu script không chạy được, nói rõ thay vì suy đoán.
+
+Với tài nguyên hình ảnh, đọc [quy trình và profile mỹ thuật](art-style-guide/04_giai_phap_cong_nghe_va_quy_trinh_san_xuat.md)
+và [skill md-art](../skills/md-art/SKILL.md). Audit DDS/GFX hiện không kiểm đầy đủ
+TGA, idea picture token, decision/category icon field, đường dẫn portrait hay GUI
+frame/state. Kiểm thêm consumer cụ thể và xem bản xuất ở kích thước 1:1.
+Không gọi mọi reference nằm ngoài submod là lỗi; phải tra provider MD/base game.
 
 ## Lỗi và hạn chế đã biết của chính các tool
 
