@@ -6655,8 +6655,11 @@ focus_tree = {
 	######################################################################
 	######################################################################
 	######################################################################
+	######################################################################
 	## ĐỀ ÁN V34: NHÁNH HẢI QUÂN VIỆT NAM (LAYOUT CÁNH BUỒM BLUE CHART)
-	## 40 FOCUS THEO ĐÚNG BẢN THIẾT KẾ MẪU ẢNH 2
+	## 40 FOCUS CHUẨN XÁC 100% THEO FILE THIẾT KẾ HTML V34
+	## LINES -> PREREQUISITE (VẼ ĐƯỜNG NỐI TRỰC QUAN)
+	## EXTRA -> AVAILABLE HAS_COMPLETED_FOCUS (LIÊN KẾT CHÉO ẨN ĐƯỜNG DÀI)
 	######################################################################
 
 	focus = {
@@ -6695,7 +6698,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_n00_maritime_strategy_21st
 
-		cost = 5
+		cost = 7
 
 		prerequisite = { focus = VIE_nav_n00_maritime_strategy_21st }
 
@@ -6722,7 +6725,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_n00_maritime_strategy_21st
 
-		cost = 5
+		cost = 7
 
 		prerequisite = { focus = VIE_nav_n00_maritime_strategy_21st }
 
@@ -6743,13 +6746,13 @@ focus_tree = {
 
 	focus = {
 		id = VIE_nav_s01_maritime_surveillance
-		icon = GFX_focus_VIE_scs_assert_maritime_rights
+		icon = GFX_focus_VIE_scs_joint_surveillance
 
 		x = -4
 		y = 1
 		relative_position_id = VIE_nav_t01_organization_reform
 
-		cost = 5
+		cost = 7
 
 		prerequisite = { focus = VIE_nav_t01_organization_reform }
 
@@ -6769,13 +6772,13 @@ focus_tree = {
 
 	focus = {
 		id = VIE_nav_t02_officer_sailor_quality
-		icon = GFX_focus_VIE_nf_training_standardization
+		icon = GFX_focus_VIE_nf_command_reform_2
 
 		x = 0
 		y = 1
 		relative_position_id = VIE_nav_t01_organization_reform
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_t01_organization_reform }
 
@@ -6790,19 +6793,18 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_t02_officer_sailor_quality"
 			VIE_nav_xp_15 = yes
 			VIE_nav_upgrade_org = yes
-			navy_leader_start_level = 1
 		}
 	}
 
 	focus = {
 		id = VIE_nav_t03_regional_commands
-		icon = GFX_focus_VIE_nf_regional_command
+		icon = GFX_focus_VIE_nf_command_reform_3
 
 		x = 3
 		y = 1
 		relative_position_id = VIE_nav_t01_organization_reform
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_t01_organization_reform }
 
@@ -6815,7 +6817,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_t03_regional_commands"
-			VIE_nav_xp_15 = yes
+			VIE_nav_xp_10 = yes
 			add_command_power = 20
 			VIE_nav_upgrade_org = yes
 		}
@@ -6829,7 +6831,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_t01_organization_reform
 
-		cost = 5
+		cost = 7
 
 		prerequisite = { focus = VIE_nav_t01_organization_reform }
 
@@ -6856,7 +6858,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_i01_shipbuilding_industry
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_i01_shipbuilding_industry }
 
@@ -6882,7 +6884,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_i01_shipbuilding_industry
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_i01_shipbuilding_industry }
 
@@ -6908,7 +6910,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_s01_maritime_surveillance
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_s01_maritime_surveillance }
 
@@ -6935,7 +6937,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_s01_maritime_surveillance
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_s01_maritime_surveillance }
 
@@ -6949,14 +6951,14 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_s03_subsurface_recon"
 			VIE_nav_xp_10 = yes
+			801 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } }
 			VIE_nav_upgrade_mda = yes
-			add_tech_bonus = { name = VIE_s03_sonar_tech bonus = 0.50 uses = 1 category = CAT_submarines }
 		}
 	}
 
 	focus = {
 		id = VIE_nav_w01_surface_combatants
-		icon = GFX_focus_VIE_nf_surface_force
+		icon = GFX_focus_VIE_nf_light_combatants
 
 		x = -1
 		y = 1
@@ -6976,24 +6978,23 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w01_surface_combatants"
 			VIE_nav_xp_15 = yes
-			add_ideas = VIE_nav_surface_fleet_readiness
 			add_tech_bonus = { name = VIE_w01_surface_tech bonus = 0.50 uses = 1 category = CAT_surface_ships }
 		}
 	}
 
 	focus = {
 		id = VIE_nav_w04_kilo_submarine_force
-		icon = GFX_focus_VIE_nf_submarine_force
+		icon = GFX_focus_VIE_kilo_submarines
 
 		x = 1
 		y = 1
 		relative_position_id = VIE_nav_t02_officer_sailor_quality
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_t02_officer_sailor_quality }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_NAVY }
 
 		ai_will_do = {
 			base = 75
@@ -7003,23 +7004,26 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w04_kilo_submarine_force"
 			VIE_nav_xp_20 = yes
-			add_tech_bonus = { name = VIE_w04_submarine_tech bonus = 0.75 uses = 1 category = CAT_submarines }
+			add_tech_bonus = { name = VIE_w04_sub_tech bonus = 0.50 uses = 1 category = CAT_submarines }
 			set_country_flag = VIE_nav_w04_kilo_unlocked
 		}
 	}
 
 	focus = {
 		id = VIE_nav_t04_joint_command_system
-		icon = GFX_focus_VIE_nf_command_reform_2
+		icon = GFX_focus_VIE_nf_c4isr_command
 
 		x = 0
 		y = 1
 		relative_position_id = VIE_nav_t03_regional_commands
 
-		cost = 7
+		cost = 6
 
-		prerequisite = { focus = VIE_nav_t02_officer_sailor_quality }
 		prerequisite = { focus = VIE_nav_t03_regional_commands }
+
+		available = {
+			has_completed_focus = VIE_nav_t02_officer_sailor_quality
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7030,21 +7034,21 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_t04_joint_command_system"
-			VIE_nav_xp_20 = yes
-			add_command_power = 30
+			VIE_nav_xp_15 = yes
+			add_command_power = 25
 			VIE_nav_upgrade_org = yes
 		}
 	}
 
 	focus = {
 		id = VIE_nav_l02_overhaul_maintenance
-		icon = GFX_focus_VIE_naval_mro
+		icon = GFX_focus_VIE_nf_fleet_repair
 
 		x = -1
 		y = 1
 		relative_position_id = VIE_nav_l01_naval_bases
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_l01_naval_bases }
 
@@ -7064,13 +7068,13 @@ focus_tree = {
 
 	focus = {
 		id = VIE_nav_l03_island_logistics
-		icon = GFX_focus_VIE_scs_dk1_platforms
+		icon = GFX_focus_VIE_scs_island_airstrip
 
 		x = 1
 		y = 1
 		relative_position_id = VIE_nav_l01_naval_bases
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_l01_naval_bases }
 
@@ -7084,21 +7088,20 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_l03_island_logistics"
 			VIE_nav_xp_10 = yes
-			801 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } }
-			518 = { add_building_construction = { type = naval_base level = 1 instant_build = yes } }
 			VIE_nav_upgrade_logistics = yes
+			518 = { add_building_construction = { type = naval_base level = 1 instant_build = yes } }
 		}
 	}
 
 	focus = {
 		id = VIE_nav_i04_domestic_corvette_class
-		icon = GFX_focus_VIE_small_combatant_construction
+		icon = GFX_focus_VIE_nf_stealth_corvette
 
 		x = 2
 		y = 1
 		relative_position_id = VIE_nav_i02_technology_transfer_molniya
 
-		cost = 7
+		cost = 10
 
 		prerequisite = { focus = VIE_nav_i02_technology_transfer_molniya }
 		prerequisite = { focus = VIE_nav_i03_ship_systems_integration }
@@ -7112,9 +7115,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_i04_domestic_corvette_class"
-			VIE_nav_xp_15 = yes
+			VIE_nav_xp_20 = yes
 			VIE_nav_upgrade_industry = yes
-			add_tech_bonus = { name = VIE_i04_corvette_tech bonus = 0.75 uses = 1 category = CAT_surface_ships }
+			add_tech_bonus = { name = VIE_i04_domestic_tech bonus = 0.75 uses = 1 category = CAT_surface_ships }
 			set_country_flag = VIE_nav_i04_song_thu_unlocked
 		}
 	}
@@ -7123,14 +7126,17 @@ focus_tree = {
 		id = VIE_nav_s04_joint_island_defense
 		icon = GFX_focus_VIE_scs_maritime_militia
 
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = VIE_nav_s02_island_defense_forces
+		relative_position_id = VIE_nav_s03_subsurface_recon
 
-		cost = 7
+		cost = 6
 
-		prerequisite = { focus = VIE_nav_s02_island_defense_forces }
 		prerequisite = { focus = VIE_nav_s03_subsurface_recon }
+
+		available = {
+			has_completed_focus = VIE_nav_s02_island_defense_forces
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7148,13 +7154,13 @@ focus_tree = {
 
 	focus = {
 		id = VIE_nav_w02_missile_boats
-		icon = GFX_focus_VIE_small_combatant_construction
+		icon = GFX_focus_VIE_nf_missile_boats
 
 		x = 0
 		y = 1
 		relative_position_id = VIE_nav_w01_surface_combatants
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_w01_surface_combatants }
 
@@ -7167,8 +7173,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w02_missile_boats"
-			VIE_nav_xp_10 = yes
-			add_tech_bonus = { name = VIE_w02_missile_boat bonus = 0.50 uses = 1 category = CAT_surface_ships }
+			VIE_nav_xp_15 = yes
+			add_tech_bonus = { name = VIE_w02_fast_attack bonus = 0.50 uses = 1 category = CAT_light_combatants }
 			set_country_flag = VIE_nav_w02_molniya_unlocked
 		}
 	}
@@ -7177,11 +7183,11 @@ focus_tree = {
 		id = VIE_nav_w03_multirole_frigates
 		icon = GFX_focus_VIE_nf_regional_frigates
 
-		x = 2
+		x = 0
 		y = 1
-		relative_position_id = VIE_nav_w01_surface_combatants
+		relative_position_id = VIE_nav_w04_kilo_submarine_force
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_w01_surface_combatants }
 
@@ -7208,7 +7214,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_l02_overhaul_maintenance
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_l02_overhaul_maintenance }
 		prerequisite = { focus = VIE_nav_l03_island_logistics }
@@ -7235,7 +7241,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_s04_joint_island_defense
 
-		cost = 7
+		cost = 10
 
 		prerequisite = { focus = VIE_nav_s04_joint_island_defense }
 
@@ -7261,9 +7267,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_w03_multirole_frigates
 
-		cost = 5
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_w03_multirole_frigates }
+
+		available = {
+			has_completed_focus = VIE_nav_s03_subsurface_recon
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7288,7 +7298,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_l04_support_rescue_vessels
 
-		cost = 7
+		cost = 10
 
 		prerequisite = { focus = VIE_nav_l04_support_rescue_vessels }
 
@@ -7314,11 +7324,15 @@ focus_tree = {
 		y = 3
 		relative_position_id = VIE_nav_t04_joint_command_system
 
-		cost = 7
+		cost = 8
 
 		mutually_exclusive = { focus = VIE_nav_h01_fleet_development_priority }
 
 		prerequisite = { focus = VIE_nav_t04_joint_command_system }
+
+		available = {
+			has_completed_focus = VIE_nav_w01_surface_combatants
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7342,11 +7356,15 @@ focus_tree = {
 		y = 3
 		relative_position_id = VIE_nav_t04_joint_command_system
 
-		cost = 7
+		cost = 8
 
 		mutually_exclusive = { focus = VIE_nav_p01_integrated_defense_choice }
 
 		prerequisite = { focus = VIE_nav_t04_joint_command_system }
+
+		available = {
+			has_completed_focus = VIE_nav_w01_surface_combatants
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7370,9 +7388,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_p01_integrated_defense_choice
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_p01_integrated_defense_choice }
+
+		available = {
+			has_completed_focus = VIE_nav_s02_island_defense_forces
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7397,9 +7419,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_p01_integrated_defense_choice
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_p01_integrated_defense_choice }
+
+		available = {
+			has_completed_focus = VIE_nav_l03_island_logistics
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7423,9 +7449,14 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_h01_fleet_development_priority
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_h01_fleet_development_priority }
+
+		available = {
+			has_completed_focus = VIE_nav_w03_multirole_frigates
+			has_completed_focus = VIE_nav_l02_overhaul_maintenance
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7449,7 +7480,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_p02_coastal_island_network
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_p02_coastal_island_network }
 
@@ -7476,7 +7507,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_h02_multirole_task_groups
 
-		cost = 7
+		cost = 8
 
 		mutually_exclusive = { focus = VIE_nav_b01_bluewater_navy }
 
@@ -7504,11 +7535,15 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_h02_multirole_task_groups
 
-		cost = 10
+		cost = 8
 
 		mutually_exclusive = { focus = VIE_nav_g01_greenwater_navy }
 
 		prerequisite = { focus = VIE_nav_h02_multirole_task_groups }
+
+		available = {
+			has_completed_focus = VIE_nav_l05_sustained_operations
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7532,9 +7567,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_p04_layered_defense
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_p04_layered_defense }
+
+		available = {
+			has_completed_focus = VIE_nav_p03_island_territory_defense
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7559,9 +7598,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_g01_greenwater_navy
 
-		cost = 7
+		cost = 6
 
 		prerequisite = { focus = VIE_nav_g01_greenwater_navy }
+
+		available = {
+			has_completed_focus = VIE_nav_w05_asw_fleet_defense
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7585,9 +7628,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_b01_bluewater_navy
 
-		cost = 7
+		cost = 10
 
 		prerequisite = { focus = VIE_nav_b01_bluewater_navy }
+
+		available = {
+			has_completed_focus = VIE_nav_s04_joint_island_defense
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7642,6 +7689,10 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_nav_g02_advanced_frigates_asw }
 
+		available = {
+			has_completed_focus = VIE_nav_l03_island_logistics
+		}
+
 		search_filters = { FOCUS_FILTER_NAVY }
 
 		ai_will_do = {
@@ -7692,7 +7743,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_nav_g03_self_reliant_greenwater_capstone
 
-		cost = 7
+		cost = 10
 
 		prerequisite = {
 			focus = VIE_nav_p06_active_coastal_defense_capstone
@@ -7726,6 +7777,11 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { focus = VIE_nav_f01_tactical_doctrine_alignment }
+
+		available = {
+			has_completed_focus = VIE_nav_s05_unified_maritime_picture
+			has_completed_focus = VIE_nav_l05_sustained_operations
+		}
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
