@@ -1,130 +1,95 @@
-# Nhánh công nghiệp Việt Nam — v17 (08/10/2026)
+# Nhánh công nghiệp Việt Nam — v31 (09/10/2026)
 
-35 focus cũ được giữ ID, thêm 4 focus chính sách thành 39. Đây là tài liệu hiện hành
-cho nhánh công nghiệp, thay phần 2.4 và quy tắc giấu phụ thuộc nội bộ trong tài liệu
-`VIE_economic_spine_horizontal_architecture.md` ngày 05/10/2026.
+Triển khai trực tiếp trên `main`: 39 → 24 focus, giữ 22 ID, thêm 2 và archive 17. Game mới bắt buộc; không có migration save. Hai cặp mutex khiến tối đa 22 focus được hoàn thành trong một lượt chơi.
 
-## Bố cục và quan hệ
+Baseline lúc bắt đầu: 416 focus, riêng thay đổi công nghiệp giảm tổng 15 xuống 401. Workspace có chỉnh sửa đồng thời ở Lục quân/quốc phòng; tổng cây hiện tại phải lấy từ audit, không dùng 401 như kết quả cuối. Baseline hash được giữ nguyên để phát hiện và báo riêng những thay đổi ngoài phạm vi.
 
-- Vùng x=124..140 được giữ; độ sâu tăng từ y=1..7 lên y=1..9. Tất cả focus con thấp
-  hơn từng prerequisite, khoảng cách giữa tâm focus cùng hàng ít nhất 2 đơn vị.
-- Anchor là một prerequisite đã khai báo trước. Các nhánh ngoài công nghiệp giữ
-  nguyên toàn bộ block gameplay và tọa độ tuyệt đối.
-- Một khối prerequisite nhiều focus là OR; nhiều khối là AND. Cặp chính sách có
-  `mutually_exclusive` hai chiều, đứng cạnh nhau. Không loại trừ các ngành/doanh nghiệp.
-- Điều kiện nội bộ dùng đường nối. WTO, CPTPP, EVFTA, giáo dục đại học là điều kiện
-  ngoài nhánh, có tooltip tham chiếu tên focus thực qua localisation `$key$`.
+## Focus và layout
 
-| Cụm | Quan hệ |
-|---|---|
-| Đóng tàu | Vinashin → xử lý khủng hoảng và SBIC → liên doanh → kết cấu điện gió |
-| Dệt may | Xuất khẩu → xuất xứ CPTPP → dệt–nhuộm → sản xuất xanh |
-| Thép | Formosa và Hòa Phát mở độc lập; Hòa Phát → Dung Quất 2 |
-| Chuỗi cung ứng | Công nghiệp hỗ trợ mở từ gốc → cấp 1, cơ khí, ô tô và China+1 |
-| Trung tâm chế tạo | Công nghiệp hỗ trợ AND (Samsung OR China+1) |
-| Apple | Trung tâm chế tạo AND một trong hai lựa chọn FDI |
-| Bán dẫn | Intel → tham vọng → một lựa chọn hỗ trợ → thiết kế / OSAT / đào tạo song song → fab thử nghiệm cần cả ba |
-| Ô tô | Chương trình ô tô → cụm cung ứng → xe điện và pin → xuất khẩu |
-| Chính sách | NQ23 → NQ29 → quỹ hỗ trợ / chương trình năng suất song song; khu công nghiệp sinh thái là nhánh riêng dưới NQ23 |
+Bốn vùng X124–126 / X128–130 / X132–136 / X138–142; sáu ngành có tiến độ độc lập. Tọa độ tuyệt đối trong bảng; code dùng offset với cha trực tiếp đã khai báo trước. AND là nhiều block prerequisite, OR là nhiều focus trong cùng block. Hai mutex hai chiều; Y8 trống. Công nghiệp hỗ trợ phải bàn giao trước sáu cửa ngành.
 
-Xem [bảng 39 focus và thay đổi reward](.claude/docs/industry/industry_changes.md),
-[manifest trước](.claude/docs/industry/industry_before.json) và
-[manifest sau](.claude/docs/industry/industry_after.json).
+| ID (VIE_) | Tên | Cost | X,Y | Prerequisite | Điều kiện thêm |
+|---|---|---:|---|---|---|
+| `industrialization_strategy` | Chiến lược công nghiệp hóa quốc gia | 5 | 133,1 | (doi_moi_continues) | `date > 2001.4.30` |
+| `supporting_industries` | Phát triển công nghiệp hỗ trợ | 7 | 133,2 | (industrialization_strategy) | `Không` |
+| `vinashin_restructuring_sbic` | Tái cơ cấu ngành đóng tàu | 5 | 124,3 | (supporting_industries) | `VIE_ind_support_done = yes date > 2004.12.31` |
+| `national_steel_program` | Chương trình công nghiệp thép quốc gia | 7 | 126,3 | (supporting_industries) | `VIE_ind_support_done = yes date > 2007.12.31` |
+| `textile_garment_exports` | Công nghiệp dệt may xuất khẩu | 5 | 128,3 | (supporting_industries) | `VIE_ind_support_done = yes` |
+| `domestic_automotive` | Chương trình sản xuất ô tô | 7 | 130,3 | (supporting_industries) | `VIE_ind_support_done = yes date > 2017.12.31` |
+| `electronics_export_program` | Công nghiệp điện tử xuất khẩu | 5 | 134,3 | (supporting_industries) | `VIE_ind_support_done = yes date > 2007.12.31 VIE_ind_wto_ready = yes` |
+| `chip_engineers` | Nền tảng nhân lực và R&D bán dẫn | 7 | 140,3 | (supporting_industries) | `VIE_ind_support_done = yes date > 2009.12.31 VIE_ind_education_ready = yes` |
+| `ev_revolution_batteries` | Linh kiện, pin và điện khí hóa | 7 | 130,4 | (domestic_automotive) | `VIE_ind_auto_base_done = yes` |
+| `fdi_fast_track` | Thu hút FDI nhanh | 5 | 132,4 | (electronics_export_program) | `Không` |
+| `fdi_technology_screening` | Sàng lọc FDI công nghệ | 5 | 136,4 | (electronics_export_program) | `Không` |
+| `chip_design_packaging_priority` | Ưu tiên thiết kế và đóng gói | 5 | 138,4 | (chip_engineers) | `Không` |
+| `chip_pilot_fab_priority` | Ưu tiên chế tạo thí điểm | 5 | 142,4 | (chip_engineers) | `Không` |
+| `shipbuilding_joint_ventures` | Đóng tàu dân sự và công trình biển | 7 | 124,5 | (vinashin_restructuring_sbic) | `VIE_ind_ship_governance_done = yes` |
+| `hoa_phat_hrc_steel` | Thép chất lượng cao và năng lực HRC | 7 | 126,5 | (national_steel_program) | `VIE_ind_steel_base_done = yes` |
+| `green_textiles` | Chuỗi giá trị dệt may và sản xuất xanh | 7 | 128,5 | (textile_garment_exports) | `VIE_ind_textile_base_done = yes VIE_ind_green_trade_ready = yes` |
+| `global_auto_export` | Năng lực xuất khẩu ô tô | 7 | 130,5 | (ev_revolution_batteries) | `VIE_ind_auto_ev_done = yes VIE_ind_wto_ready = yes` |
+| `apple_supply_chain` | Nội địa hóa chuỗi cung ứng điện tử | 7 | 134,5 | (fdi_fast_track OR fdi_technology_screening) | `VIE_ind_electronics_base_done = yes` |
+| `chip_design` | Năng lực thiết kế chip | 7 | 138,5 | (chip_design_packaging_priority OR chip_pilot_fab_priority) | `VIE_ind_chip_workforce_done = yes` |
+| `osat_packaging` | Đóng gói và kiểm thử chip | 7 | 142,5 | (chip_design_packaging_priority OR chip_pilot_fab_priority) | `VIE_ind_chip_workforce_done = yes` |
+| `manufacturing_hub` | Trung tâm chế tạo điện tử | 7 | 134,6 | (apple_supply_chain) | `VIE_ind_electronics_suppliers_done = yes` |
+| `semiconductor_fab` | Chế tạo chip thí điểm | 7 | 140,6 | (chip_design) AND (osat_packaging) AND (chip_engineers) | `VIE_ind_chip_ready = yes` |
+| `industrial_productivity_program` | Cải cách và nâng cao năng suất công nghiệp | 7 | 133,7 | (shipbuilding_joint_ventures OR green_textiles OR hoa_phat_hrc_steel OR global_auto_export OR manufacturing_hub OR osat_packaging) | `VIE_ind_three_sectors = yes` |
+| `modern_industrial_nation_2030` | Quốc gia công nghiệp hiện đại 2030 | 7 | 133,9 | (industrial_productivity_program) | `VIE_ind_capstone_ready = yes` |
 
-## Lựa chọn, chi phí và sự kiện
+Các focus mở chương trình; nhà máy, điểm, bonus và idea được cấp ở bàn giao. Các mốc công nhận không khóa 2030. Nhân lực bán dẫn mở từ 2010 cùng Luật giáo dục đại học; AI lịch sử giữ 2024, fab 2026, năng suất sau 2023 và capstone 2030.
 
-| Focus mới | Thời gian | Reward / chi phí |
-|---|---|---|
-| `VIE_fdi_fast_track` | cost 5 | Một lần tăng trưởng; cờ mở cửa; Apple tiếp tục gọi sự kiện xuất xứ |
-| `VIE_fdi_technology_screening` | cost 5 | +2 điểm nội địa hóa; -25 PP; không thưởng tăng trưởng trực tiếp |
-| `VIE_chip_design_packaging_priority` | cost 5 | -1 tỷ; +2 điểm; một bonus microchip 50% |
-| `VIE_chip_pilot_fab_priority` | cost 5 | -3 tỷ; +3 điểm; một bonus microchip 50% |
+## Vòng đời và ngân sách
 
-Nhà máy thử nghiệm thu thêm 2 tỷ chỉ trên đường ưu tiên thiết kế/đóng gói. Tổng hỗ
-trợ trên cả hai đường là 3 tỷ. Cả hai vẫn cần thiết kế, OSAT và nhân lực. Helper xây
-nhà máy của MD được gọi đúng một lần tại fab và tính giá công trình riêng.
+Category `VIE_industry_category` dành cho original_tag VIE, hiện sau chiến lược. 17 chương trình logic, 19 decision do hai lựa chọn thép và hai thời lượng fab. Mỗi ngành và nhóm chung có slot riêng; các ngành chạy song song. Start kiểm focus/chính sách, bậc, tiền và state sở hữu/kiểm soát; trừ treasury qua MD một lần và lưu `_paid`. Finish kiểm `_running` và bậc, bàn giao một lần, dọn slot. Mất state hoàn tiền đúng khoản đã trả và cho thử lại. State đầy được công nhận nâng cấp năng lực nhưng không xây và không gọi fallback random. Helper MD dùng `skip_payment=1`, reset 0, guard slot include_locked tương ứng.
 
-Reward của 35 focus giữ nguyên, ngoại trừ bỏ caller `vie_ind.1` tại China+1 và thêm
-khoản hỗ trợ bổ sung có điều kiện tại fab. Sự kiện `vie_ind.1` được giữ cho hàng đợi
-save cũ; không có caller gameplay mới. Effect FDI dùng chung có guard hai kết quả,
-không cấp thưởng hoặc đảo lựa chọn nếu event tới sau focus. Focus tương ứng bypass
-khi lựa chọn đã được event xác nhận; phương án còn lại bị chặn.
+| Decision (VIE_ind_d_) | Tỷ USD chuẩn | Ngày | Công trình tối đa | Điểm |
+|---|---:|---:|---|---:|
+| `support` | 2 | 180 | Nâng cấp năng lực | 6 |
+| `ship_governance` | 1 | 180 | Nâng cấp năng lực | 2 |
+| `ship_civil` | 7.5 | 365 | dockyard 519 | 2 |
+| `textile_base` | 7.5 | 365 | industrial_complex 522 | 2 |
+| `textile_green` | 2 | 180 | Nâng cấp năng lực | 2 |
+| `steel_foreign` | 6 | 365 | industrial_complex 521 | 2 |
+| `steel_domestic` | 7.5 | 450 | industrial_complex 521 | 2 |
+| `steel_hrc` | 7.5 | 365 | industrial_complex 521 | 2 |
+| `auto_base` | 7.5 | 365 | industrial_complex 522 | 1 |
+| `auto_ev` | 7.5 | 365 | industrial_complex 521 | 1 |
+| `auto_export` | 1 | 180 | Nâng cấp năng lực | 2 |
+| `electronics_base` | 7.5 | 365 | industrial_complex 522 | 2 |
+| `electronics_suppliers` | 2 | 180 | Nâng cấp năng lực | 2 |
+| `chip_workforce` | 2 | 365 | Nâng cấp năng lực | 1 |
+| `chip_design` | 1 | 180 | Nâng cấp năng lực | 1 |
+| `chip_osat` | 7.5 | 365 | industrial_complex 519 | 2 |
+| `fab_design` | 15 | 720 | industrial_complex 519 | 2 |
+| `fab_pilot` | 12 | 630 | industrial_complex 519 | 2 |
+| `productivity` | 1 | 180 | Nâng cấp năng lực | 4 |
 
-SBIC đọc cờ `VIE_vinashin_crisis_processed`, được đặt khi chọn một option của
-`vie_eco.5`, khi fallback được áp dụng, hoặc khi lịch sử được xử lý trong catch-up
-của bookmark muộn. Cờ scheduler chỉ nói rằng event đã được lên lịch, không mở SBIC.
+FDI nhanh giảm 25% điện tử nền tảng; FDI chọn lọc tốn 25 PP, thêm 2 điểm và một bonus CAT_industry 25% khi nền tảng bàn giao. Thiết kế/OSAT giảm 25% hai đợt thiết kế và OSAT, fab 15/720; ưu tiên fab giữ giá đầy đủ hai đợt này, fab 12/630. Cả hai đường mở toàn bộ năng lực. Mỗi thiết kế/OSAT cấp CAT_microchips 25%, một lần.
 
-## Mốc lịch sử và năng lực
+Tổng đủ sáu ngành và fab: 80,625–84,875 tỷ; không fab: 66,5–72 tỷ, không tính event. Tối đa 8 IC và 1 dockyard. Đây là thông số cân bằng gameplay, không phải vốn lịch sử doanh nghiệp.
 
-Các focus năng lực chung bỏ khóa năm: xuất khẩu dệt may, cơ khí chính xác, nhà cung
-ứng cấp 1, cụm phụ trợ ô tô, dệt–nhuộm, dệt may xanh, tham vọng bán dẫn, đào tạo kỹ
-sư và năng suất. Dệt may xanh vẫn cần EVFTA; đào tạo vẫn cần luật giáo dục đại học.
-Xe điện–pin không còn phụ thuộc Quy hoạch điện VIII.
+## Điểm, ngành và capstone
 
-| Focus | Mở từ | Ý nghĩa |
-|---|---|---|
-| Formosa | 01/07/2008 | Giai đoạn đầu tư/xây dựng; không mô tả là bắt đầu sản xuất thương mại |
-| Intel | 29/10/2010 | Nhà máy lắp ráp và kiểm thử khai trương |
-| SBIC | 21/10/2013 | Đổi mô hình sau xử lý khủng hoảng |
-| Hòa Phát HRC | 02/05/2020 | Mẻ HRC đầu tiên |
-| NQ23 | 22/03/2018 | Ngày ban hành nghị quyết |
-| NQ29 | 17/11/2022 | Ngày ban hành nghị quyết |
-| Kết cấu điện gió | 19/05/2023 | Hợp đồng PTSC–Ørsted trong mô tả |
-| OSAT | 11/10/2023 | Mốc khánh thành Amkor trong mô tả |
-| Xuất khẩu / Nasdaq | 15/08/2023 | Mốc niêm yết VFS được nêu trong focus và event |
+Root 10 điểm, hỗ trợ 6, năng suất 4 = nền chung 20. Mỗi ngành đủ các đợt đóng góp 4; bất kỳ ba ngành đạt 32 mà không bắt chọn lọc FDI/fab. Chip đủ nhân lực + thiết kế + OSAT; fab là nâng cao. Điện tử cần hai đợt và focus manufacturing_hub. Năng suất cần 3/6 ngành thực tế; capstone cần năng suất đã bàn giao, vẫn đủ 3/6 và ít nhất 32 điểm. Getter trạng thái và tooltip dùng cùng trigger ngành.
 
-Nguồn chính: [Intel](https://www.intel.co.jp/content/dam/www/public/apac/xa/en/asset/world-economic-forum/pdf/Investing%20in%20asean%20region/article%204/VNAT%20Opening%20press%20release%20102910%20Final.pdf),
-[Hòa Phát](https://www.hoaphat.com.vn/tin-tuc/hoa-phat-can-moc-san-luong-5-trieu-tan-hrc.html),
-[PTSC](https://www.ptsc.com.vn/ptsc-va-rsted-ky-hop-dong-che-tao-va-cung-cap-chan-de-cho-du-an-dien-gio-ngoai-khoi-greater-changhua-2b-4).
-[Amkor](https://amkor.com/blog/amkor-inaugurates-latest-factory-in-vietnam/) xác nhận
-ngày khánh thành OSAT; [Nasdaq](https://www.nasdaq.com/videos/vinfast-auto-rings-the-nasdaq-stock-market-opening-bell)
-xác nhận ngày niêm yết được mô tả trong focus xuất khẩu.
-Ngày mở focus là mốc nội dung, không phải thời gian xây một nhà máy ngoài đời.
+Idea fab thay idea bán dẫn nền tảng; capstone thay idea năng suất. Trần: growth modifier 0,080; research speed 0,015; factory output 0,060; corporate tax 0,060; IC construction 0,090. Capstone thêm PP50/stability0,02. Không còn tăng trưởng trực tiếp hay treasury miễn phí trong focus công nghiệp và thông báo ô tô.
 
-Điểm nội địa hóa là chỉ số năng lực gameplay, không phải một tỷ lệ thống kê quốc
-gia. Loc HRC bỏ khẳng định tự chủ 100%; đào tạo là chương trình nhân lực; fab là
-dây chuyền thử nghiệm ở công nghệ trưởng thành. Đã sửa BOM thiếu tại
-`VIE_md_l_english.yml`, nơi định nghĩa title Samsung.
+## Event và tích hợp
 
-## Đích cuối và AI
+Vinashin giữ lịch 2010, risk và processed flag. Cải cách trước 2010 ghi risk di sản +2 một lần; governance bàn giao reset risk, stability+0,01, không đặt processed và không xóa debt HSR. Cải cách giảm phí bailout/prosecution/fallback xuống 1/0,5/0,75 tỷ. Immediate, option và fallback có guard chống phát lại.
 
-`VIE_modern_industrial_nation_2030` giữ ID và reward, tên hiển thị là **Nền công
-nghiệp hiện đại**. Chỉ có prerequisite chương trình năng suất; available yêu cầu
-≥45 điểm và ≥3/6 nhóm sau, mỗi nhóm tính một lần:
+`vie_ind.1` chọn vốn thép một lần; `.2` kiểm tra xuất xứ sau trung tâm điện tử theo FDI nhanh; `.3` thông báo fab. Lựa chọn thép giữ pending qua popup cooldown và catch-up. Chỉ thép FDI đã bàn giao đặt steel_complex_built; Formosa chỉ trong cửa sổ 2016, không khủng hoảng cho nội địa hay dự án muộn. `vie_auto.1` không reward; `.2` đọc EV đã bàn giao và Petrolimex, cấp một lần PP25/stability0,01. Catch-up không đầu tư hoặc bàn giao.
 
-1. Kết cấu điện gió ngoài khơi.
-2. Dệt may xanh.
-3. Dung Quất 2.
-4. Trung tâm chế tạo **và** nhà cung ứng cấp 1.
-5. Thiết kế chip **và** đóng gói OSAT.
-6. Xe điện–pin.
+`VIE_innovation_nation` chỉ đổi gate semiconductor_ambition thành nhân lực/R&D đã bàn giao. Không đổi reward/prerequisite/layout. Shortcut công nghiệp giữ tên và target. Idea hỗ trợ hợp nhất cơ khí/Tier1; bỏ idea phụ trợ ô tô riêng. Localization Việt có dấu, BOM, 229 key trong file chương trình mới.
 
-`count_triggers` kiểm ba nhóm; sáu getter scripted localisation hiển thị trạng
-thái từng nhóm trong tooltip. Không có khóa năm hoặc bắt buộc fab/xe điện cho người
-chơi. Đường đóng tàu + dệt may + thép, thêm phụ trợ và cơ khí, đạt 48 điểm.
+## Tài nguyên và nghiệm thu
 
-Historical plan ưu tiên FDI chọn lọc và thiết kế/đóng gói. Guard ngày chỉ nằm trong
-`ai_will_do` cho tham vọng bán dẫn (2021), đào tạo (2024), fab (2026), năng suất
-(11/2023), đích cuối (2030). Người chơi được phát triển năng lực sớm. Không thêm
-persona AI hoặc thay đổi trọng số nghiên cứu/chính trị ngoài phạm vi này.
+Provider MD/base game đã được kiểm bằng sprite và texture thật. Sửa token không có provider trong nhánh: focus_generic_destroyer → naval_industry; focus_generic_industry_3 → industry3; focus_generic_diplomatic_treaty → diplomatic_treaty. Idea hỗ trợ dùng industrial_focus đã xác minh. Không tạo artwork hoặc sửa master/texture.
 
-## Bàn giao và kiểm định
+- [Manifest và baseline](.claude/docs/industry/v31/structure.json)
+- [Mapping 17 ID bỏ](.claude/docs/industry/v31/retired_mapping.md)
+- [Kiểm định và checklist runtime](.claude/docs/industry/v31/validation.md)
+- [Sơ đồ sau sửa](.claude/docs/industry/v31/after.png)
+- [Sơ đồ trước sửa](.claude/docs/industry/v31/before.png)
+- [Drawio hai trang](.claude/docs/industry/v31/industry_v31.drawio)
 
-![Trước](.claude/docs/industry/industry_before.png)
-
-![Sau](.claude/docs/industry/industry_after.png)
-
-[Sơ đồ Diagram.net hai trang, XML không nén](.claude/docs/industry/industry_redesign.drawio).
-Các hình là sơ đồ thiết kế từ tọa độ thật, không phải ảnh runtime HOI4. Đường XML
-có đầu/cuối là focus, OR dùng dashed và mutex dùng một LINK. Không sinh skeleton
-ghi đè file gameplay. Nguồn quy ước: [Focus Tree Tool](https://millenniumdawn.github.io/Millennium-Dawn/dev-resources/focus-tree-tool/),
-[Design Principles](https://millenniumdawn.github.io/Millennium-Dawn/dev-resources/focus-tree-design-principles/).
-
-Tái xuất: `python tools/focus_layout/industry_diagram.py` (cần Pillow).
-Kiểm logic: `python tools/audit/industry.py`. Xem kết quả audit và checklist trong
-[validation.md](.claude/docs/industry/validation.md).
-
-Save mới là chuẩn nghiệm thu. Save cũ giữ ID nhưng không hoàn nguyên reward cũ;
-phương án FDI chọn lọc đã chọn trước bản này không có cờ nên không thể tự nhận diện.
-Save cũ đã xử lý Vinashin cũng có thể thiếu cờ mới. Bypass/event guard chỉ xử lý các
-trạng thái có bằng chứng, không suy diễn cờ lịch sử từ cờ scheduler.
+Thiết kế v17 giữ tại `.claude/docs/industry/v31/v17_design_archive.md` để tra lịch sử. Không dùng thiết kế cũ làm nghiệm thu v31.

@@ -24,9 +24,7 @@ VIE_fb_inflation = {
 	decrease_economic_growth = yes
 }
 VIE_fb_vinashin = {
-	hidden_effect = { set_country_flag = VIE_vinashin_crisis_processed }
-	set_temp_variable = { treasury_change = -2 }
-	modify_treasury_effect = yes
+	if = { limit = { NOT = { has_country_flag = VIE_vinashin_crisis_processed } } if = { limit = { has_country_flag = VIE_ind_ship_governance_done } set_temp_variable = { treasury_change = -0.75 } } else = { set_temp_variable = { treasury_change = -2 } } modify_treasury_effect = yes set_country_flag = VIE_vinashin_crisis_processed }
 }
 VIE_fb_bad_debt = {
 	set_temp_variable = { treasury_change = -2 }
@@ -364,6 +362,7 @@ VIE_event_scheduler_p2 = {
 	}
 	if = {
 		limit = { has_country_flag = VIE_steel_complex_built }
+		if = { limit = { date > 2016.12.31 NOT = { has_country_flag = VIE_sched_formosa } } set_country_flag = VIE_sched_formosa set_country_flag = VIE_ind_formosa_resolved }
 		if = {
 			limit = {
 				date > 2016.3.31

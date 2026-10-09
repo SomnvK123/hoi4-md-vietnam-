@@ -1,24 +1,3464 @@
-# Infrastructure events scheduled through the shared VIE popup cooldown.
-VIE_event_scheduler_infra = {
+# Chinh sach v32: focus co loi ich truc tiep; ban giao nang bac, khong cong chong.
+# Ha tang v30: reward, giai ngan, ban giao va hang doi popup.
+
+VIE_infra_infrastructure_development_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_infrastructure_development
 	if = {
 		limit = {
-			date > 2020.3.31
-			NOT = { has_country_flag = VIE_sched_vna_covid }
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_infrastructure_development_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_infrastructure_development_adopted
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = VIE_ax_initialized
+					}
+				}
+				VIE_ax_init = yes
+				set_country_flag = VIE_ax_initialized
+			}
+			set_country_flag = VIE_infra_open_infrastructure_development
+		}
+		add_political_power = 25
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_transport_strategy_2004_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_transport_strategy_2004
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_transport_strategy_2004_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_transport_strategy_2004_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_transport_strategy_2004
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_expressway_bot_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_expressway_bot
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_expressway_bot_adopted
+			}
+			NOT = {
+				has_country_flag = VIE_infra_funding_public
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_expressway_bot_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_expressway_bot
+		}
+		set_country_flag = VIE_infra_funding_bot
+		add_to_variable = {
+			VIE_ax_market = 1
+			tooltip = VIE_ax_market_tt
+		}
+		set_temp_variable = {
+			temp_opinion = 3
+		}
+		change_industrial_conglomerates_opinion = yes
+		VIE_ax_normalize = yes
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_expressway_public_investment_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_expressway_public_investment
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_expressway_public_investment_adopted
+			}
+			NOT = {
+				has_country_flag = VIE_infra_funding_bot
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_expressway_public_investment_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_expressway_public_investment
+		}
+		set_country_flag = VIE_infra_funding_public
+		add_to_variable = {
+			VIE_ax_decent = -1
+			tooltip = VIE_ax_decent_tt
+		}
+		add_stability = 0.01
+		VIE_ax_normalize = yes
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_north_south_expressway_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_north_south_expressway
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_north_south_expressway_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_north_south_expressway_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_north_south_expressway
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_expressway_regional_links_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_expressway_regional_links
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_expressway_regional_links_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_expressway_regional_links_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_expressway_regional_links
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_expressway_5000km_2030_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_expressway_5000km_2030
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_expressway_5000km_2030_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_expressway_5000km_2030_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_expressway_5000km_2030
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_railway_national_program_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_railway_national_program
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_railway_national_program_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_railway_national_program_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_railway_national_program
+		}
+		add_political_power = 25
+		if = {
+			limit = {
+				date > 2024.11.30
+				NOT = {
+					has_country_flag = VIE_infra_vote_resolved
+				}
+			}
+			set_country_flag = VIE_infra_hsr_deferred
+			set_country_flag = VIE_infra_vote_resolved
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_reunification_line_upgrade_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_reunification_line_upgrade
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_reunification_line_upgrade_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_reunification_line_upgrade_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_reunification_line_upgrade
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_urban_rail_program_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_urban_rail_program
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_urban_rail_program_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_urban_rail_program_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_urban_rail_program
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_north_south_hsr_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_north_south_hsr
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_north_south_hsr_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_north_south_hsr_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_north_south_hsr
+		}
+		set_temp_variable = {
+			treasury_change = -1
+		}
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_partner_pending
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_rail_technology_transfer_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_rail_technology_transfer
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_rail_technology_transfer_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_rail_technology_transfer_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_rail_technology_transfer
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_modern_rail_network_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_modern_rail_network
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_modern_rail_network_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_modern_rail_network_adopted
+		}
+		set_country_flag = VIE_infra_rail_network_ready
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_national_deepwater_ports_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_national_deepwater_ports
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_national_deepwater_ports_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_national_deepwater_ports_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_national_deepwater_ports
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_logistics_strategy_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_logistics_strategy
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_logistics_strategy_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_logistics_strategy_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_logistics_strategy
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_multimodal_transport_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_multimodal_transport
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_multimodal_transport_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_multimodal_transport_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_multimodal_transport
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_airport_master_plan_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_airport_master_plan
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_airport_master_plan_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_airport_master_plan_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_airport_master_plan
+		}
+		add_political_power = 25
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_socialized_airports_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_socialized_airports
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_socialized_airports_adopted
+			}
+			NOT = {
+				has_country_flag = VIE_infra_air_public
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_socialized_airports_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_socialized_airports
+		}
+		set_country_flag = VIE_infra_air_private
+		add_to_variable = {
+			VIE_ax_market = 1
+			tooltip = VIE_ax_market_tt
+		}
+		set_temp_variable = {
+			temp_opinion = 3
+		}
+		change_industrial_conglomerates_opinion = yes
+		VIE_ax_normalize = yes
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_acv_monopoly_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_acv_monopoly
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_acv_monopoly_adopted
+			}
+			NOT = {
+				has_country_flag = VIE_infra_air_private
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_acv_monopoly_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_acv_monopoly
+		}
+		set_country_flag = VIE_infra_air_public
+		add_to_variable = {
+			VIE_ax_decent = -1
+			tooltip = VIE_ax_decent_tt
+		}
+		add_stability = 0.01
+		VIE_ax_normalize = yes
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_airport_network_2030_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_airport_network_2030
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_airport_network_2030_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_airport_network_2030_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_airport_network_2030
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_long_thanh_airport_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_long_thanh_airport
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_long_thanh_airport_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_long_thanh_airport_adopted
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_open_long_thanh_airport
+		}
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_synchronized_infrastructure_2030_reward = {
+	custom_effect_tooltip = VIE_tt_infra_policy_synchronized_infrastructure_2030
+	if = {
+		limit = {
+			original_tag = VIE
+			NOT = {
+				has_country_flag = VIE_infra_policy_synchronized_infrastructure_2030_adopted
+			}
+		}
+		hidden_effect = {
+			set_country_flag = VIE_infra_policy_synchronized_infrastructure_2030_adopted
+		}
+		add_ideas = VIE_synchronized_infra_idea
+		add_political_power = 50
+		add_stability = 0.02
+		hidden_effect = {
+			VIE_infra_refresh_policy_ideas = yes
+		}
+	}
+}
+
+VIE_infra_prepaid_infrastructure = {
+	if = {
+		limit = { is_owned_by = ROOT is_controlled_by = ROOT free_building_slots = { building = infrastructure size > 0 } }
+		one_state_infrastructure = yes
+	}
+	else = { custom_effect_tooltip = VIE_tt_infra_building_capped }
+}
+
+VIE_infra_prepaid_air_base = {
+	if = {
+		limit = { is_owned_by = ROOT is_controlled_by = ROOT free_building_slots = { building = air_base size > 0 } }
+		one_state_air_base = yes
+	}
+	else = { custom_effect_tooltip = VIE_tt_infra_building_capped }
+}
+
+VIE_infra_d_road_foundation_1_start = {
+	if = {
+		limit = { VIE_infra_d_road_foundation_1_can_start = yes }
+		set_variable = { VIE_infra_road_foundation_paid = 7 }
+		set_temp_variable = { treasury_change = VIE_infra_road_foundation_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_foundation_1_running
+		set_country_flag = VIE_infra_road_foundation_running
+		set_country_flag = VIE_infra_road_busy
+	}
+}
+
+VIE_infra_d_road_foundation_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_foundation_1_running
 		}
 		if = {
-			limit = { check_variable = { VIE_catch_up = 1 } }
-			hidden_effect = { set_country_flag = VIE_sched_vna_covid }
+			limit = {
+				check_variable = {
+					VIE_infra_road_foundation_stage = 0
+				}
+				owns_state = 521
+				controls_state = 521
+				owns_state = 518
+				controls_state = 518
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			521 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			518 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_foundation_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 400
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			set_country_flag = VIE_infra_road_foundation_done
+			set_country_flag = VIE_infra_quality_pending
+			VIE_infra_refresh_policy_ideas = yes
 		}
-		else_if = {
-			limit = { NOT = { has_country_flag = VIE_popup_cd } }
-			hidden_effect = { set_country_flag = VIE_sched_vna_covid }
-			hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
-			country_event = { id = vie_infra.3 days = 3 random_days = 20 }
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_foundation_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
 		}
-		else_if = {
-			limit = { date > 2020.9.30 }
-			hidden_effect = { set_country_flag = VIE_sched_vna_covid }
-			VIE_fb_none = yes
+		clr_country_flag = VIE_infra_d_road_foundation_1_running
+		clr_country_flag = VIE_infra_road_foundation_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_foundation_paid
+	}
+}
+
+VIE_infra_d_road_spine_1_start = {
+	if = {
+		limit = { VIE_infra_d_road_spine_1_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_spine_paid = 5.25 } }
+		else = { set_variable = { VIE_infra_road_spine_paid = 7 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_spine_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_spine_1_running
+		set_country_flag = VIE_infra_road_spine_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_spine_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_spine_1_running
 		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_spine_stage = 0
+				}
+				owns_state = 522
+				controls_state = 522
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_spine_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 600
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			set_country_flag = VIE_infra_road_spine_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_spine_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_spine_1_running
+		clr_country_flag = VIE_infra_road_spine_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_spine_paid
+	}
+}
+
+VIE_infra_d_road_regions_1_start = {
+	if = {
+		limit = { VIE_infra_d_road_regions_1_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_regions_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_road_regions_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_regions_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_regions_1_running
+		set_country_flag = VIE_infra_road_regions_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_regions_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_regions_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_regions_stage = 0
+				}
+				owns_state = 523
+				controls_state = 523
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			523 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_regions_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 400
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_regions_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_regions_1_running
+		clr_country_flag = VIE_infra_road_regions_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_regions_paid
+	}
+}
+
+VIE_infra_d_road_regions_2_start = {
+	if = {
+		limit = { VIE_infra_d_road_regions_2_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_regions_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_road_regions_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_regions_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_regions_2_running
+		set_country_flag = VIE_infra_road_regions_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_regions_2_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_regions_2_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_regions_stage = 1
+				}
+				owns_state = 518
+				controls_state = 518
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			518 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_regions_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 400
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			set_country_flag = VIE_infra_road_regions_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_regions_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_regions_2_running
+		clr_country_flag = VIE_infra_road_regions_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_regions_paid
+	}
+}
+
+VIE_infra_d_road_3000_1_start = {
+	if = {
+		limit = { VIE_infra_d_road_3000_1_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_3000_paid = 7.875 } }
+		else = { set_variable = { VIE_infra_road_3000_paid = 10.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_3000_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_3000_1_running
+		set_country_flag = VIE_infra_road_3000_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_3000_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_3000_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_3000_stage = 0
+				}
+				owns_state = 521
+				controls_state = 521
+				owns_state = 519
+				controls_state = 519
+				owns_state = 522
+				controls_state = 522
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			521 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_3000_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 1200
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			set_country_flag = VIE_infra_road_3000_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_3000_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_3000_1_running
+		clr_country_flag = VIE_infra_road_3000_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_3000_paid
+	}
+}
+
+VIE_infra_d_road_5000_1_start = {
+	if = {
+		limit = { VIE_infra_d_road_5000_1_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_5000_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_road_5000_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_5000_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_5000_1_running
+		set_country_flag = VIE_infra_road_5000_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_5000_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_5000_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_5000_stage = 0
+				}
+				owns_state = 520
+				controls_state = 520
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			520 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_5000_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 500
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_5000_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_5000_1_running
+		clr_country_flag = VIE_infra_road_5000_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_5000_paid
+	}
+}
+
+VIE_infra_d_road_5000_2_start = {
+	if = {
+		limit = { VIE_infra_d_road_5000_2_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_5000_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_road_5000_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_5000_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_5000_2_running
+		set_country_flag = VIE_infra_road_5000_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_5000_2_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_5000_2_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_5000_stage = 1
+				}
+				owns_state = 524
+				controls_state = 524
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			524 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_5000_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 500
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_5000_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_5000_2_running
+		clr_country_flag = VIE_infra_road_5000_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_5000_paid
+	}
+}
+
+VIE_infra_d_road_5000_3_start = {
+	if = {
+		limit = { VIE_infra_d_road_5000_3_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_5000_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_road_5000_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_5000_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_5000_3_running
+		set_country_flag = VIE_infra_road_5000_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_5000_3_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_5000_3_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_5000_stage = 2
+				}
+				owns_state = 521
+				controls_state = 521
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			521 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_5000_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 500
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_5000_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_5000_3_running
+		clr_country_flag = VIE_infra_road_5000_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_5000_paid
+	}
+}
+
+VIE_infra_d_road_5000_4_start = {
+	if = {
+		limit = { VIE_infra_d_road_5000_4_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_funding_bot } set_variable = { VIE_infra_road_5000_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_road_5000_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_road_5000_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_road_5000_4_running
+		set_country_flag = VIE_infra_road_5000_running
+		set_country_flag = VIE_infra_road_busy
+		if = { limit = { has_country_flag = VIE_infra_funding_bot NOT = { has_country_flag = VIE_infra_bot_resolved } NOT = { has_country_flag = VIE_infra_bot_queued } } set_country_flag = VIE_infra_bot_pending }
+	}
+}
+
+VIE_infra_d_road_5000_4_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_road_5000_4_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_road_5000_stage = 3
+				}
+				owns_state = 518
+				controls_state = 518
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			518 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_road_5000_stage = 1
+			}
+			add_to_variable = {
+				VIE_expressway_km = 500
+				tooltip = VIE_expressway_km_tt
+			}
+			clamp_variable = {
+				var = VIE_expressway_km
+				min = 0
+				max = 5000
+			}
+			VIE_infra_refresh_roads = yes
+			set_country_flag = VIE_infra_road_5000_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_road_5000_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_road_5000_4_running
+		clr_country_flag = VIE_infra_road_5000_running
+		clr_country_flag = VIE_infra_road_busy
+		clear_variable = VIE_infra_road_5000_paid
+	}
+}
+
+VIE_infra_d_rail_upgrade_1_start = {
+	if = {
+		limit = { VIE_infra_d_rail_upgrade_1_can_start = yes }
+		set_variable = { VIE_infra_rail_upgrade_paid = 7 }
+		set_temp_variable = { treasury_change = VIE_infra_rail_upgrade_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_rail_upgrade_1_running
+		set_country_flag = VIE_infra_rail_upgrade_running
+		set_country_flag = VIE_infra_rail_busy
+	}
+}
+
+VIE_infra_d_rail_upgrade_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_rail_upgrade_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_rail_upgrade_stage = 0
+				}
+				owns_state = 521
+				controls_state = 521
+				owns_state = 523
+				controls_state = 523
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			521 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			523 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_rail_upgrade_stage = 1
+			}
+			set_country_flag = VIE_infra_rail_upgrade_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_rail_upgrade_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_rail_upgrade_1_running
+		clr_country_flag = VIE_infra_rail_upgrade_running
+		clr_country_flag = VIE_infra_rail_busy
+		clear_variable = VIE_infra_rail_upgrade_paid
+	}
+}
+
+VIE_infra_d_metro_1_start = {
+	if = {
+		limit = { VIE_infra_d_metro_1_can_start = yes }
+		set_variable = { VIE_infra_metro_paid = 3.5 }
+		set_temp_variable = { treasury_change = VIE_infra_metro_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_metro_1_running
+		set_country_flag = VIE_infra_metro_running
+		set_country_flag = VIE_infra_rail_busy
+	}
+}
+
+VIE_infra_d_metro_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_metro_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_metro_stage = 0
+				}
+				owns_state = 522
+				controls_state = 522
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_metro_stage = 1
+			}
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_metro_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_metro_1_running
+		clr_country_flag = VIE_infra_metro_running
+		clr_country_flag = VIE_infra_rail_busy
+		clear_variable = VIE_infra_metro_paid
+	}
+}
+
+VIE_infra_d_metro_2_start = {
+	if = {
+		limit = { VIE_infra_d_metro_2_can_start = yes }
+		set_variable = { VIE_infra_metro_paid = 3.5 }
+		set_temp_variable = { treasury_change = VIE_infra_metro_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_metro_2_running
+		set_country_flag = VIE_infra_metro_running
+		set_country_flag = VIE_infra_rail_busy
+	}
+}
+
+VIE_infra_d_metro_2_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_metro_2_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_metro_stage = 1
+				}
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_metro_stage = 1
+			}
+			set_country_flag = VIE_infra_metro_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_metro_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_metro_2_running
+		clr_country_flag = VIE_infra_metro_running
+		clr_country_flag = VIE_infra_rail_busy
+		clear_variable = VIE_infra_metro_paid
+	}
+}
+
+VIE_infra_d_rail_training_1_start = {
+	if = {
+		limit = { VIE_infra_d_rail_training_1_can_start = yes }
+		set_variable = { VIE_infra_rail_training_paid = 1 }
+		set_temp_variable = { treasury_change = VIE_infra_rail_training_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_rail_training_1_running
+		set_country_flag = VIE_infra_rail_training_running
+		set_country_flag = VIE_infra_rail_busy
+	}
+}
+
+VIE_infra_d_rail_training_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_rail_training_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_rail_training_stage = 0
+				}
+				always = yes
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_rail_training_stage = 1
+			}
+			set_country_flag = VIE_infra_rail_training_done
+			if = {
+				limit = {
+					has_country_flag = VIE_hsr_partner_japan
+				}
+				add_tech_bonus = {
+					name = VIE_infra_rail_training_bonus
+					category = CAT_industry
+					uses = 1
+					bonus = 0.5
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = VIE_hsr_partner_eu
+				}
+				add_tech_bonus = {
+					name = VIE_infra_rail_training_bonus
+					category = CAT_industry
+					uses = 1
+					bonus = 0.4
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = VIE_infra_rail_training_bonus
+					category = CAT_industry
+					uses = 1
+					bonus = 0.3
+				}
+			}
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_rail_training_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_rail_training_1_running
+		clr_country_flag = VIE_infra_rail_training_running
+		clr_country_flag = VIE_infra_rail_busy
+		clear_variable = VIE_infra_rail_training_paid
+	}
+}
+
+VIE_infra_d_hsr_japan_1_start = {
+	if = {
+		limit = { VIE_infra_d_hsr_japan_1_can_start = yes }
+		set_variable = { VIE_infra_hsr_japan_paid = 10.5 }
+		set_temp_variable = { treasury_change = VIE_infra_hsr_japan_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_hsr_japan_1_running
+		set_country_flag = VIE_infra_hsr_japan_running
+		set_country_flag = VIE_infra_rail_busy
+		if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }
+	}
+}
+
+VIE_infra_d_hsr_japan_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_hsr_japan_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_hsr_japan_stage = 0
+				}
+				owns_state = 522
+				controls_state = 522
+				owns_state = 521
+				controls_state = 521
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			521 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_hsr_japan_stage = 1
+			}
+			set_country_flag = VIE_infra_hsr_launch_done
+			set_country_flag = VIE_infra_hsr_notice_pending
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_hsr_japan_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_hsr_japan_1_running
+		clr_country_flag = VIE_infra_hsr_japan_running
+		clr_country_flag = VIE_infra_rail_busy
+		clear_variable = VIE_infra_hsr_japan_paid
+	}
+}
+
+VIE_infra_d_hsr_eu_1_start = {
+	if = {
+		limit = { VIE_infra_d_hsr_eu_1_can_start = yes }
+		set_variable = { VIE_infra_hsr_eu_paid = 9.5 }
+		set_temp_variable = { treasury_change = VIE_infra_hsr_eu_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_hsr_eu_1_running
+		set_country_flag = VIE_infra_hsr_eu_running
+		set_country_flag = VIE_infra_rail_busy
+		if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }
+	}
+}
+
+VIE_infra_d_hsr_eu_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_hsr_eu_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_hsr_eu_stage = 0
+				}
+				owns_state = 522
+				controls_state = 522
+				owns_state = 521
+				controls_state = 521
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			521 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_hsr_eu_stage = 1
+			}
+			set_country_flag = VIE_infra_hsr_launch_done
+			set_country_flag = VIE_infra_hsr_notice_pending
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_hsr_eu_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_hsr_eu_1_running
+		clr_country_flag = VIE_infra_hsr_eu_running
+		clr_country_flag = VIE_infra_rail_busy
+		clear_variable = VIE_infra_hsr_eu_paid
+	}
+}
+
+VIE_infra_d_hsr_china_1_start = {
+	if = {
+		limit = { VIE_infra_d_hsr_china_1_can_start = yes }
+		set_variable = { VIE_infra_hsr_china_paid = 7.5 }
+		set_temp_variable = { treasury_change = VIE_infra_hsr_china_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_hsr_china_1_running
+		set_country_flag = VIE_infra_hsr_china_running
+		set_country_flag = VIE_infra_rail_busy
+		if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }
+		else = { add_timed_idea = { idea = VIE_state_debt_overhang days = 1825 } }
+	}
+}
+
+VIE_infra_d_hsr_china_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_hsr_china_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_hsr_china_stage = 0
+				}
+				owns_state = 522
+				controls_state = 522
+				owns_state = 521
+				controls_state = 521
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			521 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_hsr_china_stage = 1
+			}
+			set_country_flag = VIE_infra_hsr_launch_done
+			set_country_flag = VIE_infra_hsr_notice_pending
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_hsr_china_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_hsr_china_1_running
+		clr_country_flag = VIE_infra_hsr_china_running
+		clr_country_flag = VIE_infra_rail_busy
+		clear_variable = VIE_infra_hsr_china_paid
+	}
+}
+
+VIE_infra_d_ports_1_start = {
+	if = {
+		limit = { VIE_infra_d_ports_1_can_start = yes }
+		set_variable = { VIE_infra_ports_paid = 3.5 }
+		set_temp_variable = { treasury_change = VIE_infra_ports_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_ports_1_running
+		set_country_flag = VIE_infra_ports_running
+		set_country_flag = VIE_infra_ports_busy
+	}
+}
+
+VIE_infra_d_ports_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_ports_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_ports_stage = 0
+				}
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_ports_stage = 1
+			}
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_ports_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_ports_1_running
+		clr_country_flag = VIE_infra_ports_running
+		clr_country_flag = VIE_infra_ports_busy
+		clear_variable = VIE_infra_ports_paid
+	}
+}
+
+VIE_infra_d_ports_2_start = {
+	if = {
+		limit = { VIE_infra_d_ports_2_can_start = yes }
+		set_variable = { VIE_infra_ports_paid = 3.5 }
+		set_temp_variable = { treasury_change = VIE_infra_ports_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_ports_2_running
+		set_country_flag = VIE_infra_ports_running
+		set_country_flag = VIE_infra_ports_busy
+	}
+}
+
+VIE_infra_d_ports_2_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_ports_2_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_ports_stage = 1
+				}
+				owns_state = 522
+				controls_state = 522
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_ports_stage = 1
+			}
+			set_country_flag = VIE_infra_ports_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_ports_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_ports_2_running
+		clr_country_flag = VIE_infra_ports_running
+		clr_country_flag = VIE_infra_ports_busy
+		clear_variable = VIE_infra_ports_paid
+	}
+}
+
+VIE_infra_d_logistics_1_start = {
+	if = {
+		limit = { VIE_infra_d_logistics_1_can_start = yes }
+		set_variable = { VIE_infra_logistics_paid = 3.5 }
+		set_temp_variable = { treasury_change = VIE_infra_logistics_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_logistics_1_running
+		set_country_flag = VIE_infra_logistics_running
+		set_country_flag = VIE_infra_ports_busy
+	}
+}
+
+VIE_infra_d_logistics_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_logistics_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_logistics_stage = 0
+				}
+				owns_state = 523
+				controls_state = 523
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			523 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_logistics_stage = 1
+			}
+			set_country_flag = VIE_infra_logistics_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_logistics_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_logistics_1_running
+		clr_country_flag = VIE_infra_logistics_running
+		clr_country_flag = VIE_infra_ports_busy
+		clear_variable = VIE_infra_logistics_paid
+	}
+}
+
+VIE_infra_d_multimodal_1_start = {
+	if = {
+		limit = { VIE_infra_d_multimodal_1_can_start = yes }
+		set_variable = { VIE_infra_multimodal_paid = 3.5 }
+		set_temp_variable = { treasury_change = VIE_infra_multimodal_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_multimodal_1_running
+		set_country_flag = VIE_infra_multimodal_running
+		set_country_flag = VIE_infra_ports_busy
+	}
+}
+
+VIE_infra_d_multimodal_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_multimodal_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_multimodal_stage = 0
+				}
+				owns_state = 520
+				controls_state = 520
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			520 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_multimodal_stage = 1
+			}
+			set_country_flag = VIE_infra_multimodal_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_multimodal_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_multimodal_1_running
+		clr_country_flag = VIE_infra_multimodal_running
+		clr_country_flag = VIE_infra_ports_busy
+		clear_variable = VIE_infra_multimodal_paid
+	}
+}
+
+VIE_infra_d_air_modern_1_start = {
+	if = {
+		limit = { VIE_infra_d_air_modern_1_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_air_private } set_variable = { VIE_infra_air_modern_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_air_modern_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_air_modern_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_air_modern_1_running
+		set_country_flag = VIE_infra_air_modern_running
+		set_country_flag = VIE_infra_air_busy
+	}
+}
+
+VIE_infra_d_air_modern_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_air_modern_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_air_modern_stage = 0
+				}
+				owns_state = 522
+				controls_state = 522
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			522 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_air_modern_stage = 1
+			}
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_air_modern_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_air_modern_1_running
+		clr_country_flag = VIE_infra_air_modern_running
+		clr_country_flag = VIE_infra_air_busy
+		clear_variable = VIE_infra_air_modern_paid
+	}
+}
+
+VIE_infra_d_air_modern_2_start = {
+	if = {
+		limit = { VIE_infra_d_air_modern_2_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_air_private } set_variable = { VIE_infra_air_modern_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_air_modern_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_air_modern_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_air_modern_2_running
+		set_country_flag = VIE_infra_air_modern_running
+		set_country_flag = VIE_infra_air_busy
+	}
+}
+
+VIE_infra_d_air_modern_2_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_air_modern_2_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_air_modern_stage = 1
+				}
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_air_modern_stage = 1
+			}
+			set_country_flag = VIE_infra_air_modern_done
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_air_modern_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_air_modern_2_running
+		clr_country_flag = VIE_infra_air_modern_running
+		clr_country_flag = VIE_infra_air_busy
+		clear_variable = VIE_infra_air_modern_paid
+	}
+}
+
+VIE_infra_d_long_thanh_prepare_1_start = {
+	if = {
+		limit = { VIE_infra_d_long_thanh_prepare_1_can_start = yes }
+		set_variable = { VIE_infra_long_thanh_prepare_paid = 2 }
+		set_temp_variable = { treasury_change = VIE_infra_long_thanh_prepare_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_long_thanh_prepare_1_running
+		set_country_flag = VIE_infra_long_thanh_prepare_running
+		set_country_flag = VIE_infra_air_busy
+	}
+}
+
+VIE_infra_d_long_thanh_prepare_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_long_thanh_prepare_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_long_thanh_prepare_stage = 0
+				}
+				always = yes
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_long_thanh_prepare_stage = 1
+			}
+			set_country_flag = VIE_infra_long_thanh_prepared
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_long_thanh_prepare_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_long_thanh_prepare_1_running
+		clr_country_flag = VIE_infra_long_thanh_prepare_running
+		clr_country_flag = VIE_infra_air_busy
+		clear_variable = VIE_infra_long_thanh_prepare_paid
+	}
+}
+
+VIE_infra_d_long_thanh_1_start = {
+	if = {
+		limit = { VIE_infra_d_long_thanh_1_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_air_private } set_variable = { VIE_infra_long_thanh_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_long_thanh_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_long_thanh_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_long_thanh_1_running
+		set_country_flag = VIE_infra_long_thanh_running
+		set_country_flag = VIE_infra_air_busy
+	}
+}
+
+VIE_infra_d_long_thanh_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_long_thanh_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_long_thanh_stage = 0
+				}
+				owns_state = 519
+				controls_state = 519
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			519 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_long_thanh_stage = 1
+			}
+			set_country_flag = VIE_infra_long_thanh_done
+			set_country_flag = VIE_infra_long_thanh_notice_pending
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_long_thanh_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_long_thanh_1_running
+		clr_country_flag = VIE_infra_long_thanh_running
+		clr_country_flag = VIE_infra_air_busy
+		clear_variable = VIE_infra_long_thanh_paid
+	}
+}
+
+VIE_infra_d_van_don_1_start = {
+	if = {
+		limit = { VIE_infra_d_van_don_1_can_start = yes }
+		if = { limit = { has_country_flag = VIE_infra_air_private } set_variable = { VIE_infra_van_don_paid = 2.625 } }
+		else = { set_variable = { VIE_infra_van_don_paid = 3.5 } }
+		set_temp_variable = { treasury_change = VIE_infra_van_don_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_van_don_1_running
+		set_country_flag = VIE_infra_van_don_running
+		set_country_flag = VIE_infra_air_busy
+	}
+}
+
+VIE_infra_d_van_don_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_van_don_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_van_don_stage = 0
+				}
+				owns_state = 523
+				controls_state = 523
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			523 = {
+				VIE_infra_prepaid_infrastructure = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_van_don_stage = 1
+			}
+			set_country_flag = VIE_infra_van_don_done
+			set_temp_variable = {
+				temp_opinion = 3
+			}
+			change_industrial_conglomerates_opinion = yes
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_van_don_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_van_don_1_running
+		clr_country_flag = VIE_infra_van_don_running
+		clr_country_flag = VIE_infra_air_busy
+		clear_variable = VIE_infra_van_don_paid
+	}
+}
+
+VIE_infra_d_dual_use_1_start = {
+	if = {
+		limit = { VIE_infra_d_dual_use_1_can_start = yes }
+		set_variable = { VIE_infra_dual_use_paid = 3 }
+		set_temp_variable = { treasury_change = VIE_infra_dual_use_paid }
+		multiply_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_infra_d_dual_use_1_running
+		set_country_flag = VIE_infra_dual_use_running
+		set_country_flag = VIE_infra_air_busy
+	}
+}
+
+VIE_infra_d_dual_use_1_finish = {
+	if = {
+		limit = {
+			has_country_flag = VIE_infra_d_dual_use_1_running
+		}
+		if = {
+			limit = {
+				check_variable = {
+					VIE_infra_dual_use_stage = 0
+				}
+				owns_state = 521
+				controls_state = 521
+			}
+			set_temp_variable = {
+				skip_payment = 1
+			}
+			521 = {
+				VIE_infra_prepaid_air_base = yes
+			}
+			set_temp_variable = {
+				skip_payment = 0
+			}
+			add_to_variable = {
+				VIE_infra_dual_use_stage = 1
+			}
+			set_country_flag = VIE_infra_dual_use_done
+			add_to_variable = {
+				VIE_ax_mob = 1
+				tooltip = VIE_ax_mob_tt
+			}
+			VIE_ax_normalize = yes
+			if = {
+				limit = {
+					has_idea = the_military
+				}
+				set_temp_variable = {
+					temp_opinion = 3
+				}
+				change_the_military_opinion = yes
+			}
+			VIE_infra_refresh_policy_ideas = yes
+		}
+		else = {
+			set_temp_variable = {
+				treasury_change = VIE_infra_dual_use_paid
+			}
+			modify_treasury_effect = yes
+			custom_effect_tooltip = VIE_tt_infra_refunded
+		}
+		clr_country_flag = VIE_infra_d_dual_use_1_running
+		clr_country_flag = VIE_infra_dual_use_running
+		clr_country_flag = VIE_infra_air_busy
+		clear_variable = VIE_infra_dual_use_paid
+	}
+}
+
+VIE_infra_refresh_roads = {
+	VIE_infra_policy_refresh_road = yes
+	if = {
+		limit = {
+			check_variable = {
+				VIE_expressway_km > 2999
+			}
+			NOT = {
+				has_country_flag = VIE_infra_3000_queued
+			}
+			NOT = {
+				has_country_flag = VIE_infra_3000_resolved
+			}
+		}
+		set_country_flag = VIE_infra_3000_pending
+	}
+	if = {
+		limit = {
+			check_variable = {
+				VIE_expressway_km > 4999
+			}
+			NOT = {
+				has_country_flag = VIE_infra_5000_queued
+			}
+			NOT = {
+				has_country_flag = VIE_infra_5000_resolved
+			}
+		}
+		set_country_flag = VIE_infra_5000_pending
+	}
+}
+
+VIE_event_scheduler_infra = {
+	if = {
+		limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
+		if = {
+			limit = {
+				has_completed_focus = VIE_railway_national_program
+				date > 2010.4.30
+				NOT = { has_country_flag = VIE_infra_vote_resolved }
+				NOT = { has_country_flag = VIE_infra_vote_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_vote_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.4 }
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_infra_partner_pending
+				VIE_infra_partner_unselected = yes
+				OR = { country_exists = JAP country_exists = CHI country_exists = GER country_exists = FRA }
+				NOT = { has_country_flag = VIE_infra_partner_resolved }
+				NOT = { has_country_flag = VIE_infra_partner_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_partner_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.5 }
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_infra_quality_pending
+				NOT = { has_country_flag = VIE_infra_quality_resolved }
+				NOT = { has_country_flag = VIE_infra_quality_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_quality_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.1 }
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_infra_bot_pending
+				NOT = { has_country_flag = VIE_infra_bot_resolved }
+				NOT = { has_country_flag = VIE_infra_bot_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_bot_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.2 }
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_infra_3000_pending
+				NOT = { has_country_flag = VIE_infra_3000_resolved }
+				NOT = { has_country_flag = VIE_infra_3000_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_3000_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.6 }
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_infra_5000_pending
+				NOT = { has_country_flag = VIE_infra_5000_resolved }
+				NOT = { has_country_flag = VIE_infra_5000_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_5000_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.7 }
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_infra_long_thanh_notice_pending
+				NOT = { has_country_flag = VIE_infra_long_thanh_notice_resolved }
+				NOT = { has_country_flag = VIE_infra_long_thanh_notice_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_long_thanh_notice_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.8 }
+		}
+		if = {
+			limit = {
+				has_country_flag = VIE_infra_hsr_notice_pending
+				NOT = { has_country_flag = VIE_infra_hsr_notice_resolved }
+				NOT = { has_country_flag = VIE_infra_hsr_notice_queued }
+				NOT = { has_country_flag = VIE_popup_cd }
+			}
+			set_country_flag = VIE_infra_hsr_notice_queued
+			set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 }
+			country_event = { id = vie_infra.9 }
+		}
+	}
+	if = {
+			limit = {
+				date > 2020.3.31
+				NOT = { has_country_flag = VIE_sched_vna_covid }
+			}
+			if = {
+				limit = { check_variable = { VIE_catch_up = 1 } }
+				hidden_effect = { set_country_flag = VIE_sched_vna_covid }
+			}
+			else_if = {
+				limit = { NOT = { has_country_flag = VIE_popup_cd } }
+				hidden_effect = { set_country_flag = VIE_sched_vna_covid }
+				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
+				country_event = { id = vie_infra.3 days = 3 random_days = 20 }
+			}
+			else_if = {
+				limit = { date > 2020.9.30 }
+				hidden_effect = { set_country_flag = VIE_sched_vna_covid }
+				VIE_fb_none = yes
+			}
+		}
+}
+
+# Chinh sach v32: bac idea thay the, khong cong chong.
+VIE_infra_policy_refresh_road = {
+	if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_expressway_km > 4999
+				}
+				has_idea = VIE_expressway_idea_3
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_1_idea
+			}
+			remove_ideas = VIE_infra_policy_road_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_2_idea
+			}
+			remove_ideas = VIE_infra_policy_road_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_4_idea
+			}
+			remove_ideas = VIE_infra_policy_road_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_5_idea
+			}
+			remove_ideas = VIE_infra_policy_road_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea
+			}
+			remove_ideas = VIE_expressway_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_2
+			}
+			remove_ideas = VIE_expressway_idea_2
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_expressway_idea_3
+				}
+			}
+			add_ideas = VIE_expressway_idea_3
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_expressway_km > 2999
+				}
+				has_idea = VIE_expressway_idea_2
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_1_idea
+			}
+			remove_ideas = VIE_infra_policy_road_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_2_idea
+			}
+			remove_ideas = VIE_infra_policy_road_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_4_idea
+			}
+			remove_ideas = VIE_infra_policy_road_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_5_idea
+			}
+			remove_ideas = VIE_infra_policy_road_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea
+			}
+			remove_ideas = VIE_expressway_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_3
+			}
+			remove_ideas = VIE_expressway_idea_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_expressway_idea_2
+				}
+			}
+			add_ideas = VIE_expressway_idea_2
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_expressway_5000km_2030_adopted
+				has_idea = VIE_infra_policy_road_5_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_1_idea
+			}
+			remove_ideas = VIE_infra_policy_road_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_2_idea
+			}
+			remove_ideas = VIE_infra_policy_road_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_4_idea
+			}
+			remove_ideas = VIE_infra_policy_road_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea
+			}
+			remove_ideas = VIE_expressway_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_2
+			}
+			remove_ideas = VIE_expressway_idea_2
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_3
+			}
+			remove_ideas = VIE_expressway_idea_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_road_5_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_road_5_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_expressway_regional_links_adopted
+				has_idea = VIE_infra_policy_road_4_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_1_idea
+			}
+			remove_ideas = VIE_infra_policy_road_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_2_idea
+			}
+			remove_ideas = VIE_infra_policy_road_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_5_idea
+			}
+			remove_ideas = VIE_infra_policy_road_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea
+			}
+			remove_ideas = VIE_expressway_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_2
+			}
+			remove_ideas = VIE_expressway_idea_2
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_3
+			}
+			remove_ideas = VIE_expressway_idea_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_road_4_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_road_4_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_expressway_km > 999
+				}
+				has_idea = VIE_expressway_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_1_idea
+			}
+			remove_ideas = VIE_infra_policy_road_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_2_idea
+			}
+			remove_ideas = VIE_infra_policy_road_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_4_idea
+			}
+			remove_ideas = VIE_infra_policy_road_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_5_idea
+			}
+			remove_ideas = VIE_infra_policy_road_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_2
+			}
+			remove_ideas = VIE_expressway_idea_2
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_3
+			}
+			remove_ideas = VIE_expressway_idea_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_expressway_idea
+				}
+			}
+			add_ideas = VIE_expressway_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_north_south_expressway_adopted
+				has_idea = VIE_infra_policy_road_2_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_1_idea
+			}
+			remove_ideas = VIE_infra_policy_road_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_4_idea
+			}
+			remove_ideas = VIE_infra_policy_road_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_5_idea
+			}
+			remove_ideas = VIE_infra_policy_road_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea
+			}
+			remove_ideas = VIE_expressway_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_2
+			}
+			remove_ideas = VIE_expressway_idea_2
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_3
+			}
+			remove_ideas = VIE_expressway_idea_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_road_2_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_road_2_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_transport_strategy_2004_adopted
+				has_idea = VIE_infra_policy_road_1_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_2_idea
+			}
+			remove_ideas = VIE_infra_policy_road_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_4_idea
+			}
+			remove_ideas = VIE_infra_policy_road_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_road_5_idea
+			}
+			remove_ideas = VIE_infra_policy_road_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea
+			}
+			remove_ideas = VIE_expressway_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_2
+			}
+			remove_ideas = VIE_expressway_idea_2
+		}
+		if = {
+			limit = {
+				has_idea = VIE_expressway_idea_3
+			}
+			remove_ideas = VIE_expressway_idea_3
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_road_1_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_road_1_idea
+		}
+	}
+}
+VIE_infra_policy_refresh_rail = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_modern_rail_network_adopted
+				has_idea = VIE_modern_rail_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_1_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_2_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_3_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_4_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_5_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_5_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_modern_rail_idea
+				}
+			}
+			add_ideas = VIE_modern_rail_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_infra_policy_rail_rank > 4
+				}
+				has_idea = VIE_infra_policy_rail_5_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_1_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_2_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_3_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_4_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_modern_rail_idea
+			}
+			remove_ideas = VIE_modern_rail_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_rail_5_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_rail_5_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_infra_policy_rail_rank > 3
+				}
+				has_idea = VIE_infra_policy_rail_4_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_1_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_2_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_3_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_5_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_modern_rail_idea
+			}
+			remove_ideas = VIE_modern_rail_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_rail_4_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_rail_4_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_infra_policy_rail_rank > 2
+				}
+				has_idea = VIE_infra_policy_rail_3_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_1_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_2_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_4_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_5_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_modern_rail_idea
+			}
+			remove_ideas = VIE_modern_rail_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_rail_3_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_rail_3_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_infra_policy_rail_rank > 1
+				}
+				has_idea = VIE_infra_policy_rail_2_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_1_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_3_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_4_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_5_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_modern_rail_idea
+			}
+			remove_ideas = VIE_modern_rail_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_rail_2_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_rail_2_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = {
+					VIE_infra_policy_rail_rank > 0
+				}
+				has_idea = VIE_infra_policy_rail_1_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_2_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_3_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_4_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_rail_5_idea
+			}
+			remove_ideas = VIE_infra_policy_rail_5_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_modern_rail_idea
+			}
+			remove_ideas = VIE_modern_rail_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_rail_1_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_rail_1_idea
+		}
+	}
+}
+VIE_infra_policy_refresh_ports = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_ports_done
+				has_idea = VIE_ports_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_ports_1_idea
+			}
+			remove_ideas = VIE_infra_policy_ports_1_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_ports_idea
+				}
+			}
+			add_ideas = VIE_ports_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_national_deepwater_ports_adopted
+				has_idea = VIE_infra_policy_ports_1_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_ports_idea
+			}
+			remove_ideas = VIE_ports_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_ports_1_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_ports_1_idea
+		}
+	}
+}
+VIE_infra_policy_refresh_logistics = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_logistics_done
+				has_idea = VIE_logistics_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_logistics_1_idea
+			}
+			remove_ideas = VIE_infra_policy_logistics_1_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_logistics_idea
+				}
+			}
+			add_ideas = VIE_logistics_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_logistics_strategy_adopted
+				has_idea = VIE_infra_policy_logistics_1_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_logistics_idea
+			}
+			remove_ideas = VIE_logistics_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_logistics_1_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_logistics_1_idea
+		}
+	}
+}
+VIE_infra_policy_refresh_multimodal = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_multimodal_done
+				has_idea = VIE_multimodal_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_multimodal_1_idea
+			}
+			remove_ideas = VIE_infra_policy_multimodal_1_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_multimodal_idea
+				}
+			}
+			add_ideas = VIE_multimodal_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_multimodal_transport_adopted
+				has_idea = VIE_infra_policy_multimodal_1_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_multimodal_idea
+			}
+			remove_ideas = VIE_multimodal_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_multimodal_1_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_multimodal_1_idea
+		}
+	}
+}
+VIE_infra_policy_refresh_air = {
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_long_thanh_done
+				has_idea = VIE_airport_network_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_1_idea
+			}
+			remove_ideas = VIE_infra_policy_air_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_2_idea
+			}
+			remove_ideas = VIE_infra_policy_air_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_4_idea
+			}
+			remove_ideas = VIE_infra_policy_air_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_3_idea
+			}
+			remove_ideas = VIE_infra_policy_air_3_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_airport_network_idea
+				}
+			}
+			add_ideas = VIE_airport_network_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_long_thanh_airport_adopted
+				has_idea = VIE_infra_policy_air_4_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_1_idea
+			}
+			remove_ideas = VIE_infra_policy_air_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_2_idea
+			}
+			remove_ideas = VIE_infra_policy_air_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_3_idea
+			}
+			remove_ideas = VIE_infra_policy_air_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_airport_network_idea
+			}
+			remove_ideas = VIE_airport_network_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_air_4_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_air_4_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_air_network_done
+				has_idea = VIE_infra_policy_air_3_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_1_idea
+			}
+			remove_ideas = VIE_infra_policy_air_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_2_idea
+			}
+			remove_ideas = VIE_infra_policy_air_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_4_idea
+			}
+			remove_ideas = VIE_infra_policy_air_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_airport_network_idea
+			}
+			remove_ideas = VIE_airport_network_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_air_3_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_air_3_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_airport_network_2030_adopted
+				has_idea = VIE_infra_policy_air_2_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_1_idea
+			}
+			remove_ideas = VIE_infra_policy_air_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_4_idea
+			}
+			remove_ideas = VIE_infra_policy_air_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_3_idea
+			}
+			remove_ideas = VIE_infra_policy_air_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_airport_network_idea
+			}
+			remove_ideas = VIE_airport_network_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_air_2_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_air_2_idea
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_airport_master_plan_adopted
+				has_idea = VIE_infra_policy_air_1_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_2_idea
+			}
+			remove_ideas = VIE_infra_policy_air_2_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_4_idea
+			}
+			remove_ideas = VIE_infra_policy_air_4_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_air_3_idea
+			}
+			remove_ideas = VIE_infra_policy_air_3_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_airport_network_idea
+			}
+			remove_ideas = VIE_airport_network_idea
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = VIE_infra_policy_air_1_idea
+				}
+			}
+			add_ideas = VIE_infra_policy_air_1_idea
+		}
+	}
+}
+VIE_infra_refresh_policy_ideas = {
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 5
+				has_country_flag = VIE_infra_policy_railway_national_program_adopted
+				has_country_flag = VIE_infra_policy_reunification_line_upgrade_adopted
+				has_country_flag = VIE_infra_policy_urban_rail_program_adopted
+				has_country_flag = VIE_infra_policy_north_south_hsr_adopted
+				has_country_flag = VIE_infra_policy_rail_technology_transfer_adopted
+			}
+		}
+		set_temp_variable = {
+			VIE_infra_policy_rail_rank = 5
+		}
+	}
+	else_if = {
+		limit = {
+			count_triggers = {
+				amount = 4
+				has_country_flag = VIE_infra_policy_railway_national_program_adopted
+				has_country_flag = VIE_infra_policy_reunification_line_upgrade_adopted
+				has_country_flag = VIE_infra_policy_urban_rail_program_adopted
+				has_country_flag = VIE_infra_policy_north_south_hsr_adopted
+				has_country_flag = VIE_infra_policy_rail_technology_transfer_adopted
+			}
+		}
+		set_temp_variable = {
+			VIE_infra_policy_rail_rank = 4
+		}
+	}
+	else_if = {
+		limit = {
+			count_triggers = {
+				amount = 3
+				has_country_flag = VIE_infra_policy_railway_national_program_adopted
+				has_country_flag = VIE_infra_policy_reunification_line_upgrade_adopted
+				has_country_flag = VIE_infra_policy_urban_rail_program_adopted
+				has_country_flag = VIE_infra_policy_north_south_hsr_adopted
+				has_country_flag = VIE_infra_policy_rail_technology_transfer_adopted
+			}
+		}
+		set_temp_variable = {
+			VIE_infra_policy_rail_rank = 3
+		}
+	}
+	else_if = {
+		limit = {
+			count_triggers = {
+				amount = 2
+				has_country_flag = VIE_infra_policy_railway_national_program_adopted
+				has_country_flag = VIE_infra_policy_reunification_line_upgrade_adopted
+				has_country_flag = VIE_infra_policy_urban_rail_program_adopted
+				has_country_flag = VIE_infra_policy_north_south_hsr_adopted
+				has_country_flag = VIE_infra_policy_rail_technology_transfer_adopted
+			}
+		}
+		set_temp_variable = {
+			VIE_infra_policy_rail_rank = 2
+		}
+	}
+	else_if = {
+		limit = {
+			count_triggers = {
+				amount = 1
+				has_country_flag = VIE_infra_policy_railway_national_program_adopted
+				has_country_flag = VIE_infra_policy_reunification_line_upgrade_adopted
+				has_country_flag = VIE_infra_policy_urban_rail_program_adopted
+				has_country_flag = VIE_infra_policy_north_south_hsr_adopted
+				has_country_flag = VIE_infra_policy_rail_technology_transfer_adopted
+			}
+		}
+		set_temp_variable = {
+			VIE_infra_policy_rail_rank = 1
+		}
+	}
+	else = {
+		set_temp_variable = {
+			VIE_infra_policy_rail_rank = 0
+		}
+	}
+	VIE_infra_policy_refresh_road = yes
+	VIE_infra_policy_refresh_rail = yes
+	VIE_infra_policy_refresh_air = yes
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VIE_infra_policy_multimodal_transport_adopted
+				has_country_flag = VIE_infra_multimodal_done
+				has_idea = VIE_infra_policy_multimodal_1_idea
+				has_idea = VIE_multimodal_idea
+			}
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_ports_1_idea
+			}
+			remove_ideas = VIE_infra_policy_ports_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_ports_idea
+			}
+			remove_ideas = VIE_ports_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_infra_policy_logistics_1_idea
+			}
+			remove_ideas = VIE_infra_policy_logistics_1_idea
+		}
+		if = {
+			limit = {
+				has_idea = VIE_logistics_idea
+			}
+			remove_ideas = VIE_logistics_idea
+		}
+		VIE_infra_policy_refresh_multimodal = yes
+	}
+	else = {
+		VIE_infra_policy_refresh_ports = yes
+		VIE_infra_policy_refresh_logistics = yes
 	}
 }

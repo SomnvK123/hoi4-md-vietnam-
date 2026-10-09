@@ -27,7 +27,7 @@ VIE_military_readiness_category = {
 
 		ai_will_do = {
 			base = 15
-			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -53,7 +53,7 @@ VIE_military_readiness_category = {
 
 		ai_will_do = {
 			base = 15
-			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -79,7 +79,7 @@ VIE_military_readiness_category = {
 
 		ai_will_do = {
 			base = 15
-			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -105,7 +105,7 @@ VIE_military_readiness_category = {
 
 		ai_will_do = {
 			base = 15
-			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -131,7 +131,7 @@ VIE_military_readiness_category = {
 
 		ai_will_do = {
 			base = 15
-			modifier = { factor = 0 VIE_def_ind_bankrupt = yes }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}

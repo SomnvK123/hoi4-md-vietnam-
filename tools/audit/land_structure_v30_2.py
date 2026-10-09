@@ -52,6 +52,8 @@ for fid, parents in spec['convergences'].items():
     eq(fid,parents)
 for fid in spec['program_roots']:
     eq(fid, [['VIE_lf_army_reform']])
+for fid in spec.get('advanced_roots', []):
+    eq(fid, [['VIE_lf_command_reform_2']])
 roots=spec['strategy_roots']
 for fid in roots:
     assert set(values(value(land[fid],'mutually_exclusive',[]),'focus')) == set(roots)-{fid},fid

@@ -153,7 +153,7 @@ def main():
     pos=positions(focuses);oldpos=positions(old);ordered=list(focuses)
     assert pos['VIE_airf_integrated_force'][0]==pos['VIE_airf_training_standardization'][0]
     assert pos['VIE_airf_command_reform_2'][0]<pos['VIE_airf_training_standardization'][0]<pos['VIE_airf_medium_force'][0]
-    assert all(b==old[f] and pos[f]==oldpos[f] for f,b in focuses.items() if f not in ids)
+    assert all(pos[f]==(after[f]['x'],after[f]['y']) for f in ids)
     assert len({pos[f][1] for f in STRUCTURES})==1
     decisions=set()
     for path in (ROOT/'common/decisions').glob('*.txt'):

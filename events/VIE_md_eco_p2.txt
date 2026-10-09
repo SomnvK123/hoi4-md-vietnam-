@@ -74,41 +74,20 @@ country_event = {
 	desc = vie_eco.5.d
 	picture = GFX_report_event_generic_factory
 	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = { check_variable = { VIE_vinashin_risk > 1 } }
-			add_timed_idea = { idea = VIE_state_debt_overhang days = 730 }
-		}
-	}
-
-	# Bail out and restructure
-	option = {
-		name = vie_eco.5.a
+	immediate = { if = { limit = { NOT = { has_country_flag = VIE_vinashin_crisis_processed } NOT = { has_country_flag = VIE_ind_vinashin_immediate_applied } check_variable = { VIE_vinashin_risk > 1 } } add_timed_idea = { idea = VIE_state_debt_overhang days = 730 } set_country_flag = VIE_ind_vinashin_immediate_applied } }
+	option = { name = vie_eco.5.a
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.5.a executed"
-		hidden_effect = { set_country_flag = VIE_vinashin_crisis_processed }
-		set_temp_variable = { treasury_change = -3 }
-		modify_treasury_effect = yes
-		set_temp_variable = { temp_opinion = 3 }
-		change_communist_cadres_opinion = yes
-		increase_corruption = yes
+		if = { limit = { NOT = { has_country_flag = VIE_vinashin_crisis_processed } } if = { limit = { has_country_flag = VIE_ind_ship_governance_done } set_temp_variable = { treasury_change = -1 } } else = { set_temp_variable = { treasury_change = -3 } } modify_treasury_effect = yes set_temp_variable = { temp_opinion = 3 } change_communist_cadres_opinion = yes increase_corruption = yes set_country_flag = VIE_vinashin_crisis_processed }
 		ai_chance = { base = 40 }
 	}
-
-	# Prosecute the managers and restructure
-	option = {
-		name = vie_eco.5.b
+	option = { name = vie_eco.5.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.5.b executed"
-		hidden_effect = { set_country_flag = VIE_vinashin_crisis_processed }
-		set_temp_variable = { treasury_change = -1 }
-		modify_treasury_effect = yes
-		add_stability = -0.02
-		set_temp_variable = { temp_opinion = -4 }
-		change_communist_cadres_opinion = yes
-		VIE_bop_reform_small = yes
+		if = { limit = { NOT = { has_country_flag = VIE_vinashin_crisis_processed } } if = { limit = { has_country_flag = VIE_ind_ship_governance_done } set_temp_variable = { treasury_change = -0.5 } } else = { set_temp_variable = { treasury_change = -1 } } modify_treasury_effect = yes add_stability = -0.02 set_temp_variable = { temp_opinion = -4 } change_communist_cadres_opinion = yes VIE_bop_reform_small = yes set_country_flag = VIE_vinashin_crisis_processed }
 		ai_chance = { base = 60 }
 	}
 }
+
+
 
 ########################################################################
 # vie_eco.6  Formosa fish deaths (Apr 2016)  -- only if the Ha Tinh steel complex was built
@@ -124,11 +103,15 @@ country_event = {
 	option = {
 		name = vie_eco.6.a
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.6.a executed"
+		if = { limit = { NOT = { has_country_flag = VIE_ind_formosa_resolved } }
 		set_temp_variable = { treasury_change = 2 }
 		modify_treasury_effect = yes
 		add_stability = -0.02
 		VIE_bop_reform_small = yes
 		hidden_effect = { set_country_flag = VIE_formosa_open }
+			set_country_flag = VIE_ind_formosa_resolved
+		}
+
 		ai_chance = { base = 60 }
 	}
 
@@ -136,10 +119,14 @@ country_event = {
 	option = {
 		name = vie_eco.6.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.6.b executed"
+		if = { limit = { NOT = { has_country_flag = VIE_ind_formosa_resolved } }
 		add_stability = -0.04
 		add_political_power = 25
 		VIE_bop_conservative_small = yes
 		hidden_effect = { set_country_flag = VIE_formosa_covered }
+			set_country_flag = VIE_ind_formosa_resolved
+		}
+
 		ai_chance = {
 			base = 40
 			modifier = { factor = 0 VIE_ai_historical = yes }

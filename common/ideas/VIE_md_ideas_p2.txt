@@ -182,13 +182,16 @@ ideas = {
 
 		VIE_logistics_idea = {
 			picture = economic_road_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
 			cancel_if_invalid = no
-
 			modifier = {
-				trade_opinion_factor = 0.021
-				country_productivity_growth_modifier = 0.008
+				trade_opinion_factor = 0.01575
+				country_productivity_growth_modifier = 0.006
 			}
 		}
 
@@ -199,43 +202,33 @@ ideas = {
 			cancel_if_invalid = no
 
 			modifier = {
-				country_productivity_growth_modifier = 0.024
-				trade_opinion_factor = 0.021
+				country_productivity_growth_modifier = 0.008
+				trade_opinion_factor = 0.01
 			}
 		}
 
 		VIE_textile_supply_chain_idea = {
 			picture = economic_road_idea
+			allowed = { original_tag = VIE }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
-
-			modifier = {
-				consumer_goods_factor = -0.01
-				trade_opinion_factor = 0.021
-			}
+			modifier = { consumer_goods_factor = -0.005 trade_opinion_factor = 0.01 }
 		}
 
 		VIE_industrialization_2045_idea = {
 			picture = economic_road_idea
+			allowed = { original_tag = VIE }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
-
-			modifier = {
-				production_speed_industrial_complex_factor = 0.05
-				country_productivity_growth_modifier = 0.016
-			}
+			modifier = { country_productivity_growth_modifier = 0.008 production_speed_industrial_complex_factor = 0.04 }
 		}
 
 		VIE_modern_industrial_nation_idea = {
 			picture = economic_road_idea
+			allowed = { original_tag = VIE }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
-
-			modifier = {
-				production_speed_industrial_complex_factor = 0.1
-				country_productivity_growth_modifier = 0.024
-				industrial_capacity_factory = 0.03
-			}
+			modifier = { country_productivity_growth_modifier = 0.012 production_speed_industrial_complex_factor = 0.06 industrial_capacity_factory = 0.02 }
 		}
 
 		VIE_origin_fraud_scrutiny = {
@@ -275,14 +268,10 @@ ideas = {
 
 		VIE_semiconductor_idea = {
 			picture = digitalize_idea
-			allowed = { always = no }
+			allowed = { original_tag = VIE }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
-
-			modifier = {
-				research_speed_factor = 0.03
-				country_productivity_growth_modifier = 0.016
-			}
+			modifier = { country_productivity_growth_modifier = 0.008 research_speed_factor = 0.01 }
 		}
 
 		VIE_nq57_68_idea = {
@@ -758,14 +747,10 @@ ideas = {
 
 		VIE_manufacturing_hub_idea = {
 			picture = economic_boom
-			allowed = { always = no }
+			allowed = { original_tag = VIE }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
-
-			modifier = {
-				country_productivity_growth_modifier = 0.024
-				corporate_tax_income_multiplier_modifier = 0.02
-			}
+			modifier = { country_productivity_growth_modifier = 0.016 corporate_tax_income_multiplier_modifier = 0.02 }
 		}
 
 		VIE_private_engine_idea = {
@@ -805,13 +790,16 @@ ideas = {
 
 		VIE_ports_idea = {
 			picture = economic_road_idea
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
 			cancel_if_invalid = no
-
 			modifier = {
-				country_productivity_growth_modifier = 0.016
-				trade_opinion_factor = 0.021
+				country_productivity_growth_modifier = 0.012
+				trade_opinion_factor = 0.01575
 			}
 		}
 
@@ -906,14 +894,10 @@ ideas = {
 
 		VIE_chip_sector_idea = {
 			picture = digitalize_idea
-			allowed = { always = no }
+			allowed = { original_tag = VIE }
 			allowed_civil_war = { always = no }
 			cancel_if_invalid = no
-
-			modifier = {
-				research_speed_factor = 0.022
-				corporate_tax_income_multiplier_modifier = 0.02
-			}
+			modifier = { country_productivity_growth_modifier = 0.012 research_speed_factor = 0.015 }
 		}
 
 		VIE_energy_security_idea = {

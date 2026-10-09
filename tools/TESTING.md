@@ -1,5 +1,29 @@
 # md_vietnam: how to test (the game loads the mod with a clean error.log since 2026-09-19; content not yet playtested)
 
+## Industry v31 (2026-10-09)
+
+New game required. 24 focuses, 19 timed decisions / 17 programmes, six sector slots and one common slot.
+Run `python tools/audit/industry.py` plus the standard focus/reference/event/state/localisation/DDS audits.
+The scenario audit evaluates live scripts: 64 sector states, 20 triples, eight funding routes, refunds,
+full states, repeated payments/events, Vinashin and Formosa. Its immutable baseline guard reports
+concurrent changes outside industry; inspect them separately, never weaken or recapture it to get green.
+Provider check: `python tools/audit/industry_assets.py <MD directory> <HOI4 directory>`.
+Diagram: `python tools/focus_layout/industry_diagram_v31.py`.
+Runtime checklist and current diagnostic results: [industry v31 validation](../.claude/docs/industry/v31/validation.md).
+Check real prerequisites, treasury before/after, save/load timers, staffed AI and error.log; no ignoreprerequisites evidence.
+
+## Infrastructure v30 (2026-10-09)
+
+New game required: 22 infrastructure focuses replace the old 44. Current design:
+[VIE_infrastructure_branch_design.md](../VIE_infrastructure_branch_design.md).
+Run `python tools/audit/infra_scenarios.py` for script scenarios and the standard
+focus/reference/event/state/localisation/DDS audits. Runtime checklist and diagnostic
+limits: [infrastructure validation](../.claude/docs/infrastructure/validation.md).
+Fixture save/load is not engine validation. Check both funding policies, all three
+HSR partners, prepaid construction/refunds, four parallel sector timers and every
+3-of-4 capstone route with real prerequisites; do not use `ignoreprerequisites` as proof.
+
+
 > This file grew into a build log as well as a test script. The top section (through "Balance sanity" below) is
 > the live "how to test today" guide and is kept accurate. Everything from "Batch 1 additions" onward is a dated
 > changelog of what was added or fixed at the time — a later dated entry can delete content an earlier one

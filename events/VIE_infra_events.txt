@@ -1,94 +1,293 @@
 add_namespace = vie_infra
 
-########################################################################
-# vie_infra.1  Can Tho bridge lesson (approach span collapse 26/9/2007, 54 dead)
-########################################################################
 country_event = {
 	id = vie_infra.1
 	title = vie_infra.1.t
 	desc = vie_infra.1.d
 	picture = GFX_report_event_generic_ruins
 	is_triggered_only = yes
-
-	# Tighten quality supervision on every major project
 	option = {
 		name = vie_infra.1.a
 		log = "[GetDateText]: [This.GetName]: Event vie_infra.1.a executed"
-		set_temp_variable = { treasury_change = -1 }
-		modify_treasury_effect = yes
-		add_stability = 0.01
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_quality_resolved } }
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+			add_stability = 0.01
+			set_country_flag = VIE_infra_quality_resolved
+			clr_country_flag = VIE_infra_quality_pending
+			clr_country_flag = VIE_infra_quality_queued
+		}
 		ai_chance = { base = 70 }
 	}
-
-	# Celebrate the opening and keep the schedule
 	option = {
 		name = vie_infra.1.b
 		log = "[GetDateText]: [This.GetName]: Event vie_infra.1.b executed"
-		add_political_power = 25
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_quality_resolved } }
+			add_political_power = 25
+			set_country_flag = VIE_infra_quality_resolved
+			clr_country_flag = VIE_infra_quality_pending
+			clr_country_flag = VIE_infra_quality_queued
+		}
 		ai_chance = { base = 30 }
 	}
 }
 
-########################################################################
-# vie_infra.2  Toll-station backlash on BOT roads (Cai Lay 2017 precedent)
-########################################################################
 country_event = {
 	id = vie_infra.2
 	title = vie_infra.2.t
 	desc = vie_infra.2.d
 	picture = GFX_report_event_generic_factory
 	is_triggered_only = yes
-
-	# Cut fees and extend the concession
 	option = {
 		name = vie_infra.2.a
 		log = "[GetDateText]: [This.GetName]: Event vie_infra.2.a executed"
-		set_temp_variable = { treasury_change = -1 }
-		modify_treasury_effect = yes
-		add_stability = 0.01
-		set_temp_variable = { temp_opinion = -3 }
-		change_industrial_conglomerates_opinion = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_bot_resolved } }
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+			add_stability = 0.01
+			set_temp_variable = { temp_opinion = -3 }
+			change_industrial_conglomerates_opinion = yes
+			set_country_flag = VIE_infra_bot_resolved
+			clr_country_flag = VIE_infra_bot_pending
+			clr_country_flag = VIE_infra_bot_queued
+		}
 		ai_chance = { base = 60 }
 	}
-
-	# Keep the agreed toll levels
 	option = {
 		name = vie_infra.2.b
 		log = "[GetDateText]: [This.GetName]: Event vie_infra.2.b executed"
-		add_stability = -0.02
-		set_temp_variable = { temp_opinion = -3 }
-		change_farmers_opinion = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_bot_resolved } }
+			add_stability = -0.02
+			set_temp_variable = { temp_opinion = -3 }
+			change_farmers_opinion = yes
+			set_country_flag = VIE_infra_bot_resolved
+			clr_country_flag = VIE_infra_bot_pending
+			clr_country_flag = VIE_infra_bot_queued
+		}
 		ai_chance = { base = 40 }
 	}
 }
 
-########################################################################
-# vie_infra.3  Vietnam Airlines in the COVID-19 crisis (2020)
-########################################################################
 country_event = {
 	id = vie_infra.3
 	title = vie_infra.3.t
 	desc = vie_infra.3.d
 	picture = GFX_report_event_generic_factory
-
 	is_triggered_only = yes
-
-	# Bail out the national carrier
 	option = {
 		name = vie_infra.3.a
 		log = "[GetDateText]: [This.GetName]: Event vie_infra.3.a executed"
-		set_temp_variable = { treasury_change = -2 }
-		modify_treasury_effect = yes
-		add_stability = 0.01
-		hidden_effect = { set_country_flag = VIE_vna_bailout }
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_vna_resolved } }
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+			add_stability = 0.01
+			set_country_flag = VIE_vna_bailout
+			set_country_flag = VIE_infra_vna_resolved
+			clr_country_flag = VIE_infra_vna_pending
+			clr_country_flag = VIE_infra_vna_queued
+		}
 		ai_chance = { base = 70 }
 	}
-
-	# Let the market sort it out
 	option = {
 		name = vie_infra.3.b
 		log = "[GetDateText]: [This.GetName]: Event vie_infra.3.b executed"
-		add_stability = -0.01
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_vna_resolved } }
+			add_stability = -0.01
+			set_country_flag = VIE_infra_vna_resolved
+			clr_country_flag = VIE_infra_vna_pending
+			clr_country_flag = VIE_infra_vna_queued
+		}
 		ai_chance = { base = 30 }
+	}
+}
+
+country_event = {
+	id = vie_infra.4
+	title = vie_infra.4.t
+	desc = vie_infra.4.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = vie_infra.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.4.a executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_vote_resolved } }
+			set_country_flag = VIE_infra_hsr_deferred
+			add_political_power = 25
+			add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt }
+			add_to_variable = { VIE_ax_market = -1 tooltip = VIE_ax_market_tt }
+			VIE_ax_normalize = yes
+			set_country_flag = VIE_infra_vote_resolved
+			clr_country_flag = VIE_infra_vote_pending
+			clr_country_flag = VIE_infra_vote_queued
+		}
+		ai_chance = { base = 70 }
+	}
+	option = {
+		name = vie_infra.4.b
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.4.b executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_vote_resolved } }
+			set_country_flag = VIE_infra_hsr_early
+			set_country_flag = VIE_infra_vote_resolved
+			clr_country_flag = VIE_infra_vote_pending
+			clr_country_flag = VIE_infra_vote_queued
+		}
+		ai_chance = { base = 5 modifier = { factor = 0 VIE_ai_historical = yes } }
+	}
+}
+
+country_event = {
+	id = vie_infra.5
+	title = vie_infra.5.t
+	desc = vie_infra.5.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = vie_infra.5.a
+		trigger = { country_exists = JAP }
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.5.a executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_partner_resolved } }
+			if = {
+				limit = { VIE_infra_partner_unselected = yes country_exists = JAP }
+				set_country_flag = VIE_hsr_partner_japan
+				add_to_variable = { VIE_ax_west = 1 tooltip = VIE_ax_west_tt }
+				VIE_ax_normalize = yes
+				if = { limit = { country_exists = JAP } add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement } reverse_add_opinion_modifier = { target = JAP modifier = VIE_trade_agreement } }
+			}
+			if = { limit = { VIE_infra_partner_selected = yes } set_country_flag = VIE_infra_partner_resolved clr_country_flag = VIE_infra_partner_pending }
+			clr_country_flag = VIE_infra_partner_queued
+		}
+		ai_chance = { base = 50 }
+	}
+	option = {
+		name = vie_infra.5.b
+		trigger = { OR = { country_exists = GER country_exists = FRA } }
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.5.b executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_partner_resolved } }
+			if = {
+				limit = { VIE_infra_partner_unselected = yes OR = { country_exists = GER country_exists = FRA } }
+				set_country_flag = VIE_hsr_partner_eu
+				add_to_variable = { VIE_ax_west = 1 tooltip = VIE_ax_west_tt }
+				add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+				VIE_ax_normalize = yes
+			}
+			if = { limit = { VIE_infra_partner_selected = yes } set_country_flag = VIE_infra_partner_resolved clr_country_flag = VIE_infra_partner_pending }
+			clr_country_flag = VIE_infra_partner_queued
+		}
+		ai_chance = { base = 50 }
+	}
+	option = {
+		name = vie_infra.5.c
+		trigger = { country_exists = CHI }
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.5.c executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_partner_resolved } }
+			if = {
+				limit = { VIE_infra_partner_unselected = yes country_exists = CHI }
+				set_country_flag = VIE_hsr_partner_china
+				add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt }
+				VIE_ax_normalize = yes
+				if = { limit = { country_exists = CHI } add_opinion_modifier = { target = CHI modifier = VIE_trade_agreement } reverse_add_opinion_modifier = { target = CHI modifier = VIE_trade_agreement } }
+			}
+			if = { limit = { VIE_infra_partner_selected = yes } set_country_flag = VIE_infra_partner_resolved clr_country_flag = VIE_infra_partner_pending }
+			clr_country_flag = VIE_infra_partner_queued
+		}
+		ai_chance = { base = 40 }
+	}
+	option = {
+		name = vie_infra.5.d
+		trigger = { NOT = { OR = { country_exists = JAP country_exists = CHI country_exists = GER country_exists = FRA } } }
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.5.d executed"
+		clr_country_flag = VIE_infra_partner_queued
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = {
+	id = vie_infra.6
+	title = vie_infra.6.t
+	desc = vie_infra.6.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = vie_infra.6.a
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.6.a executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_3000_resolved } }
+			custom_effect_tooltip = VIE_tt_infra_notice_only
+			set_country_flag = VIE_infra_3000_resolved
+			clr_country_flag = VIE_infra_3000_pending
+			clr_country_flag = VIE_infra_3000_queued
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = {
+	id = vie_infra.7
+	title = vie_infra.7.t
+	desc = vie_infra.7.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = vie_infra.7.a
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.7.a executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_5000_resolved } }
+			custom_effect_tooltip = VIE_tt_infra_notice_only
+			set_country_flag = VIE_infra_5000_resolved
+			clr_country_flag = VIE_infra_5000_pending
+			clr_country_flag = VIE_infra_5000_queued
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = {
+	id = vie_infra.8
+	title = vie_infra.8.t
+	desc = vie_infra.8.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = vie_infra.8.a
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.8.a executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_long_thanh_notice_resolved } }
+			custom_effect_tooltip = VIE_tt_infra_notice_only
+			set_country_flag = VIE_infra_long_thanh_notice_resolved
+			clr_country_flag = VIE_infra_long_thanh_notice_pending
+			clr_country_flag = VIE_infra_long_thanh_notice_queued
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+country_event = {
+	id = vie_infra.9
+	title = vie_infra.9.t
+	desc = vie_infra.9.d
+	picture = GFX_report_event_generic_factory
+	is_triggered_only = yes
+	option = {
+		name = vie_infra.9.a
+		log = "[GetDateText]: [This.GetName]: Event vie_infra.9.a executed"
+		if = {
+			limit = { NOT = { has_country_flag = VIE_infra_hsr_notice_resolved } }
+			custom_effect_tooltip = VIE_tt_infra_notice_only
+			set_country_flag = VIE_infra_hsr_notice_resolved
+			clr_country_flag = VIE_infra_hsr_notice_pending
+			clr_country_flag = VIE_infra_hsr_notice_queued
+		}
+		ai_chance = { base = 100 }
 	}
 }

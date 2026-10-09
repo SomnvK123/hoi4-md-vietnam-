@@ -75,7 +75,7 @@ VIE_proc_alt_allowed = {
 # (VIE_fb_proc_galil) van cap license khi het cua so ma dieu kien da dat.
 # ---------------------------------------------------------------------
 VIE_proc_gate_z_factories_done = {
-	has_country_flag = VIE_dec_z_factories_done
+	date > 2011.6.30
 }
 
 # ---------------------------------------------------------------------

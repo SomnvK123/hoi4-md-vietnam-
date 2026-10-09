@@ -1,3 +1,5 @@
+> Lịch sử v17. Hiện hành: [công nghiệp v31](v31/validation.md), [mapping bỏ focus](v31/retired_mapping.md) và [thiết kế](../../../VIE_industry_branch_redesign.md).
+
 # Quan hệ và reward trước/sau
 
 | Focus | Cha trước | Cha sau | Thay đổi reward |

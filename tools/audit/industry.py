@@ -185,7 +185,7 @@ def effect(block, s, effects, triggers):
             raise ValueError('Unsupported test effect: ' + key)
 
 
-def main():
+def audit_v17_legacy():
     focuses = focus_map((ROOT / 'common/national_focus/VIE_md_focus.txt').read_text(encoding='utf-8-sig'))
     ids = branch_ids(focuses)
     pos = positions(focuses)
@@ -300,6 +300,12 @@ def main():
     assert (ROOT / 'common/scripted_effects/VIE_md_effects_p2.txt').read_text(encoding='utf-8').count('set_country_flag = VIE_vinashin_crisis_processed') == 2
     print('PASS: Vinashin scheduling alone cannot unlock SBIC; options/fallback/late bookmark cover gate')
     print('ALL PASS (static checks; game runtime and AI behavior still require playtest)')
+
+
+def main():
+    # V31 replaces the v17 reward/39-node contract; parser APIs remain shared.
+    from industry_scenarios import main as audit_v31
+    audit_v31()
 
 
 if __name__ == '__main__':

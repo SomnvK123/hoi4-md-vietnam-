@@ -1,4 +1,4 @@
-﻿"""Render the live V30.2 land-force branch and prerequisite graph to PNG."""
+"""Render the live V30.2 land-force branch and prerequisite graph to PNG."""
 from pathlib import Path
 import re
 import sys
@@ -12,7 +12,7 @@ CURRENT=ROOT/'.claude/docs/land/land_focus_current.png'
 LOC=ROOT/'localisation/english'
 PREFIX='VIE_lf_'
 W,H=194,92
-ROW=148;TOP=300;LEFT=240;STEP=50
+ROW=150;TOP=300;LEFT=240;STEP=112
 COLORS={'foundation':'#9eb6c7','program':'#5ba9b8','strategy':'#d4a354','regular':'#72b2d0','mobile':'#79b69b','depth':'#c2a667','capability':'#8fa4cc','end':'#b18cc5'}
 PATH={x:COLORS[c] for xs,c in [
 (['VIE_lf_fs_main_corps','VIE_lf_fs_lean_corps','VIE_lf_mech_coordination','VIE_lf_mech_fire_support','VIE_lf_mech_complete'],'regular'),
@@ -32,9 +32,9 @@ def main():
  def font(size,b=False):return ImageFont.truetype(str(bold if b else reg),size) if (bold if b else reg).exists() else ImageFont.load_default(size=size)
  coords={fid:(LEFT+(pos[fid][0]-minx)*STEP,TOP+pos[fid][1]*ROW) for fid in land}
  d.text((38,24),'CÂY FOCUS LỤC QUÂN • V30.2',font=font(30,True),fill='#f1f5f9')
- d.text((40,68),'Nền tảng → 6 chương trình chung → chọn 1 trong 3 cơ cấu → hội tụ hiện đại hóa',font=font(18),fill='#bdcbd6')
+ d.text((40,68),'Phân tầng trên-dưới: Nền tảng & 4 Binh chủng → 3 Hướng chiến lược (M/R/D) → Năng lực nâng cao & Hiện đại hóa',font=font(18),fill='#bdcbd6')
  d.text((40,104),'Mũi tên liền: AND / bắt buộc  |  Nét đứt vàng: OR  |  Viền đỏ đôi: loại trừ  |  K2 yêu cầu 3/6 terminal',font=font(16),fill='#bdcbd6')
- rowlabels={2:'01  NỀN TẢNG',3:'02  HUẤN LUYỆN + HẬU CẦN',4:'03  SÁU CHƯƠNG TRÌNH NĂNG LỰC',5:'04  CHUYÊN SÂU + CẢI CÁCH',6:'05  HIỆP ĐỒNG',7:'06  CHỌN CƠ CẤU',8:'07  CÁC DỰ ÁN SONG SONG',9:'08  HOÀN THIỆN HƯỚNG',10:'09  HỘI TỤ CHIẾN LƯỢC',11:'10  CẢI CÁCH CHỈ HUY II',12:'11  HIỆN ĐẠI HÓA 3/6',13:'12  CHỈ HUY SỐ',14:'13  HOÀN THIỆN'}
+ rowlabels={2:'01  NỀN TẢNG',3:'02  TỔ CHỨC 4 BINH CHỦNG + HUẤN LUYỆN / HẬU CẦN',4:'03  HUẤN LUYỆN CHUYÊN NGÀNH + CẢI TỔ CÁN BỘ',5:'04  KHÍ TÀI / HỎA LỰC + HIỆP ĐỒNG BINH CHỦNG',6:'05  CẢI CÁCH BỘ CHỈ HUY I',7:'06  CHỌN CƠ CẤU CHIẾN LƯỢC (1 TRONG 3)',8:'07  TỔ CHỨC & HIỆP ĐỒNG THEO HƯỚNG',9:'08  HỎA LỰC & BẢO ĐẢM / DỰ BỊ THEO HƯỚNG',10:'09  HOÀN THIỆN LỰC LƯỢNG THEO HƯỚNG',11:'10  CẢI CÁCH BỘ CHỈ HUY II',12:'11  HIỆN ĐẠI HÓA 3/6 & NĂNG LỰC NÂNG CAO',13:'12  CHUYÊN SÂU NĂNG LỰC & CHỈ HUY SỐ',14:'13  HOÀN THIỆN LỰC LƯỢNG VŨ TRANG',15:'14  TÁC CHIẾN MẠNG & ĐIỆN TỬ TOÀN DIỆN'}
  for y,label in rowlabels.items():
   yy=TOP+y*ROW;d.line((24,yy-W//2-20,width-24,yy-W//2-20),fill='#273541')
   d.text((28,yy-W//2-16),label,font=font(12,True),fill='#8294a2')

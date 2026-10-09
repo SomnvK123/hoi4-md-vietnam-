@@ -71,15 +71,7 @@ on_actions = {
 				#
 				# on_startup chay lai MOI LAN LOAD SAVE (xem comment dau file nay), nen cac
 				# set_variable = 0 phai co guard - neu khong moi lan mo save giua chung se dat
-				# VIE_def_industry_level ve 0 va khoa lai nga re Core/Divest (>= 4) va capstone (>= 8).
-				# VIE_truc3_review_and_plan.md muc X1. Neu on_startup thuc ra khong chay lai khi
-				# load thi guard nay vo hai.
-				if = {
-					limit = { NOT = { has_country_flag = VIE_def_ind_vars_init } }
-					set_variable = { VIE_def_industry_level = 0 }
-					set_variable = { VIE_def_ind_export_count = 0 }
-					hidden_effect = { set_country_flag = VIE_def_ind_vars_init }
-				}
+				
 
 				# Air Force procurement reserved variables (read in triggers)
 				if = {

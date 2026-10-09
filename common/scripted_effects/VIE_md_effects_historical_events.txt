@@ -26,7 +26,7 @@ VIE_event_scheduler_historical_events = {
 	# Lien minh xe dien: chi len lich sau khi ca hai focus da hoan tat.
 	if = {
 		limit = {
-			has_completed_focus = VIE_ev_revolution_batteries
+			has_country_flag = VIE_ind_auto_ev_done
 			has_completed_focus = VIE_petrolimex_green_ev_hubs
 			NOT = { has_country_flag = VIE_green_mobility_alliance_active }
 			NOT = { has_country_flag = VIE_sched_green_mobility }

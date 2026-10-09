@@ -23,11 +23,11 @@ COLORS = {'Đóng tàu': '#5696b1', 'Dệt may': '#73aa8e', 'Thép': '#b29173',
 def category(fid):
     if any(s in fid for s in ('shipbuilding', 'vinashin', 'offshore_wind_fabrication')): return 'Đóng tàu'
     if any(s in fid for s in ('textile', 'yarn_forward')): return 'Dệt may'
-    if any(s in fid for s in ('hoa_phat', 'formosa_steel')): return 'Thép'
+    if any(s in fid for s in ('hoa_phat', 'formosa_steel', 'national_steel')): return 'Thép'
     if any(s in fid for s in ('chip_', 'semiconductor', 'osat', 'intel_')): return 'Bán dẫn'
     if any(s in fid for s in ('automotive', 'auto_', 'ev_revolution')): return 'Ô tô'
     if any(s in fid for s in ('nq23', 'nq29', 'eco_industrial', 'investment_support', 'industrial_productivity', 'modern_industrial')): return 'Chính sách'
-    if any(s in fid for s in ('samsung', 'china_plus', 'fdi_', 'apple_')): return 'Điện tử / FDI'
+    if any(s in fid for s in ('samsung', 'china_plus', 'fdi_', 'apple_', 'electronics_', 'manufacturing_hub')): return 'Điện tử / FDI'
     if 'industrialization_strategy' in fid: return 'Nền tảng'
     return 'Chuỗi cung ứng'
 
@@ -49,8 +49,8 @@ def labels(before=False):
 
 def geometry(graph):
     height = max(n['y'] for n in graph.values()) * 150 + 270
-    coords = {f: ((n['x'] - 124) * 112 + 150, n['y'] * 150 + 120) for f, n in graph.items()}
-    return 2100, height, coords
+    coords = {f: ((n['x'] - min(v['x'] for v in graph.values())) * 112 + 150, n['y'] * 150 + 120) for f, n in graph.items()}
+    return max(2100, int((max(v['x'] for v in graph.values())-min(v['x'] for v in graph.values()))*112+300)), height, coords
 
 
 def edges(graph):
@@ -139,7 +139,7 @@ def draw(graph, names, title, path):
         short = f.removeprefix('VIE_')
         if len(short)>29: short=short[:27]+'…'
         d.text((x,y+28),short,font=font(11),fill='#a6b8c8',anchor='mt')
-    d.text((42,h-65), f"{len(graph)} focus • x = 124…140 • {max(n['y'] for n in graph.values())} hàng • tọa độ lấy từ file focus",font=font(18),fill='#b5c4d2')
+    d.text((42,h-65), f"{len(graph)} focus • x = {min(n['x'] for n in graph.values())}…{max(n['x'] for n in graph.values())} • {max(n['y'] for n in graph.values())} hàng • tọa độ lấy từ file focus",font=font(18),fill='#b5c4d2')
     if len(graph) == 39:
         d.text((42,h-36), 'Đích cuối: năng suất + ít nhất 45 điểm nội địa hóa + ít nhất 3/6 nhóm ngành; xem trạng thái từng nhóm trong hover.',font=font(18),fill='#d4dce5')
     canvas.save(path)

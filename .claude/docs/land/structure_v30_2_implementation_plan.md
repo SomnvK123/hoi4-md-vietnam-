@@ -1,4 +1,4 @@
-﻿# Kế hoạch triển khai nhánh Lục quân V30.2
+# Kế hoạch triển khai nhánh Lục quân V30.2
 
 Nguồn nội dung: `VIE_Luc_Quan_Focus_V30_2_Noi_Dung.html` do người dùng cung cấp. HTML được dùng làm đề xuất về mục tiêu, các cụm focus và đồ thị mở khóa; các mô tả gameplay trong đó chưa phải reward đã triển khai. Sơ đồ SVG dùng tọa độ pixel, không thể chép thẳng thành `x/y` của Clausewitz.
 
@@ -128,5 +128,10 @@ Kiểm tra riêng `VIE_lf_fav_discount`: nó giảm cost một số focus chuyê
 - Các reward chung không còn đọc cờ hướng M/R/D tại thời điểm hoàn thành; người chơi có thể làm chương trình trước hoặc sau khi chọn cơ cấu mà không mất modifier. Reward có hướng riêng tiếp tục nằm ở CR2 và capstone cuối.
 - Giữ số XP gốc ở các focus cuối nhưng chuyển qua helper doctrine-aware. Bỏ khoản treasury trừ thêm trước one_state_arms_factory, vốn đã thu phí theo helper MD.
 - Đã xuất sơ đồ live tại .claude/docs/land/land_focus_v30_2.png và cập nhật .claude/docs/land/land_focus_current.png. Audit mới là tools/audit/land_structure_v30_2.py; manifest tọa độ/graph là .claude/docs/land/structure_v30_2.json.
+- Layout chuẩn hóa theo kiến trúc phân tầng trên-dưới (X=172..188, Y=2..15):
+  + Tầng trên (Y=2..6): Nền tảng chỉ huy & 4 Binh chủng truyền thống (Bộ binh, Thiết giáp, Pháo binh, Công binh), chạy thẳng đứng song song không cắt chéo.
+  + Tầng giữa (Y=7..10): 3 Hướng chiến lược (M, R, D) độc lập, cân đối từng hàng Y, triệt tiêu khoảng hẫng tầng.
+  + Tầng dưới (Y=11..15): Cải cách chỉ huy II mở ra 2 chương trình nâng cao (Phòng không/Cyber và Biên giới/Đô thị) cùng trục Hiện đại hóa chọn lọc & Capstone.
+  + Hoàn toàn cách ly khỏi dải Kinh tế (X<=170), Công nghiệp Quốc phòng (X>=188 ở Y=3..5) và Hải quân (X>=196).
 
 Kiểm tra tĩnh xác nhận graph, anchor trực tiếp khai báo trước, không có ô tọa độ tuyệt đối trùng trong toàn bộ focus tree, gate 3/6, OR/AND và helper reward. Cần kiểm tra trong game để xác nhận Clausewitz route dây, tooltip, chi phí Treasury và hiển thị card.

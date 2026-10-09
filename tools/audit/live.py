@@ -1,8 +1,9 @@
 import re, os, sys, collections, json
 if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
 ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
-ARCHIVE=('v10_removed_nationalist_focuses.txt','v11_removed_military_all_subbranches.txt',
-         'v11_removed_military_other_focuses.txt','common/national_focus/VIE_md_focus.txt.bak')
+ARCHIVE=('v10_removed_nationalist_focuses.txt','v30_removed_infrastructure_focuses.txt','v31_removed_industry_focuses.txt','v11_removed_military_all_subbranches.txt',
+         'v11_removed_military_other_focuses.txt','common/national_focus/VIE_md_focus.txt.bak',
+         'scratch/test_focus.txt')  # Non-loaded scratch copy; retain the user's file.
 def read(p):
     with open(p,encoding='utf-8',errors='replace') as f: return f.read()
 def strip(t): return '\n'.join(l[:l.find('#')] if '#' in l else l for l in t.split('\n'))

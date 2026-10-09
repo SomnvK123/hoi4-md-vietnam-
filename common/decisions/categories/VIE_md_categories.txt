@@ -13,20 +13,8 @@ VIE_resolution_category = {
 		check_variable = { VIE_congress_term > 8 }
 	}
 }
-
-# Truc 2 (CNQP Luc quan): 9 decision D1-D9. Q6 = (a) nen cong vao cua nhom la
-# focus VIE_def_industry_law (Phap lenh CNQP 02/2008/PL-UBTVQH12, hieu luc
-# 01/07/2008) - dung y bao cao muc 2.2: "Nhom decision CNQP Luc quan hien khi
-# hoan tat VIE_tank_modernization", ma focus do da bi v11 xoa.
-# priority 92: chen giua VIE_resolution_category (95) va 90 (cu: VIE_statebuilding_category, da bo).
-VIE_def_industry_category = {
-	allowed = { original_tag = VIE }
-	priority = 92
-	visible = { has_completed_focus = VIE_def_industry_law }
-}
-
 # Truc 1 hai quan: Decision P_late. Chi hien khi co chuong trinh da lo cua so (_missed)
-# hoac Sigma tam dung (_suspended). priority 91: ngay duoi VIE_def_industry_category (92).
+# hoac Sigma tam dung (_suspended). priority 91.
 VIE_naval_procurement_category = {
 	allowed = { original_tag = VIE }
 	priority = 91
@@ -126,3 +114,13 @@ VIE_party_balance_category = {
 }
 
 
+
+# Ha tang quoc gia: bon nganh dau tu doc lap.
+VIE_infrastructure_category = {
+	allowed = { original_tag = VIE }
+	priority = 80
+	visible = { has_completed_focus = VIE_infrastructure_development }
+}
+
+# Chuong trinh cong nghiep quoc gia.
+VIE_industry_category = { allowed = { original_tag = VIE } priority = 81 visible = { has_completed_focus = VIE_industrialization_strategy } }

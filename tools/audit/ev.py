@@ -1,6 +1,6 @@
 import re,os,collections
 ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
-ARCH={'v10_removed_nationalist_focuses.txt','v11_removed_military_all_subbranches.txt','v11_removed_military_other_focuses.txt'}
+ARCH={'v10_removed_nationalist_focuses.txt','v30_removed_infrastructure_focuses.txt','v31_removed_industry_focuses.txt','v11_removed_military_all_subbranches.txt','v11_removed_military_other_focuses.txt','scratch/test_focus.txt'}
 def read(p):
     return open(p,encoding='utf-8',errors='replace').read()
 def strip(t): return '\n'.join(l[:l.find('#')] if '#' in l else l for l in t.split('\n'))
@@ -9,7 +9,7 @@ for dp,ds,fns in os.walk(ROOT):
     if '.git' in dp: continue
     for fn in fns:
         rel=os.path.relpath(os.path.join(dp,fn),ROOT)
-        if rel in ARCH or rel.endswith('.bak'): continue
+        if rel.replace(os.sep,'/') in ARCH or rel.endswith('.bak'): continue
         if fn.endswith(('.txt','.mod','.gfx')): live[rel]=read(os.path.join(dp,fn))
 # event ids + namespaces
 ids={}; ns=collections.defaultdict(list)
