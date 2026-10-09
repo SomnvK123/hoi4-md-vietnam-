@@ -97,7 +97,7 @@ VIE_v31_upgrade_command_integration = {
 }
 
 # ======================================================================
-# 2. KIEM TRA VA TRAO SYNERGY GIUA S5 VA HOC THUYET M/R
+# 2. KIEM TRA VA TRAO SYNERGY GIUA S5 VA HOC THUYET P/M/R
 # ======================================================================
 VIE_v31_check_synergy = {
 	if = {
@@ -106,17 +106,70 @@ VIE_v31_check_synergy = {
 		}
 		if = {
 			limit = {
-				has_completed_focus = VIE_lf_operational_counteroffensive_capstone
+				has_completed_focus = VIE_lf_p6_active_defense_counterattack
+				NOT = { has_idea = VIE_synergy_defense_commando_idea }
+			}
+			add_ideas = VIE_synergy_defense_commando_idea
+		}
+		if = {
+			limit = {
+				has_completed_focus = VIE_lf_m6_operational_mechanized_counteroffensive
 				NOT = { has_idea = VIE_synergy_mech_commando_idea }
 			}
 			add_ideas = VIE_synergy_mech_commando_idea
 		}
 		if = {
 			limit = {
-				has_completed_focus = VIE_lf_complex_terrain_mobile_capstone
+				has_completed_focus = VIE_lf_r6_terrain_maneuver_mastery
 				NOT = { has_idea = VIE_synergy_mobility_commando_idea }
 			}
 			add_ideas = VIE_synergy_mobility_commando_idea
 		}
 	}
 }
+
+# ======================================================================
+# 3. NANG CAP NATIONAL SPIRITS HOC THUYET P/M/R
+# ======================================================================
+VIE_v31_upgrade_defensive_doctrine = {
+	if = {
+		limit = { has_idea = VPA_Defensive_Doctrine_1 }
+		swap_ideas = {
+			remove_idea = VPA_Defensive_Doctrine_1
+			add_idea = VPA_Defensive_Doctrine_2
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = VPA_Defensive_Doctrine_2 } }
+		add_ideas = VPA_Defensive_Doctrine_1
+	}
+}
+
+VIE_v31_upgrade_mechanized_doctrine = {
+	if = {
+		limit = { has_idea = VPA_Mechanized_Doctrine_1 }
+		swap_ideas = {
+			remove_idea = VPA_Mechanized_Doctrine_1
+			add_idea = VPA_Mechanized_Doctrine_2
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = VPA_Mechanized_Doctrine_2 } }
+		add_ideas = VPA_Mechanized_Doctrine_1
+	}
+}
+
+VIE_v31_upgrade_mobile_doctrine = {
+	if = {
+		limit = { has_idea = VPA_Mobile_Doctrine_1 }
+		swap_ideas = {
+			remove_idea = VPA_Mobile_Doctrine_1
+			add_idea = VPA_Mobile_Doctrine_2
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = VPA_Mobile_Doctrine_2 } }
+		add_ideas = VPA_Mobile_Doctrine_1
+	}
+}
+

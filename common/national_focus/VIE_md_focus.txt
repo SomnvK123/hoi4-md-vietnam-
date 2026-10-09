@@ -6066,19 +6066,23 @@ focus_tree = {
 		}
 	}
 
-	### TRUC M: LUC LUONG CO GIOI VA PHAN CONG CHIEN DICH (6 focus, mutex R1)
-	focus = {
-		id = VIE_lf_doctrine_combined_arms_mechanized
-		icon = GFX_focus_VIE_lf_arm_armor_org
+	### ======================================================================
+	### HOC THUYET P: PHONG THU CHIEN LUOC CHU DONG (6 focus)
+	### ======================================================================
 
-		x = -2
+	focus = {
+		id = VIE_lf_p1_strategic_defense
+		icon = GFX_focus_VIE_lf_fs_depth_defence
+
+		x = -6
 		y = 1
 		relative_position_id = VIE_lf_operational_logistics_maintenance
 
 		cost = 7
 
 		prerequisite = { focus = VIE_lf_operational_logistics_maintenance }
-		mutually_exclusive = { focus = VIE_lf_doctrine_flexible_mobility }
+		mutually_exclusive = { focus = VIE_lf_m1_combined_arms_mechanized }
+		mutually_exclusive = { focus = VIE_lf_r1_flexible_mobile_warfare }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6088,23 +6092,194 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_doctrine_combined_arms_mechanized"
-			add_ideas = VPA_Land_Doctrine_Mech_1
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p1_strategic_defense"
+			add_ideas = VPA_Defensive_Doctrine_1
 			VIE_lf_xp_25 = yes
 		}
 	}
 
 	focus = {
-		id = VIE_lf_upgrade_armor_fleet
+		id = VIE_lf_p2_multi_layered_defense
+		icon = GFX_focus_VIE_lf_fs_militia_units
+
+		x = -1
+		y = 1
+		relative_position_id = VIE_lf_p1_strategic_defense
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_p1_strategic_defense }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p2_multi_layered_defense"
+			VIE_lf_xp_20 = yes
+			unlock_decision_tooltip = VIE_decision_p_backup_defense_line
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p3_operational_reserves
+		icon = GFX_focus_VIE_lf_fs_main_corps
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_lf_p1_strategic_defense
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_p1_strategic_defense }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p3_operational_reserves"
+			VIE_lf_xp_20 = yes
+			unlock_decision_tooltip = VIE_decision_p_operational_reserves_boost
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p4_defensive_anti_breakthrough_firepower
+		icon = GFX_focus_VIE_lf_arm_arty_org
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_p2_multi_layered_defense
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_p2_multi_layered_defense }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p4_defensive_anti_breakthrough_firepower"
+			VIE_lf_xp_25 = yes
+			add_tech_bonus = {
+				name = VIE_p4_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = CAT_artillery
+			}
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p5_protracted_combat_sustainment
+		icon = GFX_focus_VIE_lf_dev_territorial
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_p3_operational_reserves
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_p3_operational_reserves }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p5_protracted_combat_sustainment"
+			VIE_lf_xp_25 = yes
+			add_command_power = 15
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p6_active_defense_counterattack
+		icon = GFX_focus_VIE_lf_cap_area_control
+
+		x = 0
+		y = 3
+		relative_position_id = VIE_lf_p1_strategic_defense
+
+		cost = 10
+
+		prerequisite = { focus = VIE_lf_p4_defensive_anti_breakthrough_firepower }
+		prerequisite = { focus = VIE_lf_p5_protracted_combat_sustainment }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		ai_will_do = {
+			base = 80
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p6_active_defense_counterattack"
+			VIE_v31_upgrade_defensive_doctrine = yes
+			VIE_v31_check_synergy = yes
+			VIE_lf_xp_30 = yes
+			add_command_power = 20
+			unlock_decision_tooltip = VIE_decision_p_local_counterattack
+		}
+	}
+
+	### ======================================================================
+	### HOC THUYET M: PHAN CONG CO GIOI HOP THANH (6 focus)
+	### ======================================================================
+
+	focus = {
+		id = VIE_lf_m1_combined_arms_mechanized
+		icon = GFX_focus_VIE_lf_arm_armor_org
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_operational_logistics_maintenance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_operational_logistics_maintenance }
+		mutually_exclusive = { focus = VIE_lf_p1_strategic_defense }
+		mutually_exclusive = { focus = VIE_lf_r1_flexible_mobile_warfare }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m1_combined_arms_mechanized"
+			add_ideas = VPA_Mechanized_Doctrine_1
+			VIE_lf_xp_25 = yes
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m2_armor_combat_readiness
 		icon = GFX_focus_VIE_lf_arm_armor_train
 
 		x = -1
 		y = 1
-		relative_position_id = VIE_lf_doctrine_combined_arms_mechanized
+		relative_position_id = VIE_lf_m1_combined_arms_mechanized
 
-		cost = 7
+		cost = 5
 
-		prerequisite = { focus = VIE_lf_doctrine_combined_arms_mechanized }
+		prerequisite = { focus = VIE_lf_m1_combined_arms_mechanized }
 
 		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_INDUSTRY }
 
@@ -6114,53 +6289,23 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_upgrade_armor_fleet"
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m2_armor_combat_readiness"
 			VIE_lf_xp_20 = yes
+			unlock_decision_tooltip = VIE_decision_m_mbt_modernization
 		}
 	}
 
 	focus = {
-		id = VIE_lf_mechanize_infantry_units
-		icon = GFX_focus_VIE_lf_fs_mobile_corps
+		id = VIE_lf_m3_mechanized_infantry_formations
+		icon = GFX_focus_VIE_lf_combined_arms
 
 		x = 1
 		y = 1
-		relative_position_id = VIE_lf_doctrine_combined_arms_mechanized
+		relative_position_id = VIE_lf_m1_combined_arms_mechanized
 
-		cost = 7
+		cost = 5
 
-		prerequisite = { focus = VIE_lf_doctrine_combined_arms_mechanized }
-
-		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
-
-		ai_will_do = {
-			base = 65
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_mechanize_infantry_units"
-			add_tech_bonus = {
-				name = VIE_mechanized_tech_bonus
-				bonus = 0.5
-				uses = 1
-				category = CAT_mechanized_equipment
-			}
-			VIE_lf_xp_20 = yes
-		}
-	}
-
-	focus = {
-		id = VIE_lf_mobile_fire_support
-		icon = GFX_focus_VIE_lf_fs_mobile_force
-
-		x = 0
-		y = 1
-		relative_position_id = VIE_lf_upgrade_armor_fleet
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lf_upgrade_armor_fleet }
+		prerequisite = { focus = VIE_lf_m1_combined_arms_mechanized }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6170,23 +6315,54 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_mobile_fire_support"
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m3_mechanized_infantry_formations"
 			VIE_lf_xp_20 = yes
+			unlock_decision_tooltip = VIE_decision_m_combined_arms_deployment
 		}
 	}
 
 	focus = {
-		id = VIE_lf_core_mechanized_combined_arms
-		icon = GFX_focus_VIE_lf_fs_main_corps
+		id = VIE_lf_m4_mobile_fire_support
+		icon = GFX_focus_VIE_lf_arm_arty_train
 
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = VIE_lf_mobile_fire_support
+		relative_position_id = VIE_lf_m2_armor_combat_readiness
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_mechanize_infantry_units }
-		prerequisite = { focus = VIE_lf_mobile_fire_support }
+		prerequisite = { focus = VIE_lf_m2_armor_combat_readiness }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m4_mobile_fire_support"
+			VIE_lf_xp_25 = yes
+			add_tech_bonus = {
+				name = VIE_m4_sp_arty_bonus
+				bonus = 0.5
+				uses = 1
+				category = CAT_sp_artillery
+			}
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m5_operational_combined_arms_units
+		icon = GFX_focus_VIE_lf_fs_lean_corps
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_m3_mechanized_infantry_formations
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_m3_mechanized_infantry_formations }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6196,23 +6372,24 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_core_mechanized_combined_arms"
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m5_operational_combined_arms_units"
 			VIE_lf_xp_25 = yes
 			add_command_power = 15
 		}
 	}
 
 	focus = {
-		id = VIE_lf_operational_counteroffensive_capstone
-		icon = GFX_focus_VIE_lf_cap_border_urban
+		id = VIE_lf_m6_operational_mechanized_counteroffensive
+		icon = GFX_focus_VIE_lf_force_complete
 
 		x = 0
-		y = 1
-		relative_position_id = VIE_lf_core_mechanized_combined_arms
+		y = 3
+		relative_position_id = VIE_lf_m1_combined_arms_mechanized
 
-		cost = 7
+		cost = 10
 
-		prerequisite = { focus = VIE_lf_core_mechanized_combined_arms }
+		prerequisite = { focus = VIE_lf_m4_mobile_fire_support }
+		prerequisite = { focus = VIE_lf_m5_operational_combined_arms_units }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6222,30 +6399,32 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_operational_counteroffensive_capstone"
-			swap_ideas = {
-				remove_idea = VPA_Land_Doctrine_Mech_1
-				add_idea = VPA_Land_Doctrine_Mech_2
-			}
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m6_operational_mechanized_counteroffensive"
+			VIE_v31_upgrade_mechanized_doctrine = yes
 			VIE_v31_check_synergy = yes
 			VIE_lf_xp_30 = yes
 			add_command_power = 20
+			unlock_decision_tooltip = VIE_decision_m_counteroffensive_surge
 		}
 	}
 
-	### TRUC R: BO BINH CO DONG VA PHAN UNG NHANH (6 focus, mutex M1)
-	focus = {
-		id = VIE_lf_doctrine_flexible_mobility
-		icon = GFX_focus_VIE_lf_cap_area_control
+	### ======================================================================
+	### HOC THUYET R: TAC CHIEN CO DONG LINH HOAT (6 focus)
+	### ======================================================================
 
-		x = 2
+	focus = {
+		id = VIE_lf_r1_flexible_mobile_warfare
+		icon = GFX_focus_VIE_lf_fs_mobile_force
+
+		x = 6
 		y = 1
 		relative_position_id = VIE_lf_operational_logistics_maintenance
 
 		cost = 7
 
 		prerequisite = { focus = VIE_lf_operational_logistics_maintenance }
-		mutually_exclusive = { focus = VIE_lf_doctrine_combined_arms_mechanized }
+		mutually_exclusive = { focus = VIE_lf_p1_strategic_defense }
+		mutually_exclusive = { focus = VIE_lf_m1_combined_arms_mechanized }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6255,73 +6434,23 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_doctrine_flexible_mobility"
-			add_ideas = VPA_Land_Doctrine_Mobility_1
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r1_flexible_mobile_warfare"
+			add_ideas = VPA_Mobile_Doctrine_1
 			VIE_lf_xp_25 = yes
 		}
 	}
 
 	focus = {
-		id = VIE_lf_modernize_light_infantry
-		icon = GFX_focus_VIE_sec_border_control
-
-		x = 0
-		y = 1
-		relative_position_id = VIE_lf_doctrine_flexible_mobility
-
-		cost = 5
-
-		prerequisite = { focus = VIE_lf_doctrine_flexible_mobility }
-
-		search_filters = { FOCUS_FILTER_ARMY }
-
-		ai_will_do = {
-			base = 65
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_modernize_light_infantry"
-			VIE_lf_xp_20 = yes
-		}
-	}
-
-	focus = {
-		id = VIE_lf_mountain_jungle_warfare
-		icon = GFX_focus_VIE_border_settlement
+		id = VIE_lf_r2_modernize_mobile_infantry
+		icon = GFX_focus_VIE_lf_arm_infantry_train
 
 		x = -1
 		y = 1
-		relative_position_id = VIE_lf_modernize_light_infantry
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lf_modernize_light_infantry }
-
-		search_filters = { FOCUS_FILTER_ARMY }
-
-		ai_will_do = {
-			base = 65
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_mountain_jungle_warfare"
-			VIE_lf_xp_20 = yes
-		}
-	}
-
-	focus = {
-		id = VIE_lf_tactical_mobility_vehicles
-		icon = GFX_focus_VIE_border_trade_gates
-
-		x = 1
-		y = 1
-		relative_position_id = VIE_lf_modernize_light_infantry
+		relative_position_id = VIE_lf_r1_flexible_mobile_warfare
 
 		cost = 5
 
-		prerequisite = { focus = VIE_lf_modernize_light_infantry }
+		prerequisite = { focus = VIE_lf_r1_flexible_mobile_warfare }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6331,23 +6460,79 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_tactical_mobility_vehicles"
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r2_modernize_mobile_infantry"
 			VIE_lf_xp_20 = yes
 		}
 	}
 
 	focus = {
-		id = VIE_lf_rapid_reaction_forces
-		icon = GFX_focus_VIE_def_limited_war_doctrine
+		id = VIE_lf_r3_terrain_adaptive_warfare
+		icon = GFX_focus_VIE_lf_cap_border_urban
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_lf_r1_flexible_mobile_warfare
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_r1_flexible_mobile_warfare }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		ai_will_do = {
+			base = 65
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r3_terrain_adaptive_warfare"
+			VIE_lf_xp_20 = yes
+			unlock_decision_tooltip = VIE_decision_r_terrain_mobility_training
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r4_tactical_motorized_mobility
+		icon = GFX_focus_VIE_lf_arm_infantry_org
 
 		x = 0
-		y = 2
-		relative_position_id = VIE_lf_modernize_light_infantry
+		y = 1
+		relative_position_id = VIE_lf_r2_modernize_mobile_infantry
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_mountain_jungle_warfare }
-		prerequisite = { focus = VIE_lf_tactical_mobility_vehicles }
+		prerequisite = { focus = VIE_lf_r2_modernize_mobile_infantry }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		ai_will_do = {
+			base = 70
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r4_tactical_motorized_mobility"
+			VIE_lf_xp_25 = yes
+			add_tech_bonus = {
+				name = VIE_r4_motorized_bonus
+				bonus = 0.5
+				uses = 1
+				category = CAT_motorized
+			}
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r5_rapid_reaction_corps
+		icon = GFX_focus_VIE_lf_fs_mobile_corps
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_r3_terrain_adaptive_warfare
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_r3_terrain_adaptive_warfare }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6357,23 +6542,24 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_rapid_reaction_forces"
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r5_rapid_reaction_corps"
 			VIE_lf_xp_25 = yes
-			add_command_power = 15
+			unlock_decision_tooltip = VIE_decision_r_rapid_readiness_force
 		}
 	}
 
 	focus = {
-		id = VIE_lf_complex_terrain_mobile_capstone
-		icon = GFX_focus_VIE_def_four_nos_doctrine
+		id = VIE_lf_r6_terrain_maneuver_mastery
+		icon = GFX_focus_VIE_lf_dev_strategic
 
 		x = 0
-		y = 1
-		relative_position_id = VIE_lf_rapid_reaction_forces
+		y = 3
+		relative_position_id = VIE_lf_r1_flexible_mobile_warfare
 
-		cost = 7
+		cost = 10
 
-		prerequisite = { focus = VIE_lf_rapid_reaction_forces }
+		prerequisite = { focus = VIE_lf_r4_tactical_motorized_mobility }
+		prerequisite = { focus = VIE_lf_r5_rapid_reaction_corps }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
@@ -6383,31 +6569,33 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_complex_terrain_mobile_capstone"
-			swap_ideas = {
-				remove_idea = VPA_Land_Doctrine_Mobility_1
-				add_idea = VPA_Land_Doctrine_Mobility_2
-			}
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r6_terrain_maneuver_mastery"
+			VIE_v31_upgrade_mobile_doctrine = yes
 			VIE_v31_check_synergy = yes
 			VIE_lf_xp_30 = yes
 			add_command_power = 20
+			unlock_decision_tooltip = VIE_decision_r_maneuver_tempo_surge
 		}
 	}
 
-	### TRUC F: HIEN DAI HOA VA HOI TU LUC QUAN (2 focus)
+	### ======================================================================
+	### TRUC F: HIEN DAI HOA VA HOI TU CHI HUY TOAN QUAN (2 focus)
+	### ======================================================================
+
 	focus = {
 		id = VIE_lf_modernize_army_command_system
 		icon = GFX_focus_VIE_lf_command_reform_2
 
-		x = 2
-		y = 1
-		relative_position_id = VIE_lf_operational_counteroffensive_capstone
+		x = 0
+		y = 2
+		relative_position_id = VIE_lf_m6_operational_mechanized_counteroffensive
 
 		cost = 7
 
 		prerequisite = {
-			focus = VIE_lf_operational_counteroffensive_capstone
-			focus = VIE_lf_complex_terrain_mobile_capstone
+			focus = VIE_lf_p6_active_defense_counterattack
+			focus = VIE_lf_m6_operational_mechanized_counteroffensive
+			focus = VIE_lf_r6_terrain_maneuver_mastery
 		}
 
 		search_filters = { FOCUS_FILTER_ARMY }

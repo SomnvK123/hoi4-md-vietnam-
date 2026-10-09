@@ -6,8 +6,9 @@ VIE_v31_joint_modernization_ready = {
 	custom_trigger_tooltip = {
 		tooltip = VIE_v31_joint_modernization_ready_tt
 		OR = {
-			has_completed_focus = VIE_lf_operational_counteroffensive_capstone
-			has_completed_focus = VIE_lf_complex_terrain_mobile_capstone
+			has_completed_focus = VIE_lf_p6_active_defense_counterattack
+			has_completed_focus = VIE_lf_m6_operational_mechanized_counteroffensive
+			has_completed_focus = VIE_lf_r6_terrain_maneuver_mastery
 			has_completed_focus = VIE_lf_modern_elite_combined_army_capstone
 		}
 	}

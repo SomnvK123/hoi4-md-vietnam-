@@ -142,52 +142,84 @@ ideas = {
 		}
 
 		# ======================================================================
-		# 5. VPA_Land_Doctrine: Hoc thuyet tac chien (Mech vs Mobility)
+		# 5. Hoc thuyet Luc quan V31.1 (P - Phong thu, M - Co gioi, R - Co dong)
 		# ======================================================================
-		VPA_Land_Doctrine_Mech_1 = {
+		VPA_Defensive_Doctrine_1 = {
+			picture = generic_fortify
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_defence_factor = 0.05
+				max_dig_in = 2
+				dig_in_speed_factor = 0.10
+			}
+		}
+		VPA_Defensive_Doctrine_2 = {
+			picture = generic_fortify
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_defence_factor = 0.10
+				army_core_defence_factor = 0.05
+				max_dig_in = 4
+				dig_in_speed_factor = 0.20
+				land_reinforce_rate = 0.05
+				army_morale_factor = 0.05
+			}
+		}
+
+		VPA_Mechanized_Doctrine_1 = {
 			picture = generic_armor_bonus
 			allowed = { original_tag = VIE }
 			modifier = {
 				breakthrough_factor = 0.05
-				armor_speed_factor = 0.03
+				army_armor_attack_factor = 0.05
+				planning_speed = 0.05
 			}
 		}
-		VPA_Land_Doctrine_Mech_2 = {
+		VPA_Mechanized_Doctrine_2 = {
 			picture = generic_armor_bonus
 			allowed = { original_tag = VIE }
 			modifier = {
 				breakthrough_factor = 0.10
-				armor_speed_factor = 0.05
-				planning_speed = 0.08
-				mechanized_attack_factor = 0.05
-				armor_attack_factor = 0.05
+				army_armor_attack_factor = 0.10
+				army_armor_defence_factor = 0.05
+				army_artillery_attack_factor = 0.05
+				planning_speed = 0.10
 			}
 		}
 
-		VPA_Land_Doctrine_Mobility_1 = {
+		VPA_Mobile_Doctrine_1 = {
 			picture = generic_infantry_bonus
 			allowed = { original_tag = VIE }
 			modifier = {
 				army_speed_factor = 0.05
+				army_morale_factor = 0.05
 				supply_consumption_factor = -0.05
 			}
 		}
-		VPA_Land_Doctrine_Mobility_2 = {
+		VPA_Mobile_Doctrine_2 = {
 			picture = generic_infantry_bonus
 			allowed = { original_tag = VIE }
 			modifier = {
-				army_speed_factor = 0.08
-				supply_consumption_factor = -0.08
-				mountain_attack_factor = 0.05
-				mountain_movement_factor = 0.05
-				hills_attack_factor = 0.05
-				forest_movement_factor = 0.05
+				army_speed_factor = 0.10
+				army_morale_factor = 0.08
+				supply_consumption_factor = -0.10
+				recon_factor = 0.10
+				attrition = -0.05
 			}
 		}
 
 		# ======================================================================
-		# 6. Synergies: Dac cong (S5) ket hop hoc thuyet
+		# 6. Synergies: Dac cong (S5) ket hop voi 3 hoc thuyet
 		# ======================================================================
+		VIE_synergy_defense_commando_idea = {
+			picture = generic_special_forces
+			allowed = { original_tag = VIE }
+			modifier = {
+				special_forces_defence_factor = 0.05
+				recon_factor = 0.05
+				max_dig_in = 1
+			}
+		}
 		VIE_synergy_mech_commando_idea = {
 			picture = generic_special_forces
 			allowed = { original_tag = VIE }
@@ -204,6 +236,82 @@ ideas = {
 				army_speed_factor = 0.03
 				recon_factor = 0.08
 				special_forces_defence_factor = 0.05
+			}
+		}
+
+		# ======================================================================
+		# 6B. Ideas tam thoi tu Quyet dinh gameplay P/M/R
+		# ======================================================================
+		VIE_idea_p_backup_defense_line = {
+			picture = generic_fortify
+			allowed = { original_tag = VIE }
+			modifier = {
+				max_dig_in = 2
+				dig_in_speed_factor = 0.15
+			}
+		}
+		VIE_idea_p_operational_reserves = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				land_reinforce_rate = 0.05
+				army_org_factor = 0.05
+			}
+		}
+		VIE_idea_p_local_counterattack = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_attack_factor = 0.08
+				breakthrough_factor = 0.05
+			}
+		}
+		VIE_idea_m_mbt_modernization = {
+			picture = generic_armor_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_armor_attack_factor = 0.05
+			}
+		}
+		VIE_idea_m_combined_arms = {
+			picture = generic_armor_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				breakthrough_factor = 0.05
+				army_artillery_attack_factor = 0.05
+			}
+		}
+		VIE_idea_m_counteroffensive_surge = {
+			picture = generic_armor_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_attack_factor = 0.10
+				breakthrough_factor = 0.10
+				planning_speed = 0.15
+			}
+		}
+		VIE_idea_r_terrain_mobility = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_speed_factor = 0.05
+				attrition = -0.10
+			}
+		}
+		VIE_idea_r_rapid_readiness = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_morale_factor = 0.10
+				recon_factor = 0.05
+			}
+		}
+		VIE_idea_r_maneuver_tempo = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_speed_factor = 0.10
+				planning_speed = 0.15
 			}
 		}
 

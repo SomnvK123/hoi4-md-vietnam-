@@ -1,1 +1,270 @@
-# Nhánh quyết định Lục quân đã được xóa để xây dựng lại từ đầu.
+# ======================================================================
+# QUYET DINH CHIEN LUOC HOC THUYET LUC QUAN V31.1 (P / M / R)
+# ======================================================================
+
+VIE_military_readiness_category = {
+
+	# ------------------------------------------------------------------
+	# P-SYSTEM: PHONG THU CHIEU SAU & DU BI CHIEN DICH
+	# ------------------------------------------------------------------
+
+	VIE_decision_p_backup_defense_line = {
+		icon = GFX_decision_generic_fortification
+		cost = 35
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_p2_multi_layered_defense
+		}
+
+		available = {
+			OR = {
+				has_war = yes
+				threat > 0.15
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_p_backup_defense_line"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_idea_p_backup_defense_line days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_p_operational_reserves_boost = {
+		icon = GFX_decision_generic_support_equipment
+		cost = 40
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_p3_operational_reserves
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_p_operational_reserves_boost"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_idea_p_operational_reserves days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 15
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_p_local_counterattack = {
+		icon = GFX_decision_infiltrate_state
+		cost = 50
+
+		days_remove = 120
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_p6_active_defense_counterattack
+		}
+
+		available = {
+			has_war = yes
+			command_power > 24
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_p_local_counterattack"
+			add_command_power = -25
+			add_timed_idea = { idea = VIE_idea_p_local_counterattack days = 120 }
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# M-SYSTEM: CO GIOI HOA VA PHAN CONG HOP THANH
+	# ------------------------------------------------------------------
+
+	VIE_decision_m_mbt_modernization = {
+		icon = GFX_decision_generic_tank
+		cost = 40
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_lf_m2_armor_combat_readiness
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_m_mbt_modernization"
+			set_temp_variable = { treasury_change = -4 }
+			modify_treasury_effect = yes
+			add_ideas = VIE_idea_m_mbt_modernization
+			add_doctrine_cost_reduction = {
+				name = VIE_decision_m_mbt_modernization
+				cost_reduction = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+		}
+
+		ai_will_do = {
+			factor = 15
+		}
+	}
+
+	VIE_decision_m_combined_arms_deployment = {
+		icon = GFX_decision_generic_army_support
+		cost = 40
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_m3_mechanized_infantry_formations
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_m_combined_arms_deployment"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_idea_m_combined_arms days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 15
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_m_counteroffensive_surge = {
+		icon = GFX_decision_infiltrate_state
+		cost = 50
+
+		days_remove = 120
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_m6_operational_mechanized_counteroffensive
+		}
+
+		available = {
+			has_war = yes
+			command_power > 29
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_m_counteroffensive_surge"
+			add_command_power = -30
+			add_timed_idea = { idea = VIE_idea_m_counteroffensive_surge days = 120 }
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# R-SYSTEM: CO DONG LINH HOAT VA PHAN UNG NHANH
+	# ------------------------------------------------------------------
+
+	VIE_decision_r_terrain_mobility_training = {
+		icon = GFX_decision_generic_military
+		cost = 35
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_r3_terrain_adaptive_warfare
+		}
+
+		available = {
+			command_power > 14
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_r_terrain_mobility_training"
+			add_command_power = -15
+			add_timed_idea = { idea = VIE_idea_r_terrain_mobility days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	VIE_decision_r_rapid_readiness_force = {
+		icon = GFX_decision_generic_army_support
+		cost = 40
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_r5_rapid_reaction_corps
+		}
+
+		available = {
+			has_war = yes
+			command_power > 19
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_r_rapid_readiness_force"
+			add_command_power = -20
+			add_timed_idea = { idea = VIE_idea_r_rapid_readiness days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 15
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_r_maneuver_tempo_surge = {
+		icon = GFX_decision_infiltrate_state
+		cost = 50
+
+		days_remove = 120
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_lf_r6_terrain_maneuver_mastery
+		}
+
+		available = {
+			has_war = yes
+			command_power > 24
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_r_maneuver_tempo_surge"
+			add_command_power = -25
+			add_timed_idea = { idea = VIE_idea_r_maneuver_tempo days = 120 }
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+}
