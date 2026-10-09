@@ -6654,6 +6654,7 @@ focus_tree = {
 	######################################################################
 	######################################################################
 	######################################################################
+	######################################################################
 	## ĐỀ ÁN V34: NHÁNH HẢI QUÂN VIỆT NAM (LAYOUT CÁNH BUỒM BLUE CHART)
 	## 40 FOCUS THEO ĐÚNG BẢN THIẾT KẾ MẪU ẢNH 2
 	######################################################################
@@ -7263,7 +7264,6 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = { focus = VIE_nav_w03_multirole_frigates }
-		prerequisite = { focus = VIE_nav_s03_subsurface_recon }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7310,16 +7310,15 @@ focus_tree = {
 		id = VIE_nav_p01_integrated_defense_choice
 		icon = GFX_focus_VIE_nf_denial
 
-		x = 2
-		y = 1
-		relative_position_id = VIE_nav_s05_unified_maritime_picture
+		x = -5
+		y = 3
+		relative_position_id = VIE_nav_t04_joint_command_system
 
 		cost = 7
 
 		mutually_exclusive = { focus = VIE_nav_h01_fleet_development_priority }
 
 		prerequisite = { focus = VIE_nav_t04_joint_command_system }
-		prerequisite = { focus = VIE_nav_w01_surface_combatants }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7339,16 +7338,15 @@ focus_tree = {
 		id = VIE_nav_h01_fleet_development_priority
 		icon = GFX_focus_VIE_nf_greenwater
 
-		x = -2
-		y = 1
-		relative_position_id = VIE_nav_l05_sustained_operations
+		x = 2
+		y = 3
+		relative_position_id = VIE_nav_t04_joint_command_system
 
 		cost = 7
 
 		mutually_exclusive = { focus = VIE_nav_p01_integrated_defense_choice }
 
 		prerequisite = { focus = VIE_nav_t04_joint_command_system }
-		prerequisite = { focus = VIE_nav_w01_surface_combatants }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7375,7 +7373,6 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_nav_p01_integrated_defense_choice }
-		prerequisite = { focus = VIE_nav_s02_island_defense_forces }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7403,7 +7400,6 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_nav_p01_integrated_defense_choice }
-		prerequisite = { focus = VIE_nav_l03_island_logistics }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7430,8 +7426,6 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_nav_h01_fleet_development_priority }
-		prerequisite = { focus = VIE_nav_w03_multirole_frigates }
-		prerequisite = { focus = VIE_nav_l02_overhaul_maintenance }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7515,7 +7509,6 @@ focus_tree = {
 		mutually_exclusive = { focus = VIE_nav_g01_greenwater_navy }
 
 		prerequisite = { focus = VIE_nav_h02_multirole_task_groups }
-		prerequisite = { focus = VIE_nav_l05_sustained_operations }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7541,7 +7534,6 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_nav_p03_island_territory_defense }
 		prerequisite = { focus = VIE_nav_p04_layered_defense }
 
 		search_filters = { FOCUS_FILTER_NAVY }
@@ -7570,7 +7562,6 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_nav_g01_greenwater_navy }
-		prerequisite = { focus = VIE_nav_w05_asw_fleet_defense }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7597,7 +7588,6 @@ focus_tree = {
 		cost = 7
 
 		prerequisite = { focus = VIE_nav_b01_bluewater_navy }
-		prerequisite = { focus = VIE_nav_s04_joint_island_defense }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7651,7 +7641,6 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { focus = VIE_nav_g02_advanced_frigates_asw }
-		prerequisite = { focus = VIE_nav_l03_island_logistics }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
@@ -7737,8 +7726,6 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { focus = VIE_nav_f01_tactical_doctrine_alignment }
-		prerequisite = { focus = VIE_nav_s05_unified_maritime_picture }
-		prerequisite = { focus = VIE_nav_l05_sustained_operations }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
