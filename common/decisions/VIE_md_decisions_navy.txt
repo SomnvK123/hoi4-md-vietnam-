@@ -1,0 +1,146 @@
+# ======================================================================
+# ĐỀ ÁN V34: QUYẾT ĐỊNH MUA SẮM VÀ PHÁT TRIỂN HẢI QUÂN
+# ======================================================================
+
+VIE_naval_procurement_category = {
+
+	VIE_decision_molniya_production_run = {
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_w02_molniya_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_molniya_production_run"
+			set_temp_variable = { treasury_change = -1.5 }
+			modify_treasury_effect = yes
+			navy_experience = 10
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_gepard_batch_procurement = {
+		icon = GFX_decision_generic_naval
+		cost = 30
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_w03_gepard_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_gepard_batch_procurement"
+			set_temp_variable = { treasury_change = -2.5 }
+			modify_treasury_effect = yes
+			navy_experience = 15
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_kilo_submarine_sustainment = {
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		days_remove = 365
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_w04_kilo_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_kilo_submarine_sustainment"
+			set_temp_variable = { treasury_change = -2.0 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_decision_kilo_sustainment_spirit days = 365 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_domestic_corvette_lead_ship = {
+		icon = GFX_decision_generic_dockyard
+		cost = 35
+
+		days_remove = 730
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_i04_song_thu_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_domestic_corvette_lead_ship"
+			set_temp_variable = { treasury_change = -1.8 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_decision_domestic_corvette_construction_spirit days = 730 }
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	VIE_decision_island_bastion_fortification = {
+		icon = GFX_decision_generic_fortification
+		cost = 20
+
+		days_remove = 365
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_s02_bastion_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_island_bastion_fortification"
+			set_temp_variable = { treasury_change = -1.0 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_decision_island_bastion_spirit days = 365 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+}

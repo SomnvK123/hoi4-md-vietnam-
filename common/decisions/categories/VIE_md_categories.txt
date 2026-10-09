@@ -65,3 +65,10 @@ VIE_infrastructure_category = {
 
 # Chuong trinh cong nghiep quoc gia.
 VIE_industry_category = { allowed = { original_tag = VIE } priority = 81 visible = { has_completed_focus = VIE_industrialization_strategy } }
+
+# Chuong trinh Mua sam va Phat trien Hai quan V34
+VIE_naval_procurement_category = {
+	allowed = { original_tag = VIE }
+	priority = 90
+	visible = { has_completed_focus = VIE_nav_n00_maritime_strategy_21st }
+}

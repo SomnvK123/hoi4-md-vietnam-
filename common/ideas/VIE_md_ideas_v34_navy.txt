@@ -1,0 +1,391 @@
+# ======================================================================
+# ĐỀ ÁN V34: HẢI QUÂN NHÂN DÂN VIỆT NAM (NATIONAL SPIRITS & IDEAS)
+# ======================================================================
+
+ideas = {
+	country = {
+
+		# --- TRỤC NỀN TẢNG (T, I, W, S, L) ---
+
+		VIE_nav_organization_reform_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_org = 3
+				navy_leader_start_level = 1
+			}
+		}
+
+		VIE_nav_shipbuilding_industry_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+
+		VIE_nav_officer_sailor_quality_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				experience_gain_navy_factor = 0.10
+				naval_org = 3
+			}
+		}
+
+		VIE_nav_regional_commands_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_coordination = 0.05
+				coastal_defense_coordination = 0.05
+			}
+		}
+
+		VIE_nav_technology_transfer_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				research_speed_naval = 0.05
+			}
+		}
+
+		VIE_nav_systems_integration_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_radar_efficiency = 0.05
+				screen_surface_detection = 0.05
+			}
+		}
+
+		VIE_nav_surface_combatants_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.05
+				navy_screen_attack_factor = 0.05
+			}
+		}
+
+		VIE_nav_joint_command_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_coordination = 0.08
+				planning_speed = 0.05
+			}
+		}
+
+		VIE_nav_maritime_surveillance_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_detection = 0.05
+				surface_detection = 0.05
+			}
+		}
+
+		VIE_nav_naval_bases_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_base_efficiency = 0.10
+				repair_speed_factor = 0.05
+			}
+		}
+
+		VIE_nav_subsurface_recon_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				sub_detection = 0.08
+				navy_submarine_detection_factor = 0.08
+			}
+		}
+
+		VIE_nav_island_defense_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				amphibious_defense = 0.10
+				naval_strike_defense_factor = 0.05
+			}
+		}
+
+		VIE_nav_overhaul_maintenance_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				repair_speed_factor = 0.10
+				naval_attrition = -0.05
+			}
+		}
+
+		VIE_nav_island_logistics_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				supply_consumption_factor = -0.05
+				navy_max_range_factor = 0.05
+			}
+		}
+
+		VIE_nav_fleet_development_h1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.05
+				naval_speed_factor = 0.05
+				escort_efficiency = 0.05
+			}
+		}
+
+		VIE_nav_integrated_defense_p1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screen_surface_detection = 0.05
+				navy_anti_air_attack_factor = 0.05
+				naval_coordination = 0.05
+			}
+		}
+
+		VIE_nav_asw_defense_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				sub_detection = 0.10
+				navy_anti_submarine_attack_factor = 0.10
+			}
+		}
+
+		VIE_nav_joint_island_defense_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				amphibious_defense = 0.15
+				coastal_defense_coordination = 0.10
+			}
+		}
+
+		VIE_nav_support_rescue_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				repair_speed_factor = 0.10
+				convoy_escort_efficiency = 0.05
+			}
+		}
+
+		VIE_nav_coastal_island_network_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_detection = 0.10
+				naval_strike_defense_factor = 0.08
+			}
+		}
+
+		VIE_nav_island_territory_defense_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				amphibious_defense = 0.15
+				naval_org = 5
+			}
+		}
+
+		VIE_nav_multirole_task_groups_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.10
+				naval_coordination = 0.08
+			}
+		}
+
+		VIE_nav_unified_maritime_picture_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_detection = 0.12
+				sub_detection = 0.10
+				naval_coordination = 0.10
+			}
+		}
+
+		VIE_nav_sustained_operations_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.10
+				repair_speed_factor = 0.15
+				naval_attrition = -0.10
+			}
+		}
+
+		VIE_nav_layered_defense_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				coastal_defense_coordination = 0.12
+				navy_anti_air_attack_factor = 0.10
+				screen_surface_detection = 0.08
+			}
+		}
+
+		VIE_nav_greenwater_g1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.08
+				navy_submarine_detection_factor = 0.08
+				navy_surface_detection_factor = 0.08
+			}
+		}
+
+		VIE_nav_bluewater_b1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.12
+				naval_org = 5
+				convoy_escort_efficiency = 0.10
+			}
+		}
+
+		VIE_nav_joint_coastal_defense_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_coordination = 0.12
+				amphibious_defense = 0.15
+				naval_strike_defense_factor = 0.10
+			}
+		}
+
+		VIE_nav_advanced_frigates_asw_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_anti_submarine_attack_factor = 0.15
+				screening_efficiency = 0.10
+				screen_surface_detection = 0.10
+			}
+		}
+
+		VIE_nav_extended_deployment_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.15
+				naval_speed_factor = 0.08
+				convoy_escort_efficiency = 0.12
+			}
+		}
+
+		# --- DOCTRINE CAPSTONES (P06, G03, B03) ---
+
+		VIE_nav_integrated_defense_p6 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screen_surface_detection = 0.12
+				navy_anti_air_attack_factor = 0.12
+				naval_coordination = 0.12
+				naval_strike_defense_factor = 0.12
+				sub_detection = 0.12
+			}
+		}
+
+		VIE_nav_greenwater_g3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.15
+				navy_submarine_detection_factor = 0.15
+				navy_surface_detection_factor = 0.12
+				naval_coordination = 0.10
+				navy_anti_air_attack_factor = 0.08
+			}
+		}
+
+		VIE_nav_bluewater_b3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.22
+				naval_org = 10
+				convoy_escort_efficiency = 0.18
+				naval_coordination = 0.12
+			}
+		}
+
+		# --- CAPSTONE TỐI THƯỢNG F02 (THEO DOCTRINE ĐÃ CHỌN) ---
+
+		VIE_nav_capstone_integrated_defense_f2 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_strike_defense_factor = 0.15
+				sub_detection = 0.15
+				naval_coordination = 0.15
+				screen_surface_detection = 0.15
+			}
+		}
+
+		VIE_nav_capstone_greenwater_f2 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.18
+				navy_submarine_detection_factor = 0.15
+				naval_org = 10
+				escort_efficiency = 0.18
+			}
+		}
+
+		VIE_nav_capstone_bluewater_f2 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.25
+				naval_coordination = 0.18
+				naval_org = 15
+				convoy_escort_efficiency = 0.20
+			}
+		}
+
+		# --- DECISION TIMED SPIRITS ---
+
+		VIE_decision_domestic_corvette_construction_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.10
+				industrial_capacity_dockyard = 0.08
+			}
+		}
+
+		VIE_decision_kilo_sustainment_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				sub_detection = 0.10
+				sub_visibility = -0.05
+			}
+		}
+
+		VIE_decision_island_bastion_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_coastal_bunker_factor = 0.20
+				amphibious_defense = 0.15
+			}
+		}
+
+	}
+}
