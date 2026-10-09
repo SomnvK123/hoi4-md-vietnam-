@@ -79,6 +79,20 @@ VIE_lf_xp_25 = {
 		army_experience = 25
 	}
 }
+VIE_lf_xp_30 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 30 folder = land }
+	}
+	else = { army_experience = 30 }
+}
+VIE_lf_xp_50 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 50 folder = land }
+	}
+	else = { army_experience = 50 }
+}
 
 ########################################################################
 # PHAN THUONG NODE - buoc 2 (nen tang, binh chung, HD, CR1). Gia tri: VIE_truc3_review_and_plan.md muc 5.4.
@@ -142,7 +156,6 @@ VIE_lf_n3_reward = {
 }
 VIE_lf_bb1_reward = {
 	VIE_lf_xp_15 = yes
-	add_equipment_to_stockpile = { type = APC_1 amount = 40 producer = VIE }
 	add_tech_bonus = {
 		name = VIE_lf_bb1_tech
 		bonus = 1.0
@@ -164,37 +177,6 @@ VIE_lf_bb1_reward = {
 VIE_lf_bb2_reward = {
 	VIE_lf_xp_20 = yes
 	add_command_power = 20
-	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 3000 producer = VIE }
-	add_equipment_to_stockpile = { type = support_equipment_1 amount = 150 producer = VIE }
-	if = {
-		limit = { NOT = { has_country_flag = VIE_lf_tpl_infantry_elite } }
-		hidden_effect = { set_country_flag = VIE_lf_tpl_infantry_elite }
-		division_template = {
-			name = "Su doan Bo binh 312"
-			regiments = {
-				Mot_Inf_Bat = { x = 0 y = 0 }
-				Mot_Inf_Bat = { x = 0 y = 1 }
-				Mot_Inf_Bat = { x = 0 y = 2 }
-				Mot_Inf_Bat = { x = 1 y = 0 }
-				Mot_Inf_Bat = { x = 1 y = 1 }
-				Mot_Inf_Bat = { x = 1 y = 2 }
-				Mot_Inf_Bat = { x = 2 y = 0 }
-				Mot_Inf_Bat = { x = 2 y = 1 }
-				Mot_Inf_Bat = { x = 2 y = 2 }
-				Arty_Bat = { x = 3 y = 0 }
-				Arty_Bat = { x = 3 y = 1 }
-			}
-			support = {
-				Combat_engineer_company = { x = 0 y = 0 }
-				L_Recce_Comp = { x = 0 y = 1 }
-				Arty_Battery = { x = 0 y = 2 }
-			}
-		}
-		create_unit = {
-			division = "name = \"Su doan Bo binh Co gioi 312\" division_template = \"Su doan Bo binh 312\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-			owner = ROOT
-		}
-	}
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -205,7 +187,6 @@ VIE_lf_bb2_reward = {
 }
 VIE_lf_tg1_reward = {
 	VIE_lf_xp_15 = yes
-	add_equipment_to_stockpile = { type = medium_tank_destroyer_chassis_2 amount = 30 producer = VIE }
 	add_tech_bonus = {
 		name = VIE_lf_tg1_tech
 		bonus = 1.0
@@ -227,31 +208,6 @@ VIE_lf_tg1_reward = {
 VIE_lf_tg2_reward = {
 	VIE_lf_xp_20 = yes
 	add_command_power = 20
-	add_equipment_to_stockpile = { type = medium_tank_destroyer_chassis_2 amount = 30 producer = VIE }
-	add_equipment_to_stockpile = { type = APC_1 amount = 60 producer = VIE }
-	if = {
-		limit = { NOT = { has_country_flag = VIE_lf_tpl_armor_elite } }
-		hidden_effect = { set_country_flag = VIE_lf_tpl_armor_elite }
-		division_template = {
-			name = "Lu doan Tang Thiet giap 201"
-			regiments = {
-				armor_Bat = { x = 0 y = 0 }
-				armor_Bat = { x = 0 y = 1 }
-				armor_Bat = { x = 0 y = 2 }
-				Mech_Inf_Bat = { x = 1 y = 0 }
-				Mech_Inf_Bat = { x = 1 y = 1 }
-			}
-			support = {
-				Combat_engineer_company = { x = 0 y = 0 }
-				armor_Recce_Comp = { x = 0 y = 1 }
-				SP_AA_Battery = { x = 0 y = 2 }
-			}
-		}
-		create_unit = {
-			division = "name = \"Lu doan Xe tang - Thiet giap 201\" division_template = \"Lu doan Tang Thiet giap 201\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-			owner = ROOT
-		}
-	}
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -262,7 +218,6 @@ VIE_lf_tg2_reward = {
 }
 VIE_lf_pb1_reward = {
 	VIE_lf_xp_15 = yes
-	add_equipment_to_stockpile = { type = artillery_equipment amount = 50 producer = VIE }
 	add_tech_bonus = {
 		name = VIE_lf_pb1_tech
 		bonus = 1.0
@@ -280,30 +235,6 @@ VIE_lf_pb1_reward = {
 VIE_lf_pb2_reward = {
 	VIE_lf_xp_20 = yes
 	add_command_power = 20
-	add_equipment_to_stockpile = { type = artillery_equipment amount = 50 producer = VIE }
-	add_equipment_to_stockpile = { type = util_vehicle_type amount = 100 producer = VIE }
-	if = {
-		limit = { NOT = { has_country_flag = VIE_lf_tpl_arty_elite } }
-		hidden_effect = { set_country_flag = VIE_lf_tpl_arty_elite }
-		division_template = {
-			name = "Lu doan Phao binh 45"
-			regiments = {
-				Arty_Bat = { x = 0 y = 0 }
-				Arty_Bat = { x = 0 y = 1 }
-				Arty_Bat = { x = 0 y = 2 }
-				SP_Arty_Bat = { x = 1 y = 0 }
-				SP_R_arty_Bat = { x = 1 y = 1 }
-			}
-			support = {
-				Combat_engineer_company = { x = 0 y = 0 }
-				L_Recce_Comp = { x = 0 y = 1 }
-			}
-		}
-		create_unit = {
-			division = "name = \"Lu doan Phao binh Tat Thang 45\" division_template = \"Lu doan Phao binh 45\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-			owner = ROOT
-		}
-	}
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -315,35 +246,10 @@ VIE_lf_pb2_reward = {
 VIE_lf_cb_reward = {
 	VIE_lf_xp_15 = yes
 	add_command_power = 20
-	522 = { one_state_infrastructure = yes }
-	521 = { one_state_infrastructure = yes }
-	if = {
-		limit = { NOT = { has_country_flag = VIE_lf_tpl_sapper_elite } }
-		hidden_effect = { set_country_flag = VIE_lf_tpl_sapper_elite }
-		division_template = {
-			name = "Lu doan Dac cong 113"
-			regiments = {
-				Special_Forces = { x = 0 y = 0 }
-				Special_Forces = { x = 0 y = 1 }
-				Special_Forces = { x = 0 y = 2 }
-				Special_Forces = { x = 1 y = 0 }
-				Special_Forces = { x = 1 y = 1 }
-			}
-			support = {
-				Combat_engineer_company = { x = 0 y = 0 }
-				L_Recce_Comp = { x = 0 y = 1 }
-			}
-		}
-		create_unit = {
-			division = "name = \"Lu doan Dac cong 113\" division_template = \"Lu doan Dac cong 113\" start_experience_factor = 0.9 start_equipment_factor = 1.0"
-			owner = ROOT
-		}
-	}
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
 	}
-	add_to_variable = { VIE_af_special_forces_cap = 0.05 tooltip = VIE_tt_special_forces_cap }
 	add_to_variable = { VIE_af_terrain_penalty_reduction = 0.05 tooltip = VIE_tt_terrain_penalty_reduction }
 	add_to_variable = { VIE_af_dig_in_speed_factor = 0.05 tooltip = VIE_tt_dig_in_speed_factor }
 	VIE_lf_refresh = yes
@@ -398,7 +304,6 @@ VIE_lf_fm1_reward = {
 	add_to_variable = { VIE_af_conscription_factor = -0.015 tooltip = VIE_tt_conscription_factor }
 	add_to_variable = { VIE_af_equipment_cost_multiplier_modifier = 0.02 tooltip = VIE_tt_equipment_cost }
 	add_to_variable = { VIE_af_max_dig_in_factor = -0.02 tooltip = VIE_tt_max_dig_in_factor }
-	VIE_lf_fav_discount = yes
 	VIE_lf_refresh = yes
 }
 VIE_lf_fm2_reward = {
@@ -441,7 +346,6 @@ VIE_lf_fr1_reward = {
 	add_to_variable = { VIE_af_army_defence_factor = 0.015 tooltip = VIE_tt_army_defence_factor }
 	add_to_variable = { VIE_af_army_personnel_cost_multiplier_modifier = 0.02 tooltip = VIE_tt_army_personnel_cost }
 	add_to_variable = { VIE_af_experience_gain_army_factor = -0.01 tooltip = VIE_tt_experience_gain_army_factor }
-	VIE_lf_fav_discount = yes
 	VIE_lf_refresh = yes
 }
 VIE_lf_fr2_reward = {
@@ -482,7 +386,6 @@ VIE_lf_fd1_reward = {
 	add_to_variable = { VIE_af_army_defence_factor = 0.025 tooltip = VIE_tt_army_defence_factor }
 	add_to_variable = { VIE_af_army_speed_factor = -0.02 tooltip = VIE_tt_army_speed_factor }
 	add_to_variable = { VIE_af_army_armor_attack_factor = -0.015 tooltip = VIE_tt_army_armor_attack_factor }
-	VIE_lf_fav_discount = yes
 	VIE_lf_refresh = yes
 }
 VIE_lf_fd2_reward = {
@@ -539,6 +442,54 @@ VIE_lf_xp_5 = {
 		add_mastery = { amount = 5 folder = land }
 	}
 	else = { army_experience = 5 }
+}
+
+
+# V30.2 new land-force nodes: modest, role-specific rewards; XP converts to mastery
+# after the land grand doctrine is selected.
+VIE_lf_cadre_professional_reward = {
+	VIE_lf_xp_15 = yes
+	add_command_power = 10
+}
+VIE_lf_force_reorganization_reward = {
+	VIE_lf_xp_15 = yes
+	add_political_power = 25
+}
+VIE_lf_arm_uav_reward = {
+	VIE_lf_xp_10 = yes
+	add_command_power = 10
+	add_tech_bonus = {
+		name = VIE_lf_arm_uav_tech
+		bonus = 0.5
+		uses = 1
+		category = CAT_drones
+	}
+}
+VIE_lf_arty_fire_control_reward = {
+	VIE_lf_xp_10 = yes
+	add_political_power = 25
+	add_tech_bonus = {
+		name = VIE_lf_arty_fire_control_tech
+		bonus = 0.5
+		uses = 1
+		category = CAT_artillery
+	}
+}
+VIE_lf_mech_coordination_reward = {
+	VIE_lf_xp_10 = yes
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_org_factor = 0.01 tooltip = VIE_tt_army_org_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_mech_fire_support_reward = {
+	VIE_lf_xp_10 = yes
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_attack_factor = 0.01 tooltip = VIE_tt_army_attack_factor }
+	VIE_lf_refresh = yes
+}
+VIE_lf_engineer_training_reward = {
+	VIE_lf_xp_5 = yes
+	add_command_power = 5
 }
 
 VIE_lf_mech_equipment_reward = {
@@ -599,38 +550,6 @@ VIE_lf_territorial_coordination_reward = {
 	VIE_lf_refresh = yes
 }
 
-VIE_lf_fav_discount = {
-	if = {
-		limit = {
-			has_country_flag = VIE_lf_depth
-			NOT = { has_completed_focus = VIE_lf_cap_border_urban }
-		}
-		reduce_focus_completion_cost = {
-			focus = VIE_lf_cap_border_urban
-			cost = 14
-		}
-	}
-	if = {
-		limit = {
-			has_country_flag = VIE_lf_regular
-			NOT = { has_completed_focus = VIE_lf_cap_army_ad }
-		}
-		reduce_focus_completion_cost = {
-			focus = VIE_lf_cap_army_ad
-			cost = 14
-		}
-	}
-	if = {
-		limit = {
-			has_country_flag = VIE_lf_mobile
-			NOT = { has_completed_focus = VIE_lf_cap_cyber_ew }
-		}
-		reduce_focus_completion_cost = {
-			focus = VIE_lf_cap_cyber_ew
-			cost = 14
-		}
-	}
-}
 
 VIE_lf_cr2_reward = {
 	add_command_power = 50
@@ -680,19 +599,7 @@ VIE_lf_l1_reward = {
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_terrain_penalty_reduction = 0.05 tooltip = VIE_tt_terrain_penalty_reduction }
-	if = {
-		limit = { has_country_flag = VIE_lf_depth }
-		add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
-		add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_regular }
-		add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_mobile }
-		add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
-	}
+	add_to_variable = { VIE_af_army_org_factor = 0.01 tooltip = VIE_tt_army_org_factor }
 	VIE_lf_refresh = yes
 }
 VIE_lf_l2_reward = {
@@ -709,21 +616,7 @@ VIE_lf_l2_reward = {
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_land_reinforce_rate = 0.05 tooltip = VIE_tt_land_reinforce_rate }
-	if = {
-		limit = { has_country_flag = VIE_lf_depth }
-		add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
-		add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_regular }
-		add_to_variable = { VIE_af_army_org_factor = 0.025 tooltip = VIE_tt_army_org_factor }
-		add_to_variable = { VIE_af_army_defence_factor = 0.015 tooltip = VIE_tt_army_defence_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_mobile }
-		add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
-		add_to_variable = { VIE_af_army_attack_factor = 0.02 tooltip = VIE_tt_army_attack_factor }
-	}
+	add_to_variable = { VIE_af_army_defence_factor = 0.01 tooltip = VIE_tt_army_defence_factor }
 	VIE_lf_refresh = yes
 }
 VIE_lf_a1_reward = {
@@ -742,19 +635,7 @@ VIE_lf_a1_reward = {
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_army_defence_factor = 0.03 tooltip = VIE_tt_army_defence_factor }
-	if = {
-		limit = { has_country_flag = VIE_lf_regular }
-		add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
-		add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_mobile }
-		add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_depth }
-		add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
-	}
+
 	VIE_lf_refresh = yes
 }
 VIE_lf_a2_reward = {
@@ -767,28 +648,13 @@ VIE_lf_a2_reward = {
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_recon_factor = 0.05 tooltip = VIE_tt_recon_factor }
-	if = {
-		limit = { has_country_flag = VIE_lf_regular }
-		add_to_variable = { VIE_af_army_org_factor = 0.03 tooltip = VIE_tt_army_org_factor }
-		add_to_variable = { VIE_af_army_defence_factor = 0.03 tooltip = VIE_tt_army_defence_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_mobile }
-		add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
-		add_to_variable = { VIE_af_army_attack_factor = 0.02 tooltip = VIE_tt_army_attack_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_depth }
-		add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
-		add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
-	}
+
 	VIE_lf_refresh = yes
 }
 VIE_lf_y1_reward = {
 	add_ideas = VIE_cyber_command_86
 	VIE_lf_xp_25 = yes
 	add_command_power = 25
-	add_equipment_to_stockpile = { type = Air_UAV1 amount = 40 producer = VIE }
 	522 = { one_state_network_infrastructure = yes }
 	519 = { one_state_network_infrastructure = yes }
 	add_tech_bonus = {
@@ -802,55 +668,25 @@ VIE_lf_y1_reward = {
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_recon_factor = 0.08 tooltip = VIE_tt_recon_factor }
-	if = {
-		limit = { has_country_flag = VIE_lf_mobile }
-		add_to_variable = { VIE_af_army_speed_factor = 0.03 tooltip = VIE_tt_army_speed_factor }
-		add_to_variable = { VIE_af_army_attack_factor = 0.02 tooltip = VIE_tt_army_attack_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_regular }
-		add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_depth }
-		add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
-	}
+
 	VIE_lf_refresh = yes
 }
 VIE_lf_y2_reward = {
 	VIE_lf_xp_20 = yes
 	add_command_power = 25
-	add_equipment_to_stockpile = { type = util_vehicle_type amount = 150 producer = VIE }
-	add_equipment_to_stockpile = { type = Air_UAV1 amount = 30 producer = VIE }
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
 	}
 	add_to_variable = { VIE_af_recon_factor = 0.10 tooltip = VIE_tt_recon_factor }
 	add_to_variable = { VIE_af_planning_speed = 0.10 tooltip = VIE_tt_planning_speed }
-	if = {
-		limit = { has_country_flag = VIE_lf_regular }
-		add_to_variable = { VIE_af_army_org_factor = 0.02 tooltip = VIE_tt_army_org_factor }
-		add_to_variable = { VIE_af_army_defence_factor = 0.02 tooltip = VIE_tt_army_defence_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_mobile }
-		add_to_variable = { VIE_af_army_speed_factor = 0.03 tooltip = VIE_tt_army_speed_factor }
-		add_to_variable = { VIE_af_army_attack_factor = 0.03 tooltip = VIE_tt_army_attack_factor }
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_lf_depth }
-		add_to_variable = { VIE_af_max_dig_in_factor = 0.03 tooltip = VIE_tt_max_dig_in_factor }
-		add_to_variable = { VIE_af_dig_in_speed_factor = 0.03 tooltip = VIE_tt_dig_in_speed_factor }
-	}
+
 	VIE_lf_refresh = yes
 }
 VIE_lf_mod_reward = {
-	army_experience = 50
+	VIE_lf_xp_50 = yes
 	add_command_power = 40
 	add_war_support = 0.05
-	set_temp_variable = { treasury_change = -2.0 }
-	modify_treasury_effect = yes
 	increase_military_spending = yes
 	519 = { one_state_arms_factory = yes }
 	set_temp_variable = { temp_opinion = 10 }
@@ -890,7 +726,7 @@ VIE_lf_mod_reward = {
 }
 VIE_lf_cr3_reward = {
 	add_command_power = 50
-	army_experience = 30
+	VIE_lf_xp_30 = yes
 	add_political_power = 50
 	add_doctrine_cost_reduction = {
 		name = VIE_lf_cr3_tech
@@ -909,12 +745,10 @@ VIE_lf_cr3_reward = {
 }
 VIE_lf_cap_reward = {
 	add_ideas = VIE_vpa_modern_army_power
-	army_experience = 50
+	VIE_lf_xp_50 = yes
 	add_command_power = 50
 	add_war_support = 0.08
 	add_stability = 0.05
-	set_temp_variable = { treasury_change = -3.0 }
-	modify_treasury_effect = yes
 	increase_military_spending = yes
 	522 = { one_state_arms_factory = yes }
 	set_temp_variable = { temp_opinion = 15 }

@@ -11770,11 +11770,11 @@ focus_tree = {
 	# ==== GEN:R end ====
 
 	###############################
-	## TRUC 3 - XAY DUNG LUC LUONG LUC QUAN (buoc 2: nen tang, binh chung, HD, CR1)
+	## TRUC 3 - XAY DUNG LUC LUONG LUC QUAN (V30.2: nen tang, 6 chuong trinh, 3 huong)
 	###############################
 	# Thiet ke: VIE_truc3_review_and_plan.md muc 5.2 / 5.10. N1 neo vao VIE_modernize_vpa (abs 278,3);
-	# 11 focus con neo vao N1 (khai bao truoc nen 0 forward-ref). Phan thuong nam trong
-	# VIE_md_effects_p17.txt (VIE_lf_<ma>_reward). Dem count/done: bao hiem chi ap phan thuong khi con duoi gioi han.
+	# V30.2: nen tang -> 6 chuong trinh mo song song -> chon co cau -> hoi tu. Rewards nam trong
+	# VIE_md_effects_p17.txt (VIE_lf_<id>_reward). Gate 3/6 dem truc tiep focus ket thuc de ho tro save cu.
 
 	focus = {
 		id = VIE_lf_army_reform
@@ -11969,14 +11969,15 @@ focus_tree = {
 		id = VIE_lf_logistics_merge
 		icon = GFX_focus_VIE_lf_logistics_merge
 
-		x = -2
+		x = 4
 		y = 1
 		relative_position_id = VIE_lf_army_reform
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_army_reform }
 
+
+		prerequisite = { focus = VIE_lf_army_reform }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -11991,18 +11992,45 @@ focus_tree = {
 		}
 	}
 
+
+
+	focus = {
+		id = VIE_lf_force_reorganization
+		icon = GFX_focus_VIE_lf_combined_arms
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_logistics_merge
+
+		cost = 7
+		prerequisite = { focus = VIE_lf_logistics_merge }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_force_reorganization"
+			VIE_lf_force_reorganization_reward = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
 	focus = {
 		id = VIE_lf_basic_training
 		icon = GFX_focus_VIE_lf_basic_training
 
-		x = 2
+		x = -4
 		y = 1
 		relative_position_id = VIE_lf_army_reform
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_army_reform }
 
+
+		prerequisite = { focus = VIE_lf_army_reform }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12017,26 +12045,49 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = VIE_lf_arm_infantry_org
-		icon = GFX_focus_VIE_lf_arm_infantry_org
 
-		x = -4
+	focus = {
+		id = VIE_lf_cadre_professional
+		icon = GFX_focus_VIE_lf_basic_training
+
+		x = 0
 		y = 1
-		relative_position_id = VIE_lf_logistics_merge
+		relative_position_id = VIE_lf_basic_training
 
 		cost = 7
-
-		prerequisite = { focus = VIE_lf_logistics_merge }
 		prerequisite = { focus = VIE_lf_basic_training }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_arm_slot_free = yes }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cadre_professional"
+			VIE_lf_cadre_professional_reward = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_arm_infantry_org
+		icon = GFX_focus_VIE_lf_arm_infantry_org
+
+		x = -48
+		y = 1
+		relative_position_id = VIE_lf_army_reform
+
+		cost = 7
+
+
+
+		prerequisite = { focus = VIE_lf_army_reform }
+		search_filters = { FOCUS_FILTER_ARMY }
+
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_infantry_org"
-			hidden_effect = { add_to_variable = { VIE_lf_arm_count = 1 } }
 			VIE_lf_bb1_reward = yes
 		}
 
@@ -12050,23 +12101,21 @@ focus_tree = {
 		id = VIE_lf_arm_infantry_train
 		icon = GFX_focus_VIE_lf_arm_infantry_train
 
-		x = 0
+		x = 10
 		y = 1
 		relative_position_id = VIE_lf_arm_infantry_org
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_arm_infantry_org }
 
+
+		prerequisite = { focus = VIE_lf_arm_infantry_org }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_infantry_train"
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_lf_arm_done_lt3_tt check_variable = { VIE_lf_arm_done < 3 } } }
-				hidden_effect = { add_to_variable = { VIE_lf_arm_done = 1 } }
-				VIE_lf_bb2_reward = yes
-			}
+
+			VIE_lf_bb2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12075,26 +12124,50 @@ focus_tree = {
 		}
 	}
 
+
+
+	focus = {
+		id = VIE_lf_arm_uav
+		icon = GFX_focus_VIE_airf_unmanned
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_arm_infantry_train
+
+		cost = 5
+		prerequisite = { focus = VIE_lf_arm_infantry_train }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_uav"
+			VIE_lf_arm_uav_reward = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
 	focus = {
 		id = VIE_lf_arm_armor_org
 		icon = GFX_focus_VIE_lf_arm_armor_org
 
-		x = 0
+		x = -20
 		y = 1
-		relative_position_id = VIE_lf_logistics_merge
+		relative_position_id = VIE_lf_army_reform
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_logistics_merge }
-		prerequisite = { focus = VIE_lf_basic_training }
 
+
+		prerequisite = { focus = VIE_lf_army_reform }
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_arm_slot_free = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_armor_org"
-			hidden_effect = { add_to_variable = { VIE_lf_arm_count = 1 } }
 			VIE_lf_tg1_reward = yes
 		}
 
@@ -12108,23 +12181,21 @@ focus_tree = {
 		id = VIE_lf_arm_armor_train
 		icon = GFX_focus_VIE_lf_arm_armor_train
 
-		x = 0
+		x = 10
 		y = 1
 		relative_position_id = VIE_lf_arm_armor_org
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_arm_armor_org }
 
+
+		prerequisite = { focus = VIE_lf_arm_armor_org }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_armor_train"
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_lf_arm_done_lt3_tt check_variable = { VIE_lf_arm_done < 3 } } }
-				hidden_effect = { add_to_variable = { VIE_lf_arm_done = 1 } }
-				VIE_lf_tg2_reward = yes
-			}
+
+			VIE_lf_tg2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12137,22 +12208,20 @@ focus_tree = {
 		id = VIE_lf_arm_arty_org
 		icon = GFX_focus_VIE_lf_arm_arty_org
 
-		x = 4
+		x = 24
 		y = 1
-		relative_position_id = VIE_lf_logistics_merge
+		relative_position_id = VIE_lf_army_reform
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_logistics_merge }
-		prerequisite = { focus = VIE_lf_basic_training }
 
+
+		prerequisite = { focus = VIE_lf_army_reform }
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_arm_slot_free = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_arty_org"
-			hidden_effect = { add_to_variable = { VIE_lf_arm_count = 1 } }
 			VIE_lf_pb1_reward = yes
 		}
 
@@ -12172,17 +12241,15 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_arm_arty_org }
 
+
+		prerequisite = { focus = VIE_lf_arm_arty_org }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_arty_train"
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_lf_arm_done_lt3_tt check_variable = { VIE_lf_arm_done < 3 } } }
-				hidden_effect = { add_to_variable = { VIE_lf_arm_done = 1 } }
-				VIE_lf_pb2_reward = yes
-			}
+
+			VIE_lf_pb2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12191,26 +12258,50 @@ focus_tree = {
 		}
 	}
 
+
+
+	focus = {
+		id = VIE_lf_arty_fire_control
+		icon = GFX_focus_VIE_lf_cap_info_ops
+
+		x = 6
+		y = 1
+		relative_position_id = VIE_lf_arm_arty_train
+
+		cost = 5
+		prerequisite = { focus = VIE_lf_arm_arty_train }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arty_fire_control"
+			VIE_lf_arty_fire_control_reward = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
 	focus = {
 		id = VIE_lf_arm_engineers
 		icon = GFX_focus_VIE_lf_arm_engineers
 
-		x = 8
+		x = 48
 		y = 1
-		relative_position_id = VIE_lf_logistics_merge
+		relative_position_id = VIE_lf_army_reform
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_logistics_merge }
-		prerequisite = { focus = VIE_lf_basic_training }
 
+
+		prerequisite = { focus = VIE_lf_army_reform }
 		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_EXPENDITURE }
 
-		available = { VIE_lf_arm_slot_free = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_engineers"
-			hidden_effect = { add_to_variable = { VIE_lf_arm_count = 1 } }
 			VIE_lf_cb_reward = yes
 		}
 
@@ -12230,17 +12321,15 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_arm_engineers }
 
+
+		prerequisite = { focus = VIE_lf_arm_engineers }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_arm_engineer_train"
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_lf_arm_done_lt3_tt check_variable = { VIE_lf_arm_done < 3 } } }
-				hidden_effect = { add_to_variable = { VIE_lf_arm_done = 1 } }
-			}
-			army_experience = 5
+
+			VIE_lf_engineer_training_reward = yes
 		}
 
 		ai_will_do = {
@@ -12253,17 +12342,18 @@ focus_tree = {
 		id = VIE_lf_combined_arms
 		icon = GFX_focus_VIE_lf_combined_arms
 
-		x = 6
+		x = 4
 		y = 1
-		relative_position_id = VIE_lf_arm_infantry_train
+		relative_position_id = VIE_lf_cadre_professional
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_arm_infantry_train focus = VIE_lf_arm_armor_train focus = VIE_lf_arm_arty_train focus = VIE_lf_arm_engineer_train }
 
+
+		prerequisite = { focus = VIE_lf_cadre_professional }
+		prerequisite = { focus = VIE_lf_force_reorganization }
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_arm_done_3 = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_combined_arms"
@@ -12286,8 +12376,9 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_combined_arms }
 
+
+		prerequisite = { focus = VIE_lf_combined_arms }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12302,9 +12393,9 @@ focus_tree = {
 	}
 
 	###############################
-	## TRUC 3 - buoc 3: First Force Structure (ME 3 chieu), huong phat trien (ME), CR2
+	## TRUC 3 - V30.2: ba huong chien luoc va hoi tu
 	###############################
-	# v26: ba chuoi co cau rieng. Co uu tien VIE_lf_mobile/regular/depth giu cho phan nang luc phia duoi.
+	# V30.2: ba chuoi co cau loai tru; cac chuong trinh nang luc chung mo truoc va song song.
 	# dat o phan thuong; gia (cai gia) ap o node dau cua tung huong.
 
 	# Ba huong co cau: chon mot uu tien; moi huong co bon buoc xay dung va dich rieng.
@@ -12313,11 +12404,12 @@ focus_tree = {
 		id = VIE_lf_fs_main_corps
 		icon = GFX_focus_VIE_lf_fs_main_corps
 
-		x = -12
+		x = -8
 		y = 1
 		relative_position_id = VIE_lf_command_reform_1
 
 		cost = 7
+
 
 		prerequisite = { focus = VIE_lf_command_reform_1 }
 		mutually_exclusive = { focus = VIE_lf_fs_mobile_force focus = VIE_lf_fs_depth_defence }
@@ -12336,6 +12428,32 @@ focus_tree = {
 		}
 	}
 
+
+
+	focus = {
+		id = VIE_lf_mech_coordination
+		icon = GFX_focus_VIE_lf_arm_armor_train
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_fs_main_corps
+
+		cost = 5
+		prerequisite = { focus = VIE_lf_fs_main_corps }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_mech_coordination"
+			VIE_lf_mech_coordination_reward = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
 	focus = {
 		id = VIE_lf_fs_lean_corps
 		icon = GFX_focus_VIE_lf_fs_lean_corps
@@ -12346,8 +12464,9 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_lf_fs_main_corps }
 
+
+		prerequisite = { focus = VIE_lf_fs_main_corps }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12361,18 +12480,46 @@ focus_tree = {
 		}
 	}
 
+
+
+	focus = {
+		id = VIE_lf_mech_fire_support
+		icon = GFX_focus_VIE_lf_arm_arty_train
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_fs_lean_corps
+
+		cost = 5
+		prerequisite = { focus = VIE_lf_fs_lean_corps }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_mech_fire_support"
+			VIE_lf_mech_fire_support_reward = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
 	focus = {
 		id = VIE_lf_mech_equipment
 		icon = GFX_focus_VIE_lf_arm_armor_train
 
 		x = 0
 		y = 1
-		relative_position_id = VIE_lf_fs_main_corps
+		relative_position_id = VIE_lf_arm_armor_train
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_fs_main_corps }
 
+
+
+		prerequisite = { focus = VIE_lf_arm_armor_train }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12390,14 +12537,15 @@ focus_tree = {
 		id = VIE_lf_mech_sustainment
 		icon = GFX_focus_VIE_lf_logistics_merge
 
-		x = 4
+		x = 0
 		y = 1
-		relative_position_id = VIE_lf_fs_main_corps
+		relative_position_id = VIE_lf_arm_engineer_train
 
 		cost = 5
 
-		prerequisite = { focus = VIE_lf_fs_main_corps }
 
+
+		prerequisite = { focus = VIE_lf_arm_engineer_train }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12415,16 +12563,17 @@ focus_tree = {
 		id = VIE_lf_mech_complete
 		icon = GFX_focus_VIE_lf_combined_arms
 
-		x = 0
-		y = 1
-		relative_position_id = VIE_lf_mech_equipment
+		x = -2
+		y = 2
+		relative_position_id = VIE_lf_mech_coordination
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_fs_lean_corps }
-		prerequisite = { focus = VIE_lf_mech_equipment }
-		prerequisite = { focus = VIE_lf_mech_sustainment }
 
+
+
+		prerequisite = { focus = VIE_lf_mech_coordination }
+		prerequisite = { focus = VIE_lf_mech_fire_support }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12447,6 +12596,7 @@ focus_tree = {
 		relative_position_id = VIE_lf_command_reform_1
 
 		cost = 7
+
 
 		prerequisite = { focus = VIE_lf_command_reform_1 }
 		mutually_exclusive = { focus = VIE_lf_fs_main_corps focus = VIE_lf_fs_depth_defence }
@@ -12475,8 +12625,9 @@ focus_tree = {
 
 		cost = 5
 
-		prerequisite = { focus = VIE_lf_fs_mobile_force }
 
+
+		prerequisite = { focus = VIE_lf_fs_mobile_force }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12500,8 +12651,9 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_fs_mobile_force }
 
+
+		prerequisite = { focus = VIE_lf_fs_mobile_force }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12519,14 +12671,15 @@ focus_tree = {
 		id = VIE_lf_mobile_sustainment
 		icon = GFX_focus_VIE_lf_logistics_merge
 
-		x = 4
+		x = 8
 		y = 1
-		relative_position_id = VIE_lf_fs_mobile_force
+		relative_position_id = VIE_lf_fs_mobile_corps
 
 		cost = 5
 
-		prerequisite = { focus = VIE_lf_fs_mobile_force }
 
+
+		prerequisite = { focus = VIE_lf_fs_mobile_corps }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12545,15 +12698,16 @@ focus_tree = {
 		icon = GFX_focus_VIE_lf_dev_strategic
 
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = VIE_lf_mobile_fire_support
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_fs_mobile_corps }
+
+
+
 		prerequisite = { focus = VIE_lf_mobile_fire_support }
 		prerequisite = { focus = VIE_lf_mobile_sustainment }
-
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12572,11 +12726,12 @@ focus_tree = {
 		id = VIE_lf_fs_depth_defence
 		icon = GFX_focus_VIE_lf_fs_depth_defence
 
-		x = 12
+		x = 8
 		y = 1
 		relative_position_id = VIE_lf_command_reform_1
 
 		cost = 7
+
 
 		prerequisite = { focus = VIE_lf_command_reform_1 }
 		mutually_exclusive = { focus = VIE_lf_fs_main_corps focus = VIE_lf_fs_mobile_force }
@@ -12598,14 +12753,15 @@ focus_tree = {
 		id = VIE_lf_fs_militia_units
 		icon = GFX_focus_VIE_lf_fs_militia_units
 
-		x = -4
+		x = 4
 		y = 1
 		relative_position_id = VIE_lf_fs_depth_defence
 
 		cost = 5
 
-		prerequisite = { focus = VIE_lf_fs_depth_defence }
 
+
+		prerequisite = { focus = VIE_lf_fs_depth_defence }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12629,8 +12785,9 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_fs_depth_defence }
 
+
+		prerequisite = { focus = VIE_lf_fs_depth_defence }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12648,14 +12805,15 @@ focus_tree = {
 		id = VIE_lf_territorial_coordination
 		icon = GFX_focus_VIE_lf_arm_engineers
 
-		x = 4
+		x = 8
 		y = 1
 		relative_position_id = VIE_lf_fs_depth_defence
 
 		cost = 5
 
-		prerequisite = { focus = VIE_lf_fs_depth_defence }
 
+
+		prerequisite = { focus = VIE_lf_fs_depth_defence }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12674,15 +12832,16 @@ focus_tree = {
 		icon = GFX_focus_VIE_lf_dev_territorial
 
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = VIE_lf_territorial_reserve
 
 		cost = 7
 
+
+
 		prerequisite = { focus = VIE_lf_fs_militia_units }
 		prerequisite = { focus = VIE_lf_territorial_reserve }
 		prerequisite = { focus = VIE_lf_territorial_coordination }
-
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12701,9 +12860,10 @@ focus_tree = {
 		id = VIE_lf_command_reform_2
 		icon = GFX_focus_VIE_lf_command_reform_2
 
-		x = 0
+		x = -8
 		y = 1
-		relative_position_id = VIE_lf_dev_strategic
+		relative_position_id = VIE_lf_dev_territorial
+
 
 		prerequisite = { focus = VIE_lf_mech_complete focus = VIE_lf_dev_strategic focus = VIE_lf_dev_territorial }
 
@@ -12722,7 +12882,7 @@ focus_tree = {
 	}
 
 	###############################
-	## TRUC 3 - buoc 4: nang luc (2 trong 3), MOD, CR3, CAP
+	## TRUC 3 - V30.2: chuong trinh nang luc, hien dai hoa 3/6, CR3, capstone
 	###############################
 	# Muc 5.2 / 5.10 cua VIE_truc3_review_and_plan.md. Chi 3 goc co dieu kien cap_count < 2;
 	# node cuoi dat co linh vuc va cap_done (guard < 2). MOD can cap_done >= 2.
@@ -12731,19 +12891,19 @@ focus_tree = {
 		id = VIE_lf_cap_border_urban
 		icon = GFX_focus_VIE_lf_cap_border_urban
 
-		x = -6
+		x = 68
 		y = 1
-		relative_position_id = VIE_lf_command_reform_2
+		relative_position_id = VIE_lf_army_reform
 
-		prerequisite = { focus = VIE_lf_command_reform_2 }
+
+		prerequisite = { focus = VIE_lf_army_reform }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_cap_slot_free = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cap_border_urban"
-			hidden_effect = { add_to_variable = { VIE_lf_cap_count = 1 } }
+
 			VIE_lf_l1_reward = yes
 		}
 
@@ -12758,23 +12918,21 @@ focus_tree = {
 		id = VIE_lf_cap_area_control
 		icon = GFX_focus_VIE_lf_cap_area_control
 
-		x = 0
+		x = 8
 		y = 1
 		relative_position_id = VIE_lf_cap_border_urban
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_cap_border_urban }
 
+
+		prerequisite = { focus = VIE_lf_cap_border_urban }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cap_area_control"
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_lf_cap_done_lt2_tt check_variable = { VIE_lf_cap_done < 2 } } }
-				hidden_effect = { add_to_variable = { VIE_lf_cap_done = 1 } }
-				VIE_lf_l2_reward = yes
-			}
+
+			VIE_lf_l2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12787,19 +12945,19 @@ focus_tree = {
 		id = VIE_lf_cap_army_ad
 		icon = GFX_focus_VIE_lf_cap_army_ad
 
-		x = 0
+		x = -62
 		y = 1
-		relative_position_id = VIE_lf_command_reform_2
+		relative_position_id = VIE_lf_army_reform
 
-		prerequisite = { focus = VIE_lf_command_reform_2 }
+
+		prerequisite = { focus = VIE_lf_army_reform }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_cap_slot_free = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cap_army_ad"
-			hidden_effect = { add_to_variable = { VIE_lf_cap_count = 1 } }
+
 			VIE_lf_a1_reward = yes
 		}
 
@@ -12814,23 +12972,49 @@ focus_tree = {
 		id = VIE_lf_cap_ad_coord
 		icon = GFX_focus_VIE_lf_cap_ad_coord
 
-		x = 0
+		x = 4
 		y = 1
 		relative_position_id = VIE_lf_cap_army_ad
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_cap_army_ad }
 
+
+		prerequisite = { focus = VIE_lf_cap_army_ad }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cap_ad_coord"
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_lf_cap_done_lt2_tt check_variable = { VIE_lf_cap_done < 2 } } }
-				hidden_effect = { add_to_variable = { VIE_lf_cap_done = 1 } }
-				VIE_lf_a2_reward = yes
-			}
+
+			VIE_lf_a2_reward = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+
+	focus = {
+		id = VIE_lf_cap_info_ops
+		icon = GFX_focus_VIE_lf_cap_info_ops
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_cap_ad_coord
+
+		cost = 7
+
+
+
+		prerequisite = { focus = VIE_lf_cap_ad_coord }
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cap_info_ops"
+
+			VIE_lf_y2_reward = yes
 		}
 
 		ai_will_do = {
@@ -12843,19 +13027,19 @@ focus_tree = {
 		id = VIE_lf_cap_cyber_ew
 		icon = GFX_focus_VIE_lf_cap_cyber_ew
 
-		x = 6
+		x = 0
 		y = 1
-		relative_position_id = VIE_lf_command_reform_2
+		relative_position_id = VIE_lf_cap_info_ops
 
-		prerequisite = { focus = VIE_lf_command_reform_2 }
+
+		prerequisite = { focus = VIE_lf_cap_info_ops }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_cap_slot_free = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cap_cyber_ew"
-			hidden_effect = { add_to_variable = { VIE_lf_cap_count = 1 } }
+
 			VIE_lf_y1_reward = yes
 		}
 
@@ -12866,48 +13050,22 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = VIE_lf_cap_info_ops
-		icon = GFX_focus_VIE_lf_cap_info_ops
-
-		x = 0
-		y = 1
-		relative_position_id = VIE_lf_cap_cyber_ew
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lf_cap_cyber_ew }
-
-		search_filters = { FOCUS_FILTER_ARMY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_cap_info_ops"
-			if = {
-				limit = { custom_trigger_tooltip = { tooltip = VIE_var_lf_cap_done_lt2_tt check_variable = { VIE_lf_cap_done < 2 } } }
-				hidden_effect = { add_to_variable = { VIE_lf_cap_done = 1 } }
-				VIE_lf_y2_reward = yes
-			}
-		}
-
-		ai_will_do = {
-			base = 60
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
-		}
-	}
 
 	focus = {
 		id = VIE_lf_selective_modernization
 		icon = GFX_focus_VIE_lf_selective_modernization
 
-		x = 6
+		x = 0
 		y = 1
-		relative_position_id = VIE_lf_cap_area_control
+		relative_position_id = VIE_lf_command_reform_2
 
-		prerequisite = { focus = VIE_lf_cap_area_control focus = VIE_lf_cap_ad_coord focus = VIE_lf_cap_info_ops }
+
+		available = { VIE_lf_program_done_3 = yes }
+
+		prerequisite = { focus = VIE_lf_command_reform_2 }
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { VIE_lf_cap_done_2 = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_selective_modernization"
@@ -12930,8 +13088,9 @@ focus_tree = {
 
 		cost = 7
 
-		prerequisite = { focus = VIE_lf_selective_modernization }
 
+
+		prerequisite = { focus = VIE_lf_selective_modernization }
 		search_filters = { FOCUS_FILTER_ARMY }
 
 		completion_reward = {
@@ -12953,6 +13112,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = VIE_lf_command_reform_3
 
+
 		prerequisite = { focus = VIE_lf_command_reform_3 }
 
 		search_filters = { FOCUS_FILTER_ARMY }
@@ -12968,8 +13128,9 @@ focus_tree = {
 		}
 	}
 
+
 	###############################
-	## TRUC 4 LUC LUONG DAC BIET - DAC CONG / HAI QUAN DANH BO
+## TRUC 4 LUC LUONG DAC BIET - DAC CONG / HAI QUAN DANH BO
 	###############################
 	# Thiet ke: VIE_special_forces_review_and_plan.md. Truc doc lap, neo VIE_modernize_vpa; cum o ben trai khoi lf (abs x 142-166, y >= 9).
 	# Thu tu khai bao chong forward-ref: command -> root con -> tru cot -> capstone. Reward trong VIE_md_effects_sf.txt.

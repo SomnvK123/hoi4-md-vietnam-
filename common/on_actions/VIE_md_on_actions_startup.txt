@@ -81,17 +81,6 @@ on_actions = {
 					hidden_effect = { set_country_flag = VIE_def_ind_vars_init }
 				}
 
-				# Truc 3 (xay dung luc luong Luc quan): 4 bien dem cho gioi han 3/4 binh chung va
-				# 2/3 linh vuc. Cung khuon guard nhu tren.
-				if = {
-					limit = { NOT = { has_country_flag = VIE_lf_vars_init } }
-					set_variable = { VIE_lf_arm_count = 0 }
-					set_variable = { VIE_lf_arm_done = 0 }
-					set_variable = { VIE_lf_cap_count = 0 }
-					set_variable = { VIE_lf_cap_done = 0 }
-					hidden_effect = { set_country_flag = VIE_lf_vars_init }
-				}
-
 				# Air Force procurement reserved variables (read in triggers)
 				if = {
 					limit = { NOT = { has_country_flag = VIE_air_proc_vars_init } }

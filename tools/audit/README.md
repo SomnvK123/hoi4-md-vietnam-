@@ -1,4 +1,4 @@
-# `tools/audit/` — script kiểm tra tĩnh cho md_vietnam
+﻿# `tools/audit/` — script kiểm tra tĩnh cho md_vietnam
 
 Bổ sung cho `tools/verify_all_loc.py` (chỉ kiểm tra loc key + BOM + đếm focus) và
 `tools/check_static.py` (sâu hơn nhưng **hardcode đường dẫn Windows** tới bản cài
@@ -173,3 +173,5 @@ https://raw.githubusercontent.com/MillenniumDawn/Millennium-Dawn/main/<path>
 | `VIE_variant_research.md` | bảng tier equipment MD, variant có sẵn, checklist khi cấp xe |
 | `VIE_v9_flag_mapping.md` | hợp đồng cờ `VIE_ev_*` và cờ Trục 1 |
 | `tools/TESTING.md` | cách test trong game + build log |
+
+Land V30.2: `python tools/audit/land_structure_v30_2.py` checks the live 44-focus graph, direct/earlier anchors, global coordinate collisions, strategy AND/OR gates, 3-of-6 terminal gate, shared reward order independence, and no free unit spawning from training focuses.

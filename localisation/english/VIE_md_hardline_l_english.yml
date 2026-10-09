@@ -196,6 +196,9 @@
  # Left-hand menu button that scrolls to the hardline block
  VIE_hl_shortcut:0 "Con đường Kiên định"
 
+ VIE_trig_VIE_lf_program_done_3_tt:0 "Hoàn tất ít nhất 3 trong 6 chương trình năng lực chung"
+ VIE_trig_VIE_lf_program_done_3_tt_NOT:0 "Chưa hoàn tất đủ 3 trong 6 chương trình năng lực chung"
+
  # ---- Readable requirement lines for old focuses (replace raw flag names in focus tooltips)
  VIE_flag_VIE_apec_year_tt:0 "Đang trong năm APEC"
  VIE_flag_VIE_collective_leadership_2026_tt:0 "Đã chọn mô hình lãnh đạo tập thể (2026)"
@@ -218,10 +221,6 @@
  VIE_fourteenth_congress_held_tt:0 "Đại hội Đảng lần thứ XIV đã diễn ra"
 
  # ---- Readable requirement lines for scripted triggers and variable checks in old focuses
- VIE_trig_VIE_lf_arm_slot_free_tt:0 "Còn chỗ cho thêm một binh chủng (tối đa 3 hướng)"
- VIE_trig_VIE_lf_cap_slot_free_tt:0 "Còn chỗ cho thêm một lĩnh vực năng lực (tối đa 2)"
- VIE_trig_VIE_lf_arm_done_3_tt:0 "Đã hoàn tất phần đào tạo của cả 3 binh chủng"
- VIE_trig_VIE_lf_cap_done_2_tt:0 "Đã hoàn tất nút cuối của 2 lĩnh vực năng lực"
  VIE_trig_VIE_def_ind_level_ge_4_tt:0 "Cấp công nghiệp quốc phòng từ 4 trở lên"
  VIE_trig_VIE_def_ind_level_ge_8_tt:0 "Cấp công nghiệp quốc phòng từ 8 trở lên"
  VIE_trig_VIE_def_ind_level_ge_2_tt:0 "Cấp công nghiệp quốc phòng từ 2 trở lên"
@@ -304,10 +303,6 @@
  VIE_trig_VIE_def_ind_level_ge_2_tt_NOT:0 "Không đúng: Cấp công nghiệp quốc phòng từ 2 trở lên"
  VIE_trig_VIE_def_ind_level_ge_4_tt_NOT:0 "Không đúng: Cấp công nghiệp quốc phòng từ 4 trở lên"
  VIE_trig_VIE_def_ind_level_ge_8_tt_NOT:0 "Không đúng: Cấp công nghiệp quốc phòng từ 8 trở lên"
- VIE_trig_VIE_lf_arm_done_3_tt_NOT:0 "Không đúng: Đã hoàn tất phần đào tạo của cả 3 binh chủng"
- VIE_trig_VIE_lf_arm_slot_free_tt_NOT:0 "Không đúng: Còn chỗ cho thêm một binh chủng (tối đa 3 hướng)"
- VIE_trig_VIE_lf_cap_done_2_tt_NOT:0 "Không đúng: Đã hoàn tất nút cuối của 2 lĩnh vực năng lực"
- VIE_trig_VIE_lf_cap_slot_free_tt_NOT:0 "Không đúng: Còn chỗ cho thêm một lĩnh vực năng lực (tối đa 2)"
  VIE_trig_VIE_us_arms_open_tt_tt_NOT:0 "Không đúng: Mỹ đã dỡ bỏ lệnh cấm vận vũ khí (2016)"
  VIE_tt_collective_avail_NOT:0 "Không đúng: Đã chọn giữ mô hình lãnh đạo tập thể ở sự kiện tháng 4/2026"
  VIE_tt_concentration_avail_NOT:0 "Không đúng: Đã chọn kiêm nhiệm hai chức vụ (sự kiện tháng 4/2026), hoặc sau 30/6/2026 nếu không chọn giữ lãnh đạo tập thể, hoặc đang không theo mô hình Đảng cầm quyền"
@@ -319,10 +314,6 @@
  VIE_var_scs_tension_1_tt_NOT:0 "Không đúng: Căng thẳng Biển Đông từ mức 1 trở lên"
 
  # ---- Readable conditions inside focus rewards (limit blocks)
- VIE_var_lf_arm_done_lt3_tt:0 "Chưa đủ 3 binh chủng hoàn tất đào tạo"
- VIE_var_lf_arm_done_lt3_tt_NOT:0 "Không đúng: Chưa đủ 3 binh chủng hoàn tất đào tạo"
- VIE_var_lf_cap_done_lt2_tt:0 "Chưa đủ 2 lĩnh vực năng lực hoàn tất"
- VIE_var_lf_cap_done_lt2_tt_NOT:0 "Không đúng: Chưa đủ 2 lĩnh vực năng lực hoàn tất"
  VIE_var_nf_priority_1_tt:0 "Cơ cấu lực lượng hải quân: phòng thủ ven bờ"
  VIE_var_nf_priority_1_tt_NOT:0 "Không đúng: Cơ cấu lực lượng hải quân: phòng thủ ven bờ"
  VIE_var_nf_priority_3_tt:0 "Cơ cấu lực lượng hải quân: tầm xa"

@@ -24,39 +24,23 @@ VIE_lf_gate_open = {
 }
 
 # ---------------------------------------------------------------------
-# Gioi han "3 trong 4 binh chung" va "2 trong 3 linh vuc" (bao cao 8.5, 3.3).
-# Chi 7 node dau dung dieu kien count: BB1, TG1, PB1, CB (< 3) va L1, A1, Y1 (< 2).
-# Node giua va node cuoi KHONG dung count: neu dung, hai linh vuc da chon se tu khoa nhau.
-# Bien duoc dat = 0 o on_startup (co guard VIE_lf_vars_init).
-# ---------------------------------------------------------------------
-VIE_lf_arm_slot_free = {
+# Modernization gate: complete at least three of the six shared programs.
+# Counting completed terminal focuses is safe for saves created before this gate.
+VIE_lf_program_done_3 = {
 	custom_trigger_tooltip = {
-		tooltip = VIE_trig_VIE_lf_arm_slot_free_tt
-			check_variable = { VIE_lf_arm_count < 3 }
-	}
-}
-VIE_lf_cap_slot_free = {
-	custom_trigger_tooltip = {
-		tooltip = VIE_trig_VIE_lf_cap_slot_free_tt
-			check_variable = { VIE_lf_cap_count < 2 }
-	}
-}
-
-# HD can du 3 binh chung da hoan tat phan dao tao; MOD can du 2 linh vuc da hoan tat node cuoi.
-VIE_lf_arm_done_3 = {
-	custom_trigger_tooltip = {
-		tooltip = VIE_trig_VIE_lf_arm_done_3_tt
-			check_variable = { VIE_lf_arm_done > 2 }
-	}
-}
-VIE_lf_cap_done_2 = {
-	custom_trigger_tooltip = {
-		tooltip = VIE_trig_VIE_lf_cap_done_2_tt
-			check_variable = { VIE_lf_cap_done > 1 }
+		tooltip = VIE_trig_VIE_lf_program_done_3_tt
+		count_triggers = {
+			amount = 3
+			has_completed_focus = VIE_lf_arm_uav
+			has_completed_focus = VIE_lf_mech_equipment
+			has_completed_focus = VIE_lf_arty_fire_control
+			has_completed_focus = VIE_lf_mech_sustainment
+			has_completed_focus = VIE_lf_cap_cyber_ew
+			has_completed_focus = VIE_lf_cap_area_control
+		}
 	}
 }
 
-# ---------------------------------------------------------------------
 # Linh vuc so truong cua tung huong (bao cao 8.6). Khong co co rieng: suy ra tu
 # co huong First Force Structure.
 #   Chieu sau (VIE_lf_depth)    -> Bien gioi & Do thi
