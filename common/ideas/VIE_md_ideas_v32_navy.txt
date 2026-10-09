@@ -1,0 +1,254 @@
+# ======================================================================
+# Y NIEM QUOC GIA HAI QUAN NHAN DAN VIET NAM V32.1 (VPN IDEAS)
+# ======================================================================
+
+ideas = {
+	country = {
+		# ------------------------------------------------------------------
+		# NEN TANG SAN SANG CHIEN DAU HAI QUAN (VPA_Naval_Readiness)
+		# ------------------------------------------------------------------
+		VPA_Naval_Readiness_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_org_factor = 0.03
+				naval_morale_factor = 0.03
+			}
+		}
+
+		VPA_Naval_Readiness_2 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_org_factor = 0.05
+				naval_morale_factor = 0.05
+				experience_gain_navy_factor = 0.05
+			}
+		}
+
+		VPA_Naval_Readiness_3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_org_factor = 0.08
+				naval_morale_factor = 0.06
+				naval_coordination = 0.05
+				experience_gain_navy_factor = 0.08
+			}
+		}
+
+		# ------------------------------------------------------------------
+		# TRUC C: TU CHU DONG TAU QUAN SU
+		# ------------------------------------------------------------------
+		VIE_naval_shipbuilding_spirit = {
+			picture = generic_coastal_navy
+			allowed = { original_tag = VIE }
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+				production_speed_dockyard_factor = 0.05
+			}
+		}
+
+		VIE_naval_shipbuilding_spirit_2 = {
+			picture = generic_coastal_navy
+			allowed = { original_tag = VIE }
+			modifier = {
+				industrial_capacity_dockyard = 0.10
+				production_speed_dockyard_factor = 0.10
+				naval_speed_factor = 0.03
+			}
+		}
+
+		# ------------------------------------------------------------------
+		# TRUC S: NHAN BIET TINH HINH BIEN (MDA)
+		# ------------------------------------------------------------------
+		VIE_maritime_domain_awareness_spirit = {
+			picture = generic_sea_focused_navy
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_surface_detection_factor = 0.08
+				navy_submarine_detection_factor = 0.06
+			}
+		}
+
+		VIE_maritime_domain_awareness_spirit_2 = {
+			picture = generic_sea_focused_navy
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_surface_detection_factor = 0.15
+				navy_submarine_detection_factor = 0.12
+				naval_coordination = 0.04
+			}
+		}
+
+		# ------------------------------------------------------------------
+		# TRUC L: DUY TRI HAM DOI & HAU CAN
+		# ------------------------------------------------------------------
+		VIE_fleet_sustainment_spirit = {
+			picture = generic_coastal_defense_ships
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.06
+				navy_fuel_consumption_factor = -0.05
+			}
+		}
+
+		VIE_fleet_sustainment_spirit_2 = {
+			picture = generic_coastal_defense_ships
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.12
+				navy_fuel_consumption_factor = -0.10
+				naval_speed_factor = 0.04
+			}
+		}
+
+		# ------------------------------------------------------------------
+		# HOC THUYET X: SEA DENIAL (KHUOC TU QUYEN SU DUNG BIEN)
+		# ------------------------------------------------------------------
+		VIE_sea_denial_doctrine_spirit = {
+			picture = generic_sub_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_submarine_attack_factor = 0.08
+				navy_submarine_detection_factor = 0.08
+				navy_screen_defence_factor = 0.05
+			}
+		}
+
+		VIE_sea_denial_doctrine_spirit_2 = {
+			picture = generic_sub_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_submarine_attack_factor = 0.15
+				navy_submarine_detection_factor = 0.12
+				navy_screen_defence_factor = 0.10
+				naval_coordination = 0.05
+			}
+		}
+
+		# ------------------------------------------------------------------
+		# HOC THUYET Y: SEA ASSURANCE (BAO DAM QUYEN SU DUNG BIEN)
+		# ------------------------------------------------------------------
+		VIE_sea_assurance_doctrine_spirit = {
+			picture = generic_escort_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_screen_attack_factor = 0.08
+				navy_max_range_factor = 0.08
+				naval_morale_factor = 0.05
+			}
+		}
+
+		VIE_sea_assurance_doctrine_spirit_2 = {
+			picture = generic_escort_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_screen_attack_factor = 0.12
+				navy_screen_defence_factor = 0.08
+				navy_max_range_factor = 0.15
+				naval_morale_factor = 0.08
+				naval_coordination = 0.06
+			}
+		}
+
+		# ------------------------------------------------------------------
+		# CAPSTONE F02: SUC MANH HAI QUAN BEN VUNG
+		# ------------------------------------------------------------------
+		VIE_sustainable_naval_combat_power_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_org_factor = 0.10
+				naval_morale_factor = 0.08
+				naval_coordination = 0.08
+				navy_anti_air_attack_factor = 0.10
+				navy_surface_detection_factor = 0.10
+				navy_submarine_detection_factor = 0.10
+			}
+		}
+
+		# ------------------------------------------------------------------
+		# Y NIEM TAM THOI TU QUYET DINH CHIEN DICH (TIMED DECISION MODIFIERS)
+		# ------------------------------------------------------------------
+		VIE_idea_molniya_production_active = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.08
+				navy_screen_attack_factor = 0.05
+			}
+		}
+
+		VIE_idea_gepard_batch_active = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_screen_defence_factor = 0.08
+				navy_anti_air_attack_factor = 0.08
+			}
+		}
+
+		VIE_idea_kilo_submarine_active = {
+			picture = generic_sub_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_submarine_attack_factor = 0.10
+				navy_submarine_detection_factor = 0.05
+			}
+		}
+
+		VIE_idea_domestic_corvette_active = {
+			picture = generic_coastal_navy
+			allowed = { original_tag = VIE }
+			modifier = {
+				industrial_capacity_dockyard = 0.10
+			}
+		}
+
+		VIE_idea_island_bastion_active = {
+			picture = generic_coastal_defense_ships
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_surface_detection_factor = 0.10
+				navy_anti_air_attack_factor = 0.05
+			}
+		}
+
+		VIE_idea_sea_denial_ambush_active = {
+			picture = generic_sub_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_submarine_attack_factor = 0.12
+				naval_morale_factor = 0.05
+			}
+		}
+
+		VIE_idea_coastal_defense_readiness_active = {
+			picture = generic_coastal_defense_ships
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_screen_defence_factor = 0.10
+				navy_org_factor = 0.05
+			}
+		}
+
+		VIE_idea_convoy_protection_active = {
+			picture = generic_escort_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_screen_defence_factor = 0.08
+				naval_coordination = 0.05
+			}
+		}
+
+		VIE_idea_extended_sea_presence_active = {
+			picture = generic_sea_focused_navy
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.12
+				naval_morale_factor = 0.06
+			}
+		}
+	}
+}
