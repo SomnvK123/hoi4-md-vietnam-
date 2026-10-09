@@ -73,13 +73,6 @@ on_actions = {
 				# set_variable = 0 phai co guard - neu khong moi lan mo save giua chung se dat
 				
 
-				# Air Force procurement reserved variables (read in triggers)
-				if = {
-					limit = { NOT = { has_country_flag = VIE_air_proc_vars_init } }
-					set_variable = { VIE_var_air_multirole4 = 0 }
-					set_variable = { VIE_var_uav_delivered = 0 }
-					hidden_effect = { set_country_flag = VIE_air_proc_vars_init }
-				}
 
 				# Party Congress spine (see VIE_congress_spine_redesign.md): saves from before
 				# this system existed have no VIE_congress_term variable. Re-derive it every

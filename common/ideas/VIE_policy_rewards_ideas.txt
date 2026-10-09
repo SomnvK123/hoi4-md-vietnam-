@@ -1,0 +1,499 @@
+# Idea chinh sach v32: ti le cua bac hoan chinh, moi nhom mot bac.
+ideas = {
+	country = {
+		VIE_ind_policy_support_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				industrial_capacity_factory = 0.005
+				corporate_tax_income_multiplier_modifier = 0.005
+			}
+		}
+		VIE_ind_policy_steel_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_industrial_complex_factor = 0.0075
+				production_speed_infrastructure_factor = 0.005
+				production_speed_arms_factory_factor = 0.005
+			}
+		}
+		VIE_ind_policy_steel_2_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_industrial_complex_factor = 0.015
+				production_speed_infrastructure_factor = 0.01
+				production_speed_arms_factory_factor = 0.01
+			}
+		}
+		VIE_ind_policy_ship_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.02
+			}
+		}
+		VIE_ind_policy_ship_2_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.04
+			}
+		}
+		VIE_ind_policy_ship_3_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.05
+			}
+		}
+		VIE_ind_policy_textile_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				consumer_goods_factor = -0.00125
+				trade_opinion_factor = 0.0025
+			}
+		}
+		VIE_ind_policy_textile_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				consumer_goods_factor = -0.0025
+				trade_opinion_factor = 0.005
+			}
+		}
+		VIE_ind_policy_ev_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				industrial_capacity_factory = 0.005
+				fuel_cost = -0.0075
+			}
+		}
+		VIE_ind_policy_ev_2_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				industrial_capacity_factory = 0.01
+				fuel_cost = -0.015
+			}
+		}
+		VIE_ind_policy_auto_export_1_idea = {
+			picture = economic_boom
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				corporate_tax_income_multiplier_modifier = 0.005
+				stability_factor = 0.0025
+				foreign_influence_defense_modifier = 0.0125
+			}
+		}
+		VIE_ind_policy_electronics_1_idea = {
+			picture = economic_boom
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				corporate_tax_income_multiplier_modifier = 0.005
+			}
+		}
+		VIE_ind_policy_electronics_2_idea = {
+			picture = economic_boom
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				corporate_tax_income_multiplier_modifier = 0.01
+			}
+		}
+		VIE_ind_policy_chip_1_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.001
+				research_speed_factor = 0.00125
+			}
+		}
+		VIE_ind_policy_chip_2_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				research_speed_factor = 0.0025
+			}
+		}
+		VIE_ind_policy_chip_3_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.003
+				research_speed_factor = 0.00375
+			}
+		}
+		VIE_ind_policy_chip_4_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				research_speed_factor = 0.005
+			}
+		}
+		VIE_ind_policy_chip_6_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.01
+				research_speed_factor = 0.0125
+			}
+		}
+		VIE_ind_policy_productivity_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				production_speed_industrial_complex_factor = 0.01
+			}
+		}
+		VIE_infra_policy_road_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				production_speed_infrastructure_factor = 0.025
+			}
+		}
+		VIE_infra_policy_road_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				production_speed_infrastructure_factor = 0.05
+			}
+		}
+		VIE_infra_policy_road_4_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.02
+				production_speed_infrastructure_factor = 0.125
+			}
+		}
+		VIE_infra_policy_road_5_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.022
+				production_speed_infrastructure_factor = 0.14
+			}
+		}
+		VIE_infra_policy_rail_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				research_speed_factor = 0.0025
+			}
+		}
+		VIE_infra_policy_rail_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.003
+				research_speed_factor = 0.00375
+			}
+		}
+		VIE_infra_policy_rail_3_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				research_speed_factor = 0.005
+			}
+		}
+		VIE_infra_policy_rail_4_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.005
+				research_speed_factor = 0.00625
+			}
+		}
+		VIE_infra_policy_rail_5_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.006
+				research_speed_factor = 0.0075
+			}
+		}
+		VIE_infra_policy_ports_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				trade_opinion_factor = 0.00525
+			}
+		}
+		VIE_infra_policy_logistics_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				trade_opinion_factor = 0.00525
+				country_productivity_growth_modifier = 0.002
+			}
+		}
+		VIE_infra_policy_multimodal_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.021
+				trade_opinion_factor = 0.03675
+			}
+		}
+		VIE_infra_policy_air_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				trade_opinion_factor = 0.00525
+			}
+		}
+		VIE_infra_policy_air_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				trade_opinion_factor = 0.0105
+			}
+		}
+		VIE_infra_policy_air_4_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.014
+				trade_opinion_factor = 0.018375
+			}
+		}
+		VIE_infra_policy_air_3_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.012
+				trade_opinion_factor = 0.01575
+			}
+		}
+	}
+}

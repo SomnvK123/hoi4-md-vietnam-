@@ -1,0 +1,15 @@
+ideas = {
+	country = {
+		VIE_ind_supporting_capacity_idea = {
+			picture = industrial_focus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				industrial_capacity_factory = 0.02
+				corporate_tax_income_multiplier_modifier = 0.02
+			}
+		}
+	}
+}

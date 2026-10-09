@@ -935,17 +935,6 @@ ideas = {
 				decryption_factor = 0.05
 			}
 		}
-		VIE_kilo_flotilla_idea = {
-			picture = army_planning
-			allowed = { always = no }
-			allowed_civil_war = { always = no }
-			cancel_if_invalid = no
-
-			modifier = {
-				navy_submarine_attack_factor = 0.05
-				experience_gain_navy_factor = 0.03
-			}
-		}
 		VIE_arbitral_track = {
 			picture = generic_diplomatic_treaty
 			allowed = { always = no }

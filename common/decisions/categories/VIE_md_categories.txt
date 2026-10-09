@@ -13,71 +13,12 @@ VIE_resolution_category = {
 		check_variable = { VIE_congress_term > 8 }
 	}
 }
-# Truc 1 hai quan: Decision P_late. Chi hien khi co chuong trinh da lo cua so (_missed)
-# hoac Sigma tam dung (_suspended). priority 91.
-VIE_naval_procurement_category = {
-	allowed = { original_tag = VIE }
-	priority = 91
-	visible = {
-		OR = {
-			has_country_flag = VIE_gepard1_missed
-			has_country_flag = VIE_gepard2_missed
-			has_country_flag = VIE_bastion_missed
-			has_country_flag = VIE_kilo_missed
-			has_country_flag = VIE_molniya_p1_missed
-			has_country_flag = VIE_molniya_p2_missed
-			has_country_flag = VIE_sigma_missed
-			has_country_flag = VIE_sigma_suspended
-		}
-	}
-}
-
-# Truc 2 hai quan (CNQP): 5 Decision D1-D5 (VIE_md_nav_ind_decisions.txt). Cong la Focus 1
-# (VIE_naval_defence_law). priority 93: ngay tren VIE_def_industry_category (92).
-VIE_naval_industry_category = {
-	allowed = { original_tag = VIE }
-	priority = 93
-	visible = { has_completed_focus = VIE_naval_defence_law }
-}
-
-# Truc 3 hai quan (luc luong): 5 Decision D-A..D-E (VIE_md_nav_force_decisions.txt). Cong la Focus T1
-# (VIE_nf_training_standardization). priority 94: ngay tren VIE_naval_industry_category (93).
-VIE_naval_force_category = {
-	allowed = { original_tag = VIE }
-	priority = 94
-	visible = { has_completed_focus = VIE_nf_training_standardization }
-}
-
-# Truc 1B hai quan: chuong trinh mua sam alt-history (VIE_md_p1b_decisions.txt, sinh boi tools/gen_p1b.py).
-# Cong la Focus T8 (VIE_nf_medium_force). priority 89: duoi cac category hai quan khac.
-VIE_naval_program_category = {
-	allowed = { original_tag = VIE }
-	priority = 89
-	visible = { has_completed_focus = VIE_nf_medium_force }
-}
-
 # Hop tac an ninh bien (nhanh Bien Dong): tap tran, tau nuoc ngoai tham cang Cam Ranh, huan luyen chung
 # (VIE_md_scs_coop_decisions.txt). Cong la Focus VIE_scs_maritime_cooperation. priority 88: duoi het cac category khac.
 VIE_scs_cooperation_category = {
 	allowed = { original_tag = VIE }
 	priority = 88
 	visible = { has_completed_focus = VIE_scs_maritime_cooperation }
-}
-
-# Truc 2 khong quan (CNQP hang khong - phong khong): 5 Decision lap lai theo bac (VIE_md_air_ind_decisions.txt). Cong la Focus F1
-# (VIE_apm_law). priority 87: duoi cac category quan su khac (88 la hop tac an ninh bien, 89 la 1B hai quan).
-VIE_apm_category = {
-	allowed = { original_tag = VIE }
-	priority = 87
-	visible = { has_completed_focus = VIE_apm_law }
-}
-
-# Truc 3 khong quan (xay dung luc luong): 5 Decision (VIE_md_air_force_decisions.txt). Cong la Focus T1 (VIE_airf_training_standardization).
-# priority 86: duoi Truc 2 khong quan (87).
-VIE_airf_category = {
-	allowed = { original_tag = VIE }
-	priority = 86
-	visible = { has_completed_focus = VIE_airf_training_standardization }
 }
 
 # "Con duong Kien dinh": Indochinese Unification category (visible after Party-State Fusion X2)

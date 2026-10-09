@@ -1,0 +1,14 @@
+# Triggers cho De an V31 Quan su Toan quan & Luc quan
+
+# Q2: Quan doi nhan dan hien dai, hiep dong va tu chu
+# Yeu cau: it nhat 2 trong 3 quan chung dat moc hien dai hoa chinh
+VIE_v31_joint_modernization_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_v31_joint_modernization_ready_tt
+		OR = {
+			has_completed_focus = VIE_lf_operational_counteroffensive_capstone
+			has_completed_focus = VIE_lf_complex_terrain_mobile_capstone
+			has_completed_focus = VIE_lf_modern_elite_combined_army_capstone
+		}
+	}
+}

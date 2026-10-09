@@ -1,0 +1,21 @@
+# Trang thai bon chuong trinh; dung cung trigger voi gate capstone.
+defined_text = {
+	name = VIEInfraRoadStatus
+	text = { trigger = { VIE_infra_road_ready = yes } localization_key = VIE_infra_status_ready }
+	text = { localization_key = VIE_infra_status_pending }
+}
+defined_text = {
+	name = VIEInfraRailStatus
+	text = { trigger = { VIE_infra_rail_ready = yes } localization_key = VIE_infra_status_ready }
+	text = { localization_key = VIE_infra_status_pending }
+}
+defined_text = {
+	name = VIEInfraPortsStatus
+	text = { trigger = { VIE_infra_ports_ready = yes } localization_key = VIE_infra_status_ready }
+	text = { localization_key = VIE_infra_status_pending }
+}
+defined_text = {
+	name = VIEInfraAirStatus
+	text = { trigger = { VIE_infra_air_ready = yes } localization_key = VIE_infra_status_ready }
+	text = { localization_key = VIE_infra_status_pending }
+}

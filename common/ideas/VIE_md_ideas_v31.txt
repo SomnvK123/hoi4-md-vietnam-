@@ -1,0 +1,226 @@
+ideas = {
+	country = {
+		# ======================================================================
+		# 1. VPA_Land_Readiness: San sang chien dau Luc quan
+		# ======================================================================
+		VPA_Land_Readiness_1 = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_org_factor = 0.02
+				army_morale_factor = 0.02
+			}
+		}
+		VPA_Land_Readiness_2 = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_org_factor = 0.04
+				army_morale_factor = 0.03
+				planning_speed = 0.05
+			}
+		}
+		VPA_Land_Readiness_3 = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_org_factor = 0.06
+				army_morale_factor = 0.04
+				planning_speed = 0.08
+				experience_gain_army_factor = 0.05
+			}
+		}
+		VPA_Land_Readiness_4 = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_org_factor = 0.08
+				army_morale_factor = 0.05
+				planning_speed = 0.10
+				experience_gain_army_factor = 0.08
+				attrition = -0.05
+			}
+		}
+
+		# ======================================================================
+		# 2. VPA_Territorial_Defense: The tran phong thu toan dan
+		# ======================================================================
+		VPA_Territorial_Defense_1 = {
+			picture = generic_fortify
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_core_defence_factor = 0.05
+			}
+		}
+		VPA_Territorial_Defense_2 = {
+			picture = generic_fortify
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_core_defence_factor = 0.08
+				mobilization_speed = 0.10
+			}
+		}
+		VPA_Territorial_Defense_3 = {
+			picture = generic_fortify
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_core_defence_factor = 0.10
+				mobilization_speed = 0.15
+				supply_consumption_factor = -0.05
+				out_of_supply_factor = -0.10
+			}
+		}
+		VPA_Territorial_Defense_4 = {
+			picture = generic_fortify
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_core_defence_factor = 0.12
+				mobilization_speed = 0.20
+				max_dig_in = 3
+				dig_in_speed_factor = 0.15
+				supply_consumption_factor = -0.08
+				out_of_supply_factor = -0.15
+			}
+		}
+
+		# ======================================================================
+		# 3. VPA_Industrial_Sustainment: Bao dam cong nghiep & nguon cung
+		# ======================================================================
+		VPA_Industrial_Sustainment_1 = {
+			picture = generic_production_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				equipment_conversion_speed = 0.05
+				industrial_capacity_dockyard = 0.03
+			}
+		}
+		VPA_Industrial_Sustainment_2 = {
+			picture = generic_production_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				equipment_conversion_speed = 0.08
+				industrial_capacity_dockyard = 0.05
+				equipment_bonus = {
+					reliability_factor = 0.05
+				}
+			}
+		}
+		VPA_Industrial_Sustainment_3 = {
+			picture = generic_production_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				equipment_conversion_speed = 0.12
+				industrial_capacity_dockyard = 0.08
+				equipment_bonus = {
+					reliability_factor = 0.10
+				}
+				attrition = -0.08
+			}
+		}
+
+		# ======================================================================
+		# 4. VPA_Command_Integration: He thong chi huy lien quan
+		# ======================================================================
+		VPA_Command_Integration_1 = {
+			picture = generic_intelligence_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				recon_factor = 0.05
+				coordination_bonus = 0.05
+				planning_speed = 0.05
+			}
+		}
+		VPA_Command_Integration_2 = {
+			picture = generic_intelligence_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				recon_factor = 0.10
+				coordination_bonus = 0.10
+				planning_speed = 0.10
+				max_planning = 0.05
+			}
+		}
+
+		# ======================================================================
+		# 5. VPA_Land_Doctrine: Hoc thuyet tac chien (Mech vs Mobility)
+		# ======================================================================
+		VPA_Land_Doctrine_Mech_1 = {
+			picture = generic_armor_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				breakthrough_factor = 0.05
+				armor_speed_factor = 0.03
+			}
+		}
+		VPA_Land_Doctrine_Mech_2 = {
+			picture = generic_armor_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				breakthrough_factor = 0.10
+				armor_speed_factor = 0.05
+				planning_speed = 0.08
+				mechanized_attack_factor = 0.05
+				armor_attack_factor = 0.05
+			}
+		}
+
+		VPA_Land_Doctrine_Mobility_1 = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_speed_factor = 0.05
+				supply_consumption_factor = -0.05
+			}
+		}
+		VPA_Land_Doctrine_Mobility_2 = {
+			picture = generic_infantry_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_speed_factor = 0.08
+				supply_consumption_factor = -0.08
+				mountain_attack_factor = 0.05
+				mountain_movement_factor = 0.05
+				hills_attack_factor = 0.05
+				forest_movement_factor = 0.05
+			}
+		}
+
+		# ======================================================================
+		# 6. Synergies: Dac cong (S5) ket hop hoc thuyet
+		# ======================================================================
+		VIE_synergy_mech_commando_idea = {
+			picture = generic_special_forces
+			allowed = { original_tag = VIE }
+			modifier = {
+				breakthrough_factor = 0.03
+				recon_factor = 0.05
+				special_forces_attack_factor = 0.05
+			}
+		}
+		VIE_synergy_mobility_commando_idea = {
+			picture = generic_special_forces
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_speed_factor = 0.03
+				recon_factor = 0.08
+				special_forces_defence_factor = 0.05
+			}
+		}
+
+		# ======================================================================
+		# 7. Capstone Q2 Idea: Quan doi Nhan dan Hien dai, Hiep dong va Tu chu
+		# ======================================================================
+		VIE_vpa_modern_joint_autonomous_idea = {
+			picture = generic_volunteer_expedition_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				army_org_factor = 0.05
+				army_morale_factor = 0.05
+				navy_org_factor = 0.05
+				air_mission_efficiency = 0.05
+				command_power_gain_mult = 0.10
+				political_power_factor = 0.05
+			}
+		}
+	}
+}

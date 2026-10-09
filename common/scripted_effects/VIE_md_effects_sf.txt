@@ -104,7 +104,7 @@ VIE_sf_marine_elite_reward = {
 	add_to_variable = { VIE_af_special_forces_cap = 0.01 tooltip = VIE_tt_special_forces_cap }
 	add_to_variable = { VIE_af_naval_invasion_capacity = 1 tooltip = VIE_tt_naval_invasion_capacity }
 	VIE_lf_xp_20 = yes
-	VIE_nf_xp_10 = yes
+	navy_experience = 10
 	VIE_sf_marine_create_unit = yes
 	VIE_sf_dm_tt = yes
 	VIE_sf_refresh = yes
