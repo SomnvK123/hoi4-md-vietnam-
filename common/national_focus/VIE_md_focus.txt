@@ -6652,6 +6652,7 @@ focus_tree = {
 	
 
 	######################################################################
+	######################################################################
 	## ĐỀ ÁN V34: NHÁNH HẢI QUÂN VIỆT NAM (ORGANIC DIAMOND FLOW - 40 FOCUS)
 	## TÂM ĐỐI XỨNG X = 212 · CÁNH BUỒM TỪ Y = 2 ĐẾN Y = 12
 	######################################################################
@@ -6677,9 +6678,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_n00_maritime_strategy_21st"
-			navy_experience = 15
-			add_command_power = 20
-			add_political_power = 30
+			VIE_nav_xp_15 = yes
+			add_command_power = 25
+			add_political_power = 40
+			set_country_flag = VIE_maritime_strategy_21st_active
 		}
 	}
 
@@ -6704,9 +6706,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_t01_organization_reform"
-			navy_experience = 10
+			VIE_nav_xp_10 = yes
 			add_command_power = 15
-			add_ideas = VIE_nav_organization_reform_spirit
+			VIE_nav_upgrade_org = yes
 		}
 	}
 
@@ -6731,8 +6733,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_i01_shipbuilding_industry"
+			VIE_nav_upgrade_industry = yes
+			VIE_ind_prepaid_dockyard = yes
 			add_tech_bonus = { name = VIE_i01_naval_tech bonus = 0.50 uses = 1 category = CAT_naval }
-			add_ideas = VIE_nav_shipbuilding_industry_spirit
 		}
 	}
 
@@ -6757,8 +6760,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_t02_officer_sailor_quality"
-			navy_experience = 15
-			add_ideas = VIE_nav_officer_sailor_quality_spirit
+			VIE_nav_xp_15 = yes
+			VIE_nav_upgrade_org = yes
+			navy_leader_start_level = 1
 		}
 	}
 
@@ -6783,9 +6787,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_t03_regional_commands"
-			navy_experience = 10
+			VIE_nav_xp_15 = yes
 			add_command_power = 20
-			add_ideas = VIE_nav_regional_commands_spirit
+			VIE_nav_upgrade_org = yes
 		}
 	}
 
@@ -6810,8 +6814,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_i02_technology_transfer_molniya"
+			VIE_nav_upgrade_industry = yes
 			add_tech_bonus = { name = VIE_i02_corvette_tech bonus = 0.50 uses = 1 category = CAT_surface_ships }
-			add_ideas = VIE_nav_technology_transfer_spirit
 		}
 	}
 
@@ -6836,8 +6840,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_i03_ship_systems_integration"
+			VIE_nav_upgrade_industry = yes
 			add_tech_bonus = { name = VIE_i03_naval_electronics bonus = 0.50 uses = 1 category = CAT_naval }
-			add_ideas = VIE_nav_systems_integration_spirit
 		}
 	}
 
@@ -6862,9 +6866,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w01_surface_combatants"
-			navy_experience = 15
+			VIE_nav_xp_15 = yes
+			add_ideas = VIE_nav_surface_fleet_readiness
 			add_tech_bonus = { name = VIE_w01_surface_tech bonus = 0.50 uses = 1 category = CAT_surface_ships }
-			add_ideas = VIE_nav_surface_combatants_spirit
 		}
 	}
 
@@ -6889,7 +6893,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w04_kilo_submarine_force"
-			navy_experience = 20
+			VIE_nav_xp_20 = yes
 			add_tech_bonus = { name = VIE_w04_submarine_tech bonus = 0.75 uses = 1 category = CAT_submarines }
 			set_country_flag = VIE_nav_w04_kilo_unlocked
 		}
@@ -6917,9 +6921,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_t04_joint_command_system"
-			navy_experience = 15
-			add_command_power = 25
-			add_ideas = VIE_nav_joint_command_spirit
+			VIE_nav_xp_20 = yes
+			add_command_power = 30
+			VIE_nav_upgrade_org = yes
 		}
 	}
 
@@ -6945,7 +6949,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_i04_domestic_corvette_class"
-			navy_experience = 15
+			VIE_nav_xp_15 = yes
+			VIE_nav_upgrade_industry = yes
 			add_tech_bonus = { name = VIE_i04_corvette_tech bonus = 0.75 uses = 1 category = CAT_surface_ships }
 			set_country_flag = VIE_nav_i04_song_thu_unlocked
 		}
@@ -6972,8 +6977,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_s01_maritime_surveillance"
-			navy_experience = 10
-			add_ideas = VIE_nav_maritime_surveillance_spirit
+			VIE_nav_xp_10 = yes
+			VIE_nav_upgrade_mda = yes
 		}
 	}
 
@@ -6998,8 +7003,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_l01_naval_bases"
-			navy_experience = 10
-			add_ideas = VIE_nav_naval_bases_spirit
+			VIE_nav_upgrade_logistics = yes
+			519 = { add_building_construction = { type = naval_base level = 1 instant_build = yes } }
+			522 = { add_building_construction = { type = naval_base level = 1 instant_build = yes } }
 		}
 	}
 
@@ -7024,7 +7030,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w02_missile_boats"
-			navy_experience = 10
+			VIE_nav_xp_10 = yes
 			add_tech_bonus = { name = VIE_w02_missile_boat bonus = 0.50 uses = 1 category = CAT_surface_ships }
 			set_country_flag = VIE_nav_w02_molniya_unlocked
 		}
@@ -7051,7 +7057,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w03_multirole_frigates"
-			navy_experience = 15
+			VIE_nav_xp_15 = yes
 			add_tech_bonus = { name = VIE_w03_frigate bonus = 0.50 uses = 1 category = CAT_destroyers }
 			set_country_flag = VIE_nav_w03_gepard_unlocked
 		}
@@ -7078,8 +7084,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_s03_subsurface_recon"
-			navy_experience = 10
-			add_ideas = VIE_nav_subsurface_recon_spirit
+			VIE_nav_xp_10 = yes
+			VIE_nav_upgrade_mda = yes
+			add_tech_bonus = { name = VIE_s03_sonar_tech bonus = 0.50 uses = 1 category = CAT_submarines }
 		}
 	}
 
@@ -7104,8 +7111,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_s02_island_defense_forces"
-			navy_experience = 10
-			add_ideas = VIE_nav_island_defense_spirit
+			VIE_nav_xp_10 = yes
+			801 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes } }
 			set_country_flag = VIE_nav_s02_bastion_unlocked
 		}
 	}
@@ -7131,8 +7138,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_l02_overhaul_maintenance"
-			navy_experience = 10
-			add_ideas = VIE_nav_overhaul_maintenance_spirit
+			VIE_nav_xp_10 = yes
+			VIE_nav_upgrade_logistics = yes
 		}
 	}
 
@@ -7157,8 +7164,10 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_l03_island_logistics"
-			navy_experience = 10
-			add_ideas = VIE_nav_island_logistics_spirit
+			VIE_nav_xp_10 = yes
+			801 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } }
+			518 = { add_building_construction = { type = naval_base level = 1 instant_build = yes } }
+			VIE_nav_upgrade_logistics = yes
 		}
 	}
 
@@ -7186,8 +7195,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_h01_fleet_development_priority"
-			navy_experience = 15
-			add_ideas = VIE_nav_fleet_development_h1
+			VIE_nav_xp_15 = yes
+			add_ideas = VPA_Fleet_Development_Priority
 		}
 	}
 
@@ -7215,8 +7224,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_p01_integrated_defense_choice"
-			navy_experience = 15
-			add_ideas = VIE_nav_integrated_defense_p1
+			VIE_nav_xp_15 = yes
+			add_ideas = VPA_Integrated_Defense_Doctrine_1
 		}
 	}
 
@@ -7242,8 +7251,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_w05_asw_fleet_defense"
-			navy_experience = 15
-			add_ideas = VIE_nav_asw_defense_spirit
+			VIE_nav_xp_15 = yes
+			add_ideas = VIE_nav_asw_mastery
+			add_tech_bonus = { name = VIE_w05_asw_tech bonus = 0.50 uses = 1 category = CAT_destroyers }
 		}
 	}
 
@@ -7269,8 +7279,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_s04_joint_island_defense"
-			navy_experience = 15
-			add_ideas = VIE_nav_joint_island_defense_spirit
+			VIE_nav_xp_15 = yes
+			VIE_nav_upgrade_mda = yes
 		}
 	}
 
@@ -7296,8 +7306,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_l04_support_rescue_vessels"
-			navy_experience = 10
-			add_ideas = VIE_nav_support_rescue_spirit
+			VIE_nav_xp_10 = yes
+			VIE_nav_upgrade_logistics = yes
 		}
 	}
 
@@ -7323,8 +7333,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_p02_coastal_island_network"
-			navy_experience = 15
-			add_ideas = VIE_nav_coastal_island_network_spirit
+			VIE_nav_xp_15 = yes
+			521 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes } }
+			519 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes } }
 		}
 	}
 
@@ -7350,8 +7361,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_p03_island_territory_defense"
-			navy_experience = 15
-			add_ideas = VIE_nav_island_territory_defense_spirit
+			VIE_nav_xp_15 = yes
+			add_ideas = VIE_nav_marine_brigades
 		}
 	}
 
@@ -7378,8 +7389,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_h02_multirole_task_groups"
-			navy_experience = 20
-			add_ideas = VIE_nav_multirole_task_groups_spirit
+			VIE_nav_xp_20 = yes
+			add_ideas = VPA_Multirole_Task_Groups
 		}
 	}
 
@@ -7404,8 +7415,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_s05_unified_maritime_picture"
-			navy_experience = 20
-			add_ideas = VIE_nav_unified_maritime_picture_spirit
+			VIE_nav_xp_25 = yes
+			VIE_nav_upgrade_mda = yes
 		}
 	}
 
@@ -7430,8 +7441,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_l05_sustained_operations"
-			navy_experience = 20
-			add_ideas = VIE_nav_sustained_operations_spirit
+			VIE_nav_xp_20 = yes
+			VIE_nav_upgrade_logistics = yes
 		}
 	}
 
@@ -7456,8 +7467,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_p04_layered_defense"
-			navy_experience = 15
-			add_ideas = VIE_nav_layered_defense_spirit
+			VIE_nav_xp_15 = yes
+			add_command_power = 20
+			set_country_flag = VIE_nav_p04_layered_active
 		}
 	}
 
@@ -7484,8 +7496,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_g01_greenwater_navy"
-			navy_experience = 20
-			add_ideas = VIE_nav_greenwater_g1
+			VIE_nav_xp_20 = yes
+			add_ideas = VPA_Greenwater_Doctrine_1
 		}
 	}
 
@@ -7513,8 +7525,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_b01_bluewater_navy"
-			navy_experience = 25
-			add_ideas = VIE_nav_bluewater_b1
+			VIE_nav_xp_25 = yes
+			add_ideas = VPA_Bluewater_Doctrine_1
 		}
 	}
 
@@ -7540,8 +7552,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_p05_joint_coastal_defense"
-			navy_experience = 20
-			add_ideas = VIE_nav_joint_coastal_defense_spirit
+			VIE_nav_xp_20 = yes
+			add_command_power = 25
+			set_country_flag = VIE_nav_p05_joint_active
 		}
 	}
 
@@ -7567,9 +7580,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_g02_advanced_frigates_asw"
-			navy_experience = 20
+			VIE_nav_xp_20 = yes
 			add_tech_bonus = { name = VIE_g02_frigate_tech bonus = 0.50 uses = 1 category = CAT_destroyers }
-			add_ideas = VIE_nav_advanced_frigates_asw_spirit
 		}
 	}
 
@@ -7595,9 +7607,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_b02_extended_deployment_fleet"
-			navy_experience = 25
+			VIE_nav_xp_25 = yes
 			add_tech_bonus = { name = VIE_b02_ocean_tech bonus = 0.50 uses = 1 category = CAT_naval }
-			add_ideas = VIE_nav_extended_deployment_spirit
 		}
 	}
 
@@ -7622,8 +7633,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_p06_active_coastal_defense_capstone"
-			navy_experience = 30
-			swap_ideas = { remove_idea = VIE_nav_integrated_defense_p1 add_idea = VIE_nav_integrated_defense_p6 }
+			VIE_nav_xp_30 = yes
+			swap_ideas = { remove_idea = VPA_Integrated_Defense_Doctrine_1 add_idea = VPA_Integrated_Defense_Doctrine_Capstone }
 			set_country_flag = VIE_nav_p_doctrine_completed
 		}
 	}
@@ -7650,8 +7661,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_g03_self_reliant_greenwater_capstone"
-			navy_experience = 30
-			swap_ideas = { remove_idea = VIE_nav_greenwater_g1 add_idea = VIE_nav_greenwater_g3 }
+			VIE_nav_xp_30 = yes
+			swap_ideas = { remove_idea = VPA_Greenwater_Doctrine_1 add_idea = VPA_Greenwater_Doctrine_Capstone }
 			set_country_flag = VIE_nav_g_doctrine_completed
 		}
 	}
@@ -7677,8 +7688,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_b03_sustained_bluewater_capstone"
-			navy_experience = 35
-			swap_ideas = { remove_idea = VIE_nav_bluewater_b1 add_idea = VIE_nav_bluewater_b3 }
+			VIE_nav_xp_35 = yes
+			swap_ideas = { remove_idea = VPA_Bluewater_Doctrine_1 add_idea = VPA_Bluewater_Doctrine_Capstone }
 			set_country_flag = VIE_nav_b_doctrine_completed
 		}
 	}
@@ -7708,8 +7719,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_f01_tactical_doctrine_alignment"
-			navy_experience = 25
-			add_command_power = 30
+			VIE_nav_xp_30 = yes
+			add_command_power = 35
 			add_political_power = 50
 		}
 	}
@@ -7737,24 +7748,11 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav_f02_regular_modern_navy"
-			navy_experience = 50
+			VIE_nav_xp_50 = yes
 			add_command_power = 50
 			add_political_power = 100
-			if = {
-			limit = { has_country_flag = VIE_nav_p_doctrine_completed }
-			add_ideas = VIE_nav_capstone_integrated_defense_f2
-			}
-			else_if = {
-			limit = { has_country_flag = VIE_nav_g_doctrine_completed }
-			add_ideas = VIE_nav_capstone_greenwater_f2
-			}
-			else_if = {
-			limit = { has_country_flag = VIE_nav_b_doctrine_completed }
-			add_ideas = VIE_nav_capstone_bluewater_f2
-			}
-			else = {
-			add_ideas = VIE_nav_capstone_greenwater_f2
-			}
+			add_stability = 0.05
+			VIE_nav_grant_capstone_f2 = yes
 			set_country_flag = VIE_navy_modernized
 		}
 	}

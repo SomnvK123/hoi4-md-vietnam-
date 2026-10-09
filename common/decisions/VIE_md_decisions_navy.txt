@@ -1,8 +1,12 @@
 # ======================================================================
-# ĐỀ ÁN V34: QUYẾT ĐỊNH MUA SẮM VÀ PHÁT TRIỂN HẢI QUÂN
+# ĐỀ ÁN V34: QUYẾT ĐỊNH MUA SẮM VÀ TÁC CHIẾN HẢI QUÂN
 # ======================================================================
 
 VIE_naval_procurement_category = {
+
+	# ------------------------------------------------------------------
+	# NHÓM 1: CHƯƠNG TRÌNH MUA SẮM & KHÍ TÀI (5 QUYẾT ĐỊNH)
+	# ------------------------------------------------------------------
 
 	VIE_decision_molniya_production_run = {
 		icon = GFX_decision_generic_naval
@@ -23,7 +27,8 @@ VIE_naval_procurement_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_molniya_production_run"
 			set_temp_variable = { treasury_change = -1.5 }
 			modify_treasury_effect = yes
-			navy_experience = 10
+			VIE_nav_xp_10 = yes
+			add_timed_idea = { idea = VIE_decision_molniya_surge_spirit days = 180 }
 		}
 
 		ai_will_do = {
@@ -51,7 +56,8 @@ VIE_naval_procurement_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_gepard_batch_procurement"
 			set_temp_variable = { treasury_change = -2.5 }
 			modify_treasury_effect = yes
-			navy_experience = 15
+			VIE_nav_xp_15 = yes
+			add_timed_idea = { idea = VIE_decision_gepard_fleet_spirit days = 180 }
 		}
 
 		ai_will_do = {
@@ -134,12 +140,91 @@ VIE_naval_procurement_category = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_island_bastion_fortification"
 			set_temp_variable = { treasury_change = -1.0 }
 			modify_treasury_effect = yes
+			801 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes } }
 			add_timed_idea = { idea = VIE_decision_island_bastion_spirit days = 365 }
 		}
 
 		ai_will_do = {
 			factor = 10
 			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# NHÓM 2: CHIẾN DỊCH TÁC CHIẾN & TUẦN TRA (3 QUYẾT ĐỊNH)
+	# ------------------------------------------------------------------
+
+	VIE_decision_scs_joint_patrol_mission = {
+		icon = GFX_decision_generic_naval
+		cost = 20
+
+		days_remove = 180
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = VIE_nav_s01_maritime_surveillance
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_scs_joint_patrol_mission"
+			VIE_nav_xp_15 = yes
+			add_command_power = 10
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	VIE_decision_asw_combat_drill = {
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_nav_s03_subsurface_recon
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_asw_combat_drill"
+			VIE_nav_xp_15 = yes
+			add_timed_idea = { idea = VIE_decision_asw_combat_drill_spirit days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_coastal_alert_surge = {
+		icon = GFX_decision_generic_military
+		cost = 30
+
+		days_remove = 180
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = VIE_nav_p01_integrated_defense_choice
+		}
+
+		available = {
+			OR = {
+				has_war = yes
+				threat > 0.20
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_coastal_alert_surge"
+			add_timed_idea = { idea = VIE_decision_coastal_alert_surge_spirit days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = { factor = 3 has_war = yes }
 		}
 	}
 
