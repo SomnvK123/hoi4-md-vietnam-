@@ -3,6 +3,10 @@
 > **Tài liệu tổng hợp đánh giá, nghiên cứu & kế hoạch code (08/10/2026)**  
 > Hợp nhất 3 tài liệu phân mảnh của 3 trục Lục quân Việt Nam.
 
+## Cập nhật cơ cấu lực lượng v29 (09/10/2026)
+
+Thiết kế hiện hành của Trục 3 được cập nhật tại [.claude/docs/land/structure_v29.md](.claude/docs/land/structure_v29.md). Mỗi hướng có một focus ưu tiên, tiếp theo là ba focus dự án song song trên cùng hàng ngang, rồi một focus cuối yêu cầu hoàn thành đủ ba dự án. Ba focus cuối mở Cải cách chỉ huy II theo OR. Nhánh có 38 focus; các phần review và bảng 30 focus bên dưới là lịch sử thiết kế. PNG được xuất từ code tại [.claude/docs/land/land_focus_current.png](.claude/docs/land/land_focus_current.png).
+
 ## Mục lục
 1. [Phần 1: Review Trục 1 (Mua sắm Lục quân) + Plan Code](#phần-1-review-trục-1-mua-sắm-lục-quân--plan-code)
 2. [Phần 2: Review Trục 2 (CNQP Lục quân) + Plan Code](#phần-2-review-trục-2-cnqp-lục-quân--plan-code)
@@ -1656,8 +1660,8 @@ Prerequisite viết theo quy ước HOI4: nhiều khối `prerequisite` = AND; n
 | TG2 | `VIE_lf_arm_armor_train` | Tăng thiết giáp: đào tạo sĩ quan, kíp xe | 7 | TG1 | — | như BB2 |
 | PB1 | `VIE_lf_arm_arty_org` | Pháo binh: tổ chức, hỏa lực chi viện | 7 | N2 và N3 | `arm_count < 3` | như BB1 |
 | PB2 | `VIE_lf_arm_arty_train` | Pháo binh: đào tạo sĩ quan, pháo thủ | 7 | PB1 | — | như BB2 |
-| CB | `VIE_lf_arm_engineers` | Công binh: đào tạo, công binh chiến đấu | 7 | N2 và N3 | `arm_count < 3` | count +1 **và** done +1 (guard), `VIE_lf_cb_reward` |
-| HD | `VIE_lf_combined_arms` | Hiệp đồng binh chủng | 7 | **OR** BB2, TG2, PB2, CB | `arm_done ≥ 3` | `VIE_lf_hd_reward` |
+| CB | `VIE_lf_arm_engineers` + `VIE_lf_arm_engineer_train` | Tách kiện toàn tổ chức khỏi huấn luyện công binh | 7 + 7 | N2/N3 rồi focus huấn luyện riêng | count +1 ở tổ chức; done +1 ở huấn luyện (guard); `VIE_lf_cb_reward` giữ ở tổ chức |
+| HD | `VIE_lf_combined_arms` | Hiệp đồng binh chủng | 7 | **OR** BB2, TG2, PB2, CB huấn luyện | `arm_done ≥ 3` | `VIE_lf_hd_reward` |
 | CR1 | `VIE_lf_command_reform_1` | Cải cách bộ chỉ huy I: chuẩn hóa tham mưu | 7 | HD | — | `VIE_lf_cr1_reward`; mở 3 decision |
 | FM1 | `VIE_lf_fs_mobile_force` | Lực lượng cơ động | 10 | CR1; ME FR1, FD1 | — | cờ `VIE_lf_mobile`, giá, sở trường |
 | FM2 | `VIE_lf_fs_mobile_corps` | Cụm cơ động | 7 | FM1 | — | `VIE_lf_fm2_reward` + mẫu cụm cơ động |

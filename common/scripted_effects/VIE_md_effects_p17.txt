@@ -389,7 +389,6 @@ VIE_lf_fm1_reward = {
 	hidden_effect = { set_country_flag = VIE_lf_mobile }
 	add_ideas = VIE_mobile_doctrine_spirit
 	VIE_lf_xp_20 = yes
-	add_equipment_to_stockpile = { type = APC_1 amount = 50 producer = VIE }
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -403,39 +402,27 @@ VIE_lf_fm1_reward = {
 	VIE_lf_refresh = yes
 }
 VIE_lf_fm2_reward = {
-	VIE_lf_xp_25 = yes
-	add_command_power = 25
-	add_equipment_to_stockpile = { type = APC_1 amount = 60 producer = VIE }
-	add_equipment_to_stockpile = { type = medium_tank_destroyer_chassis_2 amount = 20 producer = VIE }
+	VIE_lf_xp_10 = yes
 	if = {
 		limit = { NOT = { has_country_flag = VIE_lf_tpl_mobile_corps } }
 		hidden_effect = { set_country_flag = VIE_lf_tpl_mobile_corps }
 		division_template = {
-			name = "Cum Co dong Phiet kich"
+			name = "Cum Bo binh Co dong"
 			regiments = {
-				Mech_Inf_Bat = { x = 0 y = 0 }
-				Mech_Inf_Bat = { x = 0 y = 1 }
-				armor_Bat = { x = 0 y = 2 }
-				armor_Bat = { x = 1 y = 0 }
-				SP_Arty_Bat = { x = 1 y = 1 }
+				L_Inf_Bat = { x = 0 y = 0 }
+				L_Inf_Bat = { x = 0 y = 1 }
+				L_Inf_Bat = { x = 0 y = 2 }
+				L_Inf_Bat = { x = 1 y = 0 }
+				L_Inf_Bat = { x = 1 y = 1 }
 			}
 			support = {
 				Combat_engineer_company = { x = 0 y = 0 }
-				armor_Recce_Comp = { x = 0 y = 1 }
-				SP_AA_Battery = { x = 0 y = 2 }
 			}
 		}
-		create_unit = {
-			division = "name = \"Cum Co dong Chien luoc 1\" division_template = \"Cum Co dong Phiet kich\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-			owner = ROOT
-		}
 	}
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_army_speed_factor = 0.03 tooltip = VIE_tt_army_speed_factor }
-	add_to_variable = { VIE_af_army_attack_factor = 0.03 tooltip = VIE_tt_army_attack_factor }
+	add_command_power = 5
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_speed_factor = 0.01 tooltip = VIE_tt_army_speed_factor }
 	VIE_lf_refresh = yes
 }
 VIE_lf_fr1_reward = {
@@ -458,30 +445,35 @@ VIE_lf_fr1_reward = {
 	VIE_lf_refresh = yes
 }
 VIE_lf_fr2_reward = {
-	VIE_lf_xp_20 = yes
-	add_command_power = 25
-	set_temp_variable = { treasury_change = 1.5 }
-	modify_treasury_effect = yes
-	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 2000 producer = VIE }
-	add_equipment_to_stockpile = { type = artillery_equipment amount = 30 producer = VIE }
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
+	VIE_lf_xp_10 = yes
+	if = {
+		limit = { NOT = { has_country_flag = VIE_lf_tpl_mechanized } }
+		hidden_effect = { set_country_flag = VIE_lf_tpl_mechanized }
+		division_template = {
+			name = "Cum Hop thanh Co gioi"
+			regiments = {
+				Mech_Inf_Bat = { x = 0 y = 0 }
+				Mech_Inf_Bat = { x = 0 y = 1 }
+				armor_Bat = { x = 0 y = 2 }
+				armor_Bat = { x = 1 y = 0 }
+				SP_Arty_Bat = { x = 1 y = 1 }
+			}
+			support = {
+				Combat_engineer_company = { x = 0 y = 0 }
+				armor_Recce_Comp = { x = 0 y = 1 }
+				SP_AA_Battery = { x = 0 y = 2 }
+			}
+		}
 	}
-	add_to_variable = { VIE_af_army_org_factor = 0.025 tooltip = VIE_tt_army_org_factor }
-	add_to_variable = { VIE_af_supply_consumption_factor = -0.05 tooltip = VIE_tt_supply_consumption_factor }
+	add_command_power = 10
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_org_factor = 0.01 tooltip = VIE_tt_army_org_factor }
 	VIE_lf_refresh = yes
 }
 VIE_lf_fd1_reward = {
 	hidden_effect = { set_country_flag = VIE_lf_depth }
 	add_ideas = VIE_depth_defence_spirit
 	VIE_lf_xp_20 = yes
-	# Cost: 1 bn per bunker level (V7 construction price); 3 provinces x level 2 = 6 bn.
-	set_temp_variable = { treasury_change = -6.0 }
-	modify_treasury_effect = yes
-	522 = { add_building_construction = { type = bunker level = 2 instant_build = yes province = 10129 } } # Ha Noi
-	519 = { add_building_construction = { type = bunker level = 2 instant_build = yes province = 4401 } } # Ho Chi Minh City
-	518 = { add_building_construction = { type = bunker level = 2 instant_build = yes province = 12133 } } # Can Tho
 	custom_effect_tooltip = {
 		localization_key = modifies_dynamic_modifier_tt
 		MODIFIER = VIE_armed_forces_modifier
@@ -494,19 +486,12 @@ VIE_lf_fd1_reward = {
 	VIE_lf_refresh = yes
 }
 VIE_lf_fd2_reward = {
-	VIE_lf_xp_15 = yes
-	add_manpower = 40000
-	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 3000 producer = VIE }
-	# Cost: 1 bn per bunker level (V7 construction price); 2 provinces x level 1 = 2 bn.
-	set_temp_variable = { treasury_change = -2.0 }
-	modify_treasury_effect = yes
-	522 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 10129 } } # Ha Noi
-	521 = { add_building_construction = { type = bunker level = 1 instant_build = yes province = 10309 } } # Da Nang
+	VIE_lf_xp_5 = yes
 	if = {
 		limit = { NOT = { has_country_flag = VIE_lf_tpl_militia_elite } }
 		hidden_effect = { set_country_flag = VIE_lf_tpl_militia_elite }
 		division_template = {
-			name = "Su doan Dan quan Khu vuc"
+			name = "Don vi Phong thu Dia ban"
 			regiments = {
 				L_Inf_Bat = { x = 0 y = 0 }
 				L_Inf_Bat = { x = 0 y = 1 }
@@ -519,49 +504,97 @@ VIE_lf_fd2_reward = {
 				Combat_engineer_company = { x = 0 y = 0 }
 			}
 		}
-		capital_scope = {
-			create_unit = {
-				division = "name = \"Su doan Dan quan Khu vuc 1\" division_template = \"Su doan Dan quan Khu vuc\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
-				owner = ROOT
-			}
-		}
 	}
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_conscription_factor = 0.04 tooltip = VIE_tt_conscription_factor }
-	add_to_variable = { VIE_af_dig_in_speed_factor = 0.05 tooltip = VIE_tt_dig_in_speed_factor }
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_dig_in_speed_factor = 0.025 tooltip = VIE_tt_dig_in_speed_factor }
 	VIE_lf_refresh = yes
 }
 VIE_lf_ps_reward = {
-	VIE_lf_xp_20 = yes
+	VIE_lf_xp_15 = yes
 	add_command_power = 20
 	hidden_effect = { set_country_flag = VIE_lf_dev_strategic }
 	unlock_decision_tooltip = VIE_dec_lf_rapid_response
-	add_equipment_to_stockpile = { type = util_vehicle_type amount = 300 producer = VIE }
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
-	add_to_variable = { VIE_af_army_speed_factor = 0.02 tooltip = VIE_tt_army_speed_factor }
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_speed_factor = 0.03 tooltip = VIE_tt_army_speed_factor }
+	add_to_variable = { VIE_af_army_attack_factor = 0.015 tooltip = VIE_tt_army_attack_factor }
 	add_to_variable = { VIE_af_army_org_factor = 0.015 tooltip = VIE_tt_army_org_factor }
-	add_to_variable = { VIE_af_supply_consumption_factor = -0.02 tooltip = VIE_tt_supply_consumption_factor }
 	add_to_variable = { VIE_af_equipment_cost_multiplier_modifier = 0.01 tooltip = VIE_tt_equipment_cost }
 	VIE_lf_refresh = yes
 }
 VIE_lf_pt_reward = {
 	VIE_lf_xp_15 = yes
-	add_manpower = 40000
 	hidden_effect = { set_country_flag = VIE_lf_dev_territorial }
 	unlock_decision_tooltip = VIE_dec_lf_mobilize_people
-	add_equipment_to_stockpile = { type = infantry_weapons_type amount = 2000 producer = VIE }
-	custom_effect_tooltip = {
-		localization_key = modifies_dynamic_modifier_tt
-		MODIFIER = VIE_armed_forces_modifier
-	}
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
 	add_to_variable = { VIE_af_conscription_factor = 0.035 tooltip = VIE_tt_conscription_factor }
 	add_to_variable = { VIE_af_max_dig_in_factor = 0.02 tooltip = VIE_tt_max_dig_in_factor }
+	VIE_lf_refresh = yes
+}
+
+# v26: cac buoc bo sung trong ba chuoi co cau luc luong.
+
+VIE_lf_xp_5 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 5 folder = land }
+	}
+	else = { army_experience = 5 }
+}
+
+VIE_lf_mech_equipment_reward = {
+	VIE_lf_xp_10 = yes
+	add_tech_bonus = { name = VIE_lf_mech_standardization_tech bonus = 0.25 uses = 1 category = CAT_main_battle_tanks }
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_speed_factor = 0.01 tooltip = VIE_tt_army_speed_factor }
+	add_to_variable = { VIE_af_equipment_cost_multiplier_modifier = 0.01 tooltip = VIE_tt_equipment_cost }
+	VIE_lf_refresh = yes
+}
+
+VIE_lf_mech_sustainment_reward = {
+	VIE_lf_xp_10 = yes
+	add_command_power = 10
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.05 tooltip = VIE_tt_supply_consumption_factor }
+	VIE_lf_refresh = yes
+}
+
+VIE_lf_mech_complete_reward = {
+	VIE_lf_xp_10 = yes
+	add_command_power = 25
+	unlock_decision_tooltip = VIE_dec_lf_rapid_response
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_org_factor = 0.03 tooltip = VIE_tt_army_org_factor }
+	add_to_variable = { VIE_af_army_speed_factor = 0.01 tooltip = VIE_tt_army_speed_factor }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.02 tooltip = VIE_tt_supply_consumption_factor }
+	VIE_lf_refresh = yes
+}
+
+VIE_lf_mobile_fire_support_reward = {
+	VIE_lf_xp_10 = yes
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_attack_factor = 0.015 tooltip = VIE_tt_army_attack_factor }
+	VIE_lf_refresh = yes
+}
+
+VIE_lf_mobile_sustainment_reward = {
+	VIE_lf_xp_10 = yes
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_army_speed_factor = 0.01 tooltip = VIE_tt_army_speed_factor }
+	add_to_variable = { VIE_af_supply_consumption_factor = -0.02 tooltip = VIE_tt_supply_consumption_factor }
+	VIE_lf_refresh = yes
+}
+
+VIE_lf_territorial_reserve_reward = {
+	VIE_lf_xp_5 = yes
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_conscription_factor = 0.04 tooltip = VIE_tt_conscription_factor }
+	VIE_lf_refresh = yes
+}
+
+VIE_lf_territorial_coordination_reward = {
+	VIE_lf_xp_5 = yes
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_dig_in_speed_factor = 0.025 tooltip = VIE_tt_dig_in_speed_factor }
 	add_to_variable = { VIE_af_army_personnel_cost_multiplier_modifier = 0.01 tooltip = VIE_tt_army_personnel_cost }
 	VIE_lf_refresh = yes
 }

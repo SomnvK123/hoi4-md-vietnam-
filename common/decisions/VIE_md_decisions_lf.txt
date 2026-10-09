@@ -95,7 +95,7 @@ VIE_military_readiness_category = {
 		cost = 50
 		days_re_enable = 545
 
-		visible = { has_completed_focus = VIE_lf_dev_strategic }
+		visible = { OR = { has_completed_focus = VIE_lf_dev_strategic has_completed_focus = VIE_lf_mech_complete } }
 		available = { has_war = no }
 
 		days_remove = 60

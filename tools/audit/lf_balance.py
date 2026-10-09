@@ -86,6 +86,9 @@ def pts(d, w):
 def main():
     fails = []
 
+    print('HISTORICAL 30-focus design table; this script does not read live effects or national spirits.')
+    print('For the v26 structure chains, also run: python tools/audit/land_structure.py')
+
     print('1. Diem tung node (bao cao W, moi W/S):')
     for name, (old, new) in NODES.items():
         po, pn = pts(old, W), pts(new, WN)

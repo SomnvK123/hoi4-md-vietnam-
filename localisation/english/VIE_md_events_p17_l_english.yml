@@ -1,50 +1,52 @@
 ﻿l_english:
 
  ### Truc 3: xay dung luc luong Luc quan (VIE_truc3_review_and_plan.md). Buoc 2: 12 focus dau.
- VIE_lf_army_reform:0 "Cải cách quân đội, tinh gọn biên chế"
- VIE_lf_army_reform_desc:0 "[VIE_lf_alt_n1]Nghị quyết 05-NQ/TW của Bộ Chính trị (17/1/2022) và Nghị quyết 230-NQ/QUTW của Quân ủy Trung ương (2/4/2022) đặt ra việc điều chỉnh tổ chức Quân đội nhân dân giai đoạn 2021-2030 theo hướng \"tinh, gọn, mạnh\": ưu tiên quân số cho đơn vị sẵn sàng chiến đấu, tuyến biên giới và biển đảo.\n\nĐây là điểm khởi đầu của chuỗi xây dựng lực lượng. (THẬT) nền tảng; mốc thời gian cụ thể là của mod."
- VIE_lf_logistics_merge:0 "Hiện đại hóa hệ thống bảo đảm hậu cần - kỹ thuật"
+ VIE_lf_army_reform:0 "Chương trình xây dựng lực lượng lục quân"
+ VIE_lf_army_reform_desc:0 "[VIE_lf_alt_n1]Thống nhất chương trình xây dựng lực lượng lục quân, từ bảo đảm và đào tạo đến tổ chức đơn vị, hiệp đồng và cơ cấu tác chiến. Nền tảng chung cho phép lựa chọn ưu tiên cơ giới hóa, cơ động nhẹ hoặc địa phương và dự bị phù hợp nguồn lực."
+ VIE_lf_logistics_merge:0 "Củng cố hậu cần - kỹ thuật"
  VIE_lf_logistics_merge_desc:0 "[VIE_lf_alt_n2]Quyết định 366/QĐ-BQP (24/1/2025) sáp nhập Tổng cục Hậu cần và Tổng cục Kỹ thuật thành Tổng cục Hậu cần - Kỹ thuật, công bố ngày 5/2/2025. Một đầu mối bảo đảm cho toàn quân thay cho hai hệ thống song song. (THẬT)"
- VIE_lf_basic_training:0 "Đào tạo lục quân cơ bản"
+ VIE_lf_basic_training:0 "Chuẩn hóa huấn luyện và đội ngũ cán bộ"
  VIE_lf_basic_training_desc:0 "[VIE_lf_alt_n3]Nghị quyết 109-NQ/QUTW (11/2/2019) về đội ngũ cán bộ và Nghị quyết 1657-NQ/QUTW (20/12/2022) đổi mới giáo dục, đào tạo trong quân đội là nền chung cho đào tạo sĩ quan và huấn luyện binh sĩ của mọi binh chủng. (THẬT)"
- VIE_lf_arm_infantry_org:0 "Bộ binh: tổ chức, cơ giới hóa từng bước"
- VIE_lf_arm_infantry_org_desc:0 "Tổ chức lại bộ binh theo hướng cơ giới hóa từng bước. Chỉ là cải tiến tổ chức: mẫu sư đoàn cơ giới đã có sẵn trong lực lượng. Chọn tối đa ba trong bốn binh chủng. (ĐỀ XUẤT)"
- VIE_lf_arm_infantry_train:0 "Bộ binh: đào tạo sĩ quan, huấn luyện binh sĩ"
+ VIE_lf_arm_infantry_org:0 "Kiện toàn đơn vị bộ binh"
+ VIE_lf_arm_infantry_org_desc:0 "Kiện toàn biên chế và nhiệm vụ của các đơn vị bộ binh, chuẩn bị phối hợp với thiết giáp, pháo binh và công binh. Đây là nền tảng binh chủng chung; hướng cơ cấu lực lượng sẽ được lựa chọn sau khi đạt khả năng hợp đồng tác chiến. Chọn tối đa ba trong bốn binh chủng."
+ VIE_lf_arm_infantry_train:0 "Huấn luyện bộ binh hiệp đồng"
  VIE_lf_arm_infantry_train_desc:0 "Nâng chuẩn đào tạo sĩ quan và huấn luyện binh sĩ bộ binh tại học viện và đơn vị. (ĐỀ XUẤT)"
- VIE_lf_arm_armor_org:0 "Tăng thiết giáp: tổ chức"
+ VIE_lf_arm_armor_org:0 "Chuẩn hóa lực lượng tăng thiết giáp"
  VIE_lf_arm_armor_org_desc:0 "Tổ chức lực lượng tăng thiết giáp thành các đơn vị cơ động hơn, phối hợp chặt với bộ binh cơ giới. Chọn tối đa ba trong bốn binh chủng. (ĐỀ XUẤT)"
- VIE_lf_arm_armor_train:0 "Tăng thiết giáp: đào tạo sĩ quan, kíp xe"
+ VIE_lf_arm_armor_train:0 "Huấn luyện tăng thiết giáp hiệp đồng"
  VIE_lf_arm_armor_train_desc:0 "Đào tạo chỉ huy xe và kíp xe cho các loại xe đang biên chế, từ T-54/55 đến T-90. (ĐỀ XUẤT)"
- VIE_lf_arm_arty_org:0 "Pháo binh: tổ chức, hỏa lực chi viện"
+ VIE_lf_arm_arty_org:0 "Kiện toàn lực lượng pháo binh"
  VIE_lf_arm_arty_org_desc:0 "Tổ chức hỏa lực chi viện của pháo binh, từ pháo kéo đến pháo tự hành, gắn với các cấp chiến thuật. Chọn tối đa ba trong bốn binh chủng. (ĐỀ XUẤT)"
- VIE_lf_arm_arty_train:0 "Pháo binh: đào tạo sĩ quan, pháo thủ"
+ VIE_lf_arm_arty_train:0 "Huấn luyện phối hợp hỏa lực"
  VIE_lf_arm_arty_train_desc:0 "Đào tạo sĩ quan chỉ huy hỏa lực và pháo thủ, chuẩn bị cho các khí tài mới như K9 và PTH. (ĐỀ XUẤT)"
- VIE_lf_arm_engineers:0 "Công binh: đào tạo, công binh chiến đấu"
- VIE_lf_arm_engineers_desc:0 "Binh chủng phụ: đào tạo công binh chiến đấu, gộp cả phần tổ chức. Chọn Công binh thay cho một binh chủng chính vẫn đủ ba binh chủng để mở Hiệp đồng binh chủng. (ĐỀ XUẤT)"
- VIE_lf_combined_arms:0 "Hiệp đồng binh chủng"
- VIE_lf_combined_arms_desc:0 "Bộ binh, thiết giáp, pháo binh và công binh hiệp đồng dưới một chỉ huy. Cần hoàn tất ba binh chủng. (ĐỀ XUẤT)"
+ VIE_lf_arm_engineers:0 "Kiện toàn lực lượng công binh"
+ VIE_lf_arm_engineers_desc:0 "Kiện toàn tổ chức, nhiệm vụ và bảo đảm cho lực lượng công binh. Năng lực đào tạo công binh chiến đấu được phát triển ở bước tiếp theo. (ĐỀ XUẤT)"
+ VIE_lf_arm_engineer_train:0 "Huấn luyện công binh chiến đấu"
+ VIE_lf_arm_engineer_train_desc:0 "Đào tạo cán bộ và chiến sĩ công binh về bảo đảm cơ động, vượt chướng ngại và phối hợp chiến đấu. Hoàn thành bước này được tính là một trong bốn binh chủng đã huấn luyện cho Hiệp đồng binh chủng. (ĐỀ XUẤT)"
+ VIE_lf_combined_arms:0 "Tác chiến hợp đồng binh chủng"
+ VIE_lf_combined_arms_desc:0 "Kiểm tra khả năng phối hợp giữa các binh chủng đã được kiện toàn và huấn luyện. Hoàn tất ba trong bốn binh chủng để mở nền tảng hợp đồng tác chiến, trước khi chọn cơ cấu lực lượng và xây dựng các đơn vị theo hướng ưu tiên."
  VIE_lf_command_reform_1:0 "Cải cách bộ chỉ huy I: chuẩn hóa tham mưu"
  VIE_lf_command_reform_1_desc:0 "Chuẩn hóa quy trình tham mưu và chỉ huy tác chiến của Bộ Tổng Tham mưu, theo tinh thần Nghị quyết 109-NQ/QUTW về cán bộ cấp chiến dịch. Mở các chương trình huấn luyện và diễn tập của Lục quân. (THẬT) nền, (ĐỀ XUẤT) cơ chế"
 
  ### Buoc 3: First Force Structure, huong phat trien, CR2.
- VIE_lf_fs_mobile_force:0 "Lực lượng cơ động"
- VIE_lf_fs_mobile_force_desc:0 "Hướng giả định: tổ chức lực lượng nhỏ, cơ động cao, phản ứng nhanh. Đổi lại giảm nhân lực, đắt hơn khi sản xuất trang bị và đào công sự kém hơn. Loại trừ Quân đoàn chủ lực chính quy và Phòng thủ chiều sâu. Lĩnh vực sở trường: Mạng và Điện tử. (ALT-HISTORY)"
- VIE_lf_fs_mobile_corps:0 "Cụm cơ động"
- VIE_lf_fs_mobile_corps_desc:0 "Lập các cụm cơ động tổ chức theo hướng tinh gọn, tăng tốc độ và sức tấn công. Mở mẫu sư đoàn Cụm Cơ động. (ALT-HISTORY)"
- VIE_lf_fs_main_corps:0 "Quân đoàn chủ lực chính quy"
- VIE_lf_fs_main_corps_desc:0 "Quân đoàn 12 (công bố 2/12/2023) và Quân đoàn 34 (15/12/2024) là các quân đoàn chủ lực cơ động chiến lược, tổ chức lại theo hướng tinh, gọn, mạnh. Hướng này ổn định, đổi lại chi phí duy trì cao hơn và kinh nghiệm tăng chậm hơn. Lĩnh vực sở trường: Phòng không lục quân. (THẬT)"
- VIE_lf_fs_lean_corps:0 "Tổ chức quân đoàn tinh, gọn, mạnh"
- VIE_lf_fs_lean_corps_desc:0 "Hoàn thiện cơ cấu quân đoàn theo hướng tinh, gọn, mạnh: bớt tầng nấc trung gian, tăng hiệu quả bảo đảm hậu cần cho đơn vị chủ lực. (THẬT)"
- VIE_lf_fs_depth_defence:0 "Phòng thủ chiều sâu"
- VIE_lf_fs_depth_defence_desc:0 "Phòng thủ nhiều tuyến dựa vào địa bàn và thế trận quốc phòng toàn dân. Công sự và phòng thủ vững hơn, đổi lại giảm sức tấn công và tốc độ. Lĩnh vực sở trường: Biên giới và Đô thị. (THẬT) nền"
- VIE_lf_fs_militia_units:0 "Tổ chức dân quân và đơn vị khu vực phòng thủ"
- VIE_lf_fs_militia_units_desc:0 "Tổ chức dân quân tự vệ thành các đơn vị có biên chế và chỉ huy rõ ràng, gắn với khu vực phòng thủ tỉnh, thành phố. Mở mẫu sư đoàn Dân quân Khu vực. Phần công trình phòng thủ và luật dân quân đã thuộc nhánh Phòng thủ toàn dân. (THẬT) nền"
- VIE_lf_dev_strategic:0 "Cơ động chiến lược"
- VIE_lf_dev_strategic_desc:0 "Đẩy mạnh khả năng cơ động chiến lược của lực lượng chủ lực. Mở chương trình Phản ứng nhanh. Loại trừ Phòng thủ khu vực và dự bị. (THẬT) một phần"
- VIE_lf_dev_territorial:0 "Phòng thủ khu vực và dự bị"
- VIE_lf_dev_territorial_desc:0 "Củng cố khu vực phòng thủ và lực lượng dự bị động viên theo Luật Lực lượng dự bị động viên 53/2019/QH14. Mở chương trình Động viên toàn dân. Loại trừ Cơ động chiến lược. (THẬT)"
+ VIE_lf_fs_mobile_force:0 "Ưu tiên lực lượng cơ động nhẹ"
+ VIE_lf_fs_mobile_force_desc:0 "Ưu tiên bộ binh cơ động, đội hình linh hoạt và thời gian triển khai ngắn. Lực lượng này thiên về phản ứng nhanh hơn là sức nặng của đội hình cơ giới; lựa chọn loại trừ hai hướng cơ cấu còn lại."
+ VIE_lf_fs_mobile_corps:0 "Tổ chức đơn vị cơ động linh hoạt"
+ VIE_lf_fs_mobile_corps_desc:0 "Xây dựng biên chế gọn, sở chỉ huy cơ động và các phân đội có thể điều chỉnh theo nhiệm vụ. Mẫu đơn vị được chuẩn bị để người chơi tự tổ chức và trang bị lực lượng."
+ VIE_lf_fs_main_corps:0 "Ưu tiên lực lượng cơ giới hóa"
+ VIE_lf_fs_main_corps_desc:0 "Ưu tiên các đơn vị chủ lực hợp thành, kết hợp bộ binh cơ giới, tăng thiết giáp và hỏa lực chi viện. Chọn hướng này thay cho ưu tiên cơ động nhẹ hoặc địa phương và dự bị."
+ VIE_lf_fs_lean_corps:0 "Tổ chức đơn vị hợp thành cơ giới"
+ VIE_lf_fs_lean_corps_desc:0 "Kiện toàn sở chỉ huy, biên chế và phân công giữa bộ binh cơ giới, thiết giáp, pháo binh và công binh. Cơ cấu hợp thành tạo nền để chuẩn hóa trang bị và bảo đảm tác chiến."
+ VIE_lf_fs_depth_defence:0 "Ưu tiên lực lượng địa phương và dự bị"
+ VIE_lf_fs_depth_defence_desc:0 "Ưu tiên khả năng bảo vệ địa bàn, duy trì lực lượng tại chỗ và bổ sung từ nguồn dự bị. Cơ cấu này coi trọng phòng thủ và chiều sâu hơn tốc độ tiến công, đồng thời loại trừ hai hướng ưu tiên còn lại."
+ VIE_lf_fs_militia_units:0 "Kiện toàn bộ đội địa phương"
+ VIE_lf_fs_militia_units_desc:0 "Làm rõ nhiệm vụ, biên chế và hệ thống chỉ huy của các đơn vị bảo vệ địa bàn. Chuẩn bị mẫu đơn vị khu vực để người chơi tự tổ chức lực lượng theo quân số và trang bị hiện có."
+ VIE_lf_dev_strategic:0 "Hoàn thiện lực lượng cơ động nhẹ"
+ VIE_lf_dev_strategic_desc:0 "Nghiệm thu khả năng tập kết, triển khai và phối hợp hỏa lực của lực lượng cơ động nhẹ. Hoàn tất chuỗi này mở cải cách chỉ huy cấp chiến dịch và chương trình diễn tập phản ứng nhanh."
+ VIE_lf_dev_territorial:0 "Hoàn thiện lực lượng phòng thủ địa bàn"
+ VIE_lf_dev_territorial_desc:0 "Nghiệm thu cơ cấu chỉ huy, nguồn dự bị và khả năng duy trì phòng thủ tại địa bàn. Hoàn tất chuỗi này mở cải cách chỉ huy cấp chiến dịch và chương trình động viên toàn dân."
  VIE_lf_command_reform_2:0 "Cải cách bộ chỉ huy II: bộ tư lệnh cấp chiến dịch"
- VIE_lf_command_reform_2_desc:0 "[VIE_lf_alt_cr2]Dựng bộ tư lệnh cấp chiến dịch trên nền các quân đoàn mới. Hiệu ứng khác nhau theo hướng lực lượng đã chọn. (THẬT) nền Quân đoàn 12 và 34"
+ VIE_lf_command_reform_2_desc:0 "[VIE_lf_alt_cr2]Kiện toàn bộ tư lệnh cấp chiến dịch trên nền một cơ cấu lực lượng đã hoàn thiện. Lực lượng cơ giới, cơ động nhẹ hoặc phòng thủ địa bàn đều có thể mở bước này; hiệu quả chỉ huy phản ánh hướng ưu tiên đã chọn."
 
  ### Buoc 4: nang luc, MOD, CR3, CAP.
  VIE_lf_cap_border_urban:0 "Tác chiến biên giới và đô thị"
@@ -105,3 +107,33 @@
  vie_lf.5.t:0 "Hợp nhất Tổng cục Hậu cần và Tổng cục Kỹ thuật"
  vie_lf.5.d:0 "Ngày 5 tháng 2 năm 2025, Bộ Quốc phòng công bố Quyết định 366/QĐ-BQP (ký ngày 24 tháng 1) sáp nhập Tổng cục Hậu cần và Tổng cục Kỹ thuật thành Tổng cục Hậu cần - Kỹ thuật.\n\nMột đầu mối bảo đảm cho toàn quân thay cho hai hệ thống song song: bớt chồng chéo ở các khâu vận tải, kho tàng, sửa chữa và cung cấp khí tài."
  vie_lf.5.a:0 "Một đầu mối bảo đảm cho toàn quân"
+
+ VIE_lf_mech_equipment:0 "Đồng bộ trang bị cơ giới"
+
+ VIE_lf_mech_equipment_desc:0 "Chuẩn hóa yêu cầu kỹ thuật, thông tin liên lạc và quy trình khai thác trang bị trong đơn vị hợp thành. Chương trình hỗ trợ nghiên cứu khí tài; các hợp đồng mua sắm và sản xuất vẫn quyết định số phương tiện thực có."
+
+ VIE_lf_mech_sustainment:0 "Bảo đảm tác chiến cơ giới"
+
+ VIE_lf_mech_sustainment_desc:0 "Tổ chức bảo dưỡng, sửa chữa, tiếp tế nhiên liệu và đạn cho các đơn vị cơ giới. Phối hợp các phân đội bảo đảm giúp đội hình duy trì hoạt động khi cơ động xa căn cứ."
+
+ VIE_lf_mech_complete:0 "Hoàn thiện lực lượng chủ lực cơ giới"
+
+ VIE_lf_mech_complete_desc:0 "Nghiệm thu khả năng hiệp đồng và duy trì tác chiến của lực lượng hợp thành cơ giới. Hoàn tất chuỗi này mở cải cách chỉ huy cấp chiến dịch và chương trình diễn tập phản ứng nhanh."
+
+ VIE_lf_mobile_fire_support:0 "Hỏa lực cơ động bộ binh"
+
+ VIE_lf_mobile_fire_support_desc:0 "Bố trí hỏa lực chi viện phù hợp với đội hình bộ binh cơ động, chú trọng khả năng chuyển vị trí và phối hợp tại cấp đơn vị. Huấn luyện kíp chiến đấu giúp lực lượng nhẹ có sức tấn công phù hợp nhiệm vụ."
+
+ VIE_lf_mobile_sustainment:0 "Bảo đảm cơ động trên địa hình phức tạp"
+
+ VIE_lf_mobile_sustainment_desc:0 "Chuẩn bị tuyến tiếp tế, cứu kéo và bảo dưỡng cho các đơn vị phân tán trên địa hình khó. Giảm gánh nặng bảo đảm giúp lực lượng cơ động nhẹ duy trì nhịp triển khai."
+
+ VIE_lf_territorial_reserve:0 "Chuẩn hóa lực lượng dự bị động viên"
+
+ VIE_lf_territorial_reserve_desc:0 "Chuẩn hóa danh sách dự bị, chuyên môn quân sự và quy trình tiếp nhận quân nhân khi động viên. Củng cố nguồn bổ sung có tổ chức thay cho cấp ngay các đơn vị đã đầy quân số."
+
+ VIE_lf_territorial_coordination:0 "Liên kết lực lượng và bảo đảm tại chỗ"
+
+ VIE_lf_territorial_coordination_desc:0 "Phối hợp bộ đội địa phương, dân quân tự vệ và nguồn bảo đảm tại địa bàn. Quy trình phối hợp rõ ràng giúp đơn vị triển khai phòng thủ nhanh và quản lý nhân lực hiệu quả hơn."
+
+ VIE_lf_mech_standardization_tech:0 "Chuẩn hóa khí tài cơ giới"

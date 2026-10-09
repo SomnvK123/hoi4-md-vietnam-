@@ -1,0 +1,962 @@
+{
+  "paths": [
+    {
+      "column": 168,
+      "flag": "regular",
+      "nodes": [
+        [
+          "fs_main_corps",
+          "Ưu tiên lực lượng cơ giới hóa",
+          "Ưu tiên các đơn vị chủ lực hợp thành, kết hợp bộ binh cơ giới, tăng thiết giáp và hỏa lực chi viện. Chọn hướng này thay cho ưu tiên cơ động nhẹ hoặc địa phương và dự bị.",
+          "fr1",
+          "fs_main_corps",
+          7
+        ],
+        [
+          "fs_lean_corps",
+          "Tổ chức đơn vị hợp thành cơ giới",
+          "Kiện toàn sở chỉ huy, biên chế và phân công giữa bộ binh cơ giới, thiết giáp, pháo binh và công binh. Cơ cấu hợp thành tạo nền để chuẩn hóa trang bị và bảo đảm tác chiến.",
+          "fr2",
+          "fs_lean_corps",
+          5
+        ],
+        [
+          "mech_equipment",
+          "Đồng bộ trang bị cơ giới",
+          "Chuẩn hóa yêu cầu kỹ thuật, thông tin liên lạc và quy trình khai thác trang bị trong đơn vị hợp thành. Chương trình hỗ trợ nghiên cứu khí tài; các hợp đồng mua sắm và sản xuất vẫn quyết định số phương tiện thực có.",
+          "mech_equipment",
+          "arm_armor_train",
+          7
+        ],
+        [
+          "mech_sustainment",
+          "Bảo đảm tác chiến cơ giới",
+          "Tổ chức bảo dưỡng, sửa chữa, tiếp tế nhiên liệu và đạn cho các đơn vị cơ giới. Phối hợp các phân đội bảo đảm giúp đội hình duy trì hoạt động khi cơ động xa căn cứ.",
+          "mech_sustainment",
+          "logistics_merge",
+          5
+        ],
+        [
+          "mech_complete",
+          "Hoàn thiện lực lượng chủ lực cơ giới",
+          "Nghiệm thu khả năng hiệp đồng và duy trì tác chiến của lực lượng hợp thành cơ giới. Hoàn tất chuỗi này mở cải cách chỉ huy cấp chiến dịch và chương trình diễn tập phản ứng nhanh.",
+          "mech_complete",
+          "combined_arms",
+          7
+        ]
+      ],
+      "positions": [
+        [
+          168,
+          8
+        ],
+        [
+          170,
+          9
+        ],
+        [
+          172,
+          10
+        ],
+        [
+          174,
+          11
+        ],
+        [
+          176,
+          12
+        ]
+      ]
+    },
+    {
+      "column": 180,
+      "flag": "mobile",
+      "nodes": [
+        [
+          "fs_mobile_force",
+          "Ưu tiên lực lượng cơ động nhẹ",
+          "Ưu tiên bộ binh cơ động, đội hình linh hoạt và thời gian triển khai ngắn. Lực lượng này thiên về phản ứng nhanh hơn là sức nặng của đội hình cơ giới; lựa chọn loại trừ hai hướng cơ cấu còn lại.",
+          "fm1",
+          "fs_mobile_force",
+          7
+        ],
+        [
+          "fs_mobile_corps",
+          "Tổ chức đơn vị cơ động linh hoạt",
+          "Xây dựng biên chế gọn, sở chỉ huy cơ động và các phân đội có thể điều chỉnh theo nhiệm vụ. Mẫu đơn vị được chuẩn bị để người chơi tự tổ chức và trang bị lực lượng.",
+          "fm2",
+          "fs_mobile_corps",
+          5
+        ],
+        [
+          "mobile_fire_support",
+          "Hỏa lực cơ động bộ binh",
+          "Bố trí hỏa lực chi viện phù hợp với đội hình bộ binh cơ động, chú trọng khả năng chuyển vị trí và phối hợp tại cấp đơn vị. Huấn luyện kíp chiến đấu giúp lực lượng nhẹ có sức tấn công phù hợp nhiệm vụ.",
+          "mobile_fire_support",
+          "arm_arty_train",
+          7
+        ],
+        [
+          "mobile_sustainment",
+          "Bảo đảm cơ động trên địa hình phức tạp",
+          "Chuẩn bị tuyến tiếp tế, cứu kéo và bảo dưỡng cho các đơn vị phân tán trên địa hình khó. Giảm gánh nặng bảo đảm giúp lực lượng cơ động nhẹ duy trì nhịp triển khai.",
+          "mobile_sustainment",
+          "logistics_merge",
+          5
+        ],
+        [
+          "dev_strategic",
+          "Hoàn thiện lực lượng cơ động nhẹ",
+          "Nghiệm thu khả năng tập kết, triển khai và phối hợp hỏa lực của lực lượng cơ động nhẹ. Hoàn tất chuỗi này mở cải cách chỉ huy cấp chiến dịch và chương trình diễn tập phản ứng nhanh.",
+          "ps",
+          "dev_strategic",
+          7
+        ]
+      ],
+      "positions": [
+        [
+          180,
+          8
+        ],
+        [
+          180,
+          9
+        ],
+        [
+          180,
+          10
+        ],
+        [
+          180,
+          11
+        ],
+        [
+          180,
+          12
+        ]
+      ]
+    },
+    {
+      "column": 192,
+      "flag": "depth",
+      "nodes": [
+        [
+          "fs_depth_defence",
+          "Ưu tiên lực lượng địa phương và dự bị",
+          "Ưu tiên khả năng bảo vệ địa bàn, duy trì lực lượng tại chỗ và bổ sung từ nguồn dự bị. Cơ cấu này coi trọng phòng thủ và chiều sâu hơn tốc độ tiến công, đồng thời loại trừ hai hướng ưu tiên còn lại.",
+          "fd1",
+          "fs_depth_defence",
+          7
+        ],
+        [
+          "fs_militia_units",
+          "Kiện toàn bộ đội địa phương",
+          "Làm rõ nhiệm vụ, biên chế và hệ thống chỉ huy của các đơn vị bảo vệ địa bàn. Chuẩn bị mẫu đơn vị khu vực để người chơi tự tổ chức lực lượng theo quân số và trang bị hiện có.",
+          "fd2",
+          "fs_militia_units",
+          5
+        ],
+        [
+          "territorial_reserve",
+          "Chuẩn hóa lực lượng dự bị động viên",
+          "Chuẩn hóa danh sách dự bị, chuyên môn quân sự và quy trình tiếp nhận quân nhân khi động viên. Củng cố nguồn bổ sung có tổ chức thay cho cấp ngay các đơn vị đã đầy quân số.",
+          "territorial_reserve",
+          "basic_training",
+          7
+        ],
+        [
+          "territorial_coordination",
+          "Liên kết lực lượng và bảo đảm tại chỗ",
+          "Phối hợp bộ đội địa phương, dân quân tự vệ và nguồn bảo đảm tại địa bàn. Quy trình phối hợp rõ ràng giúp đơn vị triển khai phòng thủ nhanh và quản lý nhân lực hiệu quả hơn.",
+          "territorial_coordination",
+          "arm_engineers",
+          5
+        ],
+        [
+          "dev_territorial",
+          "Hoàn thiện lực lượng phòng thủ địa bàn",
+          "Nghiệm thu cơ cấu chỉ huy, nguồn dự bị và khả năng duy trì phòng thủ tại địa bàn. Hoàn tất chuỗi này mở cải cách chỉ huy cấp chiến dịch và chương trình động viên toàn dân.",
+          "pt",
+          "dev_territorial",
+          7
+        ]
+      ],
+      "positions": [
+        [
+          192,
+          8
+        ],
+        [
+          190,
+          9
+        ],
+        [
+          188,
+          10
+        ],
+        [
+          186,
+          11
+        ],
+        [
+          184,
+          12
+        ]
+      ]
+    }
+  ],
+  "foundation_training": {
+    "id": "VIE_lf_arm_engineer_train",
+    "display_row": 5,
+    "purpose": "Engineer training; fourth counted component for the 3-of-4 prerequisite gate.",
+    "anchor": "VIE_lf_arm_engineers",
+    "position": [
+      186,
+      5
+    ],
+    "prerequisite_or": [
+      "VIE_lf_arm_infantry_train",
+      "VIE_lf_arm_armor_train",
+      "VIE_lf_arm_arty_train",
+      "VIE_lf_arm_engineer_train"
+    ],
+    "convergence_anchor": "VIE_lf_arm_infantry_train",
+    "convergence_position": [
+      180,
+      6
+    ],
+    "available_gate": "VIE_lf_arm_done_3",
+    "cost": 7
+  },
+  "layout": {
+    "VIE_lf_army_reform": {
+      "position": [
+        180,
+        2
+      ],
+      "display_row": 2,
+      "purpose": "shared foundation",
+      "anchor": "VIE_modernize_vpa",
+      "pre": [
+        [
+          "VIE_modernize_vpa"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_gate_open",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_logistics_merge": {
+      "position": [
+        178,
+        3
+      ],
+      "display_row": 3,
+      "purpose": "logistics and training",
+      "anchor": "VIE_lf_army_reform",
+      "pre": [
+        [
+          "VIE_lf_army_reform"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_basic_training": {
+      "position": [
+        182,
+        3
+      ],
+      "display_row": 3,
+      "purpose": "logistics and training",
+      "anchor": "VIE_lf_army_reform",
+      "pre": [
+        [
+          "VIE_lf_army_reform"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_arm_infantry_org": {
+      "position": [
+        174,
+        4
+      ],
+      "display_row": 4,
+      "purpose": "service organization",
+      "anchor": "VIE_lf_logistics_merge",
+      "pre": [
+        [
+          "VIE_lf_logistics_merge"
+        ],
+        [
+          "VIE_lf_basic_training"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_arm_slot_free",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_arm_armor_org": {
+      "position": [
+        178,
+        4
+      ],
+      "display_row": 4,
+      "purpose": "service organization",
+      "anchor": "VIE_lf_logistics_merge",
+      "pre": [
+        [
+          "VIE_lf_logistics_merge"
+        ],
+        [
+          "VIE_lf_basic_training"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_arm_slot_free",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_arm_arty_org": {
+      "position": [
+        182,
+        4
+      ],
+      "display_row": 4,
+      "purpose": "service organization",
+      "anchor": "VIE_lf_logistics_merge",
+      "pre": [
+        [
+          "VIE_lf_logistics_merge"
+        ],
+        [
+          "VIE_lf_basic_training"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_arm_slot_free",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_arm_engineers": {
+      "position": [
+        186,
+        4
+      ],
+      "display_row": 4,
+      "purpose": "service organization",
+      "anchor": "VIE_lf_logistics_merge",
+      "pre": [
+        [
+          "VIE_lf_logistics_merge"
+        ],
+        [
+          "VIE_lf_basic_training"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_arm_slot_free",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_arm_infantry_train": {
+      "position": [
+        174,
+        5
+      ],
+      "display_row": 5,
+      "purpose": "service training",
+      "anchor": "VIE_lf_arm_infantry_org",
+      "pre": [
+        [
+          "VIE_lf_arm_infantry_org"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_arm_armor_train": {
+      "position": [
+        178,
+        5
+      ],
+      "display_row": 5,
+      "purpose": "service training",
+      "anchor": "VIE_lf_arm_armor_org",
+      "pre": [
+        [
+          "VIE_lf_arm_armor_org"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_arm_arty_train": {
+      "position": [
+        182,
+        5
+      ],
+      "display_row": 5,
+      "purpose": "service training",
+      "anchor": "VIE_lf_arm_arty_org",
+      "pre": [
+        [
+          "VIE_lf_arm_arty_org"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_arm_engineer_train": {
+      "position": [
+        186,
+        5
+      ],
+      "display_row": 5,
+      "purpose": "service training",
+      "anchor": "VIE_lf_arm_engineers",
+      "pre": [
+        [
+          "VIE_lf_arm_engineers"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_combined_arms": {
+      "position": [
+        180,
+        6
+      ],
+      "display_row": 6,
+      "purpose": "combined arms convergence",
+      "anchor": "VIE_lf_arm_infantry_train",
+      "pre": [
+        [
+          "VIE_lf_arm_infantry_train",
+          "VIE_lf_arm_armor_train",
+          "VIE_lf_arm_arty_train",
+          "VIE_lf_arm_engineer_train"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_arm_done_3",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_command_reform_1": {
+      "position": [
+        180,
+        7
+      ],
+      "display_row": 7,
+      "purpose": "command standardization",
+      "anchor": "VIE_lf_combined_arms",
+      "pre": [
+        [
+          "VIE_lf_combined_arms"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_fs_main_corps": {
+      "position": [
+        168,
+        8
+      ],
+      "display_row": 8,
+      "purpose": "mutually exclusive force priority",
+      "anchor": "VIE_lf_command_reform_1",
+      "pre": [
+        [
+          "VIE_lf_command_reform_1"
+        ]
+      ],
+      "ex": [
+        "VIE_lf_fs_mobile_force",
+        "VIE_lf_fs_depth_defence"
+      ],
+      "available": []
+    },
+    "VIE_lf_fs_mobile_force": {
+      "position": [
+        180,
+        8
+      ],
+      "display_row": 8,
+      "purpose": "mutually exclusive force priority",
+      "anchor": "VIE_lf_command_reform_1",
+      "pre": [
+        [
+          "VIE_lf_command_reform_1"
+        ]
+      ],
+      "ex": [
+        "VIE_lf_fs_main_corps",
+        "VIE_lf_fs_depth_defence"
+      ],
+      "available": []
+    },
+    "VIE_lf_fs_depth_defence": {
+      "position": [
+        192,
+        8
+      ],
+      "display_row": 8,
+      "purpose": "mutually exclusive force priority",
+      "anchor": "VIE_lf_command_reform_1",
+      "pre": [
+        [
+          "VIE_lf_command_reform_1"
+        ]
+      ],
+      "ex": [
+        "VIE_lf_fs_main_corps",
+        "VIE_lf_fs_mobile_force"
+      ],
+      "available": []
+    },
+    "VIE_lf_fs_lean_corps": {
+      "position": [
+        170,
+        9
+      ],
+      "display_row": 9,
+      "purpose": "force organization",
+      "anchor": "VIE_lf_fs_main_corps",
+      "pre": [
+        [
+          "VIE_lf_fs_main_corps"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_fs_mobile_corps": {
+      "position": [
+        180,
+        9
+      ],
+      "display_row": 9,
+      "purpose": "force organization",
+      "anchor": "VIE_lf_fs_mobile_force",
+      "pre": [
+        [
+          "VIE_lf_fs_mobile_force"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_fs_militia_units": {
+      "position": [
+        190,
+        9
+      ],
+      "display_row": 9,
+      "purpose": "force organization",
+      "anchor": "VIE_lf_fs_depth_defence",
+      "pre": [
+        [
+          "VIE_lf_fs_depth_defence"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_mech_equipment": {
+      "position": [
+        172,
+        10
+      ],
+      "display_row": 10,
+      "purpose": "equipment, fire support, reserve",
+      "anchor": "VIE_lf_fs_lean_corps",
+      "pre": [
+        [
+          "VIE_lf_fs_lean_corps"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_mobile_fire_support": {
+      "position": [
+        180,
+        10
+      ],
+      "display_row": 10,
+      "purpose": "equipment, fire support, reserve",
+      "anchor": "VIE_lf_fs_mobile_corps",
+      "pre": [
+        [
+          "VIE_lf_fs_mobile_corps"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_territorial_reserve": {
+      "position": [
+        188,
+        10
+      ],
+      "display_row": 10,
+      "purpose": "equipment, fire support, reserve",
+      "anchor": "VIE_lf_fs_militia_units",
+      "pre": [
+        [
+          "VIE_lf_fs_militia_units"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_mech_sustainment": {
+      "position": [
+        174,
+        11
+      ],
+      "display_row": 11,
+      "purpose": "sustainment and coordination",
+      "anchor": "VIE_lf_mech_equipment",
+      "pre": [
+        [
+          "VIE_lf_mech_equipment"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_mobile_sustainment": {
+      "position": [
+        180,
+        11
+      ],
+      "display_row": 11,
+      "purpose": "sustainment and coordination",
+      "anchor": "VIE_lf_mobile_fire_support",
+      "pre": [
+        [
+          "VIE_lf_mobile_fire_support"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_territorial_coordination": {
+      "position": [
+        186,
+        11
+      ],
+      "display_row": 11,
+      "purpose": "sustainment and coordination",
+      "anchor": "VIE_lf_territorial_reserve",
+      "pre": [
+        [
+          "VIE_lf_territorial_reserve"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_mech_complete": {
+      "position": [
+        176,
+        12
+      ],
+      "display_row": 12,
+      "purpose": "selected force capstone",
+      "anchor": "VIE_lf_mech_sustainment",
+      "pre": [
+        [
+          "VIE_lf_mech_sustainment"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_dev_strategic": {
+      "position": [
+        180,
+        12
+      ],
+      "display_row": 12,
+      "purpose": "selected force capstone",
+      "anchor": "VIE_lf_mobile_sustainment",
+      "pre": [
+        [
+          "VIE_lf_mobile_sustainment"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_dev_territorial": {
+      "position": [
+        184,
+        12
+      ],
+      "display_row": 12,
+      "purpose": "selected force capstone",
+      "anchor": "VIE_lf_territorial_coordination",
+      "pre": [
+        [
+          "VIE_lf_territorial_coordination"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_command_reform_2": {
+      "position": [
+        180,
+        13
+      ],
+      "display_row": 13,
+      "purpose": "campaign command convergence",
+      "anchor": "VIE_lf_mech_complete",
+      "pre": [
+        [
+          "VIE_lf_mech_complete",
+          "VIE_lf_dev_strategic",
+          "VIE_lf_dev_territorial"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_cap_border_urban": {
+      "position": [
+        174,
+        14
+      ],
+      "display_row": 14,
+      "purpose": "capability choice (2 of 3)",
+      "anchor": "VIE_lf_command_reform_2",
+      "pre": [
+        [
+          "VIE_lf_command_reform_2"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_cap_slot_free",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_cap_army_ad": {
+      "position": [
+        180,
+        14
+      ],
+      "display_row": 14,
+      "purpose": "capability choice (2 of 3)",
+      "anchor": "VIE_lf_command_reform_2",
+      "pre": [
+        [
+          "VIE_lf_command_reform_2"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_cap_slot_free",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_cap_cyber_ew": {
+      "position": [
+        186,
+        14
+      ],
+      "display_row": 14,
+      "purpose": "capability choice (2 of 3)",
+      "anchor": "VIE_lf_command_reform_2",
+      "pre": [
+        [
+          "VIE_lf_command_reform_2"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_cap_slot_free",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_cap_area_control": {
+      "position": [
+        174,
+        15
+      ],
+      "display_row": 15,
+      "purpose": "capability development",
+      "anchor": "VIE_lf_cap_border_urban",
+      "pre": [
+        [
+          "VIE_lf_cap_border_urban"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_cap_ad_coord": {
+      "position": [
+        180,
+        15
+      ],
+      "display_row": 15,
+      "purpose": "capability development",
+      "anchor": "VIE_lf_cap_army_ad",
+      "pre": [
+        [
+          "VIE_lf_cap_army_ad"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_cap_info_ops": {
+      "position": [
+        186,
+        15
+      ],
+      "display_row": 15,
+      "purpose": "capability development",
+      "anchor": "VIE_lf_cap_cyber_ew",
+      "pre": [
+        [
+          "VIE_lf_cap_cyber_ew"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_selective_modernization": {
+      "position": [
+        180,
+        16
+      ],
+      "display_row": 16,
+      "purpose": "capability convergence",
+      "anchor": "VIE_lf_cap_area_control",
+      "pre": [
+        [
+          "VIE_lf_cap_area_control",
+          "VIE_lf_cap_ad_coord",
+          "VIE_lf_cap_info_ops"
+        ]
+      ],
+      "ex": [],
+      "available": [
+        [
+          "VIE_lf_cap_done_2",
+          "=",
+          "yes"
+        ]
+      ]
+    },
+    "VIE_lf_command_reform_3": {
+      "position": [
+        180,
+        17
+      ],
+      "display_row": 17,
+      "purpose": "senior command",
+      "anchor": "VIE_lf_selective_modernization",
+      "pre": [
+        [
+          "VIE_lf_selective_modernization"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    },
+    "VIE_lf_force_complete": {
+      "position": [
+        180,
+        18
+      ],
+      "display_row": 18,
+      "purpose": "force completion",
+      "anchor": "VIE_lf_command_reform_3",
+      "pre": [
+        [
+          "VIE_lf_command_reform_3"
+        ]
+      ],
+      "ex": [],
+      "available": []
+    }
+  },
+  "selection_gates": {
+    "VIE_lf_combined_arms": {
+      "type": "n_of_m",
+      "required": 3,
+      "total": 4,
+      "counter": "VIE_lf_arm_done",
+      "counted_by": [
+        "VIE_lf_arm_infantry_train",
+        "VIE_lf_arm_armor_train",
+        "VIE_lf_arm_arty_train",
+        "VIE_lf_arm_engineer_train"
+      ],
+      "trigger": "VIE_lf_arm_done_3",
+      "available_focus": "VIE_lf_combined_arms",
+      "slot_limit": 3,
+      "slot_counter": "VIE_lf_arm_count"
+    },
+    "VIE_lf_selective_modernization": {
+      "type": "n_of_m",
+      "required": 2,
+      "total": 3,
+      "counter": "VIE_lf_cap_done",
+      "counted_by": [
+        "VIE_lf_cap_area_control",
+        "VIE_lf_cap_ad_coord",
+        "VIE_lf_cap_info_ops"
+      ],
+      "trigger": "VIE_lf_cap_done_2",
+      "available_focus": "VIE_lf_selective_modernization",
+      "slot_limit": 2,
+      "slot_counter": "VIE_lf_cap_count"
+    }
+  }
+}
