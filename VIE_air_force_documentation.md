@@ -3,6 +3,21 @@
 > **Tài liệu tổng hợp nghiên cứu, kiến trúc & triển khai (08/10/2026)**  
 > Hợp nhất toàn bộ 8 tài liệu phân mảnh của Quân chủng Phòng không – Không quân Việt Nam.
 
+## Hoàn thiện reward chuẩn bị lực lượng v25 (09/10/2026)
+
+Bốn focus sau Cải tổ I từng chỉ thưởng tổng cộng 25 Air XP. Nay reward được tách theo nhiệm vụ; giữ tổng 25 XP, chuyển sang mastery nếu đã chọn học thuyết không quân, giống các reward PK-KQ hiện có.
+
+| Focus | Reward |
+|---|---|
+| Diễn tập Bắn đạn thật | 10 XP/mastery không quân; 10 command power |
+| Huấn luyện GCI và radar | 5 XP/mastery; +0,25% phát hiện máy bay |
+| Tổ chức trung đoàn | 5 XP/mastery; 5 command power; −0,5% hệ số chi phí nhân sự không quân |
+| Căn cứ không quân dự bị | 5 XP/mastery; +1% phòng thủ không quân trên lãnh thổ |
+
+Bonus lâu dài dùng dynamic modifier `VIE_armed_forces_modifier` và được đưa vào audit cân bằng. Căn cứ dự bị ở đây là chuẩn bị, phân tán và diễn tập chuyển sân tại sân bay hiện có; không xây thêm cấp sân bay. Không cấp máy bay, biên chế mới hay cờ hoàn tất chương trình D1–D4. Bốn prerequisite AND trước Củng cố lực lượng nòng cốt và layout được giữ nguyên. Focus được hoàn tất một lần theo cơ chế cây; không thêm replay reward khi tải save cũ đã hoàn tất focus.
+
+Kiểm tra tĩnh bổ sung đối chiếu từng reward, cả nhánh XP/mastery và 24 thứ tự hoàn thành cho mỗi nhánh. Cần kiểm tra tooltip, mastery và modifier thực tế trong HOI4.
+
 ## Mục lục
 1. [Phần 1: Kiến trúc theo tầng và Chuẩn hóa Layout PK-KQ v19](#phần-1-kiến-trúc-theo-tầng-và-chuẩn-hóa-layout-pk-kq-v19)
 2. [Phần 2: Báo cáo Tổng thể Nội dung nhánh Không quân](#phần-2-báo-cáo-tổng-thể-nội-dung-nhánh-không-quân)
@@ -14,35 +29,34 @@
 8. [Phần 8: Kế hoạch Triển khai Roster Chỉ huy PK-KQ](#phần-8-kế-hoạch-triển-khai-roster-chỉ-huy-pk-kq)
 
 ---
-## Phần 1: Kiến trúc theo tầng và Chuẩn hóa Layout PK-KQ v19
+## Phần 1: Kiến trúc theo tầng và Chuẩn hóa Layout PK-KQ v24
 
-# Phòng không–Không quân v19 — củng cố trước định hướng
+# PK-KQ air branch v24 - tiered Y1-Y12 layout
 
 09/10/2026, triển khai trực tiếp trên `main`. Đây là thiết kế hiện hành; các phần nghiên cứu và kế hoạch phía sau giữ làm lịch sử.
 
-**33 focus**: giữ 29 ID gốc, ba cơ cấu tác chiến và một đích hiệp đồng. Bỏ ba focus ưu tiên ngân sách được thêm ở v18. Toàn cây có 420 focus; 387 focus ngoài phạm vi giữ nguyên AST và tọa độ. Artwork, hải quân và lịch mua sắm không đổi.
+**37 PK-KQ focuses**: retain 29 original IDs, three force-structure choices, add three readiness focuses at Y4, and one integrated capstone. The full tree now has 424 focuses; 387 outside the PK-KQ scope retain their AST and coordinates. All four readiness focuses unlock after Command Reform I; First Force requires all four.
 
 ## Kiến trúc và bố cục
 
-Root chung `VIE_airf_training_standardization` ở (220, 2). Cụm lực lượng x214–228; công nghiệp x230–234. Tham khảo kiến trúc cây Đức đã đọc từ bản MD cài trên máy, không sao chép reward hoặc mutex chuyên ngành: [đồ thị nguồn](.claude/docs/air/germany_architecture.json).
+Shared root at (220,2), Command Reform I at (220,4), four readiness focuses on y=5, and First Force at (220,6). Three mutually exclusive structures sit at (212/220/228,7); Command Reform II and Medium Force at (218/222,8). The three specialty roots are at y=9; specialty components plus Datalink at y=10; tanker at y=11; capstones at y=12; Integrated Force at (220,13). Display Y1 maps to absolute file y=2 because the branch starts below `VIE_modernize_vpa`. Datalink belongs to the UAV column and is a visible prerequisite of Teaming. Multirole requires Command Reform II AND Medium Force. Integrated Force retains the 2/3 capstone gate in `available`.
 
-| Tầng | Hàng | Nội dung |
-|---|---|---|
-| Nền tảng và củng cố | 3–5 | Tiêm kích + phòng không → Cải cách I → Củng cố lực lượng nòng cốt |
-| Định hướng | 7 | Một hàng mutex: phòng thủ lãnh thổ / tác chiến cân bằng / cơ động và hoạt động tầm xa |
-| Chỉ huy và nhiệm vụ chung | 9–11 | Cải cách II và quy mô song song; dữ liệu và phạm vi hoạt động; vận tải/tầm xa là nhánh phụ |
-| Chuyên ngành | 12–14 | Mở nền tảng → chức năng cùng hàng → đích hội tụ dưới |
-| Hiệp đồng | 16 | Chỉ huy + công nghiệp trưởng thành + D4 thực hoàn tất + 2/3 đích |
-
-Công nghiệp mở trực tiếp dưới root không quân: thể chế ở (232, 3), A32/A31/radar ở (230/232/234, 4), tích hợp và UAV ở (232/234, 6), trưởng thành ở (232, 8). F5 vẫn cần 2/3 trụ bằng ba khối OR kết hợp AND; F7 vẫn cần tích hợp bậc 2 và 3/4 trụ bậc 2, không bắt UAV.
+| Display row | Absolute y | Focuses / gate summary |
+|---|---:|---|
+| Y1 | 2 | Shared standardization root |
+| Y2-Y3 | 3-4 | Fighter + SAM; Command Reform I requires both |
+| Y4-Y5 | 5-6 | Four readiness focuses; First Force requires all four |
+| Y6-Y7 | 7-8 | Three pairwise mutex structures; Command Reform II + Medium Force |
+| Y8-Y10 | 9-11 | SAM, multirole and UAV columns; tanker and Datalink on support row |
+| Y11-Y12 | 12-13 | Three specialty capstones; Integrated Force retains the 2/3 gate |
 
 ## Quan hệ chuyên ngành
 
 - A1 → **A2 và A3 song song** → A4 cần A2 AND A3. Radar–tên lửa nhiều tầng và tác chiến điện tử là hai chức năng bổ sung; giữ ngưỡng công nghiệp riêng.
-- B1 → B2; B3 mở từ T7 với A32 bậc 2, đặt cùng hàng B2; B5 cần B2 AND B3. Vận tải/tầm xa B4 mở từ T8, không bắt buộc để đạt B5.
-- C1 → **C2 và C4 song song**; C2 cần UAV bậc 2, C4 cần bậc 3. C5 cần C2 AND C4 AND liên kết dữ liệu C3, cộng tích hợp bậc 2 và D1 hoàn tất.
-- T5 mở trực tiếp từ Cải cách I, cần D1/D2 đã hoàn tất và một trụ công nghiệp đã mở. Ba lựa chọn tác chiến chỉ mở sau T5; không có lựa chọn ngân sách trước củng cố.
-- T6 và T7 mở từ một trong ba cơ cấu; T6 cần D3 hoàn tất, T7 cần D4 hoàn tất. T8 cần cả T6 và T7. C3 mở từ T6 và tích hợp công nghiệp.
+- B1 `VIE_airf_multirole` requires Command Reform II AND Medium Force. B2 (fleet), B3 (sustainment), and T8 (operating range) open directly from B1; B5 requires all three. Tanker depends on T8 but is not required for B5.
+- C1 opens C2 (ISR), C4 (UCAV), and C3 (Datalink) in the UAV column. C5 `VIE_airf_teaming` requires C2 AND C4 AND C3 as visible prerequisites; `available` still requires B1 `VIE_airf_multirole` and MUM-T readiness. Integrated Force retains its 2/3 capstone, mature-industry, and completed-D4 gates.
+- Diễn tập hiệp đồng mở từ Cải cách I; T5 mở sau diễn tập, cần D1/D2 đã hoàn tất và một trụ công nghiệp đã mở. Ba lựa chọn tác chiến chỉ mở sau T5; không có lựa chọn ngân sách trước củng cố.
+- T6 và T7 mở từ một trong ba cơ cấu; T6 cần D3 hoàn tất, T7 cần D4 hoàn tất. Riêng B1 cần cả T6 và T7; do đó các năng lực tiêm kích phía sau không thể bỏ qua chỉ huy hoặc biên chế. T8 là con của B1. C3 mở từ T6 và tích hợp công nghiệp.
 
 Quan hệ nội bộ hiện bằng prerequisite. Điều kiện công nghiệp của lực lượng có tooltip tên focus và bậc; không vẽ đường ngang xuyên cụm công nghiệp. Con thấp hơn mọi cha; gap cùng hàng ≥2; anchor thật khai báo trước con.
 
@@ -1333,7 +1347,7 @@ Lưu ý nhỏ: báo cáo ghi D-E "nhân thưởng nhánh ×1,0/×1,5". Hải qu�
 
 ---
 
-# PHẦN 4 — THIẾT KẾ CHỐT CHO CODE
+# PHẦN 4 — THIẾT KẾ V19 (TÀI LIỆU LỊCH SỬ, KHÔNG PHẢI QUAN HỆ CODE HIỆN HÀNH)
 
 ## 4.1 Hai mươi hai Focus (tọa độ tuyệt đối, đã kiểm trống)
 

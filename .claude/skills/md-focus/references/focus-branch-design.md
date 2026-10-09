@@ -24,6 +24,33 @@ prerequisite = { focus = VIE_supporting_industries }
 prerequisite = { focus = VIE_samsung_partnership focus = VIE_china_plus_one }
 ```
 
+### Kiểm tra cửa ngõ năng lực và nhánh con
+
+Trước khi sửa prerequisite, ghi rõ focus cung cấp năng lực gì và cần những năng lực nội bộ nào có trước. Biểu diễn các năng lực bắt buộc theo AND (mỗi điều kiện một khối `prerequisite` riêng); chỉ đặt các phương án trong cùng một khối khi chọn một trong số đó là đủ (OR). Giữ điều kiện bên ngoài như trạng thái sẵn sàng của chương trình trong `available`.
+
+Tiếp theo, rà toàn bộ đường đi xuống các focus con/cháu, không chỉ focus đang sửa. Nếu thiết kế yêu cầu năng lực lõi trước, không để focus bảo đảm, tầm hoạt động, triển khai hoặc chuyên ngành vẫn mở được qua một đường prerequisite song song. Sau khi đổi quan hệ, tính lại tọa độ và anchor phía sau; xác nhận mỗi focus nằm dưới tất cả prerequisite cha trực tiếp.
+
+#### Ví dụ: cửa ngõ năng lực tiêm kích đa năng
+
+Trong thiết kế PK-KQ yêu cầu cả cải tổ chỉ huy lẫn biên chế lực lượng trước khi đưa tiêm kích đa năng vào biên chế, khai báo cửa ngõ như sau:
+
+```pdx
+focus = {
+    id = VIE_airf_multirole
+    prerequisite = { focus = VIE_airf_command_reform_2 }
+    prerequisite = { focus = VIE_airf_medium_force }
+}
+```
+
+Các focus phía sau cũng cần dùng năng lực máy bay làm cửa ngõ cho hoạt động tiêm kích:
+
+- `VIE_airf_multirole_fleet`, `VIE_airf_sustainment` và `VIE_airf_operating_range` phụ thuộc vào `VIE_airf_multirole`.
+- `VIE_airf_airlift_tanker` phụ thuộc vào `VIE_airf_operating_range`.
+- `VIE_airf_multirole_wing` hội tụ bằng AND từ `VIE_airf_multirole_fleet`, `VIE_airf_sustainment` và `VIE_airf_operating_range`.
+- Giữ cờ sẵn sàng công nghiệp/chương trình trong `available`; chúng không thay thế đường focus nội bộ.
+
+Đây là ví dụ riêng cho thiết kế nhánh này, không phải quy tắc buộc mọi focus đều cần cải tổ chỉ huy hay biên chế lực lượng. Giữ đúng logic năng lực dự định của nhánh đang sửa.
+
 ## 2. Chính sách, reward và chi phí
 
 - Dùng cặp mutex nhỏ cho chính sách thay thế nhau, khai báo hai chiều và đặt cạnh
@@ -38,6 +65,31 @@ prerequisite = { focus = VIE_samsung_partnership focus = VIE_china_plus_one }
 - cost là thời gian; PP, hỗ trợ ngân sách và giá công trình là các khoản khác nhau.
   Helper công trình MD đã thu tiền; hỗ trợ riêng phải có lý do và thu một lần,
   không lặp lại giá công trình.
+- Với từng focus, viết trước một câu nêu năng lực hoặc quyết định mà nó cấp; sau đó
+  chọn reward biểu đạt đúng điều đó. Các focus cùng hàng có thể cùng mở bằng AND
+  nhưng vẫn cần kết quả riêng, không gán cùng một khoản XP cho đủ focus chỉ để
+  làm hàng prerequisite. Nếu chủ đích chỉ là chuẩn bị, huấn luyện hoặc lập kế
+  hoạch thì không thưởng ngay trang bị/công trình hoàn tất.
+- Trước khi thêm modifier vĩnh viễn, xác minh biến trong dynamic modifier và
+  effect đang dùng; tìm giới hạn/cap qua audit hiện hành. Cộng mọi focus có thể
+  đi cùng nhau, kể cả các nhánh hội tụ, thay vì kiểm riêng từng reward.
+- XP quân chủng: dùng helper doctrine-aware sẵn có trong nhánh nếu đã có. Mẫu
+  PK-KQ đổi Air XP sang air mastery khi đã chọn Air Grand Doctrine; nếu chưa
+  chọn thì cấp Air XP. Không giả định raw XP tương đương mastery hoặc cộng cả hai.
+- Cập nhật completion reward, scripted effect, mô tả/tooltip và hợp đồng audit
+  cân bằng cùng lúc. Scenario cần kiểm từng reward, trạng thái doctrine, gate và
+  thứ tự hoàn thành song song. Nếu reward đổi sau khi focus đã hoàn tất trong save
+  cũ, nêu rõ thay đổi không hồi tố trừ khi đã làm cơ chế bù riêng.
+
+### Ca tham khảo: bốn focus chuẩn bị PK-KQ
+
+Bốn focus sau Cải tổ I minh họa reward theo nhiệm vụ mà không tự cấp khí tài hay
+công trình: diễn tập bắn đạn thật cho XP/mastery và command power; GCI/radar cải
+thiện phát hiện; tổ chức trung đoàn giảm nhẹ hệ số chi phí nhân sự; căn cứ dự bị
+tăng nhẹ phòng thủ trên lãnh thổ. Tổng XP/mastery được giữ bằng mức trước khi sửa.
+Đây là ví dụ cân bằng của nhánh PK-KQ, không phải bộ số mặc định cho focus quân
+sự khác. Xem effect và cap hiện hành trong `VIE_air_force_documentation.md` và
+`tools/audit/air_force_balance.py`.
 
 ## 3. Thời điểm, cờ và save cũ
 
@@ -61,10 +113,37 @@ prerequisite = { focus = VIE_samsung_partnership focus = VIE_china_plus_one }
 
 - Anchor là một prerequisite thật, khai báo trước con. Con thấp hơn **tất cả**
   cha; điểm hội tụ ở dưới hàng lựa chọn/tiền đề.
-- Giữ phạm vi ngang đã chốt, gap cùng hàng ≥2; được tăng chiều sâu để quan hệ đúng.
-  Không dời nhánh lân cận chỉ để lấp chỗ trống.
-- Xếp các nhánh song song và cặp chính sách cạnh nhau khi có thể. Kiểm đường dài,
-  giao cắt và chữ ở kích thước hiển thị, không chỉ kiểm trùng ô.
+- **Tính tọa độ tuyệt đối trước khi chỉnh layout.** Trong focus HOI4, `x` và `y`
+  là độ lệch so với `relative_position_id`, không phải tọa độ toàn cây. Dùng parser/
+  sơ đồ để cộng dồn anchor và đánh giá vị trí tuyệt đối; không suy trục từ các số
+  `x` cục bộ.
+- **Giữ trục giữa xuyên suốt thân cây.** Chọn một trục chuẩn ở tầng gốc, rồi kiểm
+  các focus chỉ huy và capstone tối cao nằm trên cùng trục nếu quan hệ thiết kế
+  yêu cầu. Sau mỗi lần đổi anchor, tính lại toàn bộ node con và kiểm drift X tích
+  lũy; không để mỗi tầng lệch thêm một bước.
+- **Căn cột theo cha.** Các focus con cùng chuyên ngành phải tạo thành một cột dễ
+  đọc; ở hàng có nhiều nhánh con, tâm nhóm con nên trùng hoặc cân quanh tâm cha.
+  Capstone chuyên ngành nằm cùng một hàng và dưới đúng trục của từng chuyên ngành.
+  Focus phụ trợ như tanker, kho vận hoặc bảo đảm không chen vào hàng capstone;
+  đặt nó ở tầng riêng dưới focus chức năng mà nó cần.
+- Giữ gap cùng hàng ít nhất 2 đơn vị; ưu tiên 4 khi có chỗ và bề rộng icon cần
+  khoảng thở. Xem cả bề rộng hộp focus, không chỉ ô tọa độ. Không áp luật “x phải
+  chẵn” cho toàn cây; điều quan trọng là vị trí tuyệt đối và khoảng cách thực tế.
+- Xếp các nhánh song song và cặp chính sách cạnh nhau khi có thể. Rà mọi đường
+  prerequisite dài, đặc biệt đường từ root/chỉ huy tới capstone. Nếu một hội tụ đã
+  buộc đủ các capstone mà mỗi capstone đều phụ thuộc vào root đó, bỏ cạnh root
+  trùng lặp để tránh đường nối rơi xuyên nhiều tầng; chỉ làm khi chứng minh logic
+  mở khóa không đổi.
+- Không để focus thành node treo về mặt đồ họa. Với điều kiện nội bộ liên nhánh,
+  chọn vị trí giúp prerequisite nối vào nhánh đích mà không cắt qua node khác.
+  Nếu cần chuyển gate sang `available` để tránh dây cắt, giữ tooltip nêu tên điều
+  kiện và chủ động bố trí node gate trong cụm có liên hệ thị giác; không đổi logic
+  mở khóa chỉ để làm đẹp dây.
+- Trước khi chốt, xuất sơ đồ từ **tọa độ tuyệt đối của file thật**, kiểm hàng/cột,
+  node chồng lấn, các nhánh có cân quanh cha không, capstone có thẳng hàng không,
+  đường dài có cắt node không, và node có flow nhìn thấy được không. Xem sơ đồ ở
+  cỡ hiển thị người dùng; kiểm số liệu giao cắt không thay thế việc xem hình hoặc
+  kiểm tra trong game.
 - Khi lực lượng và công nghiệp có vòng tiến triển khác nhau, cho mỗi hệ thống
   một cụm và vùng riêng, với khoảng trống rõ ràng. Các cụm có thể cùng mở từ
   root quân chủng theo thiết kế đã chốt; không mặc định tách root độc lập dưới
@@ -117,3 +196,28 @@ Số focus và tọa độ của ví dụ này không phải chuẩn chung cho c
 Nguồn: [Focus Tree Tool](https://millenniumdawn.github.io/Millennium-Dawn/dev-resources/focus-tree-tool/)
 và [Design Principles](https://millenniumdawn.github.io/Millennium-Dawn/dev-resources/focus-tree-design-principles/).
 Tài liệu tool giải thích ký hiệu/xuất skeleton, không yêu cầu mọi nhánh có mutex.
+
+
+
+## Convert a tiered sketch into a focus tree
+
+Before editing, make a table in **absolute coordinates**. If diagram Y1 sits below an external national focus, document the difference between displayed Y and absolute file Y. PDX `x/y` are offsets from `relative_position_id`, not tree coordinates.
+
+| Row | Focus IDs / role | Gate | Anchor | Absolute coordinates |
+|---|---|---|---|---|
+| Y1 | `VIE_airf_training_standardization` shared root | root | `VIE_modernize_vpa` | (220,2) |
+| Y2 | `VIE_airf_sam_force`; `VIE_airf_fighter_force` | each needs root | root | (218,3); (222,3) |
+| Y3 | `VIE_airf_command_reform_1` | fighter AND SAM | fighter | (220,4) |
+| Y4 | `VIE_airf_tactical_exercises`; `VIE_airf_gci_radar_training`; `VIE_airf_regiment_formation`; `VIE_airf_reserve_bases` | all need command reform I | command reform I | (214,5); (218,5); (222,5); (226,5) |
+| Y5 | `VIE_airf_first_force` | AND all four Y4 focuses | tactical exercises | (220,6) |
+| Y6 | `VIE_airf_structure_territorial`; `_balanced`; `_long_range` | each needs Y5; pairwise mutex | Y5 | (212,7); (220,7); (228,7) |
+| Y7 | `VIE_airf_command_reform_2`; `VIE_airf_medium_force` | selected structure | balanced; long range | (218,8); (222,8) |
+| Y8 | `VIE_airf_iads`; `VIE_airf_multirole`; `VIE_airf_unmanned` | IADS/UAV need C2; fighter needs C2 AND medium force | C2 | (214,9); (220,9); (226,9) |
+| Y9 | `layered_defence`, `ew_antistealth`; `multirole_fleet`, `operating_range`, `sustainment`; `isr_uav`, `datalink`, `strike_uav` (`VIE_airf_` prefix) | each needs its specialty root | own root | X=212/216; 218/220/222; 224/226/228, Y=10 |
+| Y10 support | `VIE_airf_airlift_tanker` | operating range | operating range | (220,11) |
+| Y11 | `VIE_airf_iads_command`; `VIE_airf_multirole_wing`; `VIE_airf_teaming` | AND within each column; Teaming also needs Datalink and multirole availability gate | same column | (214,12); (220,12); (226,12) |
+| Y12 | `VIE_airf_integrated_force` | keep 2/3 capstone gate in `available`; do not require all three | multirole wing | (220,13) |
+
+The Y9 child row has eight focus cards. To keep minimum gap 2, this implementation expands the abstract sketch span to X=212..228 (center 220); the sketch tick range is illustrative and cannot fit eight focus cards at that spacing.
+
+Workflow: verify IDs/icons/localisation; assign absolute coordinates then derive offsets; ensure anchors are direct prerequisites declared earlier; distinguish AND/OR/mutex; check overlap, gap >=2, column/capstone alignment, support rows, long/crossing connectors, and orphan nodes; update scenario coverage and render from the actual focus file. A static diagram does not confirm HOI4 runtime rendering. This mapping describes PK-KQ v24 under external parent `VIE_modernize_vpa`, not a universal coordinate standard.

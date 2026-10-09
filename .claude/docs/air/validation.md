@@ -1,4 +1,51 @@
-# Kiểm định PK-KQ v19 — 09/10/2026
+## Current v24 - PK-KQ Y1-Y12 layout
+
+- Focus tree: 424 total; 37 PK-KQ focuses. `audit.py`: no duplicate coordinates, dangling prerequisites/anchors, forward anchors, or cycles.
+- `air_scenarios.py`: ALL PASS, 144 paths; covers all four First Force prerequisites, Teaming's Datalink gate, and D5's 2/3 capstone condition.
+- Absolute PK-KQ rows: root y=2; readiness y=5; structures y=7; C2/Medium Force y=8; specialty roots y=9; components and Datalink y=10; tanker y=11; capstones y=12; integration y=13.
+- HOI4 was not launched; PNG/XML are static diagrams and do not verify engine connector rendering.
+
+## Reward chuẩn bị lực lượng v25 — 09/10/2026
+
+- Hoàn thiện bốn reward sau Cải tổ I; chi tiết ở `VIE_air_force_documentation.md`, mục v25. Tổng 25 XP/mastery và 15 CP; modifier riêng GCI +0,25% detection, trung đoàn −0,5% chi phí nhân sự, căn cứ dự bị +1% home defence.
+- `air_scenarios.py`: PASS từng reward, nhánh XP/mastery, 48 thứ tự hoàn thành và 144 đường hoàn chỉnh. `air_force_balance.py`: ALL PASS, đối chiếu 26/26 reward; detection gồm các trục khác tối đa 19,75/20%, home defence 16,5/20%, mission efficiency vẫn 16/16%.
+- `audit.py`: 424 focus, 0 lỗi anchor/prerequisite/vòng lặp/tọa độ. `live.py`: 0 MISSING; vẫn ghi nhận idea cũ không dùng `VIE_airf_branch_mismatch_idea`, không phát sinh từ sửa reward này. Hai kiểm tra localisation: 0 lỗi, 3641 key.
+- Chưa kiểm tra trong HOI4: tooltip reward, mastery khi đã chọn học thuyết, CP khi gần trần và dynamic modifier sau khi hoàn tất từng focus. Save đã hoàn tất các focus này không được hồi tố reward mới.
+
+# Kiểm định PK-KQ v23 — 09/10/2026
+
+## Bổ sung v23 — 09/10/2026
+
+- Căn Cải cách II, Tiêm kích đa nhiệm và focus tích hợp tối cao về trục tuyệt đối x=220; cân các nhóm con quanh trục cha và giữ ba capstone cùng hàng y=15.
+- Thêm `VIE_airf_tactical_exercises` giữa Cải cách I và Củng cố lực lượng; diễn tập cho 10 air XP. Tanker xuống y=16; focus tích hợp ở (220,17) chỉ nối ba capstone, bỏ cạnh trực tiếp dài từ Cải cách II vì quan hệ đó đã được bao hàm.
+- Datalink đặt dưới Cải cách II và thành prerequisite trực tiếp của Tiêm kích đa nhiệm, tránh node treo; Teaming vẫn đòi B1 qua tooltip, nên gate C3 của Teaming được giữ mà không cần cạnh cắt nhánh.
+- Kết quả: `audit.py` 421 focus, 0 trùng tọa độ/anchor/prerequisite treo/forward-ref/chu trình; `air_scenarios.py` ALL PASS (144 đường); giao cắt orthogonal của PK-KQ = 0 (Manhattan 209); `air_ai_options.py` problems 0; `air_force_balance.py` ALL PASS; localisation 0 lỗi, 3635 key; draw.io XML hợp lệ; `git diff --check` sạch.
+- Đã xuất lại preview/sơ đồ/tài liệu quan hệ. Chưa mở HOI4 runtime để xác nhận cách engine vẽ dây trong game.
+
+## Bổ sung v22 — 09/10/2026
+
+- Tăng khoảng cách các node cùng hàng chuyên ngành từ 2 lên 4; cột SAM/tiêm kích/UAV và ba capstone được đặt lại trên lưới rộng hơn.
+- Chuyển điều kiện hoàn tất Datalink và Tiêm kích đa năng của `VIE_airf_teaming` sang `available` với tooltip hiển thị rõ hai focus; điều kiện chơi không đổi nhưng hai dây chéo nhánh được bỏ khỏi cây.
+- Đưa Datalink sang phía trái nhánh và căn `teaming` dưới strike UAV để tránh đường từ Cải tổ II cắt vào B1 và tránh dây C3 chạy qua các node chuyên ngành.
+- Kết quả: `audit.py` 420 focus, 0 ô trùng/anchor lỗi/forward-ref/chu trình; `air_scenarios.py` ALL PASS (144 đường); giao cắt orthogonal trong PK-KQ = 0; `audit_loc_errors.py` 0 lỗi; `verify_all_loc.py` 3633 key, 0 lỗi; `git diff --check` sạch.
+- Đã xuất lại `air_after.json`, `air_changes.md`, `air_redesign.drawio` và `air_after.png`, xem PNG ở kích thước render. HOI4 runtime vẫn chưa được mở để kiểm tra pixel/layout của engine.
+
+## Bổ sung v21 — 09/10/2026
+
+- `VIE_airf_multirole` yêu cầu AND `VIE_airf_command_reform_2` và `VIE_airf_medium_force`.
+- `VIE_airf_multirole_fleet`, `VIE_airf_sustainment` và `VIE_airf_operating_range` cùng mở trực tiếp từ `VIE_airf_multirole`; `VIE_airf_multirole_wing` cần cả ba. Tanker tiếp tục phụ thuộc bán kính tác chiến nhưng không bắt buộc cho capstone.
+- Cập nhật fixture `air_scenarios.py` để kiểm graph/tầng mới, tanker còn dưới operating range và ba capstone cùng hàng.
+- Kết quả: `audit.py` 420 focus, 0 trùng tọa độ/prerequisite/anchor/forward-ref/chu trình; `air_scenarios.py` ALL PASS (144 đường); `air_ai_options.py` problems 0; `air_force_balance.py` ALL PASS; `git diff --check` sạch.
+- Chưa mở game để xác nhận line routing/render thực tế.
+
+## Bổ sung v20 — 09/10/2026
+
+- Bố cục PK-KQ được xếp lại theo tầng; ba capstone ở hàng y=14, `VIE_airf_integrated_force` ở y=16. Quan hệ/reward và preview đã xuất lại trong `air_after.json`, `air_changes.md`, `air_redesign.drawio` và `air_after.png`.
+- `VIE_airf_teaming` nay yêu cầu trực tiếp `VIE_airf_multirole`, ngoài datalink và hai focus UAV; trigger tích hợp/D1 và reward không đổi.
+- `python tools/audit/audit.py`: 420 focus; 0 trùng tọa độ, prerequisite/anchor treo, forward anchor hoặc chu trình.
+- `python tools/audit/air_scenarios.py`: ALL PASS, gồm 144 đường phát triển và kiểm tra chặn teaming khi thiếu focus đa nhiệm.
+- `python tools/audit/air_ai_options.py`: problems 0.
+- Chưa mở game để kiểm tra routing, tooltip hoặc runtime; sơ đồ tĩnh không xác nhận cách HOI4 vẽ đường nối.
 
 ## Kiểm tra tĩnh
 

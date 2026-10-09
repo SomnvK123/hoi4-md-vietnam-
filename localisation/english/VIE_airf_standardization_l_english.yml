@@ -16,6 +16,7 @@
  VIE_tt_airf_uav_isr_ready:0 "UAV đạt bậc 2."
  VIE_tt_airf_uav_strike_ready:0 "UAV đạt bậc 3."
  VIE_tt_airf_teaming_ready:0 "Tích hợp đạt bậc 2; đã hoàn tất $VIE_airf_d1_fighters$."
+ VIE_tt_airf_teaming_multirole:0 "Đã hoàn tất $VIE_airf_multirole$."
  VIE_airf_status_done:0 "§GĐạt§!"
  VIE_airf_status_pending:0 "§RChưa đạt§!"
  VIE_tt_airf_two_capstones:0 "Đạt ít nhất §Y2 trong 3§! đích:\n$VIE_airf_iads_command$: [VIEAirfIadsStatus]\n$VIE_airf_multirole_wing$: [VIEAirfMultiStatus]\n$VIE_airf_teaming$: [VIEAirfUavStatus]"

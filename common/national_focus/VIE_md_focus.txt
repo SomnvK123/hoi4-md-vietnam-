@@ -13,6 +13,10 @@ focus_tree = {
 		}
 	}
 
+	## v25 (09/10/2026): hoan thien reward bon focus chuan bi sau C1; XP/mastery, CP, GCI, bien che va phan tan can cu; giu tran cong don.
+	## v24 (09/10/2026): chuan hoa PK-KQ theo so do Y1-Y12; them 3 focus chuan bi, dua datalink cung hang component UAV; D5 van can 2/3 capstone.
+	## v23 (09/10/2026): can lai truc giua; chen dien tap chien thuat; tach tanker khoi hang capstone; dua C3 vao B1; bo duong dai toi capstone toi cao.
+	## v21 (09/10/2026): cua ngo tiem kich da nang can ca chi huy II va luc luong trung han; bao dam ky thuat va ban kinh tac chien mo sau tiem kich.
 	## v19 (09/10/2026): 33 focus PK-KQ; cung co truoc dinh huong, mot hang mutex co cau, phong khong/UAV song song; ngan sach theo chuong trinh va D5 chon muc tieu ro rang.
 	## v18 (08/10/2026): chuan hoa PK-KQ 29 -> 36 focus; root khong quan chung, hai cum luc luong/cong nghiep theo tang, mutex ngan sach/co cau, cong theo ket qua chuong trinh, dich 2/3.
 	## v17 (08/10/2026): tai thiet ke cong nghiep 35 -> 39 focus; quan he AND/OR hien ro, 2 cap chinh sach FDI/ban dan, moc lich su va capstone 3/6 nganh.
@@ -13026,14 +13030,14 @@ focus_tree = {
 
 	###############################
 	## TRÚC 3: PHÒNG KHÔNG - KHÔNG QUÂN & CÔNG NGHIỆP HÀNG KHÔNG
-	## Kiến trúc 5 Tầng chuẩn hoá: Nền tảng -> Lựa chọn -> Chỉ huy -> 3 Chuyên ngành -> Hiệp đồng
-	## Toạ độ trục giữa: X = 220 (Cụm lực lượng: 214..226; Cụm công nghiệp: 230..234)
+	## Bo cuc: Nen tang -> Cung co -> Co cau -> Nhiem vu chung -> Chuyen nganh -> Hiep dong
+	## Toa do goc PK-KQ: X = 220 (cụm luc luong 216..228; cong nghiep 230..234)
 	###############################
 
 	###############################
 	## TẦNG 1: NỀN TẢNG LỰC LƯỢNG (TIÊM KÍCH & PHÒNG KHÔNG)
 	###############################
-	# PK-KQ v19: cung co -> mot hang co cau -> cac chuc nang song song.
+	# PK-KQ v24: bon focus chuan bi -> co cau mutex -> ba cot SAM/Tiem kich/UAV hoi tu.
 
 	focus = {
 		id = VIE_airf_training_standardization
@@ -13072,7 +13076,7 @@ focus_tree = {
 		id = VIE_airf_fighter_force
 		icon = GFX_focus_VIE_airf_fighter_force
 		cost = 7
-		x = -2
+		x = 2
 		y = 1
 		relative_position_id = VIE_airf_training_standardization
 		prerequisite = {
@@ -13105,7 +13109,7 @@ focus_tree = {
 		id = VIE_airf_sam_force
 		icon = GFX_focus_VIE_airf_sam_force
 		cost = 7
-		x = 2
+		x = -2
 		y = 1
 		relative_position_id = VIE_airf_training_standardization
 		prerequisite = {
@@ -13171,7 +13175,7 @@ focus_tree = {
 		id = VIE_airf_command_reform_1
 		icon = GFX_focus_VIE_airf_command_reform_1
 		cost = 7
-		x = 2
+		x = -2
 		y = 1
 		relative_position_id = VIE_airf_fighter_force
 		prerequisite = {
@@ -13303,15 +13307,84 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_airf_first_force
-		icon = GFX_focus_VIE_airf_first_force
+		id = VIE_airf_tactical_exercises
+		icon = GFX_focus_VIE_airf_command_reform_1
 		cost = 7
-		x = 0
+		x = -6
 		y = 1
 		relative_position_id = VIE_airf_command_reform_1
 		prerequisite = {
 			focus = VIE_airf_command_reform_1
 		}
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_tactical_exercises"
+			VIE_airf_tactical_exercises_reward = yes
+		}
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_airf_gci_radar_training
+		icon = GFX_focus_VIE_airf_datalink
+		cost = 5
+		x = -2
+		y = 1
+		relative_position_id = VIE_airf_command_reform_1
+		prerequisite = { focus = VIE_airf_command_reform_1 }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_gci_radar_training"
+			VIE_airf_gci_radar_training_reward = yes
+		}
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_airf_regiment_formation
+		icon = GFX_focus_VIE_airf_first_force
+		cost = 5
+		x = 2
+		y = 1
+		relative_position_id = VIE_airf_command_reform_1
+		prerequisite = { focus = VIE_airf_command_reform_1 }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_regiment_formation"
+			VIE_airf_regiment_formation_reward = yes
+		}
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_airf_reserve_bases
+		icon = GFX_focus_VIE_airf_sam_force
+		cost = 5
+		x = 6
+		y = 1
+		relative_position_id = VIE_airf_command_reform_1
+		prerequisite = { focus = VIE_airf_command_reform_1 }
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_reserve_bases"
+			VIE_airf_reserve_bases_reward = yes
+		}
+		ai_will_do = { base = 60 }
+	}
+
+	focus = {
+		id = VIE_airf_first_force
+		icon = GFX_focus_VIE_airf_first_force
+		cost = 7
+		x = 6
+		y = 1
+		relative_position_id = VIE_airf_tactical_exercises
+		prerequisite = {
+			focus = VIE_airf_tactical_exercises
+		}
+		prerequisite = { focus = VIE_airf_gci_radar_training }
+		prerequisite = { focus = VIE_airf_regiment_formation }
+		prerequisite = { focus = VIE_airf_reserve_bases }
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		available = {
 			VIE_airf_training_done = yes
@@ -13418,8 +13491,8 @@ focus_tree = {
 		id = VIE_airf_structure_territorial
 		icon = GFX_focus_VIE_airf_iads
 		cost = 5
-		x = -4
-		y = 2
+		x = -8
+		y = 1
 		relative_position_id = VIE_airf_first_force
 		mutually_exclusive = { focus = VIE_airf_structure_balanced focus = VIE_airf_structure_long_range }
 		prerequisite = {
@@ -13447,7 +13520,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_airf_command_reform_1
 		cost = 5
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_airf_first_force
 		mutually_exclusive = { focus = VIE_airf_structure_territorial focus = VIE_airf_structure_long_range }
 		prerequisite = {
@@ -13478,8 +13551,8 @@ focus_tree = {
 		id = VIE_airf_structure_long_range
 		icon = GFX_focus_VIE_airf_operating_range
 		cost = 5
-		x = 4
-		y = 2
+		x = 8
+		y = 1
 		relative_position_id = VIE_airf_first_force
 		mutually_exclusive = { focus = VIE_airf_structure_territorial focus = VIE_airf_structure_balanced }
 		prerequisite = {
@@ -13544,9 +13617,9 @@ focus_tree = {
 		id = VIE_airf_command_reform_2
 		icon = GFX_focus_VIE_airf_command_reform_2
 		cost = 7
-		x = 2
-		y = 2
-		relative_position_id = VIE_airf_structure_territorial
+		x = -2
+		y = 1
+		relative_position_id = VIE_airf_structure_balanced
 		prerequisite = {
 			focus = VIE_airf_structure_territorial
 			focus = VIE_airf_structure_balanced
@@ -13581,9 +13654,9 @@ focus_tree = {
 		id = VIE_airf_medium_force
 		icon = GFX_focus_VIE_airf_medium_force
 		cost = 7
-		x = 6
-		y = 2
-		relative_position_id = VIE_airf_structure_territorial
+		x = -6
+		y = 1
+		relative_position_id = VIE_airf_structure_long_range
 		prerequisite = {
 			focus = VIE_airf_structure_territorial
 			focus = VIE_airf_structure_balanced
@@ -13614,11 +13687,13 @@ focus_tree = {
 		}
 	}
 
+
+
 	focus = {
-		id = VIE_airf_datalink
-		icon = GFX_focus_VIE_airf_datalink
+		id = VIE_airf_iads
+		icon = GFX_focus_VIE_airf_iads
 		cost = 7
-		x = -2
+		x = -4
 		y = 1
 		relative_position_id = VIE_airf_command_reform_2
 		prerequisite = {
@@ -13626,22 +13701,46 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		available = {
-			VIE_airf_integration_focus_ready = yes
+			VIE_airf_iads_ready = yes
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_datalink"
-			VIE_airf_c3_reward = yes
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads"
+			VIE_airf_a1_reward = yes
+			VIE_airf_research_1_reward = yes
 		}
 		ai_will_do = {
 			base = 60
 			modifier = {
 				factor = 0
-				is_ai = yes
-				VIE_ai_historical = yes
-				NOT = {
-					date > 2022.12.31
-				}
+				has_active_mission = bankruptcy_incoming_collapse
 			}
+		}
+	}
+
+	focus = {
+		id = VIE_airf_multirole
+		icon = GFX_focus_VIE_airf_multirole
+		cost = 7
+		x = 2
+		y = 1
+		relative_position_id = VIE_airf_command_reform_2
+		prerequisite = {
+			focus = VIE_airf_command_reform_2
+		}
+		prerequisite = {
+			focus = VIE_airf_medium_force
+		}
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+		available = {
+			VIE_airf_fighter_industry_ready = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole"
+			VIE_airf_b1_reward = yes
+			VIE_airf_research_2_reward = yes
+		}
+		ai_will_do = {
+			base = 20
 			modifier = {
 				factor = 0
 				has_active_mission = bankruptcy_incoming_collapse
@@ -13653,14 +13752,11 @@ focus_tree = {
 		id = VIE_airf_operating_range
 		icon = GFX_focus_VIE_airf_operating_range
 		cost = 7
-		x = 2
+		x = 0
 		y = 1
-		relative_position_id = VIE_airf_command_reform_2
+		relative_position_id = VIE_airf_multirole
 		prerequisite = {
-			focus = VIE_airf_command_reform_2
-		}
-		prerequisite = {
-			focus = VIE_airf_medium_force
+			focus = VIE_airf_multirole
 		}
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		completion_reward = {
@@ -13688,7 +13784,7 @@ focus_tree = {
 		id = VIE_airf_airlift_tanker
 		icon = GFX_focus_VIE_airf_airlift_tanker
 		cost = 7
-		x = 4
+		x = 0
 		y = 1
 		relative_position_id = VIE_airf_operating_range
 		prerequisite = {
@@ -13717,67 +13813,11 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_airf_iads
-		icon = GFX_focus_VIE_airf_iads
-		cost = 7
-		x = -2
-		y = 3
-		relative_position_id = VIE_airf_command_reform_2
-		prerequisite = {
-			focus = VIE_airf_command_reform_2
-		}
-		search_filters = { FOCUS_FILTER_AIRCRAFT }
-		available = {
-			VIE_airf_iads_ready = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_iads"
-			VIE_airf_a1_reward = yes
-			VIE_airf_research_1_reward = yes
-		}
-		ai_will_do = {
-			base = 60
-			modifier = {
-				factor = 0
-				has_active_mission = bankruptcy_incoming_collapse
-			}
-		}
-	}
-
-	focus = {
-		id = VIE_airf_multirole
-		icon = GFX_focus_VIE_airf_multirole
-		cost = 7
-		x = 0
-		y = 3
-		relative_position_id = VIE_airf_medium_force
-		prerequisite = {
-			focus = VIE_airf_medium_force
-		}
-		search_filters = { FOCUS_FILTER_AIRCRAFT }
-		available = {
-			VIE_airf_fighter_industry_ready = yes
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole"
-			VIE_airf_b1_reward = yes
-			VIE_airf_research_2_reward = yes
-		}
-		ai_will_do = {
-			base = 20
-			modifier = {
-				factor = 0
-				has_active_mission = bankruptcy_incoming_collapse
-			}
-		}
-	}
-
-	focus = {
 		id = VIE_airf_unmanned
 		icon = GFX_focus_VIE_airf_unmanned
 		cost = 7
-		x = 9
-		y = 3
+		x = 8
+		y = 1
 		relative_position_id = VIE_airf_command_reform_2
 		prerequisite = {
 			focus = VIE_airf_command_reform_2
@@ -13804,6 +13844,41 @@ focus_tree = {
 		}
 	}
 
+
+	focus = {
+		id = VIE_airf_datalink
+		icon = GFX_focus_VIE_airf_datalink
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = VIE_airf_unmanned
+		prerequisite = {
+			focus = VIE_airf_unmanned
+		}
+		search_filters = { FOCUS_FILTER_AIRCRAFT }
+		available = {
+			VIE_airf_integration_focus_ready = yes
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_datalink"
+			VIE_airf_c3_reward = yes
+		}
+		ai_will_do = {
+			base = 60
+			modifier = {
+				factor = 0
+				is_ai = yes
+				VIE_ai_historical = yes
+				NOT = {
+					date > 2022.12.31
+				}
+			}
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
 	focus = {
 		id = VIE_airf_layered_defence
 		icon = GFX_focus_VIE_airf_layered_defence
@@ -13914,10 +13989,10 @@ focus_tree = {
 		icon = GFX_focus_VIE_airf_sustainment
 		cost = 7
 		x = 2
-		y = 4
-		relative_position_id = VIE_airf_medium_force
+		y = 1
+		relative_position_id = VIE_airf_multirole
 		prerequisite = {
-			focus = VIE_airf_medium_force
+			focus = VIE_airf_multirole
 		}
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		available = {
@@ -13948,7 +14023,7 @@ focus_tree = {
 		id = VIE_airf_isr_uav
 		icon = GFX_focus_VIE_airf_isr_uav
 		cost = 7
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = VIE_airf_unmanned
 		prerequisite = {
@@ -13983,7 +14058,7 @@ focus_tree = {
 		id = VIE_airf_strike_uav
 		icon = GFX_focus_VIE_airf_strike_uav
 		cost = 7
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = VIE_airf_unmanned
 		prerequisite = {
@@ -14018,7 +14093,7 @@ focus_tree = {
 		id = VIE_airf_iads_command
 		icon = GFX_focus_VIE_airf_iads_command
 		x = 2
-		y = 1
+		y = 2
 		relative_position_id = VIE_airf_layered_defence
 		prerequisite = {
 			focus = VIE_airf_layered_defence
@@ -14055,14 +14130,17 @@ focus_tree = {
 	focus = {
 		id = VIE_airf_multirole_wing
 		icon = GFX_focus_VIE_airf_multirole_wing
-		x = 2
-		y = 1
-		relative_position_id = VIE_airf_multirole_fleet
+		x = 0
+		y = 2
+		relative_position_id = VIE_airf_operating_range
 		prerequisite = {
 			focus = VIE_airf_multirole_fleet
 		}
 		prerequisite = {
 			focus = VIE_airf_sustainment
+		}
+		prerequisite = {
+			focus = VIE_airf_operating_range
 		}
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		available = {
@@ -14093,21 +14171,23 @@ focus_tree = {
 	focus = {
 		id = VIE_airf_teaming
 		icon = GFX_focus_VIE_airf_teaming
-		x = 11
-		y = 4
-		relative_position_id = VIE_airf_datalink
-		prerequisite = {
-			focus = VIE_airf_datalink
-		}
+		x = -2
+		y = 2
+		relative_position_id = VIE_airf_strike_uav
 		prerequisite = {
 			focus = VIE_airf_isr_uav
 		}
 		prerequisite = {
 			focus = VIE_airf_strike_uav
 		}
+		prerequisite = { focus = VIE_airf_datalink }
 		search_filters = { FOCUS_FILTER_AIRCRAFT }
 		available = {
 			VIE_airf_teaming_ready = yes
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_airf_teaming_multirole
+				has_completed_focus = VIE_airf_multirole
+			}
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_airf_teaming"
@@ -14135,12 +14215,9 @@ focus_tree = {
 		id = VIE_airf_integrated_force
 		icon = GFX_focus_VIE_airf_command_reform_2
 		cost = 7
-		x = 2
-		y = 7
-		relative_position_id = VIE_airf_command_reform_2
-		prerequisite = {
-			focus = VIE_airf_command_reform_2
-		}
+		x = 0
+		y = 1
+		relative_position_id = VIE_airf_multirole_wing
 		prerequisite = {
 			focus = VIE_airf_iads_command
 			focus = VIE_airf_multirole_wing

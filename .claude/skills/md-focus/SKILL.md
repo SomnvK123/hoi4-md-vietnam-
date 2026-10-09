@@ -54,6 +54,7 @@ Khi nhận yêu cầu thêm focus (ví dụ `/new-focus VIE_xyz dưới VIE_abc`
 Đọc chi tiết tại [references/focus-branch-design.md](references/focus-branch-design.md).
 
 - **Phụ thuộc nội bộ bằng Prerequisite:** Hai khối `prerequisite` riêng là AND; nhiều `focus` trong cùng một khối là OR. Đặt con thấp hơn mọi cha. Không dùng `available` để giấu quan hệ nội bộ hoặc làm phẳng cây.
+- **Kiểm tra tiền đề theo năng lực:** Trước khi chốt prerequisite, liệt kê các năng lực nội bộ bắt buộc và xác định chúng là AND hay OR. Rà cả nhánh con/cháu để chắc rằng không thể mở hoạt động phụ thuộc mà bỏ qua focus mở năng lực lõi. Dùng `available` cho điều kiện ngoài nhánh như cờ chương trình hoặc mốc thời gian, không thay thế prerequisite nội bộ. Xem [focus-branch-design.md](references/focus-branch-design.md) để biết quy trình và ví dụ.
 - **Nhánh có nhiệm vụ riêng:** Tách xây dựng lực lượng khỏi công nghiệp bảo đảm bằng cụm và vùng bố cục riêng. Hai cụm có thể cùng mở từ root quân chủng theo thiết kế đã chốt; không mặc định mỗi cụm phải có root độc lập dưới gốc quân sự. Điều kiện công nghiệp của cụm lực lượng phải có tooltip nêu tên focus và bậc cần đạt. Không xen các focus lực lượng vào cột công nghiệp.
 - **Định hướng đọc được trên cây:** Phân biệt cơ cấu tác chiến, ưu tiên ngân sách và năng lực. Khi người dùng yêu cầu thấy định hướng trực tiếp, dùng các focus lựa chọn rõ tên; giữ chương trình đầu tư/hoàn tất thực, không thưởng lại từ event cũ.
 - **Chia tầng có ý nghĩa:** Nền tảng → lựa chọn → bảo đảm chung → chuyên ngành → hội tụ là một mẫu hữu ích. Dùng điểm gom và khoảng nghỉ; tham khảo cây MD thực có về kiến trúc, không sao chép gameplay hoặc ép mọi nhánh cùng số tầng.
@@ -63,8 +64,15 @@ Khi nhận yêu cầu thêm focus (ví dụ `/new-focus VIE_xyz dưới VIE_abc`
 - **Không `mutually_exclusive` cỡ lớn:** Mutex chỉ dùng cho lựa chọn chính sách loại trừ nhau ngay tức thì, không khóa vĩnh viễn cả một cụm năng lực dài hạn.
 - **Capstone mở:** Focus cuối nhánh phản ánh sự hội tụ của nhiều hướng đi thành công hợp lệ, không ép buộc người chơi phải đi duy nhất một đường độc đạo.
 - **Khoảng cách toạ độ:** Gap cùng hàng giữa các nút anh em tối thiểu $\ge 2$ để tránh đè giao diện. Điểm hội tụ nằm thấp hơn tất cả các nhánh cha.
+- **Rà layout bằng tọa độ tuyệt đối:** `x/y` là độ lệch từ `relative_position_id`. Cộng dồn anchor để kiểm trục giữa, độ cân cột con, hàng capstone, node phụ trợ, node treo và dây prerequisite dài trước khi chốt. Xem checklist ở [focus-branch-design.md](references/focus-branch-design.md).
 
 ---
+
+- For a tiered layout sketch, create a mapping table before editing: display row, purpose, focus IDs, AND/OR gates, anchor, and absolute coordinates. Do not infer unlock logic from diagram arrows; decide prerequisites, mutex, and `available` separately.
+- Calculate layout in two passes: choose the absolute center axis and assign absolute coordinates to every node first; then convert each node to `x/y` offsets from an earlier, direct prerequisite anchor. Record any offset between diagram Y labels and absolute file Y.
+- Check rows for duplicate positions and minimum gap 2; align specialty columns and capstones; reserve rows for support focuses; review long/crossing connectors and visually orphaned nodes. Do not force a coordinate convention that creates overlap or column drift.
+- Verify gates after layout: separate prerequisite blocks mean AND; focuses inside one block mean OR. A convergence arrow can mean AND, OR, or illustration only, so specify the intended logic. Update scenarios to check each missing gate and the fully satisfied route.
+- The PK-KQ Y1-Y12 example and its ID/coordinate/gate mapping are in [focus-branch-design.md](references/focus-branch-design.md). Reuse the process, not its fixed coordinates or tier count.
 
 ## 3. Cấu trúc Code & Thứ tự Trường dữ liệu chuẩn MD
 
@@ -137,6 +145,8 @@ focus = {
    log = "[GetDateText]: [Root.GetName]: Focus VIE_<id>"
    ```
 
+Khi thiết kế reward cho một chuỗi hoặc hàng focus, xác định kết quả gameplay riêng của từng focus theo vai trò và tên gọi. Không để các focus khác chức năng chỉ nhận cùng một khoản XP chung. Chọn effect có định nghĩa thật, đối chiếu trần modifier và tổng reward trên mọi đường chơi, rồi đồng bộ loc/tooltip. XP quân chủng phải theo mẫu doctrine-aware của nhánh đó (mastery khi đã chọn doctrine, XP nếu chưa chọn); tham khảo quy trình và ca PK-KQ ở [references/focus-branch-design.md](references/focus-branch-design.md). Không tự cấp trang bị, công trình hoặc hoàn tất dự án nếu nội dung focus chỉ nói chuẩn bị/huấn luyện.
+
 ---
 
 ## 5. Tiêu chuẩn Mỹ thuật Icon Focus & Đăng ký GFX
@@ -192,6 +202,7 @@ Trước khi coi một focus hoặc nhánh focus là hoàn thành, phải vượ
 - [ ] 5. **Scope State an toàn:** Chỉ scope vào các state VIE sở hữu (518-524, 526, 801, 802, 813, 816).
 - [ ] 6. **Tham chiếu khép kín:** Mọi effect, trigger, idea, event gọi trong focus phải tồn tại thật.
 - [ ] 7. **Log chuẩn:** Khối reward có dòng `log = "[GetDateText]: [Root.GetName]: Focus ..."` ở đầu.
+- [ ] 16. **Reward có chủ đích:** Mỗi reward thể hiện chức năng focus; effect tồn tại, nhánh XP/mastery đúng mẫu, tổng modifier không vượt trần và loc mô tả khớp kết quả.
 - [ ] 8. **AI Guard:** AI will do có factor hợp lý và modifier guard ngăn AI tự hủy hoặc min-max phi lịch sử.
 - [ ] 9. **Search Filters:** Gán ít nhất 1 search filter phù hợp.
 - [ ] 10. **Loc đầy đủ:** Cả `VIE_<id>` và `VIE_<id>_desc` đều có mặt trong file yml replace.

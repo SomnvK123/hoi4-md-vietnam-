@@ -1,4 +1,4 @@
-"""Export air v19 diagrams, uncompressed drawio and actual before/after relations.
+"""Export air v23 diagrams, uncompressed drawio and actual before/after relations.
 
 Rendering helpers follow industry_diagram's static diagram convention. Does not
 modify gameplay; these routes cannot establish how HOI4 draws focus links.
@@ -32,8 +32,8 @@ def labels(before=False):
 
 def geometry(graph):
     height = max(n['y'] for n in graph.values()) * 150 + 270
-    coords = {f: ((n['x'] - 214) * 112 + 150, n['y'] * 150 + 120) for f, n in graph.items()}
-    return 2540, height, coords
+    coords = {f: ((n['x'] - 210) * 112 + 150, n['y'] * 150 + 120) for f, n in graph.items()}
+    return 3200, height, coords
 
 
 def edges(graph):
@@ -82,17 +82,17 @@ def draw(graph, names, title, path):
         x = 42 + (i % 5) * 405; y = 107 + (i // 5) * 32
         d.rectangle((x, y+4, x+16, y+20), fill=color)
         d.text((x+24, y), name, font=font(18), fill='#d4dce5')
-    if len(graph) == 33:
+    if len(graph) == 37:
         # These bands describe actual y ranges; they do not emulate in-game GUI.
         d.rounded_rectangle((24,335,2520,480),radius=12,fill='#1b2833',outline='#486071',width=2)
         d.text((42,345),'Root Phòng không–Không quân chung',font=font(20,True),fill='#d4e2ec')
-        for first,last,label in [(3,5,'1. Nền tảng và củng cố lực lượng'),(7,7,'2. Một lựa chọn cơ cấu tác chiến'),(9,11,'3. Chỉ huy, dữ liệu và vận tải'),(12,14,'4. Chuyên ngành: mở ngang, hội tụ dưới'),(16,16,'5. Hội tụ lực lượng hiệp đồng')]:
+        for first,last,label,right in [(3,6,'1. Foundation and four readiness focuses',1818),(7,7,'2. Mutually exclusive force structure',1818),(8,8,'3. Command II and medium force',1818),(9,11,'4. Specialty columns and support',3150),(12,12,'5. Specialty capstones',3150),(13,13,'6. Integrated force; 2/3 capstone gate',3150)]:
             top=first*150+120-85; bottom=last*150+120+60
-            d.rounded_rectangle((24,top,1818,bottom),radius=12,fill='#15212b',outline='#2c3c49',width=2)
+            d.rounded_rectangle((24,top,right,bottom),radius=12,fill='#15212b',outline='#2c3c49',width=2)
             d.text((42,top+10),label,font=font(20,True),fill='#b9cbd9')
         for first,last,label in [(3,4,'1. Thể chế và các trụ kỹ thuật'),(6,6,'2. Tích hợp và UAV'),(8,8,'3. Công nghiệp trưởng thành')]:
             top=first*150+120-85; bottom=last*150+120+60
-            d.rounded_rectangle((1830,top,2520,bottom),radius=12,fill='#211d2c',outline='#483951',width=2)
+            d.rounded_rectangle((1830,top,3180,bottom),radius=12,fill='#211d2c',outline='#483951',width=2)
             d.text((1846,top+10),label,font=font(18,True),fill='#c8b6d6')
     for p, f, kind in edges(graph):
         points = route(p, f, kind, coords)
@@ -136,9 +136,9 @@ def draw(graph, names, title, path):
         short = {'VIE_apm_integration':'Cần 2/3 trụ A32–A31–radar', 'VIE_apm_mature':'Tích hợp 2 + 3/4 trụ bậc 2','VIE_airf_integrated_force':'D4 + công nghiệp + 2/3 đích'}.get(f,short)
         if len(short)>29: short=short[:27]+'…'
         d.text((x,y+28),short,font=font(11),fill='#a6b8c8',anchor='mt')
-    d.text((42,h-65), f"{len(graph)} focus • x = 214…234 • {max(n['y'] for n in graph.values())} hàng • tọa độ lấy từ file focus",font=font(18),fill='#b5c4d2')
-    if len(graph) == 33:
-        d.text((42,h-36), 'Một root chung; lực lượng x214–228 / công nghiệp x230–234. Chỉ một hàng mutex; giá theo lựa chọn từng chương trình.',font=font(18),fill='#d4dce5')
+    d.text((42,h-65), f"{len(graph)} focus • trục giữa x = 220 • {max(n['y'] for n in graph.values())} hàng • tọa độ tuyệt đối từ file focus",font=font(18),fill='#b5c4d2')
+    if len(graph) == 37:
+        d.text((42,h-36), 'Three specialty columns align; tanker and Datalink have a support row; D5 keeps the 2/3 capstone gate.',font=font(18),fill='#d4dce5')
     canvas.save(path)
 
 
@@ -172,11 +172,11 @@ def main():
     (OUT/'air_after.json').write_text(json.dumps(after,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     mxfile=ET.Element('mxfile',{'host':'app.diagrams.net','compressed':'false'})
     before_names={fid:n['label'] for fid,n in before.items()} if all('label' in n for n in before.values()) else labels(True)
-    draw(after,labels(),'PK-KQ v19: củng cố → định hướng → năng lực song song',OUT/'air_after.png')
+    draw(after,labels(),'PK-KQ v24: tiered Y1-Y12 layout',OUT/'air_after.png')
     xml_page(mxfile,before,before_names,'Trước v19: 36 focus, hai hàng lựa chọn')
-    xml_page(mxfile,after,labels(),'Sau v19: 33 focus, một hàng lựa chọn')
+    xml_page(mxfile,after,labels(),'After v24: Y1-Y12 layout')
     ET.indent(mxfile);ET.ElementTree(mxfile).write(OUT/'air_redesign.drawio',encoding='utf-8',xml_declaration=True)
-    changes=['# Quan hệ và reward trước/sau v19','','Bản cuối có 33 focus: giữ 29 ID cũ, 3 cơ cấu tác chiến và 1 đích hiệp đồng. Bỏ ba focus ngân sách, giá theo lựa chọn từng chương trình và giảm giá lịch sử. Root chung nối hai cụm. D5 chọn rõ một mục tiêu đủ điều kiện, chỉ một lần.','','| Focus | Cha trước v19 | Cha sau v19 | Reward / điều kiện |','|---|---|---|---|']
+    changes=['# PK-KQ focus relationships and rewards v19-v24','','Current tree: 37 focuses (29 retained original IDs, three structures, four readiness focuses, one integrated capstone). V24 assigns the branch to Y1-Y12: First Force needs all four Y4 readiness focuses; the three specialty roots and capstones align by column; Datalink is a UAV child and a visible Teaming prerequisite; tanker has a support row; Integrated Force retains its 2/3 capstone availability gate. The full focus tree has 424 entries, including 387 outside this branch.','','| Focus | Previous parent | Current parent | Reward / gate |','|---|---|---|---|']
     def parents(n):return ' AND '.join('('+' OR '.join(p.removeprefix('VIE_') for p in g)+')' for g in n['pre'])
     fx={k:v for k,_,v in __import__('industry').read('common/scripted_effects/VIE_md_effects_air_force.txt')}
     branch_codes=set('a1 a2 a3 a4 b1 b2 b3 b4 b5 c1 c2 c3 c4 c5'.split())
@@ -187,6 +187,13 @@ def main():
         if fid in ('VIE_airf_iads','VIE_airf_multirole','VIE_airf_unmanned'):reward+='; nhận bonus nghiên cứu chuyên ngành 25% ×1, chống lặp bonus legacy tương ứng'
         if '_structure_' in fid:reward='Giữ D4: −50 PP, −0,60 tỷ; thưởng sau 360 ngày; hàng mutex duy nhất'
         if fid=='VIE_airf_integrated_force':reward='Giữ +20 XP/mastery, +50 PP, +3% war support; công nghiệp + D4 + 2/3 đích'
+        readiness_rewards={
+            'VIE_airf_tactical_exercises': 'v25: 10 XP/mastery; +10 CP',
+            'VIE_airf_gci_radar_training': 'v25: 5 XP/mastery; +0.25% air detection',
+            'VIE_airf_regiment_formation': 'v25: 5 XP/mastery; +5 CP; -0.5% air personnel cost modifier',
+            'VIE_airf_reserve_bases': 'v25: 5 XP/mastery; +1% home air defence; prepare existing bases',
+        }
+        if fid in readiness_rewards:reward=readiness_rewards[fid]
         if fid=='VIE_apm_law':reward='Giữ reward; cụm công nghiệp mở trực tiếp từ root không quân'
         if fid=='VIE_apm_mature':reward='Giữ reward; tích hợp bậc 2 AND 3/4 trụ bậc 2; không bắt UAV'
         gates=', '.join(k for k,_,v in value(f[fid],'available',[]))
@@ -195,5 +202,5 @@ def main():
         changes.append(f'| `{fid}` | {parents(before[fid])} | Đã bỏ | Bỏ hệ số giá toàn nhánh; bonus chuyển sang lối vào chuyên ngành tương ứng |')
     changes+=['','D1–D3 và D4 giữ thưởng/PP/thời lượng. D5 có ba decision đích, dùng chung guard một lần: 60 PP, 1 tỷ, 548 ngày, thưởng 0,5/1 điểm phần trăm. Giá cơ sở và giảm giá lịch sử của chương trình giữ nguyên. Xem [thiết kế](../../../VIE_air_force_documentation.md) và [kiểm định](validation.md).']
     (OUT/'air_changes.md').write_text('\n'.join(changes)+'\n',encoding='utf-8')
-    print('Exported 36/33 uncompressed before-after drawio, v19 PNG and actual relation/reward changes; frozen v18 preview preserved.')
+    print('Exported 36/37 uncompressed before-after drawio, v24 PNG and actual relation/reward changes; frozen v18 preview preserved.')
 if __name__=='__main__':main()

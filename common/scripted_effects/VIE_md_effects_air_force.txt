@@ -453,6 +453,42 @@ VIE_airf_refresh = {
 	force_update_dynamic_modifier = yes
 }
 
+# Bon focus chuan bi sau cai to I: huan luyen va to chuc tren trang bi/can cu hien co.
+# Khong cap may bay, xay san bay hay tu hoan tat chuong trinh D1-D4.
+VIE_airf_xp_5 = {
+	if = {
+		limit = { has_selected_air_grand_doctrine = yes }
+		add_mastery = { amount = 5 folder = air }
+	}
+	else = { air_experience = 5 }
+}
+VIE_airf_tactical_exercises_reward = {
+	VIE_airf_xp_10 = yes
+	add_command_power = 10
+}
+VIE_airf_gci_radar_training_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_detection = 0.0025 tooltip = VIE_tt_air_detection }
+	VIE_airf_xp_5 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_regiment_formation_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_airforce_personnel_cost_multiplier_modifier = -0.005 tooltip = VIE_tt_airforce_personnel_cost }
+	VIE_airf_xp_5 = yes
+	add_command_power = 5
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+VIE_airf_reserve_bases_reward = {
+	VIE_ap_ensure_af_modifier = yes
+	add_to_variable = { VIE_af_air_home_defence_factor = 0.01 tooltip = VIE_tt_air_home_defence_factor }
+	VIE_airf_xp_5 = yes
+	VIE_airf_dm_tt = yes
+	VIE_airf_refresh = yes
+}
+
 VIE_airf_t1_reward = {
 	VIE_ap_ensure_af_modifier = yes
 	add_to_variable = { VIE_af_experience_gain_air_factor = 0.04 tooltip = VIE_tt_experience_gain_air_factor }

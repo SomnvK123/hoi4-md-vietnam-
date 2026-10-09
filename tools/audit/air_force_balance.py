@@ -71,9 +71,16 @@ for fid in FOCUS:
 FOCUS['VIE_airf_iads'].pop('rng')
 FOCUS['VIE_airf_unmanned'].pop('home')
 REWARD_CODE = {f: c for f, c in zip(FOCUS, "t1 t2 t3 t4 t5 t6 t7 t8 a1 a2 a3 a4 b1 b2 b3 b4 b5 c1 c2 c3 c4 c5".split())}
+READINESS = {
+    'tactical_exercises': {}, 'gci_radar_training': {'det': 0.25},
+    'regiment_formation': {'pers': -0.5}, 'reserve_bases': {'home': 1},
+}
+for fid, reward in READINESS.items():
+    FOCUS['VIE_airf_'+fid] = reward
+    REWARD_CODE['VIE_airf_'+fid] = fid
 CHAIN = [f for f in FOCUS if f.split("_", 2)[2] in (
     "training_standardization", "fighter_force", "sam_force", "command_reform_1", "first_force", "command_reform_2",
-    "medium_force", "operating_range")]
+    "medium_force", "operating_range", *READINESS)]
 BRANCH = {
     "A": ["VIE_airf_iads", "VIE_airf_layered_defence", "VIE_airf_ew_antistealth", "VIE_airf_iads_command"],
     "B": ["VIE_airf_multirole", "VIE_airf_multirole_fleet", "VIE_airf_sustainment", "VIE_airf_airlift_tanker", "VIE_airf_multirole_wing"],

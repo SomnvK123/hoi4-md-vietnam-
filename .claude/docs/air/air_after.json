@@ -9,7 +9,7 @@
     ],
     "ex": []
   },
-  "VIE_airf_fighter_force": {
+  "VIE_airf_sam_force": {
     "x": 218,
     "y": 3,
     "pre": [
@@ -19,7 +19,7 @@
     ],
     "ex": []
   },
-  "VIE_airf_sam_force": {
+  "VIE_airf_fighter_force": {
     "x": 222,
     "y": 3,
     "pre": [
@@ -82,12 +82,61 @@
     ],
     "ex": []
   },
-  "VIE_airf_first_force": {
-    "x": 220,
+  "VIE_airf_tactical_exercises": {
+    "x": 214,
     "y": 5,
     "pre": [
       [
         "VIE_airf_command_reform_1"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_airf_gci_radar_training": {
+    "x": 218,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_airf_command_reform_1"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_airf_regiment_formation": {
+    "x": 222,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_airf_command_reform_1"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_airf_reserve_bases": {
+    "x": 226,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_airf_command_reform_1"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_airf_first_force": {
+    "x": 220,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_airf_tactical_exercises"
+      ],
+      [
+        "VIE_airf_gci_radar_training"
+      ],
+      [
+        "VIE_airf_regiment_formation"
+      ],
+      [
+        "VIE_airf_reserve_bases"
       ]
     ],
     "ex": []
@@ -122,7 +171,7 @@
     "ex": []
   },
   "VIE_airf_structure_territorial": {
-    "x": 216,
+    "x": 212,
     "y": 7,
     "pre": [
       [
@@ -148,7 +197,7 @@
     ]
   },
   "VIE_airf_structure_long_range": {
-    "x": 224,
+    "x": 228,
     "y": 7,
     "pre": [
       [
@@ -160,19 +209,9 @@
       "VIE_airf_structure_balanced"
     ]
   },
-  "VIE_apm_mature": {
-    "x": 232,
-    "y": 8,
-    "pre": [
-      [
-        "VIE_apm_integration"
-      ]
-    ],
-    "ex": []
-  },
   "VIE_airf_command_reform_2": {
     "x": 218,
-    "y": 9,
+    "y": 8,
     "pre": [
       [
         "VIE_airf_structure_territorial",
@@ -184,7 +223,7 @@
   },
   "VIE_airf_medium_force": {
     "x": 222,
-    "y": 9,
+    "y": 8,
     "pre": [
       [
         "VIE_airf_structure_territorial",
@@ -194,9 +233,19 @@
     ],
     "ex": []
   },
-  "VIE_airf_datalink": {
-    "x": 216,
-    "y": 10,
+  "VIE_apm_mature": {
+    "x": 232,
+    "y": 8,
+    "pre": [
+      [
+        "VIE_apm_integration"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_airf_iads": {
+    "x": 214,
+    "y": 9,
     "pre": [
       [
         "VIE_airf_command_reform_2"
@@ -204,9 +253,9 @@
     ],
     "ex": []
   },
-  "VIE_airf_operating_range": {
+  "VIE_airf_multirole": {
     "x": 220,
-    "y": 10,
+    "y": 9,
     "pre": [
       [
         "VIE_airf_command_reform_2"
@@ -217,39 +266,9 @@
     ],
     "ex": []
   },
-  "VIE_airf_airlift_tanker": {
-    "x": 224,
-    "y": 11,
-    "pre": [
-      [
-        "VIE_airf_operating_range"
-      ]
-    ],
-    "ex": []
-  },
-  "VIE_airf_iads": {
-    "x": 216,
-    "y": 12,
-    "pre": [
-      [
-        "VIE_airf_command_reform_2"
-      ]
-    ],
-    "ex": []
-  },
-  "VIE_airf_multirole": {
-    "x": 222,
-    "y": 12,
-    "pre": [
-      [
-        "VIE_airf_medium_force"
-      ]
-    ],
-    "ex": []
-  },
   "VIE_airf_unmanned": {
-    "x": 227,
-    "y": 12,
+    "x": 226,
+    "y": 9,
     "pre": [
       [
         "VIE_airf_command_reform_2"
@@ -258,8 +277,8 @@
     "ex": []
   },
   "VIE_airf_layered_defence": {
-    "x": 214,
-    "y": 13,
+    "x": 212,
+    "y": 10,
     "pre": [
       [
         "VIE_airf_iads"
@@ -268,8 +287,8 @@
     "ex": []
   },
   "VIE_airf_ew_antistealth": {
-    "x": 218,
-    "y": 13,
+    "x": 216,
+    "y": 10,
     "pre": [
       [
         "VIE_airf_iads"
@@ -278,8 +297,18 @@
     "ex": []
   },
   "VIE_airf_multirole_fleet": {
+    "x": 218,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_multirole"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_airf_operating_range": {
     "x": 220,
-    "y": 13,
+    "y": 10,
     "pre": [
       [
         "VIE_airf_multirole"
@@ -288,18 +317,28 @@
     "ex": []
   },
   "VIE_airf_sustainment": {
-    "x": 224,
-    "y": 13,
+    "x": 222,
+    "y": 10,
     "pre": [
       [
-        "VIE_airf_medium_force"
+        "VIE_airf_multirole"
       ]
     ],
     "ex": []
   },
   "VIE_airf_isr_uav": {
+    "x": 224,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_unmanned"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_airf_datalink": {
     "x": 226,
-    "y": 13,
+    "y": 10,
     "pre": [
       [
         "VIE_airf_unmanned"
@@ -309,7 +348,7 @@
   },
   "VIE_airf_strike_uav": {
     "x": 228,
-    "y": 13,
+    "y": 10,
     "pre": [
       [
         "VIE_airf_unmanned"
@@ -317,9 +356,19 @@
     ],
     "ex": []
   },
+  "VIE_airf_airlift_tanker": {
+    "x": 220,
+    "y": 11,
+    "pre": [
+      [
+        "VIE_airf_operating_range"
+      ]
+    ],
+    "ex": []
+  },
   "VIE_airf_iads_command": {
-    "x": 216,
-    "y": 14,
+    "x": 214,
+    "y": 12,
     "pre": [
       [
         "VIE_airf_layered_defence"
@@ -331,41 +380,41 @@
     "ex": []
   },
   "VIE_airf_multirole_wing": {
-    "x": 222,
-    "y": 14,
+    "x": 220,
+    "y": 12,
     "pre": [
       [
         "VIE_airf_multirole_fleet"
       ],
       [
         "VIE_airf_sustainment"
+      ],
+      [
+        "VIE_airf_operating_range"
       ]
     ],
     "ex": []
   },
   "VIE_airf_teaming": {
-    "x": 227,
-    "y": 14,
+    "x": 226,
+    "y": 12,
     "pre": [
-      [
-        "VIE_airf_datalink"
-      ],
       [
         "VIE_airf_isr_uav"
       ],
       [
         "VIE_airf_strike_uav"
+      ],
+      [
+        "VIE_airf_datalink"
       ]
     ],
     "ex": []
   },
   "VIE_airf_integrated_force": {
     "x": 220,
-    "y": 16,
+    "y": 13,
     "pre": [
-      [
-        "VIE_airf_command_reform_2"
-      ],
       [
         "VIE_airf_iads_command",
         "VIE_airf_multirole_wing",
