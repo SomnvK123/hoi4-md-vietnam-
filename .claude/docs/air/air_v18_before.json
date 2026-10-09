@@ -1,0 +1,448 @@
+{
+  "VIE_airf_priority_multirole": {
+    "x": 220,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_airf_command_reform_1"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_priority_air_defence",
+      "VIE_airf_priority_networked"
+    ],
+    "label": "Ưu tiên Ngân sách Đa nhiệm"
+  },
+  "VIE_airf_command_reform_1": {
+    "x": 220,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_airf_fighter_force"
+      ],
+      [
+        "VIE_airf_sam_force"
+      ]
+    ],
+    "ex": [],
+    "label": "Cải cách Chỉ huy Phòng không - Không quân I"
+  },
+  "VIE_apm_law": {
+    "x": 232,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_airf_training_standardization"
+      ]
+    ],
+    "ex": [],
+    "label": "Thể chế Công nghiệp Quốc phòng Hàng không"
+  },
+  "VIE_airf_multirole_fleet": {
+    "x": 220,
+    "y": 14,
+    "pre": [
+      [
+        "VIE_airf_multirole"
+      ]
+    ],
+    "ex": [],
+    "label": "Chương trình Tác chiến Đa nhiệm"
+  },
+  "VIE_airf_airlift_tanker": {
+    "x": 220,
+    "y": 15,
+    "pre": [
+      [
+        "VIE_airf_operating_range"
+      ]
+    ],
+    "ex": [],
+    "label": "Chuẩn bị Vận tải và Hoạt động Tầm xa"
+  },
+  "VIE_apm_mature": {
+    "x": 232,
+    "y": 8,
+    "pre": [
+      [
+        "VIE_apm_integration"
+      ]
+    ],
+    "ex": [],
+    "label": "Công nghiệp hàng không - phòng không trưởng thành"
+  },
+  "VIE_apm_radar": {
+    "x": 234,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_apm_law"
+      ]
+    ],
+    "ex": [],
+    "label": "Radar và chỉ huy - điều khiển nội địa"
+  },
+  "VIE_airf_iads": {
+    "x": 214,
+    "y": 13,
+    "pre": [
+      [
+        "VIE_airf_command_reform_2"
+      ]
+    ],
+    "ex": [],
+    "label": "Phòng không Tích hợp"
+  },
+  "VIE_airf_multirole": {
+    "x": 220,
+    "y": 13,
+    "pre": [
+      [
+        "VIE_airf_medium_force"
+      ]
+    ],
+    "ex": [],
+    "label": "Không quân Đa nhiệm"
+  },
+  "VIE_airf_sam_force": {
+    "x": 222,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_airf_training_standardization"
+      ]
+    ],
+    "ex": [],
+    "label": "Phát triển Lực lượng Tên lửa Phòng không và Radar"
+  },
+  "VIE_apm_uav": {
+    "x": 234,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_apm_radar"
+      ]
+    ],
+    "ex": [],
+    "label": "Chương trình UAV nội địa"
+  },
+  "VIE_apm_integration": {
+    "x": 232,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_apm_a32",
+        "VIE_apm_a31"
+      ],
+      [
+        "VIE_apm_a32",
+        "VIE_apm_radar"
+      ],
+      [
+        "VIE_apm_a31",
+        "VIE_apm_radar"
+      ]
+    ],
+    "ex": [],
+    "label": "Tích hợp vũ khí và hệ thống đa nguồn"
+  },
+  "VIE_airf_teaming": {
+    "x": 226,
+    "y": 16,
+    "pre": [
+      [
+        "VIE_airf_datalink"
+      ],
+      [
+        "VIE_airf_strike_uav"
+      ]
+    ],
+    "ex": [],
+    "label": "Phối hợp Có người - Không người"
+  },
+  "VIE_airf_unmanned": {
+    "x": 226,
+    "y": 13,
+    "pre": [
+      [
+        "VIE_airf_command_reform_2"
+      ]
+    ],
+    "ex": [],
+    "label": "Không người lái và Mạng hóa"
+  },
+  "VIE_airf_layered_defence": {
+    "x": 214,
+    "y": 14,
+    "pre": [
+      [
+        "VIE_airf_iads"
+      ]
+    ],
+    "ex": [],
+    "label": "Mạng Radar - Tên lửa Nhiều tầng"
+  },
+  "VIE_airf_integrated_force": {
+    "x": 220,
+    "y": 18,
+    "pre": [
+      [
+        "VIE_airf_command_reform_2"
+      ],
+      [
+        "VIE_airf_iads_command",
+        "VIE_airf_multirole_wing",
+        "VIE_airf_teaming"
+      ]
+    ],
+    "ex": [],
+    "label": "Phòng không–Không quân Hiệp đồng Hiện đại"
+  },
+  "VIE_airf_structure_territorial": {
+    "x": 216,
+    "y": 8,
+    "pre": [
+      [
+        "VIE_airf_first_force"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_structure_balanced",
+      "VIE_airf_structure_long_range"
+    ],
+    "label": "Cơ cấu Phòng thủ Lãnh thổ"
+  },
+  "VIE_airf_strike_uav": {
+    "x": 226,
+    "y": 15,
+    "pre": [
+      [
+        "VIE_airf_isr_uav"
+      ]
+    ],
+    "ex": [],
+    "label": "UAV Tấn công"
+  },
+  "VIE_airf_first_force": {
+    "x": 220,
+    "y": 7,
+    "pre": [
+      [
+        "VIE_airf_priority_air_defence",
+        "VIE_airf_priority_multirole",
+        "VIE_airf_priority_networked"
+      ]
+    ],
+    "ex": [],
+    "label": "Cơ cấu Lực lượng Ban đầu"
+  },
+  "VIE_airf_operating_range": {
+    "x": 220,
+    "y": 11,
+    "pre": [
+      [
+        "VIE_airf_command_reform_2"
+      ],
+      [
+        "VIE_airf_medium_force"
+      ]
+    ],
+    "ex": [],
+    "label": "Mở rộng Bán kính Hoạt động và Căn cứ Tiền phương"
+  },
+  "VIE_airf_command_reform_2": {
+    "x": 218,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_structure_territorial",
+        "VIE_airf_structure_balanced",
+        "VIE_airf_structure_long_range"
+      ]
+    ],
+    "ex": [],
+    "label": "Cải cách Chỉ huy Phòng không - Không quân II"
+  },
+  "VIE_airf_multirole_wing": {
+    "x": 220,
+    "y": 16,
+    "pre": [
+      [
+        "VIE_airf_multirole_fleet"
+      ],
+      [
+        "VIE_airf_sustainment"
+      ]
+    ],
+    "ex": [],
+    "label": "Cánh Không quân Đa nhiệm"
+  },
+  "VIE_airf_sustainment": {
+    "x": 224,
+    "y": 11,
+    "pre": [
+      [
+        "VIE_airf_medium_force"
+      ]
+    ],
+    "ex": [],
+    "label": "Bảo đảm Kỹ thuật Đa nguồn"
+  },
+  "VIE_apm_a32": {
+    "x": 230,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_apm_law"
+      ]
+    ],
+    "ex": [],
+    "label": "Nhà máy A32: đại tu và kéo dài niên hạn"
+  },
+  "VIE_airf_medium_force": {
+    "x": 222,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_structure_territorial",
+        "VIE_airf_structure_balanced",
+        "VIE_airf_structure_long_range"
+      ]
+    ],
+    "ex": [],
+    "label": "Lực lượng Không quân Trung bình"
+  },
+  "VIE_airf_ew_antistealth": {
+    "x": 214,
+    "y": 15,
+    "pre": [
+      [
+        "VIE_airf_layered_defence"
+      ]
+    ],
+    "ex": [],
+    "label": "Tác chiến Điện tử và Chống tàng hình"
+  },
+  "VIE_airf_iads_command": {
+    "x": 214,
+    "y": 16,
+    "pre": [
+      [
+        "VIE_airf_ew_antistealth"
+      ]
+    ],
+    "ex": [],
+    "label": "Bộ Chỉ huy Phòng không Khu vực"
+  },
+  "VIE_airf_isr_uav": {
+    "x": 226,
+    "y": 14,
+    "pre": [
+      [
+        "VIE_airf_unmanned"
+      ]
+    ],
+    "ex": [],
+    "label": "UAV Trinh sát và Mục tiêu"
+  },
+  "VIE_airf_fighter_force": {
+    "x": 218,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_airf_training_standardization"
+      ]
+    ],
+    "ex": [],
+    "label": "Phát triển Lực lượng Tiêm kích"
+  },
+  "VIE_airf_structure_balanced": {
+    "x": 220,
+    "y": 8,
+    "pre": [
+      [
+        "VIE_airf_first_force"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_structure_territorial",
+      "VIE_airf_structure_long_range"
+    ],
+    "label": "Cơ cấu Tác chiến Cân bằng"
+  },
+  "VIE_airf_priority_networked": {
+    "x": 224,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_airf_command_reform_1"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_priority_air_defence",
+      "VIE_airf_priority_multirole"
+    ],
+    "label": "Ưu tiên Ngân sách Mạng hóa"
+  },
+  "VIE_apm_a31": {
+    "x": 232,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_apm_law"
+      ]
+    ],
+    "ex": [],
+    "label": "Nhà máy A31: tên lửa phòng không"
+  },
+  "VIE_airf_structure_long_range": {
+    "x": 224,
+    "y": 8,
+    "pre": [
+      [
+        "VIE_airf_first_force"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_structure_territorial",
+      "VIE_airf_structure_balanced"
+    ],
+    "label": "Cơ cấu Hoạt động Tầm xa"
+  },
+  "VIE_airf_priority_air_defence": {
+    "x": 216,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_airf_command_reform_1"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_priority_multirole",
+      "VIE_airf_priority_networked"
+    ],
+    "label": "Ưu tiên Ngân sách Phòng không"
+  },
+  "VIE_airf_datalink": {
+    "x": 216,
+    "y": 11,
+    "pre": [
+      [
+        "VIE_airf_command_reform_2"
+      ]
+    ],
+    "ex": [],
+    "label": "Mạng Liên kết Dữ liệu (C4ISR)"
+  },
+  "VIE_airf_training_standardization": {
+    "x": 220,
+    "y": 2,
+    "pre": [
+      [
+        "VIE_modernize_vpa"
+      ]
+    ],
+    "ex": [],
+    "label": "Chuẩn hóa Đào tạo Phi công và Kỹ thuật viên"
+  }
+}

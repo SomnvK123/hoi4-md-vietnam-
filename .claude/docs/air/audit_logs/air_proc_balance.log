@@ -1,0 +1,90 @@
+== 1. Chi (ty USD, lich su) ==
+  india_dca     class B event    1  2000.03-2002    0.05  planes 0
+  s300          class B event    2  2004.03-2006    0.30  planes 0
+  su30_1        class B event    3  2004.01-2005    0.12  planes 4
+  yak52         class C event    -  2007.01-2009    0.02  planes 0
+  su30_2        class B event    5  2008.06-2010    0.40  planes 8
+  su30_3        class B event    6  2009.09-2011    1.00  planes 12
+  pechora       class B event    7  2009.01-2012    0.15  planes 0
+  c295          class B event    8  2013.01-2014    0.10  planes 0
+  su30_4        class B event    9  2013.06-2014    0.60  planes 12
+  spyder        class B event   10  2015.01-2016    0.25  planes 0
+  radar         class B event   11  2013.01-2015    0.06  planes 0
+  mig21_retire  class C event    -  2016.01-2017   -0.03  planes 0
+  india_train   class B event   13  2016.12-2018    0.05  planes 0
+  yak130        class B event   14  2017.01-2020    0.35  planes 0
+  t6c           class B event   15  2022.01-2024    0.15  planes 0
+  l39ng         class C event    -  2022.01-2024    0.12  planes 0
+  total 3.69
+PASS  total 3.69 in (3.6, 4.1)
+PASS  largest single event <= 1.1
+PASS  Su-30 total 2.12 (report 2.12)
+
+== 2. Pop-up Class B moi nam (uoc tinh theo thang mo cua so dau tien) ==
+  2000: baseline 0 + air 1 = 1  + india_dca
+PASS  2000: baseline unmeasured, run ev.py
+  2003: baseline 7 + air 0 = 7
+  2004: baseline 0 + air 2 = 2  + s300, su30_1
+PASS  2004: baseline unmeasured, run ev.py
+  2008: baseline 6 + air 1 = 7  + su30_2
+PASS  2008: 6+1 <= 7
+  2009: baseline 0 + air 2 = 2  + su30_3, pechora
+PASS  2009: baseline unmeasured, run ev.py
+  2012: baseline 8 + air 0 = 8
+  2013: baseline 0 + air 3 = 3  + c295, su30_4, radar
+PASS  2013: baseline unmeasured, run ev.py
+  2014: baseline 8 + air 0 = 8
+  2015: baseline 0 + air 1 = 1  + spyder
+PASS  2015: baseline unmeasured, run ev.py
+  2016: baseline 0 + air 1 = 1  + india_train
+PASS  2016: baseline unmeasured, run ev.py
+  2017: baseline 0 + air 1 = 1  + yak130
+PASS  2017: baseline unmeasured, run ev.py
+  2018: baseline 6 + air 0 = 6
+  2020: baseline 6 + air 0 = 6
+  2021: baseline 12 + air 0 = 12
+  2022: baseline 6 + air 1 = 7  + t6c
+PASS  2022: 6+1 <= 7
+  2023: baseline 6 + air 0 = 6
+  2024: baseline 7 + air 0 = 7
+
+== 3. Giao Su-30 (tich luy VIE_var_air_delivered) ==
+  2004-11: +4 = 4
+  2010-12: +4 = 8
+  2011-06: +4 = 12
+  2011-12: +4 = 16
+  2012-06: +4 = 20
+  2012-12: +4 = 24
+  2014-12: +4 = 28
+  2015-08: +4 = 32
+  2016-02: +4 = 36
+PASS  historical Su-30 total 36 == 36
+PASS  VIE_var_air_delivered > 11 by 2011-06 (is 12) so Truc 3 T5 (date > 2011-12-31) can open
+PASS  su30_1: has a delivery on/after window start
+PASS  su30_2: has a delivery on/after window start
+PASS  su30_3: has a delivery on/after window start
+PASS  su30_4: has a delivery on/after window start
+
+== 4. Modifier ==
+PASS  air_defence_factor from Truc 1 0.06 <= 0.06
+
+== 5. Doi chieu scheduler trong code ==
+PASS  india_dca: code class B event 1 from (2000, 3) to 2002
+PASS  s300: code class B event 2 from (2004, 3) to 2006
+PASS  su30_1: code class B event 3 from (2004, 1) to 2005
+PASS  yak52: code class C event None from (2007, 1) to 2009
+PASS  su30_2: code class B event 5 from (2008, 6) to 2010
+PASS  su30_3: code class B event 6 from (2009, 9) to 2011
+PASS  pechora: code class B event 7 from (2009, 1) to 2012
+PASS  c295: code class B event 8 from (2013, 1) to 2014
+PASS  su30_4: code class B event 9 from (2013, 6) to 2014
+PASS  spyder: code class B event 10 from (2015, 1) to 2016
+PASS  radar: code class B event 11 from (2013, 1) to 2015
+PASS  mig21_retire: code class C event None from (2016, 1) to 2017
+PASS  india_train: code class B event 13 from (2016, 12) to 2018
+PASS  yak130: code class B event 14 from (2017, 1) to 2020
+PASS  t6c: code class B event 15 from (2022, 1) to 2024
+PASS  l39ng: code class C event None from (2022, 1) to 2024
+PASS  scheduler windows == PROGRAMS keys
+
+ALL PASS

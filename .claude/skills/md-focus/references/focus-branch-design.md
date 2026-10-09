@@ -27,7 +27,8 @@ prerequisite = { focus = VIE_samsung_partnership focus = VIE_china_plus_one }
 ## 2. Chính sách, reward và chi phí
 
 - Dùng cặp mutex nhỏ cho chính sách thay thế nhau, khai báo hai chiều và đặt cạnh
-  nhau cùng hàng. Không loại trừ các ngành/doanh nghiệp có thể cùng phát triển.
+  nhau cùng hàng. Nhóm ba phương án phải khai báo loại trừ từng cặp hai chiều.
+  Không loại trừ các ngành/doanh nghiệp có thể cùng phát triển.
 - Đánh đổi phải có ý nghĩa: tăng trưởng so với nội địa hóa, đầu tư trước so với
   bổ sung sau, lợi ích trước mắt so với rủi ro. Không chỉ thay một con số.
 - Ưu tiên hỗ trợ không mặc định cấm năng lực dài hạn. Nếu hai đường cùng đạt một
@@ -64,6 +65,27 @@ prerequisite = { focus = VIE_samsung_partnership focus = VIE_china_plus_one }
   Không dời nhánh lân cận chỉ để lấp chỗ trống.
 - Xếp các nhánh song song và cặp chính sách cạnh nhau khi có thể. Kiểm đường dài,
   giao cắt và chữ ở kích thước hiển thị, không chỉ kiểm trùng ô.
+- Khi lực lượng và công nghiệp có vòng tiến triển khác nhau, cho mỗi hệ thống
+  một cụm và vùng riêng, với khoảng trống rõ ràng. Các cụm có thể cùng mở từ
+  root quân chủng theo thiết kế đã chốt; không mặc định tách root độc lập dưới
+  gốc quân sự. Focus lực lượng không xen
+  vào cột công nghiệp. Gate liên nhánh có thể ở available với tooltip tên focus
+  và bậc; quan hệ nội bộ của từng nhánh vẫn phải hiện bằng prerequisite.
+- Chia tầng theo ý nghĩa tiến triển: nền tảng → lựa chọn → chỉ huy/bảo đảm
+  → năng lực chuyên ngành → hội tụ. Dùng điểm gom và khoảng nghỉ giữa tầng;
+  chỉ tách cột nhưng để nút chung rải giữa các chuỗi chưa đủ rõ kiến trúc.
+  Tham khảo cấu trúc từ cây MD thực có (ví dụ Đức), không sao chép reward,
+  loại trừ chuyên ngành hoặc buộc mọi nhánh theo số tầng cố định của ví dụ.
+- Cơ cấu tác chiến, ưu tiên ngân sách và chuyên ngành là ba ý nghĩa khác nhau.
+  Tên và vị trí lựa chọn phải giúp người chơi nhận ra ý nghĩa đó. Nếu chuyển
+  định hướng từ decision lên cây, giữ chi phí/thời lượng chương trình đã chốt,
+  bỏ bề mặt lựa chọn trùng và chặn event đang chờ đảo phương án hoặc thưởng lặp.
+- Đặt củng cố nền tảng trước định hướng khi đó là trình tự nội dung. Không mặc
+  định mỗi ý nghĩa cần một hàng mutex: ngân sách theo chương trình có thể ở
+  option/decision, tránh bắt chọn hai lần trước khi đủ năng lực.
+- Hai chức năng bổ sung có thể mở ngang từ nền tảng chung và hội tụ bằng AND.
+  Khi bỏ phụ thuộc cũ, cập nhật tên/mô tả cùng quan hệ; giữ ngưỡng bậc và kết quả
+  chương trình thực. Chỉ đổi tọa độ không biến một chuỗi năng lực thành song song.
 - Capstone công nhận nhiều hướng thành công phù hợp nội dung; tránh ép một ngành
   công nghệ cụ thể khi các ngành khác cũng đáp ứng mục tiêu.
 - Với N/M nhóm, mỗi nhóm là một tiêu chí; nhóm nhiều focus cần đủ thành phần.
@@ -88,6 +110,9 @@ prerequisite = { focus = VIE_samsung_partnership focus = VIE_china_plus_one }
 Ví dụ: [thiết kế công nghiệp](../../../../VIE_industry_branch_redesign.md) và
 [kiểm định](../../../../.claude/docs/industry/validation.md). Các script industry
 chuyên cho fixture đó; nhánh khác phải kiểm theo đồ thị và tiêu chí riêng.
+
+Ví dụ root chung, củng cố trước một hàng cơ cấu và chuyên ngành mở ngang: [PK-KQ v19](../../../../VIE_air_force_documentation.md).
+Số focus và tọa độ của ví dụ này không phải chuẩn chung cho các nhánh khác.
 
 Nguồn: [Focus Tree Tool](https://millenniumdawn.github.io/Millennium-Dawn/dev-resources/focus-tree-tool/)
 và [Design Principles](https://millenniumdawn.github.io/Millennium-Dawn/dev-resources/focus-tree-design-principles/).

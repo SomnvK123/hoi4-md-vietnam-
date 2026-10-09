@@ -1,0 +1,381 @@
+{
+  "VIE_airf_training_standardization": {
+    "x": 222,
+    "y": 2,
+    "pre": [
+      [
+        "VIE_modernize_vpa"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_training_standardization\n\t\ticon = GFX_focus_VIE_airf_training_standardization\n\n\t\tx = 20\n\t\ty = 1\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_modernize_vpa }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2004.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_training_standardization\"\n\t\t\tunlock_decision_category_tooltip = VIE_airf_category\n\t\t\tVIE_airf_t1_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Chuẩn hóa Đào tạo Phi công và Kỹ thuật viên"
+  },
+  "VIE_apm_law": {
+    "x": 228,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_airf_training_standardization"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_apm_law\n\t\ticon = GFX_focus_VIE_apm_law\n\n\t\tx = 26\n\t\ty = 2\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 5\n\n\t\tprerequisite = { focus = VIE_airf_training_standardization }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }\n\n\t\tavailable = {\n\t\t\tdate > 2008.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_apm_law\"\n\t\t\tunlock_decision_category_tooltip = VIE_apm_category\n\t\t\tVIE_apm_f1_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Thể chế Công nghiệp Quốc phòng Hàng không"
+  },
+  "VIE_apm_a32": {
+    "x": 224,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_apm_law"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_apm_a32\n\t\ticon = GFX_focus_VIE_apm_a32\n\n\t\tx = 22\n\t\ty = 3\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_apm_law }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }\n\n\t\tavailable = { date > 2010.12.31 }\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_apm_a32\"\n\t\t\tunlock_decision_tooltip = VIE_apm_d_a32\n\t\t\tVIE_apm_f2_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Nhà máy A32: đại tu và kéo dài niên hạn"
+  },
+  "VIE_apm_a31": {
+    "x": 228,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_apm_law"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_apm_a31\n\t\ticon = GFX_focus_VIE_apm_a31\n\n\t\tx = 26\n\t\ty = 3\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_apm_law }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }\n\n\t\tavailable = { date > 2008.12.31 }\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_apm_a31\"\n\t\t\tunlock_decision_tooltip = VIE_apm_d_a31\n\t\t\tVIE_apm_f3_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Nhà máy A31: tên lửa phòng không"
+  },
+  "VIE_apm_radar": {
+    "x": 232,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_apm_law"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_apm_radar\n\t\ticon = GFX_focus_VIE_apm_radar\n\n\t\tx = 30\n\t\ty = 3\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_apm_law }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }\n\n\t\tavailable = { date > 2010.12.31 }\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_apm_radar\"\n\t\t\tunlock_decision_tooltip = VIE_apm_d_radar\n\t\t\tVIE_apm_f4_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Radar và chỉ huy - điều khiển nội địa"
+  },
+  "VIE_apm_integration": {
+    "x": 226,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_apm_a32",
+        "VIE_apm_a31",
+        "VIE_apm_radar"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_apm_integration\n\t\ticon = GFX_focus_VIE_apm_integration\n\n\t\tx = 24\n\t\ty = 5\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_apm_a32 focus = VIE_apm_a31 focus = VIE_apm_radar }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }\n\n\t\tavailable = {\n\t\t\tdate > 2014.12.31\n\t\t\tVIE_apm_two_of_three = yes\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_apm_integration\"\n\t\t\tunlock_decision_tooltip = VIE_apm_d_integ\n\t\t\tVIE_apm_f5_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Tích hợp vũ khí và hệ thống đa nguồn"
+  },
+  "VIE_apm_uav": {
+    "x": 230,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_apm_radar"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_apm_uav\n\t\ticon = GFX_focus_VIE_apm_uav\n\n\t\tx = 28\n\t\ty = 5\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_apm_radar }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }\n\n\t\tavailable = { date > 2017.12.31 }\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_apm_uav\"\n\t\t\tunlock_decision_tooltip = VIE_apm_d_uav\n\t\t\tVIE_apm_f6_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Chương trình UAV nội địa"
+  },
+  "VIE_apm_mature": {
+    "x": 228,
+    "y": 8,
+    "pre": [
+      [
+        "VIE_apm_integration"
+      ],
+      [
+        "VIE_apm_uav"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_apm_mature\n\t\ticon = GFX_focus_VIE_apm_mature\n\n\t\tx = 26\n\t\ty = 7\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tprerequisite = { focus = VIE_apm_integration }\n\t\tprerequisite = { focus = VIE_apm_uav }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT FOCUS_FILTER_INDUSTRY }\n\n\t\tavailable = {\n\t\t\tdate > 2026.12.31\n\t\t\tVIE_apm_mature_ok = yes\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_apm_mature\"\n\t\t\tVIE_apm_f7_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Công nghiệp hàng không - phòng không trưởng thành"
+  },
+  "VIE_airf_fighter_force": {
+    "x": 216,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_airf_training_standardization"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_fighter_force\n\t\ticon = GFX_focus_VIE_airf_fighter_force\n\n\t\tx = 14\n\t\ty = 2\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_training_standardization }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2007.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_fighter_force\"\n\t\t\tunlock_decision_tooltip = VIE_airf_d1_fighters\n\t\t\tVIE_airf_t2_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Phát triển Lực lượng Tiêm kích"
+  },
+  "VIE_airf_sam_force": {
+    "x": 222,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_airf_training_standardization"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_sam_force\n\t\ticon = GFX_focus_VIE_airf_sam_force\n\n\t\tx = 20\n\t\ty = 2\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_training_standardization }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2005.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_sam_force\"\n\t\t\tunlock_decision_tooltip = VIE_airf_d2_sam\n\t\t\tVIE_airf_t3_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Phát triển Lực lượng Tên lửa Phòng không và Radar"
+  },
+  "VIE_airf_command_reform_1": {
+    "x": 218,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_airf_fighter_force"
+      ],
+      [
+        "VIE_airf_sam_force"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_command_reform_1\n\t\ticon = GFX_focus_VIE_airf_command_reform_1\n\n\t\tx = 16\n\t\ty = 3\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_fighter_force }\n\t\tprerequisite = { focus = VIE_airf_sam_force }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2009.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_1\"\n\t\t\tunlock_decision_tooltip = VIE_airf_d3_coordination\n\t\t\tVIE_airf_t4_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Cải cách Chỉ huy Phòng không - Không quân I"
+  },
+  "VIE_airf_first_force": {
+    "x": 218,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_airf_command_reform_1"
+      ],
+      [
+        "VIE_apm_a32",
+        "VIE_apm_a31",
+        "VIE_apm_radar"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_first_force\n\t\ticon = GFX_focus_VIE_airf_first_force\n\n\t\tx = 16\n\t\ty = 4\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_command_reform_1 }\n\t\tprerequisite = { focus = VIE_apm_a32 focus = VIE_apm_a31 focus = VIE_apm_radar }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2011.12.31\n\t\t\tOR = {\n\t\t\t\tcustom_trigger_tooltip = { tooltip = VIE_var_air_delivered_12_tt check_variable = { VIE_var_air_delivered > 11 } }\n\t\t\t\tdate > 2014.12.31\n\t\t\t}\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_first_force\"\n\t\t\tunlock_decision_tooltip = VIE_airf_d4_first_force\n\t\t\tVIE_airf_t5_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Cơ cấu Lực lượng Ban đầu"
+  },
+  "VIE_airf_command_reform_2": {
+    "x": 218,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_airf_first_force"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_command_reform_2\n\t\ticon = GFX_focus_VIE_airf_command_reform_2\n\n\t\tx = 16\n\t\ty = 5\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_first_force }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2013.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_command_reform_2\"\n\t\t\tVIE_airf_t6_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Cải cách Chỉ huy Phòng không - Không quân II"
+  },
+  "VIE_airf_medium_force": {
+    "x": 218,
+    "y": 7,
+    "pre": [
+      [
+        "VIE_airf_command_reform_2"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_medium_force\n\t\ticon = GFX_focus_VIE_airf_medium_force\n\n\t\tx = 16\n\t\ty = 6\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_command_reform_2 }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2015.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_medium_force\"\n\t\t\tVIE_airf_t7_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Lực lượng Không quân Trung bình"
+  },
+  "VIE_airf_operating_range": {
+    "x": 218,
+    "y": 8,
+    "pre": [
+      [
+        "VIE_airf_medium_force"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_operating_range\n\t\ticon = GFX_focus_VIE_airf_operating_range\n\n\t\tx = 16\n\t\ty = 7\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_medium_force }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2017.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_operating_range\"\n\t\t\tVIE_airf_t8_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Mở rộng Bán kính Hoạt động và Căn cứ Tiền phương"
+  },
+  "VIE_airf_iads": {
+    "x": 214,
+    "y": 9,
+    "pre": [
+      [
+        "VIE_airf_operating_range"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_multirole",
+      "VIE_airf_unmanned"
+    ],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_iads\n\t\ticon = GFX_focus_VIE_airf_iads\n\n\t\tx = 12\n\t\ty = 8\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_operating_range }\n\t\tmutually_exclusive = { focus = VIE_airf_multirole focus = VIE_airf_unmanned }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_iads\"\n\t\t\tVIE_airf_a1_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 40\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Phòng không Tích hợp"
+  },
+  "VIE_airf_layered_defence": {
+    "x": 214,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_iads"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_layered_defence\n\t\ticon = GFX_focus_VIE_airf_layered_defence\n\n\t\tx = 12\n\t\ty = 9\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_iads }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2019.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_layered_defence\"\n\t\t\tVIE_airf_a2_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Mạng Radar - Tên lửa Nhiều tầng"
+  },
+  "VIE_airf_ew_antistealth": {
+    "x": 214,
+    "y": 11,
+    "pre": [
+      [
+        "VIE_airf_layered_defence"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_ew_antistealth\n\t\ticon = GFX_focus_VIE_airf_ew_antistealth\n\n\t\tx = 12\n\t\ty = 10\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_layered_defence }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2021.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_ew_antistealth\"\n\t\t\tVIE_airf_a3_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Tác chiến Điện tử và Chống tàng hình"
+  },
+  "VIE_airf_iads_command": {
+    "x": 214,
+    "y": 12,
+    "pre": [
+      [
+        "VIE_airf_ew_antistealth"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_iads_command\n\t\ticon = GFX_focus_VIE_airf_iads_command\n\n\t\tx = 12\n\t\ty = 11\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tprerequisite = { focus = VIE_airf_ew_antistealth }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2024.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_iads_command\"\n\t\t\tunlock_decision_tooltip = VIE_airf_d5_capstone\n\t\t\tVIE_airf_a4_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Bộ Chỉ huy Phòng không Khu vực"
+  },
+  "VIE_airf_multirole": {
+    "x": 220,
+    "y": 9,
+    "pre": [
+      [
+        "VIE_airf_operating_range"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_iads",
+      "VIE_airf_unmanned"
+    ],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_multirole\n\t\ticon = GFX_focus_VIE_airf_multirole\n\n\t\tx = 18\n\t\ty = 8\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_operating_range }\n\t\tmutually_exclusive = { focus = VIE_airf_iads focus = VIE_airf_unmanned }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole\"\n\t\t\tVIE_airf_b1_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 40\n\t\t\tmodifier = { factor = 0 VIE_ai_historical = yes }\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Không quân Đa nhiệm"
+  },
+  "VIE_airf_multirole_fleet": {
+    "x": 218,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_multirole"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_multirole_fleet\n\t\ticon = GFX_focus_VIE_airf_multirole_fleet\n\n\t\tx = 16\n\t\ty = 9\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_multirole }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2024.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_fleet\"\n\t\t\tVIE_airf_b2_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Chương trình Tiêm kích Đa nhiệm 4.5"
+  },
+  "VIE_airf_sustainment": {
+    "x": 222,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_multirole"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_sustainment\n\t\ticon = GFX_focus_VIE_airf_sustainment\n\n\t\tx = 20\n\t\ty = 9\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_multirole }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2022.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_sustainment\"\n\t\t\tVIE_airf_b3_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Bảo đảm Kỹ thuật Đa nguồn"
+  },
+  "VIE_airf_airlift_tanker": {
+    "x": 226,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_multirole"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_airlift_tanker\n\t\ticon = GFX_focus_VIE_airf_airlift_tanker\n\n\t\tx = 24\n\t\ty = 9\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_multirole }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2026.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_airlift_tanker\"\n\t\t\tVIE_airf_b4_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Vận tải và Tiếp dầu trên Không"
+  },
+  "VIE_airf_multirole_wing": {
+    "x": 220,
+    "y": 11,
+    "pre": [
+      [
+        "VIE_airf_multirole_fleet"
+      ],
+      [
+        "VIE_airf_sustainment"
+      ],
+      [
+        "VIE_airf_airlift_tanker"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_multirole_wing\n\t\ticon = GFX_focus_VIE_airf_multirole_wing\n\n\t\tx = 18\n\t\ty = 10\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tprerequisite = { focus = VIE_airf_multirole_fleet }\n\t\tprerequisite = { focus = VIE_airf_sustainment }\n\t\tprerequisite = { focus = VIE_airf_airlift_tanker }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2028.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_multirole_wing\"\n\t\t\tunlock_decision_tooltip = VIE_airf_d5_capstone\n\t\t\tVIE_airf_b5_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Cánh Không quân Đa nhiệm"
+  },
+  "VIE_airf_unmanned": {
+    "x": 230,
+    "y": 9,
+    "pre": [
+      [
+        "VIE_airf_operating_range"
+      ]
+    ],
+    "ex": [
+      "VIE_airf_iads",
+      "VIE_airf_multirole"
+    ],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_unmanned\n\t\ticon = GFX_focus_VIE_airf_unmanned\n\n\t\tx = 28\n\t\ty = 8\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_operating_range }\n\t\tmutually_exclusive = { focus = VIE_airf_iads focus = VIE_airf_multirole }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_unmanned\"\n\t\t\tVIE_airf_c1_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 40\n\t\t\tmodifier = { factor = 0 VIE_ai_historical = yes }\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Không người lái và Mạng hóa"
+  },
+  "VIE_airf_isr_uav": {
+    "x": 230,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_unmanned"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_isr_uav\n\t\ticon = GFX_focus_VIE_airf_isr_uav\n\n\t\tx = 28\n\t\ty = 9\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_unmanned }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2020.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_isr_uav\"\n\t\t\tVIE_airf_c2_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "UAV Trinh sát và Mục tiêu"
+  },
+  "VIE_airf_datalink": {
+    "x": 234,
+    "y": 10,
+    "pre": [
+      [
+        "VIE_airf_unmanned"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_datalink\n\t\ticon = GFX_focus_VIE_airf_datalink\n\n\t\tx = 32\n\t\ty = 9\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_unmanned }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2022.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_datalink\"\n\t\t\tVIE_airf_c3_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Mạng Liên kết Dữ liệu (C4ISR)"
+  },
+  "VIE_airf_strike_uav": {
+    "x": 230,
+    "y": 11,
+    "pre": [
+      [
+        "VIE_airf_isr_uav"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_strike_uav\n\t\ticon = GFX_focus_VIE_airf_strike_uav\n\n\t\tx = 28\n\t\ty = 10\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tcost = 7\n\n\t\tprerequisite = { focus = VIE_airf_isr_uav }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2025.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_strike_uav\"\n\t\t\tVIE_airf_c4_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "UAV Tấn công"
+  },
+  "VIE_airf_teaming": {
+    "x": 230,
+    "y": 12,
+    "pre": [
+      [
+        "VIE_airf_datalink"
+      ],
+      [
+        "VIE_airf_strike_uav"
+      ]
+    ],
+    "ex": [],
+    "block": "\tfocus = {\n\t\tid = VIE_airf_teaming\n\t\ticon = GFX_focus_VIE_airf_teaming\n\n\t\tx = 28\n\t\ty = 11\n\t\trelative_position_id = VIE_modernize_vpa\n\n\t\tprerequisite = { focus = VIE_airf_datalink }\n\t\tprerequisite = { focus = VIE_airf_strike_uav }\n\n\t\tsearch_filters = { FOCUS_FILTER_AIRCRAFT }\n\n\t\tavailable = {\n\t\t\tdate > 2029.12.31\n\t\t}\n\n\t\tcompletion_reward = {\n\t\t\tlog = \"[GetDateText]: [Root.GetName]: Focus VIE_airf_teaming\"\n\t\t\tunlock_decision_tooltip = VIE_airf_d5_capstone\n\t\t\tVIE_airf_c5_reward = yes\n\t\t}\n\n\t\tai_will_do = {\n\t\t\tbase = 60\n\t\t\tmodifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }\n\t\t}\n\t}",
+    "label": "Phối hợp Có người - Không người"
+  }
+}

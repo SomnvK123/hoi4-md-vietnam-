@@ -22,6 +22,12 @@ mà crash `UnicodeEncodeError` thì đặt `PYTHONIOENCODING=utf-8` (đã có tr
 | Cân bằng trục quân sự | `tools/audit/lf_balance.py`, `nf_balance.py`, `air_*_balance.py`, `naval_balance.py` | In `PASS` |
 | Layout cây | `tools/focus_layout/` (xem README trong đó) | Không tăng span, không gap < 2 |
 
+PK-KQ v19: chạy thêm `python tools/audit/air_scenarios.py` và
+`python tools/audit/air_ai_options.py`; xuất sơ đồ bằng
+`python tools/focus_layout/air_diagram.py`. Kiểm định/cảnh báo hiện hành:
+[air/validation.md](air/validation.md). Fixture đọc script thực nhưng không thay
+kiểm đường nối, hover, chương trình và AI trong game.
+
 Luôn đọc kết quả thật trước khi báo "sạch". Nếu script không chạy được, nói rõ thay vì suy đoán.
 
 Với tài nguyên hình ảnh, đọc [quy trình và profile mỹ thuật](art-style-guide/04_giai_phap_cong_nghe_va_quy_trinh_san_xuat.md)

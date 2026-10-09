@@ -2,7 +2,7 @@
 # Truc 2 khong quan (CNQP hang khong - phong khong): Decision. Thiet ke: VIE_air_truc2_review_and_plan.md (buoc 4-6).
 # Moi tru MOT Decision LAP LAI (khong fire_only_once): bam xong ban event chon cua bac ke (doc VIE_apm_<tru>_tier), timed idea
 # chi bao dang chay, event hoan tat tang bac. 50 PP. Cong luc bam: custom_trigger_tooltip noi ro dieu kien con thieu.
-# Cho giua chung: co VIE_apm_<tru>_pending (xoa boi moi option, du phong 30 ngay) chan bam lan hai truoc khi event chon ke kip hien.
+# Cho giua chung: co VIE_apm_<tru>_pending (xoa boi moi option) chan bam lan hai truoc khi event chon ke kip hien.
 ########################################################################
 
 VIE_apm_category = {
@@ -21,6 +21,7 @@ VIE_apm_category = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = VIE_apm_busy_tt
+				NOT = { has_country_flag = VIE_apm_a32_running }
 				NOT = { has_idea = VIE_apm_prog_a32 }
 				NOT = { has_country_flag = VIE_apm_a32_pending }
 			}
@@ -32,7 +33,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_a32"
-			hidden_effect = { set_country_flag = { flag = VIE_apm_a32_pending value = 1 days = 30 } }
+			hidden_effect = { set_country_flag = VIE_apm_a32_pending }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_a32_tier = 0 } }
@@ -49,6 +50,10 @@ VIE_apm_category = {
 
 		ai_will_do = {
 			base = 80
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_a32_tier = 0 } NOT = { date > 2010.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_a32_tier = 1 } NOT = { date > 2016.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_a32_tier = 2 } NOT = { date > 2023.12.31 } }
+
 			modifier = { factor = 0.6 check_variable = { VIE_apm_a32_tier = 1 } }
 			modifier = { factor = 0.4 check_variable = { VIE_apm_a32_tier = 2 } }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
@@ -70,6 +75,7 @@ VIE_apm_category = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = VIE_apm_busy_tt
+				NOT = { has_country_flag = VIE_apm_a31_running }
 				NOT = { has_idea = VIE_apm_prog_a31 }
 				NOT = { has_country_flag = VIE_apm_a31_pending }
 			}
@@ -81,7 +87,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_a31"
-			hidden_effect = { set_country_flag = { flag = VIE_apm_a31_pending value = 1 days = 30 } }
+			hidden_effect = { set_country_flag = VIE_apm_a31_pending }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_a31_tier = 0 } }
@@ -98,6 +104,10 @@ VIE_apm_category = {
 
 		ai_will_do = {
 			base = 80
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_a31_tier = 0 } NOT = { date > 2008.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_a31_tier = 1 } NOT = { date > 2012.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_a31_tier = 2 } NOT = { date > 2020.12.31 } }
+
 			modifier = { factor = 0.6 check_variable = { VIE_apm_a31_tier = 1 } }
 			modifier = { factor = 0.4 check_variable = { VIE_apm_a31_tier = 2 } }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
@@ -119,6 +129,7 @@ VIE_apm_category = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = VIE_apm_busy_tt
+				NOT = { has_country_flag = VIE_apm_radar_running }
 				NOT = { has_idea = VIE_apm_prog_radar }
 				NOT = { has_country_flag = VIE_apm_radar_pending }
 			}
@@ -130,7 +141,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_radar"
-			hidden_effect = { set_country_flag = { flag = VIE_apm_radar_pending value = 1 days = 30 } }
+			hidden_effect = { set_country_flag = VIE_apm_radar_pending }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_radar_tier = 0 } }
@@ -147,6 +158,10 @@ VIE_apm_category = {
 
 		ai_will_do = {
 			base = 80
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_radar_tier = 0 } NOT = { date > 2013.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_radar_tier = 1 } NOT = { date > 2018.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_radar_tier = 2 } NOT = { date > 2023.12.31 } }
+
 			modifier = { factor = 0.6 check_variable = { VIE_apm_radar_tier = 1 } }
 			modifier = { factor = 0.4 check_variable = { VIE_apm_radar_tier = 2 } }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
@@ -168,6 +183,7 @@ VIE_apm_category = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = VIE_apm_busy_tt
+				NOT = { has_country_flag = VIE_apm_integ_running }
 				NOT = { has_idea = VIE_apm_prog_integ }
 				NOT = { has_country_flag = VIE_apm_integ_pending }
 			}
@@ -179,7 +195,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_integ"
-			hidden_effect = { set_country_flag = { flag = VIE_apm_integ_pending value = 1 days = 30 } }
+			hidden_effect = { set_country_flag = VIE_apm_integ_pending }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_integ_tier = 0 } }
@@ -196,6 +212,10 @@ VIE_apm_category = {
 
 		ai_will_do = {
 			base = 80
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_integ_tier = 0 } NOT = { date > 2014.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_integ_tier = 1 } NOT = { date > 2014.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_integ_tier = 2 } NOT = { date > 2024.12.31 } }
+
 			modifier = { factor = 0.6 check_variable = { VIE_apm_integ_tier = 1 } }
 			modifier = { factor = 0.4 check_variable = { VIE_apm_integ_tier = 2 } }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
@@ -217,6 +237,7 @@ VIE_apm_category = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = VIE_apm_busy_tt
+				NOT = { has_country_flag = VIE_apm_uav_running }
 				NOT = { has_idea = VIE_apm_prog_uav }
 				NOT = { has_country_flag = VIE_apm_uav_pending }
 			}
@@ -228,7 +249,7 @@ VIE_apm_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_apm_d_uav"
-			hidden_effect = { set_country_flag = { flag = VIE_apm_uav_pending value = 1 days = 30 } }
+			hidden_effect = { set_country_flag = VIE_apm_uav_pending }
 			VIE_apm_program_start = yes
 			if = {
 				limit = { check_variable = { VIE_apm_uav_tier = 0 } }
@@ -245,6 +266,10 @@ VIE_apm_category = {
 
 		ai_will_do = {
 			base = 80
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_uav_tier = 0 } NOT = { date > 2017.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_uav_tier = 1 } NOT = { date > 2022.12.31 } }
+			modifier = { factor = 0 is_ai = yes VIE_ai_historical = yes check_variable = { VIE_apm_uav_tier = 2 } NOT = { date > 2025.12.31 } }
+
 			modifier = { factor = 0.6 check_variable = { VIE_apm_uav_tier = 1 } }
 			modifier = { factor = 0.4 check_variable = { VIE_apm_uav_tier = 2 } }
 			# bac 2-3 dua tren tin chua xac nhan [~]: AI chi di bac 1 (VIE_ai_historical luon dung; "free" chua duoc dinh nghia)

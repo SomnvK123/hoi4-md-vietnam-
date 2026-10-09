@@ -19,39 +19,179 @@ VIE_airf_branch_c = {
 	has_completed_focus = VIE_airf_unmanned
 }
 
-# ---------------------------------------------------------------------
-# D-E (capstone): VIE_var_sam_lr = 2 sau hai tieu doan S-300 (Truc 1), nen muc 2 cua nhanh A can > 2 (1B P8).
-# D-E (capstone): cong MUC 1 chi doc du lieu Truc 1-2 (1B chua ton tai); MUC 2 doc 1B chi de cong them thuong (R11).
-# Moi cong mo co duong du phong de hop dong tuy chon khong khoa nhanh (bai hoc review Truc 2, loi 1).
-# ---------------------------------------------------------------------
-VIE_airf_capstone_ok_a = {
-	OR = {
-		check_variable = { VIE_var_sam_lr > 0 }
-		check_variable = { VIE_apm_a31_tier > 1 }
+# Cong nang luc v18; khong doc co scheduler hay khoa nam cho nguoi choi.
+VIE_airf_training_done = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_training_done
+	has_country_flag = VIE_airf_d1_done
+	has_country_flag = VIE_airf_d2_done
 	}
+}
+
+VIE_airf_coordination_done = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_coordination_done
+	has_country_flag = VIE_airf_d3_done
+	}
+}
+
+VIE_airf_structure_done = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_structure_done
+	has_country_flag = VIE_airf_d4_done
+	}
+}
+
+VIE_airf_iads_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_iads_ready
+	check_variable = { VIE_apm_a31_tier > 0 }
+	check_variable = { VIE_apm_radar_tier > 0 }
+	has_country_flag = VIE_airf_d2_done
+	}
+}
+
+VIE_airf_layered_ready = {
+	custom_trigger_tooltip = {
+		has_completed_focus = VIE_apm_radar
+		tooltip = VIE_tt_airf_layered_ready
+	check_variable = { VIE_apm_radar_tier > 1 }
+	OR = { check_variable = { VIE_apm_a31_tier > 1 } check_variable = { VIE_var_sam_lr > 0 } }
+	}
+}
+
+VIE_airf_ew_ready = {
+	custom_trigger_tooltip = {
+		has_completed_focus = VIE_apm_integration
+		tooltip = VIE_tt_airf_ew_ready
+	check_variable = { VIE_apm_integ_tier > 0 }
+	}
+}
+
+VIE_airf_fighter_industry_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_fighter_industry_ready
+	check_variable = { VIE_apm_a32_tier > 0 }
+	}
+}
+
+VIE_airf_sustainment_ready = {
+	custom_trigger_tooltip = {
+		has_completed_focus = VIE_apm_a32
+		tooltip = VIE_tt_airf_sustainment_ready
+	check_variable = { VIE_apm_a32_tier > 1 }
+	}
+}
+
+VIE_airf_wing_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_wing_ready
+	check_variable = { VIE_apm_a32_tier > 1 }
+	has_country_flag = VIE_airf_d1_done
+	}
+}
+
+VIE_airf_uav_start_ready = {
+	custom_trigger_tooltip = {
+		has_completed_focus = VIE_apm_uav
+		tooltip = VIE_tt_airf_uav_start_ready
+	check_variable = { VIE_apm_uav_tier > 0 }
+	check_variable = { VIE_apm_radar_tier > 0 }
+	}
+}
+
+VIE_airf_uav_isr_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_uav_isr_ready
+	check_variable = { VIE_apm_uav_tier > 1 }
+	}
+}
+
+VIE_airf_uav_strike_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_uav_strike_ready
+	check_variable = { VIE_apm_uav_tier > 2 }
+	}
+}
+
+VIE_airf_teaming_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_teaming_ready
+	check_variable = { VIE_apm_integ_tier > 1 }
+	has_country_flag = VIE_airf_d1_done
+	}
+}
+
+VIE_airf_two_capstones = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_two_capstones
+	count_triggers = {
+		amount = 2
+		has_completed_focus = VIE_airf_iads_command
+		has_completed_focus = VIE_airf_multirole_wing
+		has_completed_focus = VIE_airf_teaming
+	}
+	}
+}
+
+VIE_airf_capstone_ok_a = {
+	OR = { check_variable = { VIE_var_sam_lr > 0 } check_variable = { VIE_apm_a31_tier > 1 } }
 	check_variable = { VIE_apm_radar_tier > 1 }
 }
+
 VIE_airf_capstone_ok_b = {
-	OR = {
-		check_variable = { VIE_var_air_delivered > 23 }
-		date > 2030.12.31
-	}
 	check_variable = { VIE_apm_a32_tier > 1 }
 }
+
 VIE_airf_capstone_ok_c = {
 	check_variable = { VIE_apm_uav_tier > 1 }
 }
+
 VIE_airf_capstone_ok = {
 	OR = {
-		AND = { VIE_airf_branch_a = yes VIE_airf_capstone_ok_a = yes }
-		AND = { VIE_airf_branch_b = yes VIE_airf_capstone_ok_b = yes }
-		AND = { VIE_airf_branch_c = yes VIE_airf_capstone_ok_c = yes }
+		AND = { check_variable = { VIE_airf_capstone_target = 1 } has_completed_focus = VIE_airf_iads_command VIE_airf_capstone_ok_a = yes }
+		AND = { check_variable = { VIE_airf_capstone_target = 2 } has_completed_focus = VIE_airf_multirole_wing VIE_airf_capstone_ok_b = yes }
+		AND = { check_variable = { VIE_airf_capstone_target = 3 } has_completed_focus = VIE_airf_teaming VIE_airf_capstone_ok_c = yes }
 	}
 }
+
 VIE_airf_capstone_lvl2 = {
 	OR = {
-		AND = { VIE_airf_branch_a = yes check_variable = { VIE_var_sam_lr > 2 } }
-		AND = { VIE_airf_branch_b = yes check_variable = { VIE_var_air_multirole4 > 11 } }
-		AND = { VIE_airf_branch_c = yes check_variable = { VIE_var_uav_delivered > 3 } }
+		AND = { check_variable = { VIE_airf_capstone_target = 1 } check_variable = { VIE_apm_radar_tier > 2 } check_variable = { VIE_apm_integ_tier > 2 } }
+		AND = { check_variable = { VIE_airf_capstone_target = 2 } check_variable = { VIE_apm_a32_tier > 2 } check_variable = { VIE_apm_integ_tier > 2 } }
+		AND = { check_variable = { VIE_airf_capstone_target = 3 } check_variable = { VIE_apm_uav_tier > 2 } check_variable = { VIE_apm_integ_tier > 2 } }
+	}
+}
+
+
+VIE_airf_industry_start_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_industry_start_ready
+		OR = { has_completed_focus = VIE_apm_a32 has_completed_focus = VIE_apm_a31 has_completed_focus = VIE_apm_radar }
+	}
+}
+
+VIE_airf_integration_focus_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_integration_focus_ready
+		has_completed_focus = VIE_apm_integration
+	}
+}
+
+VIE_airf_industry_mature_ready = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_industry_mature_ready
+		has_completed_focus = VIE_apm_mature
+	}
+}
+
+VIE_airf_structure_selection_ok = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_tt_airf_structure_selection_ok
+		has_political_power > 49
+		VIE_airf_slot_free = yes
+		NOT = { has_country_flag = VIE_airf_d4_pending }
+		NOT = { has_country_flag = VIE_airf_d4_started }
+		NOT = { has_country_flag = VIE_airf_d4_done }
 	}
 }

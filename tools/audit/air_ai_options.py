@@ -1,6 +1,7 @@
 """AI check for the three air-force event files: every event with choices keeps at least one option that the AI can pick.
 
-Assumes VIE_ai_historical is always true and the AI is not bankrupt. Options whose only zero-weight modifier has an extra condition
+Industry .12/.13/.21/.23 use exact gate/weight scenarios from air_scenarios (fail on a stranded reachable state).
+Other events keep the conservative always-available-option check. Assumes VIE_ai_historical is always true and the AI is not bankrupt. Options whose only zero-weight modifier has an extra condition
 (for example factor = 0 VIE_ai_historical = yes has_country_flag = X, paired with a trigger on the other option) are printed as
 "conditional zero" and must be read by hand: the ones in vie_air_ind.13, .21 and vie_air_proc.11 are complementary to a trigger, so safe.
 
@@ -11,6 +12,9 @@ import re
 import sys
 
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+from air_scenarios import scenario_options
+
+scenario_options()
 bad = 0
 for f in ("events/VIE_air_force.txt", "events/VIE_air_ind.txt", "events/VIE_air_proc.txt"):
     t = open(f, encoding="utf-8").read().replace("\r\n", "\n")
@@ -43,7 +47,10 @@ for f in ("events/VIE_air_force.txt", "events/VIE_air_ind.txt", "events/VIE_air_
             print(("ok   " if ok else "ZERO ") + f"{eid:22s} {name:26s} base {base} add {add} zero {zero} trigger {gated}")
             if ok and not gated:
                 alive += 1
-        if alive == 0:
+        if alive == 0 and eid not in {"vie_air_ind.12", "vie_air_ind.13", "vie_air_ind.21", "vie_air_ind.23"}:
             print("!! NO ALWAYS-AVAILABLE WEIGHTED OPTION", eid)
             bad += 1
 print("problems:", bad)
+
+if bad:
+    sys.exit(1)

@@ -61,7 +61,7 @@ ideas = {
 			}
 		}
 
-		# Mo nhanh khong khop co cau luc luong da chon o D-D (A1/B1/C1). Timed idea 365 ngay.
+		# Legacy v17: chi giu de doc timed idea da nhan trong save cu; v18 khong con caller cap moi.
 		VIE_airf_branch_mismatch_idea = {
 			picture = army_planning
 			allowed_civil_war = { always = yes }

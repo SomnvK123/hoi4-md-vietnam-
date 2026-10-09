@@ -23,12 +23,12 @@ OPTIONS = {
     51: {"a": (0.05, 12)}, 52: {"a": (0.15, 24), "b": (0.20, 18)}, 53: {"a": (0.30, 36), "b": (0.36, 36)},
 }
 PILLARS = {"a32": (11, 12, 13), "a31": (21, 22, 23), "radar": (31, 32, 33), "integ": (41, 42, 43), "uav": (51, 52, 53)}
-# earliest start (year, month) per tier: focus + date + Truc 1 gate (Pechora contract assumed 2009-03, SPYDER 2015-02)
+# Historical AI scheduling assumptions (not player gates or a game AI simulation).
 EARLIEST = {
-    "a32": [(2011, 1), (2017, 1), (2024, 1)], "a31": [(2009, 3), (2013, 1), (2021, 1)], "radar": [(2014, 1), (2019, 1), (2024, 1)],
-    "integ": [(2015, 2), (2015, 2), (2025, 1)], "uav": [(2018, 1), (2023, 1), (2026, 1)],
+    "a32": [(2011, 1), (2017, 1), (2024, 1)], "a31": [(2009, 1), (2013, 1), (2021, 1)], "radar": [(2014, 1), (2019, 1), (2024, 1)],
+    "integ": [(2015, 1), (2015, 1), (2025, 1)], "uav": [(2018, 1), (2023, 1), (2026, 1)],
 }
-DEPENDS = {("integ", 1): [("radar", 0)], ("uav", 1): [("radar", 0)]}   # (pillar, tier index) needs (pillar, tier index) finished
+DEPENDS = {("integ", 1): [("radar", 0)], ("integ", 2): [("radar", 1)], ("uav", 1): [("radar", 0)], ("uav", 2): [("radar", 1),("integ", 1)]}   # (pillar, tier index) needs (pillar, tier index) finished
 # modifier added by Truc 2 (all pillars, full path)
 ACCIDENTS = -0.03 - 0.03 - 0.02
 DETECTION = 0.02 * 3
@@ -73,7 +73,7 @@ check(AIR_DEF + TRUC1_AIR_DEF <= CAPS["air_def"], f"air_defence Truc 1+2 {AIR_DE
 check(UPKEEP >= CAPS["upkeep"], f"upkeep {UPKEEP} >= {CAPS['upkeep']}")
 
 # ---------------------------------------------------------------- 3. earliest finish with 2 slots
-print("\n== 3. Lich som nhat voi 2 slot (duong lich su, option A) ==")
+print("\n== 3. Lich tham chieu AI voi 2 slot (option A, khong phai khoa nam nguoi choi) ==")
 tasks = {}
 for p, evs in PILLARS.items():
     for i, e in enumerate(evs):
@@ -105,7 +105,7 @@ while pending:
     print(f"  {t[0]:6s} tier {t[1] + 1}: {start // 12}-{start % 12 + 1:02d} -> {end // 12}-{end % 12 + 1:02d}")
 last = max(finish.values())
 print(f"  all pillars done by {last // 12}-{last % 12 + 1:02d}")
-check(last <= ym(*MATURE_BY), f"full path done by {MATURE_BY[0]} (F7 opens 2027-01)")
+check(last <= ym(*MATURE_BY), f"full path done by {MATURE_BY[0]} (F7 has capacity gates, no player year lock)")
 
 # ---------------------------------------------------------------- 4. MIO
 print("\n== 4. MIO ==")

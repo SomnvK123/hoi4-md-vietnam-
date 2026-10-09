@@ -1,0 +1,204 @@
+== 1. Tong lon nhat cua Truc 3 (moi to hop chuyen mon x co cau x muc, D-E) ==
+  nhanh : exp 4.00, atk 3.50, sup 7.00, cas 4.50, mis 11.00, rng 13.00, det 4.50, home 11.50, int 4.00, pers 3.00, ace 6.00, night 1.50, wx 1.50
+  nhanh A: exp 4.00, atk 4.00, sup 8.25, cas 4.50, mis 13.00, rng 13.00, det 6.50, home 15.50, int 5.75, pers 3.00, ace 6.75, night 2.50, wx 2.50
+  nhanh B: exp 4.00, atk 7.00, sup 8.50, cas 6.00, mis 14.00, rng 16.50, det 4.50, home 11.50, int 4.00, pers 3.50, ace 7.50, night 2.00, wx 3.00
+  nhanh C: exp 4.00, atk 5.00, sup 7.00, cas 4.50, mis 13.00, rng 13.50, det 6.50, home 11.50, int 6.00, pers 3.00, ace 7.25, night 3.00, wx 2.00
+  nhanh AB: exp 4.00, atk 7.50, sup 9.75, cas 6.00, mis 15.00, rng 16.50, det 6.50, home 15.50, int 5.75, pers 3.50, ace 8.25, night 3.00, wx 4.00
+  nhanh AC: exp 4.00, atk 5.50, sup 8.25, cas 4.50, mis 14.00, rng 13.50, det 8.50, home 15.50, int 7.75, pers 3.00, ace 8.00, night 4.00, wx 3.00
+  nhanh BC: exp 4.00, atk 8.50, sup 8.50, cas 6.00, mis 15.00, rng 17.00, det 6.50, home 11.50, int 6.00, pers 3.50, ace 8.75, night 3.50, wx 3.50
+  nhanh ABC: exp 4.00, atk 9.00, sup 9.75, cas 6.00, mis 16.00, rng 17.00, det 8.50, home 15.50, int 7.75, pers 3.50, ace 9.50, night 4.50, wx 4.50
+
+== 2. Tran cong don Truc 1+2+3 (bien VIE_af_* dung chung) ==
+PASS  nhanh  exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh  atk: Truc 3 3.50 + truc khac 0 = 3.50 <= 10
+PASS  nhanh  sup: Truc 3 7.00 + truc khac 0 = 7.00 <= 10
+PASS  nhanh  cas: Truc 3 4.50 + truc khac 0 = 4.50 <= 10
+PASS  nhanh  mis: Truc 3 11.00 + truc khac 0 = 11.00 <= 16
+PASS  nhanh  rng: Truc 3 13.00 + truc khac 0 = 13.00 <= 20
+PASS  nhanh  det: Truc 3 4.50 + truc khac 11 = 15.50 <= 20
+PASS  nhanh  home: Truc 3 11.50 + truc khac 0 = 11.50 <= 20
+PASS  nhanh  int: Truc 3 4.00 + truc khac 0 = 4.00 <= 8
+PASS  nhanh  pers: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh  ace: Truc 3 6.00 + truc khac 0 = 6.00 <= 10
+PASS  nhanh  night: Truc 3 1.50 + truc khac 0 = 1.50 <= 6
+PASS  nhanh  wx: Truc 3 1.50 + truc khac 0 = 1.50 <= 6
+PASS  nhanh A exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh A atk: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh A sup: Truc 3 8.25 + truc khac 0 = 8.25 <= 10
+PASS  nhanh A cas: Truc 3 4.50 + truc khac 0 = 4.50 <= 10
+PASS  nhanh A mis: Truc 3 13.00 + truc khac 0 = 13.00 <= 16
+PASS  nhanh A rng: Truc 3 13.00 + truc khac 0 = 13.00 <= 20
+PASS  nhanh A det: Truc 3 6.50 + truc khac 11 = 17.50 <= 20
+PASS  nhanh A home: Truc 3 15.50 + truc khac 0 = 15.50 <= 20
+PASS  nhanh A int: Truc 3 5.75 + truc khac 0 = 5.75 <= 8
+PASS  nhanh A pers: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh A ace: Truc 3 6.75 + truc khac 0 = 6.75 <= 10
+PASS  nhanh A night: Truc 3 2.50 + truc khac 0 = 2.50 <= 6
+PASS  nhanh A wx: Truc 3 2.50 + truc khac 0 = 2.50 <= 6
+PASS  nhanh B exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh B atk: Truc 3 7.00 + truc khac 0 = 7.00 <= 10
+PASS  nhanh B sup: Truc 3 8.50 + truc khac 0 = 8.50 <= 10
+PASS  nhanh B cas: Truc 3 6.00 + truc khac 0 = 6.00 <= 10
+PASS  nhanh B mis: Truc 3 14.00 + truc khac 0 = 14.00 <= 16
+PASS  nhanh B rng: Truc 3 16.50 + truc khac 0 = 16.50 <= 20
+PASS  nhanh B det: Truc 3 4.50 + truc khac 11 = 15.50 <= 20
+PASS  nhanh B home: Truc 3 11.50 + truc khac 0 = 11.50 <= 20
+PASS  nhanh B int: Truc 3 4.00 + truc khac 0 = 4.00 <= 8
+PASS  nhanh B pers: Truc 3 3.50 + truc khac 0 = 3.50 <= 6
+PASS  nhanh B ace: Truc 3 7.50 + truc khac 0 = 7.50 <= 10
+PASS  nhanh B night: Truc 3 2.00 + truc khac 0 = 2.00 <= 6
+PASS  nhanh B wx: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh C exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh C atk: Truc 3 5.00 + truc khac 0 = 5.00 <= 10
+PASS  nhanh C sup: Truc 3 7.00 + truc khac 0 = 7.00 <= 10
+PASS  nhanh C cas: Truc 3 4.50 + truc khac 0 = 4.50 <= 10
+PASS  nhanh C mis: Truc 3 13.00 + truc khac 0 = 13.00 <= 16
+PASS  nhanh C rng: Truc 3 13.50 + truc khac 0 = 13.50 <= 20
+PASS  nhanh C det: Truc 3 6.50 + truc khac 11 = 17.50 <= 20
+PASS  nhanh C home: Truc 3 11.50 + truc khac 0 = 11.50 <= 20
+PASS  nhanh C int: Truc 3 6.00 + truc khac 0 = 6.00 <= 8
+PASS  nhanh C pers: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh C ace: Truc 3 7.25 + truc khac 0 = 7.25 <= 10
+PASS  nhanh C night: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh C wx: Truc 3 2.00 + truc khac 0 = 2.00 <= 6
+PASS  nhanh AB exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh AB atk: Truc 3 7.50 + truc khac 0 = 7.50 <= 10
+PASS  nhanh AB sup: Truc 3 9.75 + truc khac 0 = 9.75 <= 10
+PASS  nhanh AB cas: Truc 3 6.00 + truc khac 0 = 6.00 <= 10
+PASS  nhanh AB mis: Truc 3 15.00 + truc khac 0 = 15.00 <= 16
+PASS  nhanh AB rng: Truc 3 16.50 + truc khac 0 = 16.50 <= 20
+PASS  nhanh AB det: Truc 3 6.50 + truc khac 11 = 17.50 <= 20
+PASS  nhanh AB home: Truc 3 15.50 + truc khac 0 = 15.50 <= 20
+PASS  nhanh AB int: Truc 3 5.75 + truc khac 0 = 5.75 <= 8
+PASS  nhanh AB pers: Truc 3 3.50 + truc khac 0 = 3.50 <= 6
+PASS  nhanh AB ace: Truc 3 8.25 + truc khac 0 = 8.25 <= 10
+PASS  nhanh AB night: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh AB wx: Truc 3 4.00 + truc khac 0 = 4.00 <= 6
+PASS  nhanh AC exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh AC atk: Truc 3 5.50 + truc khac 0 = 5.50 <= 10
+PASS  nhanh AC sup: Truc 3 8.25 + truc khac 0 = 8.25 <= 10
+PASS  nhanh AC cas: Truc 3 4.50 + truc khac 0 = 4.50 <= 10
+PASS  nhanh AC mis: Truc 3 14.00 + truc khac 0 = 14.00 <= 16
+PASS  nhanh AC rng: Truc 3 13.50 + truc khac 0 = 13.50 <= 20
+PASS  nhanh AC det: Truc 3 8.50 + truc khac 11 = 19.50 <= 20
+PASS  nhanh AC home: Truc 3 15.50 + truc khac 0 = 15.50 <= 20
+PASS  nhanh AC int: Truc 3 7.75 + truc khac 0 = 7.75 <= 8
+PASS  nhanh AC pers: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh AC ace: Truc 3 8.00 + truc khac 0 = 8.00 <= 10
+PASS  nhanh AC night: Truc 3 4.00 + truc khac 0 = 4.00 <= 6
+PASS  nhanh AC wx: Truc 3 3.00 + truc khac 0 = 3.00 <= 6
+PASS  nhanh BC exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh BC atk: Truc 3 8.50 + truc khac 0 = 8.50 <= 10
+PASS  nhanh BC sup: Truc 3 8.50 + truc khac 0 = 8.50 <= 10
+PASS  nhanh BC cas: Truc 3 6.00 + truc khac 0 = 6.00 <= 10
+PASS  nhanh BC mis: Truc 3 15.00 + truc khac 0 = 15.00 <= 16
+PASS  nhanh BC rng: Truc 3 17.00 + truc khac 0 = 17.00 <= 20
+PASS  nhanh BC det: Truc 3 6.50 + truc khac 11 = 17.50 <= 20
+PASS  nhanh BC home: Truc 3 11.50 + truc khac 0 = 11.50 <= 20
+PASS  nhanh BC int: Truc 3 6.00 + truc khac 0 = 6.00 <= 8
+PASS  nhanh BC pers: Truc 3 3.50 + truc khac 0 = 3.50 <= 6
+PASS  nhanh BC ace: Truc 3 8.75 + truc khac 0 = 8.75 <= 10
+PASS  nhanh BC night: Truc 3 3.50 + truc khac 0 = 3.50 <= 6
+PASS  nhanh BC wx: Truc 3 3.50 + truc khac 0 = 3.50 <= 6
+PASS  nhanh ABC exp: Truc 3 4.00 + truc khac 0 = 4.00 <= 10
+PASS  nhanh ABC atk: Truc 3 9.00 + truc khac 0 = 9.00 <= 10
+PASS  nhanh ABC sup: Truc 3 9.75 + truc khac 0 = 9.75 <= 10
+PASS  nhanh ABC cas: Truc 3 6.00 + truc khac 0 = 6.00 <= 10
+PASS  nhanh ABC mis: Truc 3 16.00 + truc khac 0 = 16.00 <= 16
+PASS  nhanh ABC rng: Truc 3 17.00 + truc khac 0 = 17.00 <= 20
+PASS  nhanh ABC det: Truc 3 8.50 + truc khac 11 = 19.50 <= 20
+PASS  nhanh ABC home: Truc 3 15.50 + truc khac 0 = 15.50 <= 20
+PASS  nhanh ABC int: Truc 3 7.75 + truc khac 0 = 7.75 <= 8
+PASS  nhanh ABC pers: Truc 3 3.50 + truc khac 0 = 3.50 <= 6
+PASS  nhanh ABC ace: Truc 3 9.50 + truc khac 0 = 9.50 <= 10
+PASS  nhanh ABC night: Truc 3 4.50 + truc khac 0 = 4.50 <= 6
+PASS  nhanh ABC wx: Truc 3 4.50 + truc khac 0 = 4.50 <= 6
+PASS  air_defence_factor: Truc 1+2+luc quan 18 <= 20, Truc 3 khong dung
+PASS  experience peak with timed ideas 10.00 <= 10
+
+== 3. Token trong VIE_armed_forces_modifier ==
+PASS  experience_gain_air_factor = VIE_af_experience_gain_air_factor
+PASS  air_attack_factor = VIE_af_air_attack_factor
+PASS  air_superiority_efficiency = VIE_af_air_superiority_efficiency
+PASS  air_cas_efficiency = VIE_af_air_cas_efficiency
+PASS  air_mission_efficiency = VIE_af_air_mission_efficiency
+PASS  air_range_factor = VIE_af_air_range_factor
+PASS  air_detection = VIE_af_air_detection
+PASS  air_home_defence_factor = VIE_af_air_home_defence_factor
+PASS  air_intercept_efficiency = VIE_af_air_intercept_efficiency
+PASS  airforce_personnel_cost_multiplier_modifier = VIE_af_airforce_personnel_cost_multiplier_modifier
+PASS  air_ace_generation_chance_factor = VIE_af_air_ace_generation_chance_factor
+PASS  air_night_penalty = VIE_af_air_night_penalty
+PASS  air_weather_penalty = VIE_af_air_weather_penalty
+
+== 4. Doi chieu focus trong code ==
+PASS  VIE_airf_training_standardization: code {'exp': 4.0, 'ace': 3.0} vs bang {'exp': 4, 'ace': 3}
+PASS  VIE_airf_training_standardization: focus goi VIE_airf_t1_reward (hoac con reward cu)
+PASS  VIE_airf_fighter_force: code {'atk': 1.0, 'ace': 2.0} vs bang {'atk': 1, 'ace': 2}
+PASS  VIE_airf_fighter_force: focus goi VIE_airf_t2_reward (hoac con reward cu)
+PASS  VIE_airf_sam_force: code {'home': 2.0} vs bang {'home': 2}
+PASS  VIE_airf_sam_force: focus goi VIE_airf_t3_reward (hoac con reward cu)
+PASS  VIE_airf_command_reform_1: code {'mis': 2.0, 'night': -1.0} vs bang {'mis': 2, 'night': -1}
+PASS  VIE_airf_command_reform_1: focus goi VIE_airf_t4_reward (hoac con reward cu)
+PASS  VIE_airf_first_force: code {} vs bang {}
+PASS  VIE_airf_first_force: focus goi VIE_airf_t5_reward (hoac con reward cu)
+PASS  VIE_airf_command_reform_2: code {'mis': 2.0, 'det': 1.0} vs bang {'mis': 2, 'det': 1}
+PASS  VIE_airf_command_reform_2: focus goi VIE_airf_t6_reward (hoac con reward cu)
+PASS  VIE_airf_medium_force: code {'rng': 3.0, 'wx': -1.0} vs bang {'rng': 3, 'wx': -1}
+PASS  VIE_airf_medium_force: focus goi VIE_airf_t7_reward (hoac con reward cu)
+PASS  VIE_airf_operating_range: code {'rng': 4.0, 'det': 1.0} vs bang {'rng': 4, 'det': 1}
+PASS  VIE_airf_operating_range: focus goi VIE_airf_t8_reward (hoac con reward cu)
+PASS  VIE_airf_iads: code {'home': 1.0, 'int': 0.25, 'ace': 0.75} vs bang {'home': 1.0, 'int': 0.25, 'ace': 0.75}
+PASS  VIE_airf_iads: focus goi VIE_airf_a1_reward (hoac con reward cu)
+PASS  VIE_airf_layered_defence: code {'det': 1.0, 'home': 1.0, 'wx': -0.5, 'sup': 0.75} vs bang {'det': 1.0, 'home': 1.0, 'wx': -0.5, 'sup': 0.75}
+PASS  VIE_airf_layered_defence: focus goi VIE_airf_a2_reward (hoac con reward cu)
+PASS  VIE_airf_ew_antistealth: code {'int': 1.5, 'det': 1.0, 'night': -0.5, 'wx': -0.5, 'sup': 0.5} vs bang {'int': 1.5, 'det': 1.0, 'night': -0.5, 'wx': -0.5, 'sup': 0.5}
+PASS  VIE_airf_ew_antistealth: focus goi VIE_airf_a3_reward (hoac con reward cu)
+PASS  VIE_airf_iads_command: code {'mis': 1.0, 'home': 1.0, 'night': -0.5, 'atk': 0.5} vs bang {'mis': 1.0, 'home': 1.0, 'night': -0.5, 'atk': 0.5}
+PASS  VIE_airf_iads_command: focus goi VIE_airf_a4_reward (hoac con reward cu)
+PASS  VIE_airf_multirole: code {'rng': 2.0, 'wx': -0.5, 'pers': 1.0, 'ace': 0.5} vs bang {'rng': 2.0, 'wx': -0.5, 'pers': 1.0, 'ace': 0.5}
+PASS  VIE_airf_multirole: focus goi VIE_airf_b1_reward (hoac con reward cu)
+PASS  VIE_airf_multirole_fleet: code {'atk': 1.5, 'sup': 1.0, 'cas': 1.0} vs bang {'atk': 1.5, 'sup': 1.0, 'cas': 1.0}
+PASS  VIE_airf_multirole_fleet: focus goi VIE_airf_b2_reward (hoac con reward cu)
+PASS  VIE_airf_sustainment: code {'mis': 1.0, 'wx': -1.0, 'night': -0.5, 'pers': -0.5} vs bang {'mis': 1.0, 'wx': -1.0, 'night': -0.5, 'pers': -0.5}
+PASS  VIE_airf_sustainment: focus goi VIE_airf_b3_reward (hoac con reward cu)
+PASS  VIE_airf_airlift_tanker: code {'rng': 1.5} vs bang {'rng': 1.5}
+PASS  VIE_airf_airlift_tanker: focus goi VIE_airf_b4_reward (hoac con reward cu)
+PASS  VIE_airf_multirole_wing: code {'mis': 1.0, 'atk': 1.0, 'ace': 1.0} vs bang {'mis': 1.0, 'atk': 1.0, 'ace': 1.0}
+PASS  VIE_airf_multirole_wing: focus goi VIE_airf_b5_reward (hoac con reward cu)
+PASS  VIE_airf_unmanned: code {'det': 0.5, 'ace': 0.75, 'night': -0.25} vs bang {'det': 0.5, 'ace': 0.75, 'night': -0.25}
+PASS  VIE_airf_unmanned: focus goi VIE_airf_c1_reward (hoac con reward cu)
+PASS  VIE_airf_isr_uav: code {'det': 1.5, 'night': -0.75, 'wx': -0.5} vs bang {'det': 1.5, 'night': -0.75, 'wx': -0.5}
+PASS  VIE_airf_isr_uav: focus goi VIE_airf_c2_reward (hoac con reward cu)
+PASS  VIE_airf_datalink: code {'mis': 1.0, 'wx': -0.5, 'sup': 0.5} vs bang {'mis': 1.0, 'wx': -0.5, 'sup': 0.5}
+PASS  VIE_airf_datalink: focus goi VIE_airf_c3_reward (hoac con reward cu)
+PASS  VIE_airf_strike_uav: code {'atk': 1.5, 'rng': 0.5} vs bang {'atk': 1.5, 'rng': 0.5}
+PASS  VIE_airf_strike_uav: focus goi VIE_airf_c4_reward (hoac con reward cu)
+PASS  VIE_airf_teaming: code {'mis': 1.0, 'int': 1.0, 'ace': 0.5, 'night': -0.5} vs bang {'mis': 1.0, 'int': 1.0, 'ace': 0.5, 'night': -0.5}
+PASS  VIE_airf_teaming: focus goi VIE_airf_c5_reward (hoac con reward cu)
+  22/22 focus Truc 3 co effect
+
+== 5. Doi chieu Decision trong code ==
+PASS  VIE_airf_d1_finish: code [('atk', 1.0), ('atk', 1.5), ('cas', 3.0), ('cas', 4.5), ('sup', 3.0), ('sup', 4.5)] vs bang [('atk', 1), ('atk', 1.5), ('cas', 3), ('cas', 4.5), ('sup', 3), ('sup', 4.5)]
+PASS  VIE_airf_d2_finish: code [('det', 1.0), ('det', 1.5), ('home', 1.0), ('home', 3.0), ('home', 4.5)] vs bang [('det', 1), ('det', 1.5), ('home', 1), ('home', 3), ('home', 4.5)]
+PASS  VIE_airf_d3_stage1: code [('mis', 2.0)] vs bang [('mis', 2)]
+PASS  VIE_airf_d3_stage2: code [('home', 2.0), ('sup', 2.0)] vs bang [('home', 2), ('sup', 2)]
+PASS  VIE_airf_d3_finish: code [('det', 1.0), ('mis', 2.0)] vs bang [('det', 1), ('mis', 2)]
+PASS  VIE_airf_d4_finish: code [('atk', 1.0), ('home', 2.0), ('int', 1.0), ('int', 3.0), ('mis', 2.0), ('pers', 3.0), ('rng', -3.0), ('rng', 1.0), ('rng', 5.0)] vs bang [('atk', 1), ('home', 2), ('int', 1), ('int', 3), ('mis', 2), ('pers', 3), ('rng', -3), ('rng', 1), ('rng', 5)]
+PASS  VIE_airf_d5_finish: code [('atk', 0), ('home', 0), ('int', 0), ('mis', 0)] vs bang [('atk', 0), ('home', 0), ('int', 0), ('mis', 0)]
+PASS  D-E bonus [0.005, 0.01] = fixed 0.5 / 1 percentage point
+
+== 6. Category add_tech_bonus (khong quan) co trong file tech cua MD ==
+PASS  VIE_md_effects_air_force.txt: CAT_air_countermeasures
+PASS  VIE_md_effects_air_force.txt: CAT_air_drones
+PASS  VIE_md_effects_air_force.txt: CAT_air_to_air_weapons
+PASS  VIE_md_effects_air_force.txt: CAT_medium_aircraft
+PASS  VIE_md_effects_air_force.txt: CAT_surface_to_air_missiles
+PASS  VIE_md_effects_air_ind.txt: CAT_airborne_early_warning
+PASS  VIE_md_effects_air_ind.txt: CAT_avionics
+PASS  VIE_md_effects_air_ind.txt: CAT_drones
+PASS  VIE_airf_policy_effects.txt: CAT_air_drones
+PASS  VIE_airf_policy_effects.txt: CAT_medium_aircraft
+PASS  VIE_airf_policy_effects.txt: CAT_surface_to_air_missiles
+
+ALL PASS

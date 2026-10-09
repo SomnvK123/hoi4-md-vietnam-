@@ -22,9 +22,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.1.a
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.1.a executed"
-		set_variable = { VIE_airf_fighter_level = 1 }
-		country_event = { id = vie_air_force.2 }
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d1_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.1.a executed"
+			set_variable = { VIE_airf_fighter_level = 1 }
+			country_event = { id = vie_air_force.2 }
+		}
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -33,9 +36,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.1.b
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.1.b executed"
-		set_variable = { VIE_airf_fighter_level = 2 }
-		country_event = { id = vie_air_force.2 }
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d1_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.1.b executed"
+			set_variable = { VIE_airf_fighter_level = 2 }
+			country_event = { id = vie_air_force.2 }
+		}
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -54,9 +60,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.2.a
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.2.a executed"
-		set_variable = { VIE_airf_fighter_specialty = 1 }
-		VIE_airf_d1_start = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d1_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.2.a executed"
+			set_variable = { VIE_airf_fighter_specialty = 1 }
+			VIE_airf_d1_start = yes
+		}
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -65,9 +74,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.2.b
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.2.b executed"
-		set_variable = { VIE_airf_fighter_specialty = 2 }
-		VIE_airf_d1_start = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d1_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.2.b executed"
+			set_variable = { VIE_airf_fighter_specialty = 2 }
+			VIE_airf_d1_start = yes
+		}
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -86,9 +98,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.10.a
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.10.a executed"
-		set_variable = { VIE_airf_sam_orientation = 1 }
-		country_event = { id = vie_air_force.11 }
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d2_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.10.a executed"
+			set_variable = { VIE_airf_sam_orientation = 1 }
+			country_event = { id = vie_air_force.11 }
+		}
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -97,9 +112,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.10.b
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.10.b executed"
-		set_variable = { VIE_airf_sam_orientation = 2 }
-		country_event = { id = vie_air_force.11 }
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d2_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.10.b executed"
+			set_variable = { VIE_airf_sam_orientation = 2 }
+			country_event = { id = vie_air_force.11 }
+		}
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -118,9 +136,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.11.a
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.11.a executed"
-		set_variable = { VIE_airf_sam_level = 1 }
-		VIE_airf_d2_start = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d2_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.11.a executed"
+			set_variable = { VIE_airf_sam_level = 1 }
+			VIE_airf_d2_start = yes
+		}
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -129,9 +150,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.11.b
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.11.b executed"
-		set_variable = { VIE_airf_sam_level = 2 }
-		VIE_airf_d2_start = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d2_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.11.b executed"
+			set_variable = { VIE_airf_sam_level = 2 }
+			VIE_airf_d2_start = yes
+		}
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -150,9 +174,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.30.a
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.a executed"
-		set_variable = { VIE_airf_force_priority = 1 }
-		VIE_airf_d4_start = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d4_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.a executed"
+			set_variable = { VIE_airf_force_priority = 1 }
+			VIE_airf_d4_start = yes
+		}
 		ai_chance = {
 			base = 90
 			modifier = { add = 100 VIE_ai_historical = yes }
@@ -161,9 +188,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.30.b
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.b executed"
-		set_variable = { VIE_airf_force_priority = 2 }
-		VIE_airf_d4_start = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d4_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.b executed"
+			set_variable = { VIE_airf_force_priority = 2 }
+			VIE_airf_d4_start = yes
+		}
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }
@@ -173,9 +203,12 @@ country_event = {
 
 	option = {
 		name = vie_air_force.30.c
-		log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.c executed"
-		set_variable = { VIE_airf_force_priority = 3 }
-		VIE_airf_d4_start = yes
+		if = {
+			limit = { NOT = { has_country_flag = VIE_airf_d4_started } }
+			log = "[GetDateText]: [This.GetName]: Event vie_air_force.30.c executed"
+			set_variable = { VIE_airf_force_priority = 3 }
+			VIE_airf_d4_start = yes
+		}
 		ai_chance = {
 			base = 10
 			modifier = { factor = 0 VIE_ai_historical = yes }

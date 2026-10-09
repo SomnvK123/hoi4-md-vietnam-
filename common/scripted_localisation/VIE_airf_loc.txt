@@ -1,0 +1,50 @@
+# Trang thai cac dich va bac cong nghiep; dong bo voi count_triggers.
+
+defined_text = {
+	name = VIEAirfIadsStatus
+	text = { trigger = { has_completed_focus = VIE_airf_iads_command } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+
+defined_text = {
+	name = VIEAirfMultiStatus
+	text = { trigger = { has_completed_focus = VIE_airf_multirole_wing } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+
+defined_text = {
+	name = VIEAirfUavStatus
+	text = { trigger = { has_completed_focus = VIE_airf_teaming } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+
+defined_text = {
+	name = VIEAirfA32Status
+	text = { trigger = { check_variable = { VIE_apm_a32_tier > 1 } } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+
+defined_text = {
+	name = VIEAirfA31Status
+	text = { trigger = { check_variable = { VIE_apm_a31_tier > 1 } } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+
+defined_text = {
+	name = VIEAirfRadarStatus
+	text = { trigger = { check_variable = { VIE_apm_radar_tier > 1 } } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+
+defined_text = {
+	name = VIEAirfIndustryUavStatus
+	text = { trigger = { check_variable = { VIE_apm_uav_tier > 1 } } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+
+defined_text = {
+	name = VIEAirfIntegStatus
+	text = { trigger = { check_variable = { VIE_apm_integ_tier > 1 } } localization_key = VIE_airf_status_done }
+	text = { localization_key = VIE_airf_status_pending }
+}
+

@@ -13,6 +13,10 @@ Nguồn đối chiếu chuẩn MD:
 - Tài liệu MD: `D:\ide\Millennium-Dawn\docs\src\content\resources\` (`focus-tree-design-principles.md`, `code-stylization-guide.md`, `content-review-guide.md`, `search-filters.md`).
 - Quy ước riêng VIE: `.claude/docs/conventions.md`, `VIE_focus_coding_standards.md` và `.claude/docs/art-style-guide/`.
 
+Đường dẫn MD trên là vị trí tham khảo cũ. Nếu không tồn tại, tìm bản MD thực đã
+cài (ví dụ Workshop `394360/2777392649`) hoặc nguồn upstream; ghi nguồn đã đọc.
+Không suy đoán cấu trúc một cây chỉ từ tên quốc gia hay quy tắc mô tả trong skill.
+
 ---
 
 ## 1. Quy trình Thêm Focus Mới từ A-Z (Workflow)
@@ -49,7 +53,12 @@ Khi nhận yêu cầu thêm focus (ví dụ `/new-focus VIE_xyz dưới VIE_abc`
 
 Đọc chi tiết tại [references/focus-branch-design.md](references/focus-branch-design.md).
 
-- **Phụ thuộc nội bộ bằng Prerequisite:** Hiện rõ quan hệ cha-con bằng `prerequisite = { focus = ... }` (AND) hoặc khối lồng (OR). Đặt con thấp hơn mọi cha. Tuyệt đối không dùng `available` chỉ để giấu đường nối hay làm phẳng cây một cách giả tạo.
+- **Phụ thuộc nội bộ bằng Prerequisite:** Hai khối `prerequisite` riêng là AND; nhiều `focus` trong cùng một khối là OR. Đặt con thấp hơn mọi cha. Không dùng `available` để giấu quan hệ nội bộ hoặc làm phẳng cây.
+- **Nhánh có nhiệm vụ riêng:** Tách xây dựng lực lượng khỏi công nghiệp bảo đảm bằng cụm và vùng bố cục riêng. Hai cụm có thể cùng mở từ root quân chủng theo thiết kế đã chốt; không mặc định mỗi cụm phải có root độc lập dưới gốc quân sự. Điều kiện công nghiệp của cụm lực lượng phải có tooltip nêu tên focus và bậc cần đạt. Không xen các focus lực lượng vào cột công nghiệp.
+- **Định hướng đọc được trên cây:** Phân biệt cơ cấu tác chiến, ưu tiên ngân sách và năng lực. Khi người dùng yêu cầu thấy định hướng trực tiếp, dùng các focus lựa chọn rõ tên; giữ chương trình đầu tư/hoàn tất thực, không thưởng lại từ event cũ.
+- **Chia tầng có ý nghĩa:** Nền tảng → lựa chọn → bảo đảm chung → chuyên ngành → hội tụ là một mẫu hữu ích. Dùng điểm gom và khoảng nghỉ; tham khảo cây MD thực có về kiến trúc, không sao chép gameplay hoặc ép mọi nhánh cùng số tầng.
+- **Củng cố trước định hướng:** Khi nội dung đòi hỏi lực lượng có nền tảng trước khi chọn cách sử dụng, đặt bước củng cố trước hàng lựa chọn. Tránh hai hàng mutex lặp vai trò; ngân sách đã có lựa chọn theo chương trình không mặc định cần một hàng chính sách riêng.
+- **Mở ngang theo chức năng:** Các chức năng bổ sung có thể mở song song từ cùng nền tảng rồi hội tụ bằng AND bên dưới. Phải sửa quan hệ và mô tả khi bỏ chuỗi cũ; giữ bậc công nghiệp/đào tạo thực, không đặt cha–con cùng hàng hoặc giấu cạnh trong available.
 - **Không kéo chuỗi tuyến tính rỗng:** Tránh chuỗi 4-5 focus chỉ cộng dồn chỉ số tĩnh. Tạo ra các ngã rẽ lựa chọn chính sách có đánh đổi thực sự.
 - **Không `mutually_exclusive` cỡ lớn:** Mutex chỉ dùng cho lựa chọn chính sách loại trừ nhau ngay tức thì, không khóa vĩnh viễn cả một cụm năng lực dài hạn.
 - **Capstone mở:** Focus cuối nhánh phản ánh sự hội tụ của nhiều hướng đi thành công hợp lệ, không ép buộc người chơi phải đi duy nhất một đường độc đạo.

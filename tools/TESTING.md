@@ -18,6 +18,19 @@
    `FileNotFoundError` before running any check. There is no `check_vie.ps1` in this repo.
 
 ## Smoke test (10 minutes)
+
+PK-KQ v19 (09/10/2026), pending runtime validation: use a **new save**.
+
+- [ ] Open the shared air root: industry law must connect below `VIE_airf_training_standardization`. Check five force tiers, the compact industry cluster at rows 3/4/6/8, the gap between x228 and x230, locks and every convergence hover. Only the three tactical structures form one mutex row, after consolidation; the three budget focuses must be absent. Check the three pairs of parallel specialty functions at row 13 and their AND convergences at row 14.
+- [ ] Select each tactical structure on separate saves: spend 50 PP and 0.60 bn once, run D4 normally for 360 days, then receive its existing rewards/time reductions. D4 must not also appear as a selectable decision. A queued old `.30` must not overwrite a started structure.
+- [ ] Start D1/D2 and industry programmes through their normal options: verify base prices and historical discounts, one treasury charge, unchanged PP/timers. Legacy policy variables must not change prices. The three relocated 25% research bonuses are granted once at A1/B1/C1; a matching legacy policy bonus is not repeated.
+- [ ] Reach the new capstone through A+B without UAV or tanker, then A+C and B+C; one terminal, missing D4, or missing mature industry must block it. Check 2/3 and 3/4 status tooltips.
+- [ ] Advance each industry pillar by normal options/timers. Missing Su-30 leaves Su-22/Su-27 available; delivered C-295 permits A32 tier 3 without 12 Su-30. Missing SAM leaves the radar-based A31 route available. Remove Belarus or declare war: the self-development fallback must remain selectable by AI.
+- [ ] Leave an option pending over 30 days, start a second programme, save/reload, then select it: no third slot, no free tier/reward, no repeated payment. Verify completion flags only after actual completion.
+- [ ] With all three specialist terminals completed, choose one of the three explicit D5 support decisions: exactly one target is saved, with the 0.5/1 percentage-point reward once. Level 2 requires the specified industrial tier 3; no unimplemented delivery variable.
+- [ ] Repeat BBA/non-BBA and AAT/no-AAT equipment/MIO checks; observe historical AI choosing defence, adding B at the historical pace and avoiding speculative UAV programmes.
+- [ ] After loading and after every programme, inspect a fresh `error.log` for `VIE_airf`, `VIE_apm`, `vie_air_force`, `vie_air_ind`, scripted loc getters, unknown trigger/effect and equipment errors. Record screenshots, treasury before/after and observed completion dates.
+
 | Step | Expected |
 |---|---|
 | Start 2000, play as VIE, unpause one month | leader changes to Le Kha Phieu, a balance-of-power widget "Direction of the Party" appears, idea "Independence and Self-Reliance" |

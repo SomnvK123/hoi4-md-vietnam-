@@ -1,0 +1,402 @@
+{
+  "source": "D:\\SteamLibrary\\steamapps\\workshop\\content\\394360\\2777392649\\common\\national_focus\\05_germany.txt",
+  "focuses": {
+    "GER_Airforce_structure": {
+      "x": 150,
+      "y": 2,
+      "pre": [
+        [
+          "GER_Establish_Streitkrafte_basis"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Restructure_Airdefense": {
+      "x": 148,
+      "y": 3,
+      "pre": [
+        [
+          "GER_Airforce_structure"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Restructure_kommando_luftwaffe": {
+      "x": 150,
+      "y": 3,
+      "pre": [
+        [
+          "GER_Airforce_structure"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_enhance_pilot_training": {
+      "x": 152,
+      "y": 3,
+      "pre": [
+        [
+          "GER_Airforce_structure"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Capability_focus": {
+      "x": 150,
+      "y": 4,
+      "pre": [
+        [
+          "GER_enhance_pilot_training",
+          "GER_Restructure_Airdefense",
+          "GER_Restructure_kommando_luftwaffe"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_strike_focus": {
+      "x": 146,
+      "y": 5,
+      "pre": [
+        [
+          "GER_Capability_focus"
+        ]
+      ],
+      "ex": [
+        "GER_REC_focus",
+        "GER_Airsuperiority_focus"
+      ]
+    },
+    "GER_REC_focus": {
+      "x": 150,
+      "y": 5,
+      "pre": [
+        [
+          "GER_Capability_focus"
+        ]
+      ],
+      "ex": [
+        "GER_strike_focus",
+        "GER_Airsuperiority_focus"
+      ]
+    },
+    "GER_Airsuperiority_focus": {
+      "x": 154,
+      "y": 5,
+      "pre": [
+        [
+          "GER_Capability_focus"
+        ]
+      ],
+      "ex": [
+        "GER_REC_focus",
+        "GER_strike_focus"
+      ]
+    },
+    "GER_Improve_groundattack_training": {
+      "x": 145,
+      "y": 6,
+      "pre": [
+        [
+          "GER_strike_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Integrated_strike_tactics": {
+      "x": 147,
+      "y": 6,
+      "pre": [
+        [
+          "GER_strike_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Naval_Air_rec": {
+      "x": 149,
+      "y": 6,
+      "pre": [
+        [
+          "GER_REC_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Joint_Exercise_complimentary_use": {
+      "x": 151,
+      "y": 6,
+      "pre": [
+        [
+          "GER_REC_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Improve_fighter_training": {
+      "x": 153,
+      "y": 6,
+      "pre": [
+        [
+          "GER_Airsuperiority_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Improve_Radarcapability": {
+      "x": 155,
+      "y": 6,
+      "pre": [
+        [
+          "GER_Airsuperiority_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Combat_exercise_simulation_center": {
+      "x": 146,
+      "y": 7,
+      "pre": [
+        [
+          "GER_strike_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_update_rec_equipment": {
+      "x": 150,
+      "y": 7,
+      "pre": [
+        [
+          "GER_REC_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_fight_simulation_center": {
+      "x": 154,
+      "y": 7,
+      "pre": [
+        [
+          "GER_Airsuperiority_focus"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_reseach_requirents_for_airforce": {
+      "x": 150,
+      "y": 8,
+      "pre": [
+        [
+          "GER_update_rec_equipment",
+          "GER_Combat_exercise_simulation_center",
+          "GER_fight_simulation_center"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Update_SAM": {
+      "x": 147,
+      "y": 9,
+      "pre": [
+        [
+          "GER_reseach_requirents_for_airforce"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Choose_future_MR": {
+      "x": 149,
+      "y": 9,
+      "pre": [
+        [
+          "GER_reseach_requirents_for_airforce"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_New_heavy_Plain": {
+      "x": 151,
+      "y": 9,
+      "pre": [
+        [
+          "GER_reseach_requirents_for_airforce"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Update_Mobile_Airdefense": {
+      "x": 153,
+      "y": 9,
+      "pre": [
+        [
+          "GER_reseach_requirents_for_airforce"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Upgrade_Comunication_network": {
+      "x": 150,
+      "y": 10,
+      "pre": [
+        [
+          "GER_Choose_future_MR",
+          "GER_New_heavy_Plain"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Integrate_UAV_digital_rec": {
+      "x": 149,
+      "y": 11,
+      "pre": [
+        [
+          "GER_Upgrade_Comunication_network"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Implement_realtime_data_sharing": {
+      "x": 151,
+      "y": 11,
+      "pre": [
+        [
+          "GER_Upgrade_Comunication_network"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_future_of_airforce": {
+      "x": 150,
+      "y": 12,
+      "pre": [
+        [
+          "GER_Upgrade_Comunication_network"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Simulated_digital_warfare_Exercise": {
+      "x": 146,
+      "y": 13,
+      "pre": [
+        [
+          "GER_future_of_airforce"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Inrease_capability": {
+      "x": 150,
+      "y": 13,
+      "pre": [
+        [
+          "GER_future_of_airforce"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Weltraumkommando_der_Bundeswehr": {
+      "x": 154,
+      "y": 13,
+      "pre": [
+        [
+          "GER_future_of_airforce"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Artificial_Inteligence_integration": {
+      "x": 145,
+      "y": 14,
+      "pre": [
+        [
+          "GER_Simulated_digital_warfare_Exercise"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_Integrate_realtime_satelite_rec": {
+      "x": 147,
+      "y": 14,
+      "pre": [
+        [
+          "GER_Simulated_digital_warfare_Exercise"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_future_air_rec": {
+      "x": 149,
+      "y": 14,
+      "pre": [
+        [
+          "GER_Inrease_capability"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_New_Airdefence": {
+      "x": 151,
+      "y": 14,
+      "pre": [
+        [
+          "GER_Inrease_capability"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_own_rec_sattelites": {
+      "x": 153,
+      "y": 14,
+      "pre": [
+        [
+          "GER_Weltraumkommando_der_Bundeswehr"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_own_killsat_capability": {
+      "x": 155,
+      "y": 14,
+      "pre": [
+        [
+          "GER_Weltraumkommando_der_Bundeswehr"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_future_projects_CAS": {
+      "x": 148,
+      "y": 15,
+      "pre": [
+        [
+          "GER_Inrease_capability"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_future_projects_MR": {
+      "x": 150,
+      "y": 15,
+      "pre": [
+        [
+          "GER_Inrease_capability"
+        ]
+      ],
+      "ex": []
+    },
+    "GER_future_projects_heavy": {
+      "x": 152,
+      "y": 15,
+      "pre": [
+        [
+          "GER_Inrease_capability"
+        ]
+      ],
+      "ex": []
+    }
+  },
+  "source_sha256": "9d7d1d21ec5c29149481bd481e7a3063668db5eff1f1a6b4841e73768b9d11bf",
+  "read_date": "2026-10-08",
+  "upstream": "https://github.com/MillenniumDawn/Millennium-Dawn/blob/main/common/national_focus/05_germany.txt"
+}

@@ -1,7 +1,7 @@
-"""Air force (Truc 3 khong quan) balance check: modifier totals per path, shared caps across Truc 1+2+3, code cross-check.
+"""Air force v18 balance check: actual modifiers for every coexisting cluster subset, shared caps across Truc 1+2+3, code cross-check.
 
 Pure stdlib, portable. Prints tables and PASS/FAIL lines; exit code 1 on any FAIL.
-Numbers mirror VIE_air_truc3_review_and_plan.md 4.2, 4.4, 4.5. The VIE_af_* variables are shared by all axes, so every cap
+The v18 contract is in VIE_air_force_documentation.md. The VIE_af_* variables are shared by all axes, so every cap
 is checked against the sum of Truc 1 + Truc 2 + Truc 3 (+ land forces for air_defence_factor).
 Section 4 reads focus rewards from the code and compares them with the table, so the table cannot drift.
 
@@ -14,6 +14,7 @@ import re
 import sys
 from collections import defaultdict
 from itertools import product
+from air_scenarios import call, state
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 
@@ -46,7 +47,7 @@ OTHER_AXES = {"det": 5 + 6}
 AIR_DEF_CAP, AIR_DEF_OTHERS = 20, 6 + 4 + 5 + 3     # Truc 1 air 0.06, Truc 2 0.04, Igla 0.05, TL-01 0.03
 
 # focus id -> {token: percent}; capstone (A4, B5, C5) base is also what D-E multiplies.
-# Values = kept + new (VIE_air_effects_content_and_plan.md part 2). Direction-dependent bonuses (T6, B2) live in DIRECTION below.
+# Base reward contract; actual conditional extras are evaluated by path_total.
 FOCUS = {
     "VIE_airf_training_standardization": {"exp": 4, "ace": 3}, "VIE_airf_fighter_force": {"atk": 1, "ace": 2},
     "VIE_airf_sam_force": {"home": 2}, "VIE_airf_command_reform_1": {"mis": 2, "night": -1}, "VIE_airf_first_force": {},
@@ -63,10 +64,12 @@ FOCUS = {
     "VIE_airf_datalink": {"mis": 2, "wx": -1, "sup": 1}, "VIE_airf_strike_uav": {"atk": 3, "rng": 1},
     "VIE_airf_teaming": {"mis": 2, "int": 2, "ace": 1, "night": -1},
 }
-# direction-dependent extras (read from VIE_airf_force_priority / VIE_airf_fighter_specialty); worst case taken in section 1
-T6_DIR = {0: {}, 1: {"int": 1}, 2: {"int": 0.5, "rng": 0.5, "night": -0.5}, 3: {"rng": 1}}
-B2_SPEC = {"sup": {"sup": 1}, "gnd": {"cas": 1}}
-MS1 = {"ace": 1}   # milestone vie_air_force.70 (step 6), given to every player
+# v18 contract: halve permanent A/B/C modifiers; remove the two opening penalties.
+for fid in FOCUS:
+    if fid not in list(FOCUS)[:8]:
+        FOCUS[fid] = {k:v/2 for k,v in FOCUS[fid].items()}
+FOCUS['VIE_airf_iads'].pop('rng')
+FOCUS['VIE_airf_unmanned'].pop('home')
 REWARD_CODE = {f: c for f, c in zip(FOCUS, "t1 t2 t3 t4 t5 t6 t7 t8 a1 a2 a3 a4 b1 b2 b3 b4 b5 c1 c2 c3 c4 c5".split())}
 CHAIN = [f for f in FOCUS if f.split("_", 2)[2] in (
     "training_standardization", "fighter_force", "sam_force", "command_reform_1", "first_force", "command_reform_2",
@@ -76,16 +79,6 @@ BRANCH = {
     "B": ["VIE_airf_multirole", "VIE_airf_multirole_fleet", "VIE_airf_sustainment", "VIE_airf_airlift_tanker", "VIE_airf_multirole_wing"],
     "C": ["VIE_airf_unmanned", "VIE_airf_isr_uav", "VIE_airf_datalink", "VIE_airf_strike_uav", "VIE_airf_teaming"],
 }
-CAPSTONE = {"A": "VIE_airf_iads_command", "B": "VIE_airf_multirole_wing", "C": "VIE_airf_teaming"}
-D_E_BASE = {"A": {"mis": 2, "home": 2}, "B": {"mis": 2, "atk": 2}, "C": {"mis": 2, "int": 2}}   # what VIE_airf_d5_finish multiplies
-DE_BONUS = 0.5      # D-E level 2 adds +50% of the capstone base (level 1: +25%)
-
-# Decisions (level 2 = x1.5). D-A specialty, D-B (early orientation adds HOME +1), D-C stages, D-D force structure
-D_A = {"sup": {"sup": 3}, "gnd": {"cas": 3, "atk": 1}}
-D_B = {"home": 3, "det": 1}
-D_B_EARLY = {"home": 1}
-D_C = [{"mis": 2}, {"home": 2, "sup": 2}, {"det": 1, "mis": 2}]
-D_D = {1: {"int": 3, "home": 2, "rng": -3}, 2: {"atk": 1, "int": 1, "rng": 1}, 3: {"rng": 5, "mis": 2, "pers": 3}}
 
 fails: list[str] = []
 
@@ -96,48 +89,41 @@ def check(ok: bool, msg: str) -> None:
         fails.append(msg)
 
 
-def add(d, src, mult=1.0):
-    for k, v in src.items():
-        d[k] += v * mult
-
-
-def path_total(branch, spec, prio, level, early):
-    d = defaultdict(float)
-    for f in CHAIN + BRANCH[branch]:
-        add(d, FOCUS[f])
-    add(d, T6_DIR[prio])
-    add(d, MS1)
-    if branch == "B":
-        add(d, B2_SPEC[spec])
-    add(d, D_A[spec], 1.5 if level == 2 else 1.0)
-    add(d, D_B, 1.5 if level == 2 else 1.0)
-    if early:
-        add(d, D_B_EARLY)
-    for s in D_C:
-        add(d, s)
-    add(d, D_D[prio])
-    add(d, D_E_BASE[branch], DE_BONUS if level == 2 else 0.25)
-    if (branch == "A" and prio == 1) or (branch in "BC" and prio == 3):
-        d["mis"] += 1                       # branch fit bonus (VIE_airf_branch_fit_*)
-    for k in ("night", "wx"):               # penalties: negative value = improvement, caps are on the magnitude
-        d[k] = -d[k]
-    return d
+def path_total(branches, spec, prio, level, early, policy):
+    # Actual effect interpreter; no reward total is taken from the contract table.
+    st = state()
+    st['variables'].update(VIE_airf_force_priority=prio, VIE_airf_fighter_specialty=1 if spec=='sup' else 2,
+        VIE_airf_fighter_level=level, VIE_airf_sam_level=level, VIE_airf_sam_orientation=2 if early else 1,
+        VIE_airf_capstone_target=policy)
+    st['flags'].update('VIE_airf_d%d_started' % i for i in range(1,6))
+    for p in ('radar','a32','uav','integ'): st['variables']['VIE_apm_'+p+'_tier']=3 if level==2 else 2
+    selected = CHAIN + [f for br in branches for f in BRANCH[br]]
+    # C3 is shared: reachable even without the UAV cluster.
+    selected = list(dict.fromkeys(selected + ['VIE_airf_datalink']))
+    for f in selected: call('VIE_airf_'+REWARD_CODE[f]+'_reward',st)
+    call('VIE_airf_ms1_apply',st)
+    for name in ('d1_finish','d2_finish','d3_stage1','d3_stage2','d3_finish','d4_finish'):
+        call('VIE_airf_'+name,st)
+    if 'ABC'[policy-1] in branches: call('VIE_airf_d5_finish',st)
+    result={k:st['variables'].get('VIE_af_'+name,0)*100 for k,name in TOKENS.items()}
+    for k in ('night','wx'):result[k]=-result[k]
+    return result
 
 
 # ---------------------------------------------------------------- 1. totals per branch
 print("== 1. Tong lon nhat cua Truc 3 (moi to hop chuyen mon x co cau x muc, D-E) ==")
 worst = {}
-for br in "ABC":
+for br in ("", "A", "B", "C", "AB", "AC", "BC", "ABC"):
     mx = defaultdict(float)
-    for spec, prio, level, early in product(("sup", "gnd"), (1, 2, 3), (1, 2), (False, True)):
-        for k, v in path_total(br, spec, prio, level, early).items():
+    for spec, prio, level, early, policy in product(("sup", "gnd"), (1, 2, 3), (1, 2), (False, True), (1,2,3)):
+        for k, v in path_total(br, spec, prio, level, early, policy).items():
             mx[k] = max(mx[k], v)
     worst[br] = mx
     print(f"  nhanh {br}: " + ", ".join(f"{k} {mx[k]:.2f}" for k in TOKENS if mx[k]))
 
 # ---------------------------------------------------------------- 2. caps across axes
 print("\n== 2. Tran cong don Truc 1+2+3 (bien VIE_af_* dung chung) ==")
-for br in "ABC":
+for br in ("", "A", "B", "C", "AB", "AC", "BC", "ABC"):
     for k, cap in CAPS.items():
         total = worst[br][k] + OTHER_AXES.get(k, 0)
         check(total <= cap + 1e-9, f"nhanh {br} {k}: Truc 3 {worst[br][k]:.2f} + truc khac {OTHER_AXES.get(k, 0)} = {total:.2f} <= {cap}")
@@ -145,7 +131,7 @@ check(AIR_DEF_OTHERS <= AIR_DEF_CAP, f"air_defence_factor: Truc 1+2+luc quan {AI
 
 # Transient experience: timed ideas also add experience_gain_air_factor. Peak = Truc 3 permanent + Truc 1 pilot-training idea (+5, 3 years)
 # + the four Truc 2 / Truc 3 "programme running" indicator ideas (0.25% each, two slots per axis). Truc 1 basic training (+3) never overlaps.
-EXP_PEAK = max(worst[b]["exp"] for b in "ABC") + 5 + 4 * 0.25
+EXP_PEAK = max(w["exp"] for w in worst.values()) + 5 + 4 * 0.25
 check(EXP_PEAK <= CAPS["exp"] + 1e-9, f"experience peak with timed ideas {EXP_PEAK:.2f} <= {CAPS['exp']}")
 
 # ---------------------------------------------------------------- 3. tokens exist in dynamic modifier
@@ -218,7 +204,7 @@ for name, want in EXPECT.items():
 m = re.search(r"VIE_airf_d5_finish = \{(.*?)\n\}", etxt, re.S)
 if m:
     vals = [float(v) for v in re.findall(r"VIE_airf_bonus = ([\d.]+) \}", m.group(1))]
-    check(sorted(vals) == [0.005, 0.01], f"D-E bonus {vals} = 0.25 / 0.5 x capstone base (MIS 2%)")
+    check(sorted(vals) == [0.005, 0.01], f"D-E bonus {vals} = fixed 0.5 / 1 percentage point")
 
 # ---------------------------------------------------------------- 6. tech bonus categories exist in MD
 print("\n== 6. Category add_tech_bonus (khong quan) co trong file tech cua MD ==")
@@ -226,7 +212,7 @@ import glob
 ref = ""
 for fp in glob.glob(os.path.join(ROOT, "tools", "audit", "md_ref", "tech_*.txt")):
     ref += open(fp, encoding="utf-8", errors="ignore").read()
-for fn in ("VIE_md_effects_air_force.txt", "VIE_md_effects_air_ind.txt"):
+for fn in ("VIE_md_effects_air_force.txt", "VIE_md_effects_air_ind.txt", "VIE_airf_policy_effects.txt"):
     txt = open(os.path.join(ROOT, "common", "scripted_effects", fn), encoding="utf-8").read()
     for cat in sorted(set(re.findall(r"category = (CAT_\w+)", txt))):
         check(re.search(r"\b%s\b" % cat, ref) is not None, f"{fn}: {cat}")
