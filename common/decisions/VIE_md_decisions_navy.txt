@@ -1,5 +1,5 @@
 # ======================================================================
-# QUYET DINH CHIEN LUOC & DONG TAU HAI QUAN V32.1
+# QUYET DINH CHIEN LUOC & DONG TAU HAI QUAN (VPN DIAMOND TREE)
 # ======================================================================
 
 VIE_military_readiness_category = {
@@ -16,7 +16,7 @@ VIE_military_readiness_category = {
 		days_re_enable = 360
 
 		visible = {
-			has_completed_focus = VIE_nav_w02_missile_boat_modernization
+			has_completed_focus = VIE_nav_molniya_fast_attack_craft
 		}
 
 		available = {
@@ -45,7 +45,7 @@ VIE_military_readiness_category = {
 		days_re_enable = 360
 
 		visible = {
-			has_completed_focus = VIE_nav_w03_modern_frigates_in_ranks
+			has_completed_focus = VIE_nav_gepard_frigate_procurement
 		}
 
 		available = {
@@ -74,7 +74,7 @@ VIE_military_readiness_category = {
 		days_re_enable = 360
 
 		visible = {
-			has_completed_focus = VIE_nav_w04_diesel_electric_submarine_power
+			has_completed_focus = VIE_nav_kilo_submarine_procurement
 		}
 
 		available = {
@@ -103,7 +103,7 @@ VIE_military_readiness_category = {
 		days_re_enable = 360
 
 		visible = {
-			has_completed_focus = VIE_nav_c06_vietnam_corvette_generation
+			has_completed_focus = VIE_nav_domestic_patrol_craft
 		}
 
 		available = {
@@ -120,60 +120,66 @@ VIE_military_readiness_category = {
 
 		ai_will_do = {
 			factor = 15
+			modifier = { factor = 2 has_war = yes }
 		}
 	}
 
+	# ------------------------------------------------------------------
+	# PHÒNG THỦ ĐẢO & THẾ TRẬN BIỂN
+	# ------------------------------------------------------------------
+
 	VIE_decision_island_bastion_fortification = {
-		icon = GFX_decision_generic_fortification
-		cost = 35
+		icon = GFX_decision_generic_naval
+		cost = 45
 
 		days_remove = 180
 		days_re_enable = 360
 
 		visible = {
-			has_completed_focus = VIE_nav_l04_island_maritime_supply_line
+			has_completed_focus = VIE_nav_spratly_dk1_defense_system
 		}
 
 		available = {
-			command_power > 15
+			command_power > 20
 		}
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_island_bastion_fortification"
-			add_command_power = -15
+			add_command_power = -20
 			set_temp_variable = { treasury_change = -2 }
 			modify_treasury_effect = yes
 			add_timed_idea = { idea = VIE_idea_island_bastion_active days = 180 }
 		}
 
 		ai_will_do = {
-			factor = 10
+			factor = 15
 			modifier = { factor = 2 has_war = yes }
 		}
 	}
 
 	# ------------------------------------------------------------------
-	# CHIẾN DỊCH HỌC THUYẾT X (SEA DENIAL)
+	# TẬP TRẬN HỌC THUYẾT & TÁC CHIẾN
 	# ------------------------------------------------------------------
 
-	VIE_decision_sea_denial_ambush_drills = {
+	VIE_decision_sea_denial_ambush_exercise = {
 		icon = GFX_decision_generic_naval
-		cost = 35
+		cost = 40
 
 		days_remove = 120
-		days_re_enable = 360
+		days_re_enable = 240
 
 		visible = {
-			has_completed_focus = VIE_nav_x02_force_preservation_under_pressure
+			has_completed_focus = VIE_nav_integrated_undersea_warfare
 		}
 
 		available = {
-			command_power > 15
+			command_power > 20
 		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_sea_denial_ambush_drills"
-			add_command_power = -15
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_sea_denial_ambush_exercise"
+			add_command_power = -20
+			navy_experience = 15
 			add_timed_idea = { idea = VIE_idea_sea_denial_ambush_active days = 120 }
 		}
 
@@ -184,14 +190,14 @@ VIE_military_readiness_category = {
 	}
 
 	VIE_decision_coastal_defense_readiness = {
-		icon = GFX_decision_generic_fortification
-		cost = 45
+		icon = GFX_decision_generic_naval
+		cost = 40
 
-		days_remove = 180
-		days_re_enable = 360
+		days_remove = 120
+		days_re_enable = 240
 
 		visible = {
-			has_completed_focus = VIE_nav_x04_defense_in_depth_maritime
+			has_completed_focus = VIE_nav_bastion_a2ad_coastal_shield
 		}
 
 		available = {
@@ -201,7 +207,8 @@ VIE_military_readiness_category = {
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_coastal_defense_readiness"
 			add_command_power = -20
-			add_timed_idea = { idea = VIE_idea_coastal_defense_readiness_active days = 180 }
+			navy_experience = 15
+			add_timed_idea = { idea = VIE_idea_coastal_defense_readiness_active days = 120 }
 		}
 
 		ai_will_do = {
@@ -210,19 +217,15 @@ VIE_military_readiness_category = {
 		}
 	}
 
-	# ------------------------------------------------------------------
-	# CHIẾN DỊCH HỌC THUYẾT Y (SEA ASSURANCE)
-	# ------------------------------------------------------------------
-
-	VIE_decision_convoy_protection_patrol = {
+	VIE_decision_convoy_protection_sweep = {
 		icon = GFX_decision_generic_naval
 		cost = 35
 
 		days_remove = 120
-		days_re_enable = 360
+		days_re_enable = 240
 
 		visible = {
-			has_completed_focus = VIE_nav_y02_enhance_convoy_escort_efficiency
+			has_completed_focus = VIE_nav_offshore_task_groups
 		}
 
 		available = {
@@ -230,8 +233,9 @@ VIE_military_readiness_category = {
 		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_convoy_protection_patrol"
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_convoy_protection_sweep"
 			add_command_power = -15
+			navy_experience = 15
 			add_timed_idea = { idea = VIE_idea_convoy_protection_active days = 120 }
 		}
 
@@ -241,15 +245,15 @@ VIE_military_readiness_category = {
 		}
 	}
 
-	VIE_decision_extended_sea_presence_surge = {
+	VIE_decision_extended_sea_presence = {
 		icon = GFX_decision_generic_naval
-		cost = 45
+		cost = 40
 
 		days_remove = 180
 		days_re_enable = 360
 
 		visible = {
-			has_completed_focus = VIE_nav_y04_extended_sea_patrol_operations
+			has_completed_focus = VIE_nav_doctrine_active_maritime_presence
 		}
 
 		available = {
@@ -257,8 +261,9 @@ VIE_military_readiness_category = {
 		}
 
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_extended_sea_presence_surge"
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_extended_sea_presence"
 			add_command_power = -20
+			navy_experience = 20
 			add_timed_idea = { idea = VIE_idea_extended_sea_presence_active days = 180 }
 		}
 
