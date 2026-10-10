@@ -90,7 +90,11 @@ VIE_historical_force_mix = {
 		original_tag = VIE
 		ai_for_units_is_not_disabled = yes
 	}
-	enable = { VIE_ai_historical = yes }
+	enable = {
+		VIE_ai_historical = yes
+		NOT = { has_completed_focus = VIE_lf_m1_combined_arms_mechanized }
+		NOT = { has_completed_focus = VIE_lf_r1_flexible_mobile_warfare }
+	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = { type = role_ratio id = L_Inf value = 25 }
@@ -121,4 +125,25 @@ VIE_historical_naval_mix = {
 	ai_strategy = { type = role_ratio id = naval_missile_submarine value = 2 }
 	ai_strategy = { type = role_ratio id = naval_helicopter_operator value = 5 }
 	ai_strategy = { type = role_ratio id = naval_cruiser value = 2 }
+}
+
+# Luc quan v39: ty le vai tro sau khi chon uu tien, khong thay template cua MD.
+VIE_lf_m_force_mix = {
+	allowed = { original_tag = VIE ai_for_units_is_not_disabled = yes }
+	enable = { has_completed_focus = VIE_lf_m1_combined_arms_mechanized }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = role_ratio id = ifv_mechanized value = 15 }
+	ai_strategy = { type = role_ratio id = armor value = 10 }
+	ai_strategy = { type = role_ratio id = infantry value = 5 }
+}
+
+# Luc quan v39: ty le vai tro sau khi chon uu tien, khong thay template cua MD.
+VIE_lf_r_force_mix = {
+	allowed = { original_tag = VIE ai_for_units_is_not_disabled = yes }
+	enable = { has_completed_focus = VIE_lf_r1_flexible_mobile_warfare }
+	abort_when_not_enabled = yes
+	ai_strategy = { type = role_ratio id = L_Inf value = 25 }
+	ai_strategy = { type = role_ratio id = infantry value = 10 }
+	ai_strategy = { type = role_ratio id = apc_mechanized value = 5 }
+	ai_strategy = { type = role_ratio id = armor value = -15 }
 }

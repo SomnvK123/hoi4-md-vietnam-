@@ -12,6 +12,7 @@ focus_tree = {
 			original_tag = VIE
 		}
 	}
+	## v39 (10/10/2026): Them 42 focus Luc quan theo de an da duyet; XCB-01 dau tu ba giai doan, game moi. Cay focus: 317 -> 359 focus.
 	## v38 (10/10/2026): Xoa bo hoan toan nhanh Luc quan (De an V31) va toan bo y niem/quyet dinh/hieu ung/loc lien quan theo yeu cau. Cay focus: 372 -> 317 focus.
 	## v37 (10/10/2026): Tai thiet ke toan dien nhanh Hai quan theo de an V34 (40 focus) voi nghe thuat do thi Hinh Qua Tram / Canh Buom (Organic Diamond Flow), truc tam doi xung X=212 tu Y=2 den Y=12. Cay focus: 332 -> 372 focus.
 	## v36 (10/10/2026): Xoa bo hoan toan nhanh Hai quan va toan bo co che/y niem/quyet dinh lien quan theo yeu cau. Cay focus: 357 -> 332 focus.
@@ -5098,7 +5099,1094 @@ focus_tree = {
 	}
 
 
-	# Nhanh Luc quan & Quan su toan quan (De an V31) da duoc xoa bo theo yeu cau.
+	# Luc quan v39: 42 focus, D/B/I song song; ba uu tien loai tru; F2 can F1 va D8.
+
+	focus = {
+		id = VIE_lf_root_modern_army
+		icon = GFX_focus_VIE_lf_selective_modernization
+
+		x = -20
+		y = 1
+		relative_position_id = VIE_modernize_vpa
+
+		cost = 7
+
+		prerequisite = { focus = VIE_modernize_vpa }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_root_modern_army"
+			VIE_lf_reward_l0_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_territorial_defense_foundation
+		icon = GFX_focus_VIE_lf_dev_territorial
+
+		x = -8
+		y = 2
+		relative_position_id = VIE_lf_root_modern_army
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_root_modern_army }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_territorial_defense_foundation"
+			VIE_lf_reward_d1_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_local_forces_militia
+		icon = GFX_focus_VIE_lf_basic_training
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_lf_territorial_defense_foundation
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_territorial_defense_foundation }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_local_forces_militia"
+			VIE_lf_reward_d2_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_reserve_mobilization
+		icon = GFX_focus_VIE_lf_fs_militia_units
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_territorial_defense_foundation
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_territorial_defense_foundation }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_reserve_mobilization"
+			VIE_lf_reward_d3_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_strategic_defense_zones
+		icon = GFX_focus_VIE_lf_dev_territorial
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_local_forces_militia
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_local_forces_militia }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_strategic_defense_zones"
+			VIE_lf_reward_d4_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_fortifications_defense_sites
+		icon = GFX_focus_VIE_lf_fs_depth_defence
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_reserve_mobilization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_reserve_mobilization }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_fortifications_defense_sites"
+			VIE_lf_reward_d5_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_local_logistics_stockpiles
+		icon = GFX_focus_VIE_lf_logistics_merge
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_strategic_defense_zones
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_strategic_defense_zones }
+		prerequisite = { focus = VIE_lf_fortifications_defense_sites }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_local_logistics_stockpiles"
+			VIE_lf_reward_d6_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_coordination_regular_local
+		icon = GFX_focus_VIE_lf_combined_arms
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_local_logistics_stockpiles
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_local_logistics_stockpiles }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		available = { date > 2009.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_coordination_regular_local"
+			VIE_lf_reward_d7_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_active_defense_in_depth
+		icon = GFX_focus_VIE_lf_cap_area_control
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_coordination_regular_local
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_coordination_regular_local }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		available = { date > 2019.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_active_defense_in_depth"
+			VIE_lf_reward_d8_effect = yes
+		}
+
+		ai_will_do = {
+			base = 85
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_standardize_infantry_structure
+		icon = GFX_focus_VIE_lf_army_reform
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_lf_root_modern_army
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_root_modern_army }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_standardize_infantry_structure"
+			VIE_lf_reward_b1_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_combined_arms_readiness
+		icon = GFX_focus_VIE_lf_basic_training
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_standardize_infantry_structure
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_standardize_infantry_structure }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		available = { date > 2014.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_combined_arms_readiness"
+			VIE_lf_reward_b2_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_infantry_modern_equipment
+		icon = GFX_focus_VIE_lf_arm_infantry_org
+
+		x = -4
+		y = 1
+		relative_position_id = VIE_lf_combined_arms_readiness
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_combined_arms_readiness }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_infantry_modern_equipment"
+			VIE_lf_reward_b3_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_combat_engineers
+		icon = GFX_focus_VIE_lf_arm_engineers
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_combined_arms_readiness
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_combined_arms_readiness }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_combat_engineers"
+			VIE_lf_reward_b4_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ground_artillery_modernization
+		icon = GFX_focus_VIE_lf_arm_arty_org
+
+		x = 4
+		y = 1
+		relative_position_id = VIE_lf_combined_arms_readiness
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_combined_arms_readiness }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2009.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ground_artillery_modernization"
+			VIE_lf_reward_b5_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_tactical_air_defense
+		icon = GFX_focus_VIE_lf_cap_army_ad
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_ground_artillery_modernization
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_ground_artillery_modernization }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2009.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_tactical_air_defense"
+			VIE_lf_reward_b6_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_recon_tactical_command
+		icon = GFX_focus_VIE_lf_cap_info_ops
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_infantry_modern_equipment
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_infantry_modern_equipment }
+		prerequisite = { focus = VIE_lf_combat_engineers }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2019.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_recon_tactical_command"
+			VIE_lf_reward_b7_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_operational_logistics_maintenance
+		icon = GFX_focus_VIE_lf_logistics_merge
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_recon_tactical_command
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_tactical_air_defense }
+		prerequisite = { focus = VIE_lf_recon_tactical_command }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		available = { date > 2009.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_operational_logistics_maintenance"
+			VIE_lf_reward_b8_effect = yes
+		}
+
+		ai_will_do = {
+			base = 85
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ind_production_governance
+		icon = GFX_focus_VIE_lf_army_reform
+
+		x = 10
+		y = 2
+		relative_position_id = VIE_lf_root_modern_army
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_root_modern_army }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2009.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_production_governance"
+			VIE_lf_reward_i1_effect = yes
+		}
+
+		ai_will_do = {
+			base = 40
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ind_precision_z131
+		icon = GFX_focus_VIE_lf_arm_arty_train
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_lf_ind_production_governance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_production_governance }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2009.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_precision_z131"
+			VIE_lf_reward_i2_effect = yes
+		}
+
+		ai_will_do = {
+			base = 40
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ind_armor_structures
+		icon = GFX_focus_VIE_lf_arm_armor_org
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_ind_production_governance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_production_governance }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2014.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_armor_structures"
+			VIE_lf_reward_i3_effect = yes
+		}
+
+		ai_will_do = {
+			base = 40
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ind_xcb01_design
+		icon = GFX_focus_VIE_lf_arm_armor_train
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_ind_precision_z131
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_precision_z131 }
+		prerequisite = { focus = VIE_lf_ind_armor_structures }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2021.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_xcb01_design"
+			VIE_lf_reward_i4_effect = yes
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ind_serial_ground_equipment
+		icon = GFX_focus_VIE_lf_force_complete
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_ind_xcb01_design
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_xcb01_design }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		available = { date > 2024.12.31 }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_serial_ground_equipment"
+			VIE_lf_reward_i5_effect = yes
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p1_strategic_defense
+		icon = GFX_focus_VIE_lf_fs_depth_defence
+
+		x = -8
+		y = 2
+		relative_position_id = VIE_lf_operational_logistics_maintenance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_operational_logistics_maintenance }
+		mutually_exclusive = { focus = VIE_lf_m1_combined_arms_mechanized }
+		mutually_exclusive = { focus = VIE_lf_r1_flexible_mobile_warfare }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p1_strategic_defense"
+			VIE_lf_reward_p1_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 1.500000 VIE_ai_historical_path = yes }
+			modifier = { factor = 0.583333 VIE_ai_hardline = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p2_multi_layered_defense
+		icon = GFX_focus_VIE_lf_fs_depth_defence
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_lf_p1_strategic_defense
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_p1_strategic_defense }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p2_multi_layered_defense"
+			VIE_lf_reward_p2_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p3_operational_reserves
+		icon = GFX_focus_VIE_lf_fs_main_corps
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_p1_strategic_defense
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_p1_strategic_defense }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p3_operational_reserves"
+			VIE_lf_reward_p3_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p4_defensive_anti_breakthrough_firepower
+		icon = GFX_focus_VIE_lf_arm_arty_org
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_p2_multi_layered_defense
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_p2_multi_layered_defense }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p4_defensive_anti_breakthrough_firepower"
+			VIE_lf_reward_p4_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p5_protracted_combat_sustainment
+		icon = GFX_focus_VIE_lf_dev_territorial
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_p3_operational_reserves
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_p3_operational_reserves }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p5_protracted_combat_sustainment"
+			VIE_lf_reward_p5_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_p6_active_defense_counterattack
+		icon = GFX_focus_VIE_lf_cap_area_control
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_p4_defensive_anti_breakthrough_firepower
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_p4_defensive_anti_breakthrough_firepower }
+		prerequisite = { focus = VIE_lf_p5_protracted_combat_sustainment }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p6_active_defense_counterattack"
+			VIE_lf_reward_p6_effect = yes
+		}
+
+		ai_will_do = {
+			base = 85
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m1_combined_arms_mechanized
+		icon = GFX_focus_VIE_lf_arm_armor_org
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_lf_operational_logistics_maintenance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_operational_logistics_maintenance }
+		mutually_exclusive = { focus = VIE_lf_p1_strategic_defense }
+		mutually_exclusive = { focus = VIE_lf_r1_flexible_mobile_warfare }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m1_combined_arms_mechanized"
+			VIE_lf_reward_m1_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0.416667 VIE_ai_historical_path = yes }
+			modifier = { factor = 1.333333 VIE_ai_hardline = yes }
+			modifier = { factor = 0.3 check_variable = { treasury < 1 } }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m2_armor_combat_readiness
+		icon = GFX_focus_VIE_lf_arm_armor_train
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_lf_m1_combined_arms_mechanized
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_m1_combined_arms_mechanized }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m2_armor_combat_readiness"
+			VIE_lf_reward_m2_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m3_mechanized_infantry_formations
+		icon = GFX_focus_VIE_lf_combined_arms
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_m1_combined_arms_mechanized
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_m1_combined_arms_mechanized }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m3_mechanized_infantry_formations"
+			VIE_lf_reward_m3_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m4_mobile_fire_support
+		icon = GFX_focus_VIE_lf_arm_arty_train
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_m2_armor_combat_readiness
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_m2_armor_combat_readiness }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m4_mobile_fire_support"
+			VIE_lf_reward_m4_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m5_operational_combined_arms_units
+		icon = GFX_focus_VIE_lf_fs_lean_corps
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_m3_mechanized_infantry_formations
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_m3_mechanized_infantry_formations }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m5_operational_combined_arms_units"
+			VIE_lf_reward_m5_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_m6_operational_mechanized_counteroffensive
+		icon = GFX_focus_VIE_lf_force_complete
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_m4_mobile_fire_support
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_m4_mobile_fire_support }
+		prerequisite = { focus = VIE_lf_m5_operational_combined_arms_units }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m6_operational_mechanized_counteroffensive"
+			VIE_lf_reward_m6_effect = yes
+		}
+
+		ai_will_do = {
+			base = 85
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r1_flexible_mobile_warfare
+		icon = GFX_focus_VIE_lf_fs_mobile_force
+
+		x = 10
+		y = 2
+		relative_position_id = VIE_lf_operational_logistics_maintenance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_operational_logistics_maintenance }
+		mutually_exclusive = { focus = VIE_lf_p1_strategic_defense }
+		mutually_exclusive = { focus = VIE_lf_m1_combined_arms_mechanized }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r1_flexible_mobile_warfare"
+			VIE_lf_reward_r1_effect = yes
+		}
+
+		ai_will_do = {
+			base = 60
+			modifier = { factor = 0.916667 VIE_ai_historical_path = yes }
+			modifier = { factor = 1.000000 VIE_ai_hardline = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r2_modernize_mobile_infantry
+		icon = GFX_focus_VIE_lf_arm_infantry_train
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_lf_r1_flexible_mobile_warfare
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_r1_flexible_mobile_warfare }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r2_modernize_mobile_infantry"
+			VIE_lf_reward_r2_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r3_terrain_adaptive_warfare
+		icon = GFX_focus_VIE_lf_cap_border_urban
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_r1_flexible_mobile_warfare
+
+		cost = 5
+
+		prerequisite = { focus = VIE_lf_r1_flexible_mobile_warfare }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r3_terrain_adaptive_warfare"
+			VIE_lf_reward_r3_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r4_tactical_motorized_mobility
+		icon = GFX_focus_VIE_lf_arm_infantry_org
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_r2_modernize_mobile_infantry
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_r2_modernize_mobile_infantry }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r4_tactical_motorized_mobility"
+			VIE_lf_reward_r4_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r5_rapid_reaction_corps
+		icon = GFX_focus_VIE_lf_fs_mobile_corps
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_r3_terrain_adaptive_warfare
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_r3_terrain_adaptive_warfare }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r5_rapid_reaction_corps"
+			VIE_lf_reward_r5_effect = yes
+		}
+
+		ai_will_do = {
+			base = 75
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_r6_terrain_maneuver_mastery
+		icon = GFX_focus_VIE_lf_cap_info_ops
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_lf_r4_tactical_motorized_mobility
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_r4_tactical_motorized_mobility }
+		prerequisite = { focus = VIE_lf_r5_rapid_reaction_corps }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r6_terrain_maneuver_mastery"
+			VIE_lf_reward_r6_effect = yes
+		}
+
+		ai_will_do = {
+			base = 85
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_modernize_army_command_system
+		icon = GFX_focus_VIE_lf_command_reform_2
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_lf_m6_operational_mechanized_counteroffensive
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_p6_active_defense_counterattack focus = VIE_lf_m6_operational_mechanized_counteroffensive focus = VIE_lf_r6_terrain_maneuver_mastery }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_modernize_army_command_system"
+			VIE_lf_reward_f1_effect = yes
+		}
+
+		ai_will_do = {
+			base = 85
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_lf_modern_elite_combined_army_capstone
+		icon = GFX_focus_VIE_lf_command_reform_3
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_modernize_army_command_system
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_modernize_army_command_system }
+		prerequisite = { focus = VIE_lf_active_defense_in_depth }
+
+		search_filters = { FOCUS_FILTER_ARMY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_modern_elite_combined_army_capstone"
+			VIE_lf_reward_f2_effect = yes
+		}
+
+		ai_will_do = {
+			base = 85
+			modifier = { factor = 1.2 has_war = yes }
+		}
+	}
 
 	######################################################################
 	######################################################################

@@ -62,6 +62,15 @@ VIE_HISTORICAL_plan = {
 
 		# Hien dai hoa phong thu; prerequisite/date/available van giu quyen quyet dinh.
 		VIE_modernize_vpa = 65
+		# Luc quan v39: gate ngay va mutex van do focus quyet dinh.
+		VIE_lf_root_modern_army = 50
+		VIE_lf_territorial_defense_foundation = 50
+		VIE_lf_active_defense_in_depth = 50
+		VIE_lf_standardize_infantry_structure = 50
+		VIE_lf_operational_logistics_maintenance = 50
+		VIE_lf_modernize_army_command_system = 50
+		VIE_lf_modern_elite_combined_army_capstone = 50
+
 	}
 }
 
@@ -175,6 +184,19 @@ VIE_HARDLINE_plan = {
 		VIE_hl_steadfast_renewal = 500
 		VIE_hl_party_state_fusion = 500
 		VIE_hl_handover = 500
+		# Luc quan v39: ho tro tu chu cong nghiep sau khi du dieu kien.
+		VIE_lf_root_modern_army = 50
+		VIE_lf_active_defense_in_depth = 50
+		VIE_lf_standardize_infantry_structure = 50
+		VIE_lf_operational_logistics_maintenance = 50
+		VIE_lf_ind_production_governance = 50
+		VIE_lf_ind_precision_z131 = 50
+		VIE_lf_ind_armor_structures = 50
+		VIE_lf_ind_xcb01_design = 50
+		VIE_lf_ind_serial_ground_equipment = 50
+		VIE_lf_modernize_army_command_system = 50
+		VIE_lf_modern_elite_combined_army_capstone = 50
+
 	}
 
 	research = {
