@@ -1,5 +1,10 @@
 # Tài liệu Triển khai 3 Trục Hải quân (Quân chủng Hải quân) — Millennium Dawn
 
+> **Cập nhật 11/10/2026:** nội dung ba trục dưới đây là tài liệu lịch sử.
+> Bản live đã thay bằng 40 focus Hải quân V35.1. Xem
+> [triển khai V35](VIE_naval_V35_implementation.md) cho file consolidated,
+> chi phí, kết quả kiểm tra và giới hạn hiện vật; không tái tạo các fragment cũ.
+
 > **Tài liệu tổng hợp đánh giá, nội dung & kế hoạch code (08/10/2026)**  
 > Hợp nhất 4 tài liệu phân mảnh của Quân chủng Hải quân Việt Nam.
 

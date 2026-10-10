@@ -1,0 +1,1516 @@
+{
+  "version": "V35.1",
+  "new_game_only": true,
+  "nodes": [
+    {
+      "id": "VIE_nav35_N00",
+      "code": "N00",
+      "title": "Hiện đại hóa lực lượng bảo vệ hướng biển",
+      "group": "root",
+      "x": 28,
+      "y": 0,
+      "parent": null,
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 5,
+      "summary": "Từ lực lượng thiên về ven bờ sang hiện đại hóa đồng bộ quân chủng.",
+      "detail": "Xác lập chương trình phát triển Hải quân theo điều kiện kinh tế và chiến lược tự vệ của Việt Nam. Mở năm tuyến năng lực: bộ máy chỉ huy, nhận thức tình huống biển, lực lượng tác chiến, công nghiệp và bảo đảm.",
+      "game": "Naval XP +15; mở 5 tuyến năng lực; flag navy_v35_program.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_T01",
+      "code": "T01",
+      "title": "Kiện toàn hệ thống các Vùng Hải quân",
+      "group": "command",
+      "x": 6,
+      "y": 2,
+      "parent": "N00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Nâng cấp cơ cấu chỉ huy vùng theo giai đoạn; Vùng 2 ra đời năm 2009 là mốc phát triển quan trọng.",
+      "detail": "Chương trình kiện toàn các Vùng Hải quân bắt đầu từ năm 2000. Khi đến năm 2009, sự kiện thành lập Vùng 2 bổ sung hiệu ứng tổ chức và phối hợp liên vùng. Không tự tuyên bố đã tồn tại đủ năm vùng từ đầu game.",
+      "game": "Naval organization nhỏ; Command Power +; từ 2009 event nâng cấp tổ chức vùng.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "regions",
+          "label": "regions",
+          "url": "https://www.qdnd.vn/ban-doc/thu-ban-doc/su-khac-nhau-giua-quan-chung-va-binh-chung-trong-quan-doi-nhan-dan-viet-nam-678027"
+        },
+        {
+          "key": "regions-history",
+          "label": "regions-history",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/vung-vang-bao-ve-chu-quyen-bien-dao-trong-ky-nguyen-moi-913161"
+        },
+        {
+          "key": "vung2_gov",
+          "label": "Chính phủ – thành lập Vùng 2 (2009)",
+          "url": "https://baochinhphu.vn/15-nam-vung-2-hai-quan.html"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_T02",
+      "code": "T02",
+      "title": "Học viện Hải quân: đào tạo sĩ quan thế hệ mới",
+      "group": "command",
+      "x": 2,
+      "y": 4,
+      "parent": "T01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Chuẩn hóa đào tạo điều khiển, kỹ thuật, tham mưu và quản trị kíp tàu.",
+      "detail": "Đầu tư giáo trình cho khí tài mới, ngoại ngữ kỹ thuật, huấn luyện mô phỏng và trình độ sĩ quan. Focus giải quyết vấn đề nhân lực đi trước trang bị.",
+      "game": "Naval XP gain +; cải thiện huấn luyện sĩ quan.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "kilo",
+          "label": "kilo",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/huan-luyen-lam-chu-trang-bi-ky-thuat-hien-dai-842091"
+        },
+        {
+          "key": "x52",
+          "label": "x52",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lam-chu-cong-nghe-ky-thuat-sua-chua-tau-mat-nuoc-tau-ngam-770040"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_T03",
+      "code": "T03",
+      "title": "Kíp tàu chính quy và luyện tập trên biển",
+      "group": "command",
+      "x": 10,
+      "y": 4,
+      "parent": "T01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Chuyển giao khí tài chỉ hữu ích nếu có đội ngũ vận hành ổn định.",
+      "detail": "Chuẩn hóa quy trình huấn luyện thường xuyên, kiểm tra kỹ thuật, phối hợp cán bộ tàu và cơ quan bảo đảm. Có tính áp dụng cho nhiều lớp tàu, không phụ thuộc vào một thương vụ mua sắm.",
+      "game": "Naval readiness +; thời gian huấn luyện giảm.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "gepard",
+          "label": "gepard",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lu-doan-162-hoan-thanh-tot-nhiem-vu-huan-luyen-k2-tren-bien-nam-2026-1041710"
+        },
+        {
+          "key": "kilo",
+          "label": "kilo",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/huan-luyen-lam-chu-trang-bi-ky-thuat-hien-dai-842091"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_T04",
+      "code": "T04",
+      "title": "Bộ chỉ huy hiệp đồng tác chiến biển",
+      "group": "command",
+      "x": 6,
+      "y": 8,
+      "parent": "T02",
+      "all": [
+        "T03"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Kết nối năng lực chỉ huy của các vùng Hải quân với các thành phần liên quan.",
+      "detail": "Xây dựng chuẩn trao đổi thông tin và tham mưu hợp đồng cho các đơn vị tàu mặt nước, trên không, dưới mặt nước và lực lượng bờ. Đây là chương trình tổ chức giả định dựa trên nhu cầu hiện đại hóa đã được công khai.",
+      "game": "Naval coordination +; flag naval_joint_command.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_S01",
+      "code": "S01",
+      "title": "Mạng cảnh giới biển và radar bờ",
+      "group": "sensor",
+      "x": 17,
+      "y": 2,
+      "parent": "N00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Mở rộng năng lực nhận thức tình huống trên các vùng biển.",
+      "detail": "Hiện đại hóa công tác trinh sát, cảnh giới và tiếp nhận báo cáo từ lực lượng bờ và tàu biển. Không đồng nhất hoạt động Hải quân với nhiệm vụ thực thi pháp luật của Cảnh sát biển.",
+      "game": "Naval detection +; mở trinh sát kết hợp.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        },
+        {
+          "key": "681",
+          "label": "681",
+          "url": "https://ct.qdnd.vn/chan-dung-nguoi-linh/nhung-nguoi-linh-phong-thu-bo-bien-527116"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_S02",
+      "code": "S02",
+      "title": "Lữ đoàn Không quân Hải quân 954",
+      "group": "sensor",
+      "x": 13,
+      "y": 5,
+      "parent": "S01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2013,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Khả năng trinh sát trên không và trực thăng yểm trợ lực lượng hải quân.",
+      "detail": "Phát triển khai thác Ka-28, DHC-6 và EC-225 theo nhiệm vụ được công bố. Nhấn mạnh đào tạo phi hành đoàn, bảo dưỡng và nhận thức tình huống chung; các thương vụ mua sắm xử lý bằng event.",
+      "game": "Naval aviation XP +; naval detection +; ASW research nhỏ.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "954",
+          "label": "954",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/lu-doan-khong-quan-hai-quan-954-quyet-tam-hoan-thanh-tot-nhiem-vu-bay-phuc-vu-dieu-binh-tren-bien-843478"
+        },
+        {
+          "key": "954-est",
+          "label": "954-est",
+          "url": "https://baochinhphu.vn/thanh-lap-lu-doan-khong-quan-thuoc-quan-chung-hai-quan-102145290.htm"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_S03",
+      "code": "S03",
+      "title": "Bức tranh tình huống biển hợp nhất",
+      "group": "sensor",
+      "x": 17,
+      "y": 8,
+      "parent": "S01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Định hướng phát triển",
+      "cost": 7,
+      "summary": "Tổng hợp nguồn tin từ radar bờ và đơn vị trên biển; Không quân Hải quân 954 tăng hiệu quả từ năm 2013.",
+      "detail": "Bức tranh tình huống biển có thể được xây dựng từng bước từ radar bờ và thông tin của tàu mặt nước. Sau khi thành lập Lữ đoàn Không quân Hải quân 954 năm 2013, nếu đã hoàn thành S02 thì nhận thêm hiệu ứng trinh sát và phối hợp; S02 không khóa học thuyết ở giai đoạn 2000–2012.",
+      "game": "Naval detection +; coordination +; S02 hoàn thành nhận thêm bonus có điều kiện.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_W01",
+      "code": "W01",
+      "title": "Tái cơ cấu đội tàu chiến hiện đại",
+      "group": "fleet",
+      "x": 27,
+      "y": 2,
+      "parent": "N00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Xác lập vai trò tàu tên lửa, hộ vệ và tàu ngầm trong một chương trình hiện đại hóa.",
+      "detail": "Không trực tiếp cấp tàu: mở hướng huấn luyện, bảo đảm và những chương trình phát triển năng lực theo lớp tàu.",
+      "game": "Naval XP +; unlock fleet subprograms.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        },
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_W02",
+      "code": "W02",
+      "title": "Lữ đoàn 167: khai thác Molniya",
+      "group": "fleet",
+      "x": 21,
+      "y": 5,
+      "parent": "W01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2014,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Đưa tàu tên lửa tấn công nhanh vào học thuyết tác chiến tàu mặt nước.",
+      "detail": "Tập trung năng lực làm chủ và bảo đảm tàu tên lửa Molniya. Tàu HQ-377, HQ-378 được Ba Son bàn giao cho Lữ đoàn 167 năm 2014, nhưng việc đóng tàu và bàn giao trang bị vẫn do nhánh công nghiệp/event phụ trách.",
+      "game": "Light combatant training +; naval XP +.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "molniya",
+          "label": "molniya",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/ban-giao-hai-tau-ten-lua-hien-dai-364256"
+        },
+        {
+          "key": "ba-son",
+          "label": "ba-son",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/chieu-sau-lich-su-va-khat-vong-vuon-khoi-839894"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_W03",
+      "code": "W03",
+      "title": "Lữ đoàn 162: làm chủ tàu hộ vệ Gepard",
+      "group": "fleet",
+      "x": 27,
+      "y": 5,
+      "parent": "W01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2011,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Xây dựng năng lực khai thác tàu hộ vệ tên lửa hiện đại.",
+      "detail": "Khác với tàu tấn công nhanh, Gepard hướng tới nhiệm vụ chiến đấu mặt nước, phối hợp đội hình và hoạt động biển dài ngày hơn. Focus thưởng vận hành; thương vụ và số lượng tàu là event lịch sử.",
+      "game": "Surface fleet organization +; escort doctrine XP.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "gepard",
+          "label": "gepard",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lu-doan-162-hoan-thanh-tot-nhiem-vu-huan-luyen-k2-tren-bien-nam-2026-1041710"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_W04",
+      "code": "W04",
+      "title": "Lữ đoàn 189: làm chủ tàu ngầm Kilo 636",
+      "group": "fleet",
+      "x": 33,
+      "y": 5,
+      "parent": "W01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2011,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Xây dựng nhân lực, huấn luyện và điều kiện khai thác sáu tàu ngầm Kilo.",
+      "detail": "Lữ đoàn Tàu ngầm 189 thành lập năm 2011. Focus không tự tạo sáu tàu Kilo; tập trung sẵn sàng khai thác, đào tạo kíp tàu và phát triển nghiệp vụ dưới mặt nước.",
+      "game": "Submarine organization +; submarine XP; flag kilo_training.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "kilo",
+          "label": "kilo",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/huan-luyen-lam-chu-trang-bi-ky-thuat-hien-dai-842091"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_W05",
+      "code": "W05",
+      "title": "Đội hình hộ vệ và chống ngầm phối hợp",
+      "group": "fleet",
+      "x": 27,
+      "y": 9,
+      "parent": "W03",
+      "all": [
+        "W04"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2014,
+      "status": "Định hướng phát triển",
+      "cost": 7,
+      "summary": "Giai đoạn huấn luyện phối hợp sau khi đưa các lớp tàu hiện đại vào khai thác.",
+      "detail": "Phát triển cách tổ chức và huấn luyện giữa tàu hộ vệ, tàu ngầm và đơn vị hỗ trợ. Mốc 2014 phản ánh bước đầu chuyển đổi năng lực, không khẳng định Việt Nam đã sở hữu một biên đội chống ngầm đầy đủ theo cấu hình giả định trong game.",
+      "game": "ASW +; screening +; naval coordination +; gate fleet_interoperability.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "kilo",
+          "label": "kilo",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/huan-luyen-lam-chu-trang-bi-ky-thuat-hien-dai-842091"
+        },
+        {
+          "key": "gepard",
+          "label": "gepard",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lu-doan-162-hoan-thanh-tot-nhiem-vu-huan-luyen-k2-tren-bien-nam-2026-1041710"
+        },
+        {
+          "key": "954",
+          "label": "954",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/lu-doan-khong-quan-hai-quan-954-quyet-tam-hoan-thanh-tot-nhiem-vu-bay-phuc-vu-dieu-binh-tren-bien-843478"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_I01",
+      "code": "I01",
+      "title": "Chương trình công nghiệp đóng tàu quân sự",
+      "group": "industry",
+      "x": 39,
+      "y": 2,
+      "parent": "N00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Tổng cục Công nghiệp quốc phòng làm nòng cốt phối hợp nghiên cứu–sản xuất.",
+      "detail": "Định hướng làm chủ kỹ thuật, tăng tỷ lệ nội địa hóa từng bước và xây dựng danh mục dự án tàu quân sự, tàu bổ trợ. Không biến công nghiệp thành một khoản thưởng dockyard miễn phí.",
+      "game": "Mở decision đầu tư công nghiệp; naval industry investment; treasury -.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "design2025",
+          "label": "design2025",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/thuong-tuong-pham-hoai-nam-chi-dao-nghien-cuu-thiet-ke-dong-moi-tau-quan-su-843098"
+        },
+        {
+          "key": "design",
+          "label": "design",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/tung-buoc-tu-chu-thiet-ke-cac-gam-tau-chien-dau-phuc-tap-770273"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_I02",
+      "code": "I02",
+      "title": "Ba Son: loạt tàu tên lửa Molniya",
+      "group": "industry",
+      "x": 35,
+      "y": 4,
+      "parent": "I01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2009,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Chương trình chuyển giao công nghệ và đóng sáu tàu tên lửa Molniya tại Ba Son bắt đầu từ hợp đồng năm 2009.",
+      "detail": "Khởi động chương trình đóng theo giấy phép Project 12418 từ năm 2009; chuyển giao bản vẽ, công nghệ và tổ chức phân đoạn, tổng đoạn; các sự kiện nghiệm thu/bàn giao được phân theo năm 2014–2017, không cấp đủ sáu tàu ngay khi hoàn thành focus.",
+      "game": "Unlock Molniya production decisions 2009–2017; naval industry bonus; chi phí ngân sách theo đợt.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "ba-son",
+          "label": "ba-son",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/chieu-sau-lich-su-va-khat-vong-vuon-khoi-839894"
+        },
+        {
+          "key": "molniya",
+          "label": "molniya",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/ban-giao-hai-tau-ten-lua-hien-dai-364256"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_I03",
+      "code": "I03",
+      "title": "Z173 Hồng Hà: các dòng TT400–TT400TP",
+      "group": "industry",
+      "x": 43,
+      "y": 4,
+      "parent": "I01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Tích lũy năng lực đóng tàu tuần tra, tàu vận tải và tàu hỗ trợ.",
+      "detail": "Nhà máy Z173 góp phần hình thành năng lực thiết kế và đóng các loại tàu nhỏ và vừa. Phân biệt tàu tuần tra và tàu chiến chủ lực; không dùng TT400TP làm tàu khu trục giả định.",
+      "game": "Light hull research +; công suất tàu bổ trợ +.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "z173",
+          "label": "z173",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/nha-may-z173-va-hanh-trinh-60-nam-vuon-ra-bien-lon-955064"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_I04",
+      "code": "I04",
+      "title": "Viện Thiết kế tàu quân sự: tự chủ thiết kế",
+      "group": "industry",
+      "x": 35,
+      "y": 6,
+      "parent": "I01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2009,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Thiết kế tàu quân sự trở thành một năng lực nghiên cứu chuyên biệt.",
+      "detail": "Viện Thiết kế tàu quân sự thành lập năm 2009. Các nghiên cứu thiết kế, thử nghiệm và tích hợp là một tuyến riêng, khác với mở rộng nhà máy đóng tàu.",
+      "game": "Naval research bonus; thiết kế tàu thế hệ mới; research points.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "design",
+          "label": "design",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/tung-buoc-tu-chu-thiet-ke-cac-gam-tau-chien-dau-phuc-tap-770273"
+        },
+        {
+          "key": "design2025",
+          "label": "design2025",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/thuong-tuong-pham-hoai-nam-chi-dao-nghien-cuu-thiet-ke-dong-moi-tau-quan-su-843098"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_I05",
+      "code": "I05",
+      "title": "Sông Thu: công nghệ tàu chuyên dụng và bảo đảm",
+      "group": "industry",
+      "x": 43,
+      "y": 6,
+      "parent": "I03",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Từ đóng tàu công vụ và tàu kỹ thuật sang các chương trình phức tạp hơn.",
+      "detail": "Sông Thu có các dự án tàu công vụ, tàu hỗ trợ, cứu nạn và vận tải. Focus thể hiện năng lực cơ khí–đóng tàu, không giả định mọi mẫu tàu này đều là chiến hạm trực tiếp chiến đấu.",
+      "game": "Support ship research +; maintenance +; liên kết logistics.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "songthu",
+          "label": "songthu",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/khat-vong-song-thu-1059712"
+        },
+        {
+          "key": "vt530",
+          "label": "vt530",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/tong-cong-ty-song-thu-ban-giao-2-tau-van-tai-da-nang-1040751"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_I06",
+      "code": "I06",
+      "title": "Tích hợp hệ thống vũ khí và khí tài tàu chiến",
+      "group": "industry",
+      "x": 35,
+      "y": 8,
+      "parent": "I04",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2009,
+      "status": "Định hướng phát triển",
+      "cost": 7,
+      "summary": "Bắt đầu nghiên cứu thiết kế và tích hợp hệ thống tàu từ khi có Viện Thiết kế tàu quân sự (2009).",
+      "detail": "Viện Thiết kế tàu quân sự có chức năng nghiên cứu lắp đặt, hiệu chỉnh, tích hợp hệ thống vũ khí/khí tài từ khi thành lập. Focus mở chương trình kỹ thuật ngay sau I04; các mốc 2022–2025 có thể bổ sung năng lực qua event thay vì khóa toàn bộ hướng phát triển hạm đội đến sau 2022.",
+      "game": "Naval electronics/integration research +; sự kiện tiến bộ kỹ thuật giai đoạn 2022–2025.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "design",
+          "label": "design",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/tung-buoc-tu-chu-thiet-ke-cac-gam-tau-chien-dau-phuc-tap-770273"
+        },
+        {
+          "key": "design2025",
+          "label": "design2025",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/thuong-tuong-pham-hoai-nam-chi-dao-nghien-cuu-thiet-ke-dong-moi-tau-quan-su-843098"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_I07",
+      "code": "I07",
+      "title": "Sông Thu: dự án hộ vệ chống ngầm đa năng",
+      "group": "industry",
+      "x": 40,
+      "y": 10,
+      "parent": "I05",
+      "all": [
+        "I06"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2026,
+      "status": "Khởi công 2026 — chưa chứng minh bàn giao",
+      "cost": 10,
+      "summary": "Sông Thu khởi công ngày 10/8/2026 và đặt ky ngày 5/10/2026 cho tàu hộ vệ chống ngầm đa năng.",
+      "detail": "Từ kết quả tích lũy thiết kế, đóng tàu, nghiên cứu và tích hợp khí tài, chương trình được khởi công tại Sông Thu ngày 10/8/2026, sau đó tổ chức đặt ky ngày 5/10/2026. Focus biểu thị khởi động dự án, không tự hoàn thành tàu. Trong game, đóng, hạ thủy, thử nghiệm và bàn giao phải là chuỗi decision/event tiếp theo, có chi phí và thời gian thực hiện.",
+      "game": "Unlock ASW-frigate program decisions; milestone 2026 keel laying; treasury - lớn; không tự tạo tàu.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "songthu_asw",
+          "label": "songthu_asw",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/thuong-tuong-pham-hoai-nam-du-chi-dao-le-khoi-cong-dong-moi-tau-ho-ve-chong-ngam-da-nang-1052774"
+        },
+        {
+          "key": "songthu",
+          "label": "songthu",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/khat-vong-song-thu-1059712"
+        },
+        {
+          "key": "shipkeel",
+          "label": "Hải quân – lễ đặt ky 5/10/2026",
+          "url": "https://baohaiquanvietnam.vn/tin-tuc/le-dat-ky-dong-moi-tau-ho-ve-chong-ngam-da-nang"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_L01",
+      "code": "L01",
+      "title": "Cam Ranh: trung tâm bảo đảm hải quân",
+      "group": "logistics",
+      "x": 50,
+      "y": 2,
+      "parent": "N00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Tăng khả năng tiếp nhận, bảo đảm và duy trì tàu chiến hiện đại.",
+      "detail": "Tập trung kho sửa chữa, cơ sở kỹ thuật, huấn luyện và an toàn căn cứ. Tránh mô tả Cam Ranh như căn cứ nước ngoài vì không phù hợp chính sách quốc phòng Việt Nam.",
+      "game": "Naval base / dockyard (MD treasury cost); sortie efficiency +.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "x52",
+          "label": "x52",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lam-chu-cong-nghe-ky-thuat-sua-chua-tau-mat-nuoc-tau-ngam-770040"
+        },
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_L02",
+      "code": "L02",
+      "title": "Nhà máy X52: bảo dưỡng tàu mặt nước và tàu ngầm",
+      "group": "logistics",
+      "x": 46,
+      "y": 5,
+      "parent": "L01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2011,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Cơ sở bảo đảm kỹ thuật chiến lược của Hải quân hình thành từ năm 2011.",
+      "detail": "Đầu tư công nghệ sửa chữa khí tài, hỗ trợ khai thác tàu ngầm và tàu mặt nước. Đây là năng lực duy trì vòng đời phương tiện, khác với đóng mới tại các nhà máy thuộc Tổng cục Công nghiệp quốc phòng.",
+      "game": "Repair/sustainment bonus; readiness; giảm hao mòn vận hành.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "x52",
+          "label": "x52",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lam-chu-cong-nghe-ky-thuat-sua-chua-tau-mat-nuoc-tau-ngam-770040"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_L03",
+      "code": "L03",
+      "title": "VTĐN-01: tàu vận tải đa năng 530 và 531",
+      "group": "logistics",
+      "x": 54,
+      "y": 5,
+      "parent": "L01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2026,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Hai tàu số hiệu 530 và 531 được Sông Thu bàn giao tháng 5/2026.",
+      "detail": "Chương trình vận tải phục vụ duy trì trang bị và huấn luyện của Hải quân. Là ví dụ rõ ràng về kết quả công nghiệp trong nước chuyển hóa thành năng lực hậu cần trên biển.",
+      "game": "Mở event bàn giao 530/531; naval range/supply bonus vừa; treasury -.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "vt530",
+          "label": "vt530",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/tong-cong-ty-song-thu-ban-giao-2-tau-van-tai-da-nang-1040751"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_L04",
+      "code": "L04",
+      "title": "Cứu hộ tàu ngầm và bảo đảm hoạt động dài ngày",
+      "group": "logistics",
+      "x": 50,
+      "y": 8,
+      "parent": "L02",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Hệ thống cứu nạn, sửa chữa cơ động và duy trì hoạt động trên biển.",
+      "detail": "Kết hợp năng lực của các cơ sở kỹ thuật hải quân với các tàu và phương tiện hỗ trợ. L03 tạo thưởng bổ sung nhưng không được là gate bắt buộc vì hai tàu VTĐN-01 chỉ bàn giao năm 2026.",
+      "game": "Sortie efficiency +; damage control +; L03 hoàn thành tăng thêm range.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "x52",
+          "label": "x52",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lam-chu-cong-nghe-ky-thuat-sua-chua-tau-mat-nuoc-tau-ngam-770040"
+        },
+        {
+          "key": "songthu",
+          "label": "songthu",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/khat-vong-song-thu-1059712"
+        },
+        {
+          "key": "vt530",
+          "label": "vt530",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/tong-cong-ty-song-thu-ban-giao-2-tau-van-tai-da-nang-1040751"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_P01",
+      "code": "P01",
+      "title": "Học thuyết phòng thủ biển tích hợp",
+      "group": "denial",
+      "x": 17,
+      "y": 12,
+      "parent": "S03",
+      "all": [
+        "T04",
+        "W01"
+      ],
+      "any": [],
+      "mutex": [
+        "H01"
+      ],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Tập trung kết hợp các lực lượng bờ, đảo và tàu chiến trong một hệ thống phòng thủ.",
+      "detail": "Lấy việc bảo vệ vùng biển và lợi ích quốc gia làm ưu tiên. Đây là lựa chọn phân bổ đầu tư trong game, không phải lời khẳng định Việt Nam hoàn toàn từ bỏ lực lượng tàu mặt nước.",
+      "game": "Idea Coastal Integrated Doctrine I; rẻ hơn về ngân sách, mạnh phòng thủ.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_P02",
+      "code": "P02",
+      "title": "Lữ đoàn 681: làm chủ tên lửa bờ",
+      "group": "denial",
+      "x": 12,
+      "y": 14,
+      "parent": "P01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2006,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Đơn vị tên lửa bờ 681 thành lập năm 2006, chú trọng huấn luyện làm chủ khí tài.",
+      "detail": "Không phải focus mua tổ hợp Bastion: chỉ phát triển năng lực khai thác, chỉ huy và huấn luyện tên lửa bờ. Sự kiện mua sắm được để ở chuỗi event riêng.",
+      "game": "Coastal defence +; defence preparedness +.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "681",
+          "label": "681",
+          "url": "https://ct.qdnd.vn/chan-dung-nguoi-linh/nhung-nguoi-linh-phong-thu-bo-bien-527116"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_P03",
+      "code": "P03",
+      "title": "Lữ đoàn 146 và thế trận bảo vệ đảo",
+      "group": "denial",
+      "x": 22,
+      "y": 14,
+      "parent": "P01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Mốc / đơn vị đã xác nhận",
+      "cost": 7,
+      "summary": "Duy trì huấn luyện, công tác đảo và năng lực bảo đảm cho Trường Sa.",
+      "detail": "Tập trung nhiệm vụ của lực lượng tại đảo và bảo đảm quân y, hậu cần, thông tin với đất liền. Phần đối ngoại và luật biển tiếp tục nằm ở nhánh Biển Đông riêng, tránh trùng lặp.",
+      "game": "Island defence and logistics bonus; garrison readiness.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "146",
+          "label": "146",
+          "url": "https://hc.qdnd.vn/nghien-cuu-kinh-nghiem-trao-doi/tiep-tuc-nang-cao-chat-luong-cong-tac-bao-dam-quan-y-khu-vuc-truong-sa-dk1-482364"
+        },
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_P04",
+      "code": "P04",
+      "title": "Lưới phối hợp bờ — đảo — hạm đội",
+      "group": "denial",
+      "x": 17,
+      "y": 16,
+      "parent": "P02",
+      "all": [
+        "P03"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Định hướng phát triển",
+      "cost": 7,
+      "summary": "Ghép hiệu quả của radar bờ, lực lượng giữ đảo và các đơn vị tàu mặt nước.",
+      "detail": "Focus phát triển huấn luyện hợp đồng cấp quân chủng trong bối cảnh địa lý biển đảo; không đưa các chi tiết chiến thuật nhạy cảm hoặc phương án tấn công cụ thể.",
+      "game": "Naval coordination +; detection +; coastal modifiers.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        },
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_P05",
+      "code": "P05",
+      "title": "Hải quân đánh bộ 101/147: cơ động bảo vệ đảo",
+      "group": "denial",
+      "x": 17,
+      "y": 18,
+      "parent": "P04",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Làm sâu vai trò Hải quân đánh bộ trong bảo vệ và tăng viện địa bàn biển đảo.",
+      "detail": "Lữ đoàn 101 và 147 có lịch sử huấn luyện chuyên ngành Hải quân đánh bộ. Focus chỉ biểu thị đào tạo và khả năng cơ động chung, không coi đây là hướng chinh phục đổ bộ xa bờ.",
+      "game": "Marine training +; amphibious defence +.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "101",
+          "label": "101",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/lu-doan-101-quan-chung-hai-quan-vuot-kho-huan-luyen-sat-yeu-cau-tac-chien-257145"
+        },
+        {
+          "key": "147",
+          "label": "147",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lu-doan-hai-quan-danh-bo-147-don-nhan-huan-chuong-bao-ve-to-quoc-hang-ba-543142"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_P06",
+      "code": "P06",
+      "title": "Lá chắn biển nhiều tầng",
+      "group": "denial",
+      "x": 17,
+      "y": 20,
+      "parent": "P05",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Kết quả lựa chọn",
+      "cost": 10,
+      "summary": "Capstone phòng thủ: khả năng kiểm soát tiếp cận vùng biển trên cơ sở lực lượng hợp thành.",
+      "detail": "Nhánh kết thúc với ưu tiên bảo vệ chủ quyền, tối ưu hóa khí tài và duy trì hoạt động trong giới hạn ngân sách. Có lợi thế khi bảo vệ nhưng giới hạn ở hoạt động viễn dương.",
+      "game": "Sea-denial mastery gain +; hiệu quả phòng thủ +; chi phí bảo trì tương đối thấp.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_H01",
+      "code": "H01",
+      "title": "Ưu tiên xây dựng các biên đội hạm đội",
+      "group": "choice",
+      "x": 38,
+      "y": 12,
+      "parent": "W05",
+      "all": [
+        "I06",
+        "L02"
+      ],
+      "any": [],
+      "mutex": [
+        "P01"
+      ],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Chọn hiện đại hóa đội tàu theo mô hình hạm đội đa nhiệm thay vì trọng tâm bờ–đảo.",
+      "detail": "Chấp nhận đầu tư lớn hơn cho vận hành tàu mặt nước, chống ngầm và hậu cần. Đây là lựa chọn ngân sách, không mặc định Việt Nam sẽ có tàu sân bay.",
+      "game": "Naval organization +; ship research +; higher recurring treasury.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        },
+        {
+          "key": "design",
+          "label": "design",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/tung-buoc-tu-chu-thiet-ke-cac-gam-tau-chien-dau-phuc-tap-770273"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_H02",
+      "code": "H02",
+      "title": "Biên đội tàu hộ vệ — chống ngầm",
+      "group": "choice",
+      "x": 38,
+      "y": 14,
+      "parent": "H01",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Tiến từ từng tàu riêng lẻ sang biên đội được bảo đảm và chỉ huy đồng bộ.",
+      "detail": "Dựa trên bài học khai thác Gepard, Kilo và khả năng hàng không hải quân. Mở hai hướng green-water và blue-water với mức đầu tư, phạm vi nhiệm vụ khác nhau.",
+      "game": "Naval screening +; ASW training +; unlock two mutually exclusive routes.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "gepard",
+          "label": "gepard",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lu-doan-162-hoan-thanh-tot-nhiem-vu-huan-luyen-k2-tren-bien-nam-2026-1041710"
+        },
+        {
+          "key": "kilo",
+          "label": "kilo",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/huan-luyen-lam-chu-trang-bi-ky-thuat-hien-dai-842091"
+        },
+        {
+          "key": "954",
+          "label": "954",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/lu-doan-khong-quan-hai-quan-954-quyet-tam-hoan-thanh-tot-nhiem-vu-bay-phuc-vu-dieu-binh-tren-bien-843478"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_G01",
+      "code": "G01",
+      "title": "Lựa chọn Green-water: làm chủ vùng biển lân cận",
+      "group": "green",
+      "x": 32,
+      "y": 16,
+      "parent": "H02",
+      "all": [],
+      "any": [],
+      "mutex": [
+        "B01"
+      ],
+      "year": 2000,
+      "status": "Định hướng lựa chọn",
+      "cost": 7,
+      "summary": "Ưu tiên đội tàu hoạt động khu vực, hộ tống, chống ngầm và tự chủ bảo đảm.",
+      "detail": "Green-water không có nghĩa là chỉ đứng sát bờ: đây là khả năng hoạt động lâu dài tại vùng biển lân cận với năng lực bảo đảm phù hợp, thay vì triển khai viễn dương thường xuyên.",
+      "game": "Green-water Doctrine I; escort +; maintenance burden vừa.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_G02",
+      "code": "G02",
+      "title": "Tự chủ chuỗi bảo đảm tàu hộ vệ",
+      "group": "green",
+      "x": 32,
+      "y": 18,
+      "parent": "G01",
+      "all": [
+        "I06"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Thiết kế dựa trên nguồn",
+      "cost": 7,
+      "summary": "Gắn năng lực tàu hộ vệ với công nghiệp sửa chữa và tích hợp kỹ thuật trong nước.",
+      "detail": "Không yêu cầu dự án Sông Thu 2026 hoàn thành mới phát triển green-water. Nếu I07 đã hoàn thành, nhận thêm một nhánh tiến độ/tích hợp cho tàu chống ngầm mới.",
+      "game": "Screening/ASW bonus; nội địa hóa bảo đảm; I07 optional extra.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "design",
+          "label": "design",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/tung-buoc-tu-chu-thiet-ke-cac-gam-tau-chien-dau-phuc-tap-770273"
+        },
+        {
+          "key": "songthu_asw",
+          "label": "songthu_asw",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/thuong-tuong-pham-hoai-nam-du-chi-dao-le-khoi-cong-dong-moi-tau-ho-ve-chong-ngam-da-nang-1052774"
+        },
+        {
+          "key": "x52",
+          "label": "x52",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/lam-chu-cong-nghe-ky-thuat-sua-chua-tau-mat-nuoc-tau-ngam-770040"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_G03",
+      "code": "G03",
+      "title": "Hạm đội khu vực tự chủ",
+      "group": "green",
+      "x": 32,
+      "y": 20,
+      "parent": "G02",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Kết quả lựa chọn",
+      "cost": 10,
+      "summary": "Capstone green-water: cân bằng chi phí, sự sẵn sàng và lực lượng tàu mặt nước.",
+      "detail": "Ưu tiên hệ thống tàu mặt nước, chống ngầm và hậu cần đủ dùng, phù hợp mức ngân sách trung bình. Mở công nghệ tàu hộ vệ nội địa qua decision nếu điều kiện công nghiệp đáp ứng.",
+      "game": "Green-water mastery +; ASW & screening +; sustainment bonus.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        },
+        {
+          "key": "design",
+          "label": "design",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/xay-dung-quan-doi/tung-buoc-tu-chu-thiet-ke-cac-gam-tau-chien-dau-phuc-tap-770273"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_B01",
+      "code": "B01",
+      "title": "Lựa chọn Blue-water: triển khai biển xa",
+      "group": "blue",
+      "x": 44,
+      "y": 16,
+      "parent": "H02",
+      "all": [],
+      "any": [],
+      "mutex": [
+        "G01"
+      ],
+      "year": 2015,
+      "status": "Giả định chiến lược",
+      "cost": 7,
+      "summary": "Phương án thay thế lịch sử hướng tới hoạt động trên các tuyến biển xa.",
+      "detail": "Khả năng viễn dương đòi hỏi đầu tư cơ sở bảo đảm, dự trữ và mạng lưới hợp tác phù hợp chính sách quốc phòng. Đây là lựa chọn giả định, không phải chương trình tàu sân bay đã công bố.",
+      "game": "Blue-water Doctrine I; naval max range +; treasury upkeep cao.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_B02",
+      "code": "B02",
+      "title": "Hạm đội tiếp tế và bảo đảm viễn hành",
+      "group": "blue",
+      "x": 44,
+      "y": 18,
+      "parent": "B01",
+      "all": [
+        "L04"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Giả định chiến lược",
+      "cost": 7,
+      "summary": "Vận hành hải quân biển xa bằng năng lực hậu cần trước khi mở rộng quy mô tàu.",
+      "detail": "Tăng năng lực tàu hậu cần, sửa chữa và tổ chức vận tải. Nếu hoàn thành L03, sử dụng thành quả VTĐN-01 làm bước đệm; không tự ý suy diễn VTĐN-01 là tàu tiếp dầu hạm đội biển xa.",
+      "game": "Naval max range +; sortie efficiency +; treasury - lớn.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "vt530",
+          "label": "vt530",
+          "url": "https://www.qdnd.vn/quoc-phong-an-ninh/tin-tuc/tong-cong-ty-song-thu-ban-giao-2-tau-van-tai-da-nang-1040751"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_B03",
+      "code": "B03",
+      "title": "Hải quân biển xa cân đối",
+      "group": "blue",
+      "x": 44,
+      "y": 20,
+      "parent": "B02",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Giả định chiến lược",
+      "cost": 10,
+      "summary": "Capstone blue-water, không đồng nghĩa với thiết lập hạm đội hai đại dương.",
+      "detail": "Khả năng hoạt động xa bờ theo kỳ hạn dài, nhiệm vụ hộ tống và hợp tác hàng hải. Muốn phát triển tiếp đến hạm đội tàu sân bay cần nhánh viễn cảnh riêng, không thể là kết quả tự động.",
+      "game": "Blue-water mastery gain +; range and organization +; maintenance/tradeoff cao.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_F01",
+      "code": "F01",
+      "title": "Chuẩn hóa học thuyết và cơ cấu quân chủng",
+      "group": "end",
+      "x": 28,
+      "y": 22,
+      "parent": null,
+      "all": [],
+      "any": [
+        "P06",
+        "G03",
+        "B03"
+      ],
+      "mutex": [],
+      "year": 2000,
+      "status": "Capstone dùng chung",
+      "cost": 7,
+      "summary": "OR(P06,G03,B03): sau khi hoàn thành bất cứ một trong ba mô hình lực lượng, tiến hành chuẩn hóa quân chủng.",
+      "detail": "Một trong ba capstone P06/G03/B03 đủ để mở F01, không dùng ba prerequisite AND vì các nhánh lựa chọn loại trừ nhau. Tùy focus trước đó, hiệu ứng F01 phản ánh ưu tiên sea-denial, green-water hoặc blue-water.",
+      "game": "Naval XP +, Command Power +; bonus theo nhánh đã chọn.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_F02",
+      "code": "F02",
+      "title": "Hải quân nhân dân chính quy, tinh nhuệ, hiện đại",
+      "group": "end",
+      "x": 28,
+      "y": 24,
+      "parent": "F01",
+      "all": [
+        "S03",
+        "L04"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Capstone toàn quân chủng",
+      "cost": 10,
+      "summary": "Đích cuối phải phản ánh tổ chức, nhận thức biển, bảo đảm và học thuyết đã chọn.",
+      "detail": "Hoàn thành sau F01 với các điều kiện S03 và L04. Đầu tư công nghiệp và các chương trình hậu 2026 không mặc nhiên bắt buộc cho mọi lối chơi; được thưởng theo tiến độ đã đạt và con đường chiến lược.",
+      "game": "Idea Modern Navy; reward theo lựa chọn, bonus nếu I06/I07/L03 đã hoàn thành.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    }
+  ],
+  "coordinates": {
+    "N00": 14,
+    "T01": 3,
+    "T02": 1,
+    "T03": 5,
+    "T04": 3,
+    "S01": 8,
+    "S02": 6,
+    "S03": 8,
+    "W01": 14,
+    "W02": 11,
+    "W03": 14,
+    "W04": 17,
+    "W05": 14,
+    "I01": 20,
+    "I02": 18,
+    "I03": 22,
+    "I04": 18,
+    "I05": 22,
+    "I06": 18,
+    "I07": 20,
+    "L01": 26,
+    "L02": 24,
+    "L03": 28,
+    "L04": 26,
+    "P01": 8,
+    "P02": 5,
+    "P03": 11,
+    "P04": 8,
+    "P05": 8,
+    "P06": 8,
+    "H01": 20,
+    "H02": 20,
+    "G01": 17,
+    "G02": 17,
+    "G03": 17,
+    "B01": 23,
+    "B02": 23,
+    "B03": 23,
+    "F01": 14,
+    "F02": 14
+  },
+  "icons": {
+    "N00": "naval_defence_2030",
+    "T01": "nf_command_reform_1",
+    "T02": "nf_training_standardization",
+    "T03": "nf_training_standardization",
+    "T04": "nf_command_reform_2",
+    "S01": "scs_maritime_militia",
+    "S02": "nf_naval_aviation",
+    "S03": "naval_systems_integration",
+    "W01": "nf_surface_force",
+    "W02": "small_combatant_construction",
+    "W03": "nf_surface_force",
+    "W04": "nf_submarine_force",
+    "W05": "nf_ocean_escort",
+    "I01": "ba_son_shipyards",
+    "I02": "ba_son_shipyards",
+    "I03": "small_combatant_construction",
+    "I04": "naval_systems_integration",
+    "I05": "naval_mro",
+    "I06": "naval_systems_integration",
+    "I07": "nf_regional_frigates",
+    "L01": "scs_cam_ranh_port",
+    "L02": "naval_mro",
+    "L03": "nf_replenishment",
+    "L04": "nf_operating_range",
+    "P01": "nf_denial",
+    "P02": "nf_denial_defence",
+    "P03": "scs_spratly_fortification",
+    "P04": "nf_denial_command",
+    "P05": "sf_marine",
+    "P06": "nf_denial",
+    "H01": "nf_medium_force",
+    "H02": "nf_ocean_escort",
+    "G01": "nf_greenwater",
+    "G02": "nf_regional_frigates",
+    "G03": "nf_regional_command",
+    "B01": "nf_bluewater",
+    "B02": "nf_replenishment",
+    "B03": "nf_regional_command",
+    "F01": "nf_command_reform_2",
+    "F02": "naval_defence_law"
+  },
+  "mapping": {
+    "VIE_nav_n00_maritime_strategy_21st": "VIE_nav35_N00",
+    "VIE_nav_t01_organization_reform": "VIE_nav35_T01",
+    "VIE_nav_i01_shipbuilding_industry": "VIE_nav35_I01",
+    "VIE_nav_s01_maritime_surveillance": "VIE_nav35_S01",
+    "VIE_nav_t02_officer_sailor_quality": "VIE_nav35_T02",
+    "VIE_nav_t03_regional_commands": "VIE_nav35_T03",
+    "VIE_nav_l01_naval_bases": "VIE_nav35_L01",
+    "VIE_nav_i02_technology_transfer_molniya": "VIE_nav35_I02",
+    "VIE_nav_i03_ship_systems_integration": "VIE_nav35_I03",
+    "VIE_nav_s02_island_defense_forces": "VIE_nav35_S02",
+    "VIE_nav_s03_subsurface_recon": "VIE_nav35_S03",
+    "VIE_nav_w01_surface_combatants": "VIE_nav35_W01",
+    "VIE_nav_w04_kilo_submarine_force": "VIE_nav35_W04",
+    "VIE_nav_t04_joint_command_system": "VIE_nav35_T04",
+    "VIE_nav_l02_overhaul_maintenance": "VIE_nav35_L02",
+    "VIE_nav_l03_island_logistics": "VIE_nav35_L03",
+    "VIE_nav_i04_domestic_corvette_class": "VIE_nav35_I04",
+    "VIE_nav_s04_joint_island_defense": "VIE_nav35_P04",
+    "VIE_nav_w02_missile_boats": "VIE_nav35_W02",
+    "VIE_nav_w03_multirole_frigates": "VIE_nav35_W03",
+    "VIE_nav_l04_support_rescue_vessels": "VIE_nav35_L04",
+    "VIE_nav_s05_unified_maritime_picture": "VIE_nav35_S03",
+    "VIE_nav_w05_asw_fleet_defense": "VIE_nav35_W05",
+    "VIE_nav_l05_sustained_operations": "VIE_nav35_L04",
+    "VIE_nav_p01_integrated_defense_choice": "VIE_nav35_P01",
+    "VIE_nav_h01_fleet_development_priority": "VIE_nav35_H01",
+    "VIE_nav_p02_coastal_island_network": "VIE_nav35_P02",
+    "VIE_nav_p03_island_territory_defense": "VIE_nav35_P03",
+    "VIE_nav_h02_multirole_task_groups": "VIE_nav35_H02",
+    "VIE_nav_p04_layered_defense": "VIE_nav35_P04",
+    "VIE_nav_g01_greenwater_navy": "VIE_nav35_G01",
+    "VIE_nav_b01_bluewater_navy": "VIE_nav35_B01",
+    "VIE_nav_p05_joint_coastal_defense": "VIE_nav35_P05",
+    "VIE_nav_g02_advanced_frigates_asw": "VIE_nav35_G02",
+    "VIE_nav_b02_extended_deployment_fleet": "VIE_nav35_B02",
+    "VIE_nav_p06_active_coastal_defense_capstone": "VIE_nav35_P06",
+    "VIE_nav_g03_self_reliant_greenwater_capstone": "VIE_nav35_G03",
+    "VIE_nav_b03_sustained_bluewater_capstone": "VIE_nav35_B03",
+    "VIE_nav_f01_tactical_doctrine_alignment": "VIE_nav35_F01",
+    "VIE_nav_f02_regular_modern_navy": "VIE_nav35_F02"
+  },
+  "projects": [
+    {
+      "key": "dockyard",
+      "focus": "I01",
+      "days": 365,
+      "cost": 7.5,
+      "result": "dockyard",
+      "title": "Mở rộng xưởng đóng tàu quân sự"
+    },
+    {
+      "key": "industry",
+      "focus": "I01",
+      "days": 365,
+      "cost": 2.0,
+      "result": "VIE_nav35_industry_investment_idea",
+      "title": "Đầu tư công nghệ đóng tàu"
+    },
+    {
+      "key": "molniya",
+      "focus": "I02",
+      "days": 365,
+      "cost": 1.5,
+      "result": "CAT_corvettes",
+      "title": "Ba Son: chuẩn bị sản xuất Molniya"
+    },
+    {
+      "key": "tt400",
+      "focus": "I03",
+      "days": 180,
+      "cost": 0.75,
+      "result": "CAT_patrol_boats",
+      "title": "Hồng Hà: hoàn thiện dòng TT400"
+    },
+    {
+      "key": "design",
+      "focus": "I04",
+      "days": 365,
+      "cost": 1.0,
+      "result": "CAT_frigates",
+      "title": "Đầu tư Viện Thiết kế tàu quân sự"
+    },
+    {
+      "key": "support",
+      "focus": "I05",
+      "days": 180,
+      "cost": 1.0,
+      "result": "naval_xp_15",
+      "title": "Sông Thu: công nghệ tàu bảo đảm"
+    },
+    {
+      "key": "integration",
+      "focus": "I06",
+      "days": 365,
+      "cost": 1.5,
+      "result": "CAT_naval_sonar",
+      "title": "Tích hợp khí tài hạm tàu"
+    },
+    {
+      "key": "base",
+      "focus": "L01",
+      "days": 365,
+      "cost": 2.0,
+      "result": "VIE_nav35_base_support_idea",
+      "title": "Tổ chức bảo đảm căn cứ Hải quân"
+    },
+    {
+      "key": "vt",
+      "focus": "L03",
+      "days": 180,
+      "cost": 2.0,
+      "result": "VIE_nav35_vt_support_idea",
+      "title": "Huấn luyện và tiếp nhận năng lực VTĐN-01"
+    },
+    {
+      "key": "blue_support",
+      "focus": "B02",
+      "days": 365,
+      "cost": 8.0,
+      "result": "VIE_nav35_blue_support_idea",
+      "title": "Đầu tư bảo đảm triển khai biển xa"
+    },
+    {
+      "key": "asw_frigate",
+      "focus": "I07",
+      "days": 1095,
+      "cost": 0.6,
+      "result": "one_ship",
+      "title": "Đóng hộ vệ chống ngầm Sông Thu đầu tiên"
+    }
+  ],
+  "implementation_deviations": {
+    "Cam Ranh": "base support capability; no unverified province construction",
+    "VTĐN-01": "paid operating capability; no equipment spawn",
+    "ASW frigate 2026": "I07 approval event unlocks a funded 1095-day first-ship contract; delivers one fixed MD frigate variant; historical keel news is informational",
+    "procurement": "first Song Thu frigate is an actual ship; other programs remain sustainment/research, no additional OOB grants",
+    "focus flags": "completed focus is canonical; redundant V34 completion/unlock flags removed"
+  },
+  "ship_blueprint": {
+    "name": "Song Thu ASW 2026",
+    "hull": "frigate_hull_4",
+    "modules": {
+      "fixed_ship_engine_slot": "module_light_surface_diesel_power_2",
+      "fixed_ship_fire_control_system_slot": "module_digital_integrated_fire_control",
+      "fixed_ship_radar_slot": "module_sonar_4",
+      "fixed_ship_auxillary_slot_2": "module_ciws_4",
+      "fixed_ship_auxillary_slot_1": "module_torpedoes_4",
+      "fixed_ship_auxillary_slot": "empty",
+      "fixed_ship_battery_slot": "module_76mm_gun_3",
+      "front_1_custom_slot": "module_naval_missile_mount_quad",
+      "rear_1_custom_slot": "module_fuel_tank",
+      "fixed_ship_missile_ammo_slot": "module_naval_ammo_balanced_3"
+    },
+    "technologies": [
+      "frigate_hull_4",
+      "tech_diesel_power_systems_2",
+      "tech_fire_control_2",
+      "tech_combat_sonar_3",
+      "tech_light_guns_3",
+      "tech_point_defense_system_4",
+      "tech_torpedoes_4",
+      "tech_vls_surface_3",
+      "tech_naval_systems_engineering",
+      "tech_vls_surface_1"
+    ],
+    "amount": 1
+  }
+}

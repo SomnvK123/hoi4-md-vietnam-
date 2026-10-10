@@ -1323,3 +1323,112 @@ VIE_lf_xcb01_serial_can_start = {
 	has_country_flag = VIE_lf_xcb01_evaluation_done
 }
 
+
+# Hai quan V35.1: guard giao dich mot lan; gia la can bang gameplay.
+VIE_nav35_dockyard_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I01
+	NOT = { has_country_flag = VIE_nav35_dockyard_running }
+	NOT = { has_country_flag = VIE_nav35_dockyard_done }
+	check_variable = { treasury > 7.499 }
+	any_owned_state = { is_controlled_by = ROOT is_coastal = yes free_building_slots = { building = dockyard size > 0 include_locked = yes } }
+}
+VIE_nav35_industry_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I01
+	NOT = { has_country_flag = VIE_nav35_industry_running }
+	NOT = { has_country_flag = VIE_nav35_industry_done }
+	check_variable = { treasury > 1.999 }
+}
+VIE_nav35_molniya_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I02
+	NOT = { has_country_flag = VIE_nav35_molniya_running }
+	NOT = { has_country_flag = VIE_nav35_molniya_done }
+	check_variable = { treasury > 1.499 }
+}
+VIE_nav35_tt400_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I03
+	NOT = { has_country_flag = VIE_nav35_tt400_running }
+	NOT = { has_country_flag = VIE_nav35_tt400_done }
+	check_variable = { treasury > 0.749 }
+}
+VIE_nav35_design_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I04
+	NOT = { has_country_flag = VIE_nav35_design_running }
+	NOT = { has_country_flag = VIE_nav35_design_done }
+	check_variable = { treasury > 0.999 }
+}
+VIE_nav35_support_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I05
+	NOT = { has_country_flag = VIE_nav35_support_running }
+	NOT = { has_country_flag = VIE_nav35_support_done }
+	check_variable = { treasury > 0.999 }
+}
+VIE_nav35_integration_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I06
+	NOT = { has_country_flag = VIE_nav35_integration_running }
+	NOT = { has_country_flag = VIE_nav35_integration_done }
+	check_variable = { treasury > 1.499 }
+}
+VIE_nav35_base_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_L01
+	NOT = { has_country_flag = VIE_nav35_base_running }
+	NOT = { has_country_flag = VIE_nav35_base_done }
+	check_variable = { treasury > 1.999 }
+}
+VIE_nav35_vt_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_L03
+	NOT = { has_country_flag = VIE_nav35_vt_running }
+	NOT = { has_country_flag = VIE_nav35_vt_done }
+	check_variable = { treasury > 1.999 }
+}
+VIE_nav35_blue_support_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_B02
+	NOT = { has_country_flag = VIE_nav35_blue_support_running }
+	NOT = { has_country_flag = VIE_nav35_blue_support_done }
+	check_variable = { treasury > 7.999 }
+}
+
+# Ho ve Song Thu 2026: cong nghe va co so da doi chieu MD.
+VIE_nav35_asw_frigate_technology_ready = {
+	has_tech = frigate_hull_4
+	has_tech = tech_diesel_power_systems_2
+	has_tech = tech_fire_control_2
+	has_tech = tech_combat_sonar_3
+	has_tech = tech_light_guns_3
+	has_tech = tech_point_defense_system_4
+	has_tech = tech_torpedoes_4
+	has_tech = tech_vls_surface_1
+	has_tech = tech_vls_surface_3
+	has_tech = tech_naval_systems_engineering
+}
+VIE_nav35_asw_frigate_has_base = {
+	any_owned_state = { is_controlled_by = ROOT is_coastal = yes naval_base > 0 }
+}
+VIE_nav35_asw_frigate_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I07
+	has_country_flag = VIE_nav35_asw_frigate_offered
+	NOT = { has_country_flag = VIE_nav35_asw_frigate_running }
+	NOT = { has_country_flag = VIE_nav35_asw_frigate_ready }
+	NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
+	check_variable = { treasury >= 0.6 }
+	VIE_nav35_asw_frigate_technology_ready = yes
+	VIE_nav35_asw_frigate_has_base = yes
+	any_owned_state = { is_controlled_by = ROOT is_coastal = yes dockyard > 0 }
+}
+VIE_nav35_asw_frigate_can_deliver = {
+	original_tag = VIE
+	has_country_flag = VIE_nav35_asw_frigate_ready
+	NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_asw_frigate_technology_ready = yes
+}

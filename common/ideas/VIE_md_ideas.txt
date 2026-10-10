@@ -1371,421 +1371,568 @@ ideas = {
 		}
 
 		# ====================================================================
-		# SECTION: VIE_md_ideas_v34_navy.txt
-		# ====================================================================
-
-
-		# --- TRỤC T: TỔ CHỨC & CHỈ HUY (TIER 1..4) ---
+		# Hai quan V35.1: bonus theo bac, khong cong chong hoc thuyet.
 
 		VPA_Naval_Org_1 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				naval_org = 3
-				command_power_gain = 0.05
+				navy_org = 2
+				naval_coordination = 0.015
+				experience_gain_navy_factor = 0.025
+			}
+		}
+
+		VPA_Maritime_MDA_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				naval_detection = 0.025
+				navy_submarine_detection_factor = 0.025
+			}
+		}
+
+		VPA_Naval_Industry_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.025
+				industrial_capacity_dockyard = 0.02
 			}
 		}
 
 		VPA_Naval_Org_2 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				naval_org = 5
-				experience_gain_navy_factor = 0.10
-				navy_leader_start_level = 1
-			}
-		}
-
-		VPA_Naval_Org_3 = {
-			picture = generic_navy_bonus
-			allowed = { original_tag = VIE }
-			modifier = {
-				naval_org = 8
-				coastal_defense_coordination = 0.08
-				planning_speed = 0.10
-			}
-		}
-
-		VPA_Naval_Org_4 = {
-			picture = generic_navy_bonus
-			allowed = { original_tag = VIE }
-			modifier = {
-				naval_org = 10
-				naval_coordination = 0.12
-				planning_speed = 0.15
-				command_power_gain = 0.10
-			}
-		}
-
-		# --- TRỤC S: NHẬN THỨC BIỂN MDA (TIER 1..4) ---
-
-		VPA_Maritime_MDA_1 = {
-			picture = generic_navy_bonus
-			allowed = { original_tag = VIE }
-			modifier = {
-				surface_detection = 0.08
-				naval_detection = 0.08
+				navy_org = 4
+				naval_coordination = 0.03
+				experience_gain_navy_factor = 0.05
 			}
 		}
 
 		VPA_Maritime_MDA_2 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				surface_detection = 0.10
-				naval_detection = 0.10
-				sub_detection = 0.12
-				navy_submarine_detection_factor = 0.12
+				naval_detection = 0.05
+				navy_submarine_detection_factor = 0.05
+			}
+		}
+
+		VPA_Naval_Industry_2 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.05
+				industrial_capacity_dockyard = 0.04
+			}
+		}
+
+		VPA_Naval_Org_3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				navy_org = 6
+				naval_coordination = 0.045
+				experience_gain_navy_factor = 0.075
 			}
 		}
 
 		VPA_Maritime_MDA_3 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				surface_detection = 0.12
-				sub_detection = 0.15
-				patrol_efficiency = 0.10
-				coastal_defense_coordination = 0.10
+				naval_detection = 0.075
+				navy_submarine_detection_factor = 0.075
+			}
+		}
+
+		VPA_Naval_Industry_3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.075
+				industrial_capacity_dockyard = 0.06
+			}
+		}
+
+		VPA_Naval_Org_4 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				navy_org = 8
+				naval_coordination = 0.06
+				experience_gain_navy_factor = 0.1
 			}
 		}
 
 		VPA_Maritime_MDA_4 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				surface_detection = 0.18
-				sub_detection = 0.20
-				naval_strike_defense_factor = 0.10
-				naval_coordination = 0.10
+				naval_detection = 0.1
+				navy_submarine_detection_factor = 0.1
 			}
 		}
 
-		# --- TRỤC L: CĂN CỨ & HẬU CẦN (TIER 1..5) ---
+		VPA_Naval_Industry_4 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.1
+				industrial_capacity_dockyard = 0.08
+			}
+		}
 
 		VPA_Naval_Logistics_1 = {
-			picture = generic_naval_manufacturer
+			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				naval_base_efficiency = 0.10
-				repair_speed_factor = 0.10
+				repair_speed_factor = 0.025
+				naval_attrition = -0.02
+				sortie_efficiency = 0.015
 			}
 		}
 
 		VPA_Naval_Logistics_2 = {
-			picture = generic_naval_manufacturer
+			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				repair_speed_factor = 0.15
-				naval_attrition = -0.10
+				repair_speed_factor = 0.05
+				naval_attrition = -0.04
+				sortie_efficiency = 0.03
 			}
 		}
 
 		VPA_Naval_Logistics_3 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				supply_consumption_factor = -0.10
-				repair_speed_factor = 0.15
-				navy_max_range_factor = 0.05
+				repair_speed_factor = 0.075
+				naval_attrition = -0.06
+				sortie_efficiency = 0.045
 			}
 		}
 
 		VPA_Naval_Logistics_4 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				repair_speed_factor = 0.20
-				convoy_escort_efficiency = 0.10
-				escort_efficiency = 0.10
+				repair_speed_factor = 0.1
+				naval_attrition = -0.08
+				sortie_efficiency = 0.06
 			}
 		}
 
 		VPA_Naval_Logistics_5 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				navy_max_range_factor = 0.15
-				repair_speed_factor = 0.25
-				naval_attrition = -0.20
-				convoy_escort_efficiency = 0.15
+				repair_speed_factor = 0.125
+				naval_attrition = -0.1
+				sortie_efficiency = 0.075
 			}
 		}
-
-		# --- TRỤC I: CÔNG NGHIỆP ĐÓNG TÀU (TIER 1..4) ---
-
-		VPA_Naval_Industry_1 = {
-			picture = generic_naval_manufacturer
-			allowed = { original_tag = VIE }
-			modifier = {
-				production_speed_dockyard_factor = 0.10
-				industrial_capacity_dockyard = 0.05
-			}
-		}
-
-		VPA_Naval_Industry_2 = {
-			picture = generic_naval_manufacturer
-			allowed = { original_tag = VIE }
-			modifier = {
-				production_speed_dockyard_factor = 0.15
-				industrial_capacity_dockyard = 0.08
-				research_speed_naval = 0.05
-			}
-		}
-
-		VPA_Naval_Industry_3 = {
-			picture = generic_naval_manufacturer
-			allowed = { original_tag = VIE }
-			modifier = {
-				production_speed_dockyard_factor = 0.18
-				industrial_capacity_dockyard = 0.12
-				research_speed_naval = 0.10
-			}
-		}
-
-		VPA_Naval_Industry_4 = {
-			picture = generic_naval_manufacturer
-			allowed = { original_tag = VIE }
-			modifier = {
-				production_speed_dockyard_factor = 0.20
-				industrial_capacity_dockyard = 0.18
-				research_speed_naval = 0.15
-			}
-		}
-
-		# --- KHÍ TÀI ĐỘC BẢN ---
 
 		VIE_nav_surface_fleet_readiness = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				screening_efficiency = 0.08
-				naval_speed_factor = 0.05
+				screening_efficiency = 0.04
+				naval_speed_factor = 0.03
 			}
 		}
 
 		VIE_nav_asw_mastery = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				sub_detection = 0.15
-				navy_anti_submarine_attack_factor = 0.15
+				navy_submarine_detection_factor = 0.04
+				screening_efficiency = 0.03
 			}
 		}
 
 		VIE_nav_marine_brigades = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				amphibious_defense = 0.20
-				naval_org = 5
+				amphibious_invasion_defence = 0.06
 			}
 		}
-
-		# --- HỌC THUYẾT P: PHÒNG THỦ TÍCH HỢP ---
 
 		VPA_Integrated_Defense_Doctrine_1 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				coastal_defense_coordination = 0.08
-				amphibious_defense = 0.10
-				screen_surface_detection = 0.08
+				coastal_bunker_effectiveness_factor = 0.05
+				amphibious_invasion_defence = 0.04
 			}
 		}
 
 		VPA_Integrated_Defense_Doctrine_Capstone = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				coastal_defense_coordination = 0.20
-				amphibious_defense = 0.20
-				naval_strike_defense_factor = 0.15
-				sub_detection = 0.15
-				screen_surface_detection = 0.12
+				coastal_bunker_effectiveness_factor = 0.1
+				amphibious_invasion_defence = 0.08
+				naval_detection = 0.03
 			}
 		}
-
-		# --- HỌC THUYẾT H & G: GREEN-WATER NAVY ---
 
 		VPA_Fleet_Development_Priority = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				screening_efficiency = 0.08
-				naval_speed_factor = 0.05
+				navy_org = 2
+				navy_personnel_cost_multiplier_modifier = 0.05
 			}
 		}
 
 		VPA_Multirole_Task_Groups = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				screening_efficiency = 0.10
-				naval_coordination = 0.08
-				escort_efficiency = 0.08
+				navy_org = 3
+				screening_efficiency = 0.04
+				navy_personnel_cost_multiplier_modifier = 0.05
 			}
 		}
 
 		VPA_Greenwater_Doctrine_1 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				screening_efficiency = 0.10
-				patrol_efficiency = 0.10
-				navy_anti_submarine_attack_factor = 0.10
+				screening_efficiency = 0.05
+				convoy_escort_efficiency = 0.04
+				navy_personnel_cost_multiplier_modifier = 0.1
 			}
 		}
 
 		VPA_Greenwater_Doctrine_Capstone = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				screening_efficiency = 0.18
-				navy_anti_submarine_attack_factor = 0.18
-				escort_efficiency = 0.15
-				naval_org = 12
-				patrol_efficiency = 0.15
+				screening_efficiency = 0.09
+				convoy_escort_efficiency = 0.08
+				navy_org = 4
+				navy_personnel_cost_multiplier_modifier = 0.1
 			}
 		}
-
-		# --- HỌC THUYẾT B: BLUE-WATER NAVY ---
 
 		VPA_Bluewater_Doctrine_1 = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				navy_max_range_factor = 0.15
-				convoy_escort_efficiency = 0.10
-				naval_org = 5
+				navy_max_range_factor = 0.1
+				sortie_efficiency = 0.03
+				navy_personnel_cost_multiplier_modifier = 0.25
 			}
 		}
 
 		VPA_Bluewater_Doctrine_Capstone = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				navy_max_range_factor = 0.25
-				convoy_escort_efficiency = 0.20
-				naval_coordination = 0.15
-				naval_org = 10
-				naval_speed_factor = 0.10
+				navy_max_range_factor = 0.18
+				sortie_efficiency = 0.06
+				navy_org = 4
+				navy_personnel_cost_multiplier_modifier = 0.25
 			}
 		}
-
-		# --- CAPSTONE TỐI THƯỢNG F02 ---
 
 		VIE_nav_capstone_iron_shield = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				naval_strike_defense_factor = 0.20
-				amphibious_defense = 0.25
-				sub_detection = 0.20
-				coastal_defense_coordination = 0.20
-				screen_surface_detection = 0.15
+				coastal_bunker_effectiveness_factor = 0.12
+				amphibious_invasion_defence = 0.1
+				naval_detection = 0.05
+				naval_coordination = 0.04
 			}
 		}
 
 		VIE_nav_capstone_master_of_seas = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				screening_efficiency = 0.20
-				navy_anti_submarine_attack_factor = 0.20
-				naval_org = 15
-				escort_efficiency = 0.20
-				patrol_efficiency = 0.15
+				screening_efficiency = 0.12
+				convoy_escort_efficiency = 0.1
+				navy_org = 6
+				navy_personnel_cost_multiplier_modifier = 0.1
 			}
 		}
 
 		VIE_nav_capstone_ocean_surge = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				navy_max_range_factor = 0.30
-				convoy_escort_efficiency = 0.25
-				naval_coordination = 0.20
-				naval_org = 15
-				naval_speed_factor = 0.12
+				navy_max_range_factor = 0.22
+				sortie_efficiency = 0.08
+				navy_org = 6
+				navy_personnel_cost_multiplier_modifier = 0.25
 			}
 		}
 
 		VIE_nav_shipbuilding_mastery = {
-			picture = generic_naval_manufacturer
+			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				production_speed_dockyard_factor = 0.25
-				industrial_capacity_dockyard = 0.20
+				industrial_capacity_dockyard = 0.03
+				production_speed_dockyard_factor = 0.03
 			}
 		}
 
-		# --- TIMED DECISION SPIRITS ---
-
 		VIE_decision_molniya_surge_spirit = {
-			picture = generic_naval_manufacturer
+			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				production_speed_dockyard_factor = 0.15
-				industrial_capacity_dockyard = 0.10
+				industrial_capacity_dockyard = 0.06
 			}
 		}
 
 		VIE_decision_gepard_fleet_spirit = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				screening_efficiency = 0.12
-				naval_speed_factor = 0.05
+				navy_screen_defence_factor = 0.05
 			}
 		}
 
 		VIE_decision_kilo_sustainment_spirit = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				sub_detection = 0.15
-				sub_visibility = -0.10
-			}
-		}
-
-		VIE_decision_domestic_corvette_construction_spirit = {
-			picture = generic_naval_manufacturer
-			allowed = { original_tag = VIE }
-			modifier = {
-				production_speed_dockyard_factor = 0.20
-				industrial_capacity_dockyard = 0.15
+				navy_submarine_defence_factor = 0.05
+				naval_attrition = -0.05
 			}
 		}
 
 		VIE_decision_island_bastion_spirit = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				production_speed_coastal_bunker_factor = 0.25
-				amphibious_defense = 0.20
+				coastal_bunker_effectiveness_factor = 0.06
 			}
 		}
 
 		VIE_decision_asw_combat_drill_spirit = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				sub_detection = 0.15
-				navy_anti_submarine_attack_factor = 0.15
+				navy_submarine_detection_factor = 0.06
 			}
 		}
 
 		VIE_decision_coastal_alert_surge_spirit = {
 			picture = generic_navy_bonus
 			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
 			modifier = {
-				coastal_defense_coordination = 0.20
-				naval_strike_defense_factor = 0.15
+				amphibious_invasion_defence = 0.06
+				naval_coordination = 0.03
 			}
 		}
 
-		# ====================================================================
+		VIE_nav35_base_support_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				sortie_efficiency = 0.03
+			}
+		}
+
+		VIE_nav35_vt_support_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				navy_max_range_factor = 0.04
+				convoy_escort_efficiency = 0.03
+			}
+		}
+
+		VIE_nav35_blue_support_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				navy_max_range_factor = 0.05
+				sortie_efficiency = 0.03
+			}
+		}
+
+		VIE_nav35_regional_command_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				naval_coordination = 0.02
+			}
+		}
+
+		VIE_nav35_integration_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				naval_detection = 0.02
+			}
+		}
+
+		VIE_nav35_joint_picture_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				naval_detection = 0.02
+				navy_submarine_detection_factor = 0.02
+			}
+		}
+
+		VIE_nav35_industry_investment_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				industrial_capacity_dockyard = 0.03
+			}
+		}
+
+		VIE_nav35_domestic_asw_support_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				repair_speed_factor = 0.03
+				screening_efficiency = 0.02
+			}
+		}
+
+		VIE_nav35_rescue_range_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				navy_max_range_factor = 0.02
+			}
+		}
+
+		VIE_nav35_coastal_batteries_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				coastal_bunker_effectiveness_factor = 0.04
+			}
+		}
+
+		VIE_nav35_island_defense_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				amphibious_invasion_defence = 0.04
+			}
+		}
+
+		VIE_nav35_coastal_coordination_idea = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				naval_coordination = 0.03
+			}
+		}
+
 		# SECTION: VIE_md_ideas_p2.txt
 		# ====================================================================
 

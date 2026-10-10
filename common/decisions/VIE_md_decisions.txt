@@ -2708,230 +2708,423 @@ VIE_military_readiness_category = {
 # ======================================================================
 
 VIE_naval_procurement_category = {
+	VIE_nav35_asw_frigate_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 1095
+		visible = {
+			has_country_flag = VIE_nav35_asw_frigate_offered
+			NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
+		}
+		available = {
+			custom_trigger_tooltip = { tooltip = VIE_nav35_asw_frigate_requirements_tt VIE_nav35_asw_frigate_can_start = yes }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Dong ho ve Song Thu (bat dau)"
+			custom_effect_tooltip = VIE_nav35_asw_frigate_start_tt
+			hidden_effect = { VIE_nav35_asw_frigate_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_asw_frigate_finish_tt
+			hidden_effect = { VIE_nav35_asw_frigate_finish = yes }
+		}
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 NOT = { VIE_nav35_asw_frigate_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 1.2 } }
+		}
+	}
 
-	# ------------------------------------------------------------------
-	# NHÓM 1: CHƯƠNG TRÌNH MUA SẮM & KHÍ TÀI (5 QUYẾT ĐỊNH)
-	# ------------------------------------------------------------------
+	VIE_nav35_dockyard_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = { has_country_flag = VIE_nav35_dockyard_running AND = { has_completed_focus = VIE_nav35_I01 NOT = { has_country_flag = VIE_nav35_dockyard_done } } }
+		}
+		available = { VIE_nav35_dockyard_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_dockyard_program start"
+			custom_effect_tooltip = VIE_nav35_dockyard_start_tt
+			hidden_effect = { VIE_nav35_dockyard_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_dockyard_finish_tt
+			hidden_effect = { VIE_nav35_dockyard_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_dockyard_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 15.0 } }
+			modifier = { factor = 0 NOT = { can_staff_an_dockyard = yes } }
+		}
+	}
+
+	VIE_nav35_industry_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = { has_country_flag = VIE_nav35_industry_running AND = { has_completed_focus = VIE_nav35_I01 NOT = { has_country_flag = VIE_nav35_industry_done } } }
+		}
+		available = { VIE_nav35_industry_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_industry_program start"
+			custom_effect_tooltip = VIE_nav35_industry_start_tt
+			hidden_effect = { VIE_nav35_industry_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_industry_finish_tt
+			hidden_effect = { VIE_nav35_industry_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_industry_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 4.0 } }
+		}
+	}
+
+	VIE_nav35_molniya_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = { has_country_flag = VIE_nav35_molniya_running AND = { has_completed_focus = VIE_nav35_I02 NOT = { has_country_flag = VIE_nav35_molniya_done } } }
+		}
+		available = { VIE_nav35_molniya_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_molniya_program start"
+			custom_effect_tooltip = VIE_nav35_molniya_start_tt
+			hidden_effect = { VIE_nav35_molniya_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_molniya_finish_tt
+			hidden_effect = { VIE_nav35_molniya_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_molniya_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 3.0 } }
+		}
+	}
+
+	VIE_nav35_tt400_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 180
+		visible = {
+			OR = { has_country_flag = VIE_nav35_tt400_running AND = { has_completed_focus = VIE_nav35_I03 NOT = { has_country_flag = VIE_nav35_tt400_done } } }
+		}
+		available = { VIE_nav35_tt400_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_tt400_program start"
+			custom_effect_tooltip = VIE_nav35_tt400_start_tt
+			hidden_effect = { VIE_nav35_tt400_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_tt400_finish_tt
+			hidden_effect = { VIE_nav35_tt400_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_tt400_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 1.5 } }
+		}
+	}
+
+	VIE_nav35_design_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = { has_country_flag = VIE_nav35_design_running AND = { has_completed_focus = VIE_nav35_I04 NOT = { has_country_flag = VIE_nav35_design_done } } }
+		}
+		available = { VIE_nav35_design_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_design_program start"
+			custom_effect_tooltip = VIE_nav35_design_start_tt
+			hidden_effect = { VIE_nav35_design_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_design_finish_tt
+			hidden_effect = { VIE_nav35_design_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_design_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 2.0 } }
+		}
+	}
+
+	VIE_nav35_support_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 180
+		visible = {
+			OR = { has_country_flag = VIE_nav35_support_running AND = { has_completed_focus = VIE_nav35_I05 NOT = { has_country_flag = VIE_nav35_support_done } } }
+		}
+		available = { VIE_nav35_support_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_support_program start"
+			custom_effect_tooltip = VIE_nav35_support_start_tt
+			hidden_effect = { VIE_nav35_support_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_support_finish_tt
+			hidden_effect = { VIE_nav35_support_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_support_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 2.0 } }
+		}
+	}
+
+	VIE_nav35_integration_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = { has_country_flag = VIE_nav35_integration_running AND = { has_completed_focus = VIE_nav35_I06 NOT = { has_country_flag = VIE_nav35_integration_done } } }
+		}
+		available = { VIE_nav35_integration_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_integration_program start"
+			custom_effect_tooltip = VIE_nav35_integration_start_tt
+			hidden_effect = { VIE_nav35_integration_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_integration_finish_tt
+			hidden_effect = { VIE_nav35_integration_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_integration_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 3.0 } }
+		}
+	}
+
+	VIE_nav35_base_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = { has_country_flag = VIE_nav35_base_running AND = { has_completed_focus = VIE_nav35_L01 NOT = { has_country_flag = VIE_nav35_base_done } } }
+		}
+		available = { VIE_nav35_base_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_base_program start"
+			custom_effect_tooltip = VIE_nav35_base_start_tt
+			hidden_effect = { VIE_nav35_base_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_base_finish_tt
+			hidden_effect = { VIE_nav35_base_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_base_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 4.0 } }
+		}
+	}
+
+	VIE_nav35_vt_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 180
+		visible = {
+			OR = { has_country_flag = VIE_nav35_vt_running AND = { has_completed_focus = VIE_nav35_L03 NOT = { has_country_flag = VIE_nav35_vt_done } } }
+		}
+		available = { VIE_nav35_vt_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_vt_program start"
+			custom_effect_tooltip = VIE_nav35_vt_start_tt
+			hidden_effect = { VIE_nav35_vt_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_vt_finish_tt
+			hidden_effect = { VIE_nav35_vt_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_vt_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 4.0 } }
+		}
+	}
+
+	VIE_nav35_blue_support_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = { has_country_flag = VIE_nav35_blue_support_running AND = { has_completed_focus = VIE_nav35_B02 NOT = { has_country_flag = VIE_nav35_blue_support_done } } }
+		}
+		available = { VIE_nav35_blue_support_can_start = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_blue_support_program start"
+			custom_effect_tooltip = VIE_nav35_blue_support_start_tt
+			hidden_effect = { VIE_nav35_blue_support_start = yes }
+		}
+		remove_effect = {
+			custom_effect_tooltip = VIE_nav35_blue_support_finish_tt
+			hidden_effect = { VIE_nav35_blue_support_finish = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 NOT = { VIE_nav35_blue_support_can_start = yes } }
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 16.0 } }
+		}
+	}
 
 	VIE_decision_molniya_production_run = {
 		icon = GFX_decision_generic_naval
-		cost = 25
-
+		cost = 20
 		days_remove = 180
 		days_re_enable = 360
-
-		visible = {
-			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
-		}
-
-		available = {
-			has_country_flag = VIE_nav_w02_molniya_unlocked
-		}
-
+		visible = { has_completed_focus = VIE_nav35_I02 }
+		available = { check_variable = { treasury > 1.499 } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_molniya_production_run"
 			set_temp_variable = { treasury_change = -1.5 }
 			modify_treasury_effect = yes
-			VIE_nav_xp_10 = yes
 			add_timed_idea = { idea = VIE_decision_molniya_surge_spirit days = 180 }
 		}
-
 		ai_will_do = {
-			factor = 10
-			modifier = { factor = 2 has_war = yes }
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 3.0 } }
 		}
 	}
 
 	VIE_decision_gepard_batch_procurement = {
 		icon = GFX_decision_generic_naval
-		cost = 30
-
+		cost = 20
 		days_remove = 180
 		days_re_enable = 360
-
-		visible = {
-			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
-		}
-
-		available = {
-			has_country_flag = VIE_nav_w03_gepard_unlocked
-		}
-
+		visible = { has_completed_focus = VIE_nav35_W03 }
+		available = { check_variable = { treasury > 2.499 } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_gepard_batch_procurement"
 			set_temp_variable = { treasury_change = -2.5 }
 			modify_treasury_effect = yes
-			VIE_nav_xp_15 = yes
 			add_timed_idea = { idea = VIE_decision_gepard_fleet_spirit days = 180 }
 		}
-
 		ai_will_do = {
-			factor = 10
-			modifier = { factor = 2 has_war = yes }
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 5.0 } }
 		}
 	}
 
 	VIE_decision_kilo_submarine_sustainment = {
 		icon = GFX_decision_generic_naval
-		cost = 25
-
+		cost = 20
 		days_remove = 365
 		days_re_enable = 365
-
-		visible = {
-			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
-		}
-
-		available = {
-			has_country_flag = VIE_nav_w04_kilo_unlocked
-		}
-
+		visible = { has_completed_focus = VIE_nav35_W04 }
+		available = { check_variable = { treasury > 1.999 } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_kilo_submarine_sustainment"
 			set_temp_variable = { treasury_change = -2.0 }
 			modify_treasury_effect = yes
 			add_timed_idea = { idea = VIE_decision_kilo_sustainment_spirit days = 365 }
 		}
-
 		ai_will_do = {
-			factor = 10
-			modifier = { factor = 2 has_war = yes }
-		}
-	}
-
-	VIE_decision_domestic_corvette_lead_ship = {
-		icon = GFX_decision_generic_dockyard
-		cost = 35
-
-		days_remove = 730
-		days_re_enable = 365
-
-		visible = {
-			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
-		}
-
-		available = {
-			has_country_flag = VIE_nav_i04_song_thu_unlocked
-		}
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_domestic_corvette_lead_ship"
-			set_temp_variable = { treasury_change = -1.8 }
-			modify_treasury_effect = yes
-			add_timed_idea = { idea = VIE_decision_domestic_corvette_construction_spirit days = 730 }
-		}
-
-		ai_will_do = {
-			factor = 10
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 4.0 } }
 		}
 	}
 
 	VIE_decision_island_bastion_fortification = {
-		icon = GFX_decision_generic_fortification
+		icon = GFX_decision_generic_naval
 		cost = 20
-
 		days_remove = 365
 		days_re_enable = 365
-
-		visible = {
-			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
-		}
-
-		available = {
-			has_country_flag = VIE_nav_s02_bastion_unlocked
-		}
-
+		visible = { has_completed_focus = VIE_nav35_P02 }
+		available = { check_variable = { treasury > 0.999 } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_island_bastion_fortification"
 			set_temp_variable = { treasury_change = -1.0 }
 			modify_treasury_effect = yes
-			801 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes } }
 			add_timed_idea = { idea = VIE_decision_island_bastion_spirit days = 365 }
 		}
-
 		ai_will_do = {
-			factor = 10
-			modifier = { factor = 2 has_war = yes }
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 2.0 } }
 		}
 	}
-
-	# ------------------------------------------------------------------
-	# NHÓM 2: CHIẾN DỊCH TÁC CHIẾN & TUẦN TRA (3 QUYẾT ĐỊNH)
-	# ------------------------------------------------------------------
 
 	VIE_decision_scs_joint_patrol_mission = {
 		icon = GFX_decision_generic_naval
 		cost = 20
-
 		days_remove = 180
 		days_re_enable = 180
-
-		visible = {
-			has_completed_focus = VIE_nav_s01_maritime_surveillance
-		}
-
+		visible = { has_completed_focus = VIE_nav35_S01 }
+		available = { check_variable = { treasury > 0.249 } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_scs_joint_patrol_mission"
-			VIE_nav_xp_15 = yes
-			add_command_power = 10
+			set_temp_variable = { treasury_change = -0.25 }
+			modify_treasury_effect = yes
+			VIE_nav_xp_10 = yes
 		}
-
 		ai_will_do = {
-			factor = 10
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 0.5 } }
 		}
 	}
 
 	VIE_decision_asw_combat_drill = {
 		icon = GFX_decision_generic_naval
-		cost = 25
-
+		cost = 20
 		days_remove = 180
 		days_re_enable = 360
-
-		visible = {
-			has_completed_focus = VIE_nav_s03_subsurface_recon
-		}
-
+		visible = { has_completed_focus = VIE_nav35_W05 }
+		available = { check_variable = { treasury > 0.499 } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_asw_combat_drill"
-			VIE_nav_xp_15 = yes
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
 			add_timed_idea = { idea = VIE_decision_asw_combat_drill_spirit days = 180 }
 		}
-
 		ai_will_do = {
-			factor = 10
-			modifier = { factor = 2 has_war = yes }
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 1.0 } }
 		}
 	}
 
 	VIE_decision_coastal_alert_surge = {
-		icon = GFX_decision_generic_military
-		cost = 30
-
+		icon = GFX_decision_generic_naval
+		cost = 20
 		days_remove = 180
 		days_re_enable = 180
-
-		visible = {
-			has_completed_focus = VIE_nav_p01_integrated_defense_choice
-		}
-
-		available = {
-			OR = {
-				has_war = yes
-				threat > 0.20
-			}
-		}
-
+		visible = { has_completed_focus = VIE_nav35_P01 }
+		available = { check_variable = { treasury > 0.499 } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_coastal_alert_surge"
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
 			add_timed_idea = { idea = VIE_decision_coastal_alert_surge_spirit days = 180 }
 		}
-
 		ai_will_do = {
-			factor = 20
-			modifier = { factor = 3 has_war = yes }
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 check_variable = { treasury < 1.0 } }
 		}
 	}
 
 }
-

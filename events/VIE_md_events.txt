@@ -6376,3 +6376,77 @@ country_event = {
 		name = vie_army_commanders.2.a
 	}
 }
+
+# Hai quan V35.1: thong bao sau khi caller da ghi nhan ket qua mot lan.
+add_namespace = vie_nav35
+
+country_event = {
+	id = vie_nav35.7
+	title = vie_nav35.7.t
+	desc = vie_nav35.7.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.7.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.7" }
+}
+
+country_event = {
+	id = vie_nav35.1
+	title = vie_nav35.1.t
+	desc = vie_nav35.1.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.1.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.1" }
+}
+
+country_event = {
+	id = vie_nav35.2
+	title = vie_nav35.2.t
+	desc = vie_nav35.2.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.2.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.2" }
+}
+
+country_event = {
+	id = vie_nav35.3
+	title = vie_nav35.3.t
+	desc = vie_nav35.3.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.3.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.3" }
+}
+
+country_event = {
+	id = vie_nav35.4
+	title = vie_nav35.4.t
+	desc = vie_nav35.4.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.4.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.4" }
+}
+
+country_event = {
+	id = vie_nav35.5
+	title = vie_nav35.5.t
+	desc = vie_nav35.5.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = vie_nav35.5.a
+		log = "[GetDateText]: [Root.GetName]: Event vie_nav35.5"
+		if = {
+			limit = { has_country_flag = VIE_nav35_asw_frigate_offer_queued has_completed_focus = VIE_nav35_I07 NOT = { has_country_flag = VIE_nav35_asw_frigate_offered } }
+			clr_country_flag = VIE_nav35_asw_frigate_offer_queued
+			set_country_flag = VIE_nav35_asw_frigate_offered
+		}
+	}
+}
+
+country_event = {
+	id = vie_nav35.6
+	title = vie_nav35.6.t
+	desc = vie_nav35.6.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.6.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.6" }
+}

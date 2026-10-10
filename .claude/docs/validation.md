@@ -66,6 +66,14 @@ Không gọi mọi reference nằm ngoài submod là lỗi; phải tra provider 
 - Sửa tool thì chạy lại trên cây hiện tại và so kết quả với trước đó. Không làm yếu một kiểm tra để cho nó "xanh".
 - File `.json` do `audit.py` sinh ra nằm trong `.gitignore`, đừng commit.
 
+## Hải quân V35.1 — 11/10/2026
+
+Hải quân V35.1: chạy `python tools/audit/naval_scenarios.py` (hoặc entry point
+`naval_balance.py`). Thêm `--md <MD root> --game <HOI4 root>` để kiểm provider
+modifier/category/sprite/staffing trigger. Fixture dùng live script, không
+thay kiểm runtime. Kết quả và ca chơi thử ở
+[VIE_naval_V35_implementation.md](../../VIE_naval_V35_implementation.md).
+
 ## Effect chính sách v32 — 10/10/2026
 
 Chạy thêm `python tools/audit/policy_rewards.py`: reward trực tiếp, bậc idea, bảo toàn giao dịch và baseline mới. Provider: `python tools/audit/policy_assets.py <MD directory>`. [Kết quả và giới hạn runtime](policy_rewards/v32/validation.md). Fixture đọc mã thật không thay nghiệm thu HOI4.

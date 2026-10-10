@@ -8386,156 +8386,6 @@ VIE_nav_xp_50 = {
 	}
 }
 
-# --- NÂNG CẤP TRỤC T: TỔ CHỨC & CHỈ HUY (VPA_Naval_Org: 1 -> 2 -> 3 -> 4) ---
-
-VIE_nav_upgrade_org = {
-	if = {
-		limit = { has_idea = VPA_Naval_Org_3 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Org_3
-			add_idea = VPA_Naval_Org_4
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Naval_Org_2 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Org_2
-			add_idea = VPA_Naval_Org_3
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Naval_Org_1 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Org_1
-			add_idea = VPA_Naval_Org_2
-		}
-	}
-	else = {
-		add_ideas = VPA_Naval_Org_1
-	}
-}
-
-# --- NÂNG CẤP TRỤC S: NHẬN THỨC BIỂN MDA (VPA_Maritime_MDA: 1 -> 2 -> 3 -> 4) ---
-
-VIE_nav_upgrade_mda = {
-	if = {
-		limit = { has_idea = VPA_Maritime_MDA_3 }
-		swap_ideas = {
-			remove_idea = VPA_Maritime_MDA_3
-			add_idea = VPA_Maritime_MDA_4
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Maritime_MDA_2 }
-		swap_ideas = {
-			remove_idea = VPA_Maritime_MDA_2
-			add_idea = VPA_Maritime_MDA_3
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Maritime_MDA_1 }
-		swap_ideas = {
-			remove_idea = VPA_Maritime_MDA_1
-			add_idea = VPA_Maritime_MDA_2
-		}
-	}
-	else = {
-		add_ideas = VPA_Maritime_MDA_1
-	}
-}
-
-# --- NÂNG CẤP TRỤC L: CĂN CỨ & HẬU CẦN (VPA_Naval_Logistics: 1 -> 2 -> 3 -> 4 -> 5) ---
-
-VIE_nav_upgrade_logistics = {
-	if = {
-		limit = { has_idea = VPA_Naval_Logistics_4 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Logistics_4
-			add_idea = VPA_Naval_Logistics_5
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Naval_Logistics_3 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Logistics_3
-			add_idea = VPA_Naval_Logistics_4
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Naval_Logistics_2 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Logistics_2
-			add_idea = VPA_Naval_Logistics_3
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Naval_Logistics_1 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Logistics_1
-			add_idea = VPA_Naval_Logistics_2
-		}
-	}
-	else = {
-		add_ideas = VPA_Naval_Logistics_1
-	}
-}
-
-# --- NÂNG CẤP TRỤC I: CÔNG NGHIỆP ĐÓNG TÀU (VPA_Naval_Industry: 1 -> 2 -> 3 -> 4) ---
-
-VIE_nav_upgrade_industry = {
-	if = {
-		limit = { has_idea = VPA_Naval_Industry_3 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Industry_3
-			add_idea = VPA_Naval_Industry_4
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Naval_Industry_2 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Industry_2
-			add_idea = VPA_Naval_Industry_3
-		}
-	}
-	else_if = {
-		limit = { has_idea = VPA_Naval_Industry_1 }
-		swap_ideas = {
-			remove_idea = VPA_Naval_Industry_1
-			add_idea = VPA_Naval_Industry_2
-		}
-	}
-	else = {
-		add_ideas = VPA_Naval_Industry_1
-	}
-}
-
-# --- XỬ LÝ PHẦN THƯỞNG CAPSTONE TỐI THƯỢNG F02 ---
-
-VIE_nav_grant_capstone_f2 = {
-	if = {
-		limit = { has_country_flag = VIE_nav_p_doctrine_completed }
-		add_ideas = VIE_nav_capstone_iron_shield
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_nav_g_doctrine_completed }
-		add_ideas = VIE_nav_capstone_master_of_seas
-	}
-	else_if = {
-		limit = { has_country_flag = VIE_nav_b_doctrine_completed }
-		add_ideas = VIE_nav_capstone_ocean_surge
-	}
-	else = {
-		add_ideas = VIE_nav_capstone_master_of_seas
-	}
-
-	# Bonus tự hào công nghiệp đóng tàu nội địa nếu đã hoàn thành I04
-	if = {
-		limit = { has_completed_focus = VIE_nav_i04_domestic_corvette_class }
-		add_ideas = VIE_nav_shipbuilding_mastery
-	}
-}
-
-# ====================================================================
 # SECTION: VIE_md_effects_p2.txt
 # ====================================================================
 
@@ -9233,6 +9083,7 @@ VIE_catch_up_schedule = {
 	VIE_event_scheduler_p7 = yes
 	VIE_event_scheduler_p10 = yes
 	VIE_event_scheduler_p13 = yes
+	VIE_nav35_scheduler = yes
 }
 
 ########################################################################
@@ -10950,5 +10801,553 @@ VIE_event_scheduler_p16 = {
 		}
 		hidden_effect = { set_country_flag = VIE_army_expansion_event_pending }
 		country_event = { id = vie_army_commanders.1 days = 1 }
+	}
+}
+
+# Hai quan V35.1: ham tinh lai chi cap idea, khong cap XP/tien/tau.
+VIE_nav35_refresh = {
+	if = {
+		limit = { has_completed_focus = VIE_nav35_T04 }
+		if = { limit = { has_idea = VPA_Naval_Org_1 } remove_ideas = VPA_Naval_Org_1 }
+		if = { limit = { has_idea = VPA_Naval_Org_2 } remove_ideas = VPA_Naval_Org_2 }
+		if = { limit = { has_idea = VPA_Naval_Org_3 } remove_ideas = VPA_Naval_Org_3 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Org_4 } } add_ideas = VPA_Naval_Org_4 }
+	}
+	else_if = {
+		limit = { AND = { has_completed_focus = VIE_nav35_T02 has_completed_focus = VIE_nav35_T03 } }
+		if = { limit = { has_idea = VPA_Naval_Org_1 } remove_ideas = VPA_Naval_Org_1 }
+		if = { limit = { has_idea = VPA_Naval_Org_2 } remove_ideas = VPA_Naval_Org_2 }
+		if = { limit = { has_idea = VPA_Naval_Org_4 } remove_ideas = VPA_Naval_Org_4 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Org_3 } } add_ideas = VPA_Naval_Org_3 }
+	}
+	else_if = {
+		limit = { OR = { has_completed_focus = VIE_nav35_T02 has_completed_focus = VIE_nav35_T03 } }
+		if = { limit = { has_idea = VPA_Naval_Org_1 } remove_ideas = VPA_Naval_Org_1 }
+		if = { limit = { has_idea = VPA_Naval_Org_3 } remove_ideas = VPA_Naval_Org_3 }
+		if = { limit = { has_idea = VPA_Naval_Org_4 } remove_ideas = VPA_Naval_Org_4 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Org_2 } } add_ideas = VPA_Naval_Org_2 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_T01 }
+		if = { limit = { has_idea = VPA_Naval_Org_2 } remove_ideas = VPA_Naval_Org_2 }
+		if = { limit = { has_idea = VPA_Naval_Org_3 } remove_ideas = VPA_Naval_Org_3 }
+		if = { limit = { has_idea = VPA_Naval_Org_4 } remove_ideas = VPA_Naval_Org_4 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Org_1 } } add_ideas = VPA_Naval_Org_1 }
+	}
+	if = {
+		limit = { AND = { has_completed_focus = VIE_nav35_S03 has_completed_focus = VIE_nav35_S02 } }
+		if = { limit = { has_idea = VPA_Maritime_MDA_1 } remove_ideas = VPA_Maritime_MDA_1 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_2 } remove_ideas = VPA_Maritime_MDA_2 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_3 } remove_ideas = VPA_Maritime_MDA_3 }
+		if = { limit = { NOT = { has_idea = VPA_Maritime_MDA_4 } } add_ideas = VPA_Maritime_MDA_4 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_S03 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_1 } remove_ideas = VPA_Maritime_MDA_1 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_2 } remove_ideas = VPA_Maritime_MDA_2 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_4 } remove_ideas = VPA_Maritime_MDA_4 }
+		if = { limit = { NOT = { has_idea = VPA_Maritime_MDA_3 } } add_ideas = VPA_Maritime_MDA_3 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_S02 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_1 } remove_ideas = VPA_Maritime_MDA_1 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_3 } remove_ideas = VPA_Maritime_MDA_3 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_4 } remove_ideas = VPA_Maritime_MDA_4 }
+		if = { limit = { NOT = { has_idea = VPA_Maritime_MDA_2 } } add_ideas = VPA_Maritime_MDA_2 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_S01 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_2 } remove_ideas = VPA_Maritime_MDA_2 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_3 } remove_ideas = VPA_Maritime_MDA_3 }
+		if = { limit = { has_idea = VPA_Maritime_MDA_4 } remove_ideas = VPA_Maritime_MDA_4 }
+		if = { limit = { NOT = { has_idea = VPA_Maritime_MDA_1 } } add_ideas = VPA_Maritime_MDA_1 }
+	}
+	if = {
+		limit = { has_completed_focus = VIE_nav35_I06 }
+		if = { limit = { has_idea = VPA_Naval_Industry_1 } remove_ideas = VPA_Naval_Industry_1 }
+		if = { limit = { has_idea = VPA_Naval_Industry_2 } remove_ideas = VPA_Naval_Industry_2 }
+		if = { limit = { has_idea = VPA_Naval_Industry_3 } remove_ideas = VPA_Naval_Industry_3 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Industry_4 } } add_ideas = VPA_Naval_Industry_4 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_I04 }
+		if = { limit = { has_idea = VPA_Naval_Industry_1 } remove_ideas = VPA_Naval_Industry_1 }
+		if = { limit = { has_idea = VPA_Naval_Industry_2 } remove_ideas = VPA_Naval_Industry_2 }
+		if = { limit = { has_idea = VPA_Naval_Industry_4 } remove_ideas = VPA_Naval_Industry_4 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Industry_3 } } add_ideas = VPA_Naval_Industry_3 }
+	}
+	else_if = {
+		limit = { OR = { has_completed_focus = VIE_nav35_I02 has_completed_focus = VIE_nav35_I03 } }
+		if = { limit = { has_idea = VPA_Naval_Industry_1 } remove_ideas = VPA_Naval_Industry_1 }
+		if = { limit = { has_idea = VPA_Naval_Industry_3 } remove_ideas = VPA_Naval_Industry_3 }
+		if = { limit = { has_idea = VPA_Naval_Industry_4 } remove_ideas = VPA_Naval_Industry_4 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Industry_2 } } add_ideas = VPA_Naval_Industry_2 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_I01 }
+		if = { limit = { has_idea = VPA_Naval_Industry_2 } remove_ideas = VPA_Naval_Industry_2 }
+		if = { limit = { has_idea = VPA_Naval_Industry_3 } remove_ideas = VPA_Naval_Industry_3 }
+		if = { limit = { has_idea = VPA_Naval_Industry_4 } remove_ideas = VPA_Naval_Industry_4 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Industry_1 } } add_ideas = VPA_Naval_Industry_1 }
+	}
+	if = {
+		limit = { AND = { has_completed_focus = VIE_nav35_L04 has_completed_focus = VIE_nav35_L03 } }
+		if = { limit = { has_idea = VPA_Naval_Logistics_1 } remove_ideas = VPA_Naval_Logistics_1 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_2 } remove_ideas = VPA_Naval_Logistics_2 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_3 } remove_ideas = VPA_Naval_Logistics_3 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_4 } remove_ideas = VPA_Naval_Logistics_4 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Logistics_5 } } add_ideas = VPA_Naval_Logistics_5 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_L04 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_1 } remove_ideas = VPA_Naval_Logistics_1 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_2 } remove_ideas = VPA_Naval_Logistics_2 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_3 } remove_ideas = VPA_Naval_Logistics_3 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_5 } remove_ideas = VPA_Naval_Logistics_5 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Logistics_4 } } add_ideas = VPA_Naval_Logistics_4 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_I05 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_1 } remove_ideas = VPA_Naval_Logistics_1 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_2 } remove_ideas = VPA_Naval_Logistics_2 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_4 } remove_ideas = VPA_Naval_Logistics_4 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_5 } remove_ideas = VPA_Naval_Logistics_5 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Logistics_3 } } add_ideas = VPA_Naval_Logistics_3 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_L02 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_1 } remove_ideas = VPA_Naval_Logistics_1 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_3 } remove_ideas = VPA_Naval_Logistics_3 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_4 } remove_ideas = VPA_Naval_Logistics_4 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_5 } remove_ideas = VPA_Naval_Logistics_5 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Logistics_2 } } add_ideas = VPA_Naval_Logistics_2 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_L01 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_2 } remove_ideas = VPA_Naval_Logistics_2 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_3 } remove_ideas = VPA_Naval_Logistics_3 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_4 } remove_ideas = VPA_Naval_Logistics_4 }
+		if = { limit = { has_idea = VPA_Naval_Logistics_5 } remove_ideas = VPA_Naval_Logistics_5 }
+		if = { limit = { NOT = { has_idea = VPA_Naval_Logistics_1 } } add_ideas = VPA_Naval_Logistics_1 }
+	}
+	if = {
+		limit = { AND = { has_completed_focus = VIE_nav35_F02 has_completed_focus = VIE_nav35_P06 } }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VIE_nav_capstone_iron_shield } } add_ideas = VIE_nav_capstone_iron_shield }
+	}
+	else_if = {
+		limit = { AND = { has_completed_focus = VIE_nav35_F02 has_completed_focus = VIE_nav35_G03 } }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VIE_nav_capstone_master_of_seas } } add_ideas = VIE_nav_capstone_master_of_seas }
+	}
+	else_if = {
+		limit = { AND = { has_completed_focus = VIE_nav35_F02 has_completed_focus = VIE_nav35_B03 } }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { NOT = { has_idea = VIE_nav_capstone_ocean_surge } } add_ideas = VIE_nav_capstone_ocean_surge }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_P06 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } } add_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_G03 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Greenwater_Doctrine_Capstone } } add_ideas = VPA_Greenwater_Doctrine_Capstone }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_B03 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Bluewater_Doctrine_Capstone } } add_ideas = VPA_Bluewater_Doctrine_Capstone }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_P01 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Integrated_Defense_Doctrine_1 } } add_ideas = VPA_Integrated_Defense_Doctrine_1 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_G01 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Greenwater_Doctrine_1 } } add_ideas = VPA_Greenwater_Doctrine_1 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_B01 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Bluewater_Doctrine_1 } } add_ideas = VPA_Bluewater_Doctrine_1 }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_H02 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Fleet_Development_Priority } remove_ideas = VPA_Fleet_Development_Priority }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Multirole_Task_Groups } } add_ideas = VPA_Multirole_Task_Groups }
+	}
+	else_if = {
+		limit = { has_completed_focus = VIE_nav35_H01 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_1 } remove_ideas = VPA_Integrated_Defense_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Integrated_Defense_Doctrine_Capstone } remove_ideas = VPA_Integrated_Defense_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Multirole_Task_Groups } remove_ideas = VPA_Multirole_Task_Groups }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_1 } remove_ideas = VPA_Greenwater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Greenwater_Doctrine_Capstone } remove_ideas = VPA_Greenwater_Doctrine_Capstone }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_1 } remove_ideas = VPA_Bluewater_Doctrine_1 }
+		if = { limit = { has_idea = VPA_Bluewater_Doctrine_Capstone } remove_ideas = VPA_Bluewater_Doctrine_Capstone }
+		if = { limit = { has_idea = VIE_nav_capstone_iron_shield } remove_ideas = VIE_nav_capstone_iron_shield }
+		if = { limit = { has_idea = VIE_nav_capstone_master_of_seas } remove_ideas = VIE_nav_capstone_master_of_seas }
+		if = { limit = { has_idea = VIE_nav_capstone_ocean_surge } remove_ideas = VIE_nav_capstone_ocean_surge }
+		if = { limit = { NOT = { has_idea = VPA_Fleet_Development_Priority } } add_ideas = VPA_Fleet_Development_Priority }
+	}
+	if = { limit = { has_completed_focus = VIE_nav35_W03 NOT = { has_idea = VIE_nav_surface_fleet_readiness } } add_ideas = VIE_nav_surface_fleet_readiness }
+	if = { limit = { has_completed_focus = VIE_nav35_W05 NOT = { has_idea = VIE_nav_asw_mastery } } add_ideas = VIE_nav_asw_mastery }
+	if = { limit = { has_completed_focus = VIE_nav35_P05 NOT = { has_idea = VIE_nav_marine_brigades } } add_ideas = VIE_nav_marine_brigades }
+	if = { limit = { has_completed_focus = VIE_nav35_P02 NOT = { has_idea = VIE_nav35_coastal_batteries_idea } } add_ideas = VIE_nav35_coastal_batteries_idea }
+	if = { limit = { has_completed_focus = VIE_nav35_P03 NOT = { has_idea = VIE_nav35_island_defense_idea } } add_ideas = VIE_nav35_island_defense_idea }
+	if = { limit = { has_completed_focus = VIE_nav35_P04 NOT = { has_idea = VIE_nav35_coastal_coordination_idea } } add_ideas = VIE_nav35_coastal_coordination_idea }
+	if = { limit = { AND = { has_completed_focus = VIE_nav35_S03 has_completed_focus = VIE_nav35_S02 } NOT = { has_idea = VIE_nav35_joint_picture_idea } } add_ideas = VIE_nav35_joint_picture_idea }
+	if = { limit = { AND = { has_completed_focus = VIE_nav35_G02 has_country_flag = VIE_nav35_asw_frigate_done } NOT = { has_idea = VIE_nav35_domestic_asw_support_idea } } add_ideas = VIE_nav35_domestic_asw_support_idea }
+	if = { limit = { AND = { has_completed_focus = VIE_nav35_L04 has_country_flag = VIE_nav35_vt_done } NOT = { has_idea = VIE_nav35_rescue_range_idea } } add_ideas = VIE_nav35_rescue_range_idea }
+	if = { limit = { AND = { has_completed_focus = VIE_nav35_F02 has_country_flag = VIE_nav35_asw_frigate_done } NOT = { has_idea = VIE_nav_shipbuilding_mastery } } add_ideas = VIE_nav_shipbuilding_mastery }
+}
+
+VIE_nav35_dockyard_start = {
+	if = { limit = { VIE_nav35_dockyard_can_start = yes }
+		random_owned_controlled_state = { limit = { is_coastal = yes free_building_slots = { building = dockyard size > 0 include_locked = yes } } one_state_dockyard = yes }
+		set_country_flag = VIE_nav35_dockyard_running
+	}
+}
+
+VIE_nav35_dockyard_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_dockyard_running NOT = { has_country_flag = VIE_nav35_dockyard_done } }
+		clr_country_flag = VIE_nav35_dockyard_running
+		set_country_flag = VIE_nav35_dockyard_done
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_industry_start = {
+	if = { limit = { VIE_nav35_industry_can_start = yes }
+		set_temp_variable = { treasury_change = -2.0 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_industry_running
+	}
+}
+
+VIE_nav35_industry_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_industry_running NOT = { has_country_flag = VIE_nav35_industry_done } }
+		clr_country_flag = VIE_nav35_industry_running
+		set_country_flag = VIE_nav35_industry_done
+		add_ideas = VIE_nav35_industry_investment_idea
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_molniya_start = {
+	if = { limit = { VIE_nav35_molniya_can_start = yes }
+		set_temp_variable = { treasury_change = -1.5 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_molniya_running
+	}
+}
+
+VIE_nav35_molniya_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_molniya_running NOT = { has_country_flag = VIE_nav35_molniya_done } }
+		clr_country_flag = VIE_nav35_molniya_running
+		set_country_flag = VIE_nav35_molniya_done
+		add_tech_bonus = { name = VIE_nav35_molniya_program category = CAT_corvettes uses = 1 bonus = 0.25 }
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_tt400_start = {
+	if = { limit = { VIE_nav35_tt400_can_start = yes }
+		set_temp_variable = { treasury_change = -0.75 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_tt400_running
+	}
+}
+
+VIE_nav35_tt400_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_tt400_running NOT = { has_country_flag = VIE_nav35_tt400_done } }
+		clr_country_flag = VIE_nav35_tt400_running
+		set_country_flag = VIE_nav35_tt400_done
+		add_tech_bonus = { name = VIE_nav35_tt400_program category = CAT_patrol_boats uses = 1 bonus = 0.25 }
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_design_start = {
+	if = { limit = { VIE_nav35_design_can_start = yes }
+		set_temp_variable = { treasury_change = -1.0 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_design_running
+	}
+}
+
+VIE_nav35_design_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_design_running NOT = { has_country_flag = VIE_nav35_design_done } }
+		clr_country_flag = VIE_nav35_design_running
+		set_country_flag = VIE_nav35_design_done
+		add_tech_bonus = { name = VIE_nav35_design_program category = CAT_frigates uses = 1 bonus = 0.25 }
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_support_start = {
+	if = { limit = { VIE_nav35_support_can_start = yes }
+		set_temp_variable = { treasury_change = -1.0 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_support_running
+	}
+}
+
+VIE_nav35_support_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_support_running NOT = { has_country_flag = VIE_nav35_support_done } }
+		clr_country_flag = VIE_nav35_support_running
+		set_country_flag = VIE_nav35_support_done
+		VIE_nav_xp_15 = yes
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_integration_start = {
+	if = { limit = { VIE_nav35_integration_can_start = yes }
+		set_temp_variable = { treasury_change = -1.5 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_integration_running
+	}
+}
+
+VIE_nav35_integration_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_integration_running NOT = { has_country_flag = VIE_nav35_integration_done } }
+		clr_country_flag = VIE_nav35_integration_running
+		set_country_flag = VIE_nav35_integration_done
+		add_tech_bonus = { name = VIE_nav35_integration_program category = CAT_naval_sonar uses = 1 bonus = 0.25 }
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_base_start = {
+	if = { limit = { VIE_nav35_base_can_start = yes }
+		set_temp_variable = { treasury_change = -2.0 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_base_running
+	}
+}
+
+VIE_nav35_base_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_base_running NOT = { has_country_flag = VIE_nav35_base_done } }
+		clr_country_flag = VIE_nav35_base_running
+		set_country_flag = VIE_nav35_base_done
+		add_ideas = VIE_nav35_base_support_idea
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_vt_start = {
+	if = { limit = { VIE_nav35_vt_can_start = yes }
+		set_temp_variable = { treasury_change = -2.0 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_vt_running
+	}
+}
+
+VIE_nav35_vt_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_vt_running NOT = { has_country_flag = VIE_nav35_vt_done } }
+		clr_country_flag = VIE_nav35_vt_running
+		set_country_flag = VIE_nav35_vt_done
+		add_ideas = VIE_nav35_vt_support_idea
+		country_event = { id = vie_nav35.4 days = 1 }
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_blue_support_start = {
+	if = { limit = { VIE_nav35_blue_support_can_start = yes }
+		set_temp_variable = { treasury_change = -8.0 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_blue_support_running
+	}
+}
+
+VIE_nav35_blue_support_finish = {
+	if = { limit = { has_country_flag = VIE_nav35_blue_support_running NOT = { has_country_flag = VIE_nav35_blue_support_done } }
+		clr_country_flag = VIE_nav35_blue_support_running
+		set_country_flag = VIE_nav35_blue_support_done
+		add_ideas = VIE_nav35_blue_support_idea
+		VIE_nav35_refresh = yes
+	}
+}
+
+VIE_nav35_scheduler = {
+	# Hop dong da dong xong cho can cu an toan; khong thu tien lai.
+	VIE_nav35_asw_frigate_finish = yes
+	VIE_nav35_asw_frigate_deliver = yes
+	# Moc dat ky lich su 5/10/2026 chi thong bao, khong hoan tat du an gameplay.
+	if = {
+		limit = { original_tag = VIE has_completed_focus = VIE_nav35_I07 date > 2026.10.4 NOT = { has_country_flag = VIE_nav35_asw_2026_milestone_recorded } }
+		set_country_flag = VIE_nav35_asw_2026_milestone_recorded
+		if = { limit = { is_ai = no date < 2027.1.1 NOT = { check_variable = { VIE_catch_up = 1 } } } country_event = { id = vie_nav35.7 days = 1 } }
+	}
+	if = {
+		limit = { original_tag = VIE has_completed_focus = VIE_nav35_T01 date > 2008.12.31 NOT = { has_country_flag = VIE_nav35_regions_done } }
+		set_country_flag = VIE_nav35_regions_done
+		add_ideas = VIE_nav35_regional_command_idea
+		if = { limit = { is_ai = no date < 2010.1.1 NOT = { check_variable = { VIE_catch_up = 1 } } } country_event = { id = vie_nav35.1 days = 1 } }
+	}
+	if = {
+		limit = { original_tag = VIE has_completed_focus = VIE_nav35_I06 date > 2021.12.31 NOT = { has_country_flag = VIE_nav35_integration_2022_done } }
+		set_country_flag = VIE_nav35_integration_2022_done
+		add_tech_bonus = { name = vie_nav35.2.t category = CAT_naval_radar uses = 1 bonus = 0.25 }
+		if = { limit = { is_ai = no date < 2023.1.1 NOT = { check_variable = { VIE_catch_up = 1 } } } country_event = { id = vie_nav35.2 days = 1 } }
+	}
+	if = {
+		limit = { original_tag = VIE has_completed_focus = VIE_nav35_I06 date > 2024.12.31 NOT = { has_country_flag = VIE_nav35_integration_2025_done } }
+		set_country_flag = VIE_nav35_integration_2025_done
+		add_ideas = VIE_nav35_integration_idea
+		if = { limit = { is_ai = no date < 2026.1.1 NOT = { check_variable = { VIE_catch_up = 1 } } } country_event = { id = vie_nav35.3 days = 1 } }
+	}
+}
+
+# I07 -> event -> decision: event chi mo chuong trinh, chua tru tien.
+VIE_nav35_asw_frigate_offer = {
+	if = {
+		limit = { NOT = { has_country_flag = VIE_nav35_asw_frigate_offer_queued } NOT = { has_country_flag = VIE_nav35_asw_frigate_offered } }
+		set_country_flag = VIE_nav35_asw_frigate_offer_queued
+		country_event = { id = vie_nav35.5 days = 1 }
+	}
+}
+VIE_nav35_asw_frigate_start = {
+	if = {
+		limit = { VIE_nav35_asw_frigate_can_start = yes }
+		set_temp_variable = { treasury_change = -0.6 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_nav35_asw_frigate_running
+	}
+}
+# Blueprint co dinh; tao variant trong cung scope ngay truoc khi ban giao.
+VIE_nav35_asw_frigate_deliver = {
+	if = {
+		limit = { VIE_nav35_asw_frigate_can_deliver = yes }
+		set_country_flag = VIE_nav35_asw_frigate_done
+		clr_country_flag = VIE_nav35_asw_frigate_ready
+		create_equipment_variant = {
+			name = "Song Thu ASW 2026"
+			type = frigate_hull_4
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = module_light_surface_diesel_power_2
+				fixed_ship_fire_control_system_slot = module_digital_integrated_fire_control
+				fixed_ship_radar_slot = module_sonar_4
+				fixed_ship_auxillary_slot_2 = module_ciws_4
+				fixed_ship_auxillary_slot_1 = module_torpedoes_4
+				fixed_ship_auxillary_slot = empty
+				fixed_ship_battery_slot = module_76mm_gun_3
+				front_1_custom_slot = module_naval_missile_mount_quad
+				rear_1_custom_slot = module_fuel_tank
+				fixed_ship_missile_ammo_slot = module_naval_ammo_balanced_3
+			}
+		}
+		create_ship = {
+			type = frigate_hull_4
+			equipment_variant = "Song Thu ASW 2026"
+			amount = 1
+		}
+		VIE_nav35_refresh = yes
+		country_event = { id = vie_nav35.6 days = 1 }
+	}
+}
+VIE_nav35_asw_frigate_finish = {
+	if = {
+		limit = { has_country_flag = { flag = VIE_nav35_asw_frigate_running days > 1094 } NOT = { has_country_flag = VIE_nav35_asw_frigate_ready } NOT = { has_country_flag = VIE_nav35_asw_frigate_done } }
+		clr_country_flag = VIE_nav35_asw_frigate_running
+		set_country_flag = VIE_nav35_asw_frigate_ready
+		VIE_nav35_asw_frigate_deliver = yes
 	}
 }

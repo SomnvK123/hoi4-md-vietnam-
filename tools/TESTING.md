@@ -1168,3 +1168,17 @@ Design: `VIE_air_effects_content_and_plan.md`. Balance: `python tools/audit/air_
 - [ ] Tech bonus names show a title (T2, T3, A3, B2, C2, F4, F5, F6) and are usable once. Categories are checked by `air_force_balance.py` section 6.
 - [ ] Five decisions (`VIE_dec_airf_train_aa / night / sam / strike / uav`) in `VIE_military_readiness_category`: hidden until their focus is done, 545-day cooldown, +10 XP and 180-day timed idea after 90/120 days.
 - [ ] Milestones: `debug` date 2011-06 / 2016-03 / 2022-12 fires `vie_air_force.70 / .71 / .72` (after `VIE_popup_cd` expires; silent fallback 6 months later); a savegame after civil war (`VIE_catch_up`) sets the flags without firing.
+
+## Hải quân V35.1 (11/10/2026)
+
+Chạy `python tools/audit/naval_scenarios.py`; tùy chọn thêm
+`--md <MD root> --game <HOI4 root>` để kiểm provider đang cài.
+Danh sách ca trong game, save/load giữa dự án, ba route, ngân sách và giới hạn
+hiện vật nằm ở [VIE_naval_V35_implementation.md](../VIE_naval_V35_implementation.md).
+260 scenario tĩnh (343 với provider) đã PASS; kiểm runtime HOI4 **NOT RUN**.
+
+I07 dùng event phê duyệt → decision 0,6 tỷ USD / 1.095 ngày → một frigate.
+Kiểm trong game: đủ/thiếu công nghệ và căn cứ/xưởng; ngày 1.094/1.095;
+save/load giữa hợp đồng; mất rồi lấy lại căn cứ; gọi lại event/start/finish
+không thu tiền hoặc tạo tàu trùng; thiết kế, module và model tàu sau bàn giao.
+Fixture sao chép trạng thái không thay thế kiểm save/load trong HOI4.

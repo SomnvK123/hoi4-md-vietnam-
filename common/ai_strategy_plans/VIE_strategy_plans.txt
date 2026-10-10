@@ -62,6 +62,27 @@ VIE_HISTORICAL_plan = {
 
 		# Hien dai hoa phong thu; prerequisite/date/available van giu quyen quyet dinh.
 		VIE_modernize_vpa = 65
+		# Hai quan V35: Historical uu tien phong thu, khong bo qua gate.
+		VIE_nav35_N00 = 50
+		VIE_nav35_T01 = 50
+		VIE_nav35_T02 = 50
+		VIE_nav35_T03 = 50
+		VIE_nav35_T04 = 50
+		VIE_nav35_S01 = 50
+		VIE_nav35_S03 = 50
+		VIE_nav35_W01 = 50
+		VIE_nav35_L01 = 50
+		VIE_nav35_L02 = 50
+		VIE_nav35_L04 = 50
+		VIE_nav35_P01 = 50
+		VIE_nav35_P02 = 50
+		VIE_nav35_P03 = 50
+		VIE_nav35_P04 = 50
+		VIE_nav35_P05 = 50
+		VIE_nav35_P06 = 50
+		VIE_nav35_F01 = 50
+		VIE_nav35_F02 = 50
+
 		# Luc quan v39: gate ngay va mutex van do focus quyet dinh.
 		VIE_lf_root_modern_army = 50
 		VIE_lf_territorial_defense_foundation = 50
