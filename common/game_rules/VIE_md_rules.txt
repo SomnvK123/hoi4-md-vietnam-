@@ -13,25 +13,3 @@ VIE_ai_behavior = {
 		desc = "VIE_AI_HARDLINE_DESC"
 	}
 }
-
-# Truc 1 (mua sam luc quan): bat ba chuoi alt-history BMP-3 / TOS-1A / CAESAR.
-# Rule rieng cho cac chuoi mua sam alt-history.
-# Group MD_FOCUS_TREE_RULES da xac minh ton tai trong MD (rule_salafist_branch dung).
-# Ten option khong dat trong ngoac kep, theo dung convention cua MD va cua
-# VIE_ai_behavior o tren.
-rule_vie_alt_procurement = {
-	name = "RULE_VIE_ALT_PROCUREMENT"
-	group = "MD_FOCUS_TREE_RULES"
-	icon = "GFX_production_licenses"
-
-	default = {
-		name = VIE_ALT_OFF
-		text = "VIE_ALT_OFF_TEXT"
-		desc = "VIE_ALT_OFF_DESC"
-	}
-	option = {
-		name = VIE_ALT_ON
-		text = "VIE_ALT_ON_TEXT"
-		desc = "VIE_ALT_ON_DESC"
-	}
-}
