@@ -1,0 +1,1660 @@
+﻿l_english:
+
+# ====================================================================
+# SECTION: VIE_md_events_air_force_l_english.yml
+# ====================================================================
+
+
+ ### Truc 3 khong quan (xay dung luc luong, vie_air_force): focus, category, idea
+
+ VIE_airf_training_standardization:0 "Chuẩn hóa Đào tạo Phi công và Kỹ thuật viên"
+ VIE_airf_training_standardization_desc:0 "Thống nhất giáo trình đào tạo phi công, kíp mặt đất và kỹ thuật viên theo đội bay thực có. Chương trình tạo nền để tiếp nhận trang bị mới khi hợp đồng mua sắm hoàn tất."
+ VIE_airf_fighter_force:0 "Phát triển Lực lượng Tiêm kích"
+ VIE_airf_fighter_force_desc:0 "Củng cố các trung đoàn tiêm kích, từ Su-22 và Su-27 đến Su-30MK2, bằng huấn luyện chiến thuật và chuẩn hóa quy trình bay."
+ VIE_airf_sam_force:0 "Phát triển Lực lượng Tên lửa Phòng không và Radar"
+ VIE_airf_sam_force_desc:0 "Chuẩn hóa huấn luyện lực lượng tên lửa phòng không và radar đang có; chuẩn bị tiếp nhận hệ thống mới sau khi được giao. Kíp trực chiến cần phối hợp trong một khung chỉ huy chung."
+ VIE_airf_command_reform_1:0 "Cải cách Chỉ huy Phòng không - Không quân I"
+ VIE_airf_command_reform_1_desc:0 "Hợp nhất chỉ huy tiêm kích và phòng không mặt đất, bắt đầu phối hợp giữa đội bay, tên lửa và radar."
+ VIE_airf_tactical_exercises:0 "Diễn tập Bắn đạn thật"
+ VIE_airf_tactical_exercises_desc:0 "Tổ chức bắn đạn thật để kiểm tra quy trình chỉ huy và phối hợp giữa tiêm kích, radar và lực lượng tên lửa. Tổng kết diễn tập giúp hoàn thiện học thuyết và nâng cao khả năng điều hành tác chiến của bộ chỉ huy."
+ VIE_airf_gci_radar_training:0 "Huấn luyện GCI và radar"
+ VIE_airf_gci_radar_training_desc:0 "Huấn luyện kíp radar nhận dạng mục tiêu, trao đổi tình báo và dẫn đường tiêm kích từ mặt đất. Khai thác tốt hơn các đài hiện có giúp cải thiện khả năng phát hiện máy bay đối phương."
+ VIE_airf_regiment_formation:0 "Tổ chức trung đoàn"
+ VIE_airf_regiment_formation_desc:0 "Kiện toàn biên chế, quy trình trực ban và phối hợp giữa sở chỉ huy trung đoàn với đội bay. Sắp xếp nhân lực hợp lý giúp giảm chi phí nhân sự không quân và tăng khả năng điều hành đơn vị."
+ VIE_airf_reserve_bases:0 "Căn cứ không quân dự bị"
+ VIE_airf_reserve_bases_desc:0 "Chuẩn bị các sân bay hiện có làm căn cứ dự bị, lập phương án phân tán đội bay và tổ chức trực chiến khi căn cứ chính bị gián đoạn. Khả năng duy trì lực lượng trên lãnh thổ được cải thiện nhờ huấn luyện chuyển sân và bảo đảm mặt đất."
+ VIE_airf_first_force:0 "Củng cố lực lượng nòng cốt"
+ VIE_airf_first_force_desc:0 "Hoàn thiện huấn luyện tiêm kích và phòng không, khả năng trực chiến và tổ chức đơn vị trước khi lựa chọn cơ cấu tác chiến. Nền tảng kỹ thuật phải có ít nhất một trụ công nghiệp đã mở."
+ VIE_airf_command_reform_2:0 "Cải cách Chỉ huy Phòng không - Không quân II"
+ VIE_airf_command_reform_2_desc:0 "Trung tâm chỉ huy tích hợp và liên kết với lục quân, hải quân: một bức tranh trên không chung cho toàn lực lượng."
+ VIE_airf_medium_force:0 "Lực lượng Không quân Trung bình"
+ VIE_airf_medium_force_desc:0 "Mở rộng tổ chức và khả năng bảo đảm của lực lượng sau khi hoàn tất chương trình cơ cấu tác chiến. Quy mô hiệu quả phụ thuộc huấn luyện và công nghiệp, không tự động cấp thêm máy bay."
+ VIE_airf_operating_range:0 "Mở rộng Bán kính Hoạt động và Căn cứ Tiền phương"
+ VIE_airf_operating_range_desc:0 "Mở rộng sân bay tiền phương và năng lực tiếp cận từ các căn cứ ven biển và quần đảo, tăng tầm hoạt động của đội bay."
+
+ VIE_airf_iads:0 "Phòng không Tích hợp"
+ VIE_airf_iads_desc:0 "Nối tên lửa, radar và tiêm kích thành mạng phòng không quốc gia dưới chỉ huy thống nhất. Năng lực này có thể phát triển cùng không quân đa nhiệm và UAV."
+ VIE_airf_layered_defence:0 "Mạng Radar - Tên lửa Nhiều tầng"
+ VIE_airf_layered_defence_desc:0 "Phối hợp radar cảnh giới, tên lửa hiện có và năng lực A31 thành các tầng bảo vệ chồng lên nhau. Trang bị mua ngoài chỉ được sử dụng sau khi giao hàng."
+ VIE_airf_ew_antistealth:0 "Tác chiến Điện tử và Chống tàng hình"
+ VIE_airf_ew_antistealth_desc:0 "Phát triển tác chiến điện tử, quản lý phổ và biện pháp đối phó mục tiêu khó phát hiện trên nền tảng phòng không tích hợp. Hướng này bổ sung cho mạng radar và tên lửa nhiều tầng; cả hai hội tụ ở bộ chỉ huy khu vực."
+ VIE_airf_iads_command:0 "Bộ Chỉ huy Phòng không Khu vực"
+ VIE_airf_iads_command_desc:0 "Các bộ chỉ huy phòng không khu vực nhận một bức tranh trên không chung, phối hợp tiêm kích và tên lửa theo thời gian thực."
+ VIE_airf_multirole:0 "Không quân Đa nhiệm"
+ VIE_airf_multirole_desc:0 "Tổ chức lực lượng tiêm kích cho nhiều nhiệm vụ, với bảo đảm kỹ thuật và huấn luyện phù hợp. Phòng không tích hợp và UAV vẫn có thể cùng phát triển."
+ VIE_airf_multirole_fleet:0 "Chương trình Tác chiến Đa nhiệm"
+ VIE_airf_multirole_fleet_desc:0 "Nghiên cứu chiến thuật không chiến, tấn công mặt đất và mặt biển; chuẩn bị quy trình khai thác đội bay đa nhiệm. Chương trình nâng năng lực tổ chức và nghiên cứu, không giao tiêm kích thế hệ 4.5."
+ VIE_airf_sustainment:0 "Bảo đảm Kỹ thuật Đa nguồn"
+ VIE_airf_sustainment_desc:0 "Tổ chức bảo dưỡng, kho phụ tùng và đào tạo kỹ thuật viên cho đội bay có nhiều nguồn gốc khác nhau."
+ VIE_airf_airlift_tanker:0 "Chuẩn bị Vận tải và Hoạt động Tầm xa"
+ VIE_airf_airlift_tanker_desc:0 "Hoàn thiện tổ chức vận tải, hậu cần và nghiên cứu hoạt động xa căn cứ, bao gồm chuẩn bị khai thác tiếp dầu khi có trang bị phù hợp. Focus không cấp vận tải cơ hoặc máy bay tiếp dầu."
+ VIE_airf_multirole_wing:0 "Cánh Không quân Đa nhiệm"
+ VIE_airf_multirole_wing_desc:0 "Hiệp đồng đội bay đa nhiệm với bảo đảm kỹ thuật, nhân lực và chỉ huy. Cánh không quân được hình thành bằng hai chương trình tác chiến và bảo đảm; tiếp dầu là năng lực bổ sung."
+ VIE_airf_unmanned:0 "Không người lái và Mạng hóa"
+ VIE_airf_unmanned_desc:0 "Phát triển UAV cùng mạng dữ liệu để bổ sung trinh sát và tác chiến cho đội bay có người lái. Cụm này có thể cùng tồn tại với phòng không tích hợp và không quân đa nhiệm."
+ VIE_airf_isr_uav:0 "UAV Trinh sát và Mục tiêu"
+ VIE_airf_isr_uav_desc:0 "Đưa UAV trinh sát và máy bay mục tiêu vào huấn luyện và phát hiện thường xuyên."
+ VIE_airf_datalink:0 "Mạng Liên kết Dữ liệu (C4ISR)"
+ VIE_airf_datalink_desc:0 "Một mạng liên kết dữ liệu nối radar, UAV, tên lửa và tiêm kích để chia sẻ mục tiêu."
+ VIE_airf_strike_uav:0 "UAV Tấn công"
+ VIE_airf_strike_uav_desc:0 "Xây dựng quy trình khai thác UAV cho nhiệm vụ tấn công khi công nghiệp UAV đạt bậc 3. Trinh sát và tấn công là hai hướng ứng dụng song song, cùng liên kết dữ liệu tạo nền tảng phối hợp với không quân có người lái."
+ VIE_airf_teaming:0 "Phối hợp Có người - Không người"
+ VIE_airf_teaming_desc:0 "Thử nghiệm quy trình phối hợp máy bay có người lái và UAV qua mạng dữ liệu chung, dựa trên nhân lực đã đào tạo và năng lực tích hợp. Không mặc nhiên tuyên bố sở hữu đàn UAV tự hành."
+
+ VIE_airf_category:0 "Xây dựng Lực lượng Phòng không - Không quân"
+ VIE_airf_category_desc:0 "Các chương trình huấn luyện và xây dựng lực lượng của Quân chủng. Tối đa hai chương trình chạy cùng lúc; mỗi chương trình chỉ làm một lần."
+
+ VIE_airf_prog_fighters:0 "Đang huấn luyện lực lượng tiêm kích"
+ VIE_airf_prog_fighters_desc:0 "Quân chủng đang chạy chương trình huấn luyện và chuyên môn hóa lực lượng tiêm kích."
+ VIE_airf_prog_sam:0 "Đang huấn luyện lực lượng tên lửa phòng không và radar"
+ VIE_airf_prog_sam_desc:0 "Quân chủng đang chạy chương trình huấn luyện và chuẩn hóa lực lượng tên lửa phòng không và radar."
+ VIE_airf_prog_coord:0 "Đang xây dựng phối hợp tiêm kích - tên lửa"
+ VIE_airf_prog_coord_desc:0 "Quân chủng đang xây dựng cơ chế phối hợp giữa tiêm kích, tên lửa và radar theo ba giai đoạn."
+ VIE_airf_prog_first:0 "Đang chốt cơ cấu lực lượng ban đầu"
+ VIE_airf_prog_first_desc:0 "Quân chủng đang tổ chức lại đội bay theo cơ cấu lực lượng đã chọn."
+ VIE_airf_prog_capstone:0 "Đang thực hiện chương trình đỉnh của nhánh"
+ VIE_airf_prog_capstone_desc:0 "Đang hỗ trợ chuyên ngành đã chọn bằng decision D5. Mục tiêu giữ cố định khi bắt đầu; toàn lực lượng chỉ thực hiện một chương trình D5."
+
+ VIE_airf_branch_mismatch_idea:0 "Lệch hướng với cơ cấu lực lượng đã chọn"
+ VIE_airf_branch_mismatch_idea_desc:0 "Nhánh học thuyết vừa mở không khớp với cơ cấu lực lượng ban đầu, nên đội bay mất một năm để điều chỉnh."
+
+ ### Decision va event Truc 3 (vie_air_force)
+ VIE_airf_slot_tt:0 "Đang chạy ít hơn §Y2§! chương trình xây dựng lực lượng không quân"
+ VIE_airf_d1_done_tt:0 "Đã hoàn tất huấn luyện lực lượng tiêm kích"
+ VIE_airf_d2_done_tt:0 "Đã hoàn tất huấn luyện lực lượng tên lửa phòng không và radar"
+ VIE_airf_capstone_tt:0 "Chuyên ngành tương ứng đã đạt đích và đủ năng lực công nghiệp. D5 chỉ hỗ trợ một mục tiêu một lần, độc lập với cơ cấu tác chiến."
+ VIE_airf_d1_fighters:0 "Huấn luyện Lực lượng Tiêm kích"
+ VIE_airf_d1_fighters_desc:0 "Chuẩn hóa chiến thuật và chuyên môn hóa các trung đoàn tiêm kích, chọn hướng không chiến hoặc tấn công mặt đất và mặt biển. Giá chương trình theo mức đầu tư cơ bản 0,40 tỷ hoặc chuyên sâu 0,60 tỷ, PP và thời lượng giữ nguyên."
+ VIE_airf_d2_sam:0 "Huấn luyện Lực lượng Tên lửa Phòng không và Radar"
+ VIE_airf_d2_sam_desc:0 "Huấn luyện kíp trực chiến và chuẩn bị khai thác công nghệ mới; chọn nâng cấp thông thường hoặc tăng tốc đào tạo. Giá chương trình theo phương án và mức đầu tư từ 0,30 đến 0,75 tỷ, PP và thời lượng giữ nguyên."
+ VIE_airf_d3_coordination:0 "Phối hợp Tiêm kích - Tên lửa - Radar"
+ VIE_airf_d3_coordination_desc:0 "Ba giai đoạn diễn tập chung giữa đội bay, tên lửa và radar, dẫn tới một bức tranh trên không thống nhất. Đòi hoàn tất cả hai chương trình huấn luyện trước.\n\n§GChi phí 0,50 tỷ.§!"
+ VIE_airf_d4_first_force:0 "Chương trình tổ chức tác chiến"
+ VIE_airf_d4_first_force_desc:0 "Sau khi củng cố lực lượng, chọn phòng thủ lãnh thổ, tác chiến cân bằng hoặc cơ động và hoạt động tầm xa trên cây. Chương trình chi 50 PP và 0,60 tỷ, kéo dài 360 ngày; thưởng khi hoàn tất. Các chuyên ngành vẫn cùng phát triển."
+ VIE_airf_d5_capstone:0 "Hỗ trợ hoàn thiện phòng không"
+ VIE_airf_d5_capstone_desc:0 "Chọn một chuyên ngành đã hoàn thiện để hỗ trợ D5: 60 PP, 1 tỷ và 548 ngày. Toàn lực lượng chỉ nhận một chương trình D5; mục tiêu được giữ cố định khi bắt đầu. Mức thưởng cao cần trụ chuyên ngành và tích hợp cùng đạt bậc 3."
+ vie_air_force.1.t:0 "Huấn luyện lực lượng tiêm kích: mức đầu tư"
+ vie_air_force.1.d:0 "Bộ Tư lệnh Quân chủng đề xuất chuẩn hóa chương trình huấn luyện cho các trung đoàn tiêm kích. Có hai mức: cơ bản, hoặc chuyên sâu với thời gian dài hơn và hiệu quả cao hơn."
+ vie_air_force.1.a:0 "Cơ bản: giá cơ sở 0,40 tỷ, 12 tháng."
+ vie_air_force.1.b:0 "Chuyên sâu: giá cơ sở 0,60 tỷ, 18 tháng; thưởng cao hơn 50%."
+ vie_air_force.2.t:0 "Huấn luyện lực lượng tiêm kích: chuyên môn"
+ vie_air_force.2.d:0 "Các trung đoàn có thể tập trung vào giành ưu thế trên không, hoặc vào tấn công mặt đất và mặt biển. Hướng còn lại chỉ được bù một phần ở chương trình phối hợp sau này."
+ vie_air_force.2.a:0 "Không chiến: ưu thế trên không."
+ vie_air_force.2.b:0 "Tấn công mặt đất và mặt biển: hỗ trợ mặt đất và sức tấn công."
+ vie_air_force.10.t:0 "Huấn luyện tên lửa phòng không và radar: định hướng"
+ vie_air_force.10.d:0 "Huấn luyện kíp trực chiến cho hệ thống đang có hoặc đầu tư sớm vào quy trình khai thác công nghệ mới. Đào tạo không tự cấp trang bị; hệ thống mua ngoài vẫn phải được giao theo hợp đồng."
+ vie_air_force.10.a:0 "Nâng cấp huấn luyện hệ thống hiện có."
+ vie_air_force.10.b:0 "Sớm: huấn luyện trước cho hệ thống mới, đắt hơn, phòng không cao hơn."
+ vie_air_force.11.t:0 "Huấn luyện tên lửa phòng không và radar: mức đầu tư"
+ vie_air_force.11.d:0 "Chọn mức đầu tư cho chương trình huấn luyện kíp trực chiến và vận hành radar."
+ vie_air_force.11.a:0 "Cơ bản: 12 tháng."
+ vie_air_force.11.b:0 "Chuyên sâu: 18 tháng, thưởng cao hơn 50%, chi phí ×1,5."
+ vie_air_force.30.t:0 "Cơ cấu lực lượng ban đầu"
+ vie_air_force.30.d:0 "Chọn cơ cấu tác chiến phòng thủ lãnh thổ, cân bằng hoặc cơ động và hoạt động tầm xa. Cơ cấu điều chỉnh hiệu quả tổ chức và thời gian một số focus. Phòng không, đa nhiệm và UAV cùng phát triển; ngân sách được phân bổ theo từng chương trình."
+ vie_air_force.30.a:0 "Phòng thủ lãnh thổ: phòng thủ và phòng không cao hơn, tầm bay giảm 3%."
+ vie_air_force.30.b:0 "Cân bằng: các chỉ số cùng tăng nhẹ."
+ vie_air_force.30.c:0 "Tầm xa: tầm bay +5%, nhiệm vụ +2%, chi phí duy trì không quân +3%."
+ vie_air_force.61.t:0 "Huấn luyện lực lượng tiêm kích hoàn tất"
+ vie_air_force.61.d:0 "Chương trình huấn luyện và chuyên môn hóa lực lượng tiêm kích đã kết thúc."
+ vie_air_force.62.t:0 "Huấn luyện tên lửa phòng không và radar hoàn tất"
+ vie_air_force.62.d:0 "Chương trình chuẩn hóa kíp trực chiến tên lửa phòng không và radar đã kết thúc."
+ vie_air_force.63.t:0 "Phối hợp tiêm kích - tên lửa - radar hoàn tất"
+ vie_air_force.63.d:0 "Ba giai đoạn diễn tập chung đã hoàn tất; Quân chủng có một bức tranh trên không thống nhất."
+ vie_air_force.64.t:0 "Cơ cấu lực lượng ban đầu đã chốt"
+ vie_air_force.64.d:0 "Việc tổ chức lại đội bay theo cơ cấu đã chọn đã hoàn tất."
+ vie_air_force.65.t:0 "Chương trình đỉnh của nhánh hoàn tất"
+ vie_air_force.65.d:0 "Chương trình hỗ trợ chuyên ngành đã hoàn tất. Mục tiêu được chọn rõ bằng decision và lưu khi bắt đầu; các chuyên ngành khác vẫn cùng phát triển. Chương trình chỉ cấp thưởng một lần."
+ vie_air_force.61.a:0 "Ghi nhận."
+ vie_air_force.62.a:0 "Ghi nhận."
+ vie_air_force.63.a:0 "Ghi nhận."
+ vie_air_force.64.a:0 "Ghi nhận."
+ vie_air_force.65.a:0 "Ghi nhận."
+ VIE_dec_airf_train_aa:0 "Huấn luyện không chiến"
+ VIE_dec_airf_train_aa_desc:0 "Tổ chức đợt huấn luyện không chiến cơ động cho các trung đoàn tiêm kích. Sau 90 ngày: kinh nghiệm không quân và tăng hiệu quả giành ưu thế trên không trong 180 ngày."
+ VIE_dec_airf_train_night:0 "Huấn luyện bay đêm, mọi thời tiết"
+ VIE_dec_airf_train_night_desc:0 "Huấn luyện phi công Su-30MK2 bay đêm và trong thời tiết xấu. Sau 120 ngày: kinh nghiệm không quân và giảm phạt ban đêm, phạt thời tiết trong 180 ngày."
+ VIE_dec_airf_train_sam:0 "Diễn tập phòng không tích hợp"
+ VIE_dec_airf_train_sam_desc:0 "Diễn tập phối hợp tiêm kích, tên lửa phòng không và radar trong mạng phòng không tích hợp. Sau 90 ngày: kinh nghiệm không quân và tăng phòng thủ lãnh thổ trong 180 ngày."
+ VIE_dec_airf_train_strike:0 "Diễn tập đánh mặt đất, mặt biển"
+ VIE_dec_airf_train_strike_desc:0 "Diễn tập đa nhiệm bắn đạn thật vào mục tiêu mặt đất và mặt biển. Sau 120 ngày: kinh nghiệm không quân, tăng yểm trợ mặt đất và tấn công trong 180 ngày."
+ VIE_dec_airf_train_uav:0 "Diễn tập UAV và liên kết dữ liệu"
+ VIE_dec_airf_train_uav_desc:0 "Diễn tập phối hợp UAV trinh sát, UAV tấn công và mạng liên kết dữ liệu. Sau 90 ngày: kinh nghiệm không quân và tăng hiệu quả nhiệm vụ trong 180 ngày."
+ VIE_airf_idea_aa_drill:0 "Đã huấn luyện không chiến"
+ VIE_airf_idea_aa_drill_desc:0 "Các phi công vừa qua đợt huấn luyện không chiến."
+ VIE_airf_idea_night_drill:0 "Đã huấn luyện bay đêm, mọi thời tiết"
+ VIE_airf_idea_night_drill_desc:0 "Các phi công vừa qua đợt huấn luyện bay đêm và thời tiết xấu."
+ VIE_airf_idea_sam_drill:0 "Đã diễn tập phòng không tích hợp"
+ VIE_airf_idea_sam_drill_desc:0 "Các đơn vị vừa qua đợt diễn tập phòng không tích hợp."
+ VIE_airf_idea_strike_drill:0 "Đã diễn tập đánh mặt đất, mặt biển"
+ VIE_airf_idea_strike_drill_desc:0 "Các đơn vị đa nhiệm vừa qua đợt diễn tập bắn đạn thật."
+ VIE_airf_idea_uav_drill:0 "Đã diễn tập UAV"
+ VIE_airf_idea_uav_drill_desc:0 "Các đơn vị UAV vừa qua đợt diễn tập liên kết dữ liệu."
+ VIE_airf_tb_a2a:0 "Kinh nghiệm vũ khí không đối không"
+ VIE_airf_tb_sam:0 "Kinh nghiệm tên lửa phòng không"
+ VIE_airf_tb_ew:0 "Kinh nghiệm tác chiến điện tử"
+ VIE_airf_tb_multirole:0 "Kinh nghiệm máy bay đa nhiệm"
+ VIE_airf_tb_uav:0 "Kinh nghiệm UAV"
+ VIE_apm_tb_radar:0 "Kinh nghiệm radar cảnh giới"
+ VIE_apm_tb_avionics:0 "Kinh nghiệm tích hợp điện tử hàng không"
+ VIE_apm_tb_drones:0 "Kinh nghiệm UAV nội địa"
+ vie_air_force.70.t:0 "Trung đoàn 923 chuyển sang Su-30MK2V"
+ vie_air_force.70.d:0 "Từ năm 2011, Trung đoàn 923 bắt đầu thay Su-22 bằng Su-30MK2V, còn toàn bộ Su-27 chuyển sang Trung đoàn huấn luyện 940. Lần đầu một trung đoàn chuyển hẳn sang máy bay đa nhiệm thế hệ mới, kéo theo thay đổi lớn về huấn luyện và bảo đảm kỹ thuật.\n\nVăn hóa huấn luyện phi công được củng cố."
+ vie_air_force.70.a:0 "Ghi nhận"
+ vie_air_force.71.t:0 "Đủ 36 Su-30MK2"
+ vie_air_force.71.d:0 "Đầu tháng 2 năm 2016, hai chiếc Su-30MK2 cuối cùng được chuyển tới Việt Nam, nâng tổng số lên 36 chiếc và hoàn tất ba trung đoàn Su-30MK2. Lực lượng không quân đa nhiệm đã thành hình."
+ vie_air_force.71.a:0 "Ghi nhận"
+ vie_air_force.72.t:0 "Triển lãm Quốc phòng quốc tế đầu tiên"
+ vie_air_force.72.d:0 "Từ ngày 8 đến 10 tháng 12 năm 2022, Triển lãm Quốc phòng quốc tế Việt Nam lần đầu tổ chức tại sân bay Gia Lâm. Quân chủng Phòng không - Không quân và Viettel trưng bày khí tài và radar nội địa, thu hút đối tác và nguồn lực."
+ vie_air_force.72.a:0 "Ghi nhận"
+
+ VIE_airf_integrated_force:0 "Phòng không–Không quân Hiệp đồng Hiện đại"
+ VIE_airf_integrated_force_desc:0 "Hội tụ chỉ huy, công nghiệp và cơ cấu tác chiến với ít nhất hai chuyên ngành hoàn chỉnh: phòng không, đa nhiệm hoặc UAV. Đích này thưởng kinh nghiệm và sự ủng hộ, không cộng thêm buff chiến đấu thường trực."
+ VIE_airf_structure_territorial:0 "Phòng thủ lãnh thổ"
+ VIE_airf_structure_territorial_desc:0 "Ưu tiên trực chiến và đánh chặn: khi D4 hoàn tất, đánh chặn +3%, phòng không tại nhà +2%, tầm hoạt động −3%; giữ giảm thời gian focus phòng không. Chi 50 PP và 0,60 tỷ; chương trình 360 ngày. Không khóa đa nhiệm hoặc UAV."
+ VIE_airf_structure_balanced:0 "Tác chiến cân bằng"
+ VIE_airf_structure_balanced_desc:0 "Cân đối nhiệm vụ: khi D4 hoàn tất, sức tấn công +1%, đánh chặn +1%, tầm hoạt động +1%; giữ giảm thời gian focus tương ứng. Chi 50 PP và 0,60 tỷ; chương trình 360 ngày. Các cụm năng lực cùng phát triển."
+ VIE_airf_structure_long_range:0 "Cơ động và hoạt động tầm xa"
+ VIE_airf_structure_long_range_desc:0 "Ưu tiên hoạt động xa căn cứ: khi D4 hoàn tất, tầm hoạt động +5%, hiệu suất nhiệm vụ +2%, chi phí nhân lực +3%; giữ giảm thời gian focus đa nhiệm và UAV. Chi 50 PP và 0,60 tỷ; chương trình 360 ngày. Không khóa phòng không."
+
+ VIE_airf_d5_multirole:0 "Hỗ trợ hoàn thiện không quân đa nhiệm"
+
+ VIE_airf_d5_uav:0 "Hỗ trợ hoàn thiện UAV và mạng dữ liệu"
+
+ VIE_airf_d5_multirole_desc:0 "Chọn một chuyên ngành đã hoàn thiện để hỗ trợ D5: 60 PP, 1 tỷ và 548 ngày. Toàn lực lượng chỉ nhận một chương trình D5; mục tiêu được giữ cố định khi bắt đầu. Mức thưởng cao cần trụ chuyên ngành và tích hợp cùng đạt bậc 3."
+
+ VIE_airf_d5_uav_desc:0 "Chọn một chuyên ngành đã hoàn thiện để hỗ trợ D5: 60 PP, 1 tỷ và 548 ngày. Toàn lực lượng chỉ nhận một chương trình D5; mục tiêu được giữ cố định khi bắt đầu. Mức thưởng cao cần trụ chuyên ngành và tích hợp cùng đạt bậc 3."
+
+
+# ====================================================================
+# SECTION: VIE_md_events_air_ind_l_english.yml
+# ====================================================================
+
+
+ ### Truc 2 khong quan (CNQP hang khong - phong khong): focus va category (vie_air_ind)
+
+ VIE_apm_law:0 "Thể chế Công nghiệp Quốc phòng Hàng không"
+ VIE_apm_law_desc:0 "Quân chủng Phòng không - Không quân không tự sản xuất máy bay chiến đấu, nhưng ngành đại tu, tên lửa, radar và tích hợp hệ thống cần một khung thể chế riêng để nâng năng lực từng bước."
+ VIE_apm_a32:0 "Nhà máy A32: đại tu và kéo dài niên hạn"
+ VIE_apm_a32_desc:0 "Nhà máy A32 ở Đà Nẵng đại tu máy bay chiến đấu cho Quân chủng: từ Su-27 bằng tài liệu mua ngoài, đến kéo dài niên hạn Su-22 và Su-27, rồi Su-30MK2."
+ VIE_apm_a31:0 "Nhà máy A31: tên lửa phòng không"
+ VIE_apm_a31_desc:0 "Phát triển năng lực nâng cấp tên lửa phòng không đời cũ, thay thế linh kiện và bảo đảm hệ thống thực có. Bảo dưỡng S-300 chỉ mở khi trang bị đã được giao."
+ VIE_apm_radar:0 "Radar và chỉ huy - điều khiển nội địa"
+ VIE_apm_radar_desc:0 "Viettel phát triển radar cảnh giới và hệ điều khiển hỏa lực số, từ radar tầm thấp đến radar 3D và radar chống tàng hình."
+ VIE_apm_integration:0 "Tích hợp vũ khí và hệ thống đa nguồn"
+ VIE_apm_integration_desc:0 "Đội bay và phòng không của Việt Nam đến từ nhiều nguồn: Nga, Israel, Séc, Mỹ. Tích hợp liên kết dữ liệu, vũ khí và chuẩn chỉ huy là điều kiện để mua sắm đa nguồn."
+ VIE_apm_uav:0 "Chương trình UAV nội địa"
+ VIE_apm_uav_desc:0 "Xây dựng chương trình mục tiêu bay, thử nghiệm UAV trinh sát và nghiên cứu UAV tấn công. Năng lực được nâng bằng từng chương trình đã hoàn tất."
+ VIE_apm_mature:0 "Công nghiệp hàng không - phòng không trưởng thành"
+ VIE_apm_mature_desc:0 "Năng lực tích hợp đạt bậc 2 và ít nhất ba trong bốn trụ A32, A31, radar, UAV đạt bậc 2. Có thể trưởng thành bằng đại tu, tên lửa và radar mà không bắt buộc UAV."
+ VIE_apm_category:0 "Công nghiệp Quốc phòng Hàng không"
+ VIE_apm_category_desc:0 "Các chương trình nâng năng lực cho đại tu máy bay, tên lửa phòng không, radar, tích hợp hệ thống và UAV. Mỗi trụ nâng từng bậc; tối đa hai chương trình chạy cùng lúc."
+
+ VIE_apm_prog_a32:0 "Đang nâng năng lực Nhà máy A32"
+ VIE_apm_prog_a32_desc:0 "Nhà máy A32 đang thực hiện chương trình đại tu và kéo dài niên hạn máy bay chiến đấu."
+ VIE_apm_prog_a31:0 "Đang nâng năng lực Nhà máy A31"
+ VIE_apm_prog_a31_desc:0 "Nhà máy A31 đang hiện đại hóa tổ hợp tên lửa phòng không."
+ VIE_apm_prog_radar:0 "Đang phát triển radar Viettel"
+ VIE_apm_prog_radar_desc:0 "Viettel đang phát triển radar cảnh giới và hệ chỉ huy - điều khiển."
+ VIE_apm_prog_integ:0 "Đang tích hợp hệ thống đa nguồn"
+ VIE_apm_prog_integ_desc:0 "Các nhóm kỹ sư đang tích hợp liên kết dữ liệu và vũ khí từ nhiều nguồn."
+ VIE_apm_prog_uav:0 "Đang phát triển UAV nội địa"
+ VIE_apm_prog_uav_desc:0 "Chương trình UAV nội địa đang được thực hiện."
+
+ ### Trụ A32 (bước 4)
+ VIE_apm_slot_tt:0 "Đang chạy ít hơn §Y2§! chương trình công nghiệp quốc phòng hàng không"
+ VIE_apm_busy_tt:0 "Trụ này chưa có chương trình đang chạy"
+ VIE_apm_a32_gate_tt:0 "Bậc 1: đã mở A32. Bậc 2: hoàn tất bậc 1. Bậc 3: hoàn tất bậc 2 và (đã kéo dài niên hạn Su-30, có ít nhất 12 chiếc đã giao; hoặc đã giao C-295)."
+ VIE_apm_d_a32:0 "Nâng năng lực Nhà máy A32"
+ VIE_apm_d_a32_desc:0 "Nhà máy A32 ở Đà Nẵng nâng năng lực đại tu máy bay chiến đấu qua ba bậc: tự đại tu Su-27, kéo dài niên hạn Su-22 và Su-27, rồi đại tu Su-30MK2 và sửa chữa C-295M.\n\nGiảm tai nạn không quân tổng cộng khoảng 8%.\n\nNgân sách theo phương án của từng chương trình và giảm giá lịch sử; PP và thời lượng giữ nguyên."
+
+ vie_air_ind.11.t:0 "Nhà máy A32 tự đại tu Su-27"
+ vie_air_ind.11.d:0 "Quân chủng muốn Nhà máy A32 làm chủ việc đại tu Su-27 thay vì gửi sang Nga. Có hai cách: mua trọn bộ tài liệu kỹ thuật nước ngoài, hoặc để kỹ sư tự biên soạn quy trình từ máy tháo rời."
+ vie_air_ind.11.a:0 "Mua tài liệu kỹ thuật nước ngoài (nhanh, đắt hơn)."
+ vie_air_ind.11.b:0 "Tự biên soạn quy trình (chậm, rẻ, tích lũy kinh nghiệm)."
+ vie_air_ind.12.t:0 "Kéo dài niên hạn máy bay chiến đấu"
+ vie_air_ind.12.d:0 "Đề nghị phát triển quy trình kiểm định và kéo dài niên hạn Su-22, Su-27. Nếu Su-30 đã được giao, có thể mở rộng chương trình sang loại máy bay này với thêm chi phí và thời gian."
+ vie_air_ind.12.a:0 "Kéo dài cả Su-22, Su-27 và kiểm tra cục bộ Su-30MK2."
+ vie_air_ind.12.b:0 "Chỉ Su-22 và Su-27."
+ vie_air_ind.13.t:0 "Đại tu Su-30MK2 và sửa chữa vận tải cơ"
+ vie_air_ind.13.d:0 "Đầu tư hoàn thiện năng lực đại tu theo một trong hai hướng. Hướng Su-30 cần đủ 12 chiếc đã giao và đã hoàn tất chương trình kéo dài niên hạn; hướng vận tải cần C-295 đã giao, độc lập với số Su-30."
+ vie_air_ind.13.a:0 "Ưu tiên đại tu Su-30MK2."
+ vie_air_ind.13.b:0 "Ưu tiên C-295M và trực thăng (rẻ hơn)."
+ vie_air_ind.19.t:0 "Nhà máy A32 hoàn tất một giai đoạn"
+ vie_air_ind.19.d:0 "Chương trình nâng năng lực của Nhà máy A32 đã hoàn tất; tỷ lệ tai nạn của đội bay giảm."
+ vie_air_ind.19.a:0 "Tốt."
+
+ ### Trụ A31 và Radar (bước 5)
+ VIE_apm_a31_gate_tt:0 "Bậc 1: đã mở A31, có thể hợp tác hoặc tự phát triển. Bậc 2: hoàn tất bậc 1. Bậc 3: hoàn tất bậc 2 và (SAM tầm xa đã giao hoặc radar bậc 2)."
+ VIE_apm_radar_gate_tt:0 "Đã mở chương trình radar; mỗi bậc kế tiếp cần hoàn tất bậc trước. Không dùng năm hoặc cờ scheduler làm kết quả."
+ VIE_apm_d_a31:0 "Nâng năng lực Nhà máy A31"
+ VIE_apm_d_a31_desc:0 "Nhà máy A31 hiện đại hóa tổ hợp tên lửa phòng không đời cũ (S-75, S-125) bằng linh kiện điện tử trong nước, rồi bảo dưỡng S-300PMU1.\n\nTăng phòng không, giảm chi phí duy trì, và nuôi tổ chức công nghiệp Viettel.\n\nNgân sách theo phương án của từng chương trình và giảm giá lịch sử; PP và thời lượng giữ nguyên."
+ VIE_apm_d_radar:0 "Nâng năng lực radar và chỉ huy - điều khiển"
+ VIE_apm_d_radar_desc:0 "Viettel phát triển radar cảnh giới và hệ điều khiển hỏa lực số: từ radar tầm thấp đến radar 3D và radar chống tàng hình.\n\nTăng khả năng phát hiện trên không.\n\nNgân sách theo phương án của từng chương trình và giảm giá lịch sử; PP và thời lượng giữ nguyên."
+
+ vie_air_ind.21.t:0 "Nâng cấp tổ hợp S-75 và S-125"
+ vie_air_ind.21.d:0 "Đầu tư nâng cấp các tổ hợp tên lửa phòng không đời cũ. Có thể hợp tác với Belarus khi đối tác tồn tại, hoặc tự phát triển quy trình trong nước; không bắt buộc một hợp đồng Pechora trước đó."
+ vie_air_ind.21.a:0 "Làm cùng Belarus (nhanh)."
+ vie_air_ind.21.b:0 "Tự làm (rẻ, chậm hơn một năm)."
+ vie_air_ind.22.t:0 "Điện tử nội địa cho S-125"
+ vie_air_ind.22.d:0 "Đầu tư phát triển và kiểm định các khối điện tử thay thế linh kiện nhập khẩu. Chọn tập trung S-125 hoặc mở rộng sang S-75; năng lực chỉ được ghi nhận khi chương trình hoàn tất."
+ vie_air_ind.22.a:0 "Chỉ S-125."
+ vie_air_ind.22.b:0 "Cả S-125 và S-75."
+ vie_air_ind.23.t:0 "Bảo dưỡng S-300 và tên lửa mới"
+ vie_air_ind.23.d:0 "Chọn hoàn thiện quy trình bảo dưỡng S-300 nếu hệ thống đã được giao, hoặc nghiên cứu năng lực sản xuất tên lửa mới khi radar nội địa đạt bậc 2. Đầu tư công nghiệp không tự cấp tổ hợp tên lửa chiến đấu."
+ vie_air_ind.23.a:0 "Bảo dưỡng S-300."
+ vie_air_ind.23.b:0 "Nghiên cứu năng lực sản xuất tên lửa mới."
+ vie_air_ind.29.t:0 "Nhà máy A31 hoàn tất một giai đoạn"
+ vie_air_ind.29.d:0 "Chương trình nâng năng lực của Nhà máy A31 đã hoàn tất; lực lượng tên lửa phòng không mạnh hơn."
+ vie_air_ind.29.a:0 "Tốt."
+
+ vie_air_ind.31.t:0 "Chương trình Radar Tầm thấp"
+ vie_air_ind.31.d:0 "Đầu tư thiết kế, thử nghiệm và chuẩn hóa radar tầm thấp. Có thể tập trung cảnh giới hoặc bổ sung điều khiển hỏa lực số; không mặc nhiên sở hữu một mẫu radar tương lai có tên."
+ vie_air_ind.31.a:0 "Chỉ radar."
+ vie_air_ind.31.b:0 "Radar và điều khiển hỏa lực số."
+ vie_air_ind.32.t:0 "Radar 3D tầm trung"
+ vie_air_ind.32.d:0 "Phát triển cảm biến 3D tầm trung sau khi hoàn tất bậc radar đầu. Chọn tiến độ thông thường hoặc đầu tư tăng tốc; không dùng ngày tháng thay cho kết quả thử nghiệm."
+ vie_air_ind.32.a:0 "Tiến độ thông thường."
+ vie_air_ind.32.b:0 "Đẩy nhanh."
+ vie_air_ind.33.t:0 "Radar 3D và radar chống tàng hình"
+ vie_air_ind.33.d:0 "Hoàn thiện năng lực radar sau hai chương trình nền tảng. Chọn nghiên cứu mục tiêu khó phát hiện hoặc radar 3D; chương trình là mục tiêu phát triển, không xác nhận một mẫu trang bị đã ra đời."
+ vie_air_ind.33.a:0 "Ưu tiên phát hiện mục tiêu khó thấy."
+ vie_air_ind.33.b:0 "Ưu tiên radar 3D."
+ vie_air_ind.39.t:0 "Chương trình radar Viettel hoàn tất một giai đoạn"
+ vie_air_ind.39.d:0 "Chương trình radar và chỉ huy - điều khiển đã hoàn tất một giai đoạn; khả năng phát hiện trên không tăng."
+ vie_air_ind.39.a:0 "Tốt."
+
+ ### Trụ Tích hợp và UAV (bước 6)
+ VIE_apm_integ_gate_tt:0 "Bậc 1: đã mở tích hợp. Bậc 2: hoàn tất bậc 1 và radar bậc 1. Bậc 3: hoàn tất bậc 2 và radar bậc 2."
+ VIE_apm_uav_gate_tt:0 "Bậc 1: đã mở UAV. Bậc 2: hoàn tất bậc 1 và radar bậc 1. Bậc 3: hoàn tất bậc 2, radar và tích hợp bậc 2."
+ VIE_apm_d_integ:0 "Tích hợp vũ khí và hệ thống đa nguồn"
+ VIE_apm_d_integ_desc:0 "Liên kết dữ liệu, chuẩn chỉ huy và vũ khí giữa các hệ thống Nga, Israel, Séc và phương Tây. Là điều kiện để các chương trình mua sắm giả định có thể nội địa hóa một phần.\n\nNgân sách theo phương án của từng chương trình và giảm giá lịch sử; PP và thời lượng giữ nguyên."
+ VIE_apm_d_uav:0 "Chương trình UAV nội địa"
+ VIE_apm_d_uav_desc:0 "Từ mục tiêu bay M-100CT đến UAV trinh sát và UAV tấn công do Viettel phát triển. Các bậc cao dựa trên tin chưa được xác nhận chính thức.\n\nNgân sách theo phương án của từng chương trình và giảm giá lịch sử; PP và thời lượng giữ nguyên."
+
+ vie_air_ind.41.t:0 "Nghiên cứu Tích hợp Vũ khí Đa nguồn"
+ vie_air_ind.41.d:0 "Phát triển quy trình giao tiếp, kiểm thử và tích hợp vũ khí từ nhiều nguồn. Chọn nghiên cứu không đối không hoặc không đối đất; không mặc nhiên coi tên lửa đi kèm tổ hợp phòng không là vũ khí đã tích hợp lên máy bay."
+ vie_air_ind.41.a:0 "Ưu tiên tên lửa không đối không."
+ vie_air_ind.41.b:0 "Ưu tiên tên lửa không đối đất."
+ vie_air_ind.42.t:0 "Liên kết dữ liệu và chỉ huy đa nguồn"
+ vie_air_ind.42.d:0 "Xây dựng liên kết dữ liệu giữa cảm biến, phòng không và đội bay trên nền radar đã phát triển. Chọn chuẩn tương thích nguồn trang bị truyền thống hoặc chuẩn mở; không tự giao hệ thống ngoại nhập."
+ vie_air_ind.42.a:0 "Dùng chuẩn Nga."
+ vie_air_ind.42.b:0 "Dựng chuẩn mở (đắt hơn)."
+ vie_air_ind.43.t:0 "Tích hợp theo chuẩn phương Tây"
+ vie_air_ind.43.d:0 "Phát triển quy trình huấn luyện, kiểm định và chỉ huy tương thích nhiều nguồn trang bị. Chọn ưu tiên huấn luyện hoặc tác chiến; không yêu cầu một mẫu huấn luyện cơ tương lai đã vào biên chế."
+ vie_air_ind.43.a:0 "Ưu tiên huấn luyện."
+ vie_air_ind.43.b:0 "Ưu tiên tác chiến."
+ vie_air_ind.49.t:0 "Chương trình tích hợp hoàn tất một giai đoạn"
+ vie_air_ind.49.d:0 "Các nhóm kỹ sư đã hoàn tất một giai đoạn tích hợp hệ thống và vũ khí đa nguồn."
+ vie_air_ind.49.a:0 "Tốt."
+
+ vie_air_ind.51.t:0 "Chương trình Mục tiêu Bay"
+ vie_air_ind.51.d:0 "Phát triển mục tiêu bay để huấn luyện phòng không, kiểm thử cảm biến và đào tạo kỹ sư UAV. Kết quả được ghi nhận sau khi đầu tư và hoàn tất chương trình."
+ vie_air_ind.51.a:0 "Bắt đầu."
+ vie_air_ind.52.t:0 "UAV trinh sát nội địa"
+ vie_air_ind.52.d:0 "Viettel đề nghị phát triển UAV trinh sát nội địa. Có thể tự làm, hoặc mua công nghệ ngoài để nhanh hơn."
+ vie_air_ind.52.a:0 "Phát triển nội địa."
+ vie_air_ind.52.b:0 "Mua công nghệ ngoài (nhanh, đắt hơn)."
+ vie_air_ind.53.t:0 "UAV tấn công và loitering"
+ vie_air_ind.53.d:0 "Nghiên cứu UAV tấn công cánh cố định và khả năng bổ sung đạn bay lảng vảng sau khi đạt nền radar, tích hợp cần thiết. Đây là chương trình phát triển năng lực; không khẳng định mẫu trang bị có tên đã được biên chế."
+ vie_air_ind.53.a:0 "Chỉ UAV cánh cố định."
+ vie_air_ind.53.b:0 "Thêm cả đạn bay lảng vảng."
+ vie_air_ind.59.t:0 "Chương trình UAV hoàn tất một giai đoạn"
+ vie_air_ind.59.d:0 "Chương trình UAV nội địa đã hoàn tất một giai đoạn."
+ vie_air_ind.59.a:0 "Tốt."
+
+
+
+# ====================================================================
+# SECTION: VIE_md_events_air_proc_l_english.yml
+# ====================================================================
+
+
+ ### Truc 1 khong quan: mua sam lich su (vie_air_proc)
+ ### Lat cat Su-30MK2 (buoc 3)
+
+ vie_air_proc.3.t:0 "Hợp đồng Su-30MK2 đầu tiên"
+ vie_air_proc.3.d:0 "Cuối năm 2003, Moskva chào bán cho Quân chủng Phòng không - Không quân bốn tiêm kích đa nhiệm Su-30MK2, trị giá khoảng 120 triệu USD, giao hàng vào cuối năm 2004. Đây là bước đầu thay thế đội MiG-21 và Su-22 đã cũ."
+ vie_air_proc.3.a:0 "Ký hợp đồng mua bốn chiếc."
+ vie_air_proc.3.b:0 "Mua sáu chiếc kèm gói chuyển loại phi công, giao chậm hơn sáu tháng."
+ vie_air_proc.3.c:0 "Hoãn một năm."
+
+ vie_air_proc.5.t:0 "Su-30MK2: đợt thứ hai"
+ vie_air_proc.5.d:0 "Nga chào tám chiếc Su-30MK2 trị giá khoảng 400 triệu USD, giao trong hai năm 2010-2011. Gói này không kèm tên lửa và đạn, vũ khí phải đặt riêng; trong thời gian chờ, các chiếc mới về sẽ chưa phát huy hết khả năng."
+ vie_air_proc.5.a:0 "Ký hợp đồng tám chiếc, chưa kèm vũ khí."
+ vie_air_proc.5.b:0 "Mua tám chiếc kèm vũ khí, trả giá cao hơn."
+ vie_air_proc.5.c:0 "Chỉ mua sáu chiếc."
+
+ vie_air_proc.6.t:0 "Su-30MK2V: đợt thứ ba"
+ vie_air_proc.6.d:0 "Đầu năm 2010, Hà Nội và Moskva ký gói mười hai chiếc Su-30MK2V kèm vũ khí và phụ tùng cho các máy bay đã nhận, trị giá khoảng một tỷ USD, giao xong vào cuối năm 2012. Gói này hoàn tất nhu cầu vũ khí của hai đợt trước."
+ vie_air_proc.6.a:0 "Ký gói đầy đủ mười hai chiếc."
+ vie_air_proc.6.b:0 "Chỉ mua thân máy bay, lo vũ khí sau."
+ vie_air_proc.6.c:0 "Chỉ mua tám chiếc."
+
+ vie_air_proc.9.t:0 "Su-30MK2: đợt cuối"
+ vie_air_proc.9.d:0 "Tháng 8 năm 2013, Nga chào mười hai chiếc Su-30MK2 cuối cùng, trị giá khoảng 600 triệu USD, giao từ năm 2014 đến đầu năm 2016. Khi đó đủ ba trung đoàn tiêm kích đa nhiệm."
+ vie_air_proc.9.a:0 "Ký hợp đồng mười hai chiếc."
+ vie_air_proc.9.b:0 "Mua sáu chiếc và mở đàm phán về Su-35S."
+ vie_air_proc.9.c:0 "Hoãn một năm."
+
+ VIE_ap_su30_no_munitions_idea:0 "Su-30MK2 chưa đủ vũ khí"
+ VIE_ap_su30_no_munitions_idea_desc:0 "Các tiêm kích đã về nhưng tên lửa và đạn đặt riêng chưa tới, nên chưa thể phát huy hết năng lực."
+ VIE_ap_su30_airframe_only_idea:0 "Su-30MK2 chỉ có thân máy bay"
+ VIE_ap_su30_airframe_only_idea_desc:0 "Đợt Su-30MK2V được mua không kèm vũ khí; phải tự lo vũ khí và đào tạo sử dụng sau."
+
+ ### Ten lua phong khong (buoc 4)
+
+ vie_air_proc.2.t:0 "Tên lửa phòng không S-300PMU1"
+ vie_air_proc.2.d:0 "Tháng 8 năm 2003, Moskva đồng ý cấp cho Việt Nam hai tiểu đoàn tên lửa phòng không tầm xa S-300PMU1. Tiểu đoàn đầu gồm 12 bệ phóng và khoảng 62 tên lửa sẽ về vào mùa hè năm 2005. Đây là lớp lá chắn phòng không đầu tiên đủ sức bao quát các mục tiêu tầm cao, thay cho S-75 và S-125 đã cũ."
+ vie_air_proc.2.a:0 "Ký hợp đồng hai tiểu đoàn."
+ vie_air_proc.2.b:0 "Chỉ mua một tiểu đoàn."
+ vie_air_proc.2.c:0 "Hoãn một năm."
+
+ vie_air_proc.7.t:0 "Nâng cấp S-125 lên Pechora-2TM"
+ vie_air_proc.7.d:0 "Hãng Tetraedr của Belarus đề nghị hiện đại hóa các tổ hợp S-125 Việt Nam đang có thành chuẩn Pechora-2TM, với hệ thống điều khiển và radar số. Nhà máy A31 sẽ tham gia thử nghiệm đợt đầu vào tháng 3 năm 2011."
+ vie_air_proc.7.a:0 "Nâng cấp hơn ba mươi bệ phóng."
+ vie_air_proc.7.b:0 "Chỉ nâng cấp mười lăm bệ phóng."
+
+ vie_air_proc.10.t:0 "Tên lửa phòng không SPYDER"
+ vie_air_proc.10.d:0 "Israel chào bán năm tổ hợp SPYDER kèm tên lửa Python-5 và Derby, nhận hàng từ năm 2016 đến 2018. Hệ thống tầm trung này bổ sung cho S-300 và Pechora ở tầm thấp và trung bình."
+ vie_air_proc.10.a:0 "Mua năm tổ hợp."
+ vie_air_proc.10.b:0 "Mua ba tổ hợp và bắt đầu nghiên cứu Barak-8."
+
+ ### Huấn luyện, vận tải, radar (bước 5)
+
+ vie_air_proc.1.t:0 "Hợp tác quốc phòng với Ấn Độ"
+ vie_air_proc.1.d:0 "Tháng 3 năm 2000, Hà Nội và New Delhi ký thỏa thuận hợp tác quốc phòng. Ấn Độ đề nghị đại tu đội MiG-21 còn lại và đào tạo phi công, kỹ thuật viên Việt Nam."
+ vie_air_proc.1.a:0 "Nhận cả đại tu và đào tạo."
+ vie_air_proc.1.b:0 "Chỉ nhận đào tạo kỹ thuật viên."
+ vie_air_proc.1.c:0 "Từ chối."
+
+ vie_air_proc.8.t:0 "Vận tải cơ C-295M"
+ vie_air_proc.8.d:0 "Tây Ban Nha chào ba vận tải cơ C-295M kèm phụ tùng và đào tạo, trị giá khoảng 100 triệu USD. Máy bay sẽ vào biên chế từ năm 2015, thay dần các An-26 đã già."
+ vie_air_proc.8.a:0 "Mua ba chiếc."
+ vie_air_proc.8.b:0 "Mua hai chiếc."
+ vie_air_proc.8.c:0 "Mua bốn chiếc."
+
+ vie_air_proc.11.t:0 "Mạng radar cảnh giới thụ động"
+ vie_air_proc.11.d:0 "Cộng hòa Séc chào bán hệ thống radar thụ động VERA-NG, phát hiện mục tiêu qua tín hiệu phát xạ mà không tự phát sóng. Việt Nam cân nhắc mua bốn hệ thống, hoặc thêm radar của Israel, hoặc dồn lực cho radar do Viettel nghiên cứu."
+ vie_air_proc.11.a:0 "Mua bốn hệ thống VERA-NG."
+ vie_air_proc.11.b:0 "Mua thêm radar ELM-2288 của Israel."
+ vie_air_proc.11.c:0 "Đẩy nhanh radar của Viettel, tạm chịu phát hiện thấp hơn."
+
+ vie_air_proc.13.t:0 "Đào tạo phi công Su-30"
+ vie_air_proc.13.d:0 "Tháng 12 năm 2016, Việt Nam và Ấn Độ ký thỏa thuận đào tạo phi công Su-30. Ấn Độ đã khai thác loại máy bay này nhiều năm; Nga cũng đề nghị nhận phi công sang huấn luyện."
+ vie_air_proc.13.a:0 "Gửi phi công sang Ấn Độ."
+ vie_air_proc.13.b:0 "Tiếp tục gửi sang Nga."
+ vie_air_proc.13.c:0 "Tự đào tạo trong nước."
+
+ vie_air_proc.14.t:0 "Yak-130 cho trung tâm huấn luyện"
+ vie_air_proc.14.d:0 "Quân chủng thành lập sư đoàn huấn luyện tiêm kích siêu âm và cân nhắc máy bay huấn luyện tiến bộ. Yak-130 của Nga có buồng lái giống Su-30; gói mười hai chiếc trị giá khoảng 350 triệu USD."
+ vie_air_proc.14.a:0 "Mua mười hai chiếc Yak-130."
+ vie_air_proc.14.b:0 "Từ chối, chọn phương án khác."
+ vie_air_proc.14.c:0 "Hoãn một năm."
+
+ vie_air_proc.15.t:0 "Huấn luyện cơ T-6C Texan II"
+ vie_air_proc.15.d:0 "Tháng 6 năm 2021, Mỹ chấp thuận bán cho Việt Nam mười hai máy bay huấn luyện T-6C Texan II, giao trong giai đoạn 2024-2027. Đây là bước đầu của quan hệ quốc phòng với Washington sau khi lệnh cấm vận vũ khí được dỡ."
+ vie_air_proc.15.a:0 "Đặt mười hai chiếc."
+ vie_air_proc.15.b:0 "Đặt sáu chiếc."
+
+ VIE_ap_mig21_extension_idea:0 "MiG-21 kéo dài niên hạn"
+ VIE_ap_mig21_extension_idea_desc:0 "Đội MiG-21 được đại tu với sự hỗ trợ của Ấn Độ, giảm tai nạn cho tới khi chính thức nghỉ hưu."
+ VIE_ap_basic_training_idea:0 "Đào tạo bay cơ bản"
+ VIE_ap_basic_training_idea_desc:0 "Lô huấn luyện cơ Yak-52 mở rộng nguồn học viên bay cơ bản."
+ VIE_ap_mig21_retired_idea:0 "MiG-21 đã nghỉ hưu"
+ VIE_ap_mig21_retired_idea_desc:0 "Một trung đoàn huấn luyện bị giải thể cùng việc loại biên MiG-21, tạm làm giảm nguồn kinh nghiệm bay."
+ VIE_ap_pilot_training_idea:0 "Đào tạo phi công Su-30"
+ VIE_ap_pilot_training_idea_desc:0 "Chương trình đào tạo phi công Su-30 ở nước ngoài và trong nước tăng tốc độ thu kinh nghiệm bay."
+
+
+# ====================================================================
+# SECTION: VIE_md_events_naval_l_english.yml
+# ====================================================================
+
+
+ ### Trục 1 hải quân: mua sắm (namespace vie_naval) và Decision mở lại chương trình đã lỡ.
+ vie_naval.1.t:0 "Hợp đồng tàu tên lửa Molniya"
+ vie_naval.1.d:0 "Moskva đề nghị bán cho Hải quân Nhân dân hai tàu tên lửa tấn công nhanh lớp Molniya hoàn chỉnh. Hợp đồng là bước đầu của một gói lớn hơn: giấy phép đóng tàu sẽ được bàn riêng sau đó.\n\nHai tàu đầu có thể về nước trong vòng vài năm tới."
+ vie_naval.1.a:0 "Ký hợp đồng mua hai tàu."
+ vie_naval.1.b:0 "Đặt mua bốn tàu, trả giá cao hơn."
+ vie_naval.1.c:0 "Chưa mua, chờ khả năng tự đóng."
+ vie_naval.3.t:0 "Chuyển giao công nghệ Molniya"
+ vie_naval.3.d:0 "Xưởng Ba Son đã đủ năng lực tiếp nhận hồ sơ kỹ thuật và giấy phép đóng tàu Molniya. Nếu ký, những chiếc đầu tiên sẽ khởi đóng ngay trong nước và lần lượt hạ thủy trong những năm sau.\n\nSố tàu đặt đóng quyết định gánh nặng cho ngân sách và cho xưởng."
+ vie_naval.3.a:0 "Đóng sáu tàu theo giấy phép."
+ vie_naval.3.b:0 "Đóng tám tàu."
+ vie_naval.3.c:0 "Đóng mười tàu."
+ vie_naval.3.e:0 "Dừng ở số tàu đã mua, không đóng thêm."
+ vie_naval.10.t:0 "Khinh hạm Gepard 3.9: cấu hình"
+ vie_naval.10.d:0 "Nhà máy Zelenodolsk chào bán lớp khinh hạm Gepard 3.9 cho Hải quân Nhân dân. Trước khi bàn số lượng, ta phải chọn cấu hình: bản tiêu chuẩn thiên về tên lửa chống hạm và phòng không, bản chống ngầm bổ sung ngư lôi và thiết bị phát hiện tàu ngầm."
+ vie_naval.10.a:0 "Cấu hình tiêu chuẩn."
+ vie_naval.10.b:0 "Cấu hình chống ngầm."
+ vie_naval.10.c:0 "Hoãn, chưa ký trong đợt này."
+ vie_naval.11.t:0 "Khinh hạm Gepard 3.9: số lượng"
+ vie_naval.11.d:0 "Cấu hình đã chọn. Còn lại là số tàu đặt đóng. Tàu đầu dự kiến về nước sau vài năm."
+ vie_naval.11.a:0 "Đặt hai tàu."
+ vie_naval.11.b:0 "Đặt bốn tàu."
+ vie_naval.11.c:0 "Hoãn."
+ vie_naval.12.t:0 "Khinh hạm Gepard 3.9: lô thứ hai"
+ vie_naval.12.d:0 "Các khinh hạm lô một đã vào biên chế và đáp ứng yêu cầu. Zelenodolsk đề nghị đóng tiếp lô chống ngầm, với giá cao hơn nhưng đã gồm đạn dược và gói bảo dưỡng."
+ vie_naval.12.a:0 "Đặt hai tàu chống ngầm."
+ vie_naval.12.b:0 "Đặt bốn tàu chống ngầm."
+ vie_naval.12.c:0 "Không mua lô hai."
+ vie_naval.20.t:0 "Tàu ngầm Kilo dự án 636"
+ vie_naval.20.d:0 "Hà Nội và Moskva đã đàm phán xong gói tàu ngầm diesel-điện lớp Kilo cải tiến. Đây sẽ là một trong những hợp đồng lớn nhất của Hải quân Nhân dân, mỗi chiếc đóng riêng tại Saint Petersburg."
+ vie_naval.20.a:0 "Ký hợp đồng sáu tàu."
+ vie_naval.20.b:0 "Ký hợp đồng bốn tàu."
+ vie_naval.20.c:0 "Ký hợp đồng hai tàu."
+ vie_naval.20.e:0 "Hoãn, chưa ký trong đợt này."
+ vie_naval.20.g:0 "Ký hợp đồng tám tàu."
+ vie_naval.21.t:0 "Huấn luyện và hạ tầng tàu ngầm"
+ vie_naval.21.d:0 "Tàu ngầm không chỉ là thân tàu: cần kíp lái, trạm bờ, kho đạn và xưởng sửa chữa. Gói đầy đủ tốn kém hơn nhưng giúp hạm đội vận hành ổn định ngay từ những chiếc đầu."
+ vie_naval.21.a:0 "Gói đầy đủ: huấn luyện và hạ tầng."
+ vie_naval.21.b:0 "Gói cắt giảm: chấp nhận chậm và rủi ro."
+ vie_naval.30.t:0 "Tổ hợp tên lửa bờ Bastion-P"
+ vie_naval.30.d:0 "Nga chào bán tổ hợp tên lửa phòng thủ bờ cơ động Bastion-P. Mỗi tổ hợp gồm xe phóng, xe chỉ huy và tên lửa chống hạm hành trình."
+ vie_naval.30.a:0 "Mua hai tổ hợp."
+ vie_naval.30.b:0 "Mua một tổ hợp."
+ vie_naval.30.c:0 "Mua bốn tổ hợp."
+ vie_naval.30.g:0 "Hoãn, chưa ký trong đợt này."
+ vie_naval.31.t:0 "Triển khai Bastion-P"
+ vie_naval.31.d:0 "Các tổ hợp tên lửa bờ cần được bố trí. Tập trung ở một khu vực cho phòng thủ mạnh tại đó, hay phân tán để che chắn toàn bộ bờ biển."
+ vie_naval.31.a:0 "Tập trung ở miền Bắc."
+ vie_naval.31.b:0 "Tập trung ở miền Trung."
+ vie_naval.31.c:0 "Tập trung ở miền Nam."
+ vie_naval.31.g:0 "Phân tán ba miền."
+ vie_naval.40.t:0 "Tàu hộ vệ Sigma 9814"
+ vie_naval.40.d:0 "Tập đoàn Damen của Hà Lan chào bán thiết kế tàu hộ vệ Sigma 9814 cho Hải quân Nhân dân. Đàm phán đã đi khá xa, nhưng phần tài chính vẫn chưa ngã ngũ. Ta có thể tiếp tục thương lượng mà chưa cam kết, hoặc chuyển sang đặt mua thật sự."
+ vie_naval.40.a:0 "Tiếp tục đàm phán, chưa cam kết mua."
+ vie_naval.40.b:0 "Chuyển sang đặt mua."
+ vie_naval.40.c:0 "Từ bỏ chương trình."
+ vie_naval.41.t:0 "Sigma 9814: số lượng"
+ vie_naval.41.d:0 "Số tàu đặt quyết định gánh nặng tài chính và chuỗi hậu cần cho một dòng tàu hoàn toàn mới trong hạm đội."
+ vie_naval.41.a:0 "Hai tàu."
+ vie_naval.41.b:0 "Bốn tàu."
+ vie_naval.41.c:0 "Sáu tàu."
+ vie_naval.41.e:0 "Hoãn."
+ vie_naval.42.t:0 "Sigma 9814: cấu hình"
+ vie_naval.42.d:0 "Bản nhập nguyên khối từ Hà Lan tích hợp cao nhưng kéo theo một hệ hậu cần mới. Bản lai giảm bớt phụ thuộc. Bản nội địa hóa đắt và chậm hơn, nhưng mở cho ngành đóng tàu trong nước nhiều kinh nghiệm hơn."
+ vie_naval.42.a:0 "Nhập nguyên khối từ Hà Lan."
+ vie_naval.42.b:0 "Lai: lắp ráp một phần trong nước."
+ vie_naval.42.c:0 "Nội địa hóa cao."
+ vie_naval.43.t:0 "Sigma 9814: ngân khố không đủ"
+ vie_naval.43.d:0 "Bộ Tài chính báo cáo ngân khố hiện tại không đủ chi trả toàn bộ hợp đồng. Ta có thể thu hẹp quy mô, vay vốn nước ngoài với lãi suất cao, hoãn lại, hoặc hủy hẳn."
+ vie_naval.43.a:0 "Cắt giảm một nửa số tàu."
+ vie_naval.43.b:0 "Vay vốn để ký đủ."
+ vie_naval.43.c:0 "Hoãn."
+ vie_naval.43.e:0 "Hủy chương trình."
+ vie_naval.44.t:0 "Sigma 9814: đàm phán dừng lại"
+ vie_naval.44.d:0 "Hai bên đạt thỏa thuận cho hai tàu, nhưng hợp đồng chính thức vẫn chưa được ký vì phần tài chính còn vướng. Chương trình tạm dừng."
+ vie_naval.44.a:0 "Ghi nhận."
+ VIE_naval_procurement_category:0 "Mua sắm Hải quân (muộn)"
+ VIE_naval_procurement_category_desc:0 "Những chương trình đóng và mua tàu mà ta đã lỡ cửa sổ lịch sử. Có thể mở lại, nhưng giá cao hơn 25% và tàu về chậm hơn."
+ VIE_naval_late_gepard1:0 "Mở lại: Khinh hạm Gepard 3.9, lô một"
+ VIE_naval_late_gepard1_desc:0 "Zelenodolsk vẫn nhận đơn, nhưng với giá cao hơn và thời gian giao dài hơn."
+ VIE_naval_late_gepard2:0 "Mở lại: Khinh hạm Gepard 3.9, lô hai"
+ VIE_naval_late_gepard2_desc:0 "Đặt tiếp lô chống ngầm sau khi lô một đã giao xong, với giá cao hơn và thời gian giao dài hơn."
+ VIE_naval_late_bastion:0 "Mở lại: Tổ hợp tên lửa bờ Bastion-P"
+ VIE_naval_late_bastion_desc:0 "Đàm phán lại hợp đồng tên lửa bờ với giá cao hơn và thời gian giao dài hơn."
+ VIE_naval_late_kilo:0 "Mở lại: Tàu ngầm Kilo dự án 636"
+ VIE_naval_late_kilo_desc:0 "Hợp đồng tàu ngầm vẫn có thể ký, với giá cao hơn và thời gian giao dài hơn."
+ VIE_naval_late_molniya:0 "Mở lại: Tàu tên lửa Molniya"
+ VIE_naval_late_molniya_desc:0 "Mở lại pha còn khả thi của chương trình Molniya: đóng tại Ba Son nếu xưởng đã sẵn sàng, nếu không thì mua tàu từ Nga."
+ VIE_naval_late_sigma:0 "Mở lại: Tàu hộ vệ Sigma 9814"
+ VIE_naval_late_sigma_desc:0 "Đàm phán với Damen đã dừng. Có thể bắt đầu lại và đặt mua thật sự, với giá cao hơn và thời gian giao dài hơn."
+
+
+# ====================================================================
+# SECTION: VIE_md_events_nav_force_l_english.yml
+# ====================================================================
+
+ VIE_nf_training_standardization:0 "Chuẩn hóa Đào tạo Hải quân"
+ VIE_nf_training_standardization_desc:0 "Thống nhất giáo trình, khung sĩ quan và tiêu chuẩn kíp tàu cho toàn quân chủng. Đây là nền cho hai lực lượng mặt nước và tàu ngầm, và mở nhóm quyết định xây dựng lực lượng."
+ VIE_nf_surface_force:0 "Phát triển Lực lượng Tàu mặt nước"
+ VIE_nf_surface_force_desc:0 "Xây dựng khung sĩ quan và chuẩn hóa kíp tàu cho các biên đội tàu mặt nước. Mở quyết định huấn luyện lực lượng tàu mặt nước."
+ VIE_nf_submarine_force:0 "Phát triển Lực lượng Tàu ngầm"
+ VIE_nf_submarine_force_desc:0 "Chuẩn bị nhân lực và tổ chức cho lực lượng tàu ngầm trước khi nhận tàu. Mở quyết định huấn luyện lực lượng tàu ngầm."
+ VIE_nf_command_reform_1:0 "Cải cách Bộ chỉ huy Hải quân I"
+ VIE_nf_command_reform_1_desc:0 "Dựng bộ chỉ huy hải quân với ba thành phần: tàu mặt nước, tàu ngầm và bảo đảm. Mở quyết định huấn luyện hiệp đồng hạm đội."
+ VIE_nf_first_force:0 "Cơ cấu Lực lượng Ban đầu"
+ VIE_nf_first_force_desc:0 "Chọn ưu tiên cho lực lượng hải quân đầu tiên dựa trên số thân tàu đã tiếp nhận và năng lực bảo dưỡng hoặc đóng tàu nhỏ trong nước. Mở quyết định cơ cấu lực lượng."
+ VIE_nf_command_reform_2:0 "Cải cách Bộ chỉ huy Hải quân II"
+ VIE_nf_command_reform_2_desc:0 "Tổ chức lại thành biên đội và hải đoàn, hợp nhất chỉ huy tác chiến."
+ VIE_nf_medium_force:0 "Lực lượng Hải quân Trung bình"
+ VIE_nf_medium_force_desc:0 "Nâng lực lượng từ tuần tra ven bờ lên các biên đội cỡ trung: hộ vệ hạm nhẹ, khinh hạm, chống ngầm cơ động và tàu ngầm khu vực. Mở các chương trình mua sắm bổ sung (chương trình 1B)."
+ VIE_nf_operating_range:0 "Mở rộng Phạm vi Hoạt động"
+ VIE_nf_operating_range_desc:0 "Tăng tầm hoạt động và khả năng phát hiện của hạm đội. Đây là điểm rẽ chiến lược: Ngăn chặn biển, Hải quân khu vực hay Hải quân viễn dương."
+ VIE_nf_hulls_4_tt:0 "Đã tiếp nhận hơn §Y3§! thân tàu chiến đấu"
+ VIE_nf_denial:0 "Ngăn chặn biển (Maritime Denial)"
+ VIE_nf_denial_desc:0 "Dựa vào tàu ngầm, tàu tên lửa nhanh và tên lửa bờ để ngăn đối phương hoạt động gần bờ biển Việt Nam. Đây là hướng gần nhất với thực tế của Hải quân Nhân dân."
+ VIE_nf_denial_defence:0 "Phòng thủ Ven bờ Tích hợp"
+ VIE_nf_denial_defence_desc:0 "Kết nối trạm radar, tên lửa bờ, bãi mìn và các biên đội ven bờ thành một hệ thống phòng thủ."
+ VIE_nf_denial_subs:0 "Lực lượng Tàu ngầm Ngăn chặn"
+ VIE_nf_denial_subs_desc:0 "Phát triển lực lượng tàu ngầm làm xương sống cho nhiệm vụ ngăn chặn."
+ VIE_nf_denial_command:0 "Bộ chỉ huy Phòng thủ Ven bờ"
+ VIE_nf_denial_command_desc:0 "Dựng bộ chỉ huy thống nhất cho phòng thủ ven bờ, hoàn tất nhánh Ngăn chặn biển."
+ VIE_nf_greenwater:0 "Hải quân Khu vực"
+ VIE_nf_greenwater_desc:0 "Mở rộng hoạt động ra toàn vùng biển Đông Nam Á bằng khinh hạm viễn hành và hạm đội đổ bộ."
+ VIE_nf_regional_frigates:0 "Khinh hạm Viễn hành"
+ VIE_nf_regional_frigates_desc:0 "Đưa khinh hạm đủ tầm hoạt động và tự duy trì cho các chuyến hải trình dài."
+ VIE_nf_amphibious_fleet:0 "Hạm đội Đổ bộ"
+ VIE_nf_amphibious_fleet_desc:0 "Tổ chức tàu và biên đội đổ bộ cho nhiệm vụ trên biển và đảo. Lực lượng hải quân đánh bộ thuộc nhánh khác."
+ VIE_nf_lhd_program:0 "Chương trình Tàu đổ bộ Trực thăng"
+ VIE_nf_lhd_program_desc:0 "Chuẩn bị đưa tàu đổ bộ trực thăng vào biên chế, mở chương trình mua sắm tàu đổ bộ."
+ VIE_nf_regional_command:0 "Bộ chỉ huy Hạm đội Khu vực"
+ VIE_nf_regional_command_desc:0 "Dựng bộ chỉ huy hạm đội khu vực, hoàn tất nhánh Hải quân khu vực."
+ VIE_nf_bluewater:0 "Hải quân Viễn dương"
+ VIE_nf_bluewater_desc:0 "Hướng tới hoạt động xa bờ lâu dài với khu trục, tàu sân bay và hậu cần hạm đội."
+ VIE_nf_ocean_escort:0 "Chương trình Hộ tống Viễn dương"
+ VIE_nf_ocean_escort_desc:0 "Chuẩn bị khu trục và hộ vệ hạm đủ sức bảo vệ lực lượng trên biển xa."
+ VIE_nf_replenishment:0 "Bảo đảm Hậu cần Hạm đội"
+ VIE_nf_replenishment_desc:0 "Tiếp tế trên biển và hậu cần là điều kiện bắt buộc cho hoạt động viễn dương."
+ VIE_nf_naval_aviation:0 "Không quân Hải quân"
+ VIE_nf_naval_aviation_desc:0 "Xây dựng không quân hải quân làm điều kiện cho tàu sân bay hạng nhẹ."
+ VIE_nf_carrier_group:0 "Nhóm Tác chiến Tàu sân bay"
+ VIE_nf_carrier_group_desc:0 "Hoàn tất nhánh viễn dương. Hiệu ứng tổ chức tăng theo số tàu sân bay thực tế sau khi lập nhóm tác chiến."
+ VIE_nf_branch_mismatch_idea:0 "Chi phí chuyển đổi nhánh"
+ VIE_nf_branch_mismatch_idea_desc:0 "Hướng chiến lược đã chọn lệch với cơ cấu lực lượng ban đầu, nên tổ chức hạm đội tạm thời kém hơn khi chuyển đổi."
+ VIE_naval_force_category:0 "Xây dựng Lực lượng Hải quân"
+ VIE_naval_force_category_desc:0 "Đào tạo, tổ chức và xác định hướng đi cho các lực lượng tàu mặt nước, tàu ngầm và hạm đội.\n\n§YChương trình đang chạy:§! [?VIE_var_force_program_active|0] / 2\n§gTối đa hai chương trình cùng lúc. Phần thưởng là các chỉ số vận hành (tổ chức, hiệp đồng, phát hiện), không phải tàu hay chi phí đóng tàu.§!"
+ VIE_nf_slot_tt:0 "Đang chạy ít hơn §Y2§! chương trình xây dựng lực lượng"
+ VIE_nf_d1_surface:0 "Huấn luyện Lực lượng Tàu mặt nước"
+ VIE_nf_d1_surface_desc:0 "Chuẩn hóa kíp tàu và khung sĩ quan cho lực lượng tàu mặt nước, chọn chuyên môn hỏa lực hoặc chống ngầm.\n\n§gChi phí 0,40 tỷ (cơ bản) hoặc 0,60 tỷ (chuyên sâu).§!"
+ VIE_nf_d2_submarine:0 "Huấn luyện Lực lượng Tàu ngầm"
+ VIE_nf_d2_submarine_desc:0 "Chuẩn bị nhân lực và tổ chức cho lực lượng tàu ngầm. Khởi động chương trình là bước chuẩn bị cho các hợp đồng tàu ngầm.\n\n§gChi phí từ 0,30 đến 0,75 tỷ tùy định hướng và mức đầu tư.§!"
+ VIE_nf_d3_fleet_coord:0 "Huấn luyện Hiệp đồng Hạm đội"
+ VIE_nf_d3_fleet_coord_desc:0 "Huấn luyện hiệp đồng giữa tàu mặt nước và tàu ngầm, kèm mạng lưới chống ngầm ven bờ."
+ VIE_nf_d4_first_force:0 "Cơ cấu Lực lượng Ban đầu"
+ VIE_nf_d4_first_force_desc:0 "Chọn ưu tiên cho lực lượng hải quân đầu tiên: phòng thủ ven bờ, cân bằng hoặc tầm xa."
+ VIE_nf_prog_surface:0 "Huấn luyện tàu mặt nước đang thực hiện"
+ VIE_nf_prog_surface_desc:0 "Chương trình huấn luyện đang chạy. Hoàn tất khi thời hạn kết thúc."
+ VIE_nf_prog_sub:0 "Huấn luyện tàu ngầm đang thực hiện"
+ VIE_nf_prog_sub_desc:0 "Chương trình huấn luyện đang chạy. Hoàn tất khi thời hạn kết thúc."
+ VIE_nf_prog_coord:0 "Huấn luyện hiệp đồng đang thực hiện"
+ VIE_nf_prog_coord_desc:0 "Chương trình huấn luyện đang chạy. Hoàn tất khi thời hạn kết thúc."
+ VIE_nf_prog_first:0 "Xây dựng cơ cấu lực lượng đang thực hiện"
+ VIE_nf_prog_first_desc:0 "Chương trình đang chạy. Hoàn tất khi thời hạn kết thúc."
+ VIE_nf_prog_csg:0 "Lập nhóm tác chiến đang thực hiện"
+ VIE_nf_prog_csg_desc:0 "Chương trình đang chạy. Hoàn tất khi thời hạn kết thúc."
+
+ vie_nav_force.1.t:0 "Huấn luyện lực lượng tàu mặt nước: mức đầu tư"
+ vie_nav_force.1.d:0 "Bộ tư lệnh Hải quân đề nghị chương trình chuẩn hóa kíp tàu cho các biên đội tàu mặt nước. Mức đầu tư quyết định thời gian và độ sâu của chương trình."
+ vie_nav_force.1.a:0 "Cơ bản: 0,40 tỷ USD, 12 tháng"
+ vie_nav_force.1.b:0 "Chuyên sâu: 0,60 tỷ USD, 18 tháng, thưởng cao hơn 50%"
+ vie_nav_force.2.t:0 "Huấn luyện lực lượng tàu mặt nước: chuyên môn"
+ vie_nav_force.2.d:0 "Cần chọn trọng tâm huấn luyện. Hỏa lực tăng sức tấn công và tổ chức; chống ngầm tăng khả năng phòng thủ trước tàu ngầm và khả năng phát hiện. Hướng còn lại chỉ được bù một phần qua huấn luyện hiệp đồng hạm đội."
+ vie_nav_force.2.a:0 "Hỏa lực: radar, pháo, tên lửa và phòng không"
+ vie_nav_force.2.b:0 "Chống ngầm: sonar và hiệp đồng trực thăng"
+ vie_nav_force.10.t:0 "Huấn luyện lực lượng tàu ngầm: định hướng"
+ vie_nav_force.10.d:0 "Sĩ quan và kíp tàu ngầm cần được chuẩn bị trước khi nhận tàu. Có thể làm đúng tiến độ nhận tàu hoặc chuẩn bị sớm hơn với chi phí cao hơn. Dù chọn cách nào, việc chuẩn bị nhân lực bắt đầu ngay và giúp gói huấn luyện tàu ngầm Kilo rẻ hơn."
+ vie_nav_force.10.a:0 "Lịch sử: chuẩn bị nhân lực đúng tiến độ nhận tàu"
+ vie_nav_force.10.b:0 "Sớm: chuẩn bị sớm hơn, đắt hơn, phát hiện cao hơn"
+ vie_nav_force.11.t:0 "Huấn luyện lực lượng tàu ngầm: mức đầu tư"
+ vie_nav_force.11.d:0 "Mức đầu tư quyết định thời gian và độ sâu của chương trình. Chi phí: định hướng lịch sử 0,30 hoặc 0,45 tỷ, định hướng sớm 0,50 hoặc 0,75 tỷ."
+ vie_nav_force.11.a:0 "Cơ bản: 12 tháng"
+ vie_nav_force.11.b:0 "Chuyên sâu: 18 tháng, thưởng cao hơn 50%"
+ vie_nav_force.61.t:0 "Huấn luyện tàu mặt nước hoàn tất"
+ vie_nav_force.61.d:0 "Chương trình huấn luyện lực lượng tàu mặt nước đã hoàn tất. Chỉ số vận hành theo chuyên môn đã chọn được cộng vào hải quân."
+ vie_nav_force.61.a:0 "Tốt."
+ vie_nav_force.62.t:0 "Huấn luyện tàu ngầm hoàn tất"
+ vie_nav_force.62.d:0 "Chương trình huấn luyện lực lượng tàu ngầm đã hoàn tất. Chỉ số tấn công và phát hiện của tàu ngầm được cộng vào hải quân."
+ vie_nav_force.62.a:0 "Tốt."
+ VIE_nf_d5_carrier_group:0 "Lập Nhóm Tác chiến Tàu sân bay"
+ VIE_nf_d5_carrier_group_desc:0 "Lập nhóm tác chiến quanh tàu sân bay và các khu trục hộ tống. Hiệu ứng tổ chức tăng theo số tàu sân bay đã tiếp nhận.\n\n§gChi phí 1,0 tỷ USD.§!"
+ VIE_nf_d1_done_tt:0 "Đã hoàn tất huấn luyện lực lượng tàu mặt nước"
+ VIE_nf_d2_done_tt:0 "Đã hoàn tất huấn luyện lực lượng tàu ngầm"
+ VIE_nf_carrier_tt:0 "Đã tiếp nhận ít nhất §Y1§! tàu sân bay"
+ VIE_nf_destroyers_tt:0 "Đã tiếp nhận ít nhất §Y2§! khu trục"
+
+ vie_nav_force.30.t:0 "Cơ cấu lực lượng ban đầu"
+ vie_nav_force.30.d:0 "Sau những thân tàu đầu tiên, Bộ tư lệnh cần quyết định ưu tiên cho lực lượng: tàu nhanh và tên lửa bờ cho phòng thủ ven bờ, cân bằng mọi mặt, hay tầm xa cho hải quân khu vực. Lựa chọn nhánh chiến lược sau này nên khớp với ưu tiên này; lệch nhánh phải chịu chi phí chuyển đổi."
+ vie_nav_force.30.a:0 "Phòng thủ ven bờ: tấn công tàu mặt nước +2%, tầm hoạt động -3%"
+ vie_nav_force.30.b:0 "Cân bằng: bonus nhỏ đều mọi mặt"
+ vie_nav_force.30.c:0 "Tầm xa: tầm hoạt động +4%, tổ chức +2%, chi phí duy trì nhân sự +3%"
+ vie_nav_force.63.t:0 "Huấn luyện hiệp đồng hạm đội hoàn tất"
+ vie_nav_force.63.d:0 "Chương trình hiệp đồng giữa tàu mặt nước và tàu ngầm, cùng mạng lưới chống ngầm ven bờ, đã hoàn tất."
+ vie_nav_force.63.a:0 "Tốt."
+ vie_nav_force.64.t:0 "Cơ cấu lực lượng ban đầu hoàn tất"
+ vie_nav_force.64.d:0 "Lực lượng hải quân đã được tổ chức theo ưu tiên đã chọn."
+ vie_nav_force.64.a:0 "Tốt."
+ vie_nav_force.65.t:0 "Nhóm tác chiến tàu sân bay đã lập"
+ vie_nav_force.65.d:0 "Nhóm tác chiến quanh tàu sân bay đã đi vào hoạt động. Hiệu ứng tổ chức tăng theo số tàu sân bay thực tế."
+ vie_nav_force.65.a:0 "Tốt."
+ VIE_dec_nf_train_asw:0 "Huấn luyện chống ngầm"
+ VIE_dec_nf_train_asw_desc:0 "Tổ chức đợt huấn luyện chống ngầm cho tàu mặt nước và tàu ngầm. Sau 120 ngày: kinh nghiệm hải quân và tăng khả năng phát hiện trong 180 ngày."
+ VIE_nf_idea_asw_drill:0 "Đã huấn luyện chống ngầm"
+ VIE_nf_idea_asw_drill_desc:0 "Các kíp tàu vừa qua đợt huấn luyện chống ngầm."
+ VIE_dec_nf_train_firing:0 "Diễn tập bắn đạn thật trên biển"
+ VIE_dec_nf_train_firing_desc:0 "Diễn tập bắn pháo và tên lửa trên biển cho lực lượng tàu mặt nước. Sau 90 ngày: kinh nghiệm hải quân và tăng tỷ lệ bắn trúng trong 180 ngày."
+ VIE_nf_idea_firing_drill:0 "Đã diễn tập bắn đạn thật"
+ VIE_nf_idea_firing_drill_desc:0 "Các kíp pháo và tên lửa vừa qua đợt diễn tập bắn đạn thật."
+ VIE_dec_nf_train_mines:0 "Diễn tập thủy lôi và phòng thủ bờ"
+ VIE_dec_nf_train_mines_desc:0 "Diễn tập rải thủy lôi và phối hợp với phòng thủ bờ. Sau 90 ngày: kinh nghiệm hải quân và tăng hiệu quả rải thủy lôi trong 180 ngày."
+ VIE_nf_idea_mines_drill:0 "Đã diễn tập thủy lôi"
+ VIE_nf_idea_mines_drill_desc:0 "Các đơn vị vừa qua đợt diễn tập thủy lôi và phòng thủ bờ."
+ VIE_dec_nf_train_replenish:0 "Diễn tập tiếp tế và hộ tống viễn dương"
+ VIE_dec_nf_train_replenish_desc:0 "Diễn tập tiếp tế trên biển và hộ tống tuyến xa. Sau 120 ngày: kinh nghiệm hải quân và tăng tầm hoạt động trong 180 ngày."
+ VIE_nf_idea_replenish_drill:0 "Đã diễn tập tiếp tế viễn dương"
+ VIE_nf_idea_replenish_drill_desc:0 "Hạm đội vừa qua đợt diễn tập tiếp tế và hộ tống viễn dương."
+ vie_nav_force.70.t:0 "Cảng quốc tế Cam Ranh đi vào hoạt động"
+ vie_nav_force.70.d:0 "Ngày 8 tháng 3 năm 2016, Cảng quốc tế Cam Ranh khánh thành, mở cửa đón tàu quân sự nước ngoài vào tiếp nhiên liệu và sửa chữa, trong khi vẫn giữ quyền kiểm soát của Hải quân Việt Nam. Các hạm đội quen dần với việc hoạt động xa bờ và phối hợp với tàu khách.\n\nKinh nghiệm tiếp nhận và điều hành cảng giúp tổ chức hạm đội ổn định hơn."
+ vie_nav_force.70.a:0 "Tận dụng cảng"
+ vie_nav_force.72.t:0 "Ấn Độ trao tặng hộ vệ hạm tên lửa"
+ vie_nav_force.72.d:0 "Ngày 22 tháng 7 năm 2023, Ấn Độ trao tặng tàu INS Kirpan, một hộ vệ hạm tên lửa còn đầy đủ vũ khí, cho Hải quân Nhân dân Việt Nam, kèm theo huấn luyện cho kíp tàu. Đây là tàu chống ngầm có hệ thống vũ khí hiện đại đầu tiên mà hạm đội nhận được qua hợp tác với Ấn Độ.\n\nKíp tàu học cách khai thác hệ thống hỏa lực, nâng độ chính xác của toàn hạm đội."
+ vie_nav_force.72.a:0 "Đưa vào biên chế"
+ VIE_nf_tb_denial_missile:0 "Kinh nghiệm phòng thủ bờ tên lửa"
+ VIE_nf_tb_denial_sub:0 "Kinh nghiệm tác chiến tàu ngầm ven bờ"
+ VIE_nf_tb_green_frigate:0 "Kinh nghiệm khinh hạm viễn hành"
+ VIE_nf_tb_blue_destroyer:0 "Kinh nghiệm hộ tống viễn dương"
+
+
+# ====================================================================
+# SECTION: VIE_md_events_nav_ind_l_english.yml
+# ====================================================================
+
+
+ ### Truc 2 hai quan (CNQP): focus
+ VIE_naval_defence_law:0 "Thể chế Quốc phòng Hải quân"
+ VIE_naval_defence_law_desc:0 "Hải quân Nhân dân cần một khung thể chế riêng cho đóng tàu và bảo đảm kỹ thuật, tách khỏi các quyết định hành chính nội bộ của quân đội.\n\nĐây là bước đầu của chuỗi công nghiệp quốc phòng hải quân: có thể chế thì mới có xưởng, có xưởng thì mới có năng lực."
+ VIE_ba_son_shipyards:0 "Xưởng đóng tàu Ba Son"
+ VIE_ba_son_shipyards_desc:0 "Ba Son ở Thành phố Hồ Chí Minh là xưởng đóng tàu quân sự lớn nhất của Hải quân. Hiện đại hóa bến, ụ và nhân lực để xưởng có thể nhận hồ sơ kỹ thuật nước ngoài và đóng tàu chiến theo giấy phép.\n\nChọn hướng phát triển xưởng: đóng mới trước, bảo dưỡng trước, hay cân bằng cả hai."
+ VIE_naval_mro:0 "Bảo dưỡng Hải quân trong nước"
+ VIE_naval_mro_desc:0 "Khi hạm đội đã có đủ tàu, bảo dưỡng và sửa chữa phải làm được trong nước. Tàu ngầm được hỗ trợ từ cơ sở ở Cam Ranh cùng chuyên gia Nga, tàu mặt nước từ các xưởng ven biển."
+ VIE_small_combatant_construction:0 "Đóng tàu chiến cỡ nhỏ"
+ VIE_small_combatant_construction_desc:0 "Từ kinh nghiệm lắp ráp tàu tên lửa nhanh theo giấy phép, các xưởng trong nước tiến tới tự đóng tàu tuần tra, tàu tên lửa và hộ vệ nhỏ.\n\nChương trình này cấp năng lực, kinh nghiệm và giảm chi phí; bản thân tàu vẫn đến từ các hợp đồng riêng."
+ VIE_naval_systems_integration:0 "Tích hợp hệ thống hải quân"
+ VIE_naval_systems_integration_desc:0 "Thân tàu chỉ là một phần. Cảm biến, liên lạc, vũ khí và hệ thống điều khiển hỏa lực phải được tích hợp thành một khối thống nhất, dựa trên điện tử, C4ISR hoặc tên lửa do ngành khác cung cấp."
+ VIE_naval_defence_2030:0 "Công nghiệp Quốc phòng Hải quân 2030"
+ VIE_naval_defence_2030_desc:0 "Mục tiêu dài hạn: một nền công nghiệp tàu chiến có thể tự đóng, tự bảo dưỡng và từng bước tự tích hợp hệ thống. Không có tàu miễn phí ở cuối con đường này; phần thưởng là năng lực."
+
+ ### Tooltip điều kiện
+ VIE_nav_hulls_4_tt:0 "Đã nhận ít nhất §Y4§! thân tàu chủ lực từ các chương trình mua sắm"
+ VIE_nav_ext_source_tt:0 "Có ít nhất một nguồn năng lực: §Yđiện tử§!, §YC4ISR§! hoặc §Ytên lửa hải quân§!"
+ ### Decision 1 (Ba Son), chuỗi event, thông báo
+ VIE_naval_industry_category:0 "Công nghiệp Quốc phòng Hải quân"
+ VIE_naval_industry_category_desc:0 "Các chương trình xây dựng năng lực cho ngành đóng tàu và bảo đảm kỹ thuật hải quân: xưởng Ba Son, bảo dưỡng trong nước, đóng tàu cỡ nhỏ, tích hợp hệ thống và nền công nghiệp trưởng thành.\n\n§YChương trình đang chạy:§! [?VIE_var_naval_program_active|0] / 2\n§gTối đa hai chương trình cùng lúc. Không chương trình nào cấp tàu; phần thưởng là năng lực, kinh nghiệm và chi phí thấp hơn.§!\n\n§YKinh nghiệm:§! đóng tàu [?VIE_var_shipbuilding_exp|0] · bảo dưỡng [?VIE_var_mro_exp|0] · tích hợp [?VIE_var_integration_exp|0] (tối đa 100)\n§gChương trình 2030 cần đóng tàu từ 30 và bảo dưỡng từ 15.§!"
+ VIE_nav_d1_ba_son:0 "Phát triển năng lực xưởng Ba Son"
+ VIE_nav_d1_ba_son_desc:0 "Đầu tư vào ụ, bến và nhân lực của Ba Son để xưởng nhận được hồ sơ kỹ thuật nước ngoài và đóng tàu chiến theo giấy phép.\n\nXưởng dùng được từ khoảng 40% tiến độ, nên các chương trình đóng tàu trong nước không phải chờ đến khi hoàn tất."
+ VIE_nav_slot_tt:0 "Đang chạy ít hơn §Y2§! chương trình công nghiệp quốc phòng hải quân"
+ VIE_nav_orient_tt:0 "Đã chọn định hướng phát triển Ba Son (sau khi hoàn thành §YXưởng đóng tàu Ba Son§!)"
+ VIE_nav_prog_ba_son:0 "Chương trình Ba Son đang thực hiện"
+ VIE_nav_prog_ba_son_desc:0 "Xưởng Ba Son đang được mở rộng. Hoàn tất khi thời hạn kết thúc."
+ vie_nav_ind.1.t:0 "Định hướng của Ba Son"
+ vie_nav_ind.1.d:0 "Ba Son có thể tập trung trước vào đóng mới hoặc vào bảo dưỡng. Phát triển cân bằng cả hai mảng cùng lúc làm chi phí chương trình Ba Son cao hơn 15%; thời gian thi công không đổi."
+ vie_nav_ind.1.a:0 "Đóng tàu trước."
+ vie_nav_ind.1.b:0 "Bảo dưỡng trước."
+ vie_nav_ind.1.c:0 "Phát triển cân bằng cả hai."
+ vie_nav_ind.2.t:0 "Mức đầu tư cho Ba Son"
+ vie_nav_ind.2.d:0 "Mức đầu tư quyết định số ụ đóng tàu mới, thời gian thi công và phần việc ngân sách phải gánh. Ba Son dùng được từ khoảng 40% tiến độ ở mọi mức."
+ vie_nav_ind.2.a:0 "Cơ bản: 12 tháng, một ụ đóng tàu."
+ vie_nav_ind.2.b:0 "Mở rộng: 18 tháng, một ụ cùng đầu tư thêm."
+ vie_nav_ind.2.c:0 "Trọng điểm: 24 tháng, hai ụ đóng tàu."
+ vie_nav_ind.60.t:0 "Ba Son đã dùng được"
+ vie_nav_ind.60.d:0 "Các hạng mục đầu tiên đã xong. Xưởng đủ năng lực tiếp nhận hồ sơ kỹ thuật và giấy phép đóng tàu, dù chương trình mở rộng vẫn tiếp tục."
+ vie_nav_ind.60.a:0 "Tốt lắm."
+ vie_nav_ind.61.t:0 "Hoàn tất mở rộng Ba Son"
+ vie_nav_ind.61.d:0 "Chương trình mở rộng đã xong: ụ đóng tàu mới đi vào hoạt động, đội ngũ kỹ sư và công nhân được bổ sung."
+ vie_nav_ind.61.a:0 "Ghi nhận."
+ ### Decision 2 (MRO) và Decision 3 (tàu chiến đấu cỡ nhỏ)
+ VIE_nav_d2_mro:0 "Nội địa hóa bảo dưỡng hải quân"
+ VIE_nav_d2_mro_desc:0 "Xây năng lực bảo dưỡng và sửa chữa tàu trong nước. Tàu ngầm Kilo được hỗ trợ từ cơ sở ở Cam Ranh cùng chuyên gia Nga; tàu mặt nước từ các xưởng ven biển.\n\nChọn trọng tâm, nguồn hỗ trợ và mức nội địa hóa. Mức cao hơn cần xưởng đã trưởng thành."
+ VIE_nav_d3_small:0 "Chương trình đóng tàu chiến đấu cỡ nhỏ"
+ VIE_nav_d3_small_desc:0 "Từ kinh nghiệm lắp ráp tàu tên lửa theo giấy phép, các xưởng trong nước tiến tới tự đóng tàu tuần tra, tàu tên lửa và hộ vệ nhỏ.\n\nChương trình không cấp tàu. Nó cấp năng lực, kinh nghiệm và hệ số chi phí thấp hơn cho các hợp đồng đóng tàu nhỏ về sau."
+ VIE_nav_yard_tt:0 "Xưởng Ba Son đã dùng được (đạt khoảng 40% tiến độ của chương trình Ba Son)"
+ VIE_nav_hull_source_tt:0 "Đã nhận ít nhất một §Ytàu ngầm§! hoặc một §Ytàu mặt nước§! từ các chương trình mua sắm"
+ VIE_nav_prog_mro:0 "Chương trình bảo dưỡng hải quân đang thực hiện"
+ VIE_nav_prog_mro_desc:0 "Năng lực bảo dưỡng trong nước đang được xây dựng. Hoàn tất khi thời hạn kết thúc."
+ VIE_nav_prog_small:0 "Chương trình tàu chiến đấu cỡ nhỏ đang thực hiện"
+ VIE_nav_prog_small_desc:0 "Năng lực đóng tàu chiến đấu cỡ nhỏ trong nước đang được xây dựng. Hoàn tất khi thời hạn kết thúc."
+ vie_nav_ind.10.t:0 "Bảo dưỡng: trọng tâm"
+ vie_nav_ind.10.d:0 "Tàu ngầm và tàu mặt nước cần những cơ sở và đội ngũ khác nhau. Có thể đầu tư cho một loại hoặc cho cả hạm đội với chi phí cao hơn 30%."
+ vie_nav_ind.10.a:0 "Tàu ngầm."
+ vie_nav_ind.10.b:0 "Tàu mặt nước."
+ vie_nav_ind.10.c:0 "Toàn hạm đội."
+ vie_nav_ind.11.t:0 "Bảo dưỡng: nguồn hỗ trợ"
+ vie_nav_ind.11.d:0 "Hợp tác với Nga rẻ hơn và nhanh hơn, nhưng gắn năng lực bảo dưỡng với một nhà cung cấp. Tự chủ tốn kém và chậm hơn, nhưng không phụ thuộc ai."
+ vie_nav_ind.11.a:0 "Hợp tác với Nga."
+ vie_nav_ind.11.b:0 "Tự chủ."
+ vie_nav_ind.12.t:0 "Bảo dưỡng: mức nội địa hóa"
+ vie_nav_ind.12.d:0 "Mức nội địa hóa quyết định thời gian, chi phí và kinh nghiệm thu được. Mức Chuyên sâu đòi hỏi xưởng Ba Son đã hoàn tất chương trình mở rộng. Mức Tự chủ cao đòi thêm: chương trình Ba Son ở mức Mở rộng trở lên, hoặc chương trình tàu chiến đấu cỡ nhỏ đã xong."
+ vie_nav_ind.12.a:0 "Cơ bản: 12 tháng."
+ vie_nav_ind.12.b:0 "Chuyên sâu: 18 tháng."
+ vie_nav_ind.12.c:0 "Tự chủ cao: 24 tháng."
+ vie_nav_ind.62.t:0 "Hoàn tất nội địa hóa bảo dưỡng"
+ vie_nav_ind.62.d:0 "Năng lực bảo dưỡng tàu trong nước đã đi vào hoạt động, kinh nghiệm của đội ngũ kỹ thuật tăng lên."
+ vie_nav_ind.62.a:0 "Ghi nhận."
+ vie_nav_ind.20.t:0 "Tàu cỡ nhỏ: chuyên hóa"
+ vie_nav_ind.20.d:0 "Chương trình tập trung vào một loại tàu: tuần tra ven bờ, tàu tên lửa tốc độ cao, hoặc đa dụng. Mỗi loại giảm chi phí đóng tàu nhỏ về sau ở mức khác nhau."
+ vie_nav_ind.20.a:0 "Tàu tuần tra."
+ vie_nav_ind.20.b:0 "Tàu tốc độ cao."
+ vie_nav_ind.20.c:0 "Tàu đa dụng."
+ vie_nav_ind.21.t:0 "Tàu cỡ nhỏ: mức sản xuất"
+ vie_nav_ind.21.d:0 "Từ lô thử nghiệm đến chuyển giao công nghệ hoàn chỉnh. Mức cao nhất chỉ mở khi chương trình đóng tàu Molniya trong nước đã khởi đóng."
+ vie_nav_ind.21.a:0 "Lô thử nghiệm: 12 tháng."
+ vie_nav_ind.21.b:0 "Sản xuất hàng loạt: 18 tháng."
+ vie_nav_ind.21.c:0 "Chuyển giao công nghệ: 24 tháng."
+ vie_nav_ind.63.t:0 "Hoàn tất chương trình tàu cỡ nhỏ"
+ vie_nav_ind.63.d:0 "Năng lực đóng tàu chiến đấu cỡ nhỏ trong nước đã sẵn sàng. Chi phí cho các hợp đồng đóng tàu nhỏ về sau thấp hơn."
+ vie_nav_ind.63.a:0 "Ghi nhận."
+ ### Decision 4 (tích hợp hệ thống) và Decision 5 (công nghiệp hải quân 2030)
+ VIE_nav_d4_integration:0 "Tích hợp hệ thống hải quân"
+ VIE_nav_d4_integration_desc:0 "Tích hợp cảm biến, liên lạc, vũ khí và hệ thống điều khiển hỏa lực thành một khối thống nhất. Mỗi lĩnh vực cần đúng nguồn năng lực từ ngành khác: điện tử, C4ISR hoặc tên lửa hải quân."
+ VIE_nav_d5_2030:0 "Công nghiệp Quốc phòng Hải quân 2030"
+ VIE_nav_d5_2030_desc:0 "Đưa nền công nghiệp tàu chiến lên mức trưởng thành: tự đóng, tự bảo dưỡng và từng bước tự tích hợp hệ thống. Không có tàu miễn phí; phần thưởng là năng lực công nghiệp."
+ VIE_nav_d1_done_tt:0 "Chương trình mở rộng xưởng Ba Son đã §Yhoàn tất§!"
+ VIE_nav_exp_ship_tt:0 "Kinh nghiệm đóng tàu từ §Y30§! trở lên (hiện tại §Y[?VIE_var_shipbuilding_exp|0]§!)"
+ VIE_nav_exp_mro_tt:0 "Kinh nghiệm bảo dưỡng từ §Y15§! trở lên (hiện tại §Y[?VIE_var_mro_exp|0]§!)"
+ VIE_nav_prog_integration:0 "Chương trình tích hợp hệ thống đang thực hiện"
+ VIE_nav_prog_integration_desc:0 "Năng lực tích hợp hệ thống đang được xây dựng. Hoàn tất khi thời hạn kết thúc."
+ VIE_nav_prog_2030:0 "Chương trình công nghiệp hải quân 2030 đang thực hiện"
+ VIE_nav_prog_2030_desc:0 "Nền công nghiệp tàu chiến đang được nâng lên mức trưởng thành. Hoàn tất khi thời hạn kết thúc."
+ VIE_nav_mature_industry_idea:0 "Công nghiệp tàu chiến trưởng thành"
+ VIE_nav_mature_industry_idea_desc:0 "Việt Nam đã có nền công nghiệp tự đóng, tự bảo dưỡng và từng bước tự tích hợp hệ thống cho tàu chiến."
+ VIE_nav_law_idea:0 "Pháp lệnh quốc phòng hải quân"
+ VIE_nav_law_idea_desc:0 "Khung pháp lý cho công nghiệp đóng tàu và đào tạo hải quân, tăng năng lực xưởng đóng tàu và tốc độ tích lũy kinh nghiệm."
+ vie_nav_ind.30.t:0 "Tích hợp hệ thống: lĩnh vực"
+ vie_nav_ind.30.d:0 "Điện tử, vũ khí hay cả hệ thống. Mỗi lĩnh vực chỉ mở khi ta có nguồn năng lực tương ứng từ các ngành khác; toàn hệ thống đòi cả hai nguồn và tốn thêm một nửa chi phí."
+ vie_nav_ind.30.a:0 "Điện tử: cảm biến, liên lạc, hỏa lực."
+ vie_nav_ind.30.b:0 "Vũ khí và điều khiển hỏa lực."
+ vie_nav_ind.30.c:0 "Toàn bộ hệ thống chiến đấu."
+ vie_nav_ind.31.t:0 "Tích hợp hệ thống: mức nội địa hóa"
+ vie_nav_ind.31.d:0 "Mức cao hơn tốn nhiều thời gian và chi phí hơn nhưng để lại nhiều kinh nghiệm hơn cho đội ngũ kỹ thuật trong nước."
+ vie_nav_ind.31.a:0 "Cơ bản: 12 tháng."
+ vie_nav_ind.31.b:0 "Cân bằng: 18 tháng."
+ vie_nav_ind.31.c:0 "Tự chủ cao: 24 tháng."
+ vie_nav_ind.64.t:0 "Hoàn tất tích hợp hệ thống"
+ vie_nav_ind.64.d:0 "Năng lực tích hợp hệ thống trong nước đã đi vào hoạt động; kinh nghiệm của đội ngũ kỹ sư tăng lên."
+ vie_nav_ind.64.a:0 "Ghi nhận."
+ vie_nav_ind.40.t:0 "Công nghiệp hải quân 2030: ưu tiên"
+ vie_nav_ind.40.d:0 "Chọn mảng được dồn lực để đưa lên mức trưởng thành. Mỗi ưu tiên chỉ mở khi chương trình tương ứng đã hoàn tất; ưu tiên toàn diện cần cả ba."
+ vie_nav_ind.40.a:0 "Đóng tàu."
+ vie_nav_ind.40.b:0 "Bảo dưỡng."
+ vie_nav_ind.40.c:0 "Tích hợp hệ thống."
+ vie_nav_ind.40.g:0 "Toàn diện."
+ vie_nav_ind.41.t:0 "Công nghiệp hải quân 2030: mức tự chủ"
+ vie_nav_ind.41.d:0 "Mức tự chủ càng cao thì chi phí và thời gian càng lớn, và đòi xưởng Ba Son cùng năng lực tích hợp ở trình độ tương ứng."
+ vie_nav_ind.41.a:0 "Tự chủ hạn chế: 24 tháng."
+ vie_nav_ind.41.b:0 "Công nghiệp tích hợp: 30 tháng."
+ vie_nav_ind.41.c:0 "Tự chủ cao: 36 tháng."
+ vie_nav_ind.65.t:0 "Nền công nghiệp tàu chiến trưởng thành"
+ vie_nav_ind.65.d:0 "Chương trình đã hoàn tất. Việt Nam có nền công nghiệp đóng tàu chiến có thể tự đóng, tự bảo dưỡng và tích hợp hệ thống ở mức đã chọn."
+ vie_nav_ind.65.a:0 "Ghi nhận."
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p10_l_english.yml
+# ====================================================================
+
+
+ ### vie_pol.11
+ vie_pol.11.t:0 "Hội Nghị Trung Ương 6: Tự Phê Bình và Phê Bình"
+ vie_pol.11.d:0 "Ban Chấp hành Trung ương nhóm họp để kiểm điểm trách nhiệm của tập thể và cá nhân ban lãnh đạo. Một số ủy viên yêu cầu phải thi hành kỷ luật đích danh cán bộ lãnh đạo cấp cao. Những người khác chỉ muốn dừng lại ở mức phát động tự phê bình chung."
+ vie_pol.11.a:0 "Kêu gọi toàn Đảng nghiêm túc tự phê bình"
+ vie_pol.11.b:0 "Thi hành kỷ luật đích danh cán bộ cấp cao"
+
+ ### vie_pol.12
+ vie_pol.12.t:0 "Đại Hội Đảng Lần Thứ XV"
+ vie_pol.12.d:0 "Các đại biểu hội tụ để bầu chọn thế hệ lãnh đạo kế cận và vạch ra định hướng phát triển đất nước tới năm 2036. Lễ kỷ niệm 100 năm ngày thành lập Đảng đã qua và mục tiêu trở thành nước phát triển có thu nhập cao đang ở ngay trước mắt."
+ vie_pol.12.a:0 "Kế thừa: Giữ vững ban lãnh đạo đã qua thử thách"
+ vie_pol.12.b:0 "Bầu chọn đội ngũ nhân sự trẻ mang tư duy cải cách"
+
+ ### vie_pol.13
+ vie_pol.13.t:0 "Đại Hội Đảng Lần Thứ XVI"
+ vie_pol.13.d:0 "Đại hội Đảng toàn quốc tiếp tục triệu tập. Một thế hệ cán bộ lãnh đạo mới, sinh ra và lớn lên sau chiến tranh, đã sẵn sàng tiếp quản trọng trách. Các cuộc thảo luận sôi nổi xoay quanh mức độ đổi mới thể chế."
+ vie_pol.13.a:0 "Kế thừa: Tiếp tục đường lối lãnh đạo kiên định"
+ vie_pol.13.b:0 "Bầu chọn đội ngũ lãnh đạo trẻ trung, đổi mới"
+
+ ### vie_pol.14
+ vie_pol.14.t:0 "Bầu Cử Đại Biểu Quốc Hội"
+ vie_pol.14.d:0 "Cử tri cả nước đi bỏ phiếu bầu ra Quốc hội khóa mới. Mặt trận Tổ quốc tiến hành hiệp thương kỹ lưỡng danh sách ứng cử viên, trong khi một số ứng viên tự ứng cử đề đạt nguyện vọng tham gia."
+ vie_pol.14.a:0 "Siết chặt hiệp thương theo đúng quy trình truyền thống"
+ vie_pol.14.b:0 "Tạo điều kiện cho thêm các ứng viên tự do tranh cử"
+
+ ### vie_pol.15
+ vie_pol.15.t:0 "Bản Kiến Nghị Sửa Đổi Hiến Pháp"
+ vie_pol.15.d:0 "Một nhóm các học giả, nhân sĩ trí thức và cựu cán bộ công bố bản kiến nghị đề nghị tổ chức lấy ý kiến nhân dân công khai và sâu rộng về việc sửa đổi Hiến pháp. Ban lãnh đạo đứng trước quyết định xử lý bản kiến nghị này."
+ vie_pol.15.a:0 "Âm thầm tiếp thu một số điểm hợp lý"
+ vie_pol.15.b:0 "Mở cuộc thảo luận rộng rãi trong toàn dân"
+ vie_pol.15.c:0 "Bác bỏ bản kiến nghị"
+
+ ### vie_pol.16
+ vie_pol.16.t:0 "Tinh Gọn Bộ Máy Nhà Nước"
+ vie_pol.16.d:0 "Đề án sáp nhập các bộ ngành và cắt giảm biên chế đã được đưa lên bàn nghị sự. Nhiều cán bộ sẽ phải dôi dư, và các bộ ngành đều tìm cách vận động hành lang để tránh bị sáp nhập."
+ vie_pol.16.a:0 "Cắt giảm quyết liệt, thần tốc"
+ vie_pol.16.b:0 "Triển khai thận trọng theo từng giai đoạn"
+
+ ### vie_pol.17
+ vie_pol.17.t:0 "Sáp Nhập Đơn Vị Hành Chính Cấp Tỉnh"
+ vie_pol.17.d:0 "Chính phủ đề xuất phương án sáp nhập để giảm số lượng tỉnh thành và tinh giản bỏ cấp quận/huyện trung gian. Nhiều vị trí lãnh đạo địa phương sẽ bị cắt giảm, trong khi người dân phải làm quen với việc giải quyết thủ tục tại các trung tâm hành chính mới."
+ vie_pol.17.a:0 "Rút gọn còn 34 tỉnh thành và bỏ cấp huyện"
+ vie_pol.17.b:0 "Chỉ sáp nhập thí điểm ở quy mô hạn chế"
+
+ ### vie_pol.19
+ vie_pol.19.t:0 "Vụ Tấn Công Trụ Sở Xã tại Tây Nguyên"
+ vie_pol.19.d:0 "Nhóm đối tượng có vũ trang đã bất ngờ tấn công trụ sở xã tại vùng cao nguyên khiến nhiều cán bộ, chiến sĩ hy sinh và người dân thiệt mạng. Chính quyền địa phương khẩn thiết đề nghị trung ương chi viện."
+ vie_pol.19.a:0 "Truy quét tận gốc và lập lại trật tự kỷ cương"
+ vie_pol.19.b:0 "Tăng cường thêm chương trình phát triển kinh tế vùng"
+
+ ### vie_pol.20
+ vie_pol.20.t:0 "Tranh Chấp Đất Đai Căng Thẳng"
+ vie_pol.20.d:0 "Bà con nông dân tại một huyện ven đô đã dựng rào chặn đường để phản đối phương án thu hồi đất và giá bồi thường dự án. Lực lượng chức năng đã có mặt tại hiện trường dưới sự theo dõi sát sao của ống kính máy quay."
+ vie_pol.20.a:0 "Cưỡng chế giải tỏa đám đông quá khích"
+ vie_pol.20.b:0 "Điều chỉnh mức đền bù thỏa đáng theo giá thị trường"
+ vie_pol.20.c:0 "Mở cuộc đối thoại trực tiếp với người dân"
+
+ ### vie_pol.22
+ vie_pol.22.t:0 "Bầu Kiện Toàn Chức Danh Tổng Bí Thư"
+ vie_pol.22.d:0 "Ban Chấp hành Trung ương triệu tập hội nghị khẩn cấp để bầu nhà lãnh đạo mới sau khi vị trí đứng đầu Đảng bất ngờ bị khuyết. Hai khuynh hướng chính trị đều đưa ra nhân sự đại diện."
+ vie_pol.22.a:0 "Ủng hộ ứng viên có xuất thân từ khối nội chính, an ninh"
+ vie_pol.22.b:0 "Ủng hộ ứng viên có kinh nghiệm điều hành kinh tế"
+
+ ### vie_cor.1
+ vie_cor.1.t:0 "Đại Án Vinalines"
+ vie_cor.1.d:0 "Tổng công ty Hàng hải Việt Nam làm thất thoát hàng ngàn tỷ đồng qua các thương vụ mua sắm ụ nổi và đầu tư dàn trải. Cơ quan điều tra đã khởi tố hàng loạt lãnh đạo chủ chốt, trong đó có nhiều cán bộ đảng viên cấp cao."
+ vie_cor.1.a:0 "Kiên quyết khởi tố và xử lý nghiêm mọi đối tượng"
+ vie_cor.1.b:0 "Xử lý kỷ luật nội bộ trong Đảng"
+
+ ### vie_cor.2
+ vie_cor.2.t:0 "Căng Thẳng Ngoại Giao Liên Quan Đến Dẫn Độ"
+ vie_cor.2.d:0 "Chính phủ Đức cáo buộc Việt Nam tiến hành chiến dịch bắt cóc một cựu quan chức doanh nghiệp đang xin tị nạn ngay tại Berlin. Quan hệ song phương rơi vào khủng hoảng và các doanh nghiệp hai nước hết sức lo lắng."
+ vie_cor.2.a:0 "Giữ vững lập trường và cách giải thích của Hà Nội"
+ vie_cor.2.b:0 "Chủ động hòa giải để xoa dịu Berlin"
+
+ ### vie_cor.3
+ vie_cor.3.t:0 "Bê Bối Thương Vụ Mua Doanh Nghiệp Truyền Hình"
+ vie_cor.3.d:0 "Tổng công ty viễn thông nhà nước đã chi khoản tiền khổng lồ để thâu tóm một doanh nghiệp truyền hình tư nhân đang thua lỗ với mức giá trên trời. Cơ quan điều tra phát hiện dấu hiệu lại quả và hàng loạt quan chức liên quan."
+ vie_cor.3.a:0 "Truy tố nghiêm minh và thu hồi triệt để tài sản"
+ vie_cor.3.b:0 "Khoanh vùng xử lý nhằm giữ ổn định doanh nghiệp"
+
+ ### vie_cor.4
+ vie_cor.4.t:0 "Đại Án 'Chuyến Bay Giải Cứu'"
+ vie_cor.4.d:0 "Các cán bộ thoái hóa và doanh nghiệp câu kết trục lợi hàng trăm tỷ đồng từ các chuyến bay đưa kiều bào về nước tránh dịch. Dư luận nhân dân cả nước vô cùng căm phẫn trước hành vi trục lợi trên nỗi đau đồng bào."
+ vie_cor.4.a:0 "Mở rộng điều tra và xét xử nghiêm khắc nhất"
+ vie_cor.4.b:0 "Khoanh vùng vụ án để tránh tổn hại ngành ngoại giao"
+
+ ### vie_cor.5
+ vie_cor.5.t:0 "Đại Án Đăng Kiểm Phương Tiện Giao Thông"
+ vie_cor.5.d:0 "Hàng trăm đăng kiểm viên và lãnh đạo trung tâm đăng kiểm bị bắt vì nhận hối lộ để bỏ qua vi phạm kỹ thuật của phương tiện. Hàng loạt trung tâm đóng cửa khiến các tài xế phải xếp hàng rồng rắn thâu đêm."
+ vie_cor.5.a:0 "Kiên quyết xử lý dứt điểm sai phạm dù xảy ra ùn tắc"
+ vie_cor.5.b:0 "Xử lý từng bước để đảm bảo hoạt động lưu thông phương tiện"
+
+ ### vie_cor.7
+ vie_cor.7.t:0 "Thông Thầu Đấu Thầu tại Các Tỉnh Thành"
+ vie_cor.7.d:0 "Thanh tra phát hiện cùng một nhóm doanh nghiệp 'sân sau' liên tục trúng hàng loạt gói thầu thiết bị y tế và giáo dục tại nhiều địa phương, với sự tiếp tay của không ít quan chức sở ngành."
+ vie_cor.7.a:0 "Khởi tố hình sự và xử lý nghiêm minh"
+ vie_cor.7.b:0 "Chấn chỉnh nhắc nhở nội bộ"
+
+ ### vie_cor.8
+ vie_cor.8.t:0 "Thu Hồi Tài Sản Tham Nhũng Nộp Ngân Sách"
+ vie_cor.8.d:0 "Cơ quan thi hành án dân sự đã thu hồi thành công lượng lớn tiền mặt và bất động sản có giá trị từ các bị án tham nhũng để nộp về kho bạc nhà nước."
+ vie_cor.8.a:0 "Bổ sung toàn bộ vào ngân sách trung ương"
+ vie_cor.8.b:0 "Dành riêng nguồn vốn để đầu tư trường học và bệnh viện"
+
+ ### vie_eco.15
+ vie_eco.15.t:0 "Hiệp Định Thương Mại Song Phương Việt - Mỹ Có Hiệu Lực"
+ vie_eco.15.d:0 "Hiệp định BTA chính thức có hiệu lực. Hàng rào thuế quan đối với hàng hóa Việt Nam xuất sang Mỹ giảm mạnh, mở toang cánh cửa xuất khẩu, song các nhà sản xuất trong nước cũng lo ngại sức ép cạnh tranh từ hàng Mỹ."
+ vie_eco.15.a:0 "Triển khai thực thi toàn diện và nhanh chóng"
+ vie_eco.15.b:0 "Lộ trình thực hiện từng bước có biện pháp bảo hộ đi kèm"
+
+ ### vie_eco.16
+ vie_eco.16.t:0 "Cơn Sốt Bong Bóng Thị Trường Chứng Khoán"
+ vie_eco.16.d:0 "Chỉ số chứng khoán tăng gấp đôi chỉ sau một năm, thu hút đông đảo nhà đầu tư cá nhân rút tiết kiệm đổ xô vào sàn giao dịch. Cơ quan quản lý đứng trước câu hỏi liệu có nên can thiệp hạ nhiệt thị trường."
+ vie_eco.16.a:0 "Ban hành biện pháp hạ nhiệt kiểm soát đầu cơ"
+ vie_eco.16.b:0 "Để thị trường tự do vận hành theo cung cầu"
+
+ ### vie_eco.17
+ vie_eco.17.t:0 "Cơn Bão Khủng Hoảng Tài Chính Toàn Cầu"
+ vie_eco.17.d:0 "Đơn hàng xuất khẩu sụt giảm nghiêm trọng, hàng loạt nhà máy buộc phải cắt giảm lao động. Giới chuyên gia chia rẽ sâu sắc giữa việc tung gói kích cầu kinh tế hay duy trì thắt lưng buộc bụng."
+ vie_eco.17.a:0 "Tung gói kích cầu kinh tế và hỗ trợ lãi suất"
+ vie_eco.17.b:0 "Giữ vững kỷ luật tài khóa thận trọng"
+
+ ### vie_eco.18
+ vie_eco.18.t:0 "Thị Trường Bất Động Sản Đóng Băng"
+ vie_eco.18.d:0 "Thanh khoản căn hộ và đất nền gần như tê liệt hoàn toàn, các doanh nghiệp xây dựng không thể trả nợ đến hạn. Các ngân hàng lo ngại một làn sóng nợ xấu lan rộng."
+ vie_eco.18.a:0 "Tung gói tín dụng ưu đãi hỗ trợ nhà ở xã hội"
+ vie_eco.18.b:0 "Để thị trường tự điều chỉnh thanh lọc"
+
+ ### vie_eco.20
+ vie_eco.20.t:0 "Dịch Tả Lợn Châu Phi Bùng Phát"
+ vie_eco.20.d:0 "Dịch bệnh nguy hiểm lan rộng khắp các tỉnh miền Bắc và hàng triệu con lợn buộc phải tiêu hủy. Giá thịt lợn trên thị trường tăng vọt gấp đôi, ảnh hưởng trực tiếp đến bữa ăn của người dân."
+ vie_eco.20.a:0 "Tiêu hủy nghiêm ngặt và hỗ trợ tài chính cho người chăn nuôi"
+ vie_eco.20.b:0 "Tiêu hủy hạn chế và giảm mức hỗ trợ ngân sách"
+
+ ### vie_eco.22
+ vie_eco.22.t:0 "Hoa Kỳ Gắn Nhãn Thao Túng Tiền Tệ"
+ vie_eco.22.d:0 "Bộ Tài chính Hoa Kỳ đưa Việt Nam vào danh sách các quốc gia thao túng tiền tệ. Các doanh nghiệp xuất khẩu trong nước lo sốt vó trước nguy cơ bị áp thuế trừng phạt."
+ vie_eco.22.a:0 "Tích cực đàm phán giải trình với phía Hoa Kỳ"
+ vie_eco.22.b:0 "Bác bỏ cáo buộc vô căn cứ"
+
+ ### vie_eco.23
+ vie_eco.23.t:0 "Đứt Gãy Chuỗi Cung Ứng Bởi Biến Chủng Delta"
+ vie_eco.23.d:0 "Các nhà máy tại khu vực kinh tế trọng điểm phía Nam buộc phải tạm dừng hoạt động do công nhân nhiễm bệnh hoặc bị phong tỏa. Các tập đoàn mua hàng toàn cầu bắt đầu dịch chuyển đơn hàng sang nước khác."
+ vie_eco.23.a:0 "Áp dụng mô hình sản xuất '3 tại chỗ'"
+ vie_eco.23.b:0 "Tạm đóng cửa toàn bộ nhà máy để chống dịch"
+
+ ### vie_eco.24
+ vie_eco.24.t:0 "Cú Sốc Giá Dầu Toàn Cầu"
+ vie_eco.24.d:0 "Chiến sự tại châu Âu đẩy giá dầu thô thế giới leo lên đỉnh lịch sử. Chi phí xăng dầu tăng phi mã đánh thẳng vào ngành vận tải, nông nghiệp và hoạt động đánh bắt của ngư dân."
+ vie_eco.24.a:0 "Xả Quỹ Bình ổn Giá Xăng dầu và giảm thuế phí"
+ vie_eco.24.b:0 "Để giá xăng dầu vận động theo thị trường thế giới"
+
+ ### vie_eco.26
+ vie_eco.26.t:0 "Cuộc Tranh Luận Về Dự Án Bauxite Tây Nguyên"
+ vie_eco.26.d:0 "Các nhà khoa học và tướng lĩnh lão thành gửi tâm thư tới ban lãnh đạo cảnh báo dự án khai thác bauxite tại Tây Nguyên tiềm ẩn nguy cơ môi trường bùn đỏ và an ninh quốc phòng lớn hơn lợi ích kinh tế."
+ vie_eco.26.a:0 "Tiếp tục triển khai theo kế hoạch"
+ vie_eco.26.b:0 "Tạm dừng dự án để đánh giá lại toàn diện"
+
+ ### vie_eco.27
+ vie_eco.27.t:0 "Bong Bóng Bất Động Sản Đổ Vỡ"
+ vie_eco.27.d:0 "Nhiều doanh nghiệp địa ốc mất khả năng thanh toán trái phiếu và người mua nhà không nhận được nhà. Các ngân hàng thương mại ôm khối tài sản bảo đảm bằng bất động sản khó thanh khoản."
+ vie_eco.27.a:0 "Giải cứu thị trường bằng cơ chế gia hạn nợ"
+ vie_eco.27.b:0 "Chấp nhận để thị trường tự điều chỉnh giảm sâu"
+
+ ### vie_eco.28
+ vie_eco.28.t:0 "Biến Động Giá Nông Sản Thế Giới"
+ vie_eco.28.d:0 "Giá gạo và cà phê thế giới tăng phi mã do thiếu hụt nguồn cung toàn cầu, mang lại doanh thu xuất khẩu vượt xa mọi kỳ vọng."
+ vie_eco.28.a:0 "Tập trung bổ sung nguồn thu cho ngân sách nhà nước"
+ vie_eco.28.b:0 "Có cơ chế hỗ trợ tối đa lợi nhuận cho người nông dân"
+
+ ### vie_scs.9
+ vie_scs.9.t:0 "Ký Kết Hiệp Định Phân Định Vịnh Bắc Bộ"
+ vie_scs.9.d:0 "Hà Nội và Bắc Kinh ký kết hiệp định phân định ranh giới lãnh hải, vùng đặc quyền kinh tế và thềm lục địa trong Vịnh Bắc Bộ, đồng thời ký hiệp định hợp tác nghề cá. Thỏa thuận chấm dứt tranh chấp kéo dài ở vùng biển phía Bắc."
+ vie_scs.9.a:0 "Hoan nghênh hiệp định lịch sử"
+
+ ### vie_scs.10
+ vie_scs.10.t:0 "Ngư Dân Bị Tàu Nước Ngoài Bắt Giữ"
+ vie_scs.10.d:0 "Tàu chấp pháp nước ngoài bắt giữ tàu cá cùng các ngư dân Việt Nam tại vùng biển truyền thống gần các quần đảo. Thân nhân ngư dân khẩn thiết mong chính quyền can thiệp bảo hộ."
+ vie_scs.10.a:0 "Trao công hàm phản đối kịch liệt qua kênh ngoại giao"
+ vie_scs.10.b:0 "Cử lực lượng kiểm ngư và cảnh sát biển bảo vệ ngư dân"
+
+ ### vie_scs.11
+ vie_scs.11.t:0 "Đảo Nhân Tạo Mọc Lên Trên Biển Đông"
+ vie_scs.11.d:0 "Ảnh vệ tinh cho thấy hoạt động bồi đắp đảo quy mô lớn chưa từng có trên các rạn san hô ở Quần đảo Trường Sa. Các bên tranh chấp đều đang ráo riết củng cố công trình."
+ vie_scs.11.a:0 "Lên tiếng phản đối và viện dẫn luật pháp quốc tế"
+ vie_scs.11.b:0 "Đẩy nhanh tiến độ bồi đắp củng cố các đảo của Việt Nam"
+
+ ### vie_scs.12
+ vie_scs.12.t:0 "Tàu Cá Việt Nam Bị Đâm Chìm"
+ vie_scs.12.d:0 "Một tàu cá của ngư dân Việt Nam bị đâm chìm sau cú va chạm với tàu tuần tra cỡ lớn của nước ngoài. Rất may toàn bộ ngư dân đã được tàu bạn kịp thời ứng cứu an toàn."
+ vie_scs.12.a:0 "Gửi công hàm phản đối và kiên quyết yêu cầu bồi thường"
+ vie_scs.12.b:0 "Đưa vụ việc lên công luận và các diễn đàn quốc tế"
+
+ ### vie_scs.14
+ vie_scs.14.t:0 "Củng Cố Các Điểm Đảo Trường Sa"
+ vie_scs.14.d:0 "Việc Việt Nam nâng cấp các công trình phòng thủ và âu tàu trên Quần đảo Trường Sa thu hút sự chú ý của các nước láng giềng. Một số nhìn nhận đây là bước đi tự vệ chính đáng, số khác lo ngại chạy đua quân sự."
+ vie_scs.14.a:0 "Khẳng định đây là công trình phòng thủ tự vệ chính đáng"
+ vie_scs.14.b:0 "Không bình luận thêm"
+
+ ### vie_scs.15
+ vie_scs.15.t:0 "Đối Đầu Trực Diện Trên Biển"
+ vie_scs.15.d:0 "Tàu công vụ hai bên bám sát nhau gắt gao tại ngư trường truyền thống. Bất kỳ một sơ suất hay tính toán sai lầm nào cũng có thể châm ngòi cho một cuộc đụng độ nguy hiểm."
+ vie_scs.15.a:0 "Chủ động cơ động hạ nhiệt căng thẳng"
+ vie_scs.15.b:0 "Kiên quyết bám trụ giữ vững vị trí"
+
+ ### vie_scs.18
+ vie_scs.18.t:0 "Tiến Triển Về Bộ Quy Tắc Ứng Xử Biển Đông (COC)"
+ vie_scs.18.d:0 "Các cuộc đàm phán giữa ASEAN và Trung Quốc đạt được một số bước tiến cụ thể về văn bản dự thảo Bộ Quy tắc Ứng xử ở Biển Đông. Dù chưa phải là văn bản mang tính ràng buộc pháp lý, đây vẫn là một cơ sở đối thoại quan trọng."
+ vie_scs.18.a:0 "Hoan nghênh các tiến triển thực chất"
+
+ ### vie_dip.6
+ vie_dip.6.t:0 "Việt Nam Đảm Nhận Chức Chủ Tịch ASEAN"
+ vie_dip.6.d:0 "Việt Nam chính thức đảm nhiệm cương vị Chủ tịch luân phiên của ASEAN. Đất nước sẽ chủ trì chương trình nghị sự và tổ chức các hội nghị cấp cao, với kỳ vọng dẫn dắt khối vượt qua một năm đầy thách thức."
+ vie_dip.6.a:0 "Thúc đẩy sự đoàn kết nội khối ASEAN"
+ vie_dip.6.b:0 "Đẩy mạnh tiến trình đàm phán COC về Biển Đông"
+
+ ### vie_dip.7
+ vie_dip.7.t:0 "Bỏ Phiếu Ủy Viên Hội Đồng Bảo An LHQ"
+ vie_dip.7.d:0 "Việt Nam ứng cử vào vị trí Ủy viên không thường trực Hội đồng Bảo an Liên Hợp Quốc. Phiên bỏ phiếu đang đến gần và phái đoàn ngoại giao đang tích cực vận động các nước thành viên."
+ vie_dip.7.a:0 "Vận động ngoại giao quyết liệt"
+ vie_dip.7.b:0 "Tự tin vào uy tín và vị thế quốc tế của đất nước"
+
+ ### vie_dip.8
+ vie_dip.8.t:0 "Tổng Thống Hoa Kỳ Đến Thăm Hà Nội"
+ vie_dip.8.d:0 "Lần đầu tiên kể từ sau chiến tranh, một Tổng thống Hoa Kỳ tới thăm chính thức Hà Nội. Người dân đổ ra chật kín các tuyến phố đón chào, trong khi chính phủ hai bên lựa chọn ngôn từ ngoại giao hết sức cẩn trọng."
+ vie_dip.8.a:0 "Nhiệt liệt chào mừng chuyến thăm lịch sử"
+ vie_dip.8.b:0 "Tiếp đón theo đúng nghi thức ngoại giao chuẩn mực"
+
+ ### vie_dip.9
+ vie_dip.9.t:0 "Xác Lập Quan Hệ Đối Tác Toàn Diện Với Hoa Kỳ"
+ vie_dip.9.d:0 "Hà Nội và Washington tuyên bố xác lập khuôn khổ quan hệ Đối tác Toàn diện. Đây không phải là liên minh quân sự mà là một bước tiến vượt bậc trong hợp tác kinh tế, giáo dục và an ninh."
+ vie_dip.9.a:0 "Chính thức ký kết tuyên bố chung"
+
+ ### vie_dip.10
+ vie_dip.10.t:0 "Tàu Sân Bay Hoa Kỳ Thăm Cảng Đà Nẵng"
+ vie_dip.10.d:0 "Tàu sân bay hải quân Hoa Kỳ thả neo ngoài khơi Đà Nẵng và các thủy thủ lên bờ giao lưu văn hóa tại thành phố. Bắc Kinh đang theo dõi sát sao sự kiện biểu tượng này."
+ vie_dip.10.a:0 "Nồng nhiệt chào đón chuyến thăm"
+ vie_dip.10.b:0 "Tổ chức chuyến thăm với quy mô chừng mực, kín đáo"
+
+ ### vie_dip.11
+ vie_dip.11.t:0 "Chiến Sự Bùng Phát Tại Châu Âu"
+ vie_dip.11.d:0 "Quân đội Nga tiến vào lãnh thổ Ukraine. Đại hội đồng Liên Hợp Quốc triệu tập phiên bỏ phiếu và mọi quốc gia thành viên đều phải thể hiện rõ quan điểm của mình."
+ vie_dip.11.a:0 "Bỏ phiếu trắng: Giữ vững nguyên tắc trung lập, không chọn bên"
+ vie_dip.11.b:0 "Lên tiếng phản đối hành động quân sự"
+ vie_dip.11.c:0 "Thể hiện sự cảm thông với Moskva"
+
+ ### vie_dip.12
+ vie_dip.12.t:0 "Lãnh Đạo Trung Quốc Thăm Chính Thức Hà Nội"
+ vie_dip.12.d:0 "Nhà lãnh đạo Trung Quốc tới Hà Nội để hội đàm cấp cao. Phía Bắc Kinh đề xuất đưa cụm từ 'Cộng đồng chia sẻ tương lai' vào tuyên bố chung giữa hai nước."
+ vie_dip.12.a:0 "Đồng thuận với câu chữ trong tuyên bố chung"
+ vie_dip.12.b:0 "Tiếp đón trọng thị nhưng giữ khoảng cách ngoại giao chừng mực"
+
+ ### vie_dip.13
+ vie_dip.13.t:0 "Tổng Thống Nga Thăm Việt Nam"
+ vie_dip.13.d:0 "Tổng thống Nga tới thăm chính thức Hà Nội. Moskva đề xuất mở rộng hợp tác kỹ thuật quân sự và thăm dò dầu khí, trong khi Washington theo dõi với thái độ dò xét."
+ vie_dip.13.a:0 "Đón tiếp với nghi lễ trọng thể cao nhất"
+ vie_dip.13.b:0 "Tổ chức đón tiếp chừng mực, thực chất"
+
+ ### vie_dip.14
+ vie_dip.14.t:0 "Mùa Khô Và Hệ Thống Thủy Điện Thượng Nguồn"
+ vie_dip.14.d:0 "Dòng sông Mekong lại cạn trơ đáy trong mùa khô hạn, đồng bằng sông Cửu Long phải gánh chịu hậu quả từ các đập thủy điện tích nước ở thượng nguồn. Bà con nông dân khẩn thiết mong chính phủ lên tiếng."
+ vie_dip.14.a:0 "Gia tăng sức ép ngoại giao lên các quốc gia thượng nguồn"
+ vie_dip.14.b:0 "Chấp nhận thiệt hại và chủ động chuyển đổi mùa vụ"
+
+ ### vie_dip.15
+ vie_dip.15.t:0 "Đề Xuất Mua Sắm Vũ Khí Ưu Đãi"
+ vie_dip.15.d:0 "Một đối tác nước ngoài đưa ra đề xuất cung cấp các tổ hợp vũ khí hiện đại với điều kiện tài chính rất ưu đãi. Việc mua sắm này sẽ gắn chặt lực lượng vũ trang của Việt Nam với đối tác đó trong nhiều năm tới."
+ vie_dip.15.a:0 "Chấp thuận đề xuất mua sắm"
+ vie_dip.15.b:0 "Lịch thiệp từ chối để đa dạng hóa nguồn cung"
+
+ ### vie_dip.18
+
+
+ ### vie_int.9
+ vie_int.9.t:0 "Cường Quốc Đề Nghị Đặt Căn Cứ Quân Sự"
+ vie_int.9.d:0 "Một cường quốc lớn đề xuất được đồn trú lực lượng quân sự trên lãnh thổ Việt Nam, đi kèm các cam kết viện trợ tài chính và bảo đảm an ninh quốc phòng."
+ vie_int.9.a:0 "Kiên quyết từ chối: Nhất quán nguyên tắc không cho đặt căn cứ nước ngoài"
+ vie_int.9.b:0 "Chấp thuận đề xuất đồn trú"
+
+
+ ### vie_soc.9
+ vie_soc.9.t:0 "Siêu Bão Đổ Bộ"
+ vie_soc.9.d:0 "Một trong những cơn bão khủng khiếp nhất trong lịch sử đang đổ bộ thẳng vào dải ven biển. Các địa phương đang hối hả sơ tán khẩn cấp hàng chục vạn người dân."
+ vie_soc.9.a:0 "Huy động toàn bộ quân đội và lực lượng dự bị cứu hộ"
+ vie_soc.9.b:0 "Để chính quyền các tỉnh chủ động phương châm '4 tại chỗ'"
+
+ ### vie_soc.10
+ vie_soc.10.t:0 "Chùm Ca Bệnh Tái Phát Tại Đà Nẵng"
+ vie_soc.10.d:0 "Sau chuỗi ngày dài không ghi nhận ca nhiễm cộng đồng, virus corona bất ngờ tái xuất hiện tại một bệnh viện lớn ở thành phố miền Trung. Khách du lịch đang hối hả tìm cách rời thành phố."
+ vie_soc.10.a:0 "Lập tức áp đặt giãn cách phong tỏa thành phố"
+ vie_soc.10.b:0 "Chỉ tiến hành truy vết và khoanh vùng hẹp"
+
+ ### vie_soc.11
+ vie_soc.11.t:0 "Làn Sóng Dịch Biến Chủng Delta"
+ vie_soc.11.d:0 "Số ca lây nhiễm tăng chóng mặt tại các khu công nghiệp và đô thị trọng điểm phía Nam. Hệ thống y tế đứng trước nguy cơ quá tải và làn sóng người lao động bắt đầu đổ về quê tránh dịch."
+ vie_soc.11.a:0 "Áp dụng giãn cách xã hội nghiêm ngặt nhất"
+ vie_soc.11.b:0 "Sớm chuyển sang trạng thái thích ứng an toàn với dịch bệnh"
+
+ ### vie_soc.12
+ vie_soc.12.t:0 "Chiến Lược Ngoại Giao Vắc-Xin"
+ vie_soc.12.d:0 "Nguồn cung vắc-xin trên toàn cầu đang vô cùng khan hiếm. Việt Nam có thể dốc toàn lực cho chiến dịch ngoại giao vắc-xin ở nước ngoài hoặc đẩy mạnh tự nghiên cứu vắc-xin trong nước."
+ vie_soc.12.a:0 "Triển khai chiến dịch ngoại giao vắc-xin toàn diện"
+ vie_soc.12.b:0 "Tập trung tối đa nguồn lực phát triển vắc-xin nội địa"
+
+ ### vie_soc.13
+ vie_soc.13.t:0 "Mở Cửa Phục Hồi Kinh Tế"
+ vie_soc.13.d:0 "Với tỷ lệ bao phủ vắc-xin cho người trưởng thành đạt mức rất cao, chính phủ chuẩn bị dỡ bỏ các hạn chế chống dịch. Doanh nghiệp nóng lòng mở lại sản xuất trong khi ngành y tế vẫn rất thận trọng."
+ vie_soc.13.a:0 "Mở cửa phục hồi hoàn toàn"
+ vie_soc.13.b:0 "Mở cửa thận trọng theo từng giai đoạn"
+
+ ### vie_soc.15
+ vie_soc.15.t:0 "Công Nhân Lãng Công Phản Đối Luật Bảo Hiểm"
+ vie_soc.15.d:0 "Hàng vạn công nhân tại các khu chế xuất đã ngừng việc tập thể để phản đối quy định mới về điều kiện nhận bảo hiểm xã hội một lần. Lực lượng chức năng được đặt trong tình trạng ứng trực cao độ."
+ vie_soc.15.a:0 "Lắng nghe nguyện vọng và sửa đổi điều khoản gây tranh cãi"
+ vie_soc.15.b:0 "Giữ nguyên quy định của luật"
+
+ ### vie_soc.16
+ vie_soc.16.t:0 "Cuộc Tranh Cãi Về Cây Xanh Thủ Đô"
+ vie_soc.16.d:0 "Người dân thủ đô phát hiện kế hoạch chặt hạ hàng ngàn cây xanh cổ thụ trên các tuyến phố nội đô. Những cuộc tụ tập bày tỏ ý kiến phản đối bắt đầu xuất hiện."
+ vie_soc.16.a:0 "Dừng ngay việc chặt hạ và xử lý nghiêm cán bộ liên quan"
+ vie_soc.16.b:0 "Tiếp tục thực hiện đề án theo kế hoạch"
+
+ ### vie_soc.17
+ vie_soc.17.t:0 "Vinh Quang Sân Cỏ Đưa Hàng Triệu Người Xuống Đường"
+ vie_soc.17.d:0 "Đội tuyển bóng đá quốc gia giành chiến thắng nghẹt thở trong trận chung kết khu vực. Hàng triệu người dân hò reo 'đi bão' ăn mừng trên khắp các ngả đường, rợp bóng cờ đỏ sao vàng."
+ vie_soc.17.a:0 "Chào đón những người hùng sân cỏ như các vị anh hùng"
+ vie_soc.17.b:0 "Ăn mừng chừng mực và bảo đảm trật tự an toàn giao thông"
+
+ ### vie_soc.19
+ vie_soc.19.t:0 "Vấn Nạn Chảy Máu Chất Xám"
+ vie_soc.19.d:0 "Khảo sát cho thấy phần lớn sinh viên tốt nghiệp xuất sắc lựa chọn ở lại nước ngoài làm việc và rất ít người trở về. Các trường đại học kiến nghị cần có thêm kinh phí đãi ngộ và tự chủ học thuật."
+ vie_soc.19.a:0 "Tăng nguồn vốn đầu tư và cơ chế tự chủ cho các trường đại học"
+ vie_soc.19.b:0 "Chấp nhận quy luật dịch chuyển nhân lực tự nhiên"
+
+ ### vie_alt.40
+ vie_alt.40.t:0 "Bài Học Từ Liên Bang Nam Tư"
+ vie_alt.40.d:0 "Các nhà phân tích nhắc nhở rằng đường lối không liên kết từng có tiền lệ tại một liên bang ở châu Âu bị tan rã trong máu lửa. Họ cảnh báo rằng phân quyền quá trớn có thể xé nát tính thống nhất của nhà nước."
+ vie_alt.40.a:0 "Củng cố vững chắc quyền lực tập trung của trung ương"
+ vie_alt.40.b:0 "Tin tưởng vào quyền tự quản của các hội đồng địa phương"
+
+ ### vie_news.1
+ vie_news.1.t:0 "Việt Nam Chính Thức Gia Nhập WTO"
+ vie_news.1.d:0 "Sau hơn một thập kỷ đàm phán kiên trì, Việt Nam đã chính thức trở thành thành viên thứ 150 của Tổ chức Thương mại Thế giới. Giới chức tại Hà Nội khẳng định việc gia nhập WTO sẽ mở ra các thị trường mới và thu hút mạnh mẽ các dòng vốn đầu tư quốc tế."
+ vie_news.1.a:0 "Ghi nhận"
+
+ ### vie_news.2
+ vie_news.2.t:0 "Tổng Bí Thư Mới của Đảng Cộng Sản Việt Nam"
+ vie_news.2.d:0 "Đảng Cộng sản Việt Nam đã bầu ra Tổng Bí thư mới tại phiên bế mạc Đại hội đại biểu toàn quốc. Các nhà quan sát quốc tế nhận định chính sách kinh tế và đường lối đối ngoại sẽ tiếp tục duy trì tính nhất quán, ổn định."
+ vie_news.2.a:0 "Ghi nhận"
+
+ ### vie_news.3
+ vie_news.3.t:0 "Khủng Hoảng Giàn Khoan Bùng Nổ Trên Biển Đông"
+ vie_news.3.d:0 "Một giàn khoan dầu khí của Trung Quốc đã được kéo vào vùng biển thuộc chủ quyền và quyền tài phán của Việt Nam. Tàu thuyền hai nước đang đối đầu căng thẳng trên biển và các cuộc tuần hành đã bùng phát tại nhiều thành phố của Việt Nam."
+ vie_news.3.a:0 "Ghi nhận"
+
+ ### vie_news.4
+ vie_news.4.t:0 "Hà Nội Tuyên Bố Con Đường Tự Chủ Chiến Lược"
+ vie_news.4.d:0 "Ban lãnh đạo Việt Nam tuyên bố chính sách tự chủ chiến lược toàn diện, khẳng định đất nước sẽ không tham gia bất kỳ phe phái nào và không phụ thuộc vào bất kỳ một cường quốc duy nhất nào."
+ vie_news.4.a:0 "Ghi nhận"
+
+ ### vie_news.5
+ vie_news.5.t:0 "Việt Nam Thành Lập Các Đặc Khu Kinh Tế"
+ vie_news.5.d:0 "Luật thành lập các đặc khu kinh tế với thời hạn cho thuê đất kéo dài và tòa án riêng biệt đã được thông qua. Giới đầu tư quốc tế hoan nghênh nồng nhiệt, trong khi các ý kiến phản biện cảnh báo nguy cơ suy giảm chủ quyền lãnh thổ."
+ vie_news.5.a:0 "Ghi nhận"
+
+
+ ### vie_news.11
+ vie_news.11.t:0 "Giao Tranh Ác Liệt Tại Quần Đảo Hoàng Sa"
+ vie_news.11.d:0 "Lực lượng vũ trang Việt Nam và Trung Quốc đang giao chiến dữ dội tại khu vực Quần đảo Hoàng Sa. Tổng Thư ký Liên Hợp Quốc kêu gọi các bên lập tức ngừng bắn và thể hiện sự kiềm chế tối đa."
+ vie_news.11.a:0 "Ghi nhận"
+
+ ### vie_news.12
+ vie_news.12.t:0 "Việt Nam Vươn Lên Thành Quốc Gia Phát Triển"
+ vie_news.12.d:0 "Tròn một trăm năm sau ngày độc lập, Việt Nam đã chính thức gia nhập hàng ngũ các quốc gia phát triển có thu nhập cao. Nền kinh tế Việt Nam hiện nằm trong số những nền kinh tế năng động và thịnh vượng nhất châu Á."
+ vie_news.12.a:0 "Ghi nhận"
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p11_l_english.yml
+# ====================================================================
+
+
+ ### vie_alt.23
+ vie_alt.23.t:0 "Khủng hoảng Niềm tin"
+ vie_alt.23.d:0 "Sau một loạt các cú sốc liên tiếp, nhiều người dân không còn tin rằng chính quyền đang nắm quyền kiểm soát tình hình. Tình trạng xếp hàng, những lời đồn đoán và các cuộc biểu tình nhỏ lẻ lan rộng khắp nơi; ngay cả những cán bộ trung kiên cũng bắt đầu nhắc đến vấn đề tính chính danh."
+ vie_alt.23.a:0 "Ban bố các biện pháp khẩn cấp"
+ vie_alt.23.b:0 "Nhượng bộ và tiến hành cải cách"
+ vie_alt.23.c:0 "Kiên quyết giữ vững lập trường"
+
+ ### vie_scs.16
+ vie_scs.16.t:0 "Đụng độ tại Quần đảo Hoàng Sa"
+ vie_scs.16.d:0 "Tàu thuyền hai bên đã nổ súng gần Quần đảo Hoàng Sa và xuất hiện thương vong từ cả hai phía. Đám đông bắt đầu tụ tập bên ngoài đại sứ quán tại Hà Nội, và ban lãnh đạo phải đưa ra tuyên bố chỉ trong vòng vài giờ tới."
+ vie_scs.16.a:0 "Thể hiện sự kiềm chế"
+ vie_scs.16.b:0 "Đáp trả vũ lực bằng vũ lực"
+
+ ### vie_scs.17
+ vie_scs.17.t:0 "Đàm phán Ngừng bắn"
+ vie_scs.17.d:0 "Giao tranh trên biển đã rơi vào thế bế tắc kéo dài. Đặc phái viên của nhiều quốc gia đề nghị đứng ra dàn xếp một thỏa thuận ngừng bắn, và chính phủ hai bên đang được yêu cầu đưa ra các điều kiện tiên quyết."
+ vie_scs.17.a:0 "Chấp nhận hiện trạng và dừng lại"
+ vie_scs.17.b:0 "Tiếp tục chiến đấu"
+
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p1b_l_english.yml
+# ====================================================================
+
+ # GENERATED by tools/gen_p1b.py - khong sua tay.
+ VIE_naval_program_category:0 "Chương trình Mua sắm Hải quân"
+ VIE_naval_program_category_desc:0 "Các chương trình đặt đóng tàu chiến theo hướng phát triển lực lượng. Mỗi chương trình chọn số lượng và mức nội địa hóa; tiền được trừ khi ký hợp đồng.\n\n§YChương trình đang chạy:§! [?VIE_var_procurement_1b_active|0] / 2"
+ VIE_p1b_slot_tt:0 "Đang chạy ít hơn §Y2§! chương trình mua sắm"
+ VIE_p1b_d2_done_tt:0 "Đã hoàn tất huấn luyện lực lượng tàu ngầm"
+ VIE_p1b_p4_branch_tt:0 "Đã hoàn tất §YLực lượng Tàu ngầm Ngăn chặn§! hoặc §YKhinh hạm Viễn hành§!"
+ VIE_p1b_nuclear_tt:0 "Có nền tảng công nghệ hạt nhân (§YNghiên cứu Hạt nhân§!)"
+ VIE_p1b_path_tt:0 "Có ít nhất một đường mua sắm: đối tác nhập khẩu hoặc năng lực công nghiệp trong nước"
+ vie_p1b.1.t:0 "[GetVIE_p1b_name]: số lượng"
+ vie_p1b.1.d:0 "Cần quyết định số tàu đặt đóng. Giá nhập khẩu khoảng §Y[?VIE_p1b_unit|2]§! tỷ USD mỗi tàu; đường hybrid đắt hơn 15%, đường nội địa đắt hơn 30%."
+ vie_p1b.1.a:0 "[?VIE_p1b_q1|0] tàu"
+ vie_p1b.1.b:0 "[?VIE_p1b_q2|0] tàu"
+ vie_p1b.1.c:0 "[?VIE_p1b_q3|0] tàu"
+ vie_p1b.2.t:0 "[GetVIE_p1b_name]: mức nội địa hóa"
+ vie_p1b.2.d:0 "Đặt §Y[?VIE_p1b_qty|0]§! tàu. Nhập khẩu là đường rẻ và nhanh nhất nhưng không giúp công nghiệp trong nước. Hybrid và nội địa đắt hơn, giao chậm hơn nhưng cộng kinh nghiệm cho ngành đóng tàu."
+ vie_p1b.2.a:0 "Nhập khẩu: giá ×1,0, giao đúng hạn"
+ vie_p1b.2.b:0 "Hybrid: giá ×1,15, giao chậm hơn 20%, một nửa kinh nghiệm"
+ vie_p1b.2.c:0 "Nội địa: giá ×1,3, giao chậm hơn 40%, toàn bộ kinh nghiệm"
+ vie_p1b.3.t:0 "[GetVIE_p1b_name]: thiếu vốn"
+ vie_p1b.3.d:0 "Ngân khố không đủ để ký hợp đồng ở quy mô và mức nội địa hóa đã chọn. Có thể cắt quy mô, vay nợ với lãi cao hơn 10%, hoãn để quay lại sau, hoặc hủy chương trình."
+ vie_p1b.3.a:0 "Cắt quy mô về mức tối thiểu"
+ vie_p1b.3.b:0 "Vay nợ để ký hợp đồng (nợ ×1,1)"
+ vie_p1b.3.c:0 "Hoãn lại"
+ vie_p1b.3.d_cancel:0 "Hủy chương trình"
+ VIE_p1b_corvette:0 "Hộ vệ hạm nhẹ"
+ VIE_p1b_corvette_desc:0 "Đặt đóng hộ vệ hạm nhẹ cho các biên đội ven bờ và vùng đặc quyền kinh tế.\n\n§gGiá nhập khẩu khoảng 0,4 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_corvette:0 "Hộ vệ hạm nhẹ"
+ VIE_p1b_prog_corvette:0 "Chương trình hộ vệ hạm nhẹ đang thực hiện"
+ VIE_p1b_prog_corvette_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_frigate_med:0 "Khinh hạm cỡ trung"
+ VIE_p1b_frigate_med_desc:0 "Đặt đóng khinh hạm cỡ trung có sàn trực thăng và phòng không tầm trung.\n\n§gGiá nhập khẩu khoảng 0,45 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_frigate_med:0 "Khinh hạm cỡ trung"
+ VIE_p1b_prog_frigate_med:0 "Chương trình khinh hạm cỡ trung đang thực hiện"
+ VIE_p1b_prog_frigate_med_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_asw_frigate:0 "Khinh hạm chống ngầm"
+ VIE_p1b_asw_frigate_desc:0 "Đặt đóng khinh hạm chống ngầm cơ động với sonar kéo, ngư lôi và trực thăng săn ngầm.\n\n§gGiá nhập khẩu khoảng 0,5 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_asw_frigate:0 "Khinh hạm chống ngầm"
+ VIE_p1b_prog_asw_frigate:0 "Chương trình khinh hạm chống ngầm đang thực hiện"
+ VIE_p1b_prog_asw_frigate_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_ssk_reg:0 "Tàu ngầm tấn công khu vực"
+ VIE_p1b_ssk_reg_desc:0 "Đặt đóng tàu ngầm diesel-điện tấn công khu vực, bổ sung cho đội Kilo.\n\n§gGiá nhập khẩu khoảng 0,55 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_ssk_reg:0 "Tàu ngầm tấn công khu vực"
+ VIE_p1b_prog_ssk_reg:0 "Chương trình tàu ngầm tấn công khu vực đang thực hiện"
+ VIE_p1b_prog_ssk_reg_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_bastion2:0 "Bastion-P mở rộng"
+ VIE_p1b_bastion2_desc:0 "Đặt thêm tổ hợp tên lửa bờ Bastion-P để mở rộng phòng thủ ven bờ. Chỉ nhập khẩu.\n\n§gGiá nhập khẩu khoảng 0,15 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_bastion2:0 "Bastion-P mở rộng"
+ VIE_p1b_prog_bastion2:0 "Chương trình bastion-p mở rộng đang thực hiện"
+ VIE_p1b_prog_bastion2_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_amphib:0 "Tàu đổ bộ trực thăng"
+ VIE_p1b_amphib_desc:0 "Đặt đóng tàu đổ bộ trực thăng (LHD) cho hạm đội đổ bộ.\n\n§gGiá nhập khẩu khoảng 0,6 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_amphib:0 "Tàu đổ bộ trực thăng"
+ VIE_p1b_prog_amphib:0 "Chương trình tàu đổ bộ trực thăng đang thực hiện"
+ VIE_p1b_prog_amphib_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_destroyer:0 "Khu trục hạm"
+ VIE_p1b_destroyer_desc:0 "Đặt đóng khu trục hạm phòng không tầm xa cho hạm đội viễn dương.\n\n§gGiá nhập khẩu khoảng 0,7 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_destroyer:0 "Khu trục hạm"
+ VIE_p1b_prog_destroyer:0 "Chương trình khu trục hạm đang thực hiện"
+ VIE_p1b_prog_destroyer_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_carrier:0 "Tàu sân bay hạng nhẹ"
+ VIE_p1b_carrier_desc:0 "Đặt đóng tàu sân bay hạng nhẹ cho nhóm tác chiến viễn dương.\n\n§gGiá nhập khẩu khoảng 2,7 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_carrier:0 "Tàu sân bay hạng nhẹ"
+ VIE_p1b_prog_carrier:0 "Chương trình tàu sân bay hạng nhẹ đang thực hiện"
+ VIE_p1b_prog_carrier_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+ VIE_p1b_ssn:0 "Tàu ngầm hạt nhân"
+ VIE_p1b_ssn_desc:0 "Đặt đóng tàu ngầm hạt nhân tấn công, chương trình lớn nhất của hạm đội.\n\n§gGiá nhập khẩu khoảng 2 tỷ USD mỗi tàu.§!"
+ VIE_p1b_name_ssn:0 "Tàu ngầm hạt nhân"
+ VIE_p1b_prog_ssn:0 "Chương trình tàu ngầm hạt nhân đang thực hiện"
+ VIE_p1b_prog_ssn_desc:0 "Hợp đồng đã ký. Tàu được giao lần lượt theo tiến độ."
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p2_l_english.yml
+# ====================================================================
+
+
+ ### Trigger / tooltip texts
+ VIE_era_2011:0 "Năm hiện tại là 2011 hoặc muộn hơn"
+ VIE_era_2016:0 "Năm hiện tại là 2016 hoặc muộn hơn"
+ VIE_era_2021:0 "Năm hiện tại là 2021 hoặc muộn hơn"
+ VIE_fourteenth_congress_held:0 "Đại hội Đảng lần thứ XIV đã được tổ chức"
+ VIE_us_arms_open_tt:0 "Lệnh cấm vận vũ khí của Hoa Kỳ đã được dỡ bỏ hoàn toàn"
+ VIE_vinashin_risk_tt:0 "Làm gia tăng nguy cơ một tập đoàn kinh tế nhà nước lớn sụp đổ vì nợ nần (sự kiện §YVinashin§!)."
+ VIE_vinashin_risk_reset_tt:0 "Xóa bỏ nguy cơ một tập đoàn kinh tế nhà nước lớn sụp đổ vì nợ nần (sự kiện §YVinashin§! sẽ không xảy ra)"
+
+ ### Events: Party Congresses (Phase 2)
+ vie_pol.6.t:0 "Đại hội Đảng lần thứ XIII"
+ vie_pol.6.d:0 "Đại hội khai mạc trong bối cảnh đất nước vừa kiểm soát thành công đại dịch và ban lãnh đạo Đảng đã trải qua 5 năm siết chặt kỷ luật nội bộ. Câu hỏi lớn đặt ra là liệu có nên giữ Tổng Bí thư ở lại tiếp tục nhiệm kỳ thứ ba vượt quy định thông thường hay không."
+ vie_pol.6.a:0 "Đồng chí Nguyễn Phú Trọng được tín nhiệm bầu nhiệm kỳ thứ ba"
+ vie_pol.6.b:0 "Ban lãnh đạo chủ trương cải cách được chuẩn y"
+ vie_pol.6.c:0 "Chuẩn y ban lãnh đạo đương nhiệm"
+ vie_pol.7.t:0 "Hội nghị Trung ương Bất thường"
+ vie_pol.7.d:0 "Đồng chí Tổng Bí thư từ trần khi đang tại chức. Ban Chấp hành Trung ương triệu tập hội nghị bất thường và thống nhất bầu nguyên Bộ trưởng Bộ Công an, người đang giữ chức Chủ tịch nước và trực tiếp chỉ đạo mặt trận nội chính của chiến dịch chống tham nhũng."
+ vie_pol.7.a:0 "Đồng chí Tô Lâm được bầu làm Tổng Bí thư"
+ vie_pol.8.t:0 "Đại hội Đảng lần thứ XIV"
+ vie_pol.8.d:0 "Đại hội vạch ra phương hướng phát triển cho giai đoạn 2026-2031, với các mục tiêu tăng trưởng đầy tham vọng, tinh gọn bộ máy nhà nước và đặt trọng tâm mới vào khoa học công nghệ cùng kinh tế tư nhân."
+ vie_pol.8.a:0 "Đồng chí Tô Lâm tái đắc cử Tổng Bí thư"
+ vie_pol.8.b:0 "Đảng chuẩn y ban lãnh đạo kế cận"
+ vie_pol.9.t:0 "Nhất thể hóa Chức danh Lãnh đạo"
+ vie_pol.9.d:0 "Quốc hội bầu Tổng Bí thư đồng thời giữ chức Chủ tịch nước, thống nhất vị trí lãnh đạo cao nhất của Đảng và Nhà nước vào một người lần đầu tiên sau nhiều thập kỷ."
+ vie_pol.9.a:0 "Thống nhất sự lãnh đạo tối cao"
+
+ ### Events: economy (Phase 2)
+ vie_eco.3.t:0 "Đại án PMU18"
+ vie_eco.3.d:0 "Các quan chức tại Ban Quản lý Dự án 18 thuộc Bộ Giao thông Vận tải bị cáo buộc đánh bạc bằng tiền ngân sách dành cho các dự án xây dựng đường bộ. Vụ bê bối lan rộng tới tận một bộ trưởng đương nhiệm, thu hút sự chú ý theo dõi gắt gao của dư luận."
+ vie_eco.3.a:0 "Điều tra quyết liệt đến cùng và chấp nhận đơn từ chức của lãnh đạo"
+ vie_eco.3.b:0 "Khoanh vùng và giảm thiểu ảnh hưởng tiêu cực"
+ vie_eco.4.t:0 "Lạm phát Bùng phát"
+ vie_eco.4.d:0 "Chỉ số giá tiêu dùng tăng vọt hơn 20% mỗi năm, thâm hụt thương mại phình to, trong khi thị trường chứng khoán và bất động sản rơi vào tình trạng tăng trưởng quá nóng. Chính phủ đứng trước lựa chọn sinh tử giữa tăng trưởng và ổn định kinh tế vĩ mô."
+ vie_eco.4.a:0 "Siết chặt tín dụng và cắt giảm đầu tư công"
+ vie_eco.4.b:0 "Ưu tiên duy trì tăng trưởng và chấp nhận lạm phát cao"
+ vie_eco.6.t:0 "Hiện tượng Cá Chết Hàng Loạt tại Hà Tĩnh"
+ vie_eco.6.d:0 "Hàng tấn cá chết dạt vào bờ biển bốn tỉnh miền Trung. Các cơ quan điều tra kết luận nguyên nhân xuất phát từ việc xả thải trái phép của nhà máy luyện thép mới xây dựng. Ngư dân và người dân ven biển vô cùng bức xúc đòi hỏi câu trả lời thỏa đáng."
+ vie_eco.6.a:0 "Công khai xử lý nghiêm trách nhiệm của doanh nghiệp"
+ vie_eco.6.b:0 "Dàn xếp đền bù trong êm thấm và kiểm soát truyền thông"
+ vie_eco.7.t:0 "Nợ Xấu Chất chồng"
+ vie_eco.7.d:0 "Sự đóng băng của thị trường bất động sản đã để lại cho các ngân hàng một núi nợ xấu khổng lồ. Dòng vốn tín dụng bị tắc nghẽn đối với các doanh nghiệp thuộc mọi quy mô."
+ vie_eco.7.a:0 "Thành lập công ty quản lý tài sản quốc gia (VAMC)"
+ vie_eco.7.b:0 "Để hệ thống ngân hàng tự xử lý nợ xấu"
+ vie_eco.8.t:0 "Đại án Kít xét nghiệm Việt Á"
+ vie_eco.8.d:0 "Cơ quan điều tra phát hiện một công ty công nghệ đã nâng khống giá kít xét nghiệm COVID-19 bán cho các bệnh viện, trong khi nhiều quan chức nhận hối lộ để cấp phép lưu hành. Vụ án nhanh chóng lan rộng tới lãnh đạo Bộ Y tế và các cơ quan hữu quan."
+ vie_eco.8.a:0 "Nhanh chóng khởi tố và xử lý nghiêm minh"
+ vie_eco.8.b:0 "Khoanh vùng trách nhiệm trong nội bộ công ty"
+ vie_eco.9.t:0 "Khủng hoảng Trái phiếu Doanh nghiệp"
+ vie_eco.9.d:0 "Hàng loạt nhà phát triển bất động sản không thể đảo nợ trái phiếu khi đến hạn. Nhà đầu tư hoang mang bán tháo, còn các ngân hàng nắm giữ trái phiếu lo sợ nguy cơ lây lan rủi ro hệ thống."
+ vie_eco.9.a:0 "Nới lỏng các quy định pháp lý để tạo thời gian tháo gỡ"
+ vie_eco.9.b:0 "Thực thi nghiêm quy định và chấp nhận để doanh nghiệp yếu kém phá sản"
+ vie_eco.10.t:0 "Bản án Đại án Vạn Thịnh Phát"
+ vie_eco.10.d:0 "Tòa án tuyên những bản án nghiêm khắc nhất trong vụ án lừa đảo chiếm đoạt tài sản làm chao đảo một trong những tập đoàn bất động sản lớn nhất nước và một ngân hàng thương mại lớn. Người gửi tiền và các cơ quan điều hành tài chính đang dõi theo từng diễn biến tiếp theo."
+ vie_eco.10.a:0 "Xử lý nghiêm minh theo đúng pháp luật"
+ vie_eco.10.b:0 "Ưu tiên hàng đầu cho sự an toàn của hệ thống ngân hàng"
+ vie_eco.11.t:0 "Washington Đe dọa Áp Thuế trừng phạt Cao"
+ vie_eco.11.d:0 "Hoa Kỳ công bố áp mức thuế quan mới rất cao đối với hàng hóa Việt Nam. Các doanh nghiệp xuất khẩu điện tử, dệt may và đồ gỗ bàng hoàng; Hoa Kỳ hiện là thị trường xuất khẩu lớn nhất của Việt Nam."
+ vie_eco.11.a:0 "Cử ngay phái đoàn cấp cao sang đàm phán"
+ vie_eco.11.b:0 "Giữ vững lập trường và chủ động tìm kiếm các thị trường thay thế"
+ vie_eco.12.t:0 "Khuôn khổ Thương mại với Hoa Kỳ"
+ vie_eco.12.d:0 "Sau nhiều tuần đàm phán căng thẳng, hai chính phủ đã đạt được thỏa thuận khung: duy trì mức thuế thấp đối với hàng hóa xuất xứ Việt Nam và áp thuế cao đối với hàng tạm nhập tái xuất mượn đường qua Việt Nam, đổi lại việc mở cửa thị trường cho các sản phẩm của Mỹ."
+ vie_eco.12.a:0 "Chấp thuận thỏa thuận khung"
+ vie_eco.12.b:0 "Tiếp tục thương lượng để đòi thêm điều khoản có lợi"
+
+ ### Events: South China Sea (Phase 2)
+ vie_scs.4.t:0 "Tàu Khảo sát Bình Minh 02 Bị Cắt Cáp"
+ vie_scs.4.d:0 "Tàu hải giám Trung Quốc cố tình cắt cáp thăm dò địa chấn của tàu Bình Minh 02 thuộc Tập đoàn Dầu khí Việt Nam ngay trong vùng đặc quyền kinh tế của Việt Nam. Sự việc được các cơ quan truyền thông trong nước đưa tin rầm rộ."
+ vie_scs.4.a:0 "Trao công hàm phản đối hòa bình"
+ vie_scs.4.b:0 "Tổ chức diễn tập bắn đạn thật ngoài khơi bờ biển"
+ vie_scs.5.t:0 "Thông qua Luật Biển Việt Nam"
+ vie_scs.5.d:0 "Quốc hội xem xét thông qua Luật Biển khẳng định chủ quyền và quyền tài phán của Việt Nam đối với Quần đảo Hoàng Sa và Quần đảo Trường Sa. Bắc Kinh đưa ra những lời đe dọa rằng việc thông qua luật sẽ là một sai lầm nghiêm trọng."
+ vie_scs.5.a:0 "Chính thức biểu quyết thông qua luật"
+ vie_scs.5.b:0 "Tạm hoãn việc thông qua"
+ vie_scs.6.t:0 "Phán quyết của Tòa Trọng tài Quốc tế"
+ vie_scs.6.d:0 "Tòa Trọng tài Quốc tế ra phán quyết về vụ Philippines kiện các yêu sách phi pháp của Trung Quốc ở Biển Đông. Dù không phải là một bên tham gia vụ kiện, lập luận của phán quyết ảnh hưởng trực tiếp đến lợi ích của Việt Nam, trong khi Bắc Kinh tuyên bố bác bỏ hoàn toàn phán quyết."
+ vie_scs.6.a:0 "Hoan nghênh phán quyết và kêu gọi các bên tuân thủ luật pháp quốc tế"
+ vie_scs.6.b:0 "Phát ngôn chừng mực nhằm tránh kích động Bắc Kinh"
+ vie_scs.6.c:0 "Tận dụng phán quyết làm đòn bẩy ngoại giao đa phương"
+ vie_scs.7.t:0 "Sức ép lên các Lô Thăm dò Dầu khí"
+ vie_scs.7.d:0 "Các nhà ngoại giao Trung Quốc đưa ra những cảnh báo thẳng thừng bất thường rằng mọi hoạt động khoan thăm dò tại các lô dầu khí nằm trong đường chín đoạn phải dừng lại ngay lập tức. Đối tác quốc tế đang chịu sức ép lớn và tập đoàn dầu khí quốc gia đang xin ý kiến chỉ đạo."
+ vie_scs.7.a:0 "Tạm dừng hoạt động khoan thăm dò"
+ vie_scs.7.b:0 "Kiên quyết tiếp tục khoan và tăng cường bảo vệ các điểm đảo"
+ vie_scs.8.t:0 "Căng thẳng Đối đầu tại Bãi Tư Chính"
+ vie_scs.8.d:0 "Tàu khảo sát địa chấn Trung Quốc cùng dàn tàu hải cảnh hộ tống đã xâm phạm và hoạt động suốt nhiều tuần trong vùng đặc quyền kinh tế của Việt Nam gần khu vực Bãi Tư Chính, gần sát giàn khoan đang khai thác hợp pháp của Việt Nam."
+ vie_scs.8.a:0 "Điều động tàu chấp pháp bám sát và gửi công hàm ngoại giao phản đối"
+ vie_scs.8.b:0 "Xử lý kiềm chế và hạ nhiệt căng thẳng"
+
+ ### Events: diplomacy (Phase 2)
+ vie_dip.1.t:0 "Dỡ bỏ Hoàn toàn Lệnh Cấm vận Vũ khí"
+ vie_dip.1.d:0 "Trong chuyến thăm chính thức Hà Nội, Tổng thống Hoa Kỳ đã tuyên bố dỡ bỏ hoàn toàn lệnh cấm vận vũ khí sát thương đối với Việt Nam, chấm dứt tàn dư cấm vận kéo dài từ thời chiến tranh. Hà Nội khẳng định chính sách quốc phòng không liên minh quân sự vẫn nhất quán không thay đổi."
+ vie_dip.1.a:0 "Hoan nghênh quyết định lịch sử"
+ vie_dip.2.t:0 "Hội nghị Thượng đỉnh Mỹ - Triều tại Hà Nội"
+ vie_dip.2.d:0 "Lãnh đạo cấp cao Hoa Kỳ và Triều Tiên lựa chọn thủ đô Hà Nội làm địa điểm tổ chức hội nghị thượng đỉnh lần thứ hai. Giới truyền thông toàn cầu đổ dồn về thủ đô để đưa tin về sự kiện ngoại giao lịch sử này."
+ vie_dip.2.a:0 "Đón tiếp với nghi thức ngoại giao trọng thể nhất"
+ vie_dip.2.b:0 "Tổ chức chừng mực, kín đáo"
+ vie_dip.3.t:0 "Nâng cấp Quan hệ Đối tác Chiến lược Toàn diện với Hoa Kỳ"
+ vie_dip.3.d:0 "Tổng thống Hoa Kỳ thăm Hà Nội và đề xuất nâng cấp quan hệ song phương lên mức cao nhất: Đối tác Chiến lược Toàn diện. Bắc Kinh đang theo dõi sát sao từng bước đi này."
+ vie_dip.3.a:0 "Chính thức nâng cấp quan hệ đối tác"
+ vie_dip.3.b:0 "Duy trì quan hệ ở mức độ hiện tại"
+ vie_dip.4.t:0 "Dự án Kênh đào Phù Nam Techo"
+ vie_dip.4.d:0 "Campuchia khởi công dự án kênh đào quy mô lớn nối sông Mekong ra Vịnh Thái Lan. Các chuyên gia thủy văn Việt Nam cảnh báo công trình có thể làm sụt giảm nghiêm trọng lưu lượng dòng chảy mùa khô đổ về đồng bằng sông Cửu Long."
+ vie_dip.4.a:0 "Yêu cầu đánh giá tác động môi trường toàn diện"
+ vie_dip.4.b:0 "Đề xuất hợp tác và chia sẻ dữ liệu thủy văn"
+
+ ### Events: society and disasters (Phase 2)
+ vie_soc.1.t:0 "Dịch SARS Xuất hiện tại Hà Nội"
+ vie_soc.1.d:0 "Một doanh nhân nước ngoài nhập viện tại Hà Nội với các triệu chứng lạ và căn bệnh nhanh chóng lây lan sang các nhân viên y tế. Các bác sĩ đã nhanh chóng nhận diện chủng virus mới nguy hiểm và đề nghị phong tỏa bệnh viện ngay lập tức."
+ vie_soc.1.a:0 "Cách ly nghiêm ngặt bệnh viện và kiểm soát chặt chẽ biên giới"
+ vie_soc.1.b:0 "Xử lý kín đáo để tránh ảnh hưởng đến hoạt động kinh doanh"
+ vie_soc.2.t:0 "Dịch Cúm Gia cầm Bùng phát"
+ vie_soc.2.d:0 "Đàn gia cầm trên khắp cả nước chết hàng loạt và đã xuất hiện những ca lây nhiễm đầu tiên sang người. Việc tiêu hủy trên diện rộng có thể phá hủy kế sinh nhai của hàng triệu hộ nông dân nhỏ lẻ."
+ vie_soc.2.a:0 "Tiêu hủy gia cầm nhiễm bệnh và tiêm phòng vắc-xin trên diện rộng"
+ vie_soc.2.b:0 "Giới hạn khoanh vùng xử lý ở các khu vực tâm dịch nặng nhất"
+ vie_soc.3.t:0 "Lũ lụt Lịch sử tại Các Tỉnh Miền Trung"
+ vie_soc.3.d:0 "Nhiều ngày mưa lớn xối xả làm nước các con sông dâng cao đột ngột. Hàng trăm ngôi làng bị cô lập trong biển nước, đường sá bị chia cắt hoàn toàn và các hồ chứa buộc phải xả lũ khẩn cấp."
+ vie_soc.3.a:0 "Cấp tốc chuyển hàng cứu trợ khẩn cấp tới đồng bào"
+ vie_soc.3.b:0 "Để chính quyền địa phương tự lực ứng phó"
+ vie_soc.4.t:0 "Hạn Mặn Lịch sử tại Đồng Bằng Sông Cửu Long"
+ vie_soc.4.d:0 "Đợt hạn hán nghiêm trọng nhất trong một thế kỷ khiến mực nước sông Mekong xuống mức thấp kỷ lục và nước biển mặn xâm nhập sâu vào nội đồng. Hàng trăm ngàn héc-ta lúa và vườn cây ăn trái ở miền Tây khô héo."
+ vie_soc.4.a:0 "Cung cấp nước ngọt sinh hoạt và hỗ trợ tài chính cho nông dân"
+ vie_soc.4.b:0 "Để nông dân chủ động thích ứng với biến đổi khí hậu"
+ vie_soc.5.t:0 "Xâm nhập Mặn Tái diễn"
+ vie_soc.5.d:0 "Lần thứ hai trong vòng năm năm, nước biển mặn lại lấn sâu vào các con sông vùng đồng bằng sông Cửu Long trong mùa khô hạn."
+ vie_soc.5.a:0 "Tập trung mọi nguồn lực ứng phó"
+ vie_soc.6.t:0 "Chống Dịch COVID-19"
+ vie_soc.6.d:0 "Chủng virus corona mới lây lan nhanh chóng trên quy mô toàn cầu. Dù nguồn lực giường bệnh còn hạn chế, Việt Nam sở hữu một hệ thống chính trị cơ sở vận hành cực kỳ chặt chẽ trong việc truy vết tiếp xúc và tổ chức cách ly tập trung."
+ vie_soc.6.a:0 "Truy vết quyết liệt và áp dụng cách ly nghiêm ngặt"
+ vie_soc.6.b:0 "Ưu tiên mở cửa duy trì hoạt động kinh tế"
+ vie_soc.7.t:0 "Siêu bão Yagi Đổ bộ"
+ vie_soc.7.d:0 "Một trong những cơn bão mạnh nhất lịch sử từng đổ bộ vào miền Bắc Việt Nam quét qua đất liền, quật ngã cây cối, tàn phá nhà cửa và làm ngập lụt nghiêm trọng các dòng sông. Lũ quét và sạt lở đất vùi lấp nhiều ngôi làng miền núi."
+ vie_soc.7.a:0 "Huy động quân đội cùng các nguồn quỹ cứu trợ khẩn cấp"
+ vie_soc.7.b:0 "Giao toàn quyền chủ động cho chính quyền các địa phương"
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p3_l_english.yml
+# ====================================================================
+
+
+ ### Trigger and tooltip texts (Phase 3)
+ VIE_formosa_open_tt:0 "Thảm họa môi trường Formosa đã được giải quyết công khai"
+ VIE_d2_open_tt:0 "Cuộc đối thoại với xã hội dân sự đã được khai mở"
+ VIE_indochina_formable_tt:0 "Mở khóa quyết định thành lập §YLiên bang Đông Dương§! khi kiểm soát hoặc nắm giữ 11 bang/tỉnh theo yêu cầu."
+ VIE_bubble_tt:0 "Bong bóng bất động sản bắt đầu hình thành. Sử dụng quyết định §YSiết chặt Tín dụng§! để làm chậm tốc độ tăng nhiệt."
+
+ ### Decisions
+
+ ### Balance of power: populist (State <-> Street)
+
+ ### Events: doors and regime events (Phase 3)
+ vie_alt.1.t:0 "Sau Khủng hoảng Giàn khoan"
+ vie_alt.1.d:0 "Giàn khoan đã rút đi, song đất nước không còn như trước nữa. Một số ý kiến trong ban lãnh đạo cho rằng Việt Nam đã quá phụ thuộc vào một người láng giềng vừa để lộ nanh vuốt. Những người khác cho rằng chỉ có sức mạnh toàn dân mới bảo vệ được tổ quốc. Quan điểm thứ ba lại khẳng định duy trì sự bình tĩnh là phương sách tốt nhất."
+ vie_alt.1.a:0 "Trở lại bình thường với những bài học đã rút ra"
+ vie_alt.1.b:0 "Đảng sẽ dẫn dắt con đường tự chủ chiến lược"
+ vie_alt.2.t:0 "Kiến nghị và Xã hội Dân sự"
+ vie_alt.2.d:0 "Các tầng lớp trí thức, luật sư và nhà báo gửi nhiều bức tâm thư kiến nghị mở rộng tranh luận và công nhận pháp lý cho các hội đoàn độc lập. Một nền báo chí cởi mở hơn đã tạo diễn đàn cho tiếng nói của họ."
+ vie_alt.2.a:0 "Khéo léo từ chối"
+ vie_alt.2.b:0 "Mở cuộc đối thoại có giới hạn"
+ vie_alt.3.t:0 "Khủng hoảng Niềm tin Toàn diện"
+ vie_alt.3.d:0 "Hàng loạt đại án nợ xấu, lạm phát phi mã và nỗi bất bình trong nhân dân đã làm lung lay uy tín của chính quyền. Một số muốn siết chặt kỷ cương quyền lực nhà nước; số khác muốn đặt niềm tin vào các tập đoàn kinh tế tư nhân lớn nhất; số còn lại muốn lần lữa vượt qua sóng gió."
+ vie_alt.3.a:0 "Ổn định tình hình trong khuôn khổ hệ thống hiện tại"
+ vie_alt.3.b:0 "Trật tự trước hết: Cơ quan an ninh đứng ra đảm trách"
+ vie_alt.3.c:0 "Để các đại tập đoàn đứng ra tự giải quyết"
+ vie_alt.6.t:0 "Dự thảo Luật Đặc khu Kinh tế"
+ vie_alt.6.d:0 "Dự luật thành lập ba đơn vị hành chính - kinh tế đặc biệt với cơ chế ưu đãi cho nhà đầu tư thuê đất lên tới 99 năm đang được trình trước Quốc hội. Đám đông người dân đã xuống đường biểu tình vì lo sợ đất đai biên cương sẽ rơi vào tay các doanh nghiệp nước ngoài."
+ vie_alt.6.a:0 "Đối thoại, lắng nghe người biểu tình"
+ vie_alt.6.b:0 "Giữ trật tự, không nhượng bộ"
+ vie_alt.7.t:0 "Làn sóng Rút tiền Hàng loạt tại Ngân hàng Lớn"
+ vie_alt.7.d:0 "Người gửi tiền xếp hàng dài tại các chi nhánh của một trong những ngân hàng lớn nhất nước. Chủ sở hữu thực sự của ngân hàng đang bị điều tra hình sự, và niềm tin vào toàn bộ hệ thống ngân hàng đang bị đe dọa nghiêm trọng."
+ vie_alt.7.a:0 "Nhà nước lập tức can thiệp và bảo đảm chi trả"
+ vie_alt.7.b:0 "Để các đại tập đoàn tự thu xếp dàn xếp với nhau"
+ vie_alt.8.t:0 "Ai Đang Thuê Đất Đặc khu?"
+ vie_alt.8.d:0 "Các phóng viên điều tra phát hiện ra rằng một phần lớn diện tích đất đai tại các đặc khu đang được các công ty đến từ một quốc gia duy nhất thuê lại. Sự phẫn nộ trong dư luận đang bùng phát dữ dội."
+ vie_alt.8.a:0 "Thu hồi toàn bộ các quyết định cho thuê đất"
+ vie_alt.8.b:0 "Chấp nhận đó là cái giá phải trả cho tăng trưởng"
+ vie_alt.12.t:0 "Phe Bảo thủ Theo dõi Bàn Đàm phán"
+ vie_alt.12.d:0 "Các cuộc hội đàm bàn tròn đã chính thức bắt đầu, và một nhóm các tướng lĩnh cùng các bậc lão thành trong Đảng đang theo dõi với sự bất an ngày một tăng."
+ vie_alt.12.a:0 "Kiên quyết xúc tiến các cuộc hội đàm"
+ vie_alt.12.b:0 "Làm chậm tiến trình để trấn an phe bảo thủ"
+ vie_alt.13.t:0 "Bản Hiến pháp Mới"
+ vie_alt.13.d:0 "Dự thảo hiến pháp mới bảo đảm quyền tự do bầu cử, một nền tư pháp độc lập và các quyền tự do công dân đã hoàn tất. Bản dự thảo có thể được đưa ra trưng cầu dân ý toàn quốc hoặc biểu quyết thông qua tại quốc hội."
+ vie_alt.13.a:0 "Đưa ra trưng cầu dân ý toàn dân"
+ vie_alt.13.b:0 "Thông qua tại nghị viện"
+ vie_alt.14.t:0 "Cuộc Tổng Tuyển cử Tự do Đầu tiên"
+ vie_alt.14.d:0 "Cử tri trên khắp cả nước lần đầu tiên sau nhiều thập kỷ được bỏ phiếu trong một cuộc bầu cử tự do đa đảng. Ba lực lượng dẫn đầu cuộc đua là phái tự do, phái bảo thủ và phái xã hội."
+ vie_alt.14.a:0 "Đảng Dân chủ Tự do giành thắng lợi"
+ vie_alt.14.b:0 "Đảng Bảo thủ giành thắng lợi"
+ vie_alt.14.c:0 "Đảng Xã hội giành thắng lợi"
+
+ ### Events: international reactions (Phase 3)
+ vie_int.2.t:0 "Căng thẳng Bùng phát Nơi Biên giới"
+ vie_int.2.d:0 "Quân đội Trung Quốc đã tổ chức các cuộc tập trận quy mô lớn dọc tuyến biên giới khi các phát ngôn từ phía phong trào ngày càng gay gắt. Các vụ chạm trán nhỏ lẻ đang gia tăng nhanh chóng."
+ vie_int.2.a:0 "Tăng cường quân lực bảo vệ biên cương"
+ vie_int.2.b:0 "Chủ động hạ nhiệt căng thẳng"
+ vie_int.6.t:0 "Đề xuất Viện trợ cho Thể chế Mới"
+ vie_int.6.d:0 "Washington và các đồng minh đề xuất các gói viện trợ, vốn vay ưu đãi và cử cố vấn kỹ thuật để hỗ trợ chính quyền mới củng cố vị thế. Truyền thông nhà nước Trung Quốc lập tức lên án đây là hành vi can thiệp thô bạo vào công việc nội bộ."
+ vie_int.6.a:0 "Tiếp nhận các khoản viện trợ"
+ vie_int.6.b:0 "Từ chối viện trợ để giữ nguyên mọi cánh cửa lựa chọn"
+
+ ### Events: collapse (Phase 3)
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p5_l_english.yml
+# ====================================================================
+
+
+ ### vie_pol.10
+ vie_pol.10.t:0 "Luật An ninh Mạng"
+ vie_pol.10.d:0 "Quốc hội được đề nghị thông qua luật yêu cầu dữ liệu người dùng Việt Nam phải được lưu trữ trong nước và trao cho cơ quan chức năng quyền yêu cầu gỡ bỏ các nội dung vi phạm. Các nền tảng nước ngoài cảnh báo về chi phí và các ý kiến chỉ trích lo ngại về việc kiểm duyệt, trong khi ban soạn thảo khẳng định luật này nhằm bảo vệ ổn định quốc gia."
+ vie_pol.10.a:0 "Thông qua luật theo đúng dự thảo ban đầu"
+ vie_pol.10.b:0 "Thông qua phiên bản điều chỉnh sau khi đối thoại với các tập đoàn công nghệ"
+
+ ### vie_pol.18
+ vie_pol.18.t:0 "Bất ổn tại Tây Nguyên"
+ vie_pol.18.d:0 "Đám đông đã tụ tập tại nhiều tỉnh Tây Nguyên vì các mâu thuẫn về đất đai và tôn giáo, một số nơi đã xảy ra xô xát với lực lượng công an. Chính quyền các địa phương xin ý kiến chỉ đạo từ Hà Nội về mức độ xử lý."
+ vie_pol.18.a:0 "Lập lại trật tự trước tiên"
+ vie_pol.18.b:0 "Mở cuộc đối thoại và cam kết tăng cường đầu tư"
+
+ ### vie_pol.21
+ vie_pol.21.t:0 "Tâm lý Sợ sai, Đùn đẩy Trách nhiệm"
+ vie_pol.21.d:0 "Các chiến dịch điều tra khiến cán bộ trở nên thận trọng quá mức. Hàng loạt dự án phải nằm chờ những chữ ký mà không ai dám đặt bút, các bộ ngành phàn nàn rằng ngân sách không thể giải ngân trong khi thủ tục giấy tờ bị đùn đẩy qua lại."
+ vie_pol.21.a:0 "Có cơ chế bảo vệ cán bộ dám nghĩ, dám làm"
+ vie_pol.21.b:0 "Tiếp tục duy trì sức ép thanh tra, kiểm tra"
+
+ ### vie_cor.6
+ vie_cor.6.t:0 "Làn sóng Từ chức của Cán bộ Cấp cao"
+ vie_cor.6.d:0 "Các bộ trưởng, lãnh đạo tỉnh và nhiều nhân vật cấp cao lần lượt rời ghế trong thời gian ngắn, một số do thiếu trách nhiệm trong giám sát và một số vì những vi phạm nghiêm trọng hơn. Chiến dịch phòng chống tham nhũng đang chạm tới các cấp cao hơn bao giờ hết, khiến giới chính trị không khỏi bất an."
+ vie_cor.6.a:0 "Kiên quyết tiếp tục đẩy mạnh chiến dịch"
+ vie_cor.6.b:0 "Tạm dừng để bảo vệ sự ổn định bộ máy"
+
+ ### vie_eco.13
+ vie_eco.13.t:0 "Triển vọng Nâng hạng Thị trường"
+ vie_eco.13.d:0 "Sau khi đáp ứng các tiêu chuẩn cốt lõi, thị trường chứng khoán Việt Nam dự kiến sẽ được tổ chức xếp hạng quốc tế nâng hạng lên thị trường mới nổi. Dòng vốn ngoại sẽ đổ vào, nhưng các tập đoàn lớn trong nước lại lo ngại về các điều kiện đi kèm."
+ vie_eco.13.a:0 "Mở rộng hơn nữa tỷ lệ sở hữu cho nhà đầu tư nước ngoài"
+ vie_eco.13.b:0 "Giữ giới hạn trần sở hữu nước ngoài ở các doanh nghiệp trọng yếu"
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p6_l_english.yml
+# ====================================================================
+
+
+ ### vie_eco.19
+ vie_eco.19.t:0 "Chiến tranh Thương mại Giữa các Cường quốc"
+ vie_eco.19.d:0 "Thuế quan trả đũa giữa Hoa Kỳ và Trung Quốc đang thúc đẩy các nhà sản xuất dịch chuyển một phần chuỗi sản xuất. Việt Nam nằm trong số những điểm đến hàng đầu mà họ nhắm tới. Washington đưa ra lời cảnh báo rằng hàng hóa không được chỉ mượn đường trung chuyển, trong khi Bắc Kinh cũng chăm chú theo dõi xem ai đang hưởng lợi từ các đơn hàng này."
+ vie_eco.19.a:0 "Chào đón làn sóng dịch chuyển nhà máy"
+ vie_eco.19.b:0 "Siết chặt kiểm tra nguồn gốc xuất xứ hàng tạm nhập tái xuất"
+
+ ### vie_eco.21
+ vie_eco.21.t:0 "Bùng nổ Điện mặt trời Vượt tải Lưới điện"
+ vie_eco.21.d:0 "Hàng ngàn dự án điện mặt trời mới hòa vào hệ thống lưới điện vốn chưa được thiết kế để chịu tải lượng công suất lớn đến vậy. Tại các tỉnh miền Trung, đơn vị vận hành lưới điện đã bắt đầu phải cắt giảm công suất phát vào giữa trưa, khiến các nhà đầu tư vô cùng bức xúc."
+ vie_eco.21.a:0 "Cắt giảm công suất phát điện mặt trời"
+ vie_eco.21.b:0 "Cấp kinh phí nâng cấp khẩn cấp hệ thống lưới truyền tải"
+
+ ### vie_eco.25
+ vie_eco.25.t:0 "Cắt điện Luân phiên tại Miền Bắc"
+ vie_eco.25.d:0 "Mùa hè nắng nóng gay gắt và khô hạn đã làm sụt giảm nghiêm trọng sản lượng của các hồ thủy điện trong khi nhu cầu tiêu thụ điện tăng vọt. Các nhà máy ở miền Bắc liên tục mất điện hàng giờ liền, khiến các nhà đầu tư nước ngoài lo lắng về độ tin cậy của hệ thống năng lượng."
+ vie_eco.25.a:0 "Cắt điện luân phiên giữa các khu vực"
+ vie_eco.25.b:0 "Nhập khẩu điện khẩn cấp với giá cao"
+ vie_eco.25.c:0 "Huy động tối đa công suất các nhà máy nhiệt điện than"
+
+ ### vie_scs.13
+ vie_scs.13.t:0 "Luật Hải cảnh của Trung Quốc"
+ vie_scs.13.d:0 "Đạo luật mới của Bắc Kinh cho phép lực lượng hải cảnh sử dụng vũ lực đối với tàu thuyền nước ngoài trong các vùng biển mà họ tự tuyên bố chủ quyền, bao gồm cả những vùng biển thuộc chủ quyền và quyền tài phán của Việt Nam. Ngư dân và các nhà phân tích lo ngại sâu sắc về nguy cơ bùng phát xung đột trong các vụ chạm trán sắp tới."
+ vie_scs.13.a:0 "Trao công hàm phản đối chính thức và tiếp tục bám biển"
+ vie_scs.13.b:0 "Tăng cường năng lực lực lượng Cảnh sát biển để đáp trả"
+
+ ### vie_dip.5
+ vie_dip.5.t:0 "Hội nghị Thượng đỉnh APEC tại Hà Nội"
+ vie_dip.5.d:0 "Lãnh đạo các nền kinh tế khu vực châu Á - Thái Bình Dương sẽ hội tụ tại thủ đô Hà Nội. Đây là hội nghị ngoại giao đa phương lớn nhất mà đất nước từng đăng cai tổ chức, và chính phủ mong muốn tận dụng cơ hội này để quảng bá hình ảnh đẹp nhất của đất nước ra thế giới."
+ vie_dip.5.a:0 "Tổ chức trang trọng, hoành tráng"
+ vie_dip.5.b:0 "Tổ chức tinh gọn, tiết kiệm"
+
+ ### vie_dip.17
+ vie_dip.17.t:0 "Ai Sẽ Mua Đất Hiếm?"
+ vie_dip.17.d:0 "Những lô quặng đất hiếm đầu tiên đã sẵn sàng xuất xưởng. Washington và các đối tác mong muốn tìm kiếm một nguồn cung ứng không phụ thuộc vào Trung Quốc. Bắc Kinh, quốc gia dẫn đầu thế giới về công nghệ tinh chế, đề nghị bao tiêu toàn bộ sản lượng. Con đường thứ ba là kiên nhẫn tự xây dựng các tổ hợp tinh chế trong nước."
+ vie_dip.17.a:0 "Bán cho Hoa Kỳ và các đối tác chiến lược"
+ vie_dip.17.b:0 "Bán cho Trung Quốc"
+ vie_dip.17.c:0 "Từng bước phát triển công nghệ tinh chế trong nước"
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p7_l_english.yml
+# ====================================================================
+
+
+ ### vie_dip.16
+ vie_dip.16.t:0 "Ai Sẽ Cung Cấp Máy Bay Chiến Đấu Mới?"
+ vie_dip.16.d:0 "Không quân cần thay thế phi đội tiêm kích cũ kỹ nhất của mình. Moskva đề xuất dòng tiêm kích đã được kiểm chứng với mức giá phải chăng. Các nhà sản xuất phương Tây, nay đã được tự do bán vũ khí cho Việt Nam, mang đến các máy bay tiên tiến hơn nhưng đi kèm với nhiều điều kiện ràng buộc. Phương án thứ ba là tạm hoãn quyết định."
+ vie_dip.16.a:0 "Tiếp tục mua máy bay của Nga"
+ vie_dip.16.b:0 "Mua tiêm kích của phương Tây"
+ vie_dip.16.c:0 "Tạm hoãn quyết định"
+
+ ### vie_soc.14
+ vie_soc.14.t:0 "Sương Mù Ô Nhiễm Mùa Đông tại Hà Nội"
+ vie_soc.14.d:0 "Lớp sương mù xám xịt bao phủ thủ đô suốt nhiều ngày liền. Các trường học phải đóng cửa, bệnh viện ghi nhận số ca mắc bệnh về đường hô hấp tăng vọt, và người dân yêu cầu thành phố phải có biện pháp xử lý kịp thời."
+ vie_soc.14.a:0 "Áp đặt các biện pháp hạn chế khẩn cấp"
+ vie_soc.14.b:0 "Chờ cho hướng gió thay đổi"
+
+ ### vie_soc.18
+ vie_soc.18.t:0 "Tỷ Lệ Sinh Suy Giảm"
+ vie_soc.18.d:0 "Số trẻ em sinh ra mỗi năm ngày càng giảm, và các chuyên gia nhân khẩu học cảnh báo nguy cơ đất nước sẽ già trước khi giàu. Quy định giới hạn hai con trước đây đã lỗi thời và nhiều người muốn bãi bỏ nó."
+ vie_soc.18.a:0 "Hỗ trợ tài chính và nhà ở cho các gia đình"
+ vie_soc.18.b:0 "Nghiên cứu kỹ vấn đề trước khi hành động"
+
+ ### vie_eco.29
+ vie_eco.29.t:0 "Khó Khăn tại Hãng Xe Quốc Gia"
+ vie_eco.29.d:0 "Thương hiệu ô tô quốc gia đang thua lỗ nhanh hơn dự kiến, trong khi các đối thủ nước ngoài liên tục hạ giá bán. Các nhà sáng lập và quản lý kiến nghị cần thêm thời gian và bổ sung nguồn vốn đầu tư."
+ vie_eco.29.a:0 "Bổ sung thêm nguồn vốn"
+ vie_eco.29.b:0 "Thu hẹp quy mô dự án"
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p8_l_english.yml
+# ====================================================================
+
+
+ ### vie_int.10
+
+ ### vie_alt.25
+ vie_alt.25.t:0 "Casino và Tội phạm Có Tổ chức"
+ vie_alt.25.d:0 "Các khu nghỉ dưỡng kết hợp sòng bạc casino mới mang lại nguồn ngoại tệ lớn nhưng cũng kéo theo những vị khách không mong muốn. Lực lượng công an báo cáo tình trạng tín dụng đen, buôn lậu và rửa tiền đang bùng phát trong khu vực đặc khu."
+ vie_alt.25.a:0 "Triệt phá quyết liệt"
+ vie_alt.25.b:0 "Nhắm mắt làm ngơ"
+
+ ### vie_alt.26
+ vie_alt.26.t:0 "Đặc khu Đòi Quyền Tự trị"
+ vie_alt.26.d:0 "Ban quản lý đặc khu cho rằng sự thành công của họ phụ thuộc vào việc được tự quản lý tòa án, chính sách thuế và lực lượng cảnh sát riêng. Các bộ ngành tại Hà Nội đang phân vân không biết ranh giới quyền lực nên dừng ở đâu."
+ vie_alt.26.a:0 "Trao quyền tự quyết sâu rộng cho đặc khu"
+ vie_alt.26.b:0 "Bác bỏ đề xuất"
+
+ ### vie_alt.27
+
+ ### vie_alt.29
+
+
+# ====================================================================
+# SECTION: VIE_md_events_p9_l_english.yml
+# ====================================================================
+
+
+ ### vie_alt.28
+
+ ### vie_alt.30
+
+ ### vie_alt.31
+ vie_alt.31.t:0 "Rò Rỉ Hồ Sơ Giám Sát"
+ vie_alt.31.d:0 "Hàng loạt tài liệu mật từ trung tâm dữ liệu của lực lượng an ninh đã bị rò rỉ tới một tòa soạn báo nước ngoài. Chúng cho thấy những người dân bình thường bị theo dõi suốt nhiều năm mà không có lý do chính đáng. Ngay cả những cán bộ trung thành cũng cảm thấy bất an."
+ vie_alt.31.a:0 "Che đậy vụ bê bối"
+ vie_alt.31.b:0 "Tiến hành cải tổ cơ quan an ninh"
+
+ ### vie_alt.37
+
+
+
+# ====================================================================
+# SECTION: VIE_md_events_sec_l_english.yml
+# ====================================================================
+
+
+ ### vie_sec.0
+ vie_sec.0.t:0 "Tấm khiên nhận quyền"
+ vie_sec.0.d:0 "Cuộc chuyển giao đã hoàn tất. Bộ máy an ninh công bố nắm quyền chỉ đạo trực tiếp, và các cơ quan công quyền nhận lệnh từ trung tâm mới. Trật tự được vãn hồi, nhưng không ai còn nghi ngờ ai đang cầm hồ sơ."
+ vie_sec.0.a:0 "Trật tự là trên hết"
+
+ ### vie_sec.2
+ vie_sec.2.t:0 "Thế hệ Z \"Đỏ\""
+ vie_sec.2.d:0 "Câu lạc bộ an ninh mạng học đường ra mắt ở hàng trăm trường đại học. Sinh viên tự nguyện báo cáo những luận điệu thù địch trên mạng xã hội và coi đó là niềm tự hào."
+ vie_sec.2.a:0 "Thế hệ mới đã trưởng thành"
+

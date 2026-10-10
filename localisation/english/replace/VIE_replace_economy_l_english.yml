@@ -1,5 +1,88 @@
 ﻿l_english:
 
+# ====================================================================
+# SECTION: VIE_md_vi_eco_b_l_english.yml
+# ====================================================================
+
+ VIE_dung_quat_refinery:0 "Nhà máy Lọc dầu Dung Quất"
+ VIE_dung_quat_refinery_desc:0 "Nhà máy lọc dầu đầu tiên của Việt Nam tại Quảng Ngãi, vận hành từ đầu năm 2009, giảm bớt sự phụ thuộc vào xăng dầu nhập khẩu."
+
+
+# ====================================================================
+# SECTION: VIE_md_vi_eco_d_l_english.yml
+# ====================================================================
+
+ # --- Đặc khu 2018 ---
+ VIE_sez_three_zones:0 "Đề án Ba Đặc khu Kinh tế"
+ VIE_sez_three_zones_desc:0 "Chính phủ soạn thảo dự án ba đơn vị hành chính - kinh tế đặc biệt Vân Đồn, Bắc Vân Phong, Phú Quốc, chuẩn bị trình Quốc hội."
+ VIE_sez_postpone:0 "Hoãn Luật Đặc khu"
+ VIE_sez_postpone_desc:0 "Trước phản ứng của dư luận, Quốc hội lùi việc thông qua dự luật đặc khu sang kỳ họp sau. Dự luật không bao giờ được đưa trở lại."
+ VIE_sez_pass_99:0 "Thông qua Luật Đặc khu (thuê đất tới 99 năm)"
+ VIE_sez_pass_99_desc:0 "§YGiả định:§! Quốc hội thông qua luật đặc khu với điều khoản cho thuê đất tới 99 năm. FDI và xây dựng tăng mạnh ở ba khu vực, nhưng dư luận vẫn còn âm ỉ."
+ VIE_island_special_zones:0 "Đặc khu trong Chính quyền Hai cấp"
+ VIE_island_special_zones_desc:0 "Từ 1/7/2025, các huyện đảo Vân Đồn, Phú Quốc, Côn Đảo trở thành đơn vị hành chính cấp xã đặc biệt trong mô hình chính quyền hai cấp, thay cho đạo luật đặc khu riêng đã không bao giờ được thông qua."
+ VIE_sez_strategic_investors:0 "Nhà đầu tư Chiến lược vào Đặc khu"
+ VIE_sez_strategic_investors_desc:0 "§YGiả định:§! Các tập đoàn lớn đổ vốn vào casino, bất động sản nghỉ dưỡng và cảng biển tại ba đặc khu."
+
+ # --- Mở rộng Hà Nội 2008 ---
+
+ # --- Đường sắt tốc độ cao 2010 ---
+
+ # --- Vàng miếng 2012 ---
+ VIE_gold_monopoly_2012:0 "Nhà nước Độc quyền Vàng miếng"
+ VIE_gold_monopoly_2012_desc:0 "Nghị định 24/2012/NĐ-CP đặt sản xuất vàng miếng dưới độc quyền Nhà nước, nhằm chống tình trạng 'vàng hóa' nền kinh tế."
+ VIE_gold_free_market:0 "Thả nổi Thị trường Vàng"
+ VIE_gold_free_market_desc:0 "§YGiả định:§! Thị trường vàng miếng được tự do hóa. Vốn lưu thông dễ hơn, nhưng áp lực lên tỷ giá tăng lên."
+ VIE_gold_monopoly_lifted:0 "Bỏ Độc quyền Vàng miếng"
+ VIE_gold_monopoly_lifted_desc:0 "Sau 13 năm, Nhà nước nới lỏng độc quyền sản xuất vàng miếng, cho phép thêm doanh nghiệp tham gia thị trường."
+
+ # --- Ngân hàng yếu kém 2015 ---
+ VIE_zero_dong_acquisition:0 "Mua lại Ngân hàng Yếu kém Giá 0 Đồng"
+ VIE_zero_dong_acquisition_desc:0 "Ngân hàng Nhà nước mua lại bắt buộc VNCB, OceanBank và GPBank với giá 0 đồng, ngăn đổ vỡ dây chuyền."
+ VIE_bank_bankruptcy:0 "Cho phép Ngân hàng Yếu kém Phá sản"
+ VIE_bank_bankruptcy_desc:0 "§YGiả định:§! Các ngân hàng yếu kém được xử lý theo thủ tục phá sản có kiểm soát thay vì Nhà nước gánh nợ. Thị trường kỷ luật hơn, nhưng người gửi tiền hoảng loạn."
+ VIE_compulsory_transfer_2024:0 "Chuyển giao Bắt buộc cho Ngân hàng Lớn"
+ VIE_compulsory_transfer_2024_desc:0 "Các ngân hàng 0 đồng được chuyển giao bắt buộc cho các ngân hàng thương mại lớn, khép lại gần một thập niên xử lý hậu quả."
+
+ # --- Tái cơ cấu DNNN 2017 ---
+ VIE_soe_gradual_restructuring:0 "Cơ cấu lại DNNN theo Lộ trình"
+ VIE_soe_gradual_restructuring_desc:0 "Nghị quyết 12-NQ/TW giữ mô hình tập đoàn, cổ phần hóa từng bước và lập Ủy ban Quản lý vốn nhà nước tại doanh nghiệp."
+ VIE_soe_rapid_divestment:0 "Thoái vốn Nhanh khỏi DNNN"
+ VIE_soe_rapid_divestment_desc:0 "§YGiả định:§! Nhà nước bán nhanh cổ phần tại các tập đoàn lớn, thu về ngân sách một khoản lớn nhưng gây tranh cãi về giá bán."
+
+ # --- Giá FIT điện mặt trời 2017 ---
+ VIE_solar_auction:0 "Đấu thầu Cạnh tranh Điện Mặt trời"
+ VIE_solar_auction_desc:0 "§YGiả định:§! Thay vì giá mua điện cố định, các dự án điện mặt trời phải đấu thầu cạnh tranh, tránh bùng nổ công suất mất kiểm soát."
+
+ # --- COVID-19 2021 ---
+
+ # --- Event: bỏ phiếu vie_alt.6 (đã đổi vai trò), vie_eco.30 mới ---
+ vie_eco.30.t:0 "Bán rẻ Tài sản Nhà nước?"
+ vie_eco.30.d:0 "Một năm sau đợt thoái vốn nhanh, báo chí đặt câu hỏi về việc một số tài sản nhà nước được bán cho các nhóm lợi ích với giá thấp hơn thị trường."
+ vie_eco.30.a:0 "Công khai điều khoản mua bán"
+ vie_eco.30.b:0 "Giữ kín người mua và giá bán"
+
+ # --- Idea ---
+ VIE_grid_curtailment_idea:0 "Quá tải Lưới truyền tải"
+ VIE_grid_curtailment_idea_desc:0 "Công suất điện mặt trời tăng nhanh hơn khả năng giải tỏa của lưới điện, buộc phải cắt giảm sản lượng."
+ VIE_gold_pressure_idea:0 "Áp lực Tỷ giá từ Thị trường Vàng"
+ VIE_gold_pressure_idea_desc:0 "Vàng lưu thông tự do kéo theo dòng ngoại tệ ra vào khó kiểm soát hơn, gây áp lực lên tỷ giá."
+ VIE_deposit_confidence_idea:0 "Mất Niềm tin vào Tiền gửi Ngân hàng"
+ VIE_deposit_confidence_idea_desc:0 "Sau khi chứng kiến một ngân hàng phá sản, người gửi tiền rút vốn khỏi các ngân hàng nhỏ và vừa."
+
+
+# ====================================================================
+# SECTION: VIE_md_vi_eco_e_l_english.yml
+# ====================================================================
+
+ # --- Khối Xã hội: Giáo dục / Lao động (Phase E) ---
+
+
+# ====================================================================
+# SECTION: VIE_md_vi_eco_mining_l_english.yml
+# ====================================================================
+
+
  ### Pillar 4 Root
 
  ### Focuses - Vinacomin & Mining Branch
@@ -84,3 +167,19 @@
 
  VIE_bauxite_environmental_idea:0 "Cam kết Bảo vệ Môi trường Tây Nguyên"
  VIE_bauxite_environmental_idea_desc:0 "Việc dừng các dự án bauxite giúp bảo vệ toàn vẹn nguồn nước ngầm, rừng nguyên sinh và môi trường sống của đồng bào các dân tộc Tây Nguyên."
+
+
+# ====================================================================
+# SECTION: VIE_md_vi_digital_l_english.yml
+# ====================================================================
+
+ # --- Nhanh Internet / So: 4 focus moi ---
+ VIE_mobile_3g_4g:0 "Mạng di động 3G và 4G"
+ VIE_mobile_3g_4g_desc:0 "Tháng 8/2009 Bộ Thông tin và Truyền thông cấp giấy phép 3G cho Viettel, VNPT (VinaPhone, MobiFone) và liên danh EVN Telecom - Hanoi Telecom; dịch vụ thương mại bắt đầu từ cuối năm 2009, mở đường cho internet di động đại chúng. Tháng 10/2016 Viettel, VNPT, MobiFone và GTEL được cấp phép 4G trên băng tần 1800 MHz."
+ VIE_submarine_cables:0 "Cáp quang biển và an ninh mạng"
+ VIE_submarine_cables_desc:0 "Các tuyến cáp quang biển quốc tế, nổi bật là AAG, nhiều lần bị đứt từ cuối năm 2013 (năm 2014 đứt hai lần, năm 2015 bốn sự cố), kéo theo gián đoạn internet quốc tế kéo dài nhiều tuần. Việt Nam đầu tư thêm tuyến cáp mới, đa dạng hóa hướng kết nối và tăng cường bảo vệ hạ tầng mạng lõi."
+ VIE_make_in_vietnam:0 "Make in Vietnam"
+ VIE_make_in_vietnam_desc:0 "Ngày 9/5/2019 Bộ trưởng Bộ Thông tin và Truyền thông Nguyễn Mạnh Hùng phát động chiến dịch 'Make in Vietnam', kêu gọi doanh nghiệp công nghệ trong nước làm chủ thiết kế, đổi mới và sản xuất. Tháng 1/2020 cuộc gọi 5G đầu tiên được thực hiện trên thiết bị do Viettel tự nghiên cứu và sản xuất."
+ VIE_digital_tech_industry_law:0 "Luật Công nghiệp Công nghệ số"
+ VIE_digital_tech_industry_law_desc:0 "Quốc hội thông qua Luật Công nghiệp Công nghệ số (Luật số 71/2025/QH15, ngày 14/6/2025, hiệu lực từ 1/1/2026), lần đầu đặt công nghiệp bán dẫn, trí tuệ nhân tạo, tài sản số và công nghiệp nội dung số trong một khuôn khổ pháp lý riêng, kèm các ưu đãi cho doanh nghiệp công nghệ."
+
