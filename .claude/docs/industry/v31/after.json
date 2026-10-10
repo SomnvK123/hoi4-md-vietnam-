@@ -1,0 +1,264 @@
+{
+  "VIE_industrialization_strategy": {
+    "x": 133,
+    "y": 1,
+    "pre": [
+      [
+        "VIE_doi_moi_continues"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_supporting_industries": {
+    "x": 133,
+    "y": 2,
+    "pre": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_vinashin_restructuring_sbic": {
+    "x": 124,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_supporting_industries"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_national_steel_program": {
+    "x": 126,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_supporting_industries"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_textile_garment_exports": {
+    "x": 128,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_supporting_industries"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_domestic_automotive": {
+    "x": 130,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_supporting_industries"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_electronics_export_program": {
+    "x": 134,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_supporting_industries"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_chip_engineers": {
+    "x": 140,
+    "y": 3,
+    "pre": [
+      [
+        "VIE_supporting_industries"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_ev_revolution_batteries": {
+    "x": 130,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_domestic_automotive"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_fdi_fast_track": {
+    "x": 132,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_electronics_export_program"
+      ]
+    ],
+    "ex": [
+      "VIE_fdi_technology_screening"
+    ]
+  },
+  "VIE_fdi_technology_screening": {
+    "x": 136,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_electronics_export_program"
+      ]
+    ],
+    "ex": [
+      "VIE_fdi_fast_track"
+    ]
+  },
+  "VIE_chip_design_packaging_priority": {
+    "x": 138,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_chip_engineers"
+      ]
+    ],
+    "ex": [
+      "VIE_chip_pilot_fab_priority"
+    ]
+  },
+  "VIE_chip_pilot_fab_priority": {
+    "x": 142,
+    "y": 4,
+    "pre": [
+      [
+        "VIE_chip_engineers"
+      ]
+    ],
+    "ex": [
+      "VIE_chip_design_packaging_priority"
+    ]
+  },
+  "VIE_shipbuilding_joint_ventures": {
+    "x": 124,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_vinashin_restructuring_sbic"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_hoa_phat_hrc_steel": {
+    "x": 126,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_national_steel_program"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_green_textiles": {
+    "x": 128,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_textile_garment_exports"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_global_auto_export": {
+    "x": 130,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_ev_revolution_batteries"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_apple_supply_chain": {
+    "x": 134,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_fdi_fast_track",
+        "VIE_fdi_technology_screening"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_chip_design": {
+    "x": 138,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_chip_design_packaging_priority",
+        "VIE_chip_pilot_fab_priority"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_osat_packaging": {
+    "x": 142,
+    "y": 5,
+    "pre": [
+      [
+        "VIE_chip_design_packaging_priority",
+        "VIE_chip_pilot_fab_priority"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_manufacturing_hub": {
+    "x": 134,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_apple_supply_chain"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_semiconductor_fab": {
+    "x": 140,
+    "y": 6,
+    "pre": [
+      [
+        "VIE_chip_design"
+      ],
+      [
+        "VIE_osat_packaging"
+      ],
+      [
+        "VIE_chip_engineers"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_industrial_productivity_program": {
+    "x": 133,
+    "y": 7,
+    "pre": [
+      [
+        "VIE_shipbuilding_joint_ventures",
+        "VIE_green_textiles",
+        "VIE_hoa_phat_hrc_steel",
+        "VIE_global_auto_export",
+        "VIE_manufacturing_hub",
+        "VIE_osat_packaging"
+      ]
+    ],
+    "ex": []
+  },
+  "VIE_modern_industrial_nation_2030": {
+    "x": 133,
+    "y": 9,
+    "pre": [
+      [
+        "VIE_industrial_productivity_program"
+      ]
+    ],
+    "ex": []
+  }
+}

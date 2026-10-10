@@ -1,0 +1,410 @@
+{
+  "pos": {
+    "VIE_infrastructure_development": [
+      82,
+      1
+    ],
+    "VIE_north_south_expressway": [
+      74,
+      4
+    ],
+    "VIE_transport_strategy_2004": [
+      74,
+      2
+    ],
+    "VIE_hai_van_tunnel": [
+      68,
+      3
+    ],
+    "VIE_hcmc_trung_luong_expressway": [
+      72,
+      3
+    ],
+    "VIE_can_tho_bridge": [
+      76,
+      3
+    ],
+    "VIE_northern_expressways": [
+      70,
+      4
+    ],
+    "VIE_expressway_regional_links": [
+      66,
+      5
+    ],
+    "VIE_expressway_bot": [
+      72,
+      5
+    ],
+    "VIE_expressway_public_investment": [
+      76,
+      5
+    ],
+    "VIE_north_south_expressway_phase2": [
+      74,
+      6
+    ],
+    "VIE_ring_roads_hanoi_hcmc": [
+      70,
+      7
+    ],
+    "VIE_expressway_3000km": [
+      78,
+      7
+    ],
+    "VIE_expressway_5000km_2030": [
+      78,
+      9
+    ],
+    "VIE_north_south_hsr": [
+      82,
+      3
+    ],
+    "VIE_hsr_2010_reject": [
+      80,
+      2
+    ],
+    "VIE_hsr_2010_approve": [
+      84,
+      2
+    ],
+    "VIE_long_thanh_airport": [
+      90,
+      8
+    ],
+    "VIE_hcmc_metro": [
+      94,
+      3
+    ],
+    "VIE_lach_huyen_port": [
+      70,
+      2
+    ],
+    "VIE_cai_mep_port": [
+      66,
+      2
+    ],
+    "VIE_lao_cai_haiphong_rail": [
+      90,
+      3
+    ],
+    "VIE_reunification_line_upgrade": [
+      88,
+      2
+    ],
+    "VIE_hsr_partner_japan": [
+      80,
+      4
+    ],
+    "VIE_hsr_partner_eu": [
+      84,
+      4
+    ],
+    "VIE_hsr_partner_china": [
+      88,
+      4
+    ],
+    "VIE_hsr_groundbreaking": [
+      82,
+      5
+    ],
+    "VIE_urban_rail_hanoi": [
+      98,
+      3
+    ],
+    "VIE_urban_rail_special_mechanism_nq188": [
+      96,
+      4
+    ],
+    "VIE_metro_network_2035": [
+      96,
+      5
+    ],
+    "VIE_domestic_rail_industry": [
+      92,
+      4
+    ],
+    "VIE_airport_master_plan": [
+      86,
+      6
+    ],
+    "VIE_aviation_market_opening": [
+      82,
+      7
+    ],
+    "VIE_noi_bai_t2": [
+      86,
+      7
+    ],
+    "VIE_long_thanh_approval": [
+      90,
+      7
+    ],
+    "VIE_tan_son_nhat_t3": [
+      94,
+      7
+    ],
+    "VIE_socialized_airports": [
+      80,
+      8
+    ],
+    "VIE_acv_monopoly": [
+      84,
+      8
+    ],
+    "VIE_dual_use_airports": [
+      94,
+      8
+    ],
+    "VIE_van_don_airport": [
+      80,
+      9
+    ],
+    "VIE_airport_network_2030": [
+      86,
+      9
+    ],
+    "VIE_infrastructure_breakthrough_nq13": [
+      78,
+      2
+    ],
+    "VIE_logistics_strategy": [
+      70,
+      3
+    ],
+    "VIE_synchronized_infrastructure_2030": [
+      84,
+      10
+    ]
+  },
+  "pre": {
+    "VIE_infrastructure_development": [
+      [
+        "VIE_doi_moi_continues"
+      ]
+    ],
+    "VIE_north_south_expressway": [
+      [
+        "VIE_hcmc_trung_luong_expressway"
+      ]
+    ],
+    "VIE_transport_strategy_2004": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_hai_van_tunnel": [
+      [
+        "VIE_transport_strategy_2004"
+      ]
+    ],
+    "VIE_hcmc_trung_luong_expressway": [
+      [
+        "VIE_transport_strategy_2004"
+      ]
+    ],
+    "VIE_can_tho_bridge": [
+      [
+        "VIE_transport_strategy_2004"
+      ]
+    ],
+    "VIE_northern_expressways": [
+      [
+        "VIE_hcmc_trung_luong_expressway"
+      ]
+    ],
+    "VIE_expressway_regional_links": [
+      [
+        "VIE_northern_expressways"
+      ]
+    ],
+    "VIE_expressway_bot": [
+      [
+        "VIE_north_south_expressway"
+      ]
+    ],
+    "VIE_expressway_public_investment": [
+      [
+        "VIE_north_south_expressway"
+      ]
+    ],
+    "VIE_north_south_expressway_phase2": [
+      [
+        "VIE_expressway_bot",
+        "VIE_expressway_public_investment"
+      ]
+    ],
+    "VIE_ring_roads_hanoi_hcmc": [
+      [
+        "VIE_north_south_expressway_phase2"
+      ]
+    ],
+    "VIE_expressway_3000km": [
+      [
+        "VIE_north_south_expressway_phase2"
+      ]
+    ],
+    "VIE_expressway_5000km_2030": [
+      [
+        "VIE_expressway_3000km"
+      ]
+    ],
+    "VIE_north_south_hsr": [
+      [
+        "VIE_hsr_2010_reject",
+        "VIE_hsr_2010_approve"
+      ]
+    ],
+    "VIE_hsr_2010_reject": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_hsr_2010_approve": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_long_thanh_airport": [
+      [
+        "VIE_long_thanh_approval"
+      ]
+    ],
+    "VIE_hcmc_metro": [
+      [
+        "VIE_reunification_line_upgrade"
+      ]
+    ],
+    "VIE_lach_huyen_port": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_cai_mep_port": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_lao_cai_haiphong_rail": [
+      [
+        "VIE_reunification_line_upgrade"
+      ]
+    ],
+    "VIE_reunification_line_upgrade": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_hsr_partner_japan": [
+      [
+        "VIE_north_south_hsr"
+      ]
+    ],
+    "VIE_hsr_partner_eu": [
+      [
+        "VIE_north_south_hsr"
+      ]
+    ],
+    "VIE_hsr_partner_china": [
+      [
+        "VIE_north_south_hsr"
+      ]
+    ],
+    "VIE_hsr_groundbreaking": [
+      [
+        "VIE_hsr_partner_japan",
+        "VIE_hsr_partner_eu",
+        "VIE_hsr_partner_china"
+      ]
+    ],
+    "VIE_urban_rail_hanoi": [
+      [
+        "VIE_reunification_line_upgrade"
+      ]
+    ],
+    "VIE_urban_rail_special_mechanism_nq188": [
+      [
+        "VIE_urban_rail_hanoi"
+      ],
+      [
+        "VIE_hcmc_metro"
+      ]
+    ],
+    "VIE_metro_network_2035": [
+      [
+        "VIE_urban_rail_special_mechanism_nq188"
+      ]
+    ],
+    "VIE_domestic_rail_industry": [
+      [
+        "VIE_lao_cai_haiphong_rail"
+      ]
+    ],
+    "VIE_airport_master_plan": [],
+    "VIE_aviation_market_opening": [
+      [
+        "VIE_airport_master_plan"
+      ]
+    ],
+    "VIE_noi_bai_t2": [
+      [
+        "VIE_airport_master_plan"
+      ]
+    ],
+    "VIE_long_thanh_approval": [
+      [
+        "VIE_airport_master_plan"
+      ]
+    ],
+    "VIE_tan_son_nhat_t3": [
+      [
+        "VIE_airport_master_plan"
+      ]
+    ],
+    "VIE_socialized_airports": [
+      [
+        "VIE_aviation_market_opening"
+      ]
+    ],
+    "VIE_acv_monopoly": [
+      [
+        "VIE_aviation_market_opening"
+      ]
+    ],
+    "VIE_dual_use_airports": [
+      [
+        "VIE_tan_son_nhat_t3"
+      ]
+    ],
+    "VIE_van_don_airport": [
+      [
+        "VIE_socialized_airports"
+      ]
+    ],
+    "VIE_airport_network_2030": [
+      [
+        "VIE_socialized_airports",
+        "VIE_acv_monopoly"
+      ]
+    ],
+    "VIE_infrastructure_breakthrough_nq13": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_logistics_strategy": [
+      [
+        "VIE_cai_mep_port",
+        "VIE_lach_huyen_port"
+      ]
+    ],
+    "VIE_synchronized_infrastructure_2030": [
+      [
+        "VIE_expressway_5000km_2030"
+      ],
+      [
+        "VIE_airport_network_2030"
+      ]
+    ]
+  }
+}

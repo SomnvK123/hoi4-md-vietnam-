@@ -65,3 +65,7 @@ Không gọi mọi reference nằm ngoài submod là lỗi; phải tra provider 
 - Chuẩn hoá `\` thành `/` trước khi so sánh đường dẫn.
 - Sửa tool thì chạy lại trên cây hiện tại và so kết quả với trước đó. Không làm yếu một kiểm tra để cho nó "xanh".
 - File `.json` do `audit.py` sinh ra nằm trong `.gitignore`, đừng commit.
+
+## Effect chính sách v32 — 10/10/2026
+
+Chạy thêm `python tools/audit/policy_rewards.py`: reward trực tiếp, bậc idea, bảo toàn giao dịch và baseline mới. Provider: `python tools/audit/policy_assets.py <MD directory>`. [Kết quả và giới hạn runtime](policy_rewards/v32/validation.md). Fixture đọc mã thật không thay nghiệm thu HOI4.

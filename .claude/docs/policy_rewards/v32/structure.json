@@ -1,0 +1,1966 @@
+{
+  "date": "2026-10-10",
+  "families": {
+    "ind": {
+      "support": [
+        {
+          "id": "VIE_ind_policy_support_1_idea",
+          "rank": 1,
+          "title": "Chính sách công nghiệp hỗ trợ",
+          "when": "has_country_flag = VIE_ind_policy_supporting_industries_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "industrial_capacity_factory": 0.005,
+            "corporate_tax_income_multiplier_modifier": 0.005
+          }
+        },
+        {
+          "id": "VIE_ind_supporting_capacity_idea",
+          "rank": 2,
+          "title": "Năng lực công nghiệp hỗ trợ",
+          "when": "has_country_flag = VIE_ind_support_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.016,
+            "industrial_capacity_factory": 0.02,
+            "corporate_tax_income_multiplier_modifier": 0.02
+          }
+        }
+      ],
+      "steel": [
+        {
+          "id": "VIE_ind_policy_steel_1_idea",
+          "rank": 1,
+          "title": "Quy hoạch công nghiệp thép",
+          "when": "has_country_flag = VIE_ind_policy_national_steel_program_adopted",
+          "modifiers": {
+            "production_speed_industrial_complex_factor": 0.0075,
+            "production_speed_infrastructure_factor": 0.005,
+            "production_speed_arms_factory_factor": 0.005
+          }
+        },
+        {
+          "id": "VIE_ind_policy_steel_2_idea",
+          "rank": 2,
+          "title": "Chính sách thép chất lượng cao",
+          "when": "has_country_flag = VIE_ind_policy_hoa_phat_hrc_steel_adopted",
+          "modifiers": {
+            "production_speed_industrial_complex_factor": 0.015,
+            "production_speed_infrastructure_factor": 0.01,
+            "production_speed_arms_factory_factor": 0.01
+          }
+        },
+        {
+          "id": "VIE_hrc_steel_self_reliance",
+          "rank": 3,
+          "title": "Năng lực thép chất lượng cao",
+          "when": "has_country_flag = VIE_ind_steel_hrc_done",
+          "modifiers": {
+            "production_speed_industrial_complex_factor": 0.03,
+            "production_speed_infrastructure_factor": 0.02,
+            "production_speed_arms_factory_factor": 0.02
+          }
+        }
+      ],
+      "ship": [
+        {
+          "id": "VIE_ind_policy_ship_1_idea",
+          "rank": 1,
+          "title": "Quy hoạch và quản trị đóng tàu",
+          "when": "has_country_flag = VIE_ind_policy_vinashin_restructuring_sbic_adopted",
+          "modifiers": {
+            "production_speed_dockyard_factor": 0.02
+          }
+        },
+        {
+          "id": "VIE_ind_policy_ship_2_idea",
+          "rank": 2,
+          "title": "Chính sách đóng tàu dân sự",
+          "when": "has_country_flag = VIE_ind_policy_shipbuilding_joint_ventures_adopted",
+          "modifiers": {
+            "production_speed_dockyard_factor": 0.04
+          }
+        },
+        {
+          "id": "VIE_ind_policy_ship_3_idea",
+          "rank": 3,
+          "title": "Năng lực đóng tàu và công trình biển",
+          "when": "VIE_ind_ship_ready = yes",
+          "modifiers": {
+            "production_speed_dockyard_factor": 0.05
+          }
+        }
+      ],
+      "textile": [
+        {
+          "id": "VIE_ind_policy_textile_1_idea",
+          "rank": 1,
+          "title": "Chính sách dệt may xuất khẩu",
+          "when": "has_country_flag = VIE_ind_policy_textile_garment_exports_adopted",
+          "modifiers": {
+            "consumer_goods_factor": -0.00125,
+            "trade_opinion_factor": 0.0025
+          }
+        },
+        {
+          "id": "VIE_ind_policy_textile_2_idea",
+          "rank": 2,
+          "title": "Chính sách dệt may xanh",
+          "when": "has_country_flag = VIE_ind_policy_green_textiles_adopted",
+          "modifiers": {
+            "consumer_goods_factor": -0.0025,
+            "trade_opinion_factor": 0.005
+          }
+        },
+        {
+          "id": "VIE_textile_supply_chain_idea",
+          "rank": 3,
+          "title": "Chuỗi giá trị dệt may xanh",
+          "when": "has_country_flag = VIE_ind_textile_green_done",
+          "modifiers": {
+            "consumer_goods_factor": -0.005,
+            "trade_opinion_factor": 0.01
+          }
+        }
+      ],
+      "ev": [
+        {
+          "id": "VIE_ind_policy_ev_1_idea",
+          "rank": 1,
+          "title": "Chính sách chế tạo ô tô",
+          "when": "has_country_flag = VIE_ind_policy_domestic_automotive_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "industrial_capacity_factory": 0.005,
+            "fuel_cost": -0.0075
+          }
+        },
+        {
+          "id": "VIE_ind_policy_ev_2_idea",
+          "rank": 2,
+          "title": "Chính sách linh kiện và điện khí hóa",
+          "when": "has_country_flag = VIE_ind_policy_ev_revolution_batteries_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "industrial_capacity_factory": 0.01,
+            "fuel_cost": -0.015
+          }
+        },
+        {
+          "id": "VIE_ev_mobility_idea",
+          "rank": 3,
+          "title": "Năng lực điện khí hóa và linh kiện",
+          "when": "has_country_flag = VIE_ind_auto_ev_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.016,
+            "industrial_capacity_factory": 0.02,
+            "fuel_cost": -0.03
+          }
+        }
+      ],
+      "auto_export": [
+        {
+          "id": "VIE_ind_policy_auto_export_1_idea",
+          "rank": 1,
+          "title": "Chính sách tiêu chuẩn xuất khẩu ô tô",
+          "when": "has_country_flag = VIE_ind_policy_global_auto_export_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.002,
+            "corporate_tax_income_multiplier_modifier": 0.005,
+            "stability_factor": 0.0025,
+            "foreign_influence_defense_modifier": 0.0125
+          }
+        },
+        {
+          "id": "VIE_global_brand_recognition",
+          "rank": 2,
+          "title": "Năng lực xuất khẩu ô tô",
+          "when": "has_country_flag = VIE_ind_auto_export_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "corporate_tax_income_multiplier_modifier": 0.02,
+            "stability_factor": 0.01,
+            "foreign_influence_defense_modifier": 0.05
+          }
+        }
+      ],
+      "electronics": [
+        {
+          "id": "VIE_ind_policy_electronics_1_idea",
+          "rank": 1,
+          "title": "Chính sách điện tử xuất khẩu",
+          "when": "has_country_flag = VIE_ind_policy_electronics_export_program_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "corporate_tax_income_multiplier_modifier": 0.005
+          }
+        },
+        {
+          "id": "VIE_ind_policy_electronics_2_idea",
+          "rank": 2,
+          "title": "Chính sách nhà cung ứng điện tử",
+          "when": "has_country_flag = VIE_ind_policy_apple_supply_chain_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "corporate_tax_income_multiplier_modifier": 0.01
+          }
+        },
+        {
+          "id": "VIE_manufacturing_hub_idea",
+          "rank": 3,
+          "title": "Trung tâm chế tạo điện tử",
+          "when": "has_country_flag = VIE_ind_policy_manufacturing_hub_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.016,
+            "corporate_tax_income_multiplier_modifier": 0.02
+          }
+        }
+      ],
+      "chip": [
+        {
+          "id": "VIE_ind_policy_chip_1_idea",
+          "rank": 1,
+          "title": "Chính sách bán dẫn: bậc 1",
+          "when": "check_variable = { VIE_ind_policy_chip_rank > 0 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.001,
+            "research_speed_factor": 0.00125
+          }
+        },
+        {
+          "id": "VIE_ind_policy_chip_2_idea",
+          "rank": 2,
+          "title": "Chính sách bán dẫn: bậc 2",
+          "when": "check_variable = { VIE_ind_policy_chip_rank > 1 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.002,
+            "research_speed_factor": 0.0025
+          }
+        },
+        {
+          "id": "VIE_ind_policy_chip_3_idea",
+          "rank": 3,
+          "title": "Chính sách bán dẫn: bậc 3",
+          "when": "check_variable = { VIE_ind_policy_chip_rank > 2 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.003,
+            "research_speed_factor": 0.00375
+          }
+        },
+        {
+          "id": "VIE_ind_policy_chip_4_idea",
+          "rank": 4,
+          "title": "Chính sách bán dẫn: bậc 4",
+          "when": "check_variable = { VIE_ind_policy_chip_rank > 3 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "research_speed_factor": 0.005
+          }
+        },
+        {
+          "id": "VIE_semiconductor_idea",
+          "rank": 5,
+          "title": "Năng lực thiết kế và OSAT",
+          "when": "VIE_ind_chip_ready = yes",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "research_speed_factor": 0.01
+          }
+        },
+        {
+          "id": "VIE_ind_policy_chip_6_idea",
+          "rank": 6,
+          "title": "Chính sách chế tạo chip thí điểm",
+          "when": "has_country_flag = VIE_ind_policy_semiconductor_fab_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.01,
+            "research_speed_factor": 0.0125
+          }
+        },
+        {
+          "id": "VIE_chip_sector_idea",
+          "rank": 7,
+          "title": "Năng lực chế tạo bán dẫn",
+          "when": "has_country_flag = VIE_ind_chip_fab_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.012,
+            "research_speed_factor": 0.015
+          }
+        }
+      ],
+      "productivity": [
+        {
+          "id": "VIE_ind_policy_productivity_1_idea",
+          "rank": 1,
+          "title": "Chính sách nâng cao năng suất",
+          "when": "has_country_flag = VIE_ind_policy_industrial_productivity_program_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.002,
+            "production_speed_industrial_complex_factor": 0.01
+          }
+        },
+        {
+          "id": "VIE_industrialization_2045_idea",
+          "rank": 2,
+          "title": "Cải cách năng suất công nghiệp",
+          "when": "has_country_flag = VIE_ind_productivity_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "production_speed_industrial_complex_factor": 0.04
+          }
+        },
+        {
+          "id": "VIE_modern_industrial_nation_idea",
+          "rank": 3,
+          "title": "Quốc gia công nghiệp hiện đại",
+          "when": "has_country_flag = VIE_ind_policy_modern_industrial_nation_2030_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.012,
+            "production_speed_industrial_complex_factor": 0.06,
+            "industrial_capacity_factory": 0.02
+          }
+        }
+      ]
+    },
+    "infra": {
+      "road": [
+        {
+          "id": "VIE_infra_policy_road_1_idea",
+          "rank": 1,
+          "title": "Chương trình phát triển đường bộ",
+          "when": "has_country_flag = VIE_infra_policy_transport_strategy_2004_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "production_speed_infrastructure_factor": 0.025
+          }
+        },
+        {
+          "id": "VIE_infra_policy_road_2_idea",
+          "rank": 2,
+          "title": "Trục cao tốc Bắc - Nam",
+          "when": "has_country_flag = VIE_infra_policy_north_south_expressway_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "production_speed_infrastructure_factor": 0.05
+          }
+        },
+        {
+          "id": "VIE_infra_policy_road_4_idea",
+          "rank": 4,
+          "title": "Kết nối vùng và vành đai",
+          "when": "has_country_flag = VIE_infra_policy_expressway_regional_links_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.02,
+            "production_speed_infrastructure_factor": 0.125
+          }
+        },
+        {
+          "id": "VIE_infra_policy_road_5_idea",
+          "rank": 5,
+          "title": "Mạng lưới cao tốc 5.000 km",
+          "when": "has_country_flag = VIE_infra_policy_expressway_5000km_2030_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.022,
+            "production_speed_infrastructure_factor": 0.14
+          }
+        },
+        {
+          "id": "VIE_expressway_idea",
+          "rank": 3,
+          "title": "Mạng cao tốc: trên 999 km",
+          "when": "check_variable = { VIE_expressway_km > 999 }",
+          "modifiers": {
+            "production_speed_infrastructure_factor": 0.1,
+            "country_productivity_growth_modifier": 0.016
+          }
+        },
+        {
+          "id": "VIE_expressway_idea_2",
+          "rank": 6,
+          "title": "Mạng cao tốc: trên 2999 km",
+          "when": "check_variable = { VIE_expressway_km > 2999 }",
+          "modifiers": {
+            "production_speed_infrastructure_factor": 0.15,
+            "country_productivity_growth_modifier": 0.024
+          }
+        },
+        {
+          "id": "VIE_expressway_idea_3",
+          "rank": 7,
+          "title": "Mạng cao tốc: trên 4999 km",
+          "when": "check_variable = { VIE_expressway_km > 4999 }",
+          "modifiers": {
+            "production_speed_infrastructure_factor": 0.2,
+            "country_productivity_growth_modifier": 0.032
+          }
+        }
+      ],
+      "rail": [
+        {
+          "id": "VIE_infra_policy_rail_1_idea",
+          "rank": 1,
+          "title": "Chính sách đường sắt: bậc 1",
+          "when": "check_variable = { VIE_infra_policy_rail_rank > 0 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.002,
+            "research_speed_factor": 0.0025
+          }
+        },
+        {
+          "id": "VIE_infra_policy_rail_2_idea",
+          "rank": 2,
+          "title": "Chính sách đường sắt: bậc 2",
+          "when": "check_variable = { VIE_infra_policy_rail_rank > 1 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.003,
+            "research_speed_factor": 0.00375
+          }
+        },
+        {
+          "id": "VIE_infra_policy_rail_3_idea",
+          "rank": 3,
+          "title": "Chính sách đường sắt: bậc 3",
+          "when": "check_variable = { VIE_infra_policy_rail_rank > 2 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "research_speed_factor": 0.005
+          }
+        },
+        {
+          "id": "VIE_infra_policy_rail_4_idea",
+          "rank": 4,
+          "title": "Chính sách đường sắt: bậc 4",
+          "when": "check_variable = { VIE_infra_policy_rail_rank > 3 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.005,
+            "research_speed_factor": 0.00625
+          }
+        },
+        {
+          "id": "VIE_infra_policy_rail_5_idea",
+          "rank": 5,
+          "title": "Chính sách đường sắt: bậc 5",
+          "when": "check_variable = { VIE_infra_policy_rail_rank > 4 }",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.006,
+            "research_speed_factor": 0.0075
+          }
+        },
+        {
+          "id": "VIE_modern_rail_idea",
+          "rank": 6,
+          "title": "Mạng đường sắt hiện đại",
+          "when": "has_country_flag = VIE_infra_policy_modern_rail_network_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "research_speed_factor": 0.01
+          }
+        }
+      ],
+      "ports": [
+        {
+          "id": "VIE_infra_policy_ports_1_idea",
+          "rank": 1,
+          "title": "Chính sách cảng nước sâu",
+          "when": "has_country_flag = VIE_infra_policy_national_deepwater_ports_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "trade_opinion_factor": 0.00525
+          }
+        },
+        {
+          "id": "VIE_ports_idea",
+          "rank": 2,
+          "title": "Năng lực cảng nước sâu",
+          "when": "has_country_flag = VIE_infra_ports_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.012,
+            "trade_opinion_factor": 0.01575
+          }
+        }
+      ],
+      "logistics": [
+        {
+          "id": "VIE_infra_policy_logistics_1_idea",
+          "rank": 1,
+          "title": "Chính sách logistics quốc gia",
+          "when": "has_country_flag = VIE_infra_policy_logistics_strategy_adopted",
+          "modifiers": {
+            "trade_opinion_factor": 0.00525,
+            "country_productivity_growth_modifier": 0.002
+          }
+        },
+        {
+          "id": "VIE_logistics_idea",
+          "rank": 2,
+          "title": "Năng lực logistics quốc gia",
+          "when": "has_country_flag = VIE_infra_logistics_done",
+          "modifiers": {
+            "trade_opinion_factor": 0.01575,
+            "country_productivity_growth_modifier": 0.006
+          }
+        }
+      ],
+      "multimodal": [
+        {
+          "id": "VIE_infra_policy_multimodal_1_idea",
+          "rank": 1,
+          "title": "Chính sách vận tải đa phương thức",
+          "when": "has_country_flag = VIE_infra_policy_multimodal_transport_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.021,
+            "trade_opinion_factor": 0.03675
+          }
+        },
+        {
+          "id": "VIE_multimodal_idea",
+          "rank": 2,
+          "title": "Vận tải đa phương thức",
+          "when": "has_country_flag = VIE_infra_multimodal_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.024,
+            "trade_opinion_factor": 0.042
+          }
+        }
+      ],
+      "air": [
+        {
+          "id": "VIE_infra_policy_air_1_idea",
+          "rank": 1,
+          "title": "Quy hoạch mạng sân bay",
+          "when": "has_country_flag = VIE_infra_policy_airport_master_plan_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.004,
+            "trade_opinion_factor": 0.00525
+          }
+        },
+        {
+          "id": "VIE_infra_policy_air_2_idea",
+          "rank": 2,
+          "title": "Hiện đại hóa mạng sân bay",
+          "when": "has_country_flag = VIE_infra_policy_airport_network_2030_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.008,
+            "trade_opinion_factor": 0.0105
+          }
+        },
+        {
+          "id": "VIE_infra_policy_air_4_idea",
+          "rank": 4,
+          "title": "Trung tâm hàng không Long Thành",
+          "when": "has_country_flag = VIE_infra_policy_long_thanh_airport_adopted",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.014,
+            "trade_opinion_factor": 0.018375
+          }
+        },
+        {
+          "id": "VIE_infra_policy_air_3_idea",
+          "rank": 3,
+          "title": "Mạng sân bay được hiện đại hóa",
+          "when": "has_country_flag = VIE_infra_air_network_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.012,
+            "trade_opinion_factor": 0.01575
+          }
+        },
+        {
+          "id": "VIE_airport_network_idea",
+          "rank": 5,
+          "title": "Mạng sân bay và trung tâm Long Thành",
+          "when": "has_country_flag = VIE_infra_long_thanh_done",
+          "modifiers": {
+            "country_productivity_growth_modifier": 0.016,
+            "trade_opinion_factor": 0.021
+          }
+        }
+      ]
+    }
+  },
+  "new_ideas": {
+    "VIE_ind_policy_support_1_idea": {
+      "title": "Chính sách công nghiệp hỗ trợ",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "industrial_capacity_factory": 0.005,
+        "corporate_tax_income_multiplier_modifier": 0.005
+      }
+    },
+    "VIE_ind_policy_steel_1_idea": {
+      "title": "Quy hoạch công nghiệp thép",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "production_speed_industrial_complex_factor": 0.0075,
+        "production_speed_infrastructure_factor": 0.005,
+        "production_speed_arms_factory_factor": 0.005
+      }
+    },
+    "VIE_ind_policy_steel_2_idea": {
+      "title": "Chính sách thép chất lượng cao",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "production_speed_industrial_complex_factor": 0.015,
+        "production_speed_infrastructure_factor": 0.01,
+        "production_speed_arms_factory_factor": 0.01
+      }
+    },
+    "VIE_ind_policy_ship_1_idea": {
+      "title": "Quy hoạch và quản trị đóng tàu",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "production_speed_dockyard_factor": 0.02
+      }
+    },
+    "VIE_ind_policy_ship_2_idea": {
+      "title": "Chính sách đóng tàu dân sự",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "production_speed_dockyard_factor": 0.04
+      }
+    },
+    "VIE_ind_policy_ship_3_idea": {
+      "title": "Năng lực đóng tàu và công trình biển",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "production_speed_dockyard_factor": 0.05
+      }
+    },
+    "VIE_ind_policy_textile_1_idea": {
+      "title": "Chính sách dệt may xuất khẩu",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "consumer_goods_factor": -0.00125,
+        "trade_opinion_factor": 0.0025
+      }
+    },
+    "VIE_ind_policy_textile_2_idea": {
+      "title": "Chính sách dệt may xanh",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "consumer_goods_factor": -0.0025,
+        "trade_opinion_factor": 0.005
+      }
+    },
+    "VIE_ind_policy_ev_1_idea": {
+      "title": "Chính sách chế tạo ô tô",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "industrial_capacity_factory": 0.005,
+        "fuel_cost": -0.0075
+      }
+    },
+    "VIE_ind_policy_ev_2_idea": {
+      "title": "Chính sách linh kiện và điện khí hóa",
+      "picture": "industrial_focus",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.008,
+        "industrial_capacity_factory": 0.01,
+        "fuel_cost": -0.015
+      }
+    },
+    "VIE_ind_policy_auto_export_1_idea": {
+      "title": "Chính sách tiêu chuẩn xuất khẩu ô tô",
+      "picture": "economic_boom",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.002,
+        "corporate_tax_income_multiplier_modifier": 0.005,
+        "stability_factor": 0.0025,
+        "foreign_influence_defense_modifier": 0.0125
+      }
+    },
+    "VIE_ind_policy_electronics_1_idea": {
+      "title": "Chính sách điện tử xuất khẩu",
+      "picture": "economic_boom",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "corporate_tax_income_multiplier_modifier": 0.005
+      }
+    },
+    "VIE_ind_policy_electronics_2_idea": {
+      "title": "Chính sách nhà cung ứng điện tử",
+      "picture": "economic_boom",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.008,
+        "corporate_tax_income_multiplier_modifier": 0.01
+      }
+    },
+    "VIE_ind_policy_chip_1_idea": {
+      "title": "Chính sách bán dẫn: bậc 1",
+      "picture": "digitalize_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.001,
+        "research_speed_factor": 0.00125
+      }
+    },
+    "VIE_ind_policy_chip_2_idea": {
+      "title": "Chính sách bán dẫn: bậc 2",
+      "picture": "digitalize_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.002,
+        "research_speed_factor": 0.0025
+      }
+    },
+    "VIE_ind_policy_chip_3_idea": {
+      "title": "Chính sách bán dẫn: bậc 3",
+      "picture": "digitalize_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.003,
+        "research_speed_factor": 0.00375
+      }
+    },
+    "VIE_ind_policy_chip_4_idea": {
+      "title": "Chính sách bán dẫn: bậc 4",
+      "picture": "digitalize_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "research_speed_factor": 0.005
+      }
+    },
+    "VIE_ind_policy_chip_6_idea": {
+      "title": "Chính sách chế tạo chip thí điểm",
+      "picture": "digitalize_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.01,
+        "research_speed_factor": 0.0125
+      }
+    },
+    "VIE_ind_policy_productivity_1_idea": {
+      "title": "Chính sách nâng cao năng suất",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.002,
+        "production_speed_industrial_complex_factor": 0.01
+      }
+    },
+    "VIE_infra_policy_road_1_idea": {
+      "title": "Chương trình phát triển đường bộ",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "production_speed_infrastructure_factor": 0.025
+      }
+    },
+    "VIE_infra_policy_road_2_idea": {
+      "title": "Trục cao tốc Bắc - Nam",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.008,
+        "production_speed_infrastructure_factor": 0.05
+      }
+    },
+    "VIE_infra_policy_road_4_idea": {
+      "title": "Kết nối vùng và vành đai",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.02,
+        "production_speed_infrastructure_factor": 0.125
+      }
+    },
+    "VIE_infra_policy_road_5_idea": {
+      "title": "Mạng lưới cao tốc 5.000 km",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.022,
+        "production_speed_infrastructure_factor": 0.14
+      }
+    },
+    "VIE_infra_policy_rail_1_idea": {
+      "title": "Chính sách đường sắt: bậc 1",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.002,
+        "research_speed_factor": 0.0025
+      }
+    },
+    "VIE_infra_policy_rail_2_idea": {
+      "title": "Chính sách đường sắt: bậc 2",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.003,
+        "research_speed_factor": 0.00375
+      }
+    },
+    "VIE_infra_policy_rail_3_idea": {
+      "title": "Chính sách đường sắt: bậc 3",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "research_speed_factor": 0.005
+      }
+    },
+    "VIE_infra_policy_rail_4_idea": {
+      "title": "Chính sách đường sắt: bậc 4",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.005,
+        "research_speed_factor": 0.00625
+      }
+    },
+    "VIE_infra_policy_rail_5_idea": {
+      "title": "Chính sách đường sắt: bậc 5",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.006,
+        "research_speed_factor": 0.0075
+      }
+    },
+    "VIE_infra_policy_ports_1_idea": {
+      "title": "Chính sách cảng nước sâu",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "trade_opinion_factor": 0.00525
+      }
+    },
+    "VIE_infra_policy_logistics_1_idea": {
+      "title": "Chính sách logistics quốc gia",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "trade_opinion_factor": 0.00525,
+        "country_productivity_growth_modifier": 0.002
+      }
+    },
+    "VIE_infra_policy_multimodal_1_idea": {
+      "title": "Chính sách vận tải đa phương thức",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.021,
+        "trade_opinion_factor": 0.03675
+      }
+    },
+    "VIE_infra_policy_air_1_idea": {
+      "title": "Quy hoạch mạng sân bay",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.004,
+        "trade_opinion_factor": 0.00525
+      }
+    },
+    "VIE_infra_policy_air_2_idea": {
+      "title": "Hiện đại hóa mạng sân bay",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.008,
+        "trade_opinion_factor": 0.0105
+      }
+    },
+    "VIE_infra_policy_air_4_idea": {
+      "title": "Trung tâm hàng không Long Thành",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.014,
+        "trade_opinion_factor": 0.018375
+      }
+    },
+    "VIE_infra_policy_air_3_idea": {
+      "title": "Mạng sân bay được hiện đại hóa",
+      "picture": "economic_road_idea",
+      "modifiers": {
+        "country_productivity_growth_modifier": 0.012,
+        "trade_opinion_factor": 0.01575
+      }
+    }
+  },
+  "focus_mapping": {
+    "ind": {
+      "supporting_industries": [
+        "support",
+        1
+      ],
+      "vinashin_restructuring_sbic": [
+        "ship",
+        1
+      ],
+      "shipbuilding_joint_ventures": [
+        "ship",
+        2
+      ],
+      "national_steel_program": [
+        "steel",
+        1
+      ],
+      "hoa_phat_hrc_steel": [
+        "steel",
+        2
+      ],
+      "textile_garment_exports": [
+        "textile",
+        1
+      ],
+      "green_textiles": [
+        "textile",
+        2
+      ],
+      "domestic_automotive": [
+        "ev",
+        1
+      ],
+      "ev_revolution_batteries": [
+        "ev",
+        2
+      ],
+      "global_auto_export": [
+        "auto_export",
+        1
+      ],
+      "electronics_export_program": [
+        "electronics",
+        1
+      ],
+      "apple_supply_chain": [
+        "electronics",
+        2
+      ],
+      "manufacturing_hub": [
+        "electronics",
+        3
+      ],
+      "chip_engineers": [
+        "chip",
+        1
+      ],
+      "chip_design_packaging_priority": [
+        "chip",
+        2
+      ],
+      "chip_pilot_fab_priority": [
+        "chip",
+        2
+      ],
+      "chip_design": [
+        "chip",
+        3
+      ],
+      "osat_packaging": [
+        "chip",
+        3
+      ],
+      "semiconductor_fab": [
+        "chip",
+        6
+      ],
+      "industrial_productivity_program": [
+        "productivity",
+        1
+      ],
+      "modern_industrial_nation_2030": [
+        "productivity",
+        3
+      ]
+    },
+    "infra": {
+      "transport_strategy_2004": [
+        "road",
+        1
+      ],
+      "north_south_expressway": [
+        "road",
+        2
+      ],
+      "expressway_regional_links": [
+        "road",
+        4
+      ],
+      "expressway_5000km_2030": [
+        "road",
+        5
+      ],
+      "railway_national_program": [
+        "rail",
+        1
+      ],
+      "reunification_line_upgrade": [
+        "rail",
+        2
+      ],
+      "urban_rail_program": [
+        "rail",
+        3
+      ],
+      "north_south_hsr": [
+        "rail",
+        3
+      ],
+      "rail_technology_transfer": [
+        "rail",
+        3
+      ],
+      "modern_rail_network": [
+        "rail",
+        6
+      ],
+      "national_deepwater_ports": [
+        "ports",
+        1
+      ],
+      "logistics_strategy": [
+        "logistics",
+        1
+      ],
+      "multimodal_transport": [
+        "multimodal",
+        1
+      ],
+      "airport_master_plan": [
+        "air",
+        1
+      ],
+      "airport_network_2030": [
+        "air",
+        2
+      ],
+      "long_thanh_airport": [
+        "air",
+        4
+      ]
+    }
+  },
+  "focuses": {
+    "ind": [
+      "VIE_industrialization_strategy",
+      "VIE_supporting_industries",
+      "VIE_vinashin_restructuring_sbic",
+      "VIE_national_steel_program",
+      "VIE_textile_garment_exports",
+      "VIE_domestic_automotive",
+      "VIE_electronics_export_program",
+      "VIE_chip_engineers",
+      "VIE_ev_revolution_batteries",
+      "VIE_fdi_fast_track",
+      "VIE_fdi_technology_screening",
+      "VIE_chip_design_packaging_priority",
+      "VIE_chip_pilot_fab_priority",
+      "VIE_shipbuilding_joint_ventures",
+      "VIE_hoa_phat_hrc_steel",
+      "VIE_green_textiles",
+      "VIE_global_auto_export",
+      "VIE_apple_supply_chain",
+      "VIE_chip_design",
+      "VIE_osat_packaging",
+      "VIE_manufacturing_hub",
+      "VIE_semiconductor_fab",
+      "VIE_industrial_productivity_program",
+      "VIE_modern_industrial_nation_2030"
+    ],
+    "infra": [
+      "VIE_infrastructure_development",
+      "VIE_transport_strategy_2004",
+      "VIE_expressway_bot",
+      "VIE_expressway_public_investment",
+      "VIE_north_south_expressway",
+      "VIE_expressway_regional_links",
+      "VIE_expressway_5000km_2030",
+      "VIE_railway_national_program",
+      "VIE_reunification_line_upgrade",
+      "VIE_urban_rail_program",
+      "VIE_north_south_hsr",
+      "VIE_rail_technology_transfer",
+      "VIE_modern_rail_network",
+      "VIE_national_deepwater_ports",
+      "VIE_logistics_strategy",
+      "VIE_multimodal_transport",
+      "VIE_airport_master_plan",
+      "VIE_socialized_airports",
+      "VIE_acv_monopoly",
+      "VIE_airport_network_2030",
+      "VIE_long_thanh_airport",
+      "VIE_synchronized_infrastructure_2030"
+    ]
+  },
+  "reward_flags": {
+    "VIE_industrialization_strategy": "VIE_ind_policy_industrialization_strategy_adopted",
+    "VIE_supporting_industries": "VIE_ind_policy_supporting_industries_adopted",
+    "VIE_vinashin_restructuring_sbic": "VIE_ind_policy_vinashin_restructuring_sbic_adopted",
+    "VIE_national_steel_program": "VIE_ind_policy_national_steel_program_adopted",
+    "VIE_textile_garment_exports": "VIE_ind_policy_textile_garment_exports_adopted",
+    "VIE_domestic_automotive": "VIE_ind_policy_domestic_automotive_adopted",
+    "VIE_electronics_export_program": "VIE_ind_policy_electronics_export_program_adopted",
+    "VIE_chip_engineers": "VIE_ind_policy_chip_engineers_adopted",
+    "VIE_ev_revolution_batteries": "VIE_ind_policy_ev_revolution_batteries_adopted",
+    "VIE_fdi_fast_track": "VIE_ind_policy_fdi_fast_track_adopted",
+    "VIE_fdi_technology_screening": "VIE_ind_policy_fdi_technology_screening_adopted",
+    "VIE_chip_design_packaging_priority": "VIE_ind_policy_chip_design_packaging_priority_adopted",
+    "VIE_chip_pilot_fab_priority": "VIE_ind_policy_chip_pilot_fab_priority_adopted",
+    "VIE_shipbuilding_joint_ventures": "VIE_ind_policy_shipbuilding_joint_ventures_adopted",
+    "VIE_hoa_phat_hrc_steel": "VIE_ind_policy_hoa_phat_hrc_steel_adopted",
+    "VIE_green_textiles": "VIE_ind_policy_green_textiles_adopted",
+    "VIE_global_auto_export": "VIE_ind_policy_global_auto_export_adopted",
+    "VIE_apple_supply_chain": "VIE_ind_policy_apple_supply_chain_adopted",
+    "VIE_chip_design": "VIE_ind_policy_chip_design_adopted",
+    "VIE_osat_packaging": "VIE_ind_policy_osat_packaging_adopted",
+    "VIE_manufacturing_hub": "VIE_ind_policy_manufacturing_hub_adopted",
+    "VIE_semiconductor_fab": "VIE_ind_policy_semiconductor_fab_adopted",
+    "VIE_industrial_productivity_program": "VIE_ind_policy_industrial_productivity_program_adopted",
+    "VIE_modern_industrial_nation_2030": "VIE_ind_policy_modern_industrial_nation_2030_adopted",
+    "VIE_infrastructure_development": "VIE_infra_policy_infrastructure_development_adopted",
+    "VIE_transport_strategy_2004": "VIE_infra_policy_transport_strategy_2004_adopted",
+    "VIE_expressway_bot": "VIE_infra_policy_expressway_bot_adopted",
+    "VIE_expressway_public_investment": "VIE_infra_policy_expressway_public_investment_adopted",
+    "VIE_north_south_expressway": "VIE_infra_policy_north_south_expressway_adopted",
+    "VIE_expressway_regional_links": "VIE_infra_policy_expressway_regional_links_adopted",
+    "VIE_expressway_5000km_2030": "VIE_infra_policy_expressway_5000km_2030_adopted",
+    "VIE_railway_national_program": "VIE_infra_policy_railway_national_program_adopted",
+    "VIE_reunification_line_upgrade": "VIE_infra_policy_reunification_line_upgrade_adopted",
+    "VIE_urban_rail_program": "VIE_infra_policy_urban_rail_program_adopted",
+    "VIE_north_south_hsr": "VIE_infra_policy_north_south_hsr_adopted",
+    "VIE_rail_technology_transfer": "VIE_infra_policy_rail_technology_transfer_adopted",
+    "VIE_modern_rail_network": "VIE_infra_policy_modern_rail_network_adopted",
+    "VIE_national_deepwater_ports": "VIE_infra_policy_national_deepwater_ports_adopted",
+    "VIE_logistics_strategy": "VIE_infra_policy_logistics_strategy_adopted",
+    "VIE_multimodal_transport": "VIE_infra_policy_multimodal_transport_adopted",
+    "VIE_airport_master_plan": "VIE_infra_policy_airport_master_plan_adopted",
+    "VIE_socialized_airports": "VIE_infra_policy_socialized_airports_adopted",
+    "VIE_acv_monopoly": "VIE_infra_policy_acv_monopoly_adopted",
+    "VIE_airport_network_2030": "VIE_infra_policy_airport_network_2030_adopted",
+    "VIE_long_thanh_airport": "VIE_infra_policy_long_thanh_airport_adopted",
+    "VIE_synchronized_infrastructure_2030": "VIE_infra_policy_synchronized_infrastructure_2030_adopted"
+  },
+  "programs": {
+    "ind": [
+      {
+        "key": "support",
+        "title": "Đầu tư công nghiệp hỗ trợ",
+        "branch": "common",
+        "parent": "supporting_industries",
+        "cost": 2,
+        "days": 180,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 6,
+        "gate": "",
+        "extra": "add_ideas = VIE_ind_supporting_capacity_idea",
+        "discount": null,
+        "id": "VIE_ind_d_support"
+      },
+      {
+        "key": "ship_governance",
+        "title": "Quản trị và tái cơ cấu đóng tàu",
+        "branch": "ship",
+        "parent": "vinashin_restructuring_sbic",
+        "cost": 1,
+        "days": 180,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "",
+        "extra": "set_variable = { VIE_vinashin_risk = 0 } add_stability = 0.01 add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt } VIE_ax_normalize = yes",
+        "discount": null,
+        "id": "VIE_ind_d_ship_governance"
+      },
+      {
+        "key": "ship_civil",
+        "title": "Đóng tàu dân sự và công trình biển",
+        "branch": "ship",
+        "parent": "shipbuilding_joint_ventures",
+        "cost": 7.5,
+        "days": 365,
+        "target": 519,
+        "building": "dockyard",
+        "points": 2,
+        "gate": "VIE_ind_ship_governance_done = yes",
+        "extra": "",
+        "discount": null,
+        "id": "VIE_ind_d_ship_civil"
+      },
+      {
+        "key": "textile_base",
+        "title": "Phát triển dệt may xuất khẩu",
+        "branch": "textile",
+        "parent": "textile_garment_exports",
+        "cost": 7.5,
+        "days": 365,
+        "target": 522,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "",
+        "extra": "add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt } VIE_ax_normalize = yes",
+        "discount": null,
+        "id": "VIE_ind_d_textile_base"
+      },
+      {
+        "key": "textile_green",
+        "title": "Dệt nhuộm, xuất xứ và sản xuất xanh",
+        "branch": "textile",
+        "parent": "green_textiles",
+        "cost": 2,
+        "days": 180,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "VIE_ind_textile_base_done = yes",
+        "extra": "add_ideas = VIE_textile_supply_chain_idea",
+        "discount": null,
+        "id": "VIE_ind_d_textile_green"
+      },
+      {
+        "key": "steel_base",
+        "title": "Thép nền tảng bằng vốn FDI",
+        "branch": "steel",
+        "parent": "national_steel_program",
+        "cost": 6,
+        "days": 365,
+        "target": 521,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "has_country_flag = VIE_ind_steel_foreign",
+        "extra": "set_country_flag = VIE_steel_complex_built",
+        "discount": null,
+        "id": "VIE_ind_d_steel_foreign"
+      },
+      {
+        "key": "steel_base",
+        "title": "Thép nền tảng bằng vốn nội địa",
+        "branch": "steel",
+        "parent": "national_steel_program",
+        "cost": 7.5,
+        "days": 450,
+        "target": 521,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "has_country_flag = VIE_ind_steel_domestic",
+        "extra": "",
+        "discount": null,
+        "id": "VIE_ind_d_steel_domestic"
+      },
+      {
+        "key": "steel_hrc",
+        "title": "Thép chất lượng cao và HRC",
+        "branch": "steel",
+        "parent": "hoa_phat_hrc_steel",
+        "cost": 7.5,
+        "days": 365,
+        "target": 521,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "VIE_ind_steel_base_done = yes",
+        "extra": "add_ideas = VIE_hrc_steel_self_reliance",
+        "discount": null,
+        "id": "VIE_ind_d_steel_hrc"
+      },
+      {
+        "key": "auto_base",
+        "title": "Năng lực sản xuất ô tô",
+        "branch": "auto",
+        "parent": "domestic_automotive",
+        "cost": 7.5,
+        "days": 365,
+        "target": 522,
+        "building": "industrial_complex",
+        "points": 1,
+        "gate": "",
+        "extra": "set_country_flag = VIE_auto_program",
+        "discount": null,
+        "id": "VIE_ind_d_auto_base"
+      },
+      {
+        "key": "auto_ev",
+        "title": "Linh kiện, pin và điện khí hóa",
+        "branch": "auto",
+        "parent": "ev_revolution_batteries",
+        "cost": 7.5,
+        "days": 365,
+        "target": 521,
+        "building": "industrial_complex",
+        "points": 1,
+        "gate": "VIE_ind_auto_base_done = yes",
+        "extra": "add_ideas = VIE_ev_mobility_idea add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt } VIE_ax_normalize = yes",
+        "discount": null,
+        "id": "VIE_ind_d_auto_ev"
+      },
+      {
+        "key": "auto_export",
+        "title": "Tiêu chuẩn và năng lực xuất khẩu ô tô",
+        "branch": "auto",
+        "parent": "global_auto_export",
+        "cost": 1,
+        "days": 180,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "VIE_ind_auto_ev_done = yes",
+        "extra": "add_ideas = VIE_global_brand_recognition set_country_flag = VIE_ind_auto_notice_pending",
+        "discount": null,
+        "id": "VIE_ind_d_auto_export"
+      },
+      {
+        "key": "electronics_base",
+        "title": "Năng lực điện tử xuất khẩu",
+        "branch": "electronics",
+        "parent": "electronics_export_program",
+        "cost": 7.5,
+        "days": 365,
+        "target": 522,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "OR = { has_country_flag = VIE_fdi_open_door has_country_flag = VIE_fdi_technology_screening }",
+        "extra": "if = { limit = { has_country_flag = VIE_fdi_technology_screening } add_tech_bonus = { name = VIE_ind_screened_bonus category = CAT_industry uses = 1 bonus = 0.25 } }",
+        "discount": "VIE_fdi_open_door",
+        "id": "VIE_ind_d_electronics_base"
+      },
+      {
+        "key": "electronics_suppliers",
+        "title": "Nhà cung ứng điện tử nội địa",
+        "branch": "electronics",
+        "parent": "apple_supply_chain",
+        "cost": 2,
+        "days": 180,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "VIE_ind_electronics_base_done = yes",
+        "extra": "",
+        "discount": null,
+        "id": "VIE_ind_d_electronics_suppliers"
+      },
+      {
+        "key": "chip_workforce",
+        "title": "Đào tạo và R&D bán dẫn",
+        "branch": "chip",
+        "parent": "chip_engineers",
+        "cost": 2,
+        "days": 365,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 1,
+        "gate": "",
+        "extra": "",
+        "discount": null,
+        "id": "VIE_ind_d_chip_workforce"
+      },
+      {
+        "key": "chip_design",
+        "title": "Năng lực thiết kế chip",
+        "branch": "chip",
+        "parent": "chip_design",
+        "cost": 1,
+        "days": 180,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 1,
+        "gate": "VIE_ind_chip_workforce_done = yes",
+        "extra": "add_tech_bonus = { name = VIE_ind_design_bonus category = CAT_microchips uses = 1 bonus = 0.25 }",
+        "discount": "VIE_ind_priority_design",
+        "id": "VIE_ind_d_chip_design"
+      },
+      {
+        "key": "chip_osat",
+        "title": "Đóng gói và kiểm thử OSAT",
+        "branch": "chip",
+        "parent": "osat_packaging",
+        "cost": 7.5,
+        "days": 365,
+        "target": 519,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "VIE_ind_chip_workforce_done = yes",
+        "extra": "add_tech_bonus = { name = VIE_ind_osat_bonus category = CAT_microchips uses = 1 bonus = 0.25 }",
+        "discount": "VIE_ind_priority_design",
+        "id": "VIE_ind_d_chip_osat"
+      },
+      {
+        "key": "chip_fab",
+        "title": "Fab thí điểm theo ưu tiên thiết kế",
+        "branch": "chip",
+        "parent": "semiconductor_fab",
+        "cost": 15,
+        "days": 720,
+        "target": 519,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_design",
+        "extra": "set_country_flag = VIE_ind_fab_notice_pending add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt } VIE_ax_normalize = yes",
+        "discount": null,
+        "id": "VIE_ind_d_fab_design"
+      },
+      {
+        "key": "chip_fab",
+        "title": "Fab thí điểm theo ưu tiên chế tạo",
+        "branch": "chip",
+        "parent": "semiconductor_fab",
+        "cost": 12,
+        "days": 630,
+        "target": 519,
+        "building": "industrial_complex",
+        "points": 2,
+        "gate": "VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_fab",
+        "extra": "set_country_flag = VIE_ind_fab_notice_pending add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt } VIE_ax_normalize = yes",
+        "discount": null,
+        "id": "VIE_ind_d_fab_pilot"
+      },
+      {
+        "key": "productivity",
+        "title": "Cải cách và năng suất công nghiệp",
+        "branch": "common",
+        "parent": "industrial_productivity_program",
+        "cost": 1,
+        "days": 180,
+        "target": null,
+        "building": "industrial_complex",
+        "points": 4,
+        "gate": "VIE_ind_three_sectors = yes",
+        "extra": "add_ideas = VIE_industrialization_2045_idea add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt } VIE_ax_normalize = yes",
+        "discount": null,
+        "id": "VIE_ind_d_productivity"
+      }
+    ],
+    "infra": [
+      {
+        "key": "road_foundation",
+        "title": "Đầu tư đường bộ nền tảng",
+        "branch": "road",
+        "parent": "transport_strategy_2004",
+        "cost": 7,
+        "days": 180,
+        "targets": [
+          521,
+          518
+        ],
+        "km": 400,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "",
+        "done": "road_foundation_done",
+        "extra": "set_country_flag = VIE_infra_quality_pending",
+        "building": "infrastructure",
+        "history": "Cầu Cần Thơ, hầm Hải Vân và các tuyến cao tốc đầu kỳ được gom thành chương trình chung.",
+        "id": "VIE_infra_d_road_foundation_1"
+      },
+      {
+        "key": "road_spine",
+        "title": "Xây dựng trục Bắc - Nam",
+        "branch": "road",
+        "parent": "north_south_expressway",
+        "cost": 7,
+        "days": 365,
+        "targets": [
+          522,
+          519
+        ],
+        "km": 600,
+        "stage": 0,
+        "total": 1,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "VIE_infra_road_foundation_done = yes",
+        "done": "road_spine_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_spine_1"
+      },
+      {
+        "key": "road_regions",
+        "title": "Kết nối vùng và vành đai",
+        "branch": "road",
+        "parent": "expressway_regional_links",
+        "cost": 3.5,
+        "days": 180,
+        "targets": [
+          523
+        ],
+        "km": 400,
+        "stage": 0,
+        "total": 2,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "VIE_infra_road_spine_done = yes",
+        "done": "road_regions_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_regions_1"
+      },
+      {
+        "key": "road_regions",
+        "title": "Kết nối vùng và vành đai",
+        "branch": "road",
+        "parent": "expressway_regional_links",
+        "cost": 3.5,
+        "days": 180,
+        "targets": [
+          518
+        ],
+        "km": 400,
+        "stage": 1,
+        "total": 2,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "VIE_infra_road_spine_done = yes",
+        "done": "road_regions_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_regions_2"
+      },
+      {
+        "key": "road_3000",
+        "title": "Giải ngân mốc 3.000 km",
+        "branch": "road",
+        "parent": "expressway_5000km_2030",
+        "cost": 10.5,
+        "days": 365,
+        "targets": [
+          521,
+          519,
+          522
+        ],
+        "km": 1200,
+        "stage": 0,
+        "total": 1,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "VIE_infra_road_network_gate = yes",
+        "done": "road_3000_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_3000_1"
+      },
+      {
+        "key": "road_5000",
+        "title": "Mở rộng mạng 5.000 km",
+        "branch": "road",
+        "parent": "expressway_5000km_2030",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          520
+        ],
+        "km": 500,
+        "stage": 0,
+        "total": 4,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "has_country_flag = VIE_infra_road_3000_done",
+        "done": "road_5000_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_5000_1"
+      },
+      {
+        "key": "road_5000",
+        "title": "Mở rộng mạng 5.000 km",
+        "branch": "road",
+        "parent": "expressway_5000km_2030",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          524
+        ],
+        "km": 500,
+        "stage": 1,
+        "total": 4,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "has_country_flag = VIE_infra_road_3000_done",
+        "done": "road_5000_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_5000_2"
+      },
+      {
+        "key": "road_5000",
+        "title": "Mở rộng mạng 5.000 km",
+        "branch": "road",
+        "parent": "expressway_5000km_2030",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          521
+        ],
+        "km": 500,
+        "stage": 2,
+        "total": 4,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "has_country_flag = VIE_infra_road_3000_done",
+        "done": "road_5000_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_5000_3"
+      },
+      {
+        "key": "road_5000",
+        "title": "Mở rộng mạng 5.000 km",
+        "branch": "road",
+        "parent": "expressway_5000km_2030",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          518
+        ],
+        "km": 500,
+        "stage": 3,
+        "total": 4,
+        "discount": "VIE_infra_funding_bot",
+        "gate": "has_country_flag = VIE_infra_road_3000_done",
+        "done": "road_5000_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_road_5000_4"
+      },
+      {
+        "key": "rail_upgrade",
+        "title": "Cải tạo mạng đường sắt hiện hữu",
+        "branch": "rail",
+        "parent": "reunification_line_upgrade",
+        "cost": 7,
+        "days": 365,
+        "targets": [
+          521,
+          523
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "",
+        "done": "rail_upgrade_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "Cải tạo tuyến Thống Nhất và hành lang Lào Cai - Hà Nội - Hải Phòng.",
+        "id": "VIE_infra_d_rail_upgrade_1"
+      },
+      {
+        "key": "metro",
+        "title": "Đầu tư đường sắt đô thị",
+        "branch": "rail",
+        "parent": "urban_rail_program",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          522
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 2,
+        "discount": null,
+        "gate": "",
+        "done": "metro_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "Đợt 1: Hà Nội. Đợt 2: TP. Hồ Chí Minh. Kết hợp TOD, tinh thần NQ188 và mạng metro dài hạn.",
+        "id": "VIE_infra_d_metro_1"
+      },
+      {
+        "key": "metro",
+        "title": "Đầu tư đường sắt đô thị",
+        "branch": "rail",
+        "parent": "urban_rail_program",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          519
+        ],
+        "km": 0,
+        "stage": 1,
+        "total": 2,
+        "discount": null,
+        "gate": "",
+        "done": "metro_done",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "Đợt 1: Hà Nội. Đợt 2: TP. Hồ Chí Minh. Kết hợp TOD, tinh thần NQ188 và mạng metro dài hạn.",
+        "id": "VIE_infra_d_metro_2"
+      },
+      {
+        "key": "rail_training",
+        "title": "Đào tạo và tiếp nhận công nghệ",
+        "branch": "rail",
+        "parent": "rail_technology_transfer",
+        "cost": 1,
+        "days": 180,
+        "targets": [],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "",
+        "done": "rail_training_done",
+        "extra": "if = { limit = { has_country_flag = VIE_hsr_partner_japan } add_tech_bonus = { name = VIE_infra_rail_training_bonus category = CAT_industry uses = 1 bonus = 0.5 } }\nelse_if = { limit = { has_country_flag = VIE_hsr_partner_eu } add_tech_bonus = { name = VIE_infra_rail_training_bonus category = CAT_industry uses = 1 bonus = 0.4 } }\nelse = { add_tech_bonus = { name = VIE_infra_rail_training_bonus category = CAT_industry uses = 1 bonus = 0.3 } }",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_rail_training_1"
+      },
+      {
+        "key": "hsr_japan",
+        "title": "Triển khai HSR Nhật Bản",
+        "branch": "rail",
+        "parent": "rail_technology_transfer",
+        "cost": 10.5,
+        "days": 720,
+        "targets": [
+          522,
+          521,
+          519
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "has_country_flag = VIE_infra_rail_training_done\nhas_country_flag = VIE_hsr_partner_japan\nNOT = { has_country_flag = VIE_infra_hsr_launch_done }\nOR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }",
+        "done": "hsr_launch_done",
+        "extra": "set_country_flag = VIE_infra_hsr_notice_pending",
+        "building": "infrastructure",
+        "history": "",
+        "start_extra": "if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }",
+        "id": "VIE_infra_d_hsr_japan_1"
+      },
+      {
+        "key": "hsr_eu",
+        "title": "Triển khai HSR châu Âu",
+        "branch": "rail",
+        "parent": "rail_technology_transfer",
+        "cost": 9.5,
+        "days": 630,
+        "targets": [
+          522,
+          521,
+          519
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "has_country_flag = VIE_infra_rail_training_done\nhas_country_flag = VIE_hsr_partner_eu\nNOT = { has_country_flag = VIE_infra_hsr_launch_done }\nOR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }",
+        "done": "hsr_launch_done",
+        "extra": "set_country_flag = VIE_infra_hsr_notice_pending",
+        "building": "infrastructure",
+        "history": "",
+        "start_extra": "if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }",
+        "id": "VIE_infra_d_hsr_eu_1"
+      },
+      {
+        "key": "hsr_china",
+        "title": "Triển khai HSR Trung Quốc",
+        "branch": "rail",
+        "parent": "rail_technology_transfer",
+        "cost": 7.5,
+        "days": 540,
+        "targets": [
+          522,
+          521,
+          519
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "has_country_flag = VIE_infra_rail_training_done\nhas_country_flag = VIE_hsr_partner_china\nNOT = { has_country_flag = VIE_infra_hsr_launch_done }\nOR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }",
+        "done": "hsr_launch_done",
+        "extra": "set_country_flag = VIE_infra_hsr_notice_pending",
+        "building": "infrastructure",
+        "history": "",
+        "start_extra": "if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }\nelse = { add_timed_idea = { idea = VIE_state_debt_overhang days = 1825 } }",
+        "id": "VIE_infra_d_hsr_china_1"
+      },
+      {
+        "key": "ports",
+        "title": "Đầu tư hệ thống cảng nước sâu",
+        "branch": "ports",
+        "parent": "national_deepwater_ports",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          519
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 2,
+        "discount": null,
+        "gate": "",
+        "done": "ports_done",
+        "extra": "add_ideas = VIE_ports_idea",
+        "building": "infrastructure",
+        "history": "Đợt 1: Cái Mép - Thị Vải. Đợt 2: Lạch Huyện.",
+        "id": "VIE_infra_d_ports_1"
+      },
+      {
+        "key": "ports",
+        "title": "Đầu tư hệ thống cảng nước sâu",
+        "branch": "ports",
+        "parent": "national_deepwater_ports",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          522
+        ],
+        "km": 0,
+        "stage": 1,
+        "total": 2,
+        "discount": null,
+        "gate": "",
+        "done": "ports_done",
+        "extra": "add_ideas = VIE_ports_idea",
+        "building": "infrastructure",
+        "history": "Đợt 1: Cái Mép - Thị Vải. Đợt 2: Lạch Huyện.",
+        "id": "VIE_infra_d_ports_2"
+      },
+      {
+        "key": "logistics",
+        "title": "Đầu tư logistics quốc gia",
+        "branch": "ports",
+        "parent": "logistics_strategy",
+        "cost": 3.5,
+        "days": 180,
+        "targets": [
+          523
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "",
+        "done": "logistics_done",
+        "extra": "add_ideas = VIE_logistics_idea",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_logistics_1"
+      },
+      {
+        "key": "multimodal",
+        "title": "Kết nối vận tải đa phương thức",
+        "branch": "ports",
+        "parent": "multimodal_transport",
+        "cost": 3.5,
+        "days": 180,
+        "targets": [
+          520
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "VIE_infra_logistics_done = yes",
+        "done": "multimodal_done",
+        "extra": "if = { limit = { has_idea = VIE_ports_idea } remove_ideas = VIE_ports_idea }\nif = { limit = { has_idea = VIE_logistics_idea } remove_ideas = VIE_logistics_idea }\nadd_ideas = VIE_multimodal_idea",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_multimodal_1"
+      },
+      {
+        "key": "air_modern",
+        "title": "Hiện đại hóa sân bay dân dụng",
+        "branch": "air",
+        "parent": "airport_network_2030",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          522
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 2,
+        "discount": "VIE_infra_air_private",
+        "gate": "",
+        "done": "air_modern_done",
+        "extra": "add_ideas = VIE_airport_network_idea",
+        "building": "infrastructure",
+        "history": "Đợt 1: Nội Bài T2. Đợt 2: Tân Sơn Nhất T3. Công trình dân dụng không cấp căn cứ không quân.",
+        "id": "VIE_infra_d_air_modern_1"
+      },
+      {
+        "key": "air_modern",
+        "title": "Hiện đại hóa sân bay dân dụng",
+        "branch": "air",
+        "parent": "airport_network_2030",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          519
+        ],
+        "km": 0,
+        "stage": 1,
+        "total": 2,
+        "discount": "VIE_infra_air_private",
+        "gate": "",
+        "done": "air_modern_done",
+        "extra": "add_ideas = VIE_airport_network_idea",
+        "building": "infrastructure",
+        "history": "Đợt 1: Nội Bài T2. Đợt 2: Tân Sơn Nhất T3. Công trình dân dụng không cấp căn cứ không quân.",
+        "id": "VIE_infra_d_air_modern_2"
+      },
+      {
+        "key": "long_thanh_prepare",
+        "title": "Chuẩn bị dự án Long Thành",
+        "branch": "air",
+        "parent": "long_thanh_airport",
+        "cost": 2,
+        "days": 180,
+        "targets": [],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "VIE_infra_air_modern_done = yes",
+        "done": "long_thanh_prepared",
+        "extra": "",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_long_thanh_prepare_1"
+      },
+      {
+        "key": "long_thanh",
+        "title": "Xây dựng Long Thành",
+        "branch": "air",
+        "parent": "long_thanh_airport",
+        "cost": 3.5,
+        "days": 720,
+        "targets": [
+          519
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": "VIE_infra_air_private",
+        "gate": "has_country_flag = VIE_infra_long_thanh_prepared\ndate > 2020.12.31",
+        "done": "long_thanh_done",
+        "extra": "set_country_flag = VIE_infra_long_thanh_notice_pending",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_long_thanh_1"
+      },
+      {
+        "key": "van_don",
+        "title": "Đầu tư sân bay Vân Đồn",
+        "branch": "air",
+        "parent": "airport_network_2030",
+        "cost": 3.5,
+        "days": 365,
+        "targets": [
+          523
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": "VIE_infra_air_private",
+        "gate": "has_country_flag = VIE_infra_air_private\ndate > 2017.12.31",
+        "done": "van_don_done",
+        "extra": "set_temp_variable = { temp_opinion = 3 }\nchange_industrial_conglomerates_opinion = yes",
+        "building": "infrastructure",
+        "history": "",
+        "id": "VIE_infra_d_van_don_1"
+      },
+      {
+        "key": "dual_use",
+        "title": "Phát triển sân bay lưỡng dụng",
+        "branch": "air",
+        "parent": "airport_network_2030",
+        "cost": 3,
+        "days": 180,
+        "targets": [
+          521
+        ],
+        "km": 0,
+        "stage": 0,
+        "total": 1,
+        "discount": null,
+        "gate": "",
+        "done": "dual_use_done",
+        "extra": "add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }\nVIE_ax_normalize = yes\nif = { limit = { has_idea = the_military } set_temp_variable = { temp_opinion = 3 } change_the_military_opinion = yes }",
+        "building": "air_base",
+        "history": "",
+        "id": "VIE_infra_d_dual_use_1"
+      }
+    ]
+  }
+}

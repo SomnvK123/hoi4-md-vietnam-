@@ -1,5 +1,7 @@
 # Hạ tầng Việt Nam — thiết kế v30
 
+> Hiện hành **v32 — 10/10/2026**: focus cấp idea chính sách trực tiếp, decision nâng bậc khi bàn giao. Xem [manifest effect v32](.claude/docs/policy_rewards/v32/README.md) và [kiểm định](.claude/docs/policy_rewards/v32/validation.md). Layout, vốn, tiến độ và gate giữ nguyên; mô tả cũ chỉ nhận modifier khi bàn giao được thay bằng các bậc v32.
+
 Triển khai **09/10/2026** trực tiếp trên `main`, thay thiết kế 44 focus ngày 03/10/2026. **Yêu cầu game mới**, không có migration save cũ. File tĩnh và fixture đã đạt; chưa nghiệm thu trong HOI4.
 
 ## Cấu trúc hiện hành

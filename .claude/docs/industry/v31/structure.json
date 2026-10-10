@@ -1,0 +1,895 @@
+{
+  "focuses": [
+    {
+      "id": "VIE_industrialization_strategy",
+      "slug": "industrialization_strategy",
+      "title": "Chiến lược công nghiệp hóa quốc gia",
+      "cost": 5,
+      "xy": [
+        133,
+        1
+      ],
+      "pre": [
+        [
+          "VIE_doi_moi_continues"
+        ]
+      ],
+      "gate": "date > 2001.4.30",
+      "icon": "economic_civil_industry",
+      "anchor": "VIE_doi_moi_continues",
+      "ai": ""
+    },
+    {
+      "id": "VIE_supporting_industries",
+      "slug": "supporting_industries",
+      "title": "Phát triển công nghiệp hỗ trợ",
+      "cost": 7,
+      "xy": [
+        133,
+        2
+      ],
+      "pre": [
+        [
+          "VIE_industrialization_strategy"
+        ]
+      ],
+      "gate": "",
+      "icon": "economic_civil_industry",
+      "anchor": "VIE_industrialization_strategy",
+      "ai": ""
+    },
+    {
+      "id": "VIE_vinashin_restructuring_sbic",
+      "slug": "vinashin_restructuring_sbic",
+      "title": "Tái cơ cấu ngành đóng tàu",
+      "cost": 5,
+      "xy": [
+        124,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_supporting_industries"
+        ]
+      ],
+      "gate": "VIE_ind_support_done = yes date > 2004.12.31",
+      "icon": "naval_industry",
+      "anchor": "VIE_supporting_industries",
+      "ai": "modifier = { factor = 0 VIE_ai_historical = yes date < 2013.1.1 }"
+    },
+    {
+      "id": "VIE_national_steel_program",
+      "slug": "national_steel_program",
+      "title": "Chương trình công nghiệp thép quốc gia",
+      "cost": 7,
+      "xy": [
+        126,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_supporting_industries"
+        ]
+      ],
+      "gate": "VIE_ind_support_done = yes date > 2007.12.31",
+      "icon": "economic_civil_industry",
+      "anchor": "VIE_supporting_industries",
+      "ai": ""
+    },
+    {
+      "id": "VIE_textile_garment_exports",
+      "slug": "textile_garment_exports",
+      "title": "Công nghiệp dệt may xuất khẩu",
+      "cost": 5,
+      "xy": [
+        128,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_supporting_industries"
+        ]
+      ],
+      "gate": "VIE_ind_support_done = yes",
+      "icon": "focus_generic_industrialists",
+      "anchor": "VIE_supporting_industries",
+      "ai": ""
+    },
+    {
+      "id": "VIE_domestic_automotive",
+      "slug": "domestic_automotive",
+      "title": "Chương trình sản xuất ô tô",
+      "cost": 7,
+      "xy": [
+        130,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_supporting_industries"
+        ]
+      ],
+      "gate": "VIE_ind_support_done = yes date > 2017.12.31",
+      "icon": "economic_civil_industry",
+      "anchor": "VIE_supporting_industries",
+      "ai": ""
+    },
+    {
+      "id": "VIE_electronics_export_program",
+      "slug": "electronics_export_program",
+      "title": "Công nghiệp điện tử xuất khẩu",
+      "cost": 5,
+      "xy": [
+        134,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_supporting_industries"
+        ]
+      ],
+      "gate": "VIE_ind_support_done = yes date > 2007.12.31 VIE_ind_wto_ready = yes",
+      "icon": "economic_civil_industry",
+      "anchor": "VIE_supporting_industries",
+      "ai": ""
+    },
+    {
+      "id": "VIE_chip_engineers",
+      "slug": "chip_engineers",
+      "title": "Nền tảng nhân lực và R&D bán dẫn",
+      "cost": 7,
+      "xy": [
+        140,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_supporting_industries"
+        ]
+      ],
+      "gate": "VIE_ind_support_done = yes date > 2009.12.31 VIE_ind_education_ready = yes",
+      "icon": "GFX_focus_VIE_chip_engineers",
+      "anchor": "VIE_supporting_industries",
+      "ai": "modifier = { factor = 0 VIE_ai_historical = yes date < 2024.1.1 }"
+    },
+    {
+      "id": "VIE_ev_revolution_batteries",
+      "slug": "ev_revolution_batteries",
+      "title": "Linh kiện, pin và điện khí hóa",
+      "cost": 7,
+      "xy": [
+        130,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_domestic_automotive"
+        ]
+      ],
+      "gate": "VIE_ind_auto_base_done = yes",
+      "icon": "industry3",
+      "anchor": "VIE_domestic_automotive",
+      "ai": ""
+    },
+    {
+      "id": "VIE_fdi_fast_track",
+      "slug": "fdi_fast_track",
+      "title": "Thu hút FDI nhanh",
+      "cost": 5,
+      "xy": [
+        132,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_electronics_export_program"
+        ]
+      ],
+      "gate": "",
+      "icon": "focus_generic_industrialists",
+      "anchor": "VIE_electronics_export_program",
+      "ai": "modifier = { factor = 0 VIE_ai_historical = yes }"
+    },
+    {
+      "id": "VIE_fdi_technology_screening",
+      "slug": "fdi_technology_screening",
+      "title": "Sàng lọc FDI công nghệ",
+      "cost": 5,
+      "xy": [
+        136,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_electronics_export_program"
+        ]
+      ],
+      "gate": "",
+      "icon": "focus_generic_industrialists",
+      "anchor": "VIE_electronics_export_program",
+      "ai": ""
+    },
+    {
+      "id": "VIE_chip_design_packaging_priority",
+      "slug": "chip_design_packaging_priority",
+      "title": "Ưu tiên thiết kế và đóng gói",
+      "cost": 5,
+      "xy": [
+        138,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_chip_engineers"
+        ]
+      ],
+      "gate": "",
+      "icon": "GFX_focus_VIE_chip_design",
+      "anchor": "VIE_chip_engineers",
+      "ai": ""
+    },
+    {
+      "id": "VIE_chip_pilot_fab_priority",
+      "slug": "chip_pilot_fab_priority",
+      "title": "Ưu tiên chế tạo thí điểm",
+      "cost": 5,
+      "xy": [
+        142,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_chip_engineers"
+        ]
+      ],
+      "gate": "",
+      "icon": "GFX_focus_VIE_semiconductor_fab",
+      "anchor": "VIE_chip_engineers",
+      "ai": "modifier = { factor = 0 VIE_ai_historical = yes }"
+    },
+    {
+      "id": "VIE_shipbuilding_joint_ventures",
+      "slug": "shipbuilding_joint_ventures",
+      "title": "Đóng tàu dân sự và công trình biển",
+      "cost": 7,
+      "xy": [
+        124,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_vinashin_restructuring_sbic"
+        ]
+      ],
+      "gate": "VIE_ind_ship_governance_done = yes",
+      "icon": "naval_industry",
+      "anchor": "VIE_vinashin_restructuring_sbic",
+      "ai": ""
+    },
+    {
+      "id": "VIE_hoa_phat_hrc_steel",
+      "slug": "hoa_phat_hrc_steel",
+      "title": "Thép chất lượng cao và năng lực HRC",
+      "cost": 7,
+      "xy": [
+        126,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_national_steel_program"
+        ]
+      ],
+      "gate": "VIE_ind_steel_base_done = yes",
+      "icon": "economic_civil_industry",
+      "anchor": "VIE_national_steel_program",
+      "ai": ""
+    },
+    {
+      "id": "VIE_green_textiles",
+      "slug": "green_textiles",
+      "title": "Chuỗi giá trị dệt may và sản xuất xanh",
+      "cost": 7,
+      "xy": [
+        128,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_textile_garment_exports"
+        ]
+      ],
+      "gate": "VIE_ind_textile_base_done = yes VIE_ind_green_trade_ready = yes",
+      "icon": "green_world",
+      "anchor": "VIE_textile_garment_exports",
+      "ai": ""
+    },
+    {
+      "id": "VIE_global_auto_export",
+      "slug": "global_auto_export",
+      "title": "Năng lực xuất khẩu ô tô",
+      "cost": 7,
+      "xy": [
+        130,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_ev_revolution_batteries"
+        ]
+      ],
+      "gate": "VIE_ind_auto_ev_done = yes VIE_ind_wto_ready = yes",
+      "icon": "diplomatic_treaty",
+      "anchor": "VIE_ev_revolution_batteries",
+      "ai": ""
+    },
+    {
+      "id": "VIE_apple_supply_chain",
+      "slug": "apple_supply_chain",
+      "title": "Nội địa hóa chuỗi cung ứng điện tử",
+      "cost": 7,
+      "xy": [
+        134,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_fdi_fast_track",
+          "VIE_fdi_technology_screening"
+        ]
+      ],
+      "gate": "VIE_ind_electronics_base_done = yes",
+      "icon": "focus_generic_industrialists",
+      "anchor": "VIE_fdi_fast_track",
+      "ai": ""
+    },
+    {
+      "id": "VIE_chip_design",
+      "slug": "chip_design",
+      "title": "Năng lực thiết kế chip",
+      "cost": 7,
+      "xy": [
+        138,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_chip_design_packaging_priority",
+          "VIE_chip_pilot_fab_priority"
+        ]
+      ],
+      "gate": "VIE_ind_chip_workforce_done = yes",
+      "icon": "GFX_focus_VIE_chip_design",
+      "anchor": "VIE_chip_design_packaging_priority",
+      "ai": ""
+    },
+    {
+      "id": "VIE_osat_packaging",
+      "slug": "osat_packaging",
+      "title": "Đóng gói và kiểm thử chip",
+      "cost": 7,
+      "xy": [
+        142,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_chip_design_packaging_priority",
+          "VIE_chip_pilot_fab_priority"
+        ]
+      ],
+      "gate": "VIE_ind_chip_workforce_done = yes",
+      "icon": "GFX_focus_VIE_osat_packaging",
+      "anchor": "VIE_chip_pilot_fab_priority",
+      "ai": ""
+    },
+    {
+      "id": "VIE_manufacturing_hub",
+      "slug": "manufacturing_hub",
+      "title": "Trung tâm chế tạo điện tử",
+      "cost": 7,
+      "xy": [
+        134,
+        6
+      ],
+      "pre": [
+        [
+          "VIE_apple_supply_chain"
+        ]
+      ],
+      "gate": "VIE_ind_electronics_suppliers_done = yes",
+      "icon": "focus_generic_communist_industry",
+      "anchor": "VIE_apple_supply_chain",
+      "ai": ""
+    },
+    {
+      "id": "VIE_semiconductor_fab",
+      "slug": "semiconductor_fab",
+      "title": "Chế tạo chip thí điểm",
+      "cost": 7,
+      "xy": [
+        140,
+        6
+      ],
+      "pre": [
+        [
+          "VIE_chip_design"
+        ],
+        [
+          "VIE_osat_packaging"
+        ],
+        [
+          "VIE_chip_engineers"
+        ]
+      ],
+      "gate": "VIE_ind_chip_ready = yes",
+      "icon": "GFX_focus_VIE_semiconductor_fab",
+      "anchor": "VIE_chip_design",
+      "ai": "modifier = { factor = 0 VIE_ai_historical = yes date < 2026.1.1 }"
+    },
+    {
+      "id": "VIE_industrial_productivity_program",
+      "slug": "industrial_productivity_program",
+      "title": "Cải cách và nâng cao năng suất công nghiệp",
+      "cost": 7,
+      "xy": [
+        133,
+        7
+      ],
+      "pre": [
+        [
+          "VIE_shipbuilding_joint_ventures",
+          "VIE_green_textiles",
+          "VIE_hoa_phat_hrc_steel",
+          "VIE_global_auto_export",
+          "VIE_manufacturing_hub",
+          "VIE_osat_packaging"
+        ]
+      ],
+      "gate": "VIE_ind_three_sectors = yes",
+      "icon": "focus_generic_full_employment",
+      "anchor": "VIE_manufacturing_hub",
+      "ai": "modifier = { factor = 0 VIE_ai_historical = yes date < 2023.11.1 }"
+    },
+    {
+      "id": "VIE_modern_industrial_nation_2030",
+      "slug": "modern_industrial_nation_2030",
+      "title": "Quốc gia công nghiệp hiện đại 2030",
+      "cost": 7,
+      "xy": [
+        133,
+        9
+      ],
+      "pre": [
+        [
+          "VIE_industrial_productivity_program"
+        ]
+      ],
+      "gate": "VIE_ind_capstone_ready = yes",
+      "icon": "economic_prosperity2",
+      "anchor": "VIE_industrial_productivity_program",
+      "ai": "modifier = { factor = 0 VIE_ai_historical = yes date < 2030.1.1 }"
+    }
+  ],
+  "programs": [
+    {
+      "key": "support",
+      "title": "Đầu tư công nghiệp hỗ trợ",
+      "branch": "common",
+      "parent": "supporting_industries",
+      "cost": 2,
+      "days": 180,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 6,
+      "gate": "",
+      "extra": "add_ideas = VIE_ind_supporting_capacity_idea",
+      "discount": null,
+      "id": "VIE_ind_d_support"
+    },
+    {
+      "key": "ship_governance",
+      "title": "Quản trị và tái cơ cấu đóng tàu",
+      "branch": "ship",
+      "parent": "vinashin_restructuring_sbic",
+      "cost": 1,
+      "days": 180,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "",
+      "extra": "set_variable = { VIE_vinashin_risk = 0 } add_stability = 0.01 add_to_variable = { VIE_ax_checks = 1 tooltip = VIE_ax_checks_tt } VIE_ax_normalize = yes",
+      "discount": null,
+      "id": "VIE_ind_d_ship_governance"
+    },
+    {
+      "key": "ship_civil",
+      "title": "Đóng tàu dân sự và công trình biển",
+      "branch": "ship",
+      "parent": "shipbuilding_joint_ventures",
+      "cost": 7.5,
+      "days": 365,
+      "target": 519,
+      "building": "dockyard",
+      "points": 2,
+      "gate": "VIE_ind_ship_governance_done = yes",
+      "extra": "",
+      "discount": null,
+      "id": "VIE_ind_d_ship_civil"
+    },
+    {
+      "key": "textile_base",
+      "title": "Phát triển dệt may xuất khẩu",
+      "branch": "textile",
+      "parent": "textile_garment_exports",
+      "cost": 7.5,
+      "days": 365,
+      "target": 522,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "",
+      "extra": "add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt } VIE_ax_normalize = yes",
+      "discount": null,
+      "id": "VIE_ind_d_textile_base"
+    },
+    {
+      "key": "textile_green",
+      "title": "Dệt nhuộm, xuất xứ và sản xuất xanh",
+      "branch": "textile",
+      "parent": "green_textiles",
+      "cost": 2,
+      "days": 180,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "VIE_ind_textile_base_done = yes",
+      "extra": "add_ideas = VIE_textile_supply_chain_idea",
+      "discount": null,
+      "id": "VIE_ind_d_textile_green"
+    },
+    {
+      "key": "steel_base",
+      "title": "Thép nền tảng bằng vốn FDI",
+      "branch": "steel",
+      "parent": "national_steel_program",
+      "cost": 6,
+      "days": 365,
+      "target": 521,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "has_country_flag = VIE_ind_steel_foreign",
+      "extra": "set_country_flag = VIE_steel_complex_built",
+      "discount": null,
+      "id": "VIE_ind_d_steel_foreign"
+    },
+    {
+      "key": "steel_base",
+      "title": "Thép nền tảng bằng vốn nội địa",
+      "branch": "steel",
+      "parent": "national_steel_program",
+      "cost": 7.5,
+      "days": 450,
+      "target": 521,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "has_country_flag = VIE_ind_steel_domestic",
+      "extra": "",
+      "discount": null,
+      "id": "VIE_ind_d_steel_domestic"
+    },
+    {
+      "key": "steel_hrc",
+      "title": "Thép chất lượng cao và HRC",
+      "branch": "steel",
+      "parent": "hoa_phat_hrc_steel",
+      "cost": 7.5,
+      "days": 365,
+      "target": 521,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "VIE_ind_steel_base_done = yes",
+      "extra": "add_ideas = VIE_hrc_steel_self_reliance",
+      "discount": null,
+      "id": "VIE_ind_d_steel_hrc"
+    },
+    {
+      "key": "auto_base",
+      "title": "Năng lực sản xuất ô tô",
+      "branch": "auto",
+      "parent": "domestic_automotive",
+      "cost": 7.5,
+      "days": 365,
+      "target": 522,
+      "building": "industrial_complex",
+      "points": 1,
+      "gate": "",
+      "extra": "set_country_flag = VIE_auto_program",
+      "discount": null,
+      "id": "VIE_ind_d_auto_base"
+    },
+    {
+      "key": "auto_ev",
+      "title": "Linh kiện, pin và điện khí hóa",
+      "branch": "auto",
+      "parent": "ev_revolution_batteries",
+      "cost": 7.5,
+      "days": 365,
+      "target": 521,
+      "building": "industrial_complex",
+      "points": 1,
+      "gate": "VIE_ind_auto_base_done = yes",
+      "extra": "add_ideas = VIE_ev_mobility_idea add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt } VIE_ax_normalize = yes",
+      "discount": null,
+      "id": "VIE_ind_d_auto_ev"
+    },
+    {
+      "key": "auto_export",
+      "title": "Tiêu chuẩn và năng lực xuất khẩu ô tô",
+      "branch": "auto",
+      "parent": "global_auto_export",
+      "cost": 1,
+      "days": 180,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "VIE_ind_auto_ev_done = yes",
+      "extra": "add_ideas = VIE_global_brand_recognition set_country_flag = VIE_ind_auto_notice_pending",
+      "discount": null,
+      "id": "VIE_ind_d_auto_export"
+    },
+    {
+      "key": "electronics_base",
+      "title": "Năng lực điện tử xuất khẩu",
+      "branch": "electronics",
+      "parent": "electronics_export_program",
+      "cost": 7.5,
+      "days": 365,
+      "target": 522,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "OR = { has_country_flag = VIE_fdi_open_door has_country_flag = VIE_fdi_technology_screening }",
+      "extra": "if = { limit = { has_country_flag = VIE_fdi_technology_screening } add_tech_bonus = { name = VIE_ind_screened_bonus category = CAT_industry uses = 1 bonus = 0.25 } }",
+      "discount": "VIE_fdi_open_door",
+      "id": "VIE_ind_d_electronics_base"
+    },
+    {
+      "key": "electronics_suppliers",
+      "title": "Nhà cung ứng điện tử nội địa",
+      "branch": "electronics",
+      "parent": "apple_supply_chain",
+      "cost": 2,
+      "days": 180,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "VIE_ind_electronics_base_done = yes",
+      "extra": "",
+      "discount": null,
+      "id": "VIE_ind_d_electronics_suppliers"
+    },
+    {
+      "key": "chip_workforce",
+      "title": "Đào tạo và R&D bán dẫn",
+      "branch": "chip",
+      "parent": "chip_engineers",
+      "cost": 2,
+      "days": 365,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 1,
+      "gate": "",
+      "extra": "",
+      "discount": null,
+      "id": "VIE_ind_d_chip_workforce"
+    },
+    {
+      "key": "chip_design",
+      "title": "Năng lực thiết kế chip",
+      "branch": "chip",
+      "parent": "chip_design",
+      "cost": 1,
+      "days": 180,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 1,
+      "gate": "VIE_ind_chip_workforce_done = yes",
+      "extra": "add_tech_bonus = { name = VIE_ind_design_bonus category = CAT_microchips uses = 1 bonus = 0.25 }",
+      "discount": "VIE_ind_priority_design",
+      "id": "VIE_ind_d_chip_design"
+    },
+    {
+      "key": "chip_osat",
+      "title": "Đóng gói và kiểm thử OSAT",
+      "branch": "chip",
+      "parent": "osat_packaging",
+      "cost": 7.5,
+      "days": 365,
+      "target": 519,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "VIE_ind_chip_workforce_done = yes",
+      "extra": "add_tech_bonus = { name = VIE_ind_osat_bonus category = CAT_microchips uses = 1 bonus = 0.25 }",
+      "discount": "VIE_ind_priority_design",
+      "id": "VIE_ind_d_chip_osat"
+    },
+    {
+      "key": "chip_fab",
+      "title": "Fab thí điểm theo ưu tiên thiết kế",
+      "branch": "chip",
+      "parent": "semiconductor_fab",
+      "cost": 15,
+      "days": 720,
+      "target": 519,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_design",
+      "extra": "set_country_flag = VIE_ind_fab_notice_pending add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt } VIE_ax_normalize = yes",
+      "discount": null,
+      "id": "VIE_ind_d_fab_design"
+    },
+    {
+      "key": "chip_fab",
+      "title": "Fab thí điểm theo ưu tiên chế tạo",
+      "branch": "chip",
+      "parent": "semiconductor_fab",
+      "cost": 12,
+      "days": 630,
+      "target": 519,
+      "building": "industrial_complex",
+      "points": 2,
+      "gate": "VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_fab",
+      "extra": "set_country_flag = VIE_ind_fab_notice_pending add_to_variable = { VIE_ax_integ = 1 tooltip = VIE_ax_integ_tt } VIE_ax_normalize = yes",
+      "discount": null,
+      "id": "VIE_ind_d_fab_pilot"
+    },
+    {
+      "key": "productivity",
+      "title": "Cải cách và năng suất công nghiệp",
+      "branch": "common",
+      "parent": "industrial_productivity_program",
+      "cost": 1,
+      "days": 180,
+      "target": null,
+      "building": "industrial_complex",
+      "points": 4,
+      "gate": "VIE_ind_three_sectors = yes",
+      "extra": "add_ideas = VIE_industrialization_2045_idea add_to_variable = { VIE_ax_merit = 1 tooltip = VIE_ax_merit_tt } VIE_ax_normalize = yes",
+      "discount": null,
+      "id": "VIE_ind_d_productivity"
+    }
+  ],
+  "removed": [
+    "VIE_china_plus_one",
+    "VIE_cptpp_yarn_forward",
+    "VIE_eco_industrial_parks",
+    "VIE_formosa_steel_complex",
+    "VIE_hoa_phat_dung_quat_2",
+    "VIE_integrated_auto_supplier_park",
+    "VIE_intel_hcmc",
+    "VIE_investment_support_fund",
+    "VIE_nq23_industrial_policy",
+    "VIE_nq29_industrialization_2045",
+    "VIE_offshore_wind_fabrication",
+    "VIE_precision_mechanics_molds",
+    "VIE_samsung_partnership",
+    "VIE_semiconductor_ambition",
+    "VIE_shipbuilding_vinashin",
+    "VIE_textile_dyeing_parks",
+    "VIE_tier1_vendor_localization"
+  ],
+  "retired_ideas": [
+    "VIE_auto_supplier_cluster_idea",
+    "VIE_precision_molds_idea",
+    "VIE_tier1_suppliers_idea"
+  ],
+  "sectors": {
+    "ship": [
+      "ship_governance",
+      "ship_civil"
+    ],
+    "textile": [
+      "textile_base",
+      "textile_green"
+    ],
+    "steel": [
+      "steel_base",
+      "steel_hrc"
+    ],
+    "auto": [
+      "auto_base",
+      "auto_ev",
+      "auto_export"
+    ],
+    "electronics": [
+      "electronics_base",
+      "electronics_suppliers"
+    ],
+    "chip": [
+      "chip_workforce",
+      "chip_design",
+      "chip_osat"
+    ]
+  },
+  "ideas": {
+    "VIE_ind_supporting_capacity_idea": [
+      "Năng lực công nghiệp hỗ trợ",
+      {
+        "country_productivity_growth_modifier": 0.016,
+        "industrial_capacity_factory": 0.02,
+        "corporate_tax_income_multiplier_modifier": 0.02
+      }
+    ],
+    "VIE_hrc_steel_self_reliance": [
+      "Năng lực thép chất lượng cao",
+      {
+        "production_speed_industrial_complex_factor": 0.03,
+        "production_speed_infrastructure_factor": 0.02,
+        "production_speed_arms_factory_factor": 0.02
+      }
+    ],
+    "VIE_textile_supply_chain_idea": [
+      "Chuỗi giá trị dệt may xanh",
+      {
+        "consumer_goods_factor": -0.005,
+        "trade_opinion_factor": 0.01
+      }
+    ],
+    "VIE_ev_mobility_idea": [
+      "Năng lực điện khí hóa và linh kiện",
+      {
+        "country_productivity_growth_modifier": 0.016,
+        "industrial_capacity_factory": 0.02,
+        "fuel_cost": -0.03
+      }
+    ],
+    "VIE_global_brand_recognition": [
+      "Năng lực xuất khẩu ô tô",
+      {
+        "country_productivity_growth_modifier": 0.008,
+        "corporate_tax_income_multiplier_modifier": 0.02,
+        "stability_factor": 0.01,
+        "foreign_influence_defense_modifier": 0.05
+      }
+    ],
+    "VIE_manufacturing_hub_idea": [
+      "Trung tâm chế tạo điện tử",
+      {
+        "country_productivity_growth_modifier": 0.016,
+        "corporate_tax_income_multiplier_modifier": 0.02
+      }
+    ],
+    "VIE_semiconductor_idea": [
+      "Thiết kế, đóng gói và nhân lực bán dẫn",
+      {
+        "country_productivity_growth_modifier": 0.008,
+        "research_speed_factor": 0.01
+      }
+    ],
+    "VIE_chip_sector_idea": [
+      "Năng lực chế tạo bán dẫn thí điểm",
+      {
+        "country_productivity_growth_modifier": 0.012,
+        "research_speed_factor": 0.015
+      }
+    ],
+    "VIE_industrialization_2045_idea": [
+      "Cải cách năng suất công nghiệp",
+      {
+        "country_productivity_growth_modifier": 0.008,
+        "production_speed_industrial_complex_factor": 0.04
+      }
+    ],
+    "VIE_modern_industrial_nation_idea": [
+      "Nền công nghiệp hiện đại",
+      {
+        "country_productivity_growth_modifier": 0.012,
+        "production_speed_industrial_complex_factor": 0.06,
+        "industrial_capacity_factory": 0.02
+      }
+    ]
+  },
+  "policy_rewards": {
+    "version": 32,
+    "manifest": "../../policy_rewards/v32/structure.json"
+  }
+}

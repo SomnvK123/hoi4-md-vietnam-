@@ -1,0 +1,32 @@
+DEFS: {'effect': 592, 'trigger': 209, 'idea': 246, 'event': 319, 'decision': 143, 'dec_cat': 15, 'dyn_mod': 2, 'opinion': 12, 'rule': 2, 'rule_opt': 4, 'bop': 1, 'mio': 4, 'loc': 3882, 'gfx': 346, 'char': 44, 'focus': 353, 'state_mod': 0}
+
+=== [SCRIPTED EFFECT / TRIGGER CALLS (X = yes)] used=636 defined=801 MISSING=0 ===
+
+=== [IDEAS (add_ideas/has_idea/remove_idea)] used=221 defined=246 MISSING=0 ===
+
+=== [DECISIONS (activate/has/remove)] used=0 defined=143 MISSING=0 ===
+
+=== [DECISION CATEGORIES (unlock_decision_category)] used=0 defined=15 MISSING=0 ===
+
+=== [DYNAMIC MODIFIERS] used=2 defined=2 MISSING=0 ===
+
+=== [FOCUS refs (has_completed_focus / shortcut target / prerequisite)] used=302 defined=353 MISSING=4 ===
+  !! VIE_lf_complex_terrain_mobile_capstone        <- common/scripted_effects/VIE_md_effects_v31.txt:116, common/scripted_triggers/VIE_md_triggers_v31.txt:13, common/scripted_triggers/VIE_md_triggers_v31.txt:25
+  !! VIE_lf_modern_elite_combined_army_capstone    <- common/scripted_triggers/VIE_md_triggers_v31.txt:14, common/scripted_triggers/VIE_md_triggers_v31.txt:26
+  !! VIE_lf_operational_counteroffensive_capstone  <- common/scripted_effects/VIE_md_effects_v31.txt:109, common/scripted_triggers/VIE_md_triggers_v31.txt:12, common/scripted_triggers/VIE_md_triggers_v31.txt:24
+  !! VIE_lf_sf_special_warfare_capstone            <- common/scripted_effects/VIE_md_effects_v31.txt:105
+
+=== [GAME RULE OPTIONS] used=2 defined=4 MISSING=0 ===
+
+=== [MIO organizations] used=0 defined=4 MISSING=0 ===
+
+=== [LOC keys used as tooltip/custom_*_tooltip] used=412 defined=3882 MISSING=1 ===
+  !! VIE_v31_joint_modernization_ready_tt          <- common/scripted_triggers/VIE_md_triggers_v31.txt:6, common/scripted_triggers/VIE_md_triggers_v31.txt:7
+
+=== [EVENTS] fired but undefined: 0 ===
+
+=== [EVENTS] defined but never fired anywhere (true orphans): 0 ===
+    []
+
+=== [IDEAS] defined but never granted/referenced: 1 ===
+    ['VIE_vpa_modern_joint_autonomous_idea']

@@ -1,0 +1,1210 @@
+{
+  "focuses": [
+    {
+      "id": "VIE_infrastructure_development",
+      "slug": "infrastructure_development",
+      "title": "Chiến lược hạ tầng quốc gia",
+      "cost": 5,
+      "xy": [
+        82,
+        1
+      ],
+      "pre": [
+        [
+          "VIE_doi_moi_continues"
+        ]
+      ],
+      "gate": "",
+      "icon": "economic_blue_print",
+      "desc": "Xây dựng bốn chương trình đường bộ, đường sắt, cảng biển và hàng không. Chính sách mở hướng đầu tư; công trình chỉ được bàn giao sau khi giải ngân và thực hiện các quyết sách."
+    },
+    {
+      "id": "VIE_transport_strategy_2004",
+      "slug": "transport_strategy_2004",
+      "title": "Chương trình phát triển đường bộ",
+      "cost": 5,
+      "xy": [
+        70,
+        2
+      ],
+      "pre": [
+        [
+          "VIE_infrastructure_development"
+        ]
+      ],
+      "gate": "date > 2004.12.9",
+      "icon": "focus_generic_improve_roads",
+      "desc": "Tập hợp cầu Cần Thơ, hầm Hải Vân, cao tốc TP. Hồ Chí Minh - Trung Lương và các tuyến đầu kỳ vào một chương trình nền tảng. Chiều dài cao tốc trong chương trình là đơn vị tiến độ gameplay, không phải số liệu lịch sử từng dự án."
+    },
+    {
+      "id": "VIE_expressway_bot",
+      "slug": "expressway_bot",
+      "title": "Huy động vốn BOT/PPP",
+      "cost": 5,
+      "xy": [
+        68,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_transport_strategy_2004"
+        ]
+      ],
+      "gate": "",
+      "icon": "economic_privatisation",
+      "desc": "Huy động vốn tư nhân để giảm 25% chi ngân sách cho các đợt cao tốc sau nền tảng. Đổi lại, chính quyền phải xử lý tranh chấp thu phí và lợi ích giữa người sử dụng với nhà đầu tư."
+    },
+    {
+      "id": "VIE_expressway_public_investment",
+      "slug": "expressway_public_investment",
+      "title": "Cao tốc bằng đầu tư công",
+      "cost": 5,
+      "xy": [
+        72,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_transport_strategy_2004"
+        ]
+      ],
+      "gate": "",
+      "icon": "focus_generic_central_planning",
+      "desc": "Ngân sách nhà nước chịu toàn bộ chi phí mở rộng cao tốc. Nhà nước kiểm soát nguồn vốn và giảm nguy cơ tranh chấp trạm thu phí BOT."
+    },
+    {
+      "id": "VIE_north_south_expressway",
+      "slug": "north_south_expressway",
+      "title": "Trục cao tốc Bắc - Nam",
+      "cost": 7,
+      "xy": [
+        70,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_expressway_bot",
+          "VIE_expressway_public_investment"
+        ]
+      ],
+      "gate": "date > 2017.11.21\nVIE_infra_road_foundation_done = yes",
+      "icon": "focus_generic_improve_roads",
+      "desc": "Mở chương trình xây dựng trục vận tải xuyên quốc gia sau khi hoàn tất nền tảng đường bộ. Focus phê duyệt chương trình; quyết sách đầu tư mới tạo công trình và tăng chiều dài mạng lưới."
+    },
+    {
+      "id": "VIE_expressway_regional_links",
+      "slug": "expressway_regional_links",
+      "title": "Kết nối vùng và vành đai",
+      "cost": 7,
+      "xy": [
+        70,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_north_south_expressway"
+        ]
+      ],
+      "gate": "VIE_infra_road_spine_done = yes",
+      "icon": "focus_generic_improve_roads",
+      "desc": "Kết nối Đông Bắc và đồng bằng sông Cửu Long với trục quốc gia, đồng thời tổ chức các vành đai Hà Nội và TP. Hồ Chí Minh. Hai đợt đầu tư mở rộng vùng phục vụ của cao tốc."
+    },
+    {
+      "id": "VIE_expressway_5000km_2030",
+      "slug": "expressway_5000km_2030",
+      "title": "Mạng lưới cao tốc 5.000 km",
+      "cost": 7,
+      "xy": [
+        70,
+        7
+      ],
+      "pre": [
+        [
+          "VIE_expressway_regional_links"
+        ]
+      ],
+      "gate": "date > 2021.12.31\nVIE_infra_road_network_gate = yes",
+      "icon": "focus_generic_improve_roads",
+      "desc": "Mở các đợt giải ngân để đạt 3.000 km rồi 5.000 km cao tốc. Năm 2030 là mục tiêu phát triển; hoàn thành focus chưa đồng nghĩa mạng lưới đã được xây dựng."
+    },
+    {
+      "id": "VIE_railway_national_program",
+      "slug": "railway_national_program",
+      "title": "Chiến lược đường sắt quốc gia",
+      "cost": 5,
+      "xy": [
+        78,
+        2
+      ],
+      "pre": [
+        [
+          "VIE_infrastructure_development"
+        ]
+      ],
+      "gate": "",
+      "icon": "focus_generic_supply_line",
+      "desc": "Phân biệt nâng cấp mạng hiện hữu, đường sắt đô thị và đường sắt tốc độ cao. Chương trình mở lựa chọn đầu tư sớm hoặc trì hoãn HSR, thay vì buộc mọi tuyến vận tải phải đi cùng một đối tác."
+    },
+    {
+      "id": "VIE_reunification_line_upgrade",
+      "slug": "reunification_line_upgrade",
+      "title": "Nâng cấp mạng đường sắt",
+      "cost": 7,
+      "xy": [
+        78,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_railway_national_program"
+        ]
+      ],
+      "gate": "date > 2009.12.31",
+      "icon": "focus_generic_supply_line",
+      "desc": "Cải tạo cầu, hầm và ga trên tuyến Thống Nhất, đồng thời chuẩn bị kết nối hành lang Lào Cai - Hà Nội - Hải Phòng. Đây là nền tảng năng lực để mở các chương trình đô thị và HSR."
+    },
+    {
+      "id": "VIE_urban_rail_program",
+      "slug": "urban_rail_program",
+      "title": "Phát triển đường sắt đô thị",
+      "cost": 7,
+      "xy": [
+        76,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_reunification_line_upgrade"
+        ]
+      ],
+      "gate": "date > 2012.12.31",
+      "icon": "focus_generic_supply_line",
+      "desc": "Hợp nhất chương trình metro Hà Nội và TP. Hồ Chí Minh, gồm Cát Linh - Hà Đông, Nhổn - ga Hà Nội và Bến Thành - Suối Tiên. Cơ chế TOD và tinh thần NQ188 được tích hợp vào quá trình đầu tư hai đô thị."
+    },
+    {
+      "id": "VIE_north_south_hsr",
+      "slug": "north_south_hsr",
+      "title": "Chương trình HSR Bắc - Nam",
+      "cost": 7,
+      "xy": [
+        80,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_reunification_line_upgrade"
+        ]
+      ],
+      "gate": "VIE_infra_hsr_approval_gate = yes",
+      "icon": "economic_blue_print",
+      "desc": "Chi ngân sách khảo sát và phê duyệt chương trình HSR, rồi lựa chọn đối tác công nghệ. Triển khai ban đầu và chuyển giao công nghệ là các bước riêng; không coi toàn tuyến đã khai thác."
+    },
+    {
+      "id": "VIE_rail_technology_transfer",
+      "slug": "rail_technology_transfer",
+      "title": "Chuyển giao công nghệ đường sắt",
+      "cost": 7,
+      "xy": [
+        80,
+        5
+      ],
+      "pre": [
+        [
+          "VIE_north_south_hsr"
+        ]
+      ],
+      "gate": "VIE_infra_partner_selected = yes",
+      "icon": "focus_generic_industry_investment",
+      "desc": "Đào tạo đội ngũ kỹ thuật, tiếp nhận tiêu chuẩn và từng bước nội địa hóa thiết bị đường sắt. Bonus nghiên cứu chỉ được cấp sau đợt đào tạo, với mức khác nhau theo đối tác."
+    },
+    {
+      "id": "VIE_modern_rail_network",
+      "slug": "modern_rail_network",
+      "title": "Mạng đường sắt hiện đại",
+      "cost": 7,
+      "xy": [
+        78,
+        7
+      ],
+      "pre": [
+        [
+          "VIE_urban_rail_program"
+        ],
+        [
+          "VIE_rail_technology_transfer"
+        ]
+      ],
+      "gate": "VIE_infra_rail_network_gate = yes",
+      "icon": "focus_generic_supply_line",
+      "desc": "Công nhận mạng hiện hữu đã được nâng cấp, hai chương trình metro đã bàn giao và đợt triển khai HSR đầu tiên đã hoàn thành. Đây là năng lực tích hợp, không phải tuyên bố hoàn tất toàn tuyến HSR."
+    },
+    {
+      "id": "VIE_national_deepwater_ports",
+      "slug": "national_deepwater_ports",
+      "title": "Hệ thống cảng nước sâu",
+      "cost": 7,
+      "xy": [
+        86,
+        2
+      ],
+      "pre": [
+        [
+          "VIE_infrastructure_development"
+        ]
+      ],
+      "gate": "date > 2010.12.31",
+      "icon": "maritime_trade",
+      "desc": "Hợp nhất Cái Mép - Thị Vải và Lạch Huyện thành chương trình cảng nước sâu quốc gia. Hai đợt đầu tư tạo năng lực tiếp nhận hàng hóa ở hai đầu đất nước."
+    },
+    {
+      "id": "VIE_logistics_strategy",
+      "slug": "logistics_strategy",
+      "title": "Chiến lược logistics quốc gia",
+      "cost": 5,
+      "xy": [
+        86,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_national_deepwater_ports"
+        ]
+      ],
+      "gate": "date > 2016.12.31\nVIE_infra_ports_done = yes",
+      "icon": "maritime_trade",
+      "desc": "Tổ chức kho bãi, trung chuyển và kết nối cửa khẩu quanh mạng cảng nước sâu. Lợi ích logistics xuất hiện sau đầu tư, không chỉ sau khi ban hành chiến lược."
+    },
+    {
+      "id": "VIE_multimodal_transport",
+      "slug": "multimodal_transport",
+      "title": "Vận tải đa phương thức",
+      "cost": 7,
+      "xy": [
+        86,
+        7
+      ],
+      "pre": [
+        [
+          "VIE_logistics_strategy"
+        ]
+      ],
+      "gate": "date > 2019.12.31\nVIE_infra_logistics_done = yes",
+      "icon": "maritime_trade",
+      "desc": "Kết nối vận tải biển với mạng đường bộ và đường sắt hiện hữu. Đợt bàn giao cuối tích hợp hai tinh thần cảng và logistics thành một hệ thống, không cộng chồng phần thưởng."
+    },
+    {
+      "id": "VIE_airport_master_plan",
+      "slug": "airport_master_plan",
+      "title": "Quy hoạch mạng sân bay",
+      "cost": 5,
+      "xy": [
+        94,
+        2
+      ],
+      "pre": [
+        [
+          "VIE_infrastructure_development"
+        ]
+      ],
+      "gate": "date > 2008.12.31",
+      "icon": "economic_avia_industry",
+      "desc": "Quy hoạch mạng cảng hàng không và lựa chọn mô hình vốn. Nhà ga và sân bay dân dụng được thể hiện bằng hạ tầng cùng hiệu quả kinh tế; căn cứ quân sự thuộc chương trình lưỡng dụng riêng."
+    },
+    {
+      "id": "VIE_socialized_airports",
+      "slug": "socialized_airports",
+      "title": "Xã hội hóa đầu tư sân bay",
+      "cost": 5,
+      "xy": [
+        92,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_airport_master_plan"
+        ]
+      ],
+      "gate": "date > 2011.12.24",
+      "icon": "economic_privatisation",
+      "desc": "Mở vốn tư nhân cho sân bay, giảm 25% ngân sách đầu tư dân dụng và cho phép phát triển Vân Đồn. Khâu chuẩn bị Long Thành và công trình lưỡng dụng vẫn dùng ngân sách đầy đủ."
+    },
+    {
+      "id": "VIE_acv_monopoly",
+      "slug": "acv_monopoly",
+      "title": "Doanh nghiệp nhà nước chủ đạo",
+      "cost": 5,
+      "xy": [
+        96,
+        3
+      ],
+      "pre": [
+        [
+          "VIE_airport_master_plan"
+        ]
+      ],
+      "gate": "date > 2011.12.24",
+      "icon": "focus_generic_central_planning",
+      "desc": "Giữ doanh nghiệp nhà nước làm đầu mối đầu tư và điều phối sân bay. Ngân sách chịu chi phí đầy đủ, đổi lại duy trì quyền kiểm soát và ổn định chính sách."
+    },
+    {
+      "id": "VIE_airport_network_2030",
+      "slug": "airport_network_2030",
+      "title": "Hiện đại hóa mạng sân bay",
+      "cost": 7,
+      "xy": [
+        94,
+        4
+      ],
+      "pre": [
+        [
+          "VIE_socialized_airports",
+          "VIE_acv_monopoly"
+        ]
+      ],
+      "gate": "date > 2014.12.31",
+      "icon": "economic_avia_industry",
+      "desc": "Tổ chức chương trình hiện đại hóa Nội Bài và Tân Sơn Nhất, thay các focus nhà ga riêng lẻ. Mạng sân bay hiện đại là nền tảng của Long Thành; Vân Đồn và sân bay lưỡng dụng là các đầu tư tùy chọn."
+    },
+    {
+      "id": "VIE_long_thanh_airport",
+      "slug": "long_thanh_airport",
+      "title": "Trung tâm hàng không Long Thành",
+      "cost": 7,
+      "xy": [
+        94,
+        7
+      ],
+      "pre": [
+        [
+          "VIE_airport_network_2030"
+        ]
+      ],
+      "gate": "date > 2015.6.30\nVIE_infra_air_modern_done = yes",
+      "icon": "economic_avia_industry",
+      "desc": "Chuẩn bị dự án rồi triển khai Long Thành từ năm 2021. Không phụ thuộc metro hoặc lựa chọn vốn đường bộ; chỉ công nhận chương trình hàng không hoàn thành khi dự án đã bàn giao."
+    },
+    {
+      "id": "VIE_synchronized_infrastructure_2030",
+      "slug": "synchronized_infrastructure_2030",
+      "title": "Hạ tầng đồng bộ Việt Nam 2030",
+      "cost": 7,
+      "xy": [
+        82,
+        9
+      ],
+      "pre": [
+        [
+          "VIE_expressway_5000km_2030",
+          "VIE_modern_rail_network",
+          "VIE_multimodal_transport",
+          "VIE_long_thanh_airport"
+        ]
+      ],
+      "gate": "VIE_infra_three_programs_ready = yes",
+      "icon": "economic_blue_print",
+      "desc": "Công nhận ít nhất ba trong bốn chương trình hạ tầng đạt kết quả thực. Đường bộ cần đủ 5.000 km, đường sắt cần triển khai HSR ban đầu, cảng cần vận tải đa phương thức và hàng không cần Long Thành bàn giao."
+    }
+  ],
+  "projects": [
+    {
+      "key": "road_foundation",
+      "title": "Đầu tư đường bộ nền tảng",
+      "branch": "road",
+      "parent": "transport_strategy_2004",
+      "cost": 7,
+      "days": 180,
+      "targets": [
+        521,
+        518
+      ],
+      "km": 400,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "",
+      "done": "road_foundation_done",
+      "extra": "set_country_flag = VIE_infra_quality_pending",
+      "building": "infrastructure",
+      "history": "Cầu Cần Thơ, hầm Hải Vân và các tuyến cao tốc đầu kỳ được gom thành chương trình chung.",
+      "id": "VIE_infra_d_road_foundation_1"
+    },
+    {
+      "key": "road_spine",
+      "title": "Xây dựng trục Bắc - Nam",
+      "branch": "road",
+      "parent": "north_south_expressway",
+      "cost": 7,
+      "days": 365,
+      "targets": [
+        522,
+        519
+      ],
+      "km": 600,
+      "stage": 0,
+      "total": 1,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "VIE_infra_road_foundation_done = yes",
+      "done": "road_spine_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_spine_1"
+    },
+    {
+      "key": "road_regions",
+      "title": "Kết nối vùng và vành đai",
+      "branch": "road",
+      "parent": "expressway_regional_links",
+      "cost": 3.5,
+      "days": 180,
+      "targets": [
+        523
+      ],
+      "km": 400,
+      "stage": 0,
+      "total": 2,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "VIE_infra_road_spine_done = yes",
+      "done": "road_regions_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_regions_1"
+    },
+    {
+      "key": "road_regions",
+      "title": "Kết nối vùng và vành đai",
+      "branch": "road",
+      "parent": "expressway_regional_links",
+      "cost": 3.5,
+      "days": 180,
+      "targets": [
+        518
+      ],
+      "km": 400,
+      "stage": 1,
+      "total": 2,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "VIE_infra_road_spine_done = yes",
+      "done": "road_regions_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_regions_2"
+    },
+    {
+      "key": "road_3000",
+      "title": "Giải ngân mốc 3.000 km",
+      "branch": "road",
+      "parent": "expressway_5000km_2030",
+      "cost": 10.5,
+      "days": 365,
+      "targets": [
+        521,
+        519,
+        522
+      ],
+      "km": 1200,
+      "stage": 0,
+      "total": 1,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "VIE_infra_road_network_gate = yes",
+      "done": "road_3000_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_3000_1"
+    },
+    {
+      "key": "road_5000",
+      "title": "Mở rộng mạng 5.000 km",
+      "branch": "road",
+      "parent": "expressway_5000km_2030",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        520
+      ],
+      "km": 500,
+      "stage": 0,
+      "total": 4,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "has_country_flag = VIE_infra_road_3000_done",
+      "done": "road_5000_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_5000_1"
+    },
+    {
+      "key": "road_5000",
+      "title": "Mở rộng mạng 5.000 km",
+      "branch": "road",
+      "parent": "expressway_5000km_2030",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        524
+      ],
+      "km": 500,
+      "stage": 1,
+      "total": 4,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "has_country_flag = VIE_infra_road_3000_done",
+      "done": "road_5000_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_5000_2"
+    },
+    {
+      "key": "road_5000",
+      "title": "Mở rộng mạng 5.000 km",
+      "branch": "road",
+      "parent": "expressway_5000km_2030",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        521
+      ],
+      "km": 500,
+      "stage": 2,
+      "total": 4,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "has_country_flag = VIE_infra_road_3000_done",
+      "done": "road_5000_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_5000_3"
+    },
+    {
+      "key": "road_5000",
+      "title": "Mở rộng mạng 5.000 km",
+      "branch": "road",
+      "parent": "expressway_5000km_2030",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        518
+      ],
+      "km": 500,
+      "stage": 3,
+      "total": 4,
+      "discount": "VIE_infra_funding_bot",
+      "gate": "has_country_flag = VIE_infra_road_3000_done",
+      "done": "road_5000_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_road_5000_4"
+    },
+    {
+      "key": "rail_upgrade",
+      "title": "Cải tạo mạng đường sắt hiện hữu",
+      "branch": "rail",
+      "parent": "reunification_line_upgrade",
+      "cost": 7,
+      "days": 365,
+      "targets": [
+        521,
+        523
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "",
+      "done": "rail_upgrade_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "Cải tạo tuyến Thống Nhất và hành lang Lào Cai - Hà Nội - Hải Phòng.",
+      "id": "VIE_infra_d_rail_upgrade_1"
+    },
+    {
+      "key": "metro",
+      "title": "Đầu tư đường sắt đô thị",
+      "branch": "rail",
+      "parent": "urban_rail_program",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        522
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 2,
+      "discount": null,
+      "gate": "",
+      "done": "metro_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "Đợt 1: Hà Nội. Đợt 2: TP. Hồ Chí Minh. Kết hợp TOD, tinh thần NQ188 và mạng metro dài hạn.",
+      "id": "VIE_infra_d_metro_1"
+    },
+    {
+      "key": "metro",
+      "title": "Đầu tư đường sắt đô thị",
+      "branch": "rail",
+      "parent": "urban_rail_program",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        519
+      ],
+      "km": 0,
+      "stage": 1,
+      "total": 2,
+      "discount": null,
+      "gate": "",
+      "done": "metro_done",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "Đợt 1: Hà Nội. Đợt 2: TP. Hồ Chí Minh. Kết hợp TOD, tinh thần NQ188 và mạng metro dài hạn.",
+      "id": "VIE_infra_d_metro_2"
+    },
+    {
+      "key": "rail_training",
+      "title": "Đào tạo và tiếp nhận công nghệ",
+      "branch": "rail",
+      "parent": "rail_technology_transfer",
+      "cost": 1,
+      "days": 180,
+      "targets": [],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "",
+      "done": "rail_training_done",
+      "extra": "if = { limit = { has_country_flag = VIE_hsr_partner_japan } add_tech_bonus = { name = VIE_infra_rail_training_bonus category = CAT_industry uses = 1 bonus = 0.5 } }\nelse_if = { limit = { has_country_flag = VIE_hsr_partner_eu } add_tech_bonus = { name = VIE_infra_rail_training_bonus category = CAT_industry uses = 1 bonus = 0.4 } }\nelse = { add_tech_bonus = { name = VIE_infra_rail_training_bonus category = CAT_industry uses = 1 bonus = 0.3 } }",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_rail_training_1"
+    },
+    {
+      "key": "hsr_japan",
+      "title": "Triển khai HSR Nhật Bản",
+      "branch": "rail",
+      "parent": "rail_technology_transfer",
+      "cost": 10.5,
+      "days": 720,
+      "targets": [
+        522,
+        521,
+        519
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "has_country_flag = VIE_infra_rail_training_done\nhas_country_flag = VIE_hsr_partner_japan\nNOT = { has_country_flag = VIE_infra_hsr_launch_done }\nOR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }",
+      "done": "hsr_launch_done",
+      "extra": "set_country_flag = VIE_infra_hsr_notice_pending",
+      "building": "infrastructure",
+      "history": "",
+      "start_extra": "if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }",
+      "id": "VIE_infra_d_hsr_japan_1"
+    },
+    {
+      "key": "hsr_eu",
+      "title": "Triển khai HSR châu Âu",
+      "branch": "rail",
+      "parent": "rail_technology_transfer",
+      "cost": 9.5,
+      "days": 630,
+      "targets": [
+        522,
+        521,
+        519
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "has_country_flag = VIE_infra_rail_training_done\nhas_country_flag = VIE_hsr_partner_eu\nNOT = { has_country_flag = VIE_infra_hsr_launch_done }\nOR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }",
+      "done": "hsr_launch_done",
+      "extra": "set_country_flag = VIE_infra_hsr_notice_pending",
+      "building": "infrastructure",
+      "history": "",
+      "start_extra": "if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }",
+      "id": "VIE_infra_d_hsr_eu_1"
+    },
+    {
+      "key": "hsr_china",
+      "title": "Triển khai HSR Trung Quốc",
+      "branch": "rail",
+      "parent": "rail_technology_transfer",
+      "cost": 7.5,
+      "days": 540,
+      "targets": [
+        522,
+        521,
+        519
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "has_country_flag = VIE_infra_rail_training_done\nhas_country_flag = VIE_hsr_partner_china\nNOT = { has_country_flag = VIE_infra_hsr_launch_done }\nOR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }",
+      "done": "hsr_launch_done",
+      "extra": "set_country_flag = VIE_infra_hsr_notice_pending",
+      "building": "infrastructure",
+      "history": "",
+      "start_extra": "if = { limit = { has_country_flag = VIE_infra_hsr_early } add_timed_idea = { idea = VIE_state_debt_overhang days = 3650 } }\nelse = { add_timed_idea = { idea = VIE_state_debt_overhang days = 1825 } }",
+      "id": "VIE_infra_d_hsr_china_1"
+    },
+    {
+      "key": "ports",
+      "title": "Đầu tư hệ thống cảng nước sâu",
+      "branch": "ports",
+      "parent": "national_deepwater_ports",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        519
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 2,
+      "discount": null,
+      "gate": "",
+      "done": "ports_done",
+      "extra": "add_ideas = VIE_ports_idea",
+      "building": "infrastructure",
+      "history": "Đợt 1: Cái Mép - Thị Vải. Đợt 2: Lạch Huyện.",
+      "id": "VIE_infra_d_ports_1"
+    },
+    {
+      "key": "ports",
+      "title": "Đầu tư hệ thống cảng nước sâu",
+      "branch": "ports",
+      "parent": "national_deepwater_ports",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        522
+      ],
+      "km": 0,
+      "stage": 1,
+      "total": 2,
+      "discount": null,
+      "gate": "",
+      "done": "ports_done",
+      "extra": "add_ideas = VIE_ports_idea",
+      "building": "infrastructure",
+      "history": "Đợt 1: Cái Mép - Thị Vải. Đợt 2: Lạch Huyện.",
+      "id": "VIE_infra_d_ports_2"
+    },
+    {
+      "key": "logistics",
+      "title": "Đầu tư logistics quốc gia",
+      "branch": "ports",
+      "parent": "logistics_strategy",
+      "cost": 3.5,
+      "days": 180,
+      "targets": [
+        523
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "",
+      "done": "logistics_done",
+      "extra": "add_ideas = VIE_logistics_idea",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_logistics_1"
+    },
+    {
+      "key": "multimodal",
+      "title": "Kết nối vận tải đa phương thức",
+      "branch": "ports",
+      "parent": "multimodal_transport",
+      "cost": 3.5,
+      "days": 180,
+      "targets": [
+        520
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "VIE_infra_logistics_done = yes",
+      "done": "multimodal_done",
+      "extra": "if = { limit = { has_idea = VIE_ports_idea } remove_ideas = VIE_ports_idea }\nif = { limit = { has_idea = VIE_logistics_idea } remove_ideas = VIE_logistics_idea }\nadd_ideas = VIE_multimodal_idea",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_multimodal_1"
+    },
+    {
+      "key": "air_modern",
+      "title": "Hiện đại hóa sân bay dân dụng",
+      "branch": "air",
+      "parent": "airport_network_2030",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        522
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 2,
+      "discount": "VIE_infra_air_private",
+      "gate": "",
+      "done": "air_modern_done",
+      "extra": "add_ideas = VIE_airport_network_idea",
+      "building": "infrastructure",
+      "history": "Đợt 1: Nội Bài T2. Đợt 2: Tân Sơn Nhất T3. Công trình dân dụng không cấp căn cứ không quân.",
+      "id": "VIE_infra_d_air_modern_1"
+    },
+    {
+      "key": "air_modern",
+      "title": "Hiện đại hóa sân bay dân dụng",
+      "branch": "air",
+      "parent": "airport_network_2030",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        519
+      ],
+      "km": 0,
+      "stage": 1,
+      "total": 2,
+      "discount": "VIE_infra_air_private",
+      "gate": "",
+      "done": "air_modern_done",
+      "extra": "add_ideas = VIE_airport_network_idea",
+      "building": "infrastructure",
+      "history": "Đợt 1: Nội Bài T2. Đợt 2: Tân Sơn Nhất T3. Công trình dân dụng không cấp căn cứ không quân.",
+      "id": "VIE_infra_d_air_modern_2"
+    },
+    {
+      "key": "long_thanh_prepare",
+      "title": "Chuẩn bị dự án Long Thành",
+      "branch": "air",
+      "parent": "long_thanh_airport",
+      "cost": 2,
+      "days": 180,
+      "targets": [],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "VIE_infra_air_modern_done = yes",
+      "done": "long_thanh_prepared",
+      "extra": "",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_long_thanh_prepare_1"
+    },
+    {
+      "key": "long_thanh",
+      "title": "Xây dựng Long Thành",
+      "branch": "air",
+      "parent": "long_thanh_airport",
+      "cost": 3.5,
+      "days": 720,
+      "targets": [
+        519
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": "VIE_infra_air_private",
+      "gate": "has_country_flag = VIE_infra_long_thanh_prepared\ndate > 2020.12.31",
+      "done": "long_thanh_done",
+      "extra": "set_country_flag = VIE_infra_long_thanh_notice_pending",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_long_thanh_1"
+    },
+    {
+      "key": "van_don",
+      "title": "Đầu tư sân bay Vân Đồn",
+      "branch": "air",
+      "parent": "airport_network_2030",
+      "cost": 3.5,
+      "days": 365,
+      "targets": [
+        523
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": "VIE_infra_air_private",
+      "gate": "has_country_flag = VIE_infra_air_private\ndate > 2017.12.31",
+      "done": "van_don_done",
+      "extra": "set_temp_variable = { temp_opinion = 3 }\nchange_industrial_conglomerates_opinion = yes",
+      "building": "infrastructure",
+      "history": "",
+      "id": "VIE_infra_d_van_don_1"
+    },
+    {
+      "key": "dual_use",
+      "title": "Phát triển sân bay lưỡng dụng",
+      "branch": "air",
+      "parent": "airport_network_2030",
+      "cost": 3,
+      "days": 180,
+      "targets": [
+        521
+      ],
+      "km": 0,
+      "stage": 0,
+      "total": 1,
+      "discount": null,
+      "gate": "",
+      "done": "dual_use_done",
+      "extra": "add_to_variable = { VIE_ax_mob = 1 tooltip = VIE_ax_mob_tt }\nVIE_ax_normalize = yes\nif = { limit = { has_idea = the_military } set_temp_variable = { temp_opinion = 3 } change_the_military_opinion = yes }",
+      "building": "air_base",
+      "history": "",
+      "id": "VIE_infra_d_dual_use_1"
+    }
+  ],
+  "removed": [
+    "VIE_hai_van_tunnel",
+    "VIE_hcmc_trung_luong_expressway",
+    "VIE_can_tho_bridge",
+    "VIE_northern_expressways",
+    "VIE_north_south_expressway_phase2",
+    "VIE_ring_roads_hanoi_hcmc",
+    "VIE_expressway_3000km",
+    "VIE_hsr_2010_reject",
+    "VIE_hsr_2010_approve",
+    "VIE_hcmc_metro",
+    "VIE_lach_huyen_port",
+    "VIE_cai_mep_port",
+    "VIE_lao_cai_haiphong_rail",
+    "VIE_hsr_partner_japan",
+    "VIE_hsr_partner_eu",
+    "VIE_hsr_partner_china",
+    "VIE_hsr_groundbreaking",
+    "VIE_urban_rail_hanoi",
+    "VIE_urban_rail_special_mechanism_nq188",
+    "VIE_metro_network_2035",
+    "VIE_domestic_rail_industry",
+    "VIE_aviation_market_opening",
+    "VIE_noi_bai_t2",
+    "VIE_long_thanh_approval",
+    "VIE_tan_son_nhat_t3",
+    "VIE_dual_use_airports",
+    "VIE_van_don_airport",
+    "VIE_infrastructure_breakthrough_nq13"
+  ],
+  "pos": {
+    "VIE_infrastructure_development": [
+      82,
+      1
+    ],
+    "VIE_transport_strategy_2004": [
+      70,
+      2
+    ],
+    "VIE_expressway_bot": [
+      68,
+      3
+    ],
+    "VIE_expressway_public_investment": [
+      72,
+      3
+    ],
+    "VIE_north_south_expressway": [
+      70,
+      4
+    ],
+    "VIE_expressway_regional_links": [
+      70,
+      5
+    ],
+    "VIE_expressway_5000km_2030": [
+      70,
+      7
+    ],
+    "VIE_railway_national_program": [
+      78,
+      2
+    ],
+    "VIE_reunification_line_upgrade": [
+      78,
+      3
+    ],
+    "VIE_urban_rail_program": [
+      76,
+      4
+    ],
+    "VIE_north_south_hsr": [
+      80,
+      4
+    ],
+    "VIE_rail_technology_transfer": [
+      80,
+      5
+    ],
+    "VIE_modern_rail_network": [
+      78,
+      7
+    ],
+    "VIE_national_deepwater_ports": [
+      86,
+      2
+    ],
+    "VIE_logistics_strategy": [
+      86,
+      4
+    ],
+    "VIE_multimodal_transport": [
+      86,
+      7
+    ],
+    "VIE_airport_master_plan": [
+      94,
+      2
+    ],
+    "VIE_socialized_airports": [
+      92,
+      3
+    ],
+    "VIE_acv_monopoly": [
+      96,
+      3
+    ],
+    "VIE_airport_network_2030": [
+      94,
+      4
+    ],
+    "VIE_long_thanh_airport": [
+      94,
+      7
+    ],
+    "VIE_synchronized_infrastructure_2030": [
+      82,
+      9
+    ]
+  },
+  "pre": {
+    "VIE_infrastructure_development": [
+      [
+        "VIE_doi_moi_continues"
+      ]
+    ],
+    "VIE_transport_strategy_2004": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_expressway_bot": [
+      [
+        "VIE_transport_strategy_2004"
+      ]
+    ],
+    "VIE_expressway_public_investment": [
+      [
+        "VIE_transport_strategy_2004"
+      ]
+    ],
+    "VIE_north_south_expressway": [
+      [
+        "VIE_expressway_bot",
+        "VIE_expressway_public_investment"
+      ]
+    ],
+    "VIE_expressway_regional_links": [
+      [
+        "VIE_north_south_expressway"
+      ]
+    ],
+    "VIE_expressway_5000km_2030": [
+      [
+        "VIE_expressway_regional_links"
+      ]
+    ],
+    "VIE_railway_national_program": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_reunification_line_upgrade": [
+      [
+        "VIE_railway_national_program"
+      ]
+    ],
+    "VIE_urban_rail_program": [
+      [
+        "VIE_reunification_line_upgrade"
+      ]
+    ],
+    "VIE_north_south_hsr": [
+      [
+        "VIE_reunification_line_upgrade"
+      ]
+    ],
+    "VIE_rail_technology_transfer": [
+      [
+        "VIE_north_south_hsr"
+      ]
+    ],
+    "VIE_modern_rail_network": [
+      [
+        "VIE_urban_rail_program"
+      ],
+      [
+        "VIE_rail_technology_transfer"
+      ]
+    ],
+    "VIE_national_deepwater_ports": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_logistics_strategy": [
+      [
+        "VIE_national_deepwater_ports"
+      ]
+    ],
+    "VIE_multimodal_transport": [
+      [
+        "VIE_logistics_strategy"
+      ]
+    ],
+    "VIE_airport_master_plan": [
+      [
+        "VIE_infrastructure_development"
+      ]
+    ],
+    "VIE_socialized_airports": [
+      [
+        "VIE_airport_master_plan"
+      ]
+    ],
+    "VIE_acv_monopoly": [
+      [
+        "VIE_airport_master_plan"
+      ]
+    ],
+    "VIE_airport_network_2030": [
+      [
+        "VIE_socialized_airports",
+        "VIE_acv_monopoly"
+      ]
+    ],
+    "VIE_long_thanh_airport": [
+      [
+        "VIE_airport_network_2030"
+      ]
+    ],
+    "VIE_synchronized_infrastructure_2030": [
+      [
+        "VIE_expressway_5000km_2030",
+        "VIE_modern_rail_network",
+        "VIE_multimodal_transport",
+        "VIE_long_thanh_airport"
+      ]
+    ]
+  },
+  "policy_rewards": {
+    "version": 32,
+    "manifest": "../policy_rewards/v32/structure.json"
+  }
+}

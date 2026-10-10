@@ -1,5 +1,7 @@
 # Nhánh công nghiệp Việt Nam — v31 (09/10/2026)
 
+> Hiện hành **v32 — 10/10/2026**: focus cấp idea chính sách trực tiếp, decision nâng bậc khi bàn giao. Xem [manifest effect v32](.claude/docs/policy_rewards/v32/README.md) và [kiểm định](.claude/docs/policy_rewards/v32/validation.md). Layout, vốn, tiến độ và gate giữ nguyên; mô tả cũ chỉ nhận modifier khi bàn giao được thay bằng các bậc v32.
+
 Triển khai trực tiếp trên `main`: 39 → 24 focus, giữ 22 ID, thêm 2 và archive 17. Game mới bắt buộc; không có migration save. Hai cặp mutex khiến tối đa 22 focus được hoàn thành trong một lượt chơi.
 
 Baseline lúc bắt đầu: 416 focus, riêng thay đổi công nghiệp giảm tổng 15 xuống 401. Workspace có chỉnh sửa đồng thời ở Lục quân/quốc phòng; tổng cây hiện tại phải lấy từ audit, không dùng 401 như kết quả cuối. Baseline hash được giữ nguyên để phát hiện và báo riêng những thay đổi ngoài phạm vi.

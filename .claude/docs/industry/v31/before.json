@@ -1,0 +1,407 @@
+{
+  "pos": {
+    "VIE_tier1_vendor_localization": [
+      130,
+      4
+    ],
+    "VIE_apple_supply_chain": [
+      132,
+      5
+    ],
+    "VIE_domestic_automotive": [
+      128,
+      3
+    ],
+    "VIE_nq29_industrialization_2045": [
+      140,
+      3
+    ],
+    "VIE_semiconductor_ambition": [
+      136,
+      3
+    ],
+    "VIE_formosa_steel_complex": [
+      128,
+      2
+    ],
+    "VIE_hoa_phat_dung_quat_2": [
+      130,
+      3
+    ],
+    "VIE_ev_revolution_batteries": [
+      128,
+      5
+    ],
+    "VIE_shipbuilding_joint_ventures": [
+      124,
+      4
+    ],
+    "VIE_integrated_auto_supplier_park": [
+      128,
+      4
+    ],
+    "VIE_chip_engineers": [
+      140,
+      5
+    ],
+    "VIE_industrialization_strategy": [
+      130,
+      1
+    ],
+    "VIE_chip_design_packaging_priority": [
+      136,
+      4
+    ],
+    "VIE_china_plus_one": [
+      134,
+      3
+    ],
+    "VIE_semiconductor_fab": [
+      138,
+      6
+    ],
+    "VIE_industrial_productivity_program": [
+      140,
+      4
+    ],
+    "VIE_investment_support_fund": [
+      142,
+      4
+    ],
+    "VIE_modern_industrial_nation_2030": [
+      132,
+      6
+    ],
+    "VIE_manufacturing_hub": [
+      134,
+      4
+    ],
+    "VIE_fdi_technology_screening": [
+      132,
+      4
+    ],
+    "VIE_hoa_phat_hrc_steel": [
+      130,
+      2
+    ],
+    "VIE_textile_garment_exports": [
+      126,
+      2
+    ],
+    "VIE_green_textiles": [
+      126,
+      5
+    ],
+    "VIE_eco_industrial_parks": [
+      142,
+      3
+    ],
+    "VIE_intel_hcmc": [
+      136,
+      2
+    ],
+    "VIE_offshore_wind_fabrication": [
+      124,
+      5
+    ],
+    "VIE_chip_design": [
+      136,
+      5
+    ],
+    "VIE_textile_dyeing_parks": [
+      126,
+      4
+    ],
+    "VIE_supporting_industries": [
+      132,
+      2
+    ],
+    "VIE_cptpp_yarn_forward": [
+      126,
+      3
+    ],
+    "VIE_chip_pilot_fab_priority": [
+      138,
+      4
+    ],
+    "VIE_shipbuilding_vinashin": [
+      124,
+      2
+    ],
+    "VIE_osat_packaging": [
+      138,
+      5
+    ],
+    "VIE_nq23_industrial_policy": [
+      140,
+      2
+    ],
+    "VIE_samsung_partnership": [
+      134,
+      2
+    ],
+    "VIE_global_auto_export": [
+      128,
+      6
+    ],
+    "VIE_precision_mechanics_molds": [
+      132,
+      3
+    ],
+    "VIE_fdi_fast_track": [
+      130,
+      5
+    ],
+    "VIE_vinashin_restructuring_sbic": [
+      124,
+      3
+    ]
+  },
+  "pre": {
+    "VIE_tier1_vendor_localization": [
+      [
+        "VIE_hoa_phat_dung_quat_2"
+      ]
+    ],
+    "VIE_apple_supply_chain": [
+      [
+        "VIE_fdi_technology_screening"
+      ]
+    ],
+    "VIE_domestic_automotive": [
+      [
+        "VIE_formosa_steel_complex"
+      ]
+    ],
+    "VIE_nq29_industrialization_2045": [
+      [
+        "VIE_nq23_industrial_policy"
+      ]
+    ],
+    "VIE_semiconductor_ambition": [
+      [
+        "VIE_intel_hcmc"
+      ]
+    ],
+    "VIE_formosa_steel_complex": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_hoa_phat_dung_quat_2": [
+      [
+        "VIE_hoa_phat_hrc_steel"
+      ]
+    ],
+    "VIE_ev_revolution_batteries": [
+      [
+        "VIE_integrated_auto_supplier_park"
+      ]
+    ],
+    "VIE_shipbuilding_joint_ventures": [
+      [
+        "VIE_vinashin_restructuring_sbic"
+      ]
+    ],
+    "VIE_integrated_auto_supplier_park": [
+      [
+        "VIE_domestic_automotive"
+      ]
+    ],
+    "VIE_chip_engineers": [
+      [
+        "VIE_chip_design_packaging_priority",
+        "VIE_chip_pilot_fab_priority"
+      ]
+    ],
+    "VIE_industrialization_strategy": [
+      [
+        "VIE_doi_moi_continues"
+      ]
+    ],
+    "VIE_chip_design_packaging_priority": [
+      [
+        "VIE_semiconductor_ambition"
+      ]
+    ],
+    "VIE_china_plus_one": [
+      [
+        "VIE_samsung_partnership"
+      ]
+    ],
+    "VIE_semiconductor_fab": [
+      [
+        "VIE_chip_design"
+      ],
+      [
+        "VIE_osat_packaging"
+      ],
+      [
+        "VIE_chip_engineers"
+      ]
+    ],
+    "VIE_industrial_productivity_program": [
+      [
+        "VIE_nq29_industrialization_2045"
+      ]
+    ],
+    "VIE_investment_support_fund": [
+      [
+        "VIE_nq29_industrialization_2045"
+      ]
+    ],
+    "VIE_modern_industrial_nation_2030": [
+      [
+        "VIE_apple_supply_chain"
+      ]
+    ],
+    "VIE_manufacturing_hub": [
+      [
+        "VIE_china_plus_one"
+      ]
+    ],
+    "VIE_fdi_technology_screening": [
+      [
+        "VIE_precision_mechanics_molds"
+      ]
+    ],
+    "VIE_hoa_phat_hrc_steel": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_textile_garment_exports": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_green_textiles": [
+      [
+        "VIE_textile_dyeing_parks"
+      ]
+    ],
+    "VIE_eco_industrial_parks": [
+      [
+        "VIE_nq23_industrial_policy"
+      ]
+    ],
+    "VIE_intel_hcmc": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_offshore_wind_fabrication": [
+      [
+        "VIE_shipbuilding_joint_ventures"
+      ]
+    ],
+    "VIE_chip_design": [
+      [
+        "VIE_chip_design_packaging_priority",
+        "VIE_chip_pilot_fab_priority"
+      ]
+    ],
+    "VIE_textile_dyeing_parks": [
+      [
+        "VIE_cptpp_yarn_forward"
+      ]
+    ],
+    "VIE_supporting_industries": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_cptpp_yarn_forward": [
+      [
+        "VIE_textile_garment_exports"
+      ]
+    ],
+    "VIE_chip_pilot_fab_priority": [
+      [
+        "VIE_semiconductor_ambition"
+      ]
+    ],
+    "VIE_shipbuilding_vinashin": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_osat_packaging": [
+      [
+        "VIE_chip_design_packaging_priority",
+        "VIE_chip_pilot_fab_priority"
+      ]
+    ],
+    "VIE_nq23_industrial_policy": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_samsung_partnership": [
+      [
+        "VIE_industrialization_strategy"
+      ]
+    ],
+    "VIE_global_auto_export": [
+      [
+        "VIE_ev_revolution_batteries"
+      ]
+    ],
+    "VIE_precision_mechanics_molds": [
+      [
+        "VIE_supporting_industries"
+      ]
+    ],
+    "VIE_fdi_fast_track": [
+      [
+        "VIE_tier1_vendor_localization"
+      ]
+    ],
+    "VIE_vinashin_restructuring_sbic": [
+      [
+        "VIE_shipbuilding_vinashin"
+      ]
+    ]
+  },
+  "titles": {
+    "VIE_tier1_vendor_localization": "Nâng tầm Nhà cung ứng Cấp 1",
+    "VIE_apple_supply_chain": "Chuỗi cung ứng Apple và các hãng công nghệ",
+    "VIE_domestic_automotive": "Hãng xe trong nước",
+    "VIE_nq29_industrialization_2045": "Đẩy mạnh công nghiệp hóa đến 2045 (NQ 29)",
+    "VIE_semiconductor_ambition": "Phát triển năng lực bán dẫn",
+    "VIE_formosa_steel_complex": "Khu liên hợp gang thép Hà Tĩnh",
+    "VIE_hoa_phat_dung_quat_2": "Khu liên hợp Gang thép Dung Quất 2",
+    "VIE_ev_revolution_batteries": "Cách mạng Xe điện & Tổ hợp Pin VinES",
+    "VIE_shipbuilding_joint_ventures": "Liên doanh đóng tàu với nước ngoài",
+    "VIE_integrated_auto_supplier_park": "Tổ hợp Phụ trợ Ô tô Tích hợp",
+    "VIE_chip_engineers": "Đào tạo nhân lực bán dẫn",
+    "VIE_industrialization_strategy": "Công nghiệp hóa - Hiện đại hóa",
+    "VIE_chip_design_packaging_priority": "Ưu tiên thiết kế và đóng gói",
+    "VIE_china_plus_one": "Làn sóng Trung Quốc cộng một",
+    "VIE_semiconductor_fab": "Dây chuyền chế tạo chip thử nghiệm",
+    "VIE_industrial_productivity_program": "Nâng cao năng suất lao động công nghiệp",
+    "VIE_investment_support_fund": "Quỹ Hỗ trợ đầu tư",
+    "VIE_modern_industrial_nation_2030": "Nền công nghiệp hiện đại",
+    "VIE_manufacturing_hub": "Công xưởng Đông Nam Á",
+    "VIE_fdi_technology_screening": "Chọn lọc chuyển giao công nghệ",
+    "VIE_hoa_phat_hrc_steel": "Sản xuất HRC tại Dung Quất",
+    "VIE_textile_garment_exports": "Dệt may và Da giày xuất khẩu",
+    "VIE_green_textiles": "Dệt may xanh theo chuẩn châu Âu",
+    "VIE_eco_industrial_parks": "Khu công nghiệp sinh thái",
+    "VIE_intel_hcmc": "Nhà máy lắp ráp chip",
+    "VIE_offshore_wind_fabrication": "Chế tạo kết cấu điện gió ngoài khơi",
+    "VIE_chip_design": "Các công ty thiết kế chip",
+    "VIE_textile_dyeing_parks": "Khu công nghiệp dệt nhuộm tập trung",
+    "VIE_supporting_industries": "Công nghiệp hỗ trợ",
+    "VIE_cptpp_yarn_forward": "Quy tắc xuất xứ \\\"từ sợi trở đi\\\"",
+    "VIE_chip_pilot_fab_priority": "Ưu tiên chế tạo thử nghiệm",
+    "VIE_shipbuilding_vinashin": "Công nghiệp Đóng tàu Vinashin",
+    "VIE_osat_packaging": "Đóng gói và kiểm thử chip",
+    "VIE_nq23_industrial_policy": "Chính sách công nghiệp quốc gia (NQ 23)",
+    "VIE_samsung_partnership": "Cứ điểm Sản xuất Điện tử Miền Bắc",
+    "VIE_global_auto_export": "Vươn ra Biển lớn & Niêm yết Nasdaq",
+    "VIE_precision_mechanics_molds": "Cơ khí Chính xác & Khuôn mẫu CNC",
+    "VIE_fdi_fast_track": "Thu hút đầu tư nhanh",
+    "VIE_vinashin_restructuring_sbic": "Tái cơ cấu Vinashin thành SBIC"
+  }
+}

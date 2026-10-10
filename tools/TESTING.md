@@ -1,5 +1,16 @@
 # md_vietnam: how to test (the game loads the mod with a clean error.log since 2026-09-19; content not yet playtested)
 
+## Direct policy rewards v32 (2026-10-10)
+
+Current effect contract for industry/infrastructure: 46 guarded focus rewards, 35 staged ideas.
+Run `python tools/audit/policy_rewards.py` and standard focus/reference/event/state/loc/DDS audits.
+Provider: `python tools/audit/policy_assets.py <MD directory>`.
+The v32 audit reuses functional v30/v31 scenarios and adds the fresh immutable baseline, all direct
+rewards, exact tiers, modifier bounds at every effect, replay and unchanged investment contracts.
+Historical v30/v31 whole-tree baseline failures remain visible; do not recapture them to get green.
+New game required: verify real hover/idea values, treasury, timers, save/load, AI and error.log.
+See [v32 validation](../.claude/docs/policy_rewards/v32/validation.md); no ignoreprerequisites evidence.
+
 ## Industry v31 (2026-10-09)
 
 New game required. 24 focuses, 19 timed decisions / 17 programmes, six sector slots and one common slot.
