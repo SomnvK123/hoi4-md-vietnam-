@@ -1,3 +1,12 @@
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - ALL DECISIONS
+# Consolidated single decisions file
+# ====================================================================
+
+# ====================================================================
+# SECTION: VIE_md_decisions.txt
+# ====================================================================
+
 VIE_military_readiness_category = {
 
 	# Quan khu exercise: army experience for political capital, every year
@@ -607,3 +616,2322 @@ VIE_resolution_category = {
 		ai_will_do = { base = 60 }
 	}
 }
+
+# ====================================================================
+# SECTION: VIE_md_bop_decisions.txt
+# ====================================================================
+
+# Vietnam - Balance of Power Decisions ("Định hướng của Đảng")
+# Linked to VIE_party_balance via decision_category = VIE_party_balance_category in common/bop/VIE_md_bop.txt
+# 10 focused decisions: 5 Conservative (-) <---> 5 Reform (+)
+
+VIE_party_balance_category = {
+
+	####################################################################
+	# PHE KIÊN ĐỊNH NỀN TẢNG (Kéo sang Trái / Hardline / Bảo thủ / DNNN)
+	####################################################################
+
+	# 1. Tuyên truyền & Giáo dục Lý luận (-5%)
+	VIE_bop_edu_marxism = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 25
+		days_remove = 60
+		days_re_enable = 120
+		priority = 100
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		modifier = {
+			drift_defence_factor = 0.02
+			stability_factor = 0.01
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_edu_marxism"
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = -0.05
+				tooltip_side = VIE_conservative_side
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 2.0
+				power_balance_value = { id = VIE_party_balance value > 0.1 }
+			}
+		}
+	}
+
+	# 2. Thanh tra Chuyên đề DNNN và Dự án Thua lỗ (-10%)
+	VIE_bop_inspect_soe = {
+		icon = GFX_decision_VIE_anticorruption_campaign
+		cost = 50
+		days_remove = 120
+		days_re_enable = 240
+		priority = 99
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		modifier = {
+			country_productivity_growth_modifier = -0.01
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_inspect_soe"
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = -0.10
+				tooltip_side = VIE_conservative_side
+			}
+			decrease_corruption = yes
+		}
+
+		ai_will_do = {
+			base = 40
+		}
+	}
+
+	# 3. Bố trí Cán bộ An ninh - Vũ trang (-15%)
+	VIE_bop_appoint_cadres = {
+		icon = GFX_decision_VIE_cadre_rotation
+		cost = 60
+		days_re_enable = 360
+		priority = 98
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_appoint_cadres"
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = -0.15
+				tooltip_side = VIE_conservative_side
+			}
+			add_stability = 0.03
+			hidden_effect = {
+				set_temp_variable = { temp_opinion = 5 }
+			}
+			change_communist_cadres_opinion = yes
+			hidden_effect = {
+				set_temp_variable = { temp_opinion = -5 }
+			}
+			change_industrial_conglomerates_opinion = yes
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	# 4. Củng cố Vai trò Chủ đạo của DNNN (-10%)
+	VIE_bop_fund_soe = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_remove = 180
+		days_re_enable = 360
+		priority = 97
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_bop_treasury_15_req_tt
+				check_variable = { treasury > 1.5 }
+			}
+		}
+
+		modifier = {
+			production_speed_buildings_factor = 0.05
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_fund_soe"
+			hidden_effect = {
+				set_temp_variable = { treasury_change = -1.5 }
+			}
+			modify_treasury_effect = yes
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = -0.10
+				tooltip_side = VIE_conservative_side
+			}
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	# 5. Hội nghị TW: Chống Tự diễn biến, Tự chuyển hóa (-25%)
+	VIE_bop_plenum_anticorrupt = {
+		icon = GFX_decision_VIE_anticorruption_campaign
+		cost = 100
+		fire_only_once = yes
+		priority = 96
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_bop_plenum_anticorrupt_req_tt
+				power_balance_value = { id = VIE_party_balance value < -0.2 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_plenum_anticorrupt"
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = -0.25
+				tooltip_side = VIE_conservative_side
+			}
+			add_stability = -0.05
+			hidden_effect = {
+				set_country_flag = VIE_hardline_unlocked
+			}
+			custom_effect_tooltip = VIE_hardline_unlocked_tt
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 5.0
+				power_balance_value = { id = VIE_party_balance value < -0.4 }
+			}
+		}
+	}
+
+	####################################################################
+	# PHE ĐỔI MỚI SÂU RỘNG (Kéo sang Phải / Cải cách / Thị trường)
+	####################################################################
+
+	# 6. Diễn đàn Kinh tế Tư nhân (+5%)
+	VIE_bop_private_econ_forum = {
+		icon = GFX_decision_VIE_public_consultation
+		cost = 25
+		days_remove = 60
+		days_re_enable = 120
+		priority = 50
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_bop_treasury_05_req_tt
+				check_variable = { treasury > 0.5 }
+			}
+		}
+
+		modifier = {
+			country_productivity_growth_modifier = 0.02
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_private_econ_forum"
+			hidden_effect = {
+				set_temp_variable = { treasury_change = -0.5 }
+			}
+			modify_treasury_effect = yes
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = 0.05
+				tooltip_side = VIE_reform_side
+			}
+			hidden_effect = {
+				set_temp_variable = { temp_opinion = 3 }
+			}
+			change_industrial_conglomerates_opinion = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 2.0
+				power_balance_value = { id = VIE_party_balance value < -0.1 }
+			}
+		}
+	}
+
+	# 7. Cải cách Thủ tục Hành chính & Chỉ số PCI (+10%)
+	VIE_bop_pci_reform = {
+		icon = GFX_decision_VIE_streamline_administrative_org
+		cost = 50
+		days_remove = 120
+		days_re_enable = 240
+		priority = 49
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		modifier = {
+			production_factory_max_efficiency_factor = 0.02
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_pci_reform"
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = 0.10
+				tooltip_side = VIE_reform_side
+			}
+		}
+
+		ai_will_do = {
+			base = 40
+		}
+	}
+
+	# 8. Trọng dụng Chuyên gia Kỹ trị (+15%)
+	VIE_bop_technocrat_advisors = {
+		icon = GFX_decision_VIE_civil_service_examination
+		cost = 60
+		days_re_enable = 360
+		priority = 48
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_technocrat_advisors"
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = 0.15
+				tooltip_side = VIE_reform_side
+			}
+			add_stability = -0.02
+			hidden_effect = {
+				set_temp_variable = { temp_opinion = -5 }
+			}
+			change_communist_cadres_opinion = yes
+			hidden_effect = {
+				set_temp_variable = { temp_opinion = 5 }
+			}
+			change_industrial_conglomerates_opinion = yes
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	# 9. Đẩy mạnh Cổ phần hóa DNNN (+10%)
+	VIE_bop_equitize_soe = {
+		icon = GFX_decision_generic_economy
+		cost = 40
+		days_remove = 180
+		days_re_enable = 360
+		priority = 47
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		modifier = {
+			stability_factor = -0.02
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_equitize_soe"
+			hidden_effect = {
+				set_temp_variable = { treasury_change = 1.5 }
+			}
+			modify_treasury_effect = yes
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = 0.10
+				tooltip_side = VIE_reform_side
+			}
+		}
+
+		ai_will_do = {
+			base = 30
+		}
+	}
+
+	# 10. Nghị quyết Đột phá Thể chế & Hội nhập (+25%)
+	VIE_bop_breakthrough_resol = {
+		icon = GFX_decision_VIE_public_consultation
+		cost = 100
+		fire_only_once = yes
+		priority = 46
+
+		visible = {
+			has_country_flag = VIE_bop_active
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_bop_breakthrough_resol_req_tt
+				power_balance_value = { id = VIE_party_balance value > 0.2 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_bop_breakthrough_resol"
+			add_power_balance_value = {
+				id = VIE_party_balance
+				value = 0.25
+				tooltip_side = VIE_reform_side
+			}
+			add_stability = -0.03
+			hidden_effect = {
+				set_country_flag = VIE_market_breakthrough_done
+			}
+			custom_effect_tooltip = VIE_market_breakthrough_done_tt
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 5.0
+				power_balance_value = { id = VIE_party_balance value > 0.4 }
+			}
+		}
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_infra_decisions.txt
+# ====================================================================
+
+# Ha tang: giai ngan truoc, ban giao theo days_remove; khong fire_only_once.
+VIE_infrastructure_category = {
+	VIE_infra_d_road_foundation_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_foundation_1_running
+				AND = {
+					has_completed_focus = VIE_transport_strategy_2004
+					check_variable = { VIE_infra_road_foundation_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_road_foundation_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_foundation_1"
+			VIE_infra_d_road_foundation_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_foundation_1 (ban giao)"
+			VIE_infra_d_road_foundation_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_spine_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_spine_1_running
+				AND = {
+					has_completed_focus = VIE_north_south_expressway
+					check_variable = { VIE_infra_road_spine_stage = 0 }
+					VIE_infra_road_foundation_done = yes
+				}
+			}
+		}
+		available = { VIE_infra_d_road_spine_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_spine_1"
+			VIE_infra_d_road_spine_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_spine_1 (ban giao)"
+			VIE_infra_d_road_spine_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_regions_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_regions_1_running
+				AND = {
+					has_completed_focus = VIE_expressway_regional_links
+					check_variable = { VIE_infra_road_regions_stage = 0 }
+					VIE_infra_road_spine_done = yes
+				}
+			}
+		}
+		available = { VIE_infra_d_road_regions_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_regions_1"
+			VIE_infra_d_road_regions_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_regions_1 (ban giao)"
+			VIE_infra_d_road_regions_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_regions_2 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_regions_2_running
+				AND = {
+					has_completed_focus = VIE_expressway_regional_links
+					check_variable = { VIE_infra_road_regions_stage = 1 }
+					VIE_infra_road_spine_done = yes
+				}
+			}
+		}
+		available = { VIE_infra_d_road_regions_2_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_regions_2"
+			VIE_infra_d_road_regions_2_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_regions_2 (ban giao)"
+			VIE_infra_d_road_regions_2_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_3000_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_3000_1_running
+				AND = {
+					has_completed_focus = VIE_expressway_5000km_2030
+					check_variable = { VIE_infra_road_3000_stage = 0 }
+					VIE_infra_road_network_gate = yes
+				}
+			}
+		}
+		available = { VIE_infra_d_road_3000_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_3000_1"
+			VIE_infra_d_road_3000_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_3000_1 (ban giao)"
+			VIE_infra_d_road_3000_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_5000_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_5000_1_running
+				AND = {
+					has_completed_focus = VIE_expressway_5000km_2030
+					check_variable = { VIE_infra_road_5000_stage = 0 }
+					has_country_flag = VIE_infra_road_3000_done
+				}
+			}
+		}
+		available = { VIE_infra_d_road_5000_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_1"
+			VIE_infra_d_road_5000_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_1 (ban giao)"
+			VIE_infra_d_road_5000_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_5000_2 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_5000_2_running
+				AND = {
+					has_completed_focus = VIE_expressway_5000km_2030
+					check_variable = { VIE_infra_road_5000_stage = 1 }
+					has_country_flag = VIE_infra_road_3000_done
+				}
+			}
+		}
+		available = { VIE_infra_d_road_5000_2_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_2"
+			VIE_infra_d_road_5000_2_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_2 (ban giao)"
+			VIE_infra_d_road_5000_2_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_5000_3 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_5000_3_running
+				AND = {
+					has_completed_focus = VIE_expressway_5000km_2030
+					check_variable = { VIE_infra_road_5000_stage = 2 }
+					has_country_flag = VIE_infra_road_3000_done
+				}
+			}
+		}
+		available = { VIE_infra_d_road_5000_3_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_3"
+			VIE_infra_d_road_5000_3_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_3 (ban giao)"
+			VIE_infra_d_road_5000_3_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_road_5000_4 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_road_5000_4_running
+				AND = {
+					has_completed_focus = VIE_expressway_5000km_2030
+					check_variable = { VIE_infra_road_5000_stage = 3 }
+					has_country_flag = VIE_infra_road_3000_done
+				}
+			}
+		}
+		available = { VIE_infra_d_road_5000_4_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_4"
+			VIE_infra_d_road_5000_4_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_road_5000_4 (ban giao)"
+			VIE_infra_d_road_5000_4_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_rail_upgrade_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_rail_upgrade_1_running
+				AND = {
+					has_completed_focus = VIE_reunification_line_upgrade
+					check_variable = { VIE_infra_rail_upgrade_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_rail_upgrade_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_rail_upgrade_1"
+			VIE_infra_d_rail_upgrade_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_rail_upgrade_1 (ban giao)"
+			VIE_infra_d_rail_upgrade_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_metro_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_metro_1_running
+				AND = {
+					has_completed_focus = VIE_urban_rail_program
+					check_variable = { VIE_infra_metro_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_metro_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_metro_1"
+			VIE_infra_d_metro_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_metro_1 (ban giao)"
+			VIE_infra_d_metro_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_metro_2 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_metro_2_running
+				AND = {
+					has_completed_focus = VIE_urban_rail_program
+					check_variable = { VIE_infra_metro_stage = 1 }
+				}
+			}
+		}
+		available = { VIE_infra_d_metro_2_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_metro_2"
+			VIE_infra_d_metro_2_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_metro_2 (ban giao)"
+			VIE_infra_d_metro_2_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_rail_training_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_rail_training_1_running
+				AND = {
+					has_completed_focus = VIE_rail_technology_transfer
+					check_variable = { VIE_infra_rail_training_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_rail_training_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_rail_training_1"
+			VIE_infra_d_rail_training_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_rail_training_1 (ban giao)"
+			VIE_infra_d_rail_training_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_hsr_japan_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 720
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_hsr_japan_1_running
+				AND = {
+					has_completed_focus = VIE_rail_technology_transfer
+					check_variable = { VIE_infra_hsr_japan_stage = 0 }
+					has_country_flag = VIE_infra_rail_training_done
+					has_country_flag = VIE_hsr_partner_japan
+					NOT = { has_country_flag = VIE_infra_hsr_launch_done }
+					OR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }
+				}
+			}
+		}
+		available = { VIE_infra_d_hsr_japan_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_hsr_japan_1"
+			VIE_infra_d_hsr_japan_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_hsr_japan_1 (ban giao)"
+			VIE_infra_d_hsr_japan_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_hsr_eu_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 630
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_hsr_eu_1_running
+				AND = {
+					has_completed_focus = VIE_rail_technology_transfer
+					check_variable = { VIE_infra_hsr_eu_stage = 0 }
+					has_country_flag = VIE_infra_rail_training_done
+					has_country_flag = VIE_hsr_partner_eu
+					NOT = { has_country_flag = VIE_infra_hsr_launch_done }
+					OR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }
+				}
+			}
+		}
+		available = { VIE_infra_d_hsr_eu_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_hsr_eu_1"
+			VIE_infra_d_hsr_eu_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_hsr_eu_1 (ban giao)"
+			VIE_infra_d_hsr_eu_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_hsr_china_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 540
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_hsr_china_1_running
+				AND = {
+					has_completed_focus = VIE_rail_technology_transfer
+					check_variable = { VIE_infra_hsr_china_stage = 0 }
+					has_country_flag = VIE_infra_rail_training_done
+					has_country_flag = VIE_hsr_partner_china
+					NOT = { has_country_flag = VIE_infra_hsr_launch_done }
+					OR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }
+				}
+			}
+		}
+		available = { VIE_infra_d_hsr_china_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_hsr_china_1"
+			VIE_infra_d_hsr_china_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_hsr_china_1 (ban giao)"
+			VIE_infra_d_hsr_china_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_ports_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_ports_1_running
+				AND = {
+					has_completed_focus = VIE_national_deepwater_ports
+					check_variable = { VIE_infra_ports_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_ports_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_ports_1"
+			VIE_infra_d_ports_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_ports_1 (ban giao)"
+			VIE_infra_d_ports_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_ports_2 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_ports_2_running
+				AND = {
+					has_completed_focus = VIE_national_deepwater_ports
+					check_variable = { VIE_infra_ports_stage = 1 }
+				}
+			}
+		}
+		available = { VIE_infra_d_ports_2_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_ports_2"
+			VIE_infra_d_ports_2_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_ports_2 (ban giao)"
+			VIE_infra_d_ports_2_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_logistics_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_logistics_1_running
+				AND = {
+					has_completed_focus = VIE_logistics_strategy
+					check_variable = { VIE_infra_logistics_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_logistics_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_logistics_1"
+			VIE_infra_d_logistics_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_logistics_1 (ban giao)"
+			VIE_infra_d_logistics_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_multimodal_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_multimodal_1_running
+				AND = {
+					has_completed_focus = VIE_multimodal_transport
+					check_variable = { VIE_infra_multimodal_stage = 0 }
+					VIE_infra_logistics_done = yes
+				}
+			}
+		}
+		available = { VIE_infra_d_multimodal_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_multimodal_1"
+			VIE_infra_d_multimodal_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_multimodal_1 (ban giao)"
+			VIE_infra_d_multimodal_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_air_modern_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_air_modern_1_running
+				AND = {
+					has_completed_focus = VIE_airport_network_2030
+					check_variable = { VIE_infra_air_modern_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_air_modern_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_air_modern_1"
+			VIE_infra_d_air_modern_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_air_modern_1 (ban giao)"
+			VIE_infra_d_air_modern_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_air_modern_2 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_air_modern_2_running
+				AND = {
+					has_completed_focus = VIE_airport_network_2030
+					check_variable = { VIE_infra_air_modern_stage = 1 }
+				}
+			}
+		}
+		available = { VIE_infra_d_air_modern_2_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_air_modern_2"
+			VIE_infra_d_air_modern_2_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_air_modern_2 (ban giao)"
+			VIE_infra_d_air_modern_2_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_long_thanh_prepare_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_long_thanh_prepare_1_running
+				AND = {
+					has_completed_focus = VIE_long_thanh_airport
+					check_variable = { VIE_infra_long_thanh_prepare_stage = 0 }
+					VIE_infra_air_modern_done = yes
+				}
+			}
+		}
+		available = { VIE_infra_d_long_thanh_prepare_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_long_thanh_prepare_1"
+			VIE_infra_d_long_thanh_prepare_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_long_thanh_prepare_1 (ban giao)"
+			VIE_infra_d_long_thanh_prepare_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_long_thanh_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 720
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_long_thanh_1_running
+				AND = {
+					has_completed_focus = VIE_long_thanh_airport
+					check_variable = { VIE_infra_long_thanh_stage = 0 }
+					has_country_flag = VIE_infra_long_thanh_prepared
+					date > 2020.12.31
+				}
+			}
+		}
+		available = { VIE_infra_d_long_thanh_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_long_thanh_1"
+			VIE_infra_d_long_thanh_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_long_thanh_1 (ban giao)"
+			VIE_infra_d_long_thanh_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_van_don_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_van_don_1_running
+				AND = {
+					has_completed_focus = VIE_airport_network_2030
+					check_variable = { VIE_infra_van_don_stage = 0 }
+					has_country_flag = VIE_infra_air_private
+					date > 2017.12.31
+				}
+			}
+		}
+		available = { VIE_infra_d_van_don_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_van_don_1"
+			VIE_infra_d_van_don_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_van_don_1 (ban giao)"
+			VIE_infra_d_van_don_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_infra_d_dual_use_1 = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+
+		visible = {
+			OR = {
+				has_country_flag = VIE_infra_d_dual_use_1_running
+				AND = {
+					has_completed_focus = VIE_airport_network_2030
+					check_variable = { VIE_infra_dual_use_stage = 0 }
+				}
+			}
+		}
+		available = { VIE_infra_d_dual_use_1_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_dual_use_1"
+			VIE_infra_d_dual_use_1_start = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_infra_d_dual_use_1 (ban giao)"
+			VIE_infra_d_dual_use_1_finish = yes
+		}
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_industry_decisions.txt
+# ====================================================================
+
+# Dau tu cong nghiep: thanh toan truoc, ban giao mot lan.
+VIE_industry_category = {
+	VIE_ind_d_support = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+		visible = { OR = { has_country_flag = VIE_ind_d_support_running AND = { has_completed_focus = VIE_supporting_industries check_variable = { VIE_ind_support_stage = 0 }  } } }
+		available = { VIE_ind_d_support_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_support" VIE_ind_d_support_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_support (ban giao)" VIE_ind_d_support_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_ind_d_ship_governance = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+		visible = { OR = { has_country_flag = VIE_ind_d_ship_governance_running AND = { has_completed_focus = VIE_vinashin_restructuring_sbic check_variable = { VIE_ind_ship_governance_stage = 0 }  } } }
+		available = { VIE_ind_d_ship_governance_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_ship_governance" VIE_ind_d_ship_governance_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_ship_governance (ban giao)" VIE_ind_d_ship_governance_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_ind_d_ship_civil = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_ship_civil_running AND = { has_completed_focus = VIE_shipbuilding_joint_ventures check_variable = { VIE_ind_ship_civil_stage = 0 } VIE_ind_ship_governance_done = yes } } }
+		available = { VIE_ind_d_ship_civil_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_ship_civil" VIE_ind_d_ship_civil_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_ship_civil (ban giao)" VIE_ind_d_ship_civil_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 519 = { free_building_slots = { building = dockyard size > 0 include_locked = yes } } NOT = { can_staff_an_dockyard = yes } } }
+	}
+
+	VIE_ind_d_textile_base = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_textile_base_running AND = { has_completed_focus = VIE_textile_garment_exports check_variable = { VIE_ind_textile_base_stage = 0 }  } } }
+		available = { VIE_ind_d_textile_base_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_textile_base" VIE_ind_d_textile_base_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_textile_base (ban giao)" VIE_ind_d_textile_base_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 522 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_textile_green = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+		visible = { OR = { has_country_flag = VIE_ind_d_textile_green_running AND = { has_completed_focus = VIE_green_textiles check_variable = { VIE_ind_textile_green_stage = 0 } VIE_ind_textile_base_done = yes } } }
+		available = { VIE_ind_d_textile_green_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_textile_green" VIE_ind_d_textile_green_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_textile_green (ban giao)" VIE_ind_d_textile_green_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_ind_d_steel_foreign = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_steel_foreign_running AND = { has_completed_focus = VIE_national_steel_program check_variable = { VIE_ind_steel_base_stage = 0 } has_country_flag = VIE_ind_steel_foreign } } }
+		available = { VIE_ind_d_steel_foreign_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_steel_foreign" VIE_ind_d_steel_foreign_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_steel_foreign (ban giao)" VIE_ind_d_steel_foreign_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 521 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_steel_domestic = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 450
+		visible = { OR = { has_country_flag = VIE_ind_d_steel_domestic_running AND = { has_completed_focus = VIE_national_steel_program check_variable = { VIE_ind_steel_base_stage = 0 } has_country_flag = VIE_ind_steel_domestic } } }
+		available = { VIE_ind_d_steel_domestic_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_steel_domestic" VIE_ind_d_steel_domestic_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_steel_domestic (ban giao)" VIE_ind_d_steel_domestic_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 521 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_steel_hrc = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_steel_hrc_running AND = { has_completed_focus = VIE_hoa_phat_hrc_steel check_variable = { VIE_ind_steel_hrc_stage = 0 } VIE_ind_steel_base_done = yes } } }
+		available = { VIE_ind_d_steel_hrc_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_steel_hrc" VIE_ind_d_steel_hrc_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_steel_hrc (ban giao)" VIE_ind_d_steel_hrc_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 521 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_auto_base = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_auto_base_running AND = { has_completed_focus = VIE_domestic_automotive check_variable = { VIE_ind_auto_base_stage = 0 }  } } }
+		available = { VIE_ind_d_auto_base_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_auto_base" VIE_ind_d_auto_base_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_auto_base (ban giao)" VIE_ind_d_auto_base_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 522 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_auto_ev = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_auto_ev_running AND = { has_completed_focus = VIE_ev_revolution_batteries check_variable = { VIE_ind_auto_ev_stage = 0 } VIE_ind_auto_base_done = yes } } }
+		available = { VIE_ind_d_auto_ev_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_auto_ev" VIE_ind_d_auto_ev_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_auto_ev (ban giao)" VIE_ind_d_auto_ev_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 521 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_auto_export = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+		visible = { OR = { has_country_flag = VIE_ind_d_auto_export_running AND = { has_completed_focus = VIE_global_auto_export check_variable = { VIE_ind_auto_export_stage = 0 } VIE_ind_auto_ev_done = yes } } }
+		available = { VIE_ind_d_auto_export_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_auto_export" VIE_ind_d_auto_export_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_auto_export (ban giao)" VIE_ind_d_auto_export_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_ind_d_electronics_base = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_electronics_base_running AND = { has_completed_focus = VIE_electronics_export_program check_variable = { VIE_ind_electronics_base_stage = 0 } OR = { has_country_flag = VIE_fdi_open_door has_country_flag = VIE_fdi_technology_screening } } } }
+		available = { VIE_ind_d_electronics_base_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_electronics_base" VIE_ind_d_electronics_base_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_electronics_base (ban giao)" VIE_ind_d_electronics_base_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 522 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_electronics_suppliers = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+		visible = { OR = { has_country_flag = VIE_ind_d_electronics_suppliers_running AND = { has_completed_focus = VIE_apple_supply_chain check_variable = { VIE_ind_electronics_suppliers_stage = 0 } VIE_ind_electronics_base_done = yes } } }
+		available = { VIE_ind_d_electronics_suppliers_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_electronics_suppliers" VIE_ind_d_electronics_suppliers_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_electronics_suppliers (ban giao)" VIE_ind_d_electronics_suppliers_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_ind_d_chip_workforce = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_chip_workforce_running AND = { has_completed_focus = VIE_chip_engineers check_variable = { VIE_ind_chip_workforce_stage = 0 }  } } }
+		available = { VIE_ind_d_chip_workforce_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_chip_workforce" VIE_ind_d_chip_workforce_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_chip_workforce (ban giao)" VIE_ind_d_chip_workforce_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_ind_d_chip_design = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+		visible = { OR = { has_country_flag = VIE_ind_d_chip_design_running AND = { has_completed_focus = VIE_chip_design check_variable = { VIE_ind_chip_design_stage = 0 } VIE_ind_chip_workforce_done = yes } } }
+		available = { VIE_ind_d_chip_design_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_chip_design" VIE_ind_d_chip_design_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_chip_design (ban giao)" VIE_ind_d_chip_design_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_ind_d_chip_osat = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 365
+		visible = { OR = { has_country_flag = VIE_ind_d_chip_osat_running AND = { has_completed_focus = VIE_osat_packaging check_variable = { VIE_ind_chip_osat_stage = 0 } VIE_ind_chip_workforce_done = yes } } }
+		available = { VIE_ind_d_chip_osat_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_chip_osat" VIE_ind_d_chip_osat_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_chip_osat (ban giao)" VIE_ind_d_chip_osat_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 519 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_fab_design = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 720
+		visible = { OR = { has_country_flag = VIE_ind_d_fab_design_running AND = { has_completed_focus = VIE_semiconductor_fab check_variable = { VIE_ind_chip_fab_stage = 0 } VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_design } } }
+		available = { VIE_ind_d_fab_design_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_fab_design" VIE_ind_d_fab_design_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_fab_design (ban giao)" VIE_ind_d_fab_design_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 519 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_fab_pilot = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 630
+		visible = { OR = { has_country_flag = VIE_ind_d_fab_pilot_running AND = { has_completed_focus = VIE_semiconductor_fab check_variable = { VIE_ind_chip_fab_stage = 0 } VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_fab } } }
+		available = { VIE_ind_d_fab_pilot_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_fab_pilot" VIE_ind_d_fab_pilot_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_fab_pilot (ban giao)" VIE_ind_d_fab_pilot_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } modifier = { factor = 0 519 = { free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } NOT = { can_staff_an_industrial_complex = yes } } }
+	}
+
+	VIE_ind_d_productivity = {
+		icon = GFX_decision_generic_form_nation
+		cost = 0
+		days_remove = 180
+		visible = { OR = { has_country_flag = VIE_ind_d_productivity_running AND = { has_completed_focus = VIE_industrial_productivity_program check_variable = { VIE_ind_productivity_stage = 0 } VIE_ind_three_sectors = yes } } }
+		available = { VIE_ind_d_productivity_can_start = yes }
+		complete_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_productivity" VIE_ind_d_productivity_start = yes }
+		remove_effect = { log = "[GetDateText]: [Root.GetName]: Decision VIE_ind_d_productivity (ban giao)" VIE_ind_d_productivity_finish = yes }
+		ai_will_do = { base = 50 modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+}
+
+# ====================================================================
+# SECTION: VIE_md_hardline_decisions.txt
+# ====================================================================
+
+# "Con duong Kien dinh" decisions.
+
+# Way B to power: Extraordinary Central Committee Plenum
+VIE_resolution_category = {
+
+	VIE_hl_extraordinary_plenum = {
+		icon = generic_political_discourse
+		allowed = { original_tag = VIE }
+		visible = {
+			has_country_flag = VIE_hardline_unlocked
+			NOT = { check_variable = { ruling_party = 4 } }
+		}
+		available = {
+			VIE_hl_can_take_power_congress = yes
+		}
+		cost = 100
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_extraordinary_plenum"
+			custom_effect_tooltip = VIE_hl_take_power_tt
+			country_event = { id = vie_hl.1 days = 1 }
+		}
+		ai_will_do = { base = 0 }
+	}
+
+}
+
+# Indochinese Unification branch decisions (available after Party-State Fusion X2)
+VIE_hl_indochina_category = {
+
+	# Ultimatum to Vientiane (Laos)
+	VIE_hl_ultimatum_laos = {
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = VIE }
+		visible = {
+			has_country_flag = VIE_hl_fusion_done
+			country_exists = LAO
+			NOT = { LAO = { is_puppet_of = ROOT } }
+		}
+		available = {
+			has_war = no
+			LAO = { has_war = no }
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_ultimatum_laos"
+			LAO = { country_event = { id = vie_hl.20 days = 1 } }
+		}
+		ai_will_do = { base = 50 }
+	}
+
+	# Ultimatum to Phnom Penh (Cambodia)
+	VIE_hl_ultimatum_cambodia = {
+		icon = generic_prepare_civil_war
+		allowed = { original_tag = VIE }
+		visible = {
+			has_country_flag = VIE_hl_fusion_done
+			country_exists = CBD
+			NOT = { CBD = { is_puppet_of = ROOT } }
+		}
+		available = {
+			has_war = no
+			CBD = { has_war = no }
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_ultimatum_cambodia"
+			CBD = { country_event = { id = vie_hl.20 days = 1 } }
+		}
+		ai_will_do = { base = 50 }
+	}
+
+	# Proclaim Indochinese Socialist Union
+	VIE_hl_unify_indochina = {
+		icon = generic_form_nation
+		allowed = { original_tag = VIE }
+		visible = {
+			has_country_flag = VIE_hl_fusion_done
+			NOT = { has_country_flag = VIE_hl_indochina_unified }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_hl_indochina_control_tt
+				OR = {
+					NOT = { country_exists = LAO }
+					LAO = { is_puppet_of = ROOT }
+					AND = {
+						controls_state = 515
+						controls_state = 516
+						controls_state = 517
+					}
+				}
+				OR = {
+					NOT = { country_exists = CBD }
+					CBD = { is_puppet_of = ROOT }
+					AND = {
+						controls_state = 511
+						controls_state = 512
+						controls_state = 513
+						controls_state = 514
+					}
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_unify_indochina"
+			set_country_flag = VIE_hl_indochina_unified
+			if = {
+				limit = { country_exists = LAO LAO = { is_puppet_of = ROOT } }
+				annex_country = { target = LAO transfer_troops = yes }
+			}
+			if = {
+				limit = { country_exists = CBD CBD = { is_puppet_of = ROOT } }
+				annex_country = { target = CBD transfer_troops = yes }
+			}
+			add_state_core = 511
+			add_state_core = 512
+			add_state_core = 513
+			add_state_core = 514
+			add_state_core = 515
+			add_state_core = 516
+			add_state_core = 517
+			add_ideas = VIE_hl_indochina_union_idea
+			country_event = { id = vie_hl.23 }
+		}
+		ai_will_do = { base = 100 }
+	}
+
+}
+
+# Debug decisions (only visible when the game runs with -debug).
+# They let the reform pressure thresholds and the transition be tested without finishing the whole tree.
+VIE_hl_debug_category = {
+
+	VIE_hl_dbg_take_power = {
+		days_re_enable = 1
+		visible = {
+			is_debug = yes
+			NOT = { check_variable = { ruling_party = 4 } }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_dbg_take_power"
+			country_event = { id = vie_hl.1 }
+		}
+		ai_will_do = { base = 0 }
+	}
+
+	VIE_hl_dbg_rp_30 = {
+		days_re_enable = 1
+		visible = { is_debug = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_dbg_rp_30"
+			set_variable = { VIE_rp = 30 }
+			VIE_hl_update_pressure_idea = yes
+		}
+		ai_will_do = { base = 0 }
+	}
+
+	VIE_hl_dbg_rp_60 = {
+		days_re_enable = 1
+		visible = { is_debug = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_dbg_rp_60"
+			set_variable = { VIE_rp = 60 }
+			VIE_hl_update_pressure_idea = yes
+		}
+		ai_will_do = { base = 0 }
+	}
+
+	VIE_hl_dbg_rp_85 = {
+		days_re_enable = 1
+		visible = { is_debug = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_dbg_rp_85"
+			set_variable = { VIE_rp = 85 }
+			VIE_hl_update_pressure_idea = yes
+		}
+		ai_will_do = { base = 0 }
+	}
+
+	# Phase 1 test aid: +6 pressure through the real effect (checks the clamp and the 120 day decay pause)
+	VIE_hl_dbg_rp_add = {
+		days_re_enable = 1
+		visible = { is_debug = yes }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_hl_dbg_rp_add"
+			set_temp_variable = { VIE_rp_add = 6 }
+			VIE_hl_add_pressure = yes
+		}
+		ai_will_do = { base = 0 }
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_md_sec_decisions.txt
+# ====================================================================
+
+# Nhanh Nha nuoc An ninh: decision cua category VIE_sec_category.
+# Tich hop cung Con duong Kien dinh (CPV Hardline, ruling_party = 4).
+# Moi decision an ninh deu co gia ve Ap luc Cai cach (VIE_rp).
+
+VIE_sec_category = {
+
+	# Chien dich du luan (mo boi VIE_hl_cyber_ideology):
+	# Huy dong bo may truyen thong va an ninh mang dap tat diem nong du luan. Tang on dinh, tang Ap luc cai cach (+2).
+	VIE_sec_dec_opinion_campaign = {
+		icon = GFX_decision_VIE_relax_media_scrutiny
+		cost = 50
+		days_re_enable = 180
+
+		visible = { has_completed_focus = VIE_hl_cyber_ideology }
+		available = { VIE_hl_in_power = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_opinion_campaign"
+			add_stability = 0.02
+			set_temp_variable = { VIE_rp_add = 2 }
+			custom_effect_tooltip = VIE_hl_rp_p2_tt
+			VIE_hl_add_pressure = yes
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 check_variable = { VIE_rp > 75 } }
+		}
+	}
+
+	# Tham tra FDI (mo boi VIE_hl_selective_fdi):
+	# Dinh huong dong von ngoai ve cac linh vuc an ninh va SOE. Thu ve ngan kho, tang Ap luc cai cach (+3).
+	VIE_sec_dec_fdi_screening = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 50
+		days_re_enable = 365
+
+		visible = { has_completed_focus = VIE_hl_selective_fdi }
+		available = { VIE_hl_in_power = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_fdi_screening"
+			set_temp_variable = { treasury_change = 1.5 }
+			modify_treasury_effect = yes
+			set_temp_variable = { VIE_rp_add = 3 }
+			custom_effect_tooltip = VIE_hl_rp_p3_tt
+			VIE_hl_add_pressure = yes
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 check_variable = { VIE_rp > 75 } }
+		}
+	}
+
+	# Cach chuc can bo khong trung thanh (mo boi VIE_hl_party_rectification):
+	# Thanh loc can bo bat trung, giam tham nhung, tich thu tai san. Tang Ap luc cai cach (+3).
+	VIE_sec_dec_purge_disloyal = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 50
+		days_re_enable = 180
+
+		visible = { has_completed_focus = VIE_hl_party_rectification }
+		available = { VIE_hl_in_power = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_purge_disloyal"
+			add_stability = -0.01
+			decrease_corruption = yes
+			set_temp_variable = { treasury_change = 1.5 }
+			modify_treasury_effect = yes
+			if = {
+				limit = { has_idea = communist_cadres }
+				set_temp_variable = { temp_opinion = -2 }
+				change_communist_cadres_opinion = yes
+			}
+			set_temp_variable = { VIE_rp_add = 3 }
+			custom_effect_tooltip = VIE_hl_rp_p3_tt
+			VIE_hl_add_pressure = yes
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 check_variable = { VIE_rp > 75 } }
+		}
+	}
+
+	# Diem tin nhiem xa hoi (mo boi VIE_sec_cyber_sovereignty):
+	# Quan tri xa hoi qua du lieu giam sat. Tang on dinh, mien phi neu co Trung tam Du lieu, tang Ap luc (+2).
+	VIE_sec_dec_social_credit = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 25
+		days_re_enable = 90
+
+		visible = { has_completed_focus = VIE_sec_cyber_sovereignty }
+		available = { VIE_hl_in_power = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_social_credit"
+			add_stability = 0.02
+			if = {
+				limit = { NOT = { has_completed_focus = VIE_sec_state_data_center } }
+				set_temp_variable = { treasury_change = -0.5 }
+				modify_treasury_effect = yes
+			}
+			set_temp_variable = { VIE_rp_add = 2 }
+			custom_effect_tooltip = VIE_hl_rp_p2_tt
+			VIE_hl_add_pressure = yes
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 check_variable = { VIE_rp > 75 } }
+		}
+	}
+
+	# Dong bang tai san doi lap (mo boi VIE_sec_state_data_center):
+	# Phong toa va tich thu tai san doi lap qua du lieu tap trung. Tang ngan kho, giam nhe on dinh, tang Ap luc (+4).
+	VIE_sec_dec_freeze_assets = {
+		icon = GFX_decision_VIE_strengthen_internal_discipline
+		cost = 50
+		days_re_enable = 365
+
+		visible = { has_completed_focus = VIE_sec_state_data_center }
+		available = { VIE_hl_in_power = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_sec_dec_freeze_assets"
+			add_stability = -0.01
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+			set_temp_variable = { VIE_rp_add = 4 }
+			custom_effect_tooltip = VIE_hl_rp_p4_tt
+			VIE_hl_add_pressure = yes
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 check_variable = { VIE_rp > 75 } }
+		}
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_md_scs_coop_decisions.txt
+# ====================================================================
+
+########################################################################
+# Hop tac an ninh bien (nhanh Bien Dong). Focus -> Decision -> Event, theo mau Truc 3.
+#   d1 tap tran (vie_scs_coop.1)    d2 tau nuoc ngoai tham cang Cam Ranh (vie_scs_coop.10)
+#   d3 huan luyen chung An Do (RAJ)   d4 Nga (SOV)   d5 Nhat (JAP)
+# Khong cap quyen quan su / can cu nuoc ngoai; khong cong vao VIE_armed_forces_modifier (da cham tran).
+########################################################################
+
+VIE_scs_cooperation_category = {
+	VIE_scs_d1_exercise = {
+		icon = GFX_decision_generic_form_nation
+		cost = 50
+		days_re_enable = 730
+
+		visible = {
+			has_completed_focus = VIE_scs_multilateral_exercise
+		}
+		available = {
+			has_war = no
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d1_exercise"
+			country_event = { id = vie_scs_coop.1 }
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d2_port_call = {
+		icon = GFX_decision_generic_form_nation
+		cost = 25
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_scs_cam_ranh_port
+		}
+		available = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = VIE_scs_non_aligned_tt
+				VIE_scs_non_aligned = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = VIE_scs_pc_any_tt
+				VIE_scs_pc_any = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d2_port_call"
+			country_event = { id = vie_scs_coop.10 }
+		}
+
+		ai_will_do = {
+			base = 25
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d3_train_raj = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_re_enable = 1095
+
+		visible = {
+			has_completed_focus = VIE_scs_joint_training
+			has_completed_focus = VIE_india_partnership
+		}
+		available = {
+			has_war = no
+			country_exists = RAJ
+			NOT = { has_war_with = RAJ }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d3_train_raj"
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 15
+			}
+			add_opinion_modifier = { target = RAJ modifier = small_increase }
+			if = {
+				limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+				add_opinion_modifier = { target = CHI modifier = small_decrease }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d4_train_sov = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_re_enable = 1095
+
+		visible = {
+			has_completed_focus = VIE_scs_joint_training
+			has_country_flag = VIE_ev_kilo_submarines
+		}
+		available = {
+			has_war = no
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d4_train_sov"
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 15
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 15
+			}
+			add_opinion_modifier = { target = SOV modifier = small_increase }
+			if = {
+				limit = { country_exists = USA NOT = { has_war_with = USA } }
+				add_opinion_modifier = { target = USA modifier = small_decrease }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	VIE_scs_d5_train_jap = {
+		icon = GFX_decision_generic_form_nation
+		cost = 40
+		days_re_enable = 1095
+
+		visible = {
+			has_completed_focus = VIE_scs_joint_training
+			has_completed_focus = VIE_japan_partnership
+		}
+		available = {
+			has_war = no
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_scs_d5_train_jap"
+			if = {
+				limit = { has_selected_naval_grand_doctrine = yes }
+				add_mastery = {
+					amount = 10
+					folder = naval
+				}
+			}
+			else = {
+				navy_experience = 10
+			}
+			add_tech_bonus = {
+				name = VIE_scs_d5_train_jap
+				category = CAT_patrol_boats
+				uses = 1
+				bonus = 0.5
+			}
+			add_opinion_modifier = { target = JAP modifier = small_increase }
+			if = {
+				limit = { country_exists = CHI NOT = { has_war_with = CHI } }
+				add_opinion_modifier = { target = CHI modifier = small_decrease }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_md_decisions_land_force.txt
+# ====================================================================
+
+# XCB-01: giai ngan mot lan, ban giao qua days_remove; khong cap xe/nhan rong cong nghiep.
+VIE_military_readiness_category = {
+	VIE_lf_xcb01_design_program = {
+		icon = GFX_decision_generic_army_support
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = {
+				has_country_flag = VIE_lf_xcb01_design_running
+				AND = {
+					has_completed_focus = VIE_lf_ind_xcb01_design
+					NOT = { has_country_flag = VIE_lf_xcb01_design_done }
+				}
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_lf_xcb01_design_requirements_tt
+				VIE_lf_xcb01_design_can_start = yes
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xcb01_design_program (bat dau)"
+			custom_effect_tooltip = VIE_lf_xcb01_design_start_tt
+			hidden_effect = { VIE_lf_xcb01_design_program_start_effect = yes }
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xcb01_design_program (ban giao)"
+			custom_effect_tooltip = VIE_lf_xcb01_design_finish_tt
+			hidden_effect = { VIE_lf_xcb01_design_program_finish_effect = yes }
+		}
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 NOT = { VIE_lf_xcb01_design_can_start = yes } }
+			modifier = { factor = 0 check_variable = { treasury < 1.5 } }
+			modifier = { factor = 1.5 has_completed_focus = VIE_lf_m1_combined_arms_mechanized }
+			modifier = { factor = 1.2 VIE_ai_hardline = yes }
+		}
+	}
+
+	VIE_lf_xcb01_prototype_evaluation = {
+		icon = GFX_decision_generic_army_support
+		cost = 0
+		days_remove = 180
+		visible = {
+			OR = {
+				has_country_flag = VIE_lf_xcb01_evaluation_running
+				AND = {
+					has_completed_focus = VIE_lf_ind_xcb01_design
+					NOT = { has_country_flag = VIE_lf_xcb01_evaluation_done }
+				}
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_lf_xcb01_evaluation_requirements_tt
+				VIE_lf_xcb01_evaluation_can_start = yes
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xcb01_prototype_evaluation (bat dau)"
+			custom_effect_tooltip = VIE_lf_xcb01_evaluation_start_tt
+			hidden_effect = { VIE_lf_xcb01_prototype_evaluation_start_effect = yes }
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xcb01_prototype_evaluation (ban giao)"
+			custom_effect_tooltip = VIE_lf_xcb01_evaluation_finish_tt
+			hidden_effect = { VIE_lf_xcb01_prototype_evaluation_finish_effect = yes }
+		}
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 NOT = { VIE_lf_xcb01_evaluation_can_start = yes } }
+			modifier = { factor = 0 check_variable = { treasury < 1.5 } }
+			modifier = { factor = 1.5 has_completed_focus = VIE_lf_m1_combined_arms_mechanized }
+			modifier = { factor = 1.2 VIE_ai_hardline = yes }
+		}
+	}
+
+	VIE_lf_xcb01_serial_preparation = {
+		icon = GFX_decision_generic_army_support
+		cost = 0
+		days_remove = 365
+		visible = {
+			OR = {
+				has_country_flag = VIE_lf_xcb01_serial_running
+				AND = {
+					has_completed_focus = VIE_lf_ind_serial_ground_equipment
+					NOT = { has_country_flag = VIE_lf_xcb01_serial_done }
+				}
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_lf_xcb01_serial_requirements_tt
+				VIE_lf_xcb01_serial_can_start = yes
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xcb01_serial_preparation (bat dau)"
+			custom_effect_tooltip = VIE_lf_xcb01_serial_start_tt
+			hidden_effect = { VIE_lf_xcb01_serial_preparation_start_effect = yes }
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xcb01_serial_preparation (ban giao)"
+			custom_effect_tooltip = VIE_lf_xcb01_serial_finish_tt
+			hidden_effect = { VIE_lf_xcb01_serial_preparation_finish_effect = yes }
+		}
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 NOT = { VIE_lf_xcb01_serial_can_start = yes } }
+			modifier = { factor = 0 check_variable = { treasury < 1.5 } }
+			modifier = { factor = 1.5 has_completed_focus = VIE_lf_m1_combined_arms_mechanized }
+			modifier = { factor = 1.2 VIE_ai_hardline = yes }
+		}
+	}
+
+}
+
+# ====================================================================
+# SECTION: VIE_md_decisions_navy.txt
+# ====================================================================
+
+# ======================================================================
+# ĐỀ ÁN V34: QUYẾT ĐỊNH MUA SẮM VÀ TÁC CHIẾN HẢI QUÂN
+# ======================================================================
+
+VIE_naval_procurement_category = {
+
+	# ------------------------------------------------------------------
+	# NHÓM 1: CHƯƠNG TRÌNH MUA SẮM & KHÍ TÀI (5 QUYẾT ĐỊNH)
+	# ------------------------------------------------------------------
+
+	VIE_decision_molniya_production_run = {
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_w02_molniya_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_molniya_production_run"
+			set_temp_variable = { treasury_change = -1.5 }
+			modify_treasury_effect = yes
+			VIE_nav_xp_10 = yes
+			add_timed_idea = { idea = VIE_decision_molniya_surge_spirit days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_gepard_batch_procurement = {
+		icon = GFX_decision_generic_naval
+		cost = 30
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_w03_gepard_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_gepard_batch_procurement"
+			set_temp_variable = { treasury_change = -2.5 }
+			modify_treasury_effect = yes
+			VIE_nav_xp_15 = yes
+			add_timed_idea = { idea = VIE_decision_gepard_fleet_spirit days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_kilo_submarine_sustainment = {
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		days_remove = 365
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_w04_kilo_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_kilo_submarine_sustainment"
+			set_temp_variable = { treasury_change = -2.0 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_decision_kilo_sustainment_spirit days = 365 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_domestic_corvette_lead_ship = {
+		icon = GFX_decision_generic_dockyard
+		cost = 35
+
+		days_remove = 730
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_i04_song_thu_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_domestic_corvette_lead_ship"
+			set_temp_variable = { treasury_change = -1.8 }
+			modify_treasury_effect = yes
+			add_timed_idea = { idea = VIE_decision_domestic_corvette_construction_spirit days = 730 }
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	VIE_decision_island_bastion_fortification = {
+		icon = GFX_decision_generic_fortification
+		cost = 20
+
+		days_remove = 365
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = VIE_nav_n00_maritime_strategy_21st
+		}
+
+		available = {
+			has_country_flag = VIE_nav_s02_bastion_unlocked
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_island_bastion_fortification"
+			set_temp_variable = { treasury_change = -1.0 }
+			modify_treasury_effect = yes
+			801 = { add_building_construction = { type = coastal_bunker level = 1 instant_build = yes } }
+			add_timed_idea = { idea = VIE_decision_island_bastion_spirit days = 365 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# NHÓM 2: CHIẾN DỊCH TÁC CHIẾN & TUẦN TRA (3 QUYẾT ĐỊNH)
+	# ------------------------------------------------------------------
+
+	VIE_decision_scs_joint_patrol_mission = {
+		icon = GFX_decision_generic_naval
+		cost = 20
+
+		days_remove = 180
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = VIE_nav_s01_maritime_surveillance
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_scs_joint_patrol_mission"
+			VIE_nav_xp_15 = yes
+			add_command_power = 10
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	VIE_decision_asw_combat_drill = {
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		days_remove = 180
+		days_re_enable = 360
+
+		visible = {
+			has_completed_focus = VIE_nav_s03_subsurface_recon
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_asw_combat_drill"
+			VIE_nav_xp_15 = yes
+			add_timed_idea = { idea = VIE_decision_asw_combat_drill_spirit days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = { factor = 2 has_war = yes }
+		}
+	}
+
+	VIE_decision_coastal_alert_surge = {
+		icon = GFX_decision_generic_military
+		cost = 30
+
+		days_remove = 180
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = VIE_nav_p01_integrated_defense_choice
+		}
+
+		available = {
+			OR = {
+				has_war = yes
+				threat > 0.20
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_decision_coastal_alert_surge"
+			add_timed_idea = { idea = VIE_decision_coastal_alert_surge_spirit days = 180 }
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = { factor = 3 has_war = yes }
+		}
+	}
+
+}
+
