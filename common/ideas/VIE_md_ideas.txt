@@ -1,5 +1,15 @@
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - ALL COUNTRY IDEAS
+# Consolidated single ideas file
+# ====================================================================
+
 ideas = {
 	country = {
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas.txt
+		# ====================================================================
+
 
 		# Present from 2000: informal non-alignment. Upgraded to VIE_four_nos by VIE_event_scheduler (Nov 2019, no pop-up).
 		VIE_non_alignment_policy = {
@@ -99,6 +109,2724 @@ ideas = {
 			modifier = {
 				country_productivity_growth_modifier = -0.02
 				corporate_tax_income_multiplier_modifier = -0.02
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_infra_ideas.txt
+		# ====================================================================
+
+		VIE_modern_rail_idea = {
+			picture = economic_road_idea
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				research_speed_factor = 0.01
+			}
+		}
+		VIE_multimodal_idea = {
+			picture = economic_road_idea
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				trade_opinion_factor = 0.042
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_industry_ideas.txt
+		# ====================================================================
+
+		VIE_ind_supporting_capacity_idea = {
+			picture = industrial_focus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				industrial_capacity_factory = 0.02
+				corporate_tax_income_multiplier_modifier = 0.02
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_petrolimex_ideas.txt
+		# ====================================================================
+
+		# Mang luoi Phan phoi Xang dau Petrolimex
+		VIE_petrolimex_idea = {
+			picture = oil_production
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.02
+				fuel_gain_factor = 0.10
+			}
+		}
+
+		# Du tru Xang dau Chien luoc Quoc gia (SPR 90 ngay)
+		VIE_strategic_fuel_reserve_idea = {
+			picture = oil_production
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				max_fuel_factor = 0.30
+				fuel_cost = -0.05
+				stability_factor = 0.01
+			}
+		}
+
+		# Co che DPPA & Thi truong Ban le Dien Canh tranh
+		VIE_dppa_reform_idea = {
+			picture = energy_preferred_renewable_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.025
+				industrial_capacity_factory = 0.02
+				trade_opinion_factor = 0.03
+			}
+		}
+
+		# Con soc thieu hut nguon cung xang dau (Tam thoi 365 ngay)
+		VIE_fuel_shortage_crisis = {
+			picture = oil_production
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.04
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_supporting_industries_ideas.txt
+		# ====================================================================
+
+		# Tu chu Thep cuon can nong HRC (Hoa Phat Dung Quat)
+
+		VIE_hrc_steel_self_reliance = {
+			picture = industrial_focus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { production_speed_industrial_complex_factor = 0.03 production_speed_infrastructure_factor = 0.02 production_speed_arms_factory_factor = 0.02 }
+		}
+
+		# Khuon mau & Co khi Chinh xac CNC (Giai quyet bai toan oc vit)
+
+
+		# Mang luoi Doanh nghiep Cung ung Cap 1 (Tier-1 Suppliers)
+
+
+		# Cum Cong nghiep Phu tro O to Tich hop Cat Hai
+
+
+		# Cach mang Xe dien & To hop Pin VinES
+
+		VIE_ev_mobility_idea = {
+			picture = industrial_focus
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { country_productivity_growth_modifier = 0.016 industrial_capacity_factory = 0.02 fuel_cost = -0.03 }
+		}
+
+		# Thuong hieu Cong nghiep Quoc gia Vuon ra Toan cau (Nasdaq)
+
+		VIE_global_brand_recognition = {
+			picture = economic_boom
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { country_productivity_growth_modifier = 0.008 corporate_tax_income_multiplier_modifier = 0.02 stability_factor = 0.01 foreign_influence_defense_modifier = 0.05 }
+		}
+
+		# ====================================================================
+		# SECTION: VIE_policy_rewards_ideas.txt
+		# ====================================================================
+
+		VIE_ind_policy_support_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				industrial_capacity_factory = 0.005
+				corporate_tax_income_multiplier_modifier = 0.005
+			}
+		}
+		VIE_ind_policy_steel_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_industrial_complex_factor = 0.0075
+				production_speed_infrastructure_factor = 0.005
+				production_speed_arms_factory_factor = 0.005
+			}
+		}
+		VIE_ind_policy_steel_2_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_industrial_complex_factor = 0.015
+				production_speed_infrastructure_factor = 0.01
+				production_speed_arms_factory_factor = 0.01
+			}
+		}
+		VIE_ind_policy_ship_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.02
+			}
+		}
+		VIE_ind_policy_ship_2_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.04
+			}
+		}
+		VIE_ind_policy_ship_3_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_dockyard_factor = 0.05
+			}
+		}
+		VIE_ind_policy_textile_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				consumer_goods_factor = -0.00125
+				trade_opinion_factor = 0.0025
+			}
+		}
+		VIE_ind_policy_textile_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				consumer_goods_factor = -0.0025
+				trade_opinion_factor = 0.005
+			}
+		}
+		VIE_ind_policy_ev_1_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				industrial_capacity_factory = 0.005
+				fuel_cost = -0.0075
+			}
+		}
+		VIE_ind_policy_ev_2_idea = {
+			picture = industrial_focus
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				industrial_capacity_factory = 0.01
+				fuel_cost = -0.015
+			}
+		}
+		VIE_ind_policy_auto_export_1_idea = {
+			picture = economic_boom
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				corporate_tax_income_multiplier_modifier = 0.005
+				stability_factor = 0.0025
+				foreign_influence_defense_modifier = 0.0125
+			}
+		}
+		VIE_ind_policy_electronics_1_idea = {
+			picture = economic_boom
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				corporate_tax_income_multiplier_modifier = 0.005
+			}
+		}
+		VIE_ind_policy_electronics_2_idea = {
+			picture = economic_boom
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				corporate_tax_income_multiplier_modifier = 0.01
+			}
+		}
+		VIE_ind_policy_chip_1_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.001
+				research_speed_factor = 0.00125
+			}
+		}
+		VIE_ind_policy_chip_2_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				research_speed_factor = 0.0025
+			}
+		}
+		VIE_ind_policy_chip_3_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.003
+				research_speed_factor = 0.00375
+			}
+		}
+		VIE_ind_policy_chip_4_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				research_speed_factor = 0.005
+			}
+		}
+		VIE_ind_policy_chip_6_idea = {
+			picture = digitalize_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.01
+				research_speed_factor = 0.0125
+			}
+		}
+		VIE_ind_policy_productivity_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				production_speed_industrial_complex_factor = 0.01
+			}
+		}
+		VIE_infra_policy_road_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				production_speed_infrastructure_factor = 0.025
+			}
+		}
+		VIE_infra_policy_road_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				production_speed_infrastructure_factor = 0.05
+			}
+		}
+		VIE_infra_policy_road_4_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.02
+				production_speed_infrastructure_factor = 0.125
+			}
+		}
+		VIE_infra_policy_road_5_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.022
+				production_speed_infrastructure_factor = 0.14
+			}
+		}
+		VIE_infra_policy_rail_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.002
+				research_speed_factor = 0.0025
+			}
+		}
+		VIE_infra_policy_rail_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.003
+				research_speed_factor = 0.00375
+			}
+		}
+		VIE_infra_policy_rail_3_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				research_speed_factor = 0.005
+			}
+		}
+		VIE_infra_policy_rail_4_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.005
+				research_speed_factor = 0.00625
+			}
+		}
+		VIE_infra_policy_rail_5_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.006
+				research_speed_factor = 0.0075
+			}
+		}
+		VIE_infra_policy_ports_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				trade_opinion_factor = 0.00525
+			}
+		}
+		VIE_infra_policy_logistics_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				trade_opinion_factor = 0.00525
+				country_productivity_growth_modifier = 0.002
+			}
+		}
+		VIE_infra_policy_multimodal_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.021
+				trade_opinion_factor = 0.03675
+			}
+		}
+		VIE_infra_policy_air_1_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.004
+				trade_opinion_factor = 0.00525
+			}
+		}
+		VIE_infra_policy_air_2_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				trade_opinion_factor = 0.0105
+			}
+		}
+		VIE_infra_policy_air_4_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.014
+				trade_opinion_factor = 0.018375
+			}
+		}
+		VIE_infra_policy_air_3_idea = {
+			picture = economic_road_idea
+			allowed = {
+				original_tag = VIE
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.012
+				trade_opinion_factor = 0.01575
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_forks.txt
+		# ====================================================================
+
+
+		VIE_bauxite_environmental_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.01
+				production_speed_industrial_complex_factor = -0.01
+			}
+		}
+
+		VIE_grid_curtailment_idea = {
+			picture = focus_generic_electrification
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		VIE_gold_pressure_idea = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		VIE_deposit_confidence_idea = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.02
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_congress.txt
+		# ====================================================================
+
+
+		VIE_resolution_9_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+
+		VIE_resolution_9_cons_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = -0.05
+			}
+		}
+
+		VIE_resolution_10_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		VIE_resolution_11_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.03
+				research_speed_factor = 0.02
+			}
+		}
+
+		VIE_resolution_12_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = -0.05
+			}
+		}
+
+		VIE_resolution_12_dev_idea = {
+			picture = economic_prosperity
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.05
+				stability_factor = -0.03
+			}
+		}
+
+		VIE_resolution_13_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				research_speed_factor = 0.02
+			}
+		}
+
+		VIE_resolution_14_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.03
+			}
+		}
+
+		# Decision VIE_rn_x_district_council_pilot (term X) grants this; decision
+		# VIE_rn_xi_local_gov_law (term XI) removes it. Both added in a later phase.
+		VIE_no_district_council_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.02
+				political_power_factor = 0.03
+			}
+		}
+
+		# Decision VIE_rn_pctn_2006 (term X) grants this as a 730-day timed idea; added in a later phase.
+		VIE_pctn_directing_committee_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				political_power_factor = -0.03
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_hardline.txt
+		# ====================================================================
+
+
+		# Reform pressure 56-79 (see VIE_hl_update_pressure_idea)
+		VIE_hl_pressure_tense_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.03
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# Reform pressure 80-100
+		VIE_hl_pressure_crisis_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.08
+				country_productivity_growth_modifier = -0.03
+			}
+		}
+
+		# ---- Focus tree ideas (VIE_md_focus.txt, block "Con duong Kien dinh"). Dropped by VIE_hl_cleanup.
+
+		# H2
+		VIE_hl_ideology_work_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				drift_defence_factor = 0.05
+			}
+		}
+
+		# A1
+		VIE_hl_state_leading_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		# A1, timed 730 days
+		VIE_hl_state_transition_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# A3, timed 730 days
+		VIE_hl_soe_spearhead_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		# A4, timed 365 days
+		VIE_hl_fdi_slowdown_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# A6
+		VIE_hl_planning_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				industrial_capacity_factory = 0.05
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		# B1
+		VIE_hl_army_party_work_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_org_regain = 0.05
+			}
+		}
+
+		# B3
+		VIE_hl_all_people_defence_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				conscription_factor = 0.03
+			}
+		}
+
+		# C1
+		VIE_hl_cyber_content_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				drift_defence_factor = 0.05
+				stability_factor = 0.01
+			}
+		}
+
+		# C2, timed 730 days
+		VIE_hl_school_theory_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				research_speed_factor = -0.02
+			}
+		}
+
+		# X1
+		VIE_hl_controlled_renewal_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.03
+				country_productivity_growth_modifier = 0.01
+			}
+		}
+
+		# vie_hl.3, "ignore": investors hold back, timed 365 days
+		VIE_hl_investors_wary_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.02
+			}
+		}
+
+		# vie_hl.7, "persist": the self-reliance period, timed 730 days (VIE_hl_add_pressure caps the pressure at 80)
+		VIE_hl_self_reliance_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.05
+				country_productivity_growth_modifier = -0.04
+				trade_opinion_factor = -0.10
+				production_speed_industrial_complex_factor = 0.10
+			}
+		}
+
+		# X2
+		VIE_hl_fusion_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.03
+				research_speed_factor = -0.03
+			}
+		}
+
+		# Tu luc Quoc phong
+		VIE_hl_defense_self_reliance_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				industrial_capacity_factory = 0.05
+				army_org_factor = 0.05
+			}
+		}
+
+		# Lien bang Dong Duong XHCN
+		VIE_hl_indochina_union_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.05
+				compliance_growth = 0.10
+			}
+		}
+
+		# Phao dai XHCN Bat kha Xam pham (Capstone)
+		VIE_hl_unbreakable_fortress_idea = {
+			picture = generic_communist_drift_bonus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_gain = 0.5
+				stability_factor = 0.10
+				war_support_factor = 0.10
+				defence = 0.10
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_disaster_ideas.txt
+		# ====================================================================
+
+		# Binh chung Cuu ho - Cuu nan
+		VIE_military_rescue_idea = {
+			picture = VIE_military_rescue
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_core_defence_factor = 0.05
+				land_reinforce_rate = 0.05
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_land_force.txt
+		# ====================================================================
+
+		VIE_lf_territorial_1_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_core_defence_factor = 0.01
+			}
+		}
+
+		VIE_lf_territorial_2_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_core_defence_factor = 0.02
+			}
+		}
+
+		VIE_lf_territorial_3_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_core_defence_factor = 0.04
+			}
+		}
+
+		VIE_lf_reserve_system_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				mobilization_speed = 0.05
+			}
+		}
+
+		VIE_lf_production_governance_idea = {
+			picture = generic_central_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.03
+			}
+		}
+
+		VIE_lf_operational_reserve_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_morale_factor = 0.03
+			}
+		}
+
+		VIE_lf_p_priority_1_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_defence_factor = 0.01
+				army_speed_factor = -0.01
+			}
+		}
+
+		VIE_lf_p_priority_2_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_defence_factor = 0.02
+				army_speed_factor = -0.01
+				dig_in_speed_factor = 0.06
+				land_reinforce_rate = 0.005
+			}
+		}
+
+		VIE_lf_m_priority_1_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_armor_attack_factor = 0.02
+				army_fuel_consumption_factor = 0.03
+				supply_consumption_factor = 0.01
+			}
+		}
+
+		VIE_lf_m_priority_2_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_armor_attack_factor = 0.04
+				army_armor_defence_factor = 0.01
+				army_fuel_consumption_factor = 0.05
+				supply_consumption_factor = 0.02
+			}
+		}
+
+		VIE_lf_r_priority_1_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_speed_factor = 0.02
+			}
+		}
+
+		VIE_lf_r_priority_2_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				army_speed_factor = 0.04
+				recon_factor = 0.02
+			}
+		}
+
+		VIE_lf_material_support_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				attrition = -0.01
+			}
+		}
+
+		VIE_lf_ifv_integration_idea = {
+			picture = VIE_xcb01_mechanized
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			modifier = {
+				training_time_factor = -0.01
+			}
+		}
+
+		VIE_lf_ifv_serial_ready_idea = {
+			picture = VIE_xcb01_mechanized
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { original_tag = VIE }
+			cancel_if_invalid = no
+			equipment_bonus = {
+				medium_tank_flame_chassis = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_v34_navy.txt
+		# ====================================================================
+
+
+		# --- TRỤC T: TỔ CHỨC & CHỈ HUY (TIER 1..4) ---
+
+		VPA_Naval_Org_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_org = 3
+				command_power_gain = 0.05
+			}
+		}
+
+		VPA_Naval_Org_2 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_org = 5
+				experience_gain_navy_factor = 0.10
+				navy_leader_start_level = 1
+			}
+		}
+
+		VPA_Naval_Org_3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_org = 8
+				coastal_defense_coordination = 0.08
+				planning_speed = 0.10
+			}
+		}
+
+		VPA_Naval_Org_4 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_org = 10
+				naval_coordination = 0.12
+				planning_speed = 0.15
+				command_power_gain = 0.10
+			}
+		}
+
+		# --- TRỤC S: NHẬN THỨC BIỂN MDA (TIER 1..4) ---
+
+		VPA_Maritime_MDA_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				surface_detection = 0.08
+				naval_detection = 0.08
+			}
+		}
+
+		VPA_Maritime_MDA_2 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				surface_detection = 0.10
+				naval_detection = 0.10
+				sub_detection = 0.12
+				navy_submarine_detection_factor = 0.12
+			}
+		}
+
+		VPA_Maritime_MDA_3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				surface_detection = 0.12
+				sub_detection = 0.15
+				patrol_efficiency = 0.10
+				coastal_defense_coordination = 0.10
+			}
+		}
+
+		VPA_Maritime_MDA_4 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				surface_detection = 0.18
+				sub_detection = 0.20
+				naval_strike_defense_factor = 0.10
+				naval_coordination = 0.10
+			}
+		}
+
+		# --- TRỤC L: CĂN CỨ & HẬU CẦN (TIER 1..5) ---
+
+		VPA_Naval_Logistics_1 = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_base_efficiency = 0.10
+				repair_speed_factor = 0.10
+			}
+		}
+
+		VPA_Naval_Logistics_2 = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				repair_speed_factor = 0.15
+				naval_attrition = -0.10
+			}
+		}
+
+		VPA_Naval_Logistics_3 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				supply_consumption_factor = -0.10
+				repair_speed_factor = 0.15
+				navy_max_range_factor = 0.05
+			}
+		}
+
+		VPA_Naval_Logistics_4 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				repair_speed_factor = 0.20
+				convoy_escort_efficiency = 0.10
+				escort_efficiency = 0.10
+			}
+		}
+
+		VPA_Naval_Logistics_5 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.15
+				repair_speed_factor = 0.25
+				naval_attrition = -0.20
+				convoy_escort_efficiency = 0.15
+			}
+		}
+
+		# --- TRỤC I: CÔNG NGHIỆP ĐÓNG TÀU (TIER 1..4) ---
+
+		VPA_Naval_Industry_1 = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.10
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+
+		VPA_Naval_Industry_2 = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				industrial_capacity_dockyard = 0.08
+				research_speed_naval = 0.05
+			}
+		}
+
+		VPA_Naval_Industry_3 = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.18
+				industrial_capacity_dockyard = 0.12
+				research_speed_naval = 0.10
+			}
+		}
+
+		VPA_Naval_Industry_4 = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.20
+				industrial_capacity_dockyard = 0.18
+				research_speed_naval = 0.15
+			}
+		}
+
+		# --- KHÍ TÀI ĐỘC BẢN ---
+
+		VIE_nav_surface_fleet_readiness = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.08
+				naval_speed_factor = 0.05
+			}
+		}
+
+		VIE_nav_asw_mastery = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				sub_detection = 0.15
+				navy_anti_submarine_attack_factor = 0.15
+			}
+		}
+
+		VIE_nav_marine_brigades = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				amphibious_defense = 0.20
+				naval_org = 5
+			}
+		}
+
+		# --- HỌC THUYẾT P: PHÒNG THỦ TÍCH HỢP ---
+
+		VPA_Integrated_Defense_Doctrine_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				coastal_defense_coordination = 0.08
+				amphibious_defense = 0.10
+				screen_surface_detection = 0.08
+			}
+		}
+
+		VPA_Integrated_Defense_Doctrine_Capstone = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				coastal_defense_coordination = 0.20
+				amphibious_defense = 0.20
+				naval_strike_defense_factor = 0.15
+				sub_detection = 0.15
+				screen_surface_detection = 0.12
+			}
+		}
+
+		# --- HỌC THUYẾT H & G: GREEN-WATER NAVY ---
+
+		VPA_Fleet_Development_Priority = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.08
+				naval_speed_factor = 0.05
+			}
+		}
+
+		VPA_Multirole_Task_Groups = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.10
+				naval_coordination = 0.08
+				escort_efficiency = 0.08
+			}
+		}
+
+		VPA_Greenwater_Doctrine_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.10
+				patrol_efficiency = 0.10
+				navy_anti_submarine_attack_factor = 0.10
+			}
+		}
+
+		VPA_Greenwater_Doctrine_Capstone = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.18
+				navy_anti_submarine_attack_factor = 0.18
+				escort_efficiency = 0.15
+				naval_org = 12
+				patrol_efficiency = 0.15
+			}
+		}
+
+		# --- HỌC THUYẾT B: BLUE-WATER NAVY ---
+
+		VPA_Bluewater_Doctrine_1 = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.15
+				convoy_escort_efficiency = 0.10
+				naval_org = 5
+			}
+		}
+
+		VPA_Bluewater_Doctrine_Capstone = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.25
+				convoy_escort_efficiency = 0.20
+				naval_coordination = 0.15
+				naval_org = 10
+				naval_speed_factor = 0.10
+			}
+		}
+
+		# --- CAPSTONE TỐI THƯỢNG F02 ---
+
+		VIE_nav_capstone_iron_shield = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				naval_strike_defense_factor = 0.20
+				amphibious_defense = 0.25
+				sub_detection = 0.20
+				coastal_defense_coordination = 0.20
+				screen_surface_detection = 0.15
+			}
+		}
+
+		VIE_nav_capstone_master_of_seas = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.20
+				navy_anti_submarine_attack_factor = 0.20
+				naval_org = 15
+				escort_efficiency = 0.20
+				patrol_efficiency = 0.15
+			}
+		}
+
+		VIE_nav_capstone_ocean_surge = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				navy_max_range_factor = 0.30
+				convoy_escort_efficiency = 0.25
+				naval_coordination = 0.20
+				naval_org = 15
+				naval_speed_factor = 0.12
+			}
+		}
+
+		VIE_nav_shipbuilding_mastery = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.25
+				industrial_capacity_dockyard = 0.20
+			}
+		}
+
+		# --- TIMED DECISION SPIRITS ---
+
+		VIE_decision_molniya_surge_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				industrial_capacity_dockyard = 0.10
+			}
+		}
+
+		VIE_decision_gepard_fleet_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				screening_efficiency = 0.12
+				naval_speed_factor = 0.05
+			}
+		}
+
+		VIE_decision_kilo_sustainment_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				sub_detection = 0.15
+				sub_visibility = -0.10
+			}
+		}
+
+		VIE_decision_domestic_corvette_construction_spirit = {
+			picture = generic_naval_manufacturer
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_dockyard_factor = 0.20
+				industrial_capacity_dockyard = 0.15
+			}
+		}
+
+		VIE_decision_island_bastion_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_speed_coastal_bunker_factor = 0.25
+				amphibious_defense = 0.20
+			}
+		}
+
+		VIE_decision_asw_combat_drill_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				sub_detection = 0.15
+				navy_anti_submarine_attack_factor = 0.15
+			}
+		}
+
+		VIE_decision_coastal_alert_surge_spirit = {
+			picture = generic_navy_bonus
+			allowed = { original_tag = VIE }
+			modifier = {
+				coastal_defense_coordination = 0.20
+				naval_strike_defense_factor = 0.15
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_p2.txt
+		# ====================================================================
+
+
+		VIE_rule_of_law_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.021
+				political_power_gain = 0.021
+			}
+		}
+
+		VIE_party_discipline_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.021
+				political_power_gain = 0.028
+			}
+		}
+
+		VIE_official_caution = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.02
+				political_power_gain = -0.02
+			}
+		}
+
+		VIE_streamlined_state_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_gain = 0.035
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_reorg_disruption = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.03
+			}
+		}
+
+		VIE_provincial_merger_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				political_power_gain = 0.021
+			}
+		}
+
+		VIE_era_of_rising_idea = {
+			picture = economic_boom
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.035
+				country_productivity_growth_modifier = 0.024
+				research_speed_factor = 0.022
+			}
+		}
+
+		VIE_state_conglomerates_idea = {
+			picture = financial_sector_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.032
+				corporate_tax_income_multiplier_modifier = 0.02
+			}
+		}
+
+		VIE_state_debt_overhang = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.02
+			}
+		}
+
+		VIE_petrovietnam_idea = {
+			picture = energy_efficiency
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				corporate_tax_income_multiplier_modifier = 0.03
+			}
+		}
+
+		VIE_private_champions_idea = {
+			picture = economic_boom
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				research_speed_factor = 0.015
+			}
+		}
+
+		VIE_expressway_idea = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_expressway_idea_2 = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.15
+				country_productivity_growth_modifier = 0.024
+			}
+		}
+
+		VIE_expressway_idea_3 = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.2
+				country_productivity_growth_modifier = 0.032
+			}
+		}
+
+		VIE_airport_network_idea = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				trade_opinion_factor = 0.021
+			}
+		}
+
+		VIE_logistics_idea = {
+			picture = economic_road_idea
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				trade_opinion_factor = 0.01575
+				country_productivity_growth_modifier = 0.006
+			}
+		}
+
+		VIE_synchronized_infra_idea = {
+			picture = economic_road_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.008
+				trade_opinion_factor = 0.01
+			}
+		}
+
+		VIE_textile_supply_chain_idea = {
+			picture = economic_road_idea
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { consumer_goods_factor = -0.005 trade_opinion_factor = 0.01 }
+		}
+
+		VIE_industrialization_2045_idea = {
+			picture = economic_road_idea
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { country_productivity_growth_modifier = 0.008 production_speed_industrial_complex_factor = 0.04 }
+		}
+
+		VIE_modern_industrial_nation_idea = {
+			picture = economic_road_idea
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { country_productivity_growth_modifier = 0.012 production_speed_industrial_complex_factor = 0.06 industrial_capacity_factory = 0.02 }
+		}
+
+		VIE_origin_fraud_scrutiny = {
+			picture = economic_road_idea
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = -0.05
+				country_productivity_growth_modifier = -0.008
+			}
+		}
+
+		VIE_cptpp_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.035
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_evfta_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.035
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_semiconductor_idea = {
+			picture = digitalize_idea
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { country_productivity_growth_modifier = 0.008 research_speed_factor = 0.01 }
+		}
+
+		VIE_nq57_68_idea = {
+			picture = digitalize_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.02
+			}
+		}
+
+		VIE_nuclear_program_idea = {
+			picture = energy_efficiency
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				research_speed_factor = 0.015
+			}
+		}
+
+		VIE_net_zero_idea = {
+			picture = energy_preferred_renewable_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				stability_factor = 0.007
+			}
+		}
+
+		VIE_vpa_modernization_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_army_factor = 0.05
+				army_org_factor = 0.03
+			}
+		}
+
+		VIE_provincial_defence_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_defence_factor = 0.064
+				supply_consumption_factor = -0.03
+			}
+		}
+
+		VIE_maritime_militia_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.05
+				war_support_factor = 0.02
+			}
+		}
+
+		VIE_spratly_garrison_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			# The garrison is gone with the islands
+			cancel = { NOT = { owns_state = 801 } }
+
+			modifier = {
+				coastal_bunker_effectiveness_factor = 0.15
+				amphibious_invasion_defence = 0.1
+				naval_speed_factor = 0.03
+				war_support_factor = 0.02
+			}
+		}
+
+		VIE_four_nos_doctrine_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			# The doctrine only exists while the Four Nos policy does: every path that drops VIE_four_nos
+			# (regime change A7, F6/F7 pivots, vie_int.10, vie_dip.11...) also ends the doctrine.
+			cancel = { NOT = { has_idea = VIE_four_nos } }
+
+			modifier = {
+				stability_factor = 0.014
+				army_defence_factor = 0.05
+				enemy_justify_war_goal_time = 0.2
+				opinion_gain_monthly_factor = 0.1
+				drift_defence_factor = 0.05
+			}
+		}
+
+		VIE_bamboo_diplomacy_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.035
+				stability_factor = 0.014
+				drift_defence_factor = 0.03
+			}
+		}
+
+		VIE_education_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				research_speed_factor = 0.022
+			}
+		}
+
+		VIE_digital_idea = {
+			picture = digitalize_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				research_speed_factor = 0.015
+			}
+		}
+
+		VIE_disaster_prep_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.007
+			}
+		}
+
+		VIE_high_inflation = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.03
+				country_productivity_growth_modifier = -0.01
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		VIE_bond_overhang = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		VIE_us_tariff_shock = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.02
+				stability_factor = -0.02
+			}
+		}
+
+		VIE_us_tariff_mild = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		VIE_sars_outbreak = {
+			picture = financial_crisis
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.03
+				consumer_goods_factor = 0.01
+			}
+		}
+
+		VIE_bird_flu_losses = {
+			picture = generic_agrarian_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.02
+			}
+		}
+
+		VIE_flood_damage = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.02
+				country_productivity_growth_modifier = -0.01
+			}
+		}
+
+		VIE_indochina_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				war_support_factor = 0.02
+				drift_defence_factor = 0.02
+			}
+		}
+
+		VIE_security_state_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = -0.03
+				research_speed_factor = -0.02
+			}
+		}
+
+		VIE_cyber_control_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				drift_defence_factor = 0.1
+				research_speed_factor = -0.03
+			}
+		}
+
+		VIE_public_order_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_core_defence_factor = 0.1
+				production_speed_industrial_complex_factor = -0.1
+			}
+		}
+
+		VIE_surveillance_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				encryption_factor = 0.10
+				drift_defence_factor = 0.05
+				stability_factor = 0.02
+				trade_opinion_factor = -0.02
+			}
+		}
+
+		VIE_firewall_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				encryption_factor = 0.05
+				corporate_tax_income_multiplier_modifier = -0.03
+				trade_opinion_factor = -0.03
+			}
+		}
+
+		VIE_ideological_education_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.05
+				recruitable_population_factor = 0.03
+				research_speed_factor = -0.03
+			}
+		}
+
+		VIE_state_data_center_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				encryption_factor = 0.1
+				civilian_intel_to_others = -0.15
+				political_power_gain = 0.05
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		VIE_sez_idea = {
+			picture = economic_boom
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.05
+				corporate_tax_income_multiplier_modifier = 0.04
+				stability_factor = -0.01
+			}
+		}
+
+		VIE_sez_unrest_idea = {
+			picture = generic_political_pressure
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = -0.04
+			}
+		}
+
+		VIE_public_admin_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_gain = 0.014
+				country_productivity_growth_modifier = 0.008
+			}
+		}
+
+		VIE_clean_cadres_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_gain = 0.021
+				stability_factor = 0.014
+			}
+		}
+
+		VIE_two_tier_gov_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				political_power_gain = 0.014
+			}
+		}
+
+		VIE_bank_health_idea = {
+			picture = financial_sector_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_investment_grade_idea = {
+			picture = financial_sector_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				corporate_tax_income_multiplier_modifier = 0.03
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_rice_power_idea = {
+			picture = generic_agrarian_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.007
+				country_productivity_growth_modifier = 0.008
+			}
+		}
+
+		VIE_shared_future_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.028
+				drift_defence_factor = 0.02
+			}
+		}
+
+		VIE_developed_nation_idea = {
+			picture = economic_prosperity
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.028
+				country_productivity_growth_modifier = 0.024
+				research_speed_factor = 0.022
+			}
+		}
+
+		VIE_export_power_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.028
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_manufacturing_hub_idea = {
+			picture = economic_boom
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { country_productivity_growth_modifier = 0.016 corporate_tax_income_multiplier_modifier = 0.02 }
+		}
+
+		VIE_private_engine_idea = {
+			picture = economic_boom
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				research_speed_factor = 0.015
+			}
+		}
+
+		VIE_hydro_idea = {
+			picture = energy_efficiency
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_power_plan_idea = {
+			picture = energy_preferred_renewable_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.016
+				stability_factor = 0.007
+			}
+		}
+
+		VIE_ports_idea = {
+			picture = economic_road_idea
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			cancel_if_invalid = no
+			modifier = {
+				country_productivity_growth_modifier = 0.012
+				trade_opinion_factor = 0.01575
+			}
+		}
+
+		VIE_peoples_defence_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_defence_factor = 0.05
+				conscription_factor = 0.02
+				stability_factor = 0.01
+			}
+		}
+
+		VIE_law_of_sea_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.007
+				war_support_factor = 0.02
+			}
+		}
+
+		VIE_coast_guard_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				experience_gain_navy_factor = 0.04
+				war_support_factor = 0.01
+			}
+		}
+
+		VIE_partner_network_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				trade_opinion_factor = 0.035
+				stability_factor = 0.007
+			}
+		}
+
+		VIE_cam_ranh_idea = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			# An open port only makes sense while Vietnam keeps to the Three/Four Nos
+			cancel = { NOT = { OR = { has_idea = VIE_four_nos has_idea = VIE_non_alignment_policy } } }
+
+			modifier = {
+				trade_opinion_factor = 0.1
+				opinion_gain_monthly_factor = 0.1
+				naval_speed_factor = 0.03
+				experience_gain_navy_factor = 0.01
+			}
+		}
+
+		VIE_digital_nation_idea = {
+			picture = digitalize_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				research_speed_factor = 0.015
+			}
+		}
+
+		VIE_science_breakthrough_idea = {
+			picture = digitalize_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				research_speed_factor = 0.03
+				country_productivity_growth_modifier = 0.016
+			}
+		}
+
+		VIE_chip_sector_idea = {
+			picture = digitalize_idea
+			allowed = { original_tag = VIE }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+			modifier = { country_productivity_growth_modifier = 0.012 research_speed_factor = 0.015 }
+		}
+
+		VIE_energy_security_idea = {
+			picture = energy_preferred_renewable_idea
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				country_productivity_growth_modifier = 0.024
+				stability_factor = 0.014
+			}
+		}
+
+		# ---- Military additions (E branch, 2026-09-20)
+		VIE_force_47_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				drift_defence_factor = 0.05
+				stability_factor = 0.01
+			}
+		}
+		VIE_cyber_command_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				encryption_factor = 0.1
+				decryption_factor = 0.05
+			}
+		}
+		VIE_arbitral_track = {
+			picture = generic_diplomatic_treaty
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				opinion_gain_monthly_factor = 0.1
+				enemy_justify_war_goal_time = 0.1
+			}
+		}
+		VIE_limited_war_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				planning_speed = 0.05
+				army_attack_factor = 0.03
+			}
+			# A short, sharp war with one neighbour: bonuses apply only against China
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			}
+		}
+		VIE_peoples_war_idea = {
+			picture = army_planning
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				army_defence_factor = 0.08
+				land_bunker_effectiveness_factor = 0.15
+				dig_in_speed_factor = 0.2
+				terrain_penalty_reduction = 0.1
+				conscription_factor = 0.05
+				defence_in_depth_mastery_gain_factor = 0.15
+				guerrilla_warfare_mastery_gain_factor = 0.15
+				army_attack_factor = -0.05
+				justify_war_goal_time = 0.25
+			}
+		}
+
+		# ---- Armed forces development (army / navy / air branches)
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_p3P.txt
+		# ====================================================================
+
+		VIE_multilateral_champion_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.02
+				political_power_gain = 0.05
+				trade_opinion_factor = 0.05
+			}
+		}
+
+		# ====================================================================
+		# SECTION: VIE_md_ideas_p3R.txt
+		# ====================================================================
+
+		VIE_unified_leadership_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.03
+				research_speed_factor = -0.02
+			}
+		}
+		VIE_institutional_oversight_idea = {
+			picture = generic_political_reform
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.04
+				political_power_gain = -0.08
+			}
+		}
+		VIE_era_of_rising_idea_2 = {
+			picture = economic_boom
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				stability_factor = 0.045
+				country_productivity_growth_modifier = 0.03
+				research_speed_factor = 0.03
+				political_power_gain = 0.05
 			}
 		}
 	}
