@@ -1,0 +1,109 @@
+# Luc quan v39: flag thuong chi la guard chong replay, khong thay prerequisite.
+VIE_lf_d1_achieved = {
+	OR = { has_completed_focus = VIE_lf_territorial_defense_foundation has_country_flag = VIE_lf_reward_d1_applied }
+}
+
+VIE_lf_d3_achieved = {
+	OR = { has_completed_focus = VIE_lf_reserve_mobilization has_country_flag = VIE_lf_reward_d3_applied }
+}
+
+VIE_lf_d4_achieved = {
+	OR = { has_completed_focus = VIE_lf_strategic_defense_zones has_country_flag = VIE_lf_reward_d4_applied }
+}
+
+VIE_lf_d8_achieved = {
+	OR = { has_completed_focus = VIE_lf_active_defense_in_depth has_country_flag = VIE_lf_reward_d8_applied }
+}
+
+VIE_lf_i1_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_production_governance has_country_flag = VIE_lf_reward_i1_applied }
+}
+
+VIE_lf_i2_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_precision_z131 has_country_flag = VIE_lf_reward_i2_applied }
+}
+
+VIE_lf_d6_achieved = {
+	OR = { has_completed_focus = VIE_lf_local_logistics_stockpiles has_country_flag = VIE_lf_reward_d6_applied }
+}
+
+VIE_lf_p5_achieved = {
+	OR = { has_completed_focus = VIE_lf_p5_protracted_combat_sustainment has_country_flag = VIE_lf_reward_p5_applied }
+}
+
+VIE_lf_m3_achieved = {
+	OR = { has_completed_focus = VIE_lf_m3_mechanized_infantry_formations has_country_flag = VIE_lf_reward_m3_applied }
+}
+
+VIE_lf_i3_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_armor_structures has_country_flag = VIE_lf_reward_i3_applied }
+}
+
+VIE_lf_i4_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_xcb01_design has_country_flag = VIE_lf_reward_i4_applied }
+}
+
+VIE_lf_p3_achieved = {
+	OR = { has_completed_focus = VIE_lf_p3_operational_reserves has_country_flag = VIE_lf_reward_p3_applied }
+}
+
+VIE_lf_p1_achieved = {
+	OR = { has_completed_focus = VIE_lf_p1_strategic_defense has_country_flag = VIE_lf_reward_p1_applied }
+}
+
+VIE_lf_p6_achieved = {
+	OR = { has_completed_focus = VIE_lf_p6_active_defense_counterattack has_country_flag = VIE_lf_reward_p6_applied }
+}
+
+VIE_lf_m1_achieved = {
+	OR = { has_completed_focus = VIE_lf_m1_combined_arms_mechanized has_country_flag = VIE_lf_reward_m1_applied }
+}
+
+VIE_lf_m6_achieved = {
+	OR = { has_completed_focus = VIE_lf_m6_operational_mechanized_counteroffensive has_country_flag = VIE_lf_reward_m6_applied }
+}
+
+VIE_lf_r1_achieved = {
+	OR = { has_completed_focus = VIE_lf_r1_flexible_mobile_warfare has_country_flag = VIE_lf_reward_r1_applied }
+}
+
+VIE_lf_r6_achieved = {
+	OR = { has_completed_focus = VIE_lf_r6_terrain_maneuver_mastery has_country_flag = VIE_lf_reward_r6_applied }
+}
+
+VIE_lf_xcb01_technology_ready = {
+	OR = {
+		AND = { has_dlc = "No Step Back" has_tech = mbt_tech_2 }
+		AND = { NOT = { has_dlc = "No Step Back" } has_tech = IFV_4 }
+	}
+}
+
+VIE_lf_xcb01_design_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_lf_ind_xcb01_design
+	NOT = { has_country_flag = VIE_lf_xcb01_design_running }
+	NOT = { has_country_flag = VIE_lf_xcb01_design_done }
+	NOT = { has_active_mission = bankruptcy_incoming_collapse }
+	check_variable = { var = treasury value = 0.6 compare = greater_than_or_equals }
+}
+
+VIE_lf_xcb01_evaluation_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_lf_ind_xcb01_design
+	NOT = { has_country_flag = VIE_lf_xcb01_evaluation_running }
+	NOT = { has_country_flag = VIE_lf_xcb01_evaluation_done }
+	NOT = { has_active_mission = bankruptcy_incoming_collapse }
+	check_variable = { var = treasury value = 0.3 compare = greater_than_or_equals }
+	has_country_flag = VIE_lf_xcb01_design_done
+	VIE_lf_xcb01_technology_ready = yes
+}
+
+VIE_lf_xcb01_serial_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_lf_ind_serial_ground_equipment
+	NOT = { has_country_flag = VIE_lf_xcb01_serial_running }
+	NOT = { has_country_flag = VIE_lf_xcb01_serial_done }
+	NOT = { has_active_mission = bankruptcy_incoming_collapse }
+	check_variable = { var = treasury value = 0.6 compare = greater_than_or_equals }
+	has_country_flag = VIE_lf_xcb01_evaluation_done
+}

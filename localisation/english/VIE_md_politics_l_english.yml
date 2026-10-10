@@ -1,0 +1,845 @@
+﻿l_english:
+
+# ====================================================================
+# SECTION: VIE_md_hardline_l_english.yml
+# ====================================================================
+
+ # "Con duong Kien dinh" (CPV Hardline). Reform pressure line shown in the VIE_state_modifier tooltip.
+ VIE_hl_rp_line_none:0 ""
+ VIE_hl_rp_line_1:0 "\n§YÁp lực cải cách:§! §G[?VIE_rp|0]§! (Ổn định)"
+ VIE_hl_rp_line_2:0 "\n§YÁp lực cải cách:§! §Y[?VIE_rp|0]§! (Âm ỉ, căng thẳng từ 56)"
+ VIE_hl_rp_line_3:0 "\n§YÁp lực cải cách:§! §O[?VIE_rp|0]§! (Căng thẳng, khủng hoảng từ 80)"
+ VIE_hl_rp_line_4:0 "\n§YÁp lực cải cách:§! §R[?VIE_rp|0]§! (Khủng hoảng)"
+
+ # Ideas
+ VIE_hl_pressure_tense_idea:0 "Bất bình âm ỉ"
+ VIE_hl_pressure_tense_idea_desc:0 "Các biện pháp siết chặt đã vượt quá mức xã hội và bộ máy chấp nhận dễ dàng. Phản ứng chưa thành khủng hoảng, nhưng ổn định và năng suất đã chịu ảnh hưởng."
+ VIE_hl_pressure_crisis_idea:0 "Khủng hoảng chính danh"
+ VIE_hl_pressure_crisis_idea_desc:0 "Áp lực cải cách đã chạm ngưỡng. Nếu không lùi một bước, đường lối hiện hành sẽ phải trả giá nặng về ổn định và tăng trưởng."
+
+ # Debug category and decisions
+ VIE_hl_debug_category:0 "Kiên định: gỡ lỗi"
+ VIE_hl_debug_category_desc:0 "Chỉ hiện khi chạy game với -debug. Đặt nhanh Áp lực cải cách để thử các ngưỡng."
+ VIE_hl_dbg_rp_30:0 "Đặt Áp lực cải cách = 30"
+ VIE_hl_dbg_rp_30_desc:0 "Mức Ổn định. Không có idea mức."
+ VIE_hl_dbg_rp_60:0 "Đặt Áp lực cải cách = 60"
+ VIE_hl_dbg_rp_60_desc:0 "Mức Căng thẳng. Phải có idea Bất bình âm ỉ."
+ VIE_hl_dbg_rp_85:0 "Đặt Áp lực cải cách = 85"
+ VIE_hl_dbg_rp_85_desc:0 "Mức Khủng hoảng. Phải có idea Khủng hoảng chính danh."
+ VIE_hl_dbg_rp_add:0 "Áp lực cải cách +6"
+ VIE_hl_dbg_rp_add_desc:0 "Gọi VIE_hl_add_pressure. Kiểm tra kẹp 0-100 và việc tạm dừng giảm tự nhiên 120 ngày."
+
+ # Debug decision: take power at once
+ VIE_hl_dbg_take_power:0 "Kiên định: lên nắm quyền ngay"
+ VIE_hl_dbg_take_power_desc:0 "Gọi sự kiện Nhận quyền (vie_hl.1). Chỉ để thử."
+
+ # Way B to power: extraordinary Central Committee plenum
+ VIE_hl_extraordinary_plenum:0 "Triệu tập Hội nghị Trung ương bất thường"
+ VIE_hl_extraordinary_plenum_desc:0 "Trước bối cảnh tình hình biến động và yêu cầu giữ vững bản chất cách mạng của Đảng, triệu tập Hội nghị Trung ương bất thường nhằm chuyển giao quyền lãnh đạo sang cánh Kiên định."
+
+ # Congress options (hardline path / hardline already ruling)
+ vie_pol.3.c:0 "Đại hội X khẳng định đường lối Kiên định"
+ vie_pol.4.b:0 "Đại hội XI giữ vững ngọn cờ Xã hội Chủ nghĩa"
+ vie_pol.4.hl_take:0 "Đại hội XI: Giữ vững bản chất, kiên định mục tiêu"
+ vie_pol.5.c:0 "Đại hội XII củng cố chuyên chính vô sản và kỷ luật thép"
+ vie_pol.5.hl_take:0 "Đại hội XII: Giữ vững bản chất, kiên định mục tiêu"
+ vie_pol.6.hl:0 "Đại hội XIII quyết tâm bảo vệ thành quả cách mạng"
+ vie_pol.6.hl_take:0 "Đại hội XIII: Giữ vững bản chất, kiên định mục tiêu"
+ vie_pol.8.c:0 "Đại hội XIV bước vào kỷ nguyên kiên định vững chắc"
+ vie_pol.8.hl_take:0 "Đại hội XIV: Giữ vững bản chất, kiên định mục tiêu"
+ vie_pol.12.hl_keep:0 "Đại hội khẳng định đường lối Kiên định"
+ vie_pol.12.hl_take:0 "Đại hội XV: Giữ vững bản chất, kiên định mục tiêu"
+ vie_pol.13.hl_keep:0 "Đại hội khẳng định đường lối Kiên định"
+ vie_pol.13.hl_take:0 "Đại hội XVI: Giữ vững bản chất, kiên định mục tiêu"
+
+ # vie_hl.1 The conservative line takes power
+ vie_hl.1.t:0 "Thống nhất ý chí và hành động"
+ vie_hl.1.d:0 "Ban Chấp hành Trung ương đánh giá rằng những khó khăn vừa qua bắt nguồn từ việc để suy giảm bản chất cách mạng của Đảng. Hội nghị thông qua chủ trương ngăn chặn suy thoái về tư tưởng, chính trị, đạo đức, lối sống và \"tự diễn biến, tự chuyển hóa\" trong nội bộ.\n\nĐường lối mới giữ nguyên mục tiêu, nhưng quản chặt hơn về tổ chức và tư tưởng. Cái giá là áp lực cải cách sẽ tích tụ nếu siết quá mức."
+ vie_hl.1.a:0 "Con đường Kiên định bắt đầu"
+
+ # ---- Ideas of the focus tree
+ VIE_hl_ideology_work_idea:0 "Công tác tư tưởng"
+ VIE_hl_ideology_work_idea_desc:0 "Ban Tuyên giáo và hệ thống Học viện được tăng cường, giữ định hướng tư tưởng trong báo chí, giáo dục và đoàn thể."
+ VIE_hl_state_leading_idea:0 "Chủ đạo nhà nước"
+ VIE_hl_state_leading_idea_desc:0 "Kinh tế nhà nước được khẳng định là then chốt, các tập đoàn và tổng công ty được ưu tiên."
+ VIE_hl_state_transition_idea:0 "Chuyển đổi sang chủ đạo nhà nước"
+ VIE_hl_state_transition_idea_desc:0 "Việc đặt lại ưu tiên cho khu vực nhà nước tạm thời làm chậm tăng trưởng năng suất."
+ VIE_hl_soe_spearhead_idea:0 "Tập đoàn đầu tàu"
+ VIE_hl_soe_spearhead_idea_desc:0 "Các tập đoàn nhà nước được giao dẫn dắt dự án lớn về hạ tầng, năng lượng và đóng tàu."
+ VIE_hl_fdi_slowdown_idea:0 "FDI chững lại"
+ VIE_hl_fdi_slowdown_idea_desc:0 "Danh mục ưu tiên và giám sát dòng vốn khiến dòng vốn ngoại chậm lại."
+ VIE_hl_planning_idea:0 "Kế hoạch định hướng"
+ VIE_hl_planning_idea_desc:0 "Mục tiêu sản lượng và danh mục dự án quốc gia theo nhiệm kỳ, đổi lại là sự cứng nhắc của kế hoạch."
+ VIE_hl_army_party_work_idea:0 "Công tác Đảng, công tác chính trị trong quân đội"
+ VIE_hl_army_party_work_idea_desc:0 "Hệ thống chính ủy và Tổng cục Chính trị giữ vai trò trung tâm trong quân đội."
+ VIE_hl_all_people_defence_idea:0 "Thế trận toàn dân gắn với Đảng cơ sở"
+ VIE_hl_all_people_defence_idea_desc:0 "Tổ chức Đảng cấp cơ sở là trục tổ chức của thế trận quốc phòng toàn dân."
+ VIE_hl_cyber_content_idea:0 "Quản lý nội dung mạng"
+ VIE_hl_cyber_content_idea_desc:0 "Nội dung 'sai trái, thù địch' trên không gian mạng bị đấu tranh có hệ thống."
+ VIE_hl_school_theory_idea:0 "Giáo dục lý luận"
+ VIE_hl_school_theory_idea_desc:0 "Thời lượng môn lý luận chính trị tăng lên, bớt đi thời gian cho nghiên cứu."
+ VIE_hl_controlled_renewal_idea:0 "Đổi mới có kiểm soát"
+ VIE_hl_controlled_renewal_idea_desc:0 "Giữ vững mục tiêu, điều chỉnh phương thức: hội nhập và kinh tế tư nhân tiếp tục trong khuôn khổ."
+ VIE_hl_fusion_idea:0 "Nhất thể hóa"
+ VIE_hl_fusion_idea_desc:0 "Lãnh đạo Đảng và quản lý Nhà nước hợp nhất ở mọi cấp: ra quyết định nhanh, không còn đối trọng."
+
+ # Tooltips & Ideas
+ VIE_hl_indochina_union_tt:0 "Tuyên bố thành lập Liên bang Xã hội Chủ nghĩa Đông Dương, củng cố vị thế chiến lược ba nước."
+ VIE_hl_defense_self_reliance_idea:0 "Tự lực Công nghiệp Quốc phòng"
+ VIE_hl_defense_self_reliance_idea_desc:0 "Đẩy mạnh năng lực sản xuất của các nhà máy quốc phòng Z-Factory, làm chủ vũ khí bộ binh và trang thiết bị tác chiến, nâng cao hiệu suất quân xưởng và sẵn sàng chiến đấu."
+ VIE_hl_indochina_union_idea:0 "Liên bang XHCN Đông Dương"
+ VIE_hl_indochina_union_idea_desc:0 "Khối liên kết đặc biệt toàn diện giữa ba nước Đông Dương trên nền tảng Luận cương 1930, tạo nên thế trận phòng thủ và không gian sinh tồn chiến lược vững chắc."
+ VIE_hl_unbreakable_fortress_idea:0 "Pháo đài XHCN Bất khả Xâm phạm"
+ VIE_hl_unbreakable_fortress_idea_desc:0 "Đỉnh cao của mô hình chuyên chính vô sản kết hợp với quốc phòng toàn dân và công nghiệp hóa XHCN, bảo đảm an ninh chính trị và chủ quyền tối thượng."
+
+ VIE_hl_rp_p1_tt:0 "Áp lực cải cách tăng §R1§!"
+ VIE_hl_rp_p2_tt:0 "Áp lực cải cách tăng §R2§!"
+ VIE_hl_rp_p3_tt:0 "Áp lực cải cách tăng §R3§!"
+ VIE_hl_rp_p4_tt:0 "Áp lực cải cách tăng §R4§!"
+ VIE_hl_rp_p5_tt:0 "Áp lực cải cách tăng §R5§!"
+ VIE_hl_rp_p6_tt:0 "Áp lực cải cách tăng §R6§!"
+ VIE_hl_rp_p7_tt:0 "Áp lực cải cách tăng §R7§!"
+ VIE_hl_rp_p8_tt:0 "Áp lực cải cách tăng §R8§!"
+ VIE_hl_rp_p10_tt:0 "Áp lực cải cách tăng §R10§!"
+ VIE_hl_rp_m2_tt:0 "Áp lực cải cách giảm §G2§!"
+ VIE_hl_rp_m4_tt:0 "Áp lực cải cách giảm §G4§!"
+ VIE_hl_rp_m10_tt:0 "Áp lực cải cách giảm §G10§!"
+ VIE_hl_rp_m25_tt:0 "Áp lực cải cách giảm §G25§!"
+
+ VIE_hl_pillars_three_tt:0 "Hoàn thành ít nhất ba trong bốn trụ cột (Công nghiệp hóa XHCN, Nhà nước Kỷ luật Sắt, Lá chắn Phòng thủ Thép, Liên bang XHCN Đông Dương)"
+ VIE_hl_pillars_all_tt:0 "Hoàn thành toàn bộ bốn trụ cột Kiên định (Công nghiệp hóa XHCN, Nhà nước Kỷ luật Sắt, Lá chắn Phòng thủ Thép, Liên bang XHCN Đông Dương)"
+ VIE_hl_rp_below_80_tt:0 "Áp lực cải cách dưới 80"
+ VIE_hl_rp_below_56_tt:0 "Áp lực cải cách dưới 56 (chưa ở mức Căng thẳng)"
+
+ # ---- Phase 4: reaction events vie_hl.2 - .8, extra ideas and pressure tooltips
+ VIE_hl_rp_m3_tt:0 "Áp lực cải cách giảm §G3§!"
+ VIE_hl_rp_m5_tt:0 "Áp lực cải cách giảm §G5§!"
+ VIE_hl_rp_m20_tt:0 "Áp lực cải cách giảm §G20§!"
+ VIE_hl_investors_wary_idea:0 "Nhà đầu tư dè chừng"
+ VIE_hl_investors_wary_idea_desc:0 "Các nhà đầu tư nước ngoài giữ thái độ chờ đợi trước đường lối siết chặt, kéo năng suất đi xuống."
+ VIE_hl_self_reliance_idea:0 "Thời kỳ tự lực"
+ VIE_hl_self_reliance_idea_desc:0 "Đường lối kiên trì giữ nguyên trước sức ép: ưu tiên ổn định, tự lực và nhà máy nội địa, đổi lại là năng suất và thương mại bị tổn hại. Áp lực cải cách không tăng quá 80 trong thời kỳ này."
+
+ vie_hl.2.t:0 "Thư kiến nghị của các đồng chí lão thành"
+ vie_hl.2.d:0 "Một nhóm nguyên lãnh đạo và cán bộ lão thành gửi thư tới Bộ Chính trị, lo ngại việc chỉnh đốn đang đi quá nhanh và đụng chạm tới nhiều cán bộ có công. Họ đề nghị xem xét lại cách làm, không phải mục tiêu."
+ vie_hl.2.a:0 "Tiếp thu ý kiến, điều chỉnh cách làm"
+ vie_hl.2.b:0 "Ghi nhận nhưng giữ nguyên chủ trương"
+
+ vie_hl.3.t:0 "Doanh nghiệp FDI tạm hoãn đầu tư"
+ vie_hl.3.d:0 "Hiệp hội các nhà đầu tư nước ngoài thông báo tạm hoãn một số dự án mở rộng. Họ cho rằng quy định về dòng vốn và chuyển giá còn thiếu rõ ràng, và việc đảng viên không được làm kinh tế tư nhân khiến nhiều đối tác địa phương rút lui."
+ vie_hl.3.a:0 "Trấn an: ban hành hướng dẫn rõ ràng và ưu đãi bổ sung"
+ vie_hl.3.b:0 "Không thay đổi, dòng vốn sẽ tự điều chỉnh"
+
+ vie_hl.4.t:0 "Cảnh báo về cam kết lao động và thương mại"
+ vie_hl.4.d:0 "Đối tác trong EVFTA và CPTPP gửi công hàm quan ngại về việc quản lý nội dung mạng và báo chí, cho rằng ảnh hưởng tới các cam kết về tự do hiệp hội và minh bạch thông tin trong hiệp định."
+ vie_hl.4.a:0 "Điều chỉnh để tuân thủ các cam kết"
+ vie_hl.4.b:0 "Giữ lập trường, chấp nhận ảnh hưởng quan hệ"
+
+ vie_hl.5.t:0 "Hội nghị Trung ương đánh giá giữa nhiệm kỳ"
+ vie_hl.5.d:0 "Ban Chấp hành Trung ương họp đánh giá việc thực hiện đường lối Kiên định. Có ba luồng ý kiến: giữ nguyên nhịp độ, nới nhẹ để giảm áp lực, hoặc siết thêm để hoàn tất các mục tiêu chỉnh đốn."
+ vie_hl.5.a:0 "Giữ nguyên"
+ vie_hl.5.b:0 "Nới nhẹ để giảm áp lực"
+ vie_hl.5.c:0 "Siết thêm"
+
+ vie_hl.6.t:0 "Dư luận về Biển Đông"
+ vie_hl.6.d:0 "Căng thẳng ở Biển Đông leo thang khiến dư luận trong nước đặt câu hỏi về quan hệ gần gũi giữa các đảng với phía Trung Quốc."
+ vie_hl.6.a:0 "Khẳng định chủ quyền, hợp tác không có nghĩa là lệ thuộc"
+ vie_hl.6.b:0 "Giải thích và trấn an dư luận"
+
+ vie_hl.7.t:0 "Khủng hoảng chính danh"
+ vie_hl.7.d:0 "Áp lực cải cách đã chạm ngưỡng. Doanh nghiệp rút vốn, cán bộ nội bộ bất mãn và dư luận ngày càng gay gắt. Hội nghị Trung ương phải quyết định: lùi một bước để lấy lại ổn định, hoặc kiên trì đường lối và chấp nhận cái giá."
+ vie_hl.7.a:0 "Lùi một bước, điều chỉnh đường lối"
+ vie_hl.7.b:0 "Kiên trì: bước vào thời kỳ tự lực"
+
+ vie_hl.8.t:0 "Đánh giá lại sau thời kỳ tự lực"
+ vie_hl.8.d:0 "Thời kỳ tự lực kết thúc. Ban lãnh đạo đánh giá kết quả: ổn định đạt được nhưng năng suất và thương mại đều chịu thiệt. Cần quyết định có tiếp tục hay không."
+ vie_hl.8.a:0 "Mở lại quan hệ và điều chỉnh"
+ vie_hl.8.b:0 "Gia hạn thêm một năm (chỉ một lần)"
+
+ vie_hl.10.t:0 "Ban hành Kế hoạch 5 năm định hướng XHCN"
+ vie_hl.10.d:0 "Chính phủ và Ban Chấp hành Trung ương chính thức thông qua Kế hoạch phát triển kinh tế - xã hội 5 năm theo định hướng Xã hội Chủ nghĩa. Kế hoạch xác định rõ vai trò chủ đạo tuyệt đối của kinh tế nhà nước, siết chặt kỷ cương tài chính và ưu tiên nguồn lực cho công nghiệp nặng và quốc phòng."
+ vie_hl.10.a:0 "Kiên quyết thực hiện thắng lợi kế hoạch"
+
+ vie_hl.11.t:0 "Tuyên bố Nhất thể hóa Đảng và Nhà nước"
+ vie_hl.11.d:0 "Trung ương Đảng tuyên bố hoàn thành lộ trình Nhất thể hóa các chức danh lãnh đạo Đảng và chính quyền các cấp. Bộ máy nhà nước được tinh gọn triệt để, xóa bỏ hoàn toàn sự chồng chéo và phân tán quyền lực, tạo nên một cơ chế chỉ đạo thống nhất và kỷ luật thép."
+ vie_hl.11.a:0 "Một ý chí, một hành động"
+
+ vie_hl.12.t:0 "Đại hội Bàn giao Đường lối"
+ vie_hl.12.d:0 "Sau một nhiệm kỳ củng cố và chỉnh đốn quyết liệt, Đảng đã làm trong sạch đội ngũ cán bộ và lập lại kỷ cương trật tự. Đại hội Đảng quyết định hoàn thành giai đoạn đặc biệt và bàn giao lại quyền lãnh đạo cho đường lối chính thống, tiếp tục công cuộc Đổi mới và hội nhập sâu rộng trên nền tảng vững chắc đã được tôi luyện."
+ vie_hl.12.a:0 "Đất nước bước vào chặng đường mới"
+
+ vie_hl.23.t:0 "Thành lập Liên bang Xã hội Chủ nghĩa Đông Dương"
+ vie_hl.23.d:0 "Tại Hà Nội, đại biểu ba nước Việt Nam, Lào và Campuchia đã chính thức ký kết Hiệp ước Liên bang, tuyên bố thành lập Liên bang Xã hội Chủ nghĩa Đông Dương. Ba dân tộc anh em trên bán đảo Đông Dương nay đã hòa làm một, xây dựng một khối phòng thủ và không gian sinh tồn chiến lược hùng mạnh."
+ vie_hl.23.a:0 "Muôn năm tình hữu nghị và đoàn kết Đông Dương!"
+
+ vie_hl.100.t:0 "Đường lối Kiên định lên nắm quyền tại Việt Nam"
+ vie_hl.100.d:0 "Tin tức từ Hà Nội cho biết Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam đã thông qua nghị quyết quan trọng, khẳng định kiên định nền tảng chủ nghĩa Mác - Lênin và tư tưởng Hồ Chí Minh. Phe kiên định đã chính thức nắm quyền lãnh đạo tối cao, cam kết siết chặt kỷ luật Đảng, củng cố vai trò chủ đạo của kinh tế nhà nước và tái lập các nguyên tắc chuyên chính vô sản."
+ vie_hl.100.a:0 "Thời cuộc tại Đông Nam Á đang biến đổi."
+
+ vie_hl.101.t:0 "Liên bang Xã hội Chủ nghĩa Đông Dương ra đời"
+ vie_hl.101.d:0 "Việt Nam, Lào và Campuchia đã chính thức hợp nhất thành Liên bang Xã hội Chủ nghĩa Đông Dương dưới sự lãnh đạo thống nhất từ Hà Nội. Sự kiện lịch sử này làm thay đổi căn bản cán cân địa chính trị tại Đông Nam Á và đặt ra những thách thức lớn đối với trật tự khu vực."
+ vie_hl.101.a:0 "Một thực thể mới đã hình thành."
+
+ # Indochina decisions localisation
+ VIE_hl_indochina_category:0 "Thống nhất Đông Dương"
+ VIE_hl_indochina_category_desc:0 "Khối liên kết đặc biệt toàn diện giữa ba nước Đông Dương dưới sự lãnh đạo của Đảng, hướng tới một liên bang xã hội chủ nghĩa vững mạnh."
+ VIE_hl_ultimatum_laos:0 "Tối hậu thư Viêng Chăn"
+ VIE_hl_ultimatum_laos_desc:0 "Yêu cầu Cộng hòa Dân chủ Nhân dân Lào đặt an ninh, đối ngoại và quốc phòng trong khuôn khổ liên minh đặc biệt Đông Dương dưới sự lãnh đạo của Hà Nội."
+ VIE_hl_ultimatum_cambodia:0 "Tối hậu thư Phnôm Pênh"
+ VIE_hl_ultimatum_cambodia_desc:0 "Yêu cầu Vương quốc Campuchia đặt an ninh, đối ngoại và quốc phòng trong khuôn khổ liên minh đặc biệt Đông Dương dưới sự lãnh đạo của Hà Nội."
+ VIE_hl_unify_indochina:0 "Tuyên bố Thống nhất Đông Dương"
+ VIE_hl_unify_indochina_desc:0 "Toàn bộ không gian ba nước Việt Nam - Lào - Campuchia đã nằm trong quyền kiểm soát hoặc liên minh chặt chẽ. Đã đến lúc chính thức tuyên bố thành lập Liên bang Xã hội Chủ nghĩa Đông Dương."
+ VIE_hl_indochina_control_tt:0 "Kiểm soát hoặc bảo hộ toàn bộ các vùng lãnh thổ của Lào và Campuchia (các bang 511-517)"
+
+ # ---- Readable tooltips for triggers and effects (replace raw trigger/flag text)
+ VIE_hl_in_power_tt:0 "Đảng cầm quyền có ID 4 (CPV Hardline)"
+ VIE_hl_bop_lead_tt:0 "Phe giữ vững bản chất đang dẫn trước rõ rệt trong Đảng (cán cân bảo thủ - cải cách dưới -0,3)"
+ VIE_hl_bop_hardline_tt:0 "Phe giữ vững bản chất chiếm ưu thế tuyệt đối (cán cân bảo thủ - cải cách dưới -0,6)"
+ VIE_hl_bop_to_m03_tt:0 "Cán cân bảo thủ - cải cách về -0,3"
+ VIE_hl_handover_tt:0 "Đảng chuyển về đường lối chính thống (CPV). Giữ lại Công tác tư tưởng và Công tác Đảng trong quân đội. Không thể quay lại đường lối Kiên định trong 10 năm"
+
+ # Left-hand menu button that scrolls to the hardline block
+ VIE_hl_shortcut:0 "Con đường Kiên định"
+
+
+ # ---- Readable requirement lines for old focuses (replace raw flag names in focus tooltips)
+ VIE_flag_VIE_apec_year_tt:0 "Đang trong năm APEC"
+ VIE_flag_VIE_collective_leadership_2026_tt:0 "Đã chọn mô hình lãnh đạo tập thể (2026)"
+ VIE_flag_VIE_constitution_2013_adopted_tt:0 "Hiến pháp 2013 đã được thông qua"
+ VIE_flag_VIE_dual_role_2026_tt:0 "Tổng Bí thư kiêm Chủ tịch nước (2026)"
+ VIE_flag_VIE_ev_bastion_p_coastal_defence_tt:0 "Đã có tổ hợp tên lửa bờ Bastion-P (qua sự kiện mua sắm)"
+ VIE_flag_VIE_ev_kilo_submarines_tt:0 "Đã có tàu ngầm Kilo (qua sự kiện mua sắm)"
+ VIE_flag_VIE_fdi_open_door_tt:0 "Cánh cửa FDI đã mở"
+ VIE_flag_VIE_hsr_partner_china_tt:0 "Đã chọn Trung Quốc làm đối tác đường sắt cao tốc"
+ VIE_flag_VIE_hsr_partner_eu_tt:0 "Đã chọn EU làm đối tác đường sắt cao tốc"
+ VIE_flag_VIE_indochina_open_tt:0 "Quan hệ Đông Dương đã được mở rộng"
+ VIE_flag_VIE_infra_funding_bot_tt:0 "Đã chọn nguồn vốn BOT cho hạ tầng"
+ VIE_flag_VIE_sched_vinashin_tt:0 "Vụ Vinashin đã nổ ra"
+ VIE_flag_VIE_security_unlocked_tt:0 "Nhánh an ninh đã được mở khóa"
+ VIE_flag_VIE_sez_bill_debated_tt:0 "Dự luật đặc khu đã được đưa ra thảo luận"
+ VIE_flag_VIE_tariff_negotiating_tt:0 "Đang đàm phán thuế quan với Mỹ"
+ VIE_flag_VIE_two_tier_done_tt:0 "Đã hoàn tất cải cách chính quyền hai cấp"
+ VIE_party_rule_active_tt:0 "Đảng cầm quyền có ID 19 (CPV) hoặc ID 4 (CPV Hardline)"
+ VIE_scs_escalated_tt:0 "Căng thẳng Biển Đông đã đạt mức 2 trở lên"
+ VIE_fourteenth_congress_held_tt:0 "Đại hội Đảng lần thứ XIV đã diễn ra"
+
+ # ---- Readable requirement lines for scripted triggers and variable checks in old focuses
+ VIE_trig_VIE_def_ind_level_ge_4_tt:0 "Cấp công nghiệp quốc phòng từ 4 trở lên"
+ VIE_trig_VIE_def_ind_level_ge_8_tt:0 "Cấp công nghiệp quốc phòng từ 8 trở lên"
+ VIE_trig_VIE_def_ind_level_ge_2_tt:0 "Cấp công nghiệp quốc phòng từ 2 trở lên"
+ VIE_trig_VIE_us_arms_open_tt_tt:0 "Mỹ đã dỡ bỏ lệnh cấm vận vũ khí (2016)"
+ VIE_trig_VIE_apm_mature_ok_tt:0 "Đã đủ bậc ở cả năm trụ của công nghiệp hàng không"
+ VIE_var_expressway_2600_tt:0 "Đường cao tốc đã đạt trên 2.600 km"
+ VIE_var_expressway_3000_tt:0 "Đường cao tốc đã đạt trên 3.000 km"
+ VIE_var_scs_tension_1_tt:0 "Căng thẳng Biển Đông từ mức 1 trở lên"
+ VIE_var_ruling_autocracy_tt:0 "Đảng cầm quyền có ID 7 (Autocracy)"
+ VIE_var_localization_45_tt:0 "Có ít nhất 45 điểm năng lực nội địa hóa"
+ VIE_var_air_delivered_12_tt:0 "Đã nhận bàn giao trên 11 máy bay"
+
+
+ # ---- Negated forms: the engine looks up <tooltip>_NOT when a custom_trigger_tooltip sits inside NOT
+ VIE_airf_capstone_tt_NOT:0 "Không đúng: Đủ năng lực cho chương trình đỉnh của nhánh đã chọn (A: S-300 hoặc A31 bậc 2, và radar bậc 2; B: ít nhất 24 Su-30 đã giao và A32 bậc 2; C: UAV bậc 2)"
+ VIE_airf_d1_done_tt_NOT:0 "Không đúng: Đã hoàn tất huấn luyện lực lượng tiêm kích"
+ VIE_airf_d2_done_tt_NOT:0 "Không đúng: Đã hoàn tất huấn luyện lực lượng tên lửa phòng không và radar"
+ VIE_airf_slot_tt_NOT:0 "Không đúng: Đang chạy ít hơn §Y2§! chương trình xây dựng lực lượng không quân"
+ VIE_apm_a31_gate_tt_NOT:0 "Không đúng: Đủ điều kiện cho bậc kế của Nhà máy A31 (hợp đồng Pechora-2TM, ngày, hoặc S-300 đã giao)"
+ VIE_apm_a32_gate_tt_NOT:0 "Không đúng: Đủ điều kiện cho bậc kế của Nhà máy A32 (focus, ngày, hoặc số Su-30 đã giao)"
+ VIE_apm_busy_tt_NOT:0 "Không đúng: Trụ này chưa có chương trình đang chạy"
+ VIE_apm_integ_gate_tt_NOT:0 "Không đúng: Đủ điều kiện cho bậc kế của chương trình tích hợp hệ thống (SPYDER, S-300, radar Viettel, hoặc huấn luyện cơ T-6C/L-39NG)"
+ VIE_apm_radar_gate_tt_NOT:0 "Không đúng: Đủ điều kiện cho bậc kế của chương trình radar Viettel (focus và ngày)"
+ VIE_apm_slot_tt_NOT:0 "Không đúng: Đang chạy ít hơn §Y2§! chương trình công nghiệp quốc phòng hàng không"
+ VIE_apm_uav_gate_tt_NOT:0 "Không đúng: Đủ điều kiện cho bậc kế của chương trình UAV (focus, ngày, radar Viettel)"
+ VIE_dec_lf_mobilize_gate_tt_NOT:0 "Không đúng: Hướng Chiều sâu hoặc Phòng thủ khu vực và dự bị, hoặc đang có chiến tranh, hoặc căng thẳng ở Biển Đông ở mức cao"
+ VIE_dec_pth_tt_NOT:0 "Không đúng: Ngân khố trên §Y2 tỷ§!"
+ VIE_dec_xcb01_tt_NOT:0 "Không đúng: Ngân khố trên §Y3 tỷ§!"
+ VIE_dec_z_factories_avail_tt_NOT:0 "Không đúng: Có đủ nhân lực kỹ thuật để vận hành nhà máy vũ khí, và còn ít nhất một tỉnh có chỗ xây dựng"
+ VIE_flag_VIE_apec_year_tt_NOT:0 "Không đúng: Đang trong năm APEC"
+ VIE_flag_VIE_collective_leadership_2026_tt_NOT:0 "Không đúng: Đã chọn mô hình lãnh đạo tập thể (2026)"
+ VIE_flag_VIE_constitution_2013_adopted_tt_NOT:0 "Không đúng: Hiến pháp 2013 đã được thông qua"
+ VIE_flag_VIE_dual_role_2026_tt_NOT:0 "Không đúng: Tổng Bí thư kiêm Chủ tịch nước (2026)"
+ VIE_flag_VIE_ev_bastion_p_coastal_defence_tt_NOT:0 "Không đúng: Đã có tổ hợp tên lửa bờ Bastion-P (qua sự kiện mua sắm)"
+ VIE_flag_VIE_ev_kilo_submarines_tt_NOT:0 "Không đúng: Đã có tàu ngầm Kilo (qua sự kiện mua sắm)"
+ VIE_flag_VIE_fdi_open_door_tt_NOT:0 "Không đúng: Cánh cửa FDI đã mở"
+ VIE_flag_VIE_hsr_partner_china_tt_NOT:0 "Không đúng: Đã chọn Trung Quốc làm đối tác đường sắt cao tốc"
+ VIE_flag_VIE_hsr_partner_eu_tt_NOT:0 "Không đúng: Đã chọn EU làm đối tác đường sắt cao tốc"
+ VIE_flag_VIE_indochina_open_tt_NOT:0 "Không đúng: Quan hệ Đông Dương đã được mở rộng"
+ VIE_flag_VIE_infra_funding_bot_tt_NOT:0 "Không đúng: Đã chọn nguồn vốn BOT cho hạ tầng"
+ VIE_flag_VIE_sched_vinashin_tt_NOT:0 "Không đúng: Vụ Vinashin đã nổ ra"
+ VIE_flag_VIE_security_unlocked_tt_NOT:0 "Không đúng: Nhánh an ninh đã được mở khóa"
+ VIE_flag_VIE_sez_bill_debated_tt_NOT:0 "Không đúng: Dự luật đặc khu đã được đưa ra thảo luận"
+ VIE_flag_VIE_tariff_negotiating_tt_NOT:0 "Không đúng: Đang đàm phán thuế quan với Mỹ"
+ VIE_flag_VIE_two_tier_done_tt_NOT:0 "Không đúng: Đã hoàn tất cải cách chính quyền hai cấp"
+ VIE_fourteenth_congress_held_tt_NOT:0 "Đại hội Đảng lần thứ XIV chưa diễn ra"
+ VIE_hl_bop_hardline_tt_NOT:0 "Phe giữ vững bản chất chưa chiếm ưu thế tuyệt đối (cán cân không dưới -0,6)"
+ VIE_hl_bop_lead_tt_NOT:0 "Phe giữ vững bản chất chưa dẫn trước rõ rệt (cán cân không dưới -0,3)"
+ VIE_hl_in_power_tt_NOT:0 "Đảng cầm quyền không phải ID 4 (CPV Hardline)"
+ VIE_hl_pillars_all_tt_NOT:0 "Không đúng: Hoàn thành cả bốn trụ (Kế hoạch 5 năm, Công nghiệp quốc phòng, Mặt trận Tổ quốc, Hợp tác nhưng không lệ thuộc)"
+ VIE_hl_pillars_three_tt_NOT:0 "Không đúng: Hoàn thành ít nhất ba trong bốn trụ (Kế hoạch 5 năm, Công nghiệp quốc phòng, Mặt trận Tổ quốc, Hợp tác nhưng không lệ thuộc)"
+ VIE_hl_rp_below_56_tt_NOT:0 "Không đúng: Áp lực cải cách dưới 56 (chưa ở mức Căng thẳng)"
+ VIE_hl_rp_below_80_tt_NOT:0 "Không đúng: Áp lực cải cách dưới 80"
+ VIE_nav_d1_done_tt_NOT:0 "Không đúng: Chương trình mở rộng xưởng Ba Son đã §Yhoàn tất§!"
+ VIE_nav_exp_mro_tt_NOT:0 "Không đúng: Kinh nghiệm bảo dưỡng từ §Y15§! trở lên (hiện tại §Y[?VIE_var_mro_exp|0]§!)"
+ VIE_nav_exp_ship_tt_NOT:0 "Không đúng: Kinh nghiệm đóng tàu từ §Y30§! trở lên (hiện tại §Y[?VIE_var_shipbuilding_exp|0]§!)"
+ VIE_nav_ext_source_tt_NOT:0 "Không đúng: Có ít nhất một nguồn năng lực: §Yđiện tử§!, §YC4ISR§! hoặc §Ytên lửa hải quân§!"
+ VIE_nav_hull_source_tt_NOT:0 "Không đúng: Đã nhận ít nhất một §Ytàu ngầm§! hoặc một §Ytàu mặt nước§! từ các chương trình mua sắm"
+ VIE_nav_hulls_4_tt_NOT:0 "Không đúng: Đã nhận ít nhất §Y4§! thân tàu chủ lực từ các chương trình mua sắm"
+ VIE_nav_orient_tt_NOT:0 "Không đúng: Đã chọn định hướng phát triển Ba Son (sau khi hoàn thành §YXưởng đóng tàu Ba Son§!)"
+ VIE_nav_slot_tt_NOT:0 "Không đúng: Đang chạy ít hơn §Y2§! chương trình công nghiệp quốc phòng hải quân"
+ VIE_nav_yard_tt_NOT:0 "Không đúng: Xưởng Ba Son đã dùng được (đạt khoảng 40% tiến độ của chương trình Ba Son)"
+ VIE_nf_carrier_tt_NOT:0 "Không đúng: Đã tiếp nhận ít nhất §Y1§! tàu sân bay"
+ VIE_nf_d1_done_tt_NOT:0 "Không đúng: Đã hoàn tất huấn luyện lực lượng tàu mặt nước"
+ VIE_nf_d2_done_tt_NOT:0 "Không đúng: Đã hoàn tất huấn luyện lực lượng tàu ngầm"
+ VIE_nf_destroyers_tt_NOT:0 "Không đúng: Đã tiếp nhận ít nhất §Y2§! khu trục"
+ VIE_nf_hulls_4_tt_NOT:0 "Không đúng: Đã tiếp nhận hơn §Y3§! thân tàu chiến đấu"
+ VIE_nf_slot_tt_NOT:0 "Không đúng: Đang chạy ít hơn §Y2§! chương trình xây dựng lực lượng"
+ VIE_p1b_d2_done_tt_NOT:0 "Không đúng: Đã hoàn tất huấn luyện lực lượng tàu ngầm"
+ VIE_p1b_nuclear_tt_NOT:0 "Không đúng: Có nền tảng công nghệ hạt nhân (§YNghiên cứu Hạt nhân§!)"
+ VIE_p1b_p4_branch_tt_NOT:0 "Không đúng: Đã hoàn tất §YLực lượng Tàu ngầm Ngăn chặn§! hoặc §YKhinh hạm Viễn hành§!"
+ VIE_p1b_path_tt_NOT:0 "Không đúng: Có ít nhất một đường mua sắm: đối tác nhập khẩu hoặc năng lực công nghiệp trong nước"
+ VIE_p1b_slot_tt_NOT:0 "Không đúng: Đang chạy ít hơn §Y2§! chương trình mua sắm"
+ VIE_party_rule_active_tt_NOT:0 "Đảng cầm quyền không phải ID 19 (CPV) hay ID 4 (CPV Hardline)"
+ VIE_procurement_batch_tt_NOT:0 "Không đúng: Ngân khố đủ chi trả cho đợt mua sắm"
+ VIE_scs_escalated_tt_NOT:0 "Căng thẳng Biển Đông chưa đạt mức 2"
+ VIE_scs_non_aligned_tt_NOT:0 "Không đúng: Việt Nam còn giữ đường lối không liên minh (Bốn Không)."
+ VIE_scs_pc_any_tt_NOT:0 "Không đúng: Có ít nhất một nước có thể gửi tàu thăm cảng: tồn tại, không có chiến tranh với Việt Nam và chưa thăm trong ba năm qua."
+ VIE_trig_VIE_apm_mature_ok_tt_NOT:0 "Không đúng: Đã đủ bậc ở cả năm trụ của công nghiệp hàng không"
+ VIE_trig_VIE_def_ind_level_ge_2_tt_NOT:0 "Không đúng: Cấp công nghiệp quốc phòng từ 2 trở lên"
+ VIE_trig_VIE_def_ind_level_ge_4_tt_NOT:0 "Không đúng: Cấp công nghiệp quốc phòng từ 4 trở lên"
+ VIE_trig_VIE_def_ind_level_ge_8_tt_NOT:0 "Không đúng: Cấp công nghiệp quốc phòng từ 8 trở lên"
+ VIE_trig_VIE_us_arms_open_tt_tt_NOT:0 "Không đúng: Mỹ đã dỡ bỏ lệnh cấm vận vũ khí (2016)"
+ VIE_tt_collective_avail_NOT:0 "Không đúng: Đã chọn giữ mô hình lãnh đạo tập thể ở sự kiện tháng 4/2026"
+ VIE_tt_concentration_avail_NOT:0 "Không đúng: Đã chọn kiêm nhiệm hai chức vụ (sự kiện tháng 4/2026), hoặc sau 30/6/2026 nếu không chọn giữ lãnh đạo tập thể, hoặc đang không theo mô hình Đảng cầm quyền"
+ VIE_var_air_delivered_12_tt_NOT:0 "Không đúng: Đã nhận bàn giao trên 11 máy bay"
+ VIE_var_expressway_2600_tt_NOT:0 "Không đúng: Đường cao tốc đã đạt trên 2.600 km"
+ VIE_var_expressway_3000_tt_NOT:0 "Không đúng: Đường cao tốc đã đạt trên 3.000 km"
+ VIE_var_localization_45_tt_NOT:0 "Chưa có đủ 45 điểm năng lực nội địa hóa"
+ VIE_var_ruling_autocracy_tt_NOT:0 "Đảng cầm quyền không phải ID 7 (Autocracy)"
+ VIE_var_scs_tension_1_tt_NOT:0 "Không đúng: Căng thẳng Biển Đông từ mức 1 trở lên"
+
+ # ---- Readable conditions inside focus rewards (limit blocks)
+ VIE_var_nf_priority_1_tt:0 "Cơ cấu lực lượng hải quân: phòng thủ ven bờ"
+ VIE_var_nf_priority_1_tt_NOT:0 "Không đúng: Cơ cấu lực lượng hải quân: phòng thủ ven bờ"
+ VIE_var_nf_priority_3_tt:0 "Cơ cấu lực lượng hải quân: tầm xa"
+ VIE_var_nf_priority_3_tt_NOT:0 "Không đúng: Cơ cấu lực lượng hải quân: tầm xa"
+ VIE_flag_congress9_phieu_tt:0 "Đại hội IX giữ Tổng Bí thư Lê Khả Phiêu"
+ VIE_flag_congress9_phieu_tt_NOT:0 "Không đúng: Đại hội IX giữ Tổng Bí thư Lê Khả Phiêu"
+ VIE_flag_developmental_unlocked_tt:0 "Phe Chính phủ chủ trương phát triển nhanh đã thắng thế ở Đại hội XII"
+ VIE_flag_developmental_unlocked_tt_NOT:0 "Không đúng: Phe Chính phủ chủ trương phát triển nhanh đã thắng thế ở Đại hội XII"
+ VIE_flag_sez_prepared_tt:0 "Các đặc khu đã được chuẩn bị"
+ VIE_flag_sez_prepared_tt_NOT:0 "Không đúng: Các đặc khu đã được chuẩn bị"
+
+ # ---- Party Congress resolution focuses: the term idea is only granted while that Congress term is current
+ VIE_cong_term_9_tt:0 "Nhiệm kỳ Đại hội Đảng lần thứ IX đang diễn ra"
+ VIE_cong_term_9_tt_NOT:0 "Nhiệm kỳ Đại hội Đảng lần thứ IX đã kết thúc"
+ VIE_cong_term_10_tt:0 "Nhiệm kỳ Đại hội Đảng lần thứ X đang diễn ra"
+ VIE_cong_term_10_tt_NOT:0 "Nhiệm kỳ Đại hội Đảng lần thứ X đã kết thúc"
+ VIE_cong_term_11_tt:0 "Nhiệm kỳ Đại hội Đảng lần thứ XI đang diễn ra"
+ VIE_cong_term_11_tt_NOT:0 "Nhiệm kỳ Đại hội Đảng lần thứ XI đã kết thúc"
+ VIE_cong_term_12_tt:0 "Nhiệm kỳ Đại hội Đảng lần thứ XII đang diễn ra"
+ VIE_cong_term_12_tt_NOT:0 "Nhiệm kỳ Đại hội Đảng lần thứ XII đã kết thúc"
+ VIE_cong_term_13_tt:0 "Nhiệm kỳ Đại hội Đảng lần thứ XIII đang diễn ra"
+ VIE_cong_term_13_tt_NOT:0 "Nhiệm kỳ Đại hội Đảng lần thứ XIII đã kết thúc"
+ VIE_cong_term_14_tt:0 "Nhiệm kỳ Đại hội Đảng lần thứ XIV đang diễn ra"
+ VIE_cong_term_14_tt_NOT:0 "Nhiệm kỳ Đại hội Đảng lần thứ XIV đã kết thúc"
+
+ # ---- Shared focus tooltip (accessible by both CPV Reformist and CPV Hardline)
+ VIE_shared_focus_tt:0 "§G(Nghị quyết Chung) Khả dụng cho cả Đảng viên Đổi mới và Phái Kiên định§!"
+ VIE_shared_focus_tt_NOT:0 "Không khả dụng: Không có đảng cộng sản cầm quyền"
+
+ # ---- v3 (05/10/2026): hardline is the third choice at Congress XIV; Indochina chain; islands chain
+ VIE_hl_take_power_tt:0 "§YĐảng Cộng sản Việt Nam (Đường lối Kiên định) lên cầm quyền§!, mở cây §YCon đường Kiên định§!"
+ VIE_hl_cpv_main_tt:0 "Đảng cầm quyền có ID 19 (CPV)"
+ VIE_hl_cpv_main_tt_NOT:0 "Đảng cầm quyền không phải ID 19 (CPV)"
+ VIE_hl_no_recent_change_tt:0 "Không vừa đổi chế độ, và đường lối Kiên định chưa bàn giao trong 10 năm qua"
+ VIE_hl_no_recent_change_tt_NOT:0 "Vừa đổi chế độ, hoặc đường lối Kiên định đã bàn giao trong 10 năm qua"
+
+ VIE_hl_indochina_alliance:0 "Liên minh đặc biệt Đông Dương"
+ VIE_hl_indochina_alliance_desc:0 "Nâng quan hệ đặc biệt với Lào và Campuchia thành một liên minh chính trị do Đảng dẫn dắt, chuẩn bị cho việc thống nhất ba nước Đông Dương."
+ VIE_hl_vientiane_ultimatum:0 "Tối hậu thư Viêng Chăn"
+ VIE_hl_vientiane_ultimatum_desc:0 "Yêu cầu Lào đặt quốc phòng và đối ngoại dưới sự lãnh đạo của Hà Nội. Nếu bị từ chối, Việt Nam có thể dùng vũ lực."
+ VIE_hl_phnom_penh_ultimatum:0 "Tối hậu thư Phnôm Pênh"
+ VIE_hl_phnom_penh_ultimatum_desc:0 "Yêu cầu Campuchia đặt quốc phòng và đối ngoại dưới sự lãnh đạo của Hà Nội. Nếu bị từ chối, Việt Nam có thể dùng vũ lực."
+ VIE_hl_indochina_union:0 "Thống nhất Đông Dương"
+ VIE_hl_indochina_union_desc:0 "Sáp nhập Lào và Campuchia vào Việt Nam, công nhận lãnh thổ của họ là lãnh thổ chính thức. Mở đường cho việc thành lập Liên bang Đông Dương."
+ VIE_hl_ultimatum_lao_tt:0 "Gửi tối hậu thư tới §YLào§!: chấp nhận thì trở thành chư hầu, từ chối thì Việt Nam nhận mục tiêu chiến tranh"
+ VIE_hl_ultimatum_cbd_tt:0 "Gửi tối hậu thư tới §YCampuchia§!: chấp nhận thì trở thành chư hầu, từ chối thì Việt Nam nhận mục tiêu chiến tranh"
+ VIE_hl_indochina_controlled_tt:0 "Kiểm soát cả 7 vùng của Lào và Campuchia (trực tiếp hoặc qua chư hầu)"
+ VIE_hl_indochina_controlled_tt_NOT:0 "Chưa kiểm soát cả 7 vùng của Lào và Campuchia"
+
+ VIE_paracel_ultimatum:0 "Thu hồi Quần đảo Hoàng Sa"
+ VIE_paracel_ultimatum_desc:0 "Yêu cầu Trung Quốc trao trả Quần đảo Hoàng Sa. §RCảnh báo: sẽ tạo mục tiêu chiến tranh với Trung Quốc.§!"
+ VIE_retake_north_spratlys:0 "Thu hồi Bắc Trường Sa"
+ VIE_retake_north_spratlys_desc:0 "Lấy lại các đảo ở phía bắc Trường Sa đang do Trung Quốc chiếm giữ. §RCảnh báo: sẽ tạo mục tiêu chiến tranh với Trung Quốc.§!"
+ VIE_retake_east_spratlys:0 "Thu hồi Đông Trường Sa"
+ VIE_retake_east_spratlys_desc:0 "Lấy lại các đảo ở phía đông Trường Sa đang do Philippines quản lý. §RCảnh báo: sẽ tạo mục tiêu chiến tranh với Philippines, một thành viên ASEAN.§!"
+ VIE_retake_south_spratlys:0 "Thu hồi Nam Trường Sa"
+ VIE_retake_south_spratlys_desc:0 "Lấy lại các đảo ở phía nam Trường Sa đang do Malaysia quản lý. §RCảnh báo: sẽ tạo mục tiêu chiến tranh với Malaysia, một thành viên ASEAN.§!"
+
+ vie_hl.20.t:0 "Tối hậu thư từ Hà Nội"
+ vie_hl.20.d:0 "[From.GetName] yêu cầu [Root.GetName] đặt quốc phòng và đối ngoại dưới sự lãnh đạo của Hà Nội, trong khuôn khổ một Liên minh Đông Dương. Từ chối có thể dẫn tới chiến tranh."
+ vie_hl.20.a:0 "Chấp nhận"
+ vie_hl.20.b:0 "Từ chối"
+ vie_hl.21.t:0 "[From.GetName] bác bỏ tối hậu thư"
+ vie_hl.21.d:0 "[From.GetName] đã từ chối đặt quốc phòng và đối ngoại dưới sự lãnh đạo của Hà Nội. Bộ Chính trị phải quyết định có dùng vũ lực hay không."
+ vie_hl.21.a:0 "Thực thi bằng vũ lực"
+ vie_hl.21.b:0 "Lùi bước"
+ vie_hl.22.t:0 "[From.GetName] chấp nhận tối hậu thư"
+ vie_hl.22.d:0 "[From.GetName] đồng ý đặt quốc phòng và đối ngoại dưới sự lãnh đạo của Hà Nội."
+ vie_hl.22.a:0 "Một bước tới Đông Dương thống nhất"
+
+ # ---- Cờ lịch Đại hội (dùng trong bypass của các focus nghị quyết)
+ VIE_flag_VIE_sched_congress_11_tt:0 "Đại hội XI đã khai mạc"
+ VIE_flag_VIE_sched_congress_11_tt_NOT:0 "Không đúng: Đại hội XI đã khai mạc"
+ VIE_flag_VIE_sched_congress_12_tt:0 "Đại hội XII đã khai mạc"
+ VIE_flag_VIE_sched_congress_12_tt_NOT:0 "Không đúng: Đại hội XII đã khai mạc"
+ VIE_flag_VIE_sched_congress_13_tt:0 "Đại hội XIII đã khai mạc"
+ VIE_flag_VIE_sched_congress_13_tt_NOT:0 "Không đúng: Đại hội XIII đã khai mạc"
+ VIE_flag_VIE_sched_congress_14_tt:0 "Đại hội XIV đã khai mạc"
+ VIE_flag_VIE_sched_congress_14_tt_NOT:0 "Không đúng: Đại hội XIV đã khai mạc"
+ VIE_flag_VIE_sched_congress_15_tt:0 "Đại hội XV đã khai mạc"
+ VIE_flag_VIE_sched_congress_15_tt_NOT:0 "Không đúng: Đại hội XV đã khai mạc"
+
+
+ # ============================================================
+ # CON DUONG KIEN DINH - 30 FOCUSES (MERGED SECURITY SPINE)
+ # 25 focus Hardline goc + 5 focus An ninh (public_order, border_control, surveillance_network, cyber_sovereignty, state_data_center tai VIE_md_p2_l_english.yml)
+ # ============================================================
+ VIE_hl_unity_of_will:0 "Thống nhất Ý chí & Giữ vững Bản lĩnh"
+ VIE_hl_unity_of_will_desc:0 "Khẳng định lập trường kiên định của Đảng Cộng sản Việt Nam, củng cố sự thống nhất ý chí và hành động trong toàn Đảng, toàn quân và toàn dân."
+
+ VIE_hl_party_rectification:0 "Chỉnh đốn Đảng & Lập trường Giai cấp"
+ VIE_hl_party_rectification_desc:0 "Triển khai đợt sinh hoạt chính trị sâu rộng trong toàn Đảng; kiên quyết loại bỏ các phần tử cơ hội, dao động tư tưởng, giữ vững bản chất cách mạng của giai cấp công nhân."
+
+ VIE_hl_ideological_foundation:0 "Bảo vệ Nền tảng Tư tưởng của Đảng"
+ VIE_hl_ideological_foundation_desc:0 "Tăng nguồn lực cho Ban Tuyên giáo và hệ thống Học viện Chính trị; kiên định chủ nghĩa Mác - Lênin và tư tưởng Hồ Chí Minh là kim chỉ nam cho mọi hành động."
+
+ VIE_hl_cadre_centralisation:0 "Thống nhất Quản lý Cán bộ"
+ VIE_hl_cadre_centralisation_desc:0 "Tăng cường sự kiểm soát tập trung của Trung ương đối với việc quy hoạch, bổ nhiệm và quản lý cán bộ chủ chốt, thu hẹp quyền tự quyết phân tán ở các địa phương."
+
+ VIE_hl_state_sector_leading:0 "Kinh tế Nhà nước giữ Vai trò Chủ đạo"
+ VIE_hl_state_sector_leading_desc:0 "Khẳng định kinh tế nhà nước giữ vai trò chủ đạo tuyệt đối trong nền kinh tế quốc dân. Đình chỉ quá trình thoái vốn ồ ạt các tập đoàn chiến lược."
+
+ VIE_hl_key_sectors:0 "Danh mục Ngành Then chốt"
+ VIE_hl_key_sectors_desc:0 "Năng lượng, ngân hàng, viễn thông, khoáng sản và quốc phòng: Nhà nước nắm quyền chi phối tuyệt đối, bảo đảm an ninh kinh tế quốc gia."
+
+ VIE_hl_soe_spearhead:0 "Tập đoàn Nhà nước làm Đầu tàu"
+ VIE_hl_soe_spearhead_desc:0 "Giao trọng trách cho các tập đoàn tổng công ty nhà nước dẫn dắt các đại dự án hạ tầng, công nghiệp nặng và phát triển công nghệ cao."
+
+ VIE_hl_selective_fdi:0 "Kiểm soát Dòng vốn & Thu hút FDI Chọn lọc"
+ VIE_hl_selective_fdi_desc:0 "Thiết lập hàng rào kiểm soát chặt chẽ các dòng vốn đầu tư gián tiếp và dòng vốn đầu cơ, chỉ ưu tiên dự án FDI chuyển giao công nghệ thực chất."
+
+ VIE_hl_no_party_business:0 "Đảng viên không làm Kinh tế Tư nhân"
+ VIE_hl_no_party_business_desc:0 "Bác bỏ việc đảng viên tham gia làm kinh tế tư nhân nhằm trục lợi; ngăn chặn các nhóm tư bản lũng đoạn chi phối chính sách của Đảng và Nhà nước."
+
+ VIE_hl_five_year_plan:0 "Kế hoạch Định hướng 5 năm"
+ VIE_hl_five_year_plan_desc:0 "Tập trung nguồn vốn và tài nguyên quốc gia vào các mục tiêu kế hoạch hóa trung hạn, bảo đảm phát triển đồng bộ và có định hướng."
+
+ VIE_hl_party_leads_army:0 "Đảng Lãnh đạo Tuyệt đối Lực lượng Vũ trang"
+ VIE_hl_party_leads_army_desc:0 "Tái khẳng định nguyên tắc Đảng lãnh đạo tuyệt đối, trực tiếp về mọi mặt đối với Quân đội nhân dân và Công an nhân dân qua Quân ủy Trung ương."
+
+ VIE_hl_army_political_education:0 "Giáo dục Chính trị trong Quân đội"
+ VIE_hl_army_political_education_desc:0 "Tăng cường thời lượng và chất lượng công tác giáo dục chính trị, bồi dưỡng bản lĩnh cách mạng cho cán bộ, chiến sĩ toàn quân."
+
+ VIE_hl_all_people_defence:0 "Thế trận Toàn dân gắn với Đảng Cơ sở"
+ VIE_hl_all_people_defence_desc:0 "Xây dựng thế trận quốc phòng toàn dân và an ninh nhân dân vững chắc, lấy tổ chức Đảng và Mặt trận ở cơ sở làm hạt nhân lãnh đạo."
+
+ VIE_hl_party_defence_industry:0 "Công nghiệp Quốc phòng do Đảng Chỉ đạo"
+ VIE_hl_party_defence_industry_desc:0 "Đầu tư đồng bộ cho hệ thống các nhà máy công nghiệp quốc phòng, làm chủ dây chuyền sản xuất vũ khí bộ binh, đạn dược và khí tài hiện đại."
+
+ VIE_hl_cyber_ideology:0 "Bảo vệ Tư tưởng trên Không gian Mạng"
+ VIE_hl_cyber_ideology_desc:0 "Chủ động đấu tranh phản bác các quan điểm sai trái, thù địch trên nền tảng số; bảo đảm chủ quyền thông tin và an ninh tư tưởng quốc gia."
+
+ VIE_hl_school_theory:0 "Giáo dục Lý luận Chính trị trong Nhà trường"
+ VIE_hl_school_theory_desc:0 "Đưa chương trình giáo dục lý luận chính trị Mác - Lênin và tư tưởng Hồ Chí Minh trở thành trụ cột trong hệ thống giáo dục quốc dân."
+
+ VIE_hl_press_planning:0 "Quy hoạch Báo chí & Truyền thông"
+ VIE_hl_press_planning_desc:0 "Rà soát, sắp xếp lại toàn diện các cơ quan báo chí, xuất bản theo quy hoạch định hướng; kiên quyết xử lý tình trạng 'tư nhân hóa' báo chí."
+
+ VIE_hl_fatherland_front:0 "Mặt trận Tổ quốc & Các Đoàn thể Chính trị - Xã hội"
+ VIE_hl_fatherland_front_desc:0 "Phát huy tối đa vai trò của Mặt trận Tổ quốc, Công đoàn, Hội Nông dân và Đoàn Thanh niên trong việc tập hợp quần chúng và phản biện xã hội."
+
+ VIE_hl_party_diplomacy:0 "Đẩy mạnh Quan hệ Đối ngoại Đảng"
+ VIE_hl_party_diplomacy_desc:0 "Tăng cường quan hệ gắn bó, thủy chung với các đảng cộng sản, đảng công nhân và các lực lượng cánh tả anh em trên thế giới, đặc biệt là Lào, Trung Quốc và Cuba."
+
+ VIE_hl_no_dependence:0 "Hợp tác nhưng Không Lệ thuộc"
+ VIE_hl_no_dependence_desc:0 "Khẳng định sự gần gũi về ý thức hệ không đồng nghĩa với nhượng bộ về chủ quyền lãnh thổ; kiên quyết bảo vệ toàn vẹn chủ quyền biển đảo."
+
+ VIE_hl_selective_partners:0 "Đối tác Chiến lược Chọn lọc"
+ VIE_hl_selective_partners_desc:0 "Mở rộng quan hệ hợp tác kinh tế, kỹ thuật và an ninh với các đối tác chủ chốt trong khu vực châu Á trên nguyên tắc tôn trọng độc lập chủ quyền."
+
+ VIE_hl_term_review:0 "Tổng kết Nhiệm kỳ & Định hướng Chặng mới"
+ VIE_hl_term_review_desc:0 "Hội nghị Trung ương tổ chức tổng kết toàn diện những thành tựu và bài học kinh nghiệm trong quá trình thực hiện đường lối Kiên định, chuẩn bị bước vào giai đoạn mới."
+
+ VIE_hl_steadfast_renewal:0 "Kiên định Mục tiêu, Đổi mới Phương thức"
+ VIE_hl_steadfast_renewal_desc:0 "Giữ vững định hướng xã hội chủ nghĩa, mở rộng không gian sáng tạo cho khu vực kinh tế tư nhân và tiếp tục chủ động hội nhập quốc tế sâu rộng."
+
+ VIE_hl_party_state_fusion:0 "Nhất thể hóa Lãnh đạo Đảng & Quản lý Nhà nước"
+ VIE_hl_party_state_fusion_desc:0 "Hợp nhất các chức danh lãnh đạo Đảng và chính quyền ở các cấp; tinh gọn triệt để bộ máy, tập trung quyền lực cao độ để hiện đại hóa đất nước."
+
+ VIE_hl_handover:0 "Bàn giao Đường lối"
+ VIE_hl_handover_desc:0 "Hoàn thành thắng lợi giai đoạn chấn chỉnh kỷ cương và củng cố nền tảng; bàn giao quyền lãnh đạo trở lại cho đường lối Đổi mới chính thống."
+
+
+ # ---- Cờ lịch Đại hội (fix_focus_raw_text.py)
+ VIE_flag_VIE_sched_congress_10_tt:0 "Đại hội X đã khai mạc"
+ VIE_flag_VIE_sched_congress_10_tt_NOT:0 "Không đúng: Đại hội X đã khai mạc"
+ VIE_flag_VIE_sched_congress_9_tt:0 "Đại hội IX đã khai mạc"
+ VIE_flag_VIE_sched_congress_9_tt_NOT:0 "Không đúng: Đại hội IX đã khai mạc"
+
+ VIE_gate_B_le_m6:0 "Không gian chính trị có xu hướng kỷ cương nghiêm ngặt (B <= -5)"
+
+ # ---- Cờ lịch Đại hội (fix_focus_raw_text.py)
+ VIE_flag_VIE_bop_active_tt:0 "Cán cân định hướng của Đảng đang hoạt động"
+ VIE_flag_VIE_bop_active_tt_NOT:0 "Không đúng: Cán cân định hướng của Đảng đang hoạt động"
+ VIE_flag_bankruptcy_incoming_collapse_tt:0 "Ngân sách quốc gia đang đứng trước nguy cơ phá sản"
+ VIE_flag_bankruptcy_incoming_collapse_tt_NOT:0 "Ngân sách quốc gia chưa đứng trước nguy cơ phá sản"
+ VIE_var_rp_pos_tt:0 "Áp lực cải cách lớn hơn 0"
+ VIE_var_rp_pos_tt_NOT:0 "Áp lực cải cách đã về 0"
+
+
+# ====================================================================
+# SECTION: VIE_md_bop_decisions_l_english.yml
+# ====================================================================
+
+ ### Category
+ VIE_party_balance_category:0 "Quyết sách Định hướng của Đảng"
+ VIE_party_balance_category_desc:0 "Các quyết sách điều hành vĩ mô, công tác tư tưởng, tổ chức cán bộ và cơ chế kinh tế nhằm tác động trực tiếp tới Cán cân Định hướng của Đảng."
+
+ ### Group 1: Conservative Decisions (Kiên định Nền tảng)
+ VIE_bop_edu_marxism:0 "§C[Kiên định]§! Giáo dục Lý luận Chính trị & Kỷ luật Đảng"
+ VIE_bop_edu_marxism_desc:0 "Mở các đợt sinh hoạt chính trị sâu rộng trong toàn Đảng và hệ thống chính trị nhằm nâng cao bản lĩnh tư tưởng, giữ vững lập trường kiên định mục tiêu xã hội chủ nghĩa."
+
+ VIE_bop_inspect_soe:0 "§C[Kiên định]§! Thanh tra Chuyên đề DNNN & Dự án Thua lỗ"
+ VIE_bop_inspect_soe_desc:0 "Ủy ban Kiểm tra Trung ương và Thanh tra Chính phủ tiến hành thanh tra toàn diện các dự án trọng điểm, chấn chỉnh tình trạng thất thoát tài sản nhà nước và lợi ích nhóm."
+
+ VIE_bop_appoint_cadres:0 "§C[Kiên định]§! Bố trí Cán bộ An ninh - Vũ trang vào Vị trí Trọng yếu"
+ VIE_bop_appoint_cadres_desc:0 "Quy hoạch và điều động các cán bộ có lập trường kiên định, trưởng thành từ lực lượng vũ trang và cơ quan kiểm tra Đảng tham gia cấp ủy và cơ quan điều hành."
+
+ VIE_bop_fund_soe:0 "§C[Kiên định]§! Củng cố Vai trò Chủ đạo của DNNN"
+ VIE_bop_fund_soe_desc:0 "Bơm nguồn lực và giao các công trình hạ tầng then chốt cho các Tập đoàn, Tổng công ty Nhà nước để bảo đảm tính tự chủ chiến lược của nền kinh tế."
+
+ VIE_bop_plenum_anticorrupt:0 "§C[Kiên định]§! Hội nghị TW: Chống Tự diễn biến, Tự chuyển hóa"
+ VIE_bop_plenum_anticorrupt_desc:0 "Triệu tập Hội nghị Ban Chấp hành Trung ương chuyên đề để thảo luận và ban hành nghị quyết đặc biệt về chỉnh đốn Đảng, ngăn chặn mọi biểu hiện chệch hướng."
+
+ ### Group 2: Reform Decisions (Đổi mới Sâu rộng)
+ VIE_bop_private_econ_forum:0 "§G[Đổi mới]§! Diễn đàn Kinh tế Tư nhân & Khởi nghiệp Sáng tạo"
+ VIE_bop_private_econ_forum_desc:0 "Tổ chức các diễn đàn cấp cao giữa lãnh đạo chính phủ và cộng đồng doanh nghiệp tư nhân, khẳng định kinh tế tư nhân là động lực quan trọng của nền kinh tế."
+
+ VIE_bop_pci_reform:0 "§G[Đổi mới]§! Cải cách Thủ tục Hành chính & Nâng cao Chỉ số PCI"
+ VIE_bop_pci_reform_desc:0 "Cắt giảm điều kiện kinh doanh, đo lường chỉ số hài lòng của người dân và doanh nghiệp, thúc đẩy cạnh tranh lành mạnh giữa các địa phương."
+
+ VIE_bop_technocrat_advisors:0 "§G[Đổi mới]§! Trọng dụng Chuyên gia Kỹ trị & Nhân tài ngoài Đảng"
+ VIE_bop_technocrat_advisors_desc:0 "Đưa các nhà khoa học, nhà quản lý kỹ trị và chuyên gia kinh tế có năng lực cao vào các tổ tư vấn chính sách vĩ mô của Chính phủ."
+
+ VIE_bop_equitize_soe:0 "§G[Đổi mới]§! Đẩy mạnh Cổ phần hóa DNNN trên Sàn Chứng khoán"
+ VIE_bop_equitize_soe_desc:0 "Thoái vốn nhà nước tại các doanh nghiệp thương mại và dịch vụ thông qua đấu giá công khai, nâng cao tính minh bạch và thu hút dòng vốn phát triển."
+
+ VIE_bop_breakthrough_resol:0 "§G[Đổi mới]§! Nghị quyết Đột phá Thể chế & Hội nhập Toàn diện"
+ VIE_bop_breakthrough_resol_desc:0 "Ban hành nghị quyết mang tính bước ngoặt, dỡ bỏ triệt để các rào cản hành chính bao cấp, mở rộng tối đa không gian cho kinh tế thị trường."
+
+ ### Tooltips tùy chỉnh (loại bỏ chữ thô)
+ VIE_bop_treasury_15_req_tt:0 "§YNgân sách Nhà nước§! có ít nhất §G1.5 tỷ USD§!"
+ VIE_bop_treasury_05_req_tt:0 "§YNgân sách Nhà nước§! có ít nhất §G0.5 tỷ USD§!"
+ VIE_bop_plenum_anticorrupt_req_tt:0 "Cán cân đang nghiêng về §CKiên định Nền tảng§! ít nhất §Y20%§!"
+ VIE_bop_breakthrough_resol_req_tt:0 "Cán cân đang nghiêng về §GĐổi mới Sâu rộng§! ít nhất §Y20%§!"
+ VIE_hardline_unlocked_tt:0 "Mở đường cho phái §CKiên định (Hardline)§! nắm quyền lãnh đạo"
+ VIE_market_breakthrough_done_tt:0 "Mở đường cho công cuộc §GĐổi mới Triệt để§! và tự do hóa thị trường"
+
+
+# ====================================================================
+# SECTION: VIE_md_p2_l_english.yml
+# ====================================================================
+
+
+ ### Phase 2 ideas (generated)
+ VIE_dual_use_idea:0 "Công nghiệp Quốc phòng Lưỡng dụng"
+ VIE_dual_use_idea_desc:0 "Các doanh nghiệp quốc phòng sản xuất hàng tiêu dùng và các doanh nghiệp dân sự tham gia nghiên cứu chế tạo khí tài cho quân đội."
+
+ ### Phase 2 focuses (generated)
+ VIE_su30mk2_fleet:0 "Phi đội Tiêm kích Đa năng Su-30MK2"
+ VIE_su30mk2_fleet_desc:0 "Hơn 30 chiếc 'Hổ mang chúa' Flanker lần đầu tiên mang lại cho Không quân Nhân dân Việt Nam tầm tác chiến vươn xa kiểm soát bầu trời Biển Đông."
+ VIE_kilo_submarines:0 "Lữ đoàn 6 Tàu ngầm Kilo"
+ VIE_kilo_submarines_desc:0 "Hợp đồng trang bị 6 tàu ngầm diesel-điện tối tân cùng căn cứ huấn luyện hiện đại tại Cam Ranh. Một thông điệp răn đe chiến lược mạnh mẽ mà không cần nổ một phát súng."
+ VIE_bastion_p_coastal_defence:0 "Khẩu đội Tên lửa Bờ Bastion-P"
+ VIE_bastion_p_coastal_defence_desc:0 "Các tổ hợp tên lửa bờ cơ động Bastion-P trang bị tên lửa Yakhont có khả năng tiêu diệt chiến hạm đối phương ở khoảng cách hàng trăm cây số ngoài khơi."
+ VIE_viettel_military_tech:0 "Tổ hợp Công nghiệp Quốc phòng Viettel"
+ VIE_viettel_military_tech_desc:0 "Hệ thống radar cảnh giới, máy bay không người lái, khí tài tác chiến điện tử và mạng thông tin liên lạc bảo mật do Viettel chế tạo giúp giảm dần sự phụ thuộc vào nhập khẩu."
+ VIE_merge_ministries:0 "Sáp nhập Các Bộ Ngành Trung ương"
+ VIE_merge_ministries_desc:0 "Thực hiện sáp nhập các bộ ngành có chức năng tương đồng, giảm mạnh số lượng đầu mối và các tổng cục trung gian."
+ VIE_t90_tanks:0 "Trang bị Xe tăng Chủ lực T-90S"
+ VIE_t90_tanks_desc:0 "Lô xe tăng chủ lực hiện đại T-90S/SK nhập khẩu từ Nga được biên chế cho các lữ đoàn tăng thiết giáp tinh nhuệ."
+ VIE_rocket_artillery:0 "Hiện đại hóa Pháo binh và Pháo phản lực"
+ VIE_rocket_artillery_desc:0 "Trang bị các tổ hợp pháo phản lực tầm xa và đạn dẫn đường chính xác cao giúp vươn dài tầm hỏa lực yểm trợ cho bộ binh."
+ VIE_special_forces:0 "Xây dựng Lực lượng Binh chủng Đặc công"
+ VIE_special_forces_desc:0 "Huấn luyện lực lượng đặc công tinh nhuệ, luồn sâu đánh hiểm, sẵn sàng thực hiện những nhiệm vụ hiểm hóc nhất."
+ VIE_mechanization:0 "Cơ giới hóa Các Sư đoàn Bộ binh"
+ VIE_mechanization_desc:0 "Trang bị thêm xe thiết giáp chở quân và xe chiến đấu bộ binh, nâng cao tốc độ cơ động và sức mạnh hỏa lực cho các sư đoàn chủ lực."
+ VIE_reserve_mobilization:0 "Lực lượng Dự bị Động viên Tinh nhuệ"
+ VIE_reserve_mobilization_desc:0 "Các quân nhân hoàn thành nghĩa vụ quân sự được sắp xếp vào các đơn vị dự bị động viên sẵn sàng tái nhập ngũ khi có lệnh."
+ VIE_navy_modernization:0 "Hiện đại hóa Quân chủng Hải quân"
+ VIE_navy_modernization_desc:0 "Tập trung xây dựng lực lượng hải quân hiện đại xoay quanh tàu ngầm, chiến hạm tên lửa và các tổ hợp tên lửa bờ biển răn đe tầm xa."
+ VIE_naval_aviation:0 "Phát triển Lực lượng Không quân Hải quân"
+ VIE_naval_aviation_desc:0 "Trang bị phi đội trực thăng săn ngầm và máy bay tuần thám biển giúp mở rộng tầm mắt giám sát của hải quân."
+ VIE_gepard_frigates:0 "Biên chế Tàu Hộ vệ Tên lửa Gepard 3.9"
+ VIE_gepard_frigates_desc:0 "Bốn chiến hạm Gepard do Nga đóng mang lại cho Hải quân Việt Nam năng lực tác chiến mặt nước, săn ngầm và phòng không hiện đại."
+ VIE_domestic_corvettes:0 "Đóng Mới Tàu Pháo và Tàu Tên lửa Trong nước"
+ VIE_domestic_corvettes_desc:0 "Các nhà máy đóng tàu quân sự trong nước tự chủ đóng mới thành công các tàu tên lửa tấn công nhanh lớp Molniya theo chuyển giao công nghệ."
+ VIE_domestic_antiship:0 "Tự chủ Chế tạo Tên lửa Diệt hạm"
+ VIE_naval_infantry:0 "Nâng cao Sức mạnh Hải quân Đánh bộ"
+ VIE_naval_infantry_desc:0 "Huấn luyện các chiến sĩ hải quân đánh bộ tinh nhuệ, sẵn sàng đổ bộ tái chiếm và kiên cường chốt giữ bảo vệ vững chắc các đảo chìm, đảo nổi."
+ VIE_cam_ranh_base:0 "Căn cứ Quân sự Cam Ranh"
+ VIE_cam_ranh_base_desc:0 "Vịnh nước sâu Cam Ranh trở thành căn cứ hải quân chiến lược vững chắc cho các lữ đoàn tàu ngầm và tàu mặt nước chủ lực."
+ VIE_cam_ranh_port_diplomacy:0 "Ngoại giao Cảng Quốc tế Cam Ranh"
+ VIE_cam_ranh_port_diplomacy_desc:0 "Chiến hạm các nước ghé thăm Cam Ranh để tiếp liệu và giao lưu hữu nghị. Không nước nào có căn cứ quân sự riêng và mọi đối tác đều được chào đón bình đẳng."
+ VIE_air_force_modernization:0 "Hiện đại hóa Phòng không - Không quân"
+ VIE_air_force_modernization_desc:0 "Xây dựng lực lượng không quân tiêm kích tinh nhuệ, trang bị các tổ hợp radar cảnh giới và tên lửa phòng không đa tầng hiện đại."
+ VIE_integrated_air_defense:0 "Lưới Lửa Phòng không Tích hợp Đa tầng"
+ VIE_integrated_air_defense_desc:0 "Kết nối dữ liệu radar, trận địa tên lửa S-300PMU1/Spyder và sở chỉ huy tự động hóa tạo nên chiếc ô bảo vệ vững chắc bầu trời tổ quốc."
+ VIE_yak130_trainers:0 "Máy bay Huấn luyện Chiến đấu Yak-130"
+ VIE_yak130_trainers_desc:0 "Trang bị phi đội máy bay phản lực huấn luyện đa năng Yak-130 giúp phi công trẻ nhanh chóng làm chủ các dòng tiêm kích thế hệ 4+ và 5."
+ VIE_l39ng:0 "Máy bay Huấn luyện L-39NG"
+ VIE_helicopter_fleet:0 "Hiện đại hóa Phi đội Trực thăng Đa nhiệm"
+ VIE_helicopter_fleet_desc:0 "Trang bị các dòng trực thăng vận tải và cứu hộ hiện đại phục vụ bay tiếp tế đảo xa, cứu hộ cứu nạn và cơ động tác chiến."
+ VIE_uav_program:0 "Chương trình Máy bay Không người lái (UAV)"
+ VIE_uav_program_desc:0 "Nghiên cứu chế tạo trong nước các dòng UAV trinh sát chiến thuật và tiến tới chế tạo UAV mang vũ khí tấn công."
+ VIE_air_dominance_coast:0 "Làm chủ Vùng trời Duyên hải"
+ VIE_air_dominance_coast_desc:0 "Sự hiệp đồng tác chiến giữa tiêm kích Su-30, radar bờ biển và tên lửa phòng không bảo đảm bẻ gãy mọi cuộc tập kích đường không của đối phương."
+ VIE_z_factories:0 "Hiện đại hóa Các Nhà máy Z"
+ VIE_z_factories_desc:0 "Trang bị máy móc công nghệ cao cho các nhà máy thuộc Tổng cục Công nghiệp Quốc phòng để tự chủ sản xuất vũ khí bộ binh và đạn dược."
+ VIE_licensed_rifles:0 "Sản xuất Súng Bộ binh Thế hệ Mới"
+ VIE_licensed_rifles_desc:0 "Nhà máy Z111 tự chủ sản xuất đại trà các dòng súng trường tấn công hiện đại (STV-215, STV-380) trang bị cho toàn quân."
+ VIE_shipyards:0 "Mở rộng Các Đóng tàu Quân đội"
+ VIE_shipyards_desc:0 "Các nhà máy đóng tàu quân sự như Ba Son, Hồng Hà, 189 được nâng cấp hạ tầng để đóng mới các loại tàu tuần tra, tàu chở quân và tàu tên lửa."
+ VIE_missile_program:0 "Chương trình Phát triển Tên lửa Quốc gia"
+ VIE_missile_program_desc:0 "Chương trình trọng điểm quốc gia nghiên cứu chế tạo các tổ hợp tên lửa phòng không tầm thấp và tên lửa bờ đối hải tự chủ."
+ VIE_defence_expo:0 "Triển lãm Quốc phòng Quốc tế Việt Nam"
+ VIE_defence_expo_desc:0 "Tổ chức triển lãm Vietnam Defence Expo thu hút hàng trăm tập đoàn công nghiệp quốc phòng hàng đầu thế giới tới Hà Nội giới thiệu vũ khí."
+ VIE_arms_export:0 "Đẩy mạnh Xuất khẩu Sản phẩm Quốc phòng"
+ VIE_arms_export_desc:0 "Xuất khẩu vũ khí bộ binh, tàu tuần tra cỡ nhỏ và khí tài bảo hộ cho các đối tác truyền thống yêu chuộng thiết bị quân sự bền bỉ."
+ VIE_dual_use_industry:0 "Phát triển Công nghiệp Lưỡng dụng"
+ VIE_dual_use_industry_desc:0 "Các nhà máy quốc phòng tham gia sản xuất thiết bị dân sự và các tập đoàn công nghệ dân sự tham gia nghiên cứu khí tài cho quân đội."
+ VIE_forest_protection:0 "Đóng cửa Rừng Tự nhiên và Trồng rừng"
+ VIE_forest_protection_desc:0 "Thực hiện lệnh đóng cửa rừng tự nhiên nghiêm ngặt, giao khoán bảo vệ rừng và đẩy mạnh trồng rừng phòng hộ đầu nguồn."
+ VIE_plastic_waste:0 "Hành động Chống Rác thải Nhựa"
+ VIE_plastic_waste_desc:0 "Loại bỏ dần các sản phẩm nhựa dùng một lần, đánh thuế môi trường và áp dụng trách nhiệm mở rộng của nhà sản xuất (EPR)."
+
+
+# ====================================================================
+# SECTION: VIE_md_l_english.yml
+# ====================================================================
+
+
+ ### Opinion modifiers
+ VIE_asean_cooperation:0 "Hợp tác ASEAN"
+ VIE_comprehensive_partnership:0 "Đối tác Toàn diện"
+ VIE_strategic_partnership:0 "Đối tác Chiến lược"
+ VIE_pro_china_shift:0 "Xích lại gần Trung Quốc"
+ VIE_western_pivot:0 "Ngả sang Phương Tây"
+ VIE_trade_agreement:0 "Hiệp định Thương mại"
+ VIE_arms_deal:0 "Hợp đồng Mua sắm Vũ khí"
+ VIE_nationalized_industry:0 "Quốc hữu hóa Tài sản Nước ngoài"
+ VIE_hd981_restraint:0 "Kiềm chế trong vụ HD-981"
+ VIE_hd981_defiance:0 "Cương quyết trong vụ HD-981"
+ VIE_hd981_appeal:0 "Kháng nghị Quốc tế vụ HD-981"
+ VIE_border_treaty:0 "Hiệp ước Biên giới"
+
+ ### Ideas
+ VIE_non_alignment_policy:0 "Độc lập và Tự chủ"
+ VIE_non_alignment_policy_desc:0 "Kể từ thập niên 1990, Hà Nội kiên trì theo đuổi đường lối đối ngoại độc lập, tự chủ, đa phương hóa, đa dạng hóa quan hệ quốc tế và không tham gia bất kỳ liên minh quân sự nào."
+ VIE_four_nos:0 "Chính sách Quốc phòng Bốn Không"
+ VIE_four_nos_desc:0 "Không tham gia liên minh quân sự; không liên kết với nước này để chống nước kia; không cho nước ngoài đặt căn cứ quân sự hoặc sử dụng lãnh thổ Việt Nam để chống lại nước khác; không sử dụng vũ lực hoặc đe dọa sử dụng vũ lực trong quan hệ quốc tế. Sách trắng Quốc phòng 2019 đã chính thức thể chế hóa học thuyết này."
+ VIE_us_bta_idea:0 "Hiệp định Thương mại Song phương Việt - Mỹ (BTA)"
+ VIE_us_bta_idea_desc:0 "Cánh cửa tiếp cận thị trường Mỹ đã mở ra cơ hội vàng cho hàng dệt may, thủy hải sản và da giày Việt Nam vươn tới phân khúc khách hàng tiềm năng mới."
+ VIE_fdi_zones_idea:0 "Khu Công nghiệp và Thu hút FDI"
+ VIE_fdi_zones_idea_desc:0 "Hàng loạt khu công nghiệp xung quanh Hà Nội và TP. Hồ Chí Minh thu hút mạnh mẽ các nhà sản xuất Nhật Bản, Hàn Quốc và Đài Loan."
+ VIE_wto_member:0 "Thành viên WTO"
+ VIE_wto_member_desc:0 "Tư cách thành viên Tổ chức Thương mại Thế giới đảm bảo sự tiếp cận thị trường toàn cầu và đặt các doanh nghiệp nhà nước vào khuôn khổ cạnh tranh khắt khe."
+ VIE_public_anger:0 "Làn sóng Phẫn nộ Dư luận"
+ VIE_public_anger_desc:0 "Tinh thần dân tộc dâng cao sau các vụ đối đầu căng thẳng quanh giàn khoan."
+ VIE_fdi_confidence_shock:0 "Cú Sốc Niềm tin Nhà đầu tư"
+ VIE_fdi_confidence_shock_desc:0 "Các nhà đầu tư nước ngoài đang đánh giá lại mức độ rủi ro sau các vụ gây rối đập phá."
+
+ ### Balance of power: Conservative <-> Reform
+ VIE_party_balance:0 "§YĐịnh hướng của Đảng§!"
+ VIE_party_balance_desc:0 "Trong nội bộ Đảng, một luồng ý kiến chủ trương thận trọng, giữ vững kỷ luật và đề cao khu vực kinh tế nhà nước; luồng ý kiến còn lại thúc đẩy cải cách thị trường sâu rộng và hội nhập quốc tế. Mọi quyết sách lớn đều tác động đến cán cân này."
+# [Duplicate skipped]  VIE_party_balance_category:0 "Quyết sách Định hướng của Đảng"
+# [Duplicate skipped]  VIE_party_balance_category_desc:0 "Các quyết sách điều hành vĩ mô, công tác tư tưởng, tổ chức cán bộ và cơ chế kinh tế nhằm tác động trực tiếp tới Cán cân Định hướng của Đảng."
+ VIE_conservative_side:0 "§CKiên định Nền tảng§!"
+ VIE_conservative_side_desc:0 "Ổn định chính trị, kỷ luật Đảng và vai trò chủ đạo của doanh nghiệp nhà nước phải được đặt lên hàng đầu."
+ VIE_reform_side:0 "§GĐổi mới Sâu rộng§!"
+ VIE_reform_side_desc:0 "Kinh tế thị trường, doanh nghiệp tư nhân và hội nhập quốc tế toàn diện là con đường dẫn tới sự thịnh vượng."
+ VIE_mid_range:0 "Đường lối Trung dung Cân bằng"
+ VIE_mid_range_desc:0 "§gBan lãnh đạo chèo lái khéo léo giữa hai khuynh hướng, giữ vững sự đoàn kết thống nhất trong Đảng.§!"
+ VIE_conservative_range:0 "Đường lối Thận trọng"
+ VIE_conservative_range_desc:0 "§gKỷ luật và ổn định chính trị được coi trọng hơn tốc độ tăng trưởng.§!"
+ VIE_hardline_range:0 "Đường lối Cứng rắn"
+ VIE_hardline_range_desc:0 "§gÝ thức hệ giáo điều chiếm ưu thế. Tăng trưởng kinh tế, thương mại và nghiên cứu khoa học chịu ảnh hưởng tiêu cực, song sự lãnh đạo của Đảng được bảo đảm an toàn tuyệt đối.§!"
+ VIE_reform_range:0 "Đường lối Canh tân Cải cách"
+ VIE_reform_range_desc:0 "§gPhe cải cách giành ưu thế: tăng trưởng nhanh hơn và thương mại khởi sắc, mức độ kiểm soát giảm nhẹ.§!"
+ VIE_radical_reform_range:0 "Cải cách Triệt để"
+ VIE_radical_reform_range_desc:0 "§gCải cách sâu rộng thúc đẩy tăng trưởng vượt bậc nhưng gây sức ép rất lớn lên khả năng kiểm soát của Đảng.§!"
+
+ ### Tooltips
+ VIE_e2_unlocked_tt:0 "Các tiêu điểm thuộc nhánh §YKhẳng định Chủ quyền Biển đảo§! hiện đã có thể lựa chọn."
+
+ ### Focuses
+ VIE_doi_moi_continues:0 "Tiếp tục Công cuộc Đổi Mới"
+ VIE_doi_moi_continues_desc:0 "Đường lối Đổi Mới khởi xướng từ năm 1986 tiếp tục là nền tảng vững chắc cho sự phát triển của Việt Nam. Ổn định trong nước và hội nhập quốc tế luôn đồng hành cùng nhau."
+ VIE_grassroots_democracy:0 "Quy chế Dân chủ Cơ sở"
+ VIE_grassroots_democracy_desc:0 "Tham vấn ý kiến nhân dân ở cấp thôn xóm, xã phường trao cho người dân tiếng nói trong các công việc địa phương và giải tỏa những bức xúc trước khi lan rộng."
+ VIE_anti_corruption_steering:0 "Ban Chỉ đạo Phòng chống Tham nhũng"
+ VIE_anti_corruption_steering_desc:0 "Một cơ quan trung ương nhằm điều phối toàn diện cuộc đấu tranh phòng chống tham nhũng. Điều này chắc chắn sẽ vấp phải sự kháng cự từ những kẻ từng trục lợi theo lề lối cũ."
+ VIE_enterprise_law:0 "Luật Doanh nghiệp"
+ VIE_enterprise_law_desc:0 "Từ tháng 1 năm 2000, công dân được tự do thành lập và kinh doanh trong mọi ngành nghề mà pháp luật không cấm. Hàng chục ngàn doanh nghiệp mới nhanh chóng ra đời."
+ VIE_bilateral_trade_agreement_usa:0 "Hiệp định Thương mại với Hoa Kỳ"
+ VIE_bilateral_trade_agreement_usa_desc:0 "Chỉ ít năm sau khi bình thường hóa quan hệ, Hà Nội và Washington đã ký kết hiệp định thương mại song phương mang tính lịch sử."
+ VIE_equitization_soes:0 "Cổ phần hóa Doanh nghiệp Nhà nước"
+ VIE_equitization_soes_desc:0 "Bán bớt cổ phần trong các doanh nghiệp nhà nước vừa tạo nguồn thu cho ngân sách vừa hiện đại hóa công tác quản trị, dù các cán bộ điều hành cũ không mấy hài lòng."
+ VIE_fdi_attraction:0 "Khu Công nghiệp và Thu hút FDI"
+ VIE_fdi_attraction_desc:0 "Các khu công nghiệp với giá thuê đất ưu đãi, miễn giảm thuế và nguồn điện ổn định đã thu hút mạnh mẽ các tập đoàn sản xuất nước ngoài về vùng đồng bằng sông Hồng và đồng bằng sông Cửu Long."
+ VIE_wto_negotiations:0 "Đàm phán Gia nhập WTO"
+ VIE_wto_negotiations_desc:0 "Hàng năm trời đàm phán song phương mở đường cho việc gia nhập tổ chức thương mại toàn cầu. Một thỏa thuận thương mại với Washington và mối quan hệ ấm dần lên với Hoa Kỳ sẽ rút ngắn chặng đường này."
+ VIE_border_settlement:0 "Hoàn tất Phân giới Cắm mốc Biên giới"
+ VIE_border_settlement_desc:0 "Hiệp ước biên giới trên đất liền được phê chuẩn, các cột mốc chủ quyền được dựng lên dọc đường biên. Việc loại bỏ các tranh chấp tồn đọng trong lịch sử giúp hai bên giao thương hòa bình."
+ VIE_asean_integration:0 "Đường lối Đối ngoại"
+ VIE_asean_integration_desc:0 "Đường lối đối ngoại độc lập, tự chủ, hòa bình, hợp tác và phát triển, đa phương hóa, đa dạng hóa quan hệ quốc tế: \"sẵn sàng là bạn, là đối tác tin cậy của các nước trong cộng đồng quốc tế\". ASEAN là mỏ neo trong khu vực, trên đó Việt Nam xây dựng quan hệ với các nước láng giềng, các nước lớn và các thiết chế đa phương toàn cầu."
+ VIE_assert_maritime_rights:0 "Khẳng định Chủ quyền Biển đảo"
+ VIE_assert_maritime_rights_desc:0 "Sau các cuộc chạm trán liên tiếp trên biển, Hà Nội công khai bảo vệ các tuyên bố chủ quyền của mình. §RĐiều này sẽ làm xấu đi mối quan hệ với Trung Quốc.§!"
+
+ ### Events: Party Congresses
+ vie_pol.2.t:0 "Đại hội Đảng lần thứ IX"
+ vie_pol.2.d:0 "Các đại biểu quy tụ về Hà Nội để bầu ra ban lãnh đạo Đảng cho nhiệm kỳ 5 năm tới. Tổng Bí thư Lê Khả Phiêu, xuất thân là một tướng lĩnh chính trị quân đội, nhận phải những ý kiến phê bình về tốc độ cải cách chậm và đường lối cứng rắn; trong khi đó, Chủ tịch Quốc hội Nông Đức Mạnh được coi là nhân vật dung hòa và tạo được sự đồng thuận cao."
+ vie_pol.2.a:0 "Đồng chí Nông Đức Mạnh trở thành Tổng Bí thư"
+ vie_pol.2.b:0 "Đồng chí Lê Khả Phiêu tái cử - Kiên định con đường Xã hội Chủ nghĩa"
+ vie_pol.3.t:0 "Đại hội Đảng lần thứ X"
+ vie_pol.3.d:0 "Năm năm tăng trưởng ổn định đã củng cố vững chắc uy tín của ban lãnh đạo. Đại hội diễn ra trong bầu không khí tự tin khi Việt Nam đang hoàn tất những bước chuẩn bị cuối cùng để gia nhập Tổ chức Thương mại Thế giới (WTO)."
+ vie_pol.3.a:0 "Tái bầu đồng chí Nông Đức Mạnh nhiệm kỳ thứ hai"
+ vie_pol.3.b:0 "Thông qua danh sách nhân sự mang khuynh hướng cải cách"
+ vie_pol.4.t:0 "Đại hội Đảng lần thứ XI"
+ vie_pol.4.d:0 "Lạm phát tăng cao, đại án nợ xấu Vinashin và những câu hỏi lớn xung quanh hiệu quả hoạt động của các tập đoàn kinh tế nhà nước đã khiến nội bộ Đảng trăn trở. Các đại biểu đã lựa chọn đồng chí Nguyễn Phú Trọng, một nhà lý luận nổi tiếng về tính kỷ luật và kiên định nền tảng, giữ cương vị Tổng Bí thư."
+ vie_pol.4.a:0 "Đồng chí Nguyễn Phú Trọng chèo lái con thuyền đất nước"
+ vie_pol.5.t:0 "Đại hội Đảng lần thứ XII"
+ vie_pol.5.d:0 "Kỳ Đại hội chứng kiến sự cạnh tranh quyết liệt nhất trong suốt một thế hệ. Nhóm ủng hộ Tổng Bí thư nhấn mạnh vào kỷ luật Đảng và cuộc chiến chống tham nhũng. Trong khi đó, nhóm Chính phủ do Thủ tướng Nguyễn Tấn Dũng đứng đầu đề xuất con đường tăng trưởng nhanh hơn, mang tính thực dụng cao hơn."
+ vie_pol.5.a:0 "Đồng chí Nguyễn Phú Trọng tái đắc cử Tổng Bí thư"
+ vie_pol.5.b:0 "Nhóm chủ trương của Chính phủ chiếm ưu thế"
+
+ ### Events: economy
+ vie_eco.1.t:0 "Việt Nam Chính thức Gia nhập WTO"
+ vie_eco.1.d:0 "Sau hơn một thập kỷ kiên trì đàm phán, Tổ chức Thương mại Thế giới chính thức phê chuẩn tư cách thành viên của Việt Nam. Thuế quan cắt giảm, các doanh nghiệp xuất khẩu tiếp cận được những thị trường mới rộng lớn, và khối doanh nghiệp nhà nước buộc phải đương đầu với sự cạnh tranh khốc liệt."
+ vie_eco.1.a:0 "Một chương mới mở ra cho nền kinh tế"
+ vie_eco.2.t:0 "Chuyên án Năm Cam"
+ vie_eco.2.d:0 "Công an đã bắt giữ ông trùm thế giới ngầm khét tiếng tại TP. Hồ Chí Minh, kẻ sở hữu mạng lưới bảo kê vươn sâu vào các cơ quan cảnh sát và viện kiểm sát. Các điều tra viên khẳng định các đầu mối còn dẫn tới những nhân vật quyền lực cao hơn nữa."
+ vie_eco.2.a:0 "Xử lý nghiêm minh mọi đối tượng, bất kể cấp bậc"
+ vie_eco.2.b:0 "Khoanh vùng và xử lý vụ án trong êm thấm"
+
+ ### Events: South China Sea (HD-981)
+ vie_scs.1.t:0 "Giàn khoan Hải Dương 981"
+ vie_scs.1.d:0 "Tổng công ty dầu khí nhà nước Trung Quốc đã kéo giàn khoan thăm dò nước sâu vào vùng biển gần Quần đảo Hoàng Sa mà Việt Nam khẳng định thuộc vùng đặc quyền kinh tế của mình. Hàng chục tàu thuyền Trung Quốc, trong đó có cả tàu quân sự, bao vây bảo vệ giàn khoan và hung hãn đâm va vào tàu Cảnh sát biển Việt Nam tới làm nhiệm vụ thực thi pháp luật."
+ vie_scs.1.a:0 "Kiên trì các biện pháp ngoại giao hòa bình"
+ vie_scs.1.b:0 "Điều động tàu Cảnh sát biển và Hải quân bám sát giàn khoan"
+ vie_scs.1.c:0 "Đưa vụ việc lên diễn đàn công luận quốc tế"
+ vie_scs.2.t:0 "Bạo loạn Chống Trung Quốc"
+ vie_scs.2.d:0 "Các cuộc tuần hành phản đối giàn khoan đã biến tướng thành bạo lực. Đám đông tại một số khu công nghiệp đã tấn công các nhà máy mà họ cho là của người Trung Quốc, trong khi nhiều cơ sở thực tế thuộc sở hữu của nhà đầu tư Đài Loan, Hàn Quốc và Singapore. Giới quản lý nước ngoài đang khẩn thiết yêu cầu sự bảo vệ."
+ vie_scs.2.a:0 "Lập tức vãn hồi trật tự an ninh"
+ vie_scs.2.b:0 "Để sự phẫn nộ lắng xuống một cách tự nhiên"
+ vie_scs.3.t:0 "Giàn khoan Rút lui"
+ vie_scs.3.d:0 "Sớm hơn dự kiến, phía Trung Quốc tuyên bố giàn khoan đã hoàn thành nhiệm vụ tác nghiệp và bắt đầu di chuyển đi nơi khác. Cơn sốt khủng hoảng dần hạ nhiệt khỏi các trang nhất mặt báo, song những bài học sâu sắc từ sự kiện này đã khắc sâu trong tâm trí ban lãnh đạo đất nước."
+ vie_scs.3.a:0 "Đánh giá lại tình hình và rút ra bài học"
+
+ ### Tổng Bí thư (khóa tên cho create_country_leader)
+ VIE_leader_le_kha_phieu:0 "Lê Khả Phiêu"
+ VIE_leader_nong_duc_manh:0 "Nông Đức Mạnh"
+ VIE_leader_nguyen_phu_trong:0 "Nguyễn Phú Trọng"
+ VIE_leader_nguyen_tan_dung:0 "Nguyễn Tấn Dũng"
+ VIE_leader_to_lam:0 "Tô Lâm"
+ VIE_leader_restored_party:0 "Hoàng Văn Tuấn"
+
+
+# ====================================================================
+# SECTION: VIE_md_menu_l_english.yml
+# ====================================================================
+
+
+ ### Country selection screen (bookmark)
+ VIE_MILLENNIUM_DAWN_DESC:0 "14 năm sau khi công cuộc Đổi Mới mở cửa nền kinh tế, Việt Nam trở thành một trong những quốc gia trỗi dậy nhanh nhất châu Á. Tăng trưởng đạt gần 7%, nông dân trở thành các nhà xuất khẩu gạo và cà phê hàng đầu, và một hiệp định thương mại song phương mang tính bước ngoặt với Hoa Kỳ sắp sửa được ký kết. Tuy nhiên, cuộc khủng hoảng tài chính châu Á đã để lại cho các ngân hàng và doanh nghiệp nhà nước gánh nặng nợ xấu, và nội bộ Đảng đang phân hóa giữa sự thận trọng của Tổng Bí thư Lê Khả Phiêu và những người muốn đẩy nhanh cải cách.\n\nĐất nước phải duy trì tăng trưởng mà không đánh mất quyền kiểm soát trong nước, đồng thời cân bằng giữa sức hút từ người láng giềng khổng lồ phương Bắc với ký ức về các cuộc chiến tranh trong quá khứ và mong muốn làm bạn với tất cả các quốc gia. Những lựa chọn trong các thập kỷ tới, tại các kỳ Đại hội Đảng và trên Biển Đông, sẽ quyết định diện mạo của một nước Việt Nam mới."
+
+ ### Custom Game Rules: Nation Buffs & Debuffs
+ custom_diff_strong_vie:0 "@VIE Tăng sức mạnh Việt Nam"
+ custom_diff_weak_vie:0 "@VIE Làm yếu Việt Nam"
+
+ ### Custom Game Rules: AI behaviour
+ VIE_AI_BEHAVIOR:0 "@VIE Việt Nam"
+
+
+# ====================================================================
+# SECTION: VIE_md_ai_path_l_english.yml
+# ====================================================================
+
+ VIE_AI_HISTORICAL_TEXT:0 "Lịch sử Việt Nam"
+ VIE_AI_HISTORICAL_DESC:0 "AI Việt Nam đi theo tiến trình chính trị, kinh tế và quốc phòng lịch sử."
+ VIE_AI_HARDLINE_TEXT:0 "Việt Nam cứng rắn"
+ VIE_AI_HARDLINE_DESC:0 "AI ưu tiên đường lối cứng rắn; chỉ tiếp quản khi các điều kiện gameplay hiện có cho phép."
+
+
+# ====================================================================
+# SECTION: VIE_md_shortcuts_l_english.yml
+# ====================================================================
+
+
+ ### Focus tree shortcut buttons (left-hand menu)
+ VIE_doi_moi_shortcut:0 "Con đường Đổi Mới"
+ VIE_congress_shortcut:0 "Đại hội Đảng"
+ VIE_finance_shortcut:0 "Ngân hàng và Tài chính"
+ VIE_industry_shortcut:0 "Tập đoàn Nhà nước và Công nghiệp"
+ VIE_army_shortcut:0 "Hiện đại hóa Quân đội"
+ VIE_east_sea_shortcut:0 "Biển Đông"
+ VIE_asean_shortcut:0 "Đường lối Đối ngoại"
+ VIE_digital_shortcut:0 "Quốc gia Số"
+ VIE_col_law_shortcut:0 "Pháp quyền & thể chế"
+
+
+# ====================================================================
+# SECTION: VIE_md_sec_l_english.yml
+# ====================================================================
+
+
+ VIE_sec_category:0 "Bộ máy An ninh"
+ VIE_sec_category_desc:0 "Các công cụ điều hành của nhà nước an ninh."
+ VIE_sec_dec_opinion_campaign:0 "Chiến dịch Dư luận"
+ VIE_sec_dec_opinion_campaign_desc:0 "Huy động bộ máy truyền thông và an ninh mạng để dập tắt các điểm nóng dư luận. Ổn định tăng, không gian chính trị thu hẹp."
+ VIE_sec_dec_fdi_screening:0 "Thẩm tra FDI"
+ VIE_sec_dec_fdi_screening_desc:0 "Mọi dự án đầu tư nước ngoài phải qua vòng thẩm tra an ninh; phần vốn bị định hướng lại chảy về các tập đoàn an ninh. Hội nhập và thị trường bị thu hẹp."
+ VIE_sec_dec_purge_disloyal:0 "Cách chức Cán bộ không Trung thành"
+ VIE_sec_dec_purge_disloyal_desc:0 "Loại bỏ những cán bộ bị nghi ngờ lòng trung thành và tịch thu tài sản phát sinh. Ổn định giảm nhẹ, nỗi sợ lan trong bộ máy."
+ VIE_sec_dec_social_credit:0 "Điểm Tín nhiệm Xã hội"
+ VIE_sec_dec_social_credit_desc:0 "Thưởng và phạt công dân theo điểm tín nhiệm lập từ dữ liệu giám sát. Ổn định tăng; chưa có Trung tâm Dữ liệu Quốc gia thì việc chấm điểm tốn kém."
+ VIE_sec_dec_freeze_assets:0 "Đóng băng Tài sản Đối lập"
+ VIE_sec_dec_freeze_assets_desc:0 "Dữ liệu tài chính tập trung cho phép phong tỏa quỹ của các nhóm đối lập và tịch thu. Ngân khố được bổ sung, giới kinh doanh bất an."
+
+
+# ====================================================================
+# SECTION: VIE_disaster_l_english.yml
+# ====================================================================
+
+
+ ### Focuses - Disaster, Climate & Ecological Security
+
+
+
+
+
+
+
+ VIE_jetp_partnership:0 "Đối tác Năng lượng Công bằng JETP"
+ VIE_jetp_partnership_desc:0 "Ký kết thỏa thuận chính trị lịch sử với khối G7 và Liên minh Châu Âu, huy động 15,5 tỷ USD tài chính xanh. Nguồn lực quốc tế giúp Việt Nam đóng cửa dần các lò than cũ, dọn đường cho kỷ nguyên điện gió ngoài khơi."
+
+ ### Ideas
+ VIE_military_rescue_idea:0 "Binh chủng Cứu nạn Quân sự"
+ VIE_military_rescue_idea_desc:0 "Các trung đoàn công binh và không quân trực thăng được huấn luyện thường trực ứng phó thiên tai, tăng cường khả năng tổ chức và phòng thủ lãnh thổ."
+
+ ### Events
+ vie_disaster.1.t:0 "Siêu bão Biển Đông Đổ bộ Miền Trung & Vịnh Bắc Bộ"
+ vie_disaster.1.d:0 "Một siêu bão cuồng phong với sức gió giật trên cấp 16 đang càn quét dọc bờ biển miền Trung và vịnh Bắc Bộ. Mưa lớn xối xả đe dọa gây ngập lụt diện rộng, vỡ đê và sạt lở đất kinh hoàng tại các sườn đồi núi dốc. Toàn bộ chính quyền các cấp đã được đặt vào tình trạng báo động đỏ."
+ vie_disaster.1.a:0 "Toàn hệ thống và quân đội vào cuộc - Bảo vệ tính mạng nhân dân là trên hết!"
+ vie_disaster.1.b:0 "Tập trung tối đa lực lượng khắc phục sự cố tại các điểm nóng."
+ vie_disaster.1.c:0 "Hạ tầng tan hoang, thiệt hại hàng ngàn tỷ đồng..."

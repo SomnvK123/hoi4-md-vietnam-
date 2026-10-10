@@ -1,0 +1,1078 @@
+{
+  "baseline_commit": "b63e463648b4d1a043f51f8b5b2add69afbea56a",
+  "baseline_count": 317,
+  "focuses": [
+    {
+      "code": "L0",
+      "id": "VIE_lf_root_modern_army",
+      "icon": "GFX_focus_VIE_lf_selective_modernization",
+      "xy": [
+        182,
+        2
+      ],
+      "groups": [
+        [
+          "ROOT"
+        ]
+      ],
+      "anchor": "ROOT",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "D1",
+      "id": "VIE_lf_territorial_defense_foundation",
+      "icon": "GFX_focus_VIE_lf_dev_territorial",
+      "xy": [
+        174,
+        4
+      ],
+      "groups": [
+        [
+          "L0"
+        ]
+      ],
+      "anchor": "L0",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "D2",
+      "id": "VIE_lf_local_forces_militia",
+      "icon": "GFX_focus_VIE_lf_basic_training",
+      "xy": [
+        172,
+        5
+      ],
+      "groups": [
+        [
+          "D1"
+        ]
+      ],
+      "anchor": "D1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "D3",
+      "id": "VIE_lf_reserve_mobilization",
+      "icon": "GFX_focus_VIE_lf_fs_militia_units",
+      "xy": [
+        176,
+        5
+      ],
+      "groups": [
+        [
+          "D1"
+        ]
+      ],
+      "anchor": "D1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "D4",
+      "id": "VIE_lf_strategic_defense_zones",
+      "icon": "GFX_focus_VIE_lf_dev_territorial",
+      "xy": [
+        172,
+        6
+      ],
+      "groups": [
+        [
+          "D2"
+        ]
+      ],
+      "anchor": "D2",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "D5",
+      "id": "VIE_lf_fortifications_defense_sites",
+      "icon": "GFX_focus_VIE_lf_fs_depth_defence",
+      "xy": [
+        176,
+        6
+      ],
+      "groups": [
+        [
+          "D3"
+        ]
+      ],
+      "anchor": "D3",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "D6",
+      "id": "VIE_lf_local_logistics_stockpiles",
+      "icon": "GFX_focus_VIE_lf_logistics_merge",
+      "xy": [
+        174,
+        7
+      ],
+      "groups": [
+        [
+          "D4"
+        ],
+        [
+          "D5"
+        ]
+      ],
+      "anchor": "D4",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "D7",
+      "id": "VIE_lf_coordination_regular_local",
+      "icon": "GFX_focus_VIE_lf_combined_arms",
+      "xy": [
+        174,
+        8
+      ],
+      "groups": [
+        [
+          "D6"
+        ]
+      ],
+      "anchor": "D6",
+      "cost": 5,
+      "year": 2010
+    },
+    {
+      "code": "D8",
+      "id": "VIE_lf_active_defense_in_depth",
+      "icon": "GFX_focus_VIE_lf_cap_area_control",
+      "xy": [
+        174,
+        9
+      ],
+      "groups": [
+        [
+          "D7"
+        ]
+      ],
+      "anchor": "D7",
+      "cost": 7,
+      "year": 2020
+    },
+    {
+      "code": "B1",
+      "id": "VIE_lf_standardize_infantry_structure",
+      "icon": "GFX_focus_VIE_lf_army_reform",
+      "xy": [
+        182,
+        4
+      ],
+      "groups": [
+        [
+          "L0"
+        ]
+      ],
+      "anchor": "L0",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "B2",
+      "id": "VIE_lf_combined_arms_readiness",
+      "icon": "GFX_focus_VIE_lf_basic_training",
+      "xy": [
+        182,
+        5
+      ],
+      "groups": [
+        [
+          "B1"
+        ]
+      ],
+      "anchor": "B1",
+      "cost": 5,
+      "year": 2015
+    },
+    {
+      "code": "B3",
+      "id": "VIE_lf_infantry_modern_equipment",
+      "icon": "GFX_focus_VIE_lf_arm_infantry_org",
+      "xy": [
+        178,
+        6
+      ],
+      "groups": [
+        [
+          "B2"
+        ]
+      ],
+      "anchor": "B2",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "B4",
+      "id": "VIE_lf_combat_engineers",
+      "icon": "GFX_focus_VIE_lf_arm_engineers",
+      "xy": [
+        182,
+        6
+      ],
+      "groups": [
+        [
+          "B2"
+        ]
+      ],
+      "anchor": "B2",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "B5",
+      "id": "VIE_lf_ground_artillery_modernization",
+      "icon": "GFX_focus_VIE_lf_arm_arty_org",
+      "xy": [
+        186,
+        6
+      ],
+      "groups": [
+        [
+          "B2"
+        ]
+      ],
+      "anchor": "B2",
+      "cost": 7,
+      "year": 2010
+    },
+    {
+      "code": "B6",
+      "id": "VIE_lf_tactical_air_defense",
+      "icon": "GFX_focus_VIE_lf_cap_army_ad",
+      "xy": [
+        186,
+        7
+      ],
+      "groups": [
+        [
+          "B5"
+        ]
+      ],
+      "anchor": "B5",
+      "cost": 5,
+      "year": 2010
+    },
+    {
+      "code": "B7",
+      "id": "VIE_lf_recon_tactical_command",
+      "icon": "GFX_focus_VIE_lf_cap_info_ops",
+      "xy": [
+        180,
+        7
+      ],
+      "groups": [
+        [
+          "B3"
+        ],
+        [
+          "B4"
+        ]
+      ],
+      "anchor": "B3",
+      "cost": 5,
+      "year": 2020
+    },
+    {
+      "code": "B8",
+      "id": "VIE_lf_operational_logistics_maintenance",
+      "icon": "GFX_focus_VIE_lf_logistics_merge",
+      "xy": [
+        182,
+        8
+      ],
+      "groups": [
+        [
+          "B6"
+        ],
+        [
+          "B7"
+        ]
+      ],
+      "anchor": "B7",
+      "cost": 7,
+      "year": 2010
+    },
+    {
+      "code": "I1",
+      "id": "VIE_lf_ind_production_governance",
+      "icon": "GFX_focus_VIE_lf_army_reform",
+      "xy": [
+        192,
+        4
+      ],
+      "groups": [
+        [
+          "L0"
+        ]
+      ],
+      "anchor": "L0",
+      "cost": 7,
+      "year": 2010
+    },
+    {
+      "code": "I2",
+      "id": "VIE_lf_ind_precision_z131",
+      "icon": "GFX_focus_VIE_lf_arm_arty_train",
+      "xy": [
+        190,
+        5
+      ],
+      "groups": [
+        [
+          "I1"
+        ]
+      ],
+      "anchor": "I1",
+      "cost": 7,
+      "year": 2010
+    },
+    {
+      "code": "I3",
+      "id": "VIE_lf_ind_armor_structures",
+      "icon": "GFX_focus_VIE_lf_arm_armor_org",
+      "xy": [
+        194,
+        5
+      ],
+      "groups": [
+        [
+          "I1"
+        ]
+      ],
+      "anchor": "I1",
+      "cost": 7,
+      "year": 2015
+    },
+    {
+      "code": "I4",
+      "id": "VIE_lf_ind_xcb01_design",
+      "icon": "GFX_focus_VIE_lf_arm_armor_train",
+      "xy": [
+        192,
+        6
+      ],
+      "groups": [
+        [
+          "I2"
+        ],
+        [
+          "I3"
+        ]
+      ],
+      "anchor": "I2",
+      "cost": 7,
+      "year": 2022
+    },
+    {
+      "code": "I5",
+      "id": "VIE_lf_ind_serial_ground_equipment",
+      "icon": "GFX_focus_VIE_lf_force_complete",
+      "xy": [
+        192,
+        7
+      ],
+      "groups": [
+        [
+          "I4"
+        ]
+      ],
+      "anchor": "I4",
+      "cost": 7,
+      "year": 2025
+    },
+    {
+      "code": "P1",
+      "id": "VIE_lf_p1_strategic_defense",
+      "icon": "GFX_focus_VIE_lf_fs_depth_defence",
+      "xy": [
+        174,
+        10
+      ],
+      "groups": [
+        [
+          "B8"
+        ]
+      ],
+      "anchor": "B8",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "P2",
+      "id": "VIE_lf_p2_multi_layered_defense",
+      "icon": "GFX_focus_VIE_lf_fs_depth_defence",
+      "xy": [
+        172,
+        11
+      ],
+      "groups": [
+        [
+          "P1"
+        ]
+      ],
+      "anchor": "P1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "P3",
+      "id": "VIE_lf_p3_operational_reserves",
+      "icon": "GFX_focus_VIE_lf_fs_main_corps",
+      "xy": [
+        176,
+        11
+      ],
+      "groups": [
+        [
+          "P1"
+        ]
+      ],
+      "anchor": "P1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "P4",
+      "id": "VIE_lf_p4_defensive_anti_breakthrough_firepower",
+      "icon": "GFX_focus_VIE_lf_arm_arty_org",
+      "xy": [
+        172,
+        12
+      ],
+      "groups": [
+        [
+          "P2"
+        ]
+      ],
+      "anchor": "P2",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "P5",
+      "id": "VIE_lf_p5_protracted_combat_sustainment",
+      "icon": "GFX_focus_VIE_lf_dev_territorial",
+      "xy": [
+        176,
+        12
+      ],
+      "groups": [
+        [
+          "P3"
+        ]
+      ],
+      "anchor": "P3",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "P6",
+      "id": "VIE_lf_p6_active_defense_counterattack",
+      "icon": "GFX_focus_VIE_lf_cap_area_control",
+      "xy": [
+        174,
+        13
+      ],
+      "groups": [
+        [
+          "P4"
+        ],
+        [
+          "P5"
+        ]
+      ],
+      "anchor": "P4",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "M1",
+      "id": "VIE_lf_m1_combined_arms_mechanized",
+      "icon": "GFX_focus_VIE_lf_arm_armor_org",
+      "xy": [
+        182,
+        10
+      ],
+      "groups": [
+        [
+          "B8"
+        ]
+      ],
+      "anchor": "B8",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "M2",
+      "id": "VIE_lf_m2_armor_combat_readiness",
+      "icon": "GFX_focus_VIE_lf_arm_armor_train",
+      "xy": [
+        180,
+        11
+      ],
+      "groups": [
+        [
+          "M1"
+        ]
+      ],
+      "anchor": "M1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "M3",
+      "id": "VIE_lf_m3_mechanized_infantry_formations",
+      "icon": "GFX_focus_VIE_lf_combined_arms",
+      "xy": [
+        184,
+        11
+      ],
+      "groups": [
+        [
+          "M1"
+        ]
+      ],
+      "anchor": "M1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "M4",
+      "id": "VIE_lf_m4_mobile_fire_support",
+      "icon": "GFX_focus_VIE_lf_arm_arty_train",
+      "xy": [
+        180,
+        12
+      ],
+      "groups": [
+        [
+          "M2"
+        ]
+      ],
+      "anchor": "M2",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "M5",
+      "id": "VIE_lf_m5_operational_combined_arms_units",
+      "icon": "GFX_focus_VIE_lf_fs_lean_corps",
+      "xy": [
+        184,
+        12
+      ],
+      "groups": [
+        [
+          "M3"
+        ]
+      ],
+      "anchor": "M3",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "M6",
+      "id": "VIE_lf_m6_operational_mechanized_counteroffensive",
+      "icon": "GFX_focus_VIE_lf_force_complete",
+      "xy": [
+        182,
+        13
+      ],
+      "groups": [
+        [
+          "M4"
+        ],
+        [
+          "M5"
+        ]
+      ],
+      "anchor": "M4",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "R1",
+      "id": "VIE_lf_r1_flexible_mobile_warfare",
+      "icon": "GFX_focus_VIE_lf_fs_mobile_force",
+      "xy": [
+        192,
+        10
+      ],
+      "groups": [
+        [
+          "B8"
+        ]
+      ],
+      "anchor": "B8",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "R2",
+      "id": "VIE_lf_r2_modernize_mobile_infantry",
+      "icon": "GFX_focus_VIE_lf_arm_infantry_train",
+      "xy": [
+        190,
+        11
+      ],
+      "groups": [
+        [
+          "R1"
+        ]
+      ],
+      "anchor": "R1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "R3",
+      "id": "VIE_lf_r3_terrain_adaptive_warfare",
+      "icon": "GFX_focus_VIE_lf_cap_border_urban",
+      "xy": [
+        194,
+        11
+      ],
+      "groups": [
+        [
+          "R1"
+        ]
+      ],
+      "anchor": "R1",
+      "cost": 5,
+      "year": 0
+    },
+    {
+      "code": "R4",
+      "id": "VIE_lf_r4_tactical_motorized_mobility",
+      "icon": "GFX_focus_VIE_lf_arm_infantry_org",
+      "xy": [
+        190,
+        12
+      ],
+      "groups": [
+        [
+          "R2"
+        ]
+      ],
+      "anchor": "R2",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "R5",
+      "id": "VIE_lf_r5_rapid_reaction_corps",
+      "icon": "GFX_focus_VIE_lf_fs_mobile_corps",
+      "xy": [
+        194,
+        12
+      ],
+      "groups": [
+        [
+          "R3"
+        ]
+      ],
+      "anchor": "R3",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "R6",
+      "id": "VIE_lf_r6_terrain_maneuver_mastery",
+      "icon": "GFX_focus_VIE_lf_cap_info_ops",
+      "xy": [
+        192,
+        13
+      ],
+      "groups": [
+        [
+          "R4"
+        ],
+        [
+          "R5"
+        ]
+      ],
+      "anchor": "R4",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "F1",
+      "id": "VIE_lf_modernize_army_command_system",
+      "icon": "GFX_focus_VIE_lf_command_reform_2",
+      "xy": [
+        182,
+        15
+      ],
+      "groups": [
+        [
+          "P6",
+          "M6",
+          "R6"
+        ]
+      ],
+      "anchor": "M6",
+      "cost": 7,
+      "year": 0
+    },
+    {
+      "code": "F2",
+      "id": "VIE_lf_modern_elite_combined_army_capstone",
+      "icon": "GFX_focus_VIE_lf_command_reform_3",
+      "xy": [
+        182,
+        16
+      ],
+      "groups": [
+        [
+          "F1"
+        ],
+        [
+          "D8"
+        ]
+      ],
+      "anchor": "F1",
+      "cost": 7,
+      "year": 0
+    }
+  ],
+  "preserved_focuses": {
+    "VIE_doi_moi_continues": "e099f3beb0a97d223a7702a85eba4926ac4d16074ddb901978244a65842c1c59",
+    "VIE_grassroots_democracy": "5534748050ca9008bae73ec4700092c87466c2155d7a9bb0649daeb576e5bb23",
+    "VIE_anti_corruption_steering": "e41d5c8fb679d8a1169125bdf750ca679431c5f1ff8c1e23b2b14ac8257f2e01",
+    "VIE_prepare_congress_9": "65fbfd58645c01574685ce7acba01c8e6b6a63d38799294319ed43b58fad0da1",
+    "VIE_resolution_congress_9": "584c6bce194e5f9bcce5153b789a755ab90fcceb9baf49ac5156467ddb52498d",
+    "VIE_resolution_congress_10": "d36b7fd71cae1c73e87be6f3a87d504b937fc6b441e020c65900adf13cae3bfa",
+    "VIE_resolution_congress_11": "a5ba40a59e55b8bcac34bc3988484bc1a7f1229be9d7a9d4f874bec1d38fa13d",
+    "VIE_resolution_congress_12": "67ff228fcc91cff06f7369d4da068b250bf3a0dc15309317199786d7931419ad",
+    "VIE_resolution_congress_13": "c390b145834ca2e8d6be9cbc685006e4b1c40a254824ae9270ecbed97c35814f",
+    "VIE_resolution_congress_14": "4829943e113cd4d231a3c386c74d3c3137492267273e503589e15cd5df4b71e5",
+    "VIE_party_members_private_business": "6d96b49bdacd09c923847530bfdcab6cf75caea2cff76fa2878dd6562f58dcee",
+    "VIE_platform_2011": "448f6e549c9e9618d25598be0f44cdb2a73b828a902082f8a35aa0e7a96b7e5a",
+    "VIE_tw4_party_building": "1b638fbe9a6e66ebe9d9d3d0448894a810dfd316d7e0cb7849c9ff134ba2895e",
+    "VIE_hl_unity_of_will": "9b2f3fbddbd567eda22309897c4ff71a65c1c418e5fc9156fde5646b2e0fa7dd",
+    "VIE_hl_ideological_foundation": "ce60608eb061dc76cef2b49e33cda5acf98736d292be882d8597185134db89b6",
+    "VIE_hl_party_rectification": "eac9ad9b21bec1b727d4b1646cfe3b1478f17bcd5499924d90e364b601b29d03",
+    "VIE_hl_party_leads_army": "4379ba31127821139cdf778acb4d8fac67a40e263c731ed3d46bbb860fed5afe",
+    "VIE_hl_party_diplomacy": "dd4697e68b8bcfd36ca3b5e5d686fe1fbe4273c05a50a6e2a9bf9c45f7c03ad4",
+    "VIE_hl_cyber_ideology": "4d993f417e038707ea1f37a4941cacdf880762320cac4b1abff1c191b2dedfd7",
+    "VIE_hl_school_theory": "e4d24974083f7abe123292084f58d0ea5158b1040408359bf637732d4836b8db",
+    "VIE_hl_state_sector_leading": "8c16044f25c2eca510d81fffc4adf273eddcfc7b2a171baae34f42ca165bd331",
+    "VIE_hl_cadre_centralisation": "1fc4d04dabcd5753a2ed52dc4a13b49717a2da4add4529d55f1e69534fe85488",
+    "VIE_sec_public_order": "8f5deca6f480e388eec137d214ea7be58e8d3a8879ba8d766f4f29d7b145342a",
+    "VIE_hl_army_political_education": "7b78e586839394739f6b18428f461297d21a2bc3c324f5d244c674f10af1d670",
+    "VIE_hl_no_dependence": "869708633ef85f62cc78fd3094b58be02d97a8790beab1a7f647e84bc3812803",
+    "VIE_sec_surveillance_network": "8562bd45ee3216bc3dee2a3c41622c1f781d612a2260f572af5677c6af6cec04",
+    "VIE_hl_press_planning": "a9e7dc62c9b6cf2ac15a33d93ec6c8cacfbd1e6750b35e931c68fa6b1c7347e2",
+    "VIE_hl_key_sectors": "82f72a75a05cfd45a9d6cd16e133eef6c7fea93d02fcfb1e74d4c12a001b3ad0",
+    "VIE_hl_soe_spearhead": "1ebdce2852a870b7cd95e72af86590da19bd8d0920b267edc15c44bc0d531939",
+    "VIE_hl_no_party_business": "74b00c70def72bfaa75b3277cd380ed25ccdc917062310d15fcff728a4bc2ee8",
+    "VIE_sec_border_control": "e3da43afef4d3052b5b0c2a3248bef28e6f6a27251f99b0d0536382d625dc7c9",
+    "VIE_hl_all_people_defence": "a421937b14581caafeb84154144f99c9d6a5f88401e2019029f048ef6986d664",
+    "VIE_hl_selective_partners": "ece87a3656568f50da300cac9441c82fb2738456f854dec4bdf9ffa1b0018d52",
+    "VIE_sec_cyber_sovereignty": "3befaa444c5e54fef4413ee683b26b4174886a24d52afbc1f510474168d5ed95",
+    "VIE_hl_fatherland_front": "f8db73b27e9cd29d1c61963d1ff62559f35ac3a5057317facc50d144cc990db1",
+    "VIE_hl_selective_fdi": "ea150f6fbcaebde413c06ec3edbd73879afbf0a506467746a5f7eb4f5a04be51",
+    "VIE_sec_state_data_center": "b98555ddbaa156d50a3c92ba412fc8798a2072f5965f8e624961b321bb8b56be",
+    "VIE_hl_party_defence_industry": "313c661bedd79745ef06b90b43f01823ac217392b6a1b510b660f846f9bddfce",
+    "VIE_hl_five_year_plan": "cdc7b363892419308f641058f2a3f1b14e37cbaa9f172050aaf6a118961a4161",
+    "VIE_hl_term_review": "c761132b105c0db92be45d831b7cc411d8176e71c9e33fcb40efe82e6880a258",
+    "VIE_hl_steadfast_renewal": "1b9d6950a7574c70c1bc30036dc66732cd13f2669ee477ac820a84ae62b8c7ae",
+    "VIE_hl_party_state_fusion": "1b301907968c9afbb6162a92d26ec55bac252117d7ac56cc1166195a12dcaca7",
+    "VIE_hl_handover": "de10eaa4deff9572dd04bacc9f5f2ddf9ab1b8ee3003015890c191795e6174e7",
+    "VIE_enterprise_law": "ad2fd53661d2090ec73a748ab50ffce3069c9177e68d52357616f6f36a961301",
+    "VIE_sez_three_zones": "8418288e16e97af257305f5d1cf3581c39207acd705db4ad1065dfac9c0d8de9",
+    "VIE_sez_postpone": "3ec2225234dc8f46e538da2118ce970001190035a46cb46d35bc029bf93afced",
+    "VIE_sez_pass_99": "f018063cf8cb2ba7f1922d881c6bd23019d8bc03141e017aa0f93bf3bd7dcc62",
+    "VIE_island_special_zones": "fb5be56025e03ffdbfe2604b3c9be7e0019ba26cc88b386fb15a6bdfdfcc1b27",
+    "VIE_sez_strategic_investors": "ef1a4fb11299039ebe72c9c2e0327d04f653ab8859b30bc43263b87afed2e3ce",
+    "VIE_bilateral_trade_agreement_usa": "f2026aff1aaa0ffa529ea656c9fae102c2daacd3eb4fb655fadbdab032e65933",
+    "VIE_equitization_soes": "4eec25c4c18ffc88dca66b6ea95d833005f3fa92661c09dfd60e4d702662e1f0",
+    "VIE_fdi_attraction": "86a5f1fec912f962e1359db916a40a166c433c0489163ff2e2540dc51261434b",
+    "VIE_wto_negotiations": "ccc55b468c450a0d6e6657d4f337002d02bce757ff9d0a006a7410b47be680a2",
+    "VIE_infrastructure_development": "f506e30e4d672f4c07644e4f5164d611bb014cedd42c6a97d33ef5992affb108",
+    "VIE_transport_strategy_2004": "33c44be5d642c2ed0f24b2fbab0e0b883a622da7830bc679347d9d3efbc6f7ab",
+    "VIE_expressway_bot": "1d06f872d223a5ed62260663437e7fdc5a0e8bbbf2188ee835d0bbfa26dd58df",
+    "VIE_expressway_public_investment": "9e736c7ea63a12b5137994264febe8cb32f6f87a86fce0b2f2e11c057fc1a3e3",
+    "VIE_north_south_expressway": "cffbb402577ebb9538a2851fb17459d484021cadb3fe902e5a77ec4c85d49364",
+    "VIE_expressway_regional_links": "cb869dfaa55e5fcd18aa9b449b35f9fdd81ce907cfc899103b1899ecc129d4c6",
+    "VIE_expressway_5000km_2030": "989781e452c26784a50f255a28ef60e51ef1e64a51cad71bfe2b6a458886703c",
+    "VIE_railway_national_program": "90570d28cc389cb17a55a9e1b6069c8bd30dd860fa5ec4c412d0f1814733d364",
+    "VIE_reunification_line_upgrade": "4ed3500151cda48fa72ba9b5fd24bc07f734651e5c596abe598c6989527844b0",
+    "VIE_urban_rail_program": "3bb56fd056d110e6bef4187844e6a126ca8d4e4dd1711603bda0986244b31b46",
+    "VIE_north_south_hsr": "a47b723b952536bda30933e18fb3d2fd5181e8ab6f638ea039189ddefdca19e9",
+    "VIE_rail_technology_transfer": "2627b30c5d1431a58030c8ed4101ea345e6e81d2668366a7c467ae7985d8d1ac",
+    "VIE_modern_rail_network": "769c222119702d0f001749396b8c8b941a0c17e85cfe8be780640bae1757f081",
+    "VIE_national_deepwater_ports": "76e03e689a08cb25a7c42c1394fb6256a714c6f333656504f09201ed19d9b3e6",
+    "VIE_logistics_strategy": "081bca86303af3dbbea1467e73eafe3718c4e2fe6670a7ddb2a135b8ee535ca8",
+    "VIE_multimodal_transport": "e82dc65be5e88d87b683aba4bf01bfa3fd50d1277bcac32e517b44bcbe904eca",
+    "VIE_airport_master_plan": "65b5cd733658100970f4c1a994a9ec86a3ce45170b132985294c0e26e13e97ac",
+    "VIE_socialized_airports": "c6db5052c7b7a952c3263f370758671e3e5e9ccfd93a35d024ddad4a7b4f2b72",
+    "VIE_acv_monopoly": "ad28ff118b6307125aa2a8beb7dbabfae2c2cdebf07ba6d004b99873b6e81453",
+    "VIE_airport_network_2030": "162049a90993d58d8a565c00f72fe45c218c15178bc26a4a358f4ff81a02b375",
+    "VIE_long_thanh_airport": "f6222635054f3cb999c0f7bf66b494a257c2c5881070cb18e6c4b212a44d5911",
+    "VIE_synchronized_infrastructure_2030": "8a5384e8c0a92455a67586aaae6df1d260a5121d881e0c751e37b58b9f70e701",
+    "VIE_industrialization_strategy": "718fac05d822afcc73ed34850af46226e133934911770185a4692c46c69c575f",
+    "VIE_supporting_industries": "a33c434033e161606b7f3e2ef9c5a4eb3855977614f168dfc3d56b2c958877f2",
+    "VIE_vinashin_restructuring_sbic": "2e97ba21a65b7645762ccc88cb2a07721639e77e5ca42ce0ac8deadb74743ce3",
+    "VIE_national_steel_program": "bbe4c6129e134fe3e2098a0e903e78f6177a5c468918697cbfd71a6fa1e9e31f",
+    "VIE_textile_garment_exports": "c6754a223cf7f169649275de83f88be705b7a56659b6d68e7d64891854b82968",
+    "VIE_domestic_automotive": "9a2d540af5513b8c718ebdbf7a280557bcdb01b6ef930f4c223ebfd5ceb1ead1",
+    "VIE_electronics_export_program": "4347df4ed15f63b163ef20ad432b4bb1aaf8d93d908bd42afe3739d730589a99",
+    "VIE_chip_engineers": "3f8e0d2b8d57f10079b48cbf924ecca2339e2cec5d69a81fb41c6815ce441f66",
+    "VIE_ev_revolution_batteries": "4cf99071a1ed48e483a7258ae01b27b66056e50b4ce86693cea718212e40d5f9",
+    "VIE_fdi_fast_track": "18c2fda72b40d1b7bd665d913bc2b6aa0110a860f3cdd0d04c912a1e42426feb",
+    "VIE_fdi_technology_screening": "40941908e8cfa3271c0463590cd2f7d2dc15fc17fb300000d3b401d9a74c358f",
+    "VIE_chip_design_packaging_priority": "3fd9e00084d7d5817019e6cb5c9068efc7bf079b5737b0128f6a920479764798",
+    "VIE_chip_pilot_fab_priority": "aa773ba3e05b874452545b1290f320bdcd5e80bb481d234d3468000c33624211",
+    "VIE_shipbuilding_joint_ventures": "a56cf84279be84772bf81785410b60bb1747775b983be206c64211564e4511ea",
+    "VIE_hoa_phat_hrc_steel": "3e6e696352f3529b38b763b72895685b848e3d97e12662c45bf93686eef519df",
+    "VIE_green_textiles": "6163bd86440d728e1c2ecda2b385d5cd465c83aea5aa2773d3e5c4dcdc3e4b93",
+    "VIE_global_auto_export": "2f9fcbba8ab71b29dce796f4f52ba1f73a8822f6fea83a22a2650139a03367c2",
+    "VIE_apple_supply_chain": "245dd69a4a86518abea7a9b4d2fa4a8b27bea81c659de824230f7401619f0b18",
+    "VIE_chip_design": "cab5cbce869531f532058a6b3f66badfceb9028cb782c7e0b88c2750d46790c2",
+    "VIE_osat_packaging": "2d888b4bd0f8a473d5d0fa91d537845ef30a1a761e7406f17f1069e59eb430c9",
+    "VIE_manufacturing_hub": "947dd2529ae095c473ee0b3b367421fe9135563d5f5e878ec457c580139efc37",
+    "VIE_semiconductor_fab": "d25053e393a1b017a99513ead38f66a3d781df11b10a38a8256e91b31e5ed09e",
+    "VIE_industrial_productivity_program": "cdcddedf65ca13b633053d7d5aed07e9116d8b92da891d1c6a341ffaaac93dbc",
+    "VIE_modern_industrial_nation_2030": "435ed8d8b738707073955eb65ac1dfc66179f283bfbdd6f37f9d84570374d21a",
+    "VIE_vinacomin_founding": "88200af5d55fc80e90b4d8c025f0c57925a42ec6af1087b07094223db752e770",
+    "VIE_asean_integration": "f7d6dd0a584a02cf75f922bc7ec90ab2f0c703250212f36de879ed47b9a90736",
+    "VIE_border_settlement": "ce0391086e43271ed4b172929633a32810bb2d78f09f4ad3ef50f1e7de04f0ff",
+    "VIE_law_of_the_sea": "fef1332f1eb17599c842d2e67feb3cde0e54e130d01eb0618c81af63356e9ebc",
+    "VIE_maritime_militia": "625139b0128637b189c88d218d0fc8bac05cc505f80e5858da54c0658dd40d6a",
+    "VIE_fisheries_surveillance": "523ab3af86e575564e9282b563fbc2c54e601d6552481447939a07b0fb909643",
+    "VIE_dk1_platforms": "82e9eac0dd3a13f630daf338b5fcd3289e34a9fc888da6ec80ce9d1e6ea45b46",
+    "VIE_legal_warfare": "edc1a13f19a6cdb6d0e127b1afb37e0bf5be8b8a93b17762b2bfe26a29d0c071",
+    "VIE_spratly_fortification": "77b8ffded1c843b0b7585f331b3183cd8620140831301005ee5d9cac0b9e2656",
+    "VIE_coast_guard_law": "39a2a5bcf0569d5f7892435e53ba6e69a573a580bcbaa6fc537f153830df05e5",
+    "VIE_assert_maritime_rights": "b03999baee96740c03ffad13c1beb217655cd5ccdbde438e5bfa93082a0a12af",
+    "VIE_paracel_ultimatum": "305ec1060bf49625737321e9c0a3c2fd45292feaa0f18631fb6fb8f271c47cef",
+    "VIE_limited_war_doctrine": "e7b34ddb9c1876a0eff98f6d7e318fb2c08c5c67693d708fa2759dd2ed017688",
+    "VIE_scs_maritime_cooperation": "d2ac9b9ef86110c77467eb35af3cdf5f89e8c3325ef9dc4ab449647a9d9cf397",
+    "VIE_scs_multilateral_exercise": "81d4303cf204e784a4c5b543915d2f2188ed5a6d9ef3189aa3e4e41f80129f8b",
+    "VIE_scs_cam_ranh_port": "a7818682a07345869ff381bc93120e6a79e0b881ee62f988efaa2c02d0a342c8",
+    "VIE_scs_joint_training": "3ff387bddeba6fc367eef36afcb692ed01d46cbcc1ddfdca77f451b71e328c5f",
+    "VIE_mass_mobilization": "8c5905c32a5ec008d0df2f1fab6845b4511537063198b6a73e9f9b975c93d277",
+    "VIE_rule_of_law_state": "916733f76b8b3b00342bf1647d33cd7211da205eb03850a64b17fd956b49adb4",
+    "VIE_party_discipline": "1fd52488bf53359bac7a35c9db52801a7f6c07088813d700cf93234ca314712f",
+    "VIE_streamline_apparatus": "ef557339022df481fb30d9399b8151a2d7d9c4c3488460d4bb66fe14ae945361",
+    "VIE_era_of_rising": "a577a9effcc5015c4b85476565139410502462b1cc260e265a13e91bd3274bde",
+    "VIE_state_bank_modernization": "133b32dcb8a04489497f690adb6800a1dca287b184d25237092cc3a7e7cecb76",
+    "VIE_state_conglomerates": "f3727830827125e539e62cfb73551102f73fa293ac001865d6af5c990fd22d43",
+    "VIE_petrovietnam_expansion": "4a5fcd1d2a789ef9f9f493bc5d6d83cbf6d29153e6ecc583187a63548fcbf621",
+    "VIE_dung_quat_refinery": "7fdd241b71845f119f62187dc0c1be557f7f1ffbc08842eb9d52e1f74eb9e41d",
+    "VIE_nghi_son_refinery": "30364647941c39ec9cb0c20a734695f7d9fb742c3745b4d4c1afcbb2526b260d",
+    "VIE_bauxite_tay_nguyen": "c4bcf46ea232176e5968de1e92acec967abc7d4d71ace95e8dc696f01269bf12",
+    "VIE_bauxite_suspend": "138aced20f374f8feda41a92c66b97c46fca6e235fd70923e0a11bb1010d28c5",
+    "VIE_private_champions": "741d60517c8cf70b1378c3e9ad15dbf67b01780b1a39b4daf8456d1924dafb23",
+    "VIE_cptpp_member": "40155a8c4ec49d545223189aafad65e1094f3fc0d3d15721f822353cb39e440f",
+    "VIE_evfta": "785ef3b277bd3d536081712aa7b452e8ec08192bb1f6043a42a8661840a21ef9",
+    "VIE_resolution_57_68": "431901c5ae53844e001c1e7b9ae5a877a4f89197694733e130d037163d54bfef",
+    "VIE_ninh_thuan_nuclear": "14bece171fc3b5cbcbc82bfed60214591dae8f2e5154700960f99665076df982",
+    "VIE_build_nuclear_plant": "80252d26c49c037c66b7e30cd16994e19e98386a10e8271411a113e8da39259a",
+    "VIE_shelve_nuclear": "1b7a9455ea5297a43e772a6a4b6108e94b565665fa09fba57f0f92e1e2f6d0a5",
+    "VIE_revive_nuclear": "6ed5793a390e932564ea191e35596572b19dfddcfa30a1d7b88edd04900d93e1",
+    "VIE_net_zero_2050": "81fa3eeffcc29e3fa1431ff86fbca3d19d398f46c259a9b91adfd8f5dedeccb2",
+    "VIE_modernize_vpa": "6ee419158eced06c1742a09898930a2ce3d1f6b1efe47415833d63a59b9b9625",
+    "VIE_nav_n00_maritime_strategy_21st": "5d8b53b5f9959880da56def6160df0c0b0a0386395e71c46532c9237ce258b26",
+    "VIE_nav_t01_organization_reform": "20afeb01929bc1d387e70d6c9e95245b0293e2038ce5a2d73c35c1e6059c17bf",
+    "VIE_nav_i01_shipbuilding_industry": "0818f1766cfeaa7c5ffa6d6a1ecdec2b9690acaddf4dbed48106388153e59867",
+    "VIE_nav_s01_maritime_surveillance": "a52b52e884e410a284ef19de4a1c8f1b4ddd802212954a7036d4b7900d8d57e8",
+    "VIE_nav_t02_officer_sailor_quality": "b1d4a1df6b1f31d2e096833979c03637814dd8312b29705c2315f036edeb3e13",
+    "VIE_nav_t03_regional_commands": "a363635d03c969c7006c4cefa62da634a3157733b7738064dc2280f5a46be195",
+    "VIE_nav_l01_naval_bases": "6a6245fcfdd5f4938032ca51f3636434f099a75edf5e7519521175468662a2e6",
+    "VIE_nav_i02_technology_transfer_molniya": "a587717a91c74560f7d149452284398e86d94efe712ba4e6182fcdfb5fdd2758",
+    "VIE_nav_i03_ship_systems_integration": "720d02a58a7c04238415b35808b33789a2aa0a2465b71ce1e87348b7109c9ae8",
+    "VIE_nav_s02_island_defense_forces": "9adacabe4c68b5269ab5b03331d87ac39559ffe4bf4ae63ebef4153d634f218a",
+    "VIE_nav_s03_subsurface_recon": "34f8c6a918260fd6ac3e9d40691d5950025df1d67e8090583fb51d69e43bbbc4",
+    "VIE_nav_w01_surface_combatants": "3b827633650d978d6b4f8ce1f4b8c411720ddd1cc9b848d22d1c3ada7fc39296",
+    "VIE_nav_w04_kilo_submarine_force": "7000b71994691756ab4153207ecdbc45ebfdc6c5a439ff1d4f2b0980a36c370e",
+    "VIE_nav_t04_joint_command_system": "e8d54514ae1e2936b1973fcc609e049977c9d10ab3df441b6d1e09b63e9b85f3",
+    "VIE_nav_l02_overhaul_maintenance": "0c70fce62f8373a039b6c04221e122f8f5524c64a595b6ae379541fb1add8a98",
+    "VIE_nav_l03_island_logistics": "6afdf4247df0b72f65d84118ca118607923b8e9026d6ecc8fa7afd79f3039293",
+    "VIE_nav_i04_domestic_corvette_class": "fa4fc749b097d9a344e1fd4e7de99a70e99185e2c2c3c36a0ab8a110ea05bbaf",
+    "VIE_nav_s04_joint_island_defense": "df0169ed1a869ee4a106c046d0468e8bced83cb08449e8b0483d64230e785354",
+    "VIE_nav_w02_missile_boats": "cfa6728a24c10861da2fc4d09e8c09b0ec0a0864f591ecf6283dea62632d7116",
+    "VIE_nav_w03_multirole_frigates": "53804649bb570be05c318c081d65e7d3250a260397114be6079ffbe5f586d211",
+    "VIE_nav_l04_support_rescue_vessels": "3f5475fd935b1169615edea1113848e236da596860d49649eab90f996db17d27",
+    "VIE_nav_s05_unified_maritime_picture": "cb44fe6c7ad80bda16c97cf6ad1bd786ed4843e3b422066ed4e0a73cc1f8cffa",
+    "VIE_nav_w05_asw_fleet_defense": "70e2c1bab56715f3817f560039db40ce8cf8ed6096ef3bd55b355bfa2f5532f4",
+    "VIE_nav_l05_sustained_operations": "3e0dc2169516f8ae799417508d103f633369012225f27490163c0ac868565591",
+    "VIE_nav_p01_integrated_defense_choice": "987e92ccb38df53eb3ce8d3a029164425d32e65cd67bd8d8dbe5d741c05007eb",
+    "VIE_nav_h01_fleet_development_priority": "09be9f44f9c6727b6d8bf7eb8c87ddbe021a1777db2ebadc717abb2425f4f365",
+    "VIE_nav_p02_coastal_island_network": "d6430b8d395e77caf5f02ccc32256b6751aa69bd0b9e417407d53b6596ab3ec4",
+    "VIE_nav_p03_island_territory_defense": "807a8ce869ad650e8daf711bb4cd91d41e5aba521d17f6130f073305e5a8fee2",
+    "VIE_nav_h02_multirole_task_groups": "689b9107b6e5f08729fb478b1e59183df378bb2eff33ae191d793c3dd1296ee9",
+    "VIE_nav_p04_layered_defense": "2bf5e505cc8d3fc657c88d2ba54108ff2c82f0101856a0a267a432387ec7b49b",
+    "VIE_nav_g01_greenwater_navy": "45ce01e16d2ac53a9cb4590420bc466b97092011113aab7e7ce506d29a2b5a45",
+    "VIE_nav_b01_bluewater_navy": "896af18cbd65cd4cd5c5700a385e70e136584e62124684451bf71a82e99d6a07",
+    "VIE_nav_p05_joint_coastal_defense": "0b7921b31753edb20e5259ba03bd09b70d51809d3f5ca9739efbfd8cac421313",
+    "VIE_nav_g02_advanced_frigates_asw": "b99709507de51ea7fda3f894d1d2e2014684a5a877ac64c878cad80682bbca3c",
+    "VIE_nav_b02_extended_deployment_fleet": "70ddb6a4f5c9ac8021208e1a30caea5893e715f520e3a6b0538cfbd9267cfd47",
+    "VIE_nav_p06_active_coastal_defense_capstone": "6509a7fe34f5b6d69b0c7e604461fff6ca026a856e5230b8a10909abbcd841ac",
+    "VIE_nav_g03_self_reliant_greenwater_capstone": "134e6dc51d3a9768578058ba88cf2588886ca46a85a1873e6a0f9426ac73146a",
+    "VIE_nav_b03_sustained_bluewater_capstone": "795745cd6ebe970439729fa6a95676789bd093aa32403f01805ff653a430aa25",
+    "VIE_nav_f01_tactical_doctrine_alignment": "e769c219654e3780aca9fe17c8614781ef7e097783fb77334334c59ad2c638c0",
+    "VIE_nav_f02_regular_modern_navy": "67d1fc70003ec7dbb39139d737a666ec92f467c2a76ad810b2449b75f6bda18e",
+    "VIE_force_47": "1777643ed2e68c91bc1f977cec3a41ce5566005abce9519fa88927851b3ac30c",
+    "VIE_provincial_defence_zones": "f33614f6a42037d6d8627796c6eed41d5f8882232690cc978e767aa265d3bc16",
+    "VIE_four_nos_doctrine": "4db9716ca0218d79b7001ded1d94c64eb09e8256a4b961099a36784f5a5cfe63",
+    "VIE_asean_chair": "c63b804fe9677867ea05d0f4a41babf92d4dc298a77cb4b82b8bceebbd46b173",
+    "VIE_un_security_council": "54ad02cd913ffd90a4b11fa912c16ac70b9165f2381e8faaa647772baff77a7d",
+    "VIE_us_comprehensive_partnership": "3e1ebf39ec6e62cb3944de3cef6c7abcf0819448dee5382f3cc93aa1320b2815",
+    "VIE_us_embargo_lifted": "a27f5e0ca89c107020419bc532ba9c3ef0f6b79702ae77e2820096a8d34fb566",
+    "VIE_csp_network": "4d8291cadc16d37a40d5070f22dd05647f04226c8643153d82f6fd85d922823c",
+    "VIE_bamboo_diplomacy": "b0bc4bc9597292700bfb2cf79c334c62b705f50fff55ec95532cfa4ead680d34",
+    "VIE_special_relations_laos": "93b7224c5a0e466873f03dddfb20a54cfe4ba3231dbbb3db5b6e77c18e669087",
+    "VIE_cambodia_relations": "38bc9dd6aace0895e0a1adf395d07026fed61af63e6854e2a36336559110211c",
+    "VIE_vinasat": "e35a8f92b4fe8c19fc80e4a542f6c755a8e8df12ec305d7b2c02a0de85ca5229",
+    "VIE_mekong_climate_adaptation": "9d9fdb53c7ca36876cb65f3dfa5626f7b49b15548c6ec12818198974255c0d70",
+    "VIE_indochina_solidarity": "b7b4ef69ff79691a7ac0e265ea5d6aff12e52a2bef0daea17e6c921a5aed989b",
+    "VIE_indochina_federation": "12f639950894b9bee5811b6c46a004a7a52fa507a57230e1bd6695c82caee0e9",
+    "VIE_national_assembly_role": "ebda89bc47c64474c49ffdc94888c6fc3ba9d68309a66daa9991047da1b0740e",
+    "VIE_ethnic_policy": "d1c69c393aa079237ad09438afe7a22e093d34e59bf764e8c98d497c9b2a2b2e",
+    "VIE_constitution_2013": "b61371fb52c392d80d2262849bd5fae887bef3a1c83859b832d94aff9361704c",
+    "VIE_higher_education_law": "649aad0f441749122265bf006243fb55a36dd84775049aae2113bede2757781d",
+    "VIE_education_law_2019": "0709ecd8f66eab4ce86779bb041b2f3d31aecc7d10161232fd4dffd4c87aa391",
+    "VIE_disaster_law_2013": "33733d5c0ee86e4008d8b27ab9866d7164df74f1887ac46cc95581ad896c3161",
+    "VIE_civil_defense_law_2023": "7471863ef5077138182f51f87e532a168be661d79f8777f17e2261868664dd63",
+    "VIE_cybersecurity_law": "e00a3bfa27504a9d323d5e7b5adb19a3ac0abb2d89af918a55b6a167d27a8b49",
+    "VIE_anti_corruption_law": "fe34b608be0c69758a43121b23fea9b91cf552a86c127f760324cd26986dbb7b",
+    "VIE_asset_declaration": "dc4e660b0fb03e29919b16bcce739a6169ad097b2aabdd90642874ce7b8bb653",
+    "VIE_state_audit": "d963deb053980c6aa59ab8d656f8be808438da7b7ac0d519f3d638d8e7288478",
+    "VIE_party_inspection": "88daee593e79d617d30c07b44f923a21b0a80f892f3dff8f6f63dd13b9cc5a59",
+    "VIE_asset_recovery": "6fb7c3d3eb9a5a310dc741044063522ea3966c5a1c82cfe2c4de8b8d74f03b1c",
+    "VIE_clean_cadres": "c36576a86690b4c9318c91c5d37aa772d28f758c2d7834c4e46760effa8dc17a",
+    "VIE_public_admin_reform": "cd6b8985341c5e265fd547e9c8d55b49c83e6133fbef443a3f670a91898bba8e",
+    "VIE_decentralization": "98fe07399e8273eac265336aca4c759527343d4917cefec648e7a9573af4a04e",
+    "VIE_e_government": "07439692ae7f394800b21a98b4170be3e0180c87b4022fd495ed015b00639393",
+    "VIE_institutional_bottlenecks": "0a2041bc99eeed928db71538b7c53e1d7b72abaa64011163b11668419d858f8a",
+    "VIE_party_centennial_2030": "67e2a45f132930e81a2cde436e6666fbe1d2afe80d1133d53dae404bb1ad35d9",
+    "VIE_gold_monopoly_2012": "6bde74b304231c23d1043eb1d9ccdb002d552444ec388b5a6513f1e9108b76f7",
+    "VIE_gold_free_market": "23d2c968a58d3adeebf8344a3810d9e436145dc71915c275bd06b7c25a413a41",
+    "VIE_gold_monopoly_lifted": "38634852388ffbe069182234bdbed7342050c03aca619c489e1bd09ab9d31031",
+    "VIE_fight_inflation": "34c1857a90949f8f06445fa5bcb1c64ff2b580a530d422b06d4c79b830d2023e",
+    "VIE_restructure_banking": "17061c0714ef6207f56e31115d6721c11f3fe8b96eaf547800ca5e99746e77a2",
+    "VIE_vamc": "b3dbeb9ef10d05d68387afca02ca7f88db3c5a7ca4942517628dd84b558ed512",
+    "VIE_zero_dong_acquisition": "9559f13e6e63036a7a013054ec7679a8654aea2ddf663b03d8e9a9dae0a5bfc1",
+    "VIE_bank_bankruptcy": "05d4df9744ffb504fc19a653d7a6a89f42e283a53fc7bb32e3f334d118e139e3",
+    "VIE_compulsory_transfer_2024": "e57811f56e828a97a916a515fe964d7eae46ebba865b262715681e2e304d2d09",
+    "VIE_deposit_insurance": "314ca192f1f9a8b898c9e6448a2ed3914598201ad6f658c656d949abbba287ca",
+    "VIE_cross_ownership_crackdown": "323259490d9910cb9aaa966da40091dca0bb9a43baaa954cf253a5f0a6e7eb1a",
+    "VIE_corporate_bond_reform": "e47e99423414deb9c5b101ed31b91302f977ddb2a311a7a9304dd01f2136d34e",
+    "VIE_market_upgrade_criteria": "b7a38154ce48e187713e00cd38a7a1cb93f78529a3b5d393476edad1131e4211",
+    "VIE_international_financial_centre": "02ea4488740dbfb36498df813ee5fbb42d540edc9ef934f2105432e3db88c791",
+    "VIE_investment_grade": "556cd83a2fabd086affa41033f6248f03d491489ecf7ff63d2cd22c269df096f",
+    "VIE_rice_export_power": "12fdf9f1140d49ed7df426c74f83bb1eb095a8cf5381278d00930b1354c648d6",
+    "VIE_high_tech_agriculture": "238f3d055b83f9d667c7d6b17f4ee104cb29daf25c4d64402c95cd1b7eee9689",
+    "VIE_land_law_reform": "152369b3e78c20c484f366556c832cac847927327c7a3161f787ef4b9d20d34e",
+    "VIE_16_words": "d031035f19354195d60b690d4a6c683877d4e8517f5e4c683747dcbce2d1fc3e",
+    "VIE_border_trade_gates": "b013665c2c7491ad44ebc599c57e2685209825b20a75a156a65bff00ff979809",
+    "VIE_defence_hotline": "b09a890171f4b3b0e5e2c07a74f935f7d6ec61656be66316ee44b95957e4b06f",
+    "VIE_code_of_conduct": "e1bc2eee301a1edbe29b76c663dfc7a327b41559d6572eeb32b8a8aab5c62d4c",
+    "VIE_shared_future": "70a02086e8772b42a22d738fd7c69b8857cb14e5d1a5df1b85e34727812e7ea5",
+    "VIE_upper_middle_income": "2078e6df11afbe36b1e1f04093e63b7d22ae3b440d476ad1658daab302d84c97",
+    "VIE_green_growth": "0c2e07c1c6381eb547b40d8e462ae4d475cedf98d0b13a8970e173c53b1c3f9e",
+    "VIE_innovation_nation": "370758f0c5d550637fdedbbfe5a9323bf4a0f8143449d83fd8b96e5dbca4a5ef",
+    "VIE_carbon_circular_economy": "871ca54c3946836dddad6806f168fcbe7df336e21730a71c130114e6c81ba1d4",
+    "VIE_productivity_leap": "536953c559520a2cf10a1decdaeb7ed6c34edaafb927f6001f8606ca30834f6a",
+    "VIE_ageing_society": "e0d5026507f0cf3e38bf0b794d085604ff33b361cb69bebdccb4b4ca391a304c",
+    "VIE_high_income_2045": "423a1cc0bb306a2fb08f876fd975c4238f202210610749121452865386dfef1e",
+    "VIE_developed_nation_2045": "898d4bfd38d4939b1148e2c474e6c90e4acf1ee652cf3644b5fcf209aef48694",
+    "VIE_hose_exchange": "91b32da992e187a8950eb7e513a11597c7d6447081160f600d9e571528ca6734",
+    "VIE_investment_law_2005": "237284358dee11fbdc4e61f08d5e42a43b8fbe2eba18045a15255bc8dd0728ea",
+    "VIE_wto_reforms": "7a1ddd9998783e1a9bb3db59f5b0e443caaeee7ce3fc02aeabb603f28d4c8dda",
+    "VIE_export_powerhouse": "d1cfaad4a93609294ff555e23572a2f2d7f5be35fd53b27885187875f5385f78",
+    "VIE_gulf_of_tonkin": "13c914c574cf133cf4001aa41838808edc7ce3643aaf93193a4d712a05b3d213",
+    "VIE_apec_host": "e2a2ca28f3b3453b5009b67ccb79c2d65620f1c2ebf081ee49ba5c3dbb587c17",
+    "VIE_us_carrier_visit": "40572a7931ebb955cc47b470e36c663e18c081ecdc81a03cbbd7c182100e0d1d",
+    "VIE_us_tariff_deal": "203f6d80ffa95195ad20738ed02a4d6bcd556dbb32ea3b581bfd423e866a7990",
+    "VIE_cambodia_border": "409aa850f4fb7bf84b090d1ff3eb3c33103a0e6e83fa87b7d68abebc2663c75a",
+    "VIE_mekong_commission": "c9ab9fee7e50a361a41e0f33fbfb4a10d287fbca2ea0a29b9da682eb91ea5aeb",
+    "VIE_mekong_dams_response": "f5928c8bd715b44c087e2b3dfc070753cd6888ecd5029e848293fa07389a0d56",
+    "VIE_funan_techo_response": "0a973f6c4a29a487cced571b2f7a0bdea44e2196f2ee010d7569ccd53c101272",
+    "VIE_india_partnership": "88713af676c3dee73909a8567b14e321f6d33f6ba5b167e965470b49fd75ec64",
+    "VIE_japan_partnership": "99db7f70089708ee832599c75e6cc15353d5ee07ef2ec49e223c2ac078719e45",
+    "VIE_korea_partnership": "0ff446e3791496379cf7d820aab2b4da687edb643de9c56e7db85b6e666d839a",
+    "VIE_australia_partnership": "29a7f300210d4406406c3900161a9ef6342c478ee0bf90c797ccf0e93df53a7f",
+    "VIE_france_eu": "f4aa45c91e113306f12c3e6892c08f31dfa0f3aea73f7529e0d0e4aab2de5412",
+    "VIE_gulf_investment": "db61b93df4e8082b0808700210d174256ec6dff5f115553c01d636dfa458b3cc",
+    "VIE_global_south_ties": "78ceba8bc9f41ea07f15601824edca75adb22be1c6af9a14bb80adeaac03a5c9",
+    "VIE_scic": "9bb41160832275338ccd55b97a1b98be7c7d27c0966c422a060bb2f583d5e769",
+    "VIE_soe_gradual_restructuring": "0eed5e93123fc4839dda1b99c1cea22c34b2f6f6aa423f56c781cc3ebcf2a204",
+    "VIE_soe_rapid_divestment": "8ad648f6ffa14dd10baa5e9f0aab77d6c988ad080fba514a722fad17cf8b9881",
+    "VIE_soe_governance": "e84804afc680c0385162222a3c1c3e07c30895b8186c075181a6fc965c2fed62",
+    "VIE_household_business": "ab24e1dd1484d8abc4deedc64ffb648bdfc7ba7b03f1e3ee7570f5d821807cc6",
+    "VIE_private_sector_engine": "3575afab899010c052dc66f58def889e07624de5592415d6695fd1f82f1522ec",
+    "VIE_son_la_dam": "be5c2d3696c04a24ba50e0496f93042f8876682cc31fe46aa4ec4d44036afef0",
+    "VIE_coal_power": "34600f2996d735fabd5eaf014d3f7a672d4d61e257a23877e78e1c0d5d8b148b",
+    "VIE_solar_boom": "4ff49411a8fac250d2599ba7e295dae27bc5415b1830b26ccbbafa192c5deff3",
+    "VIE_solar_auction": "314672f6997eee54eb5c8208e0fed869c5f472e3efeb4b3846c1e8446bfe59ed",
+    "VIE_power_plan_8": "6b3b234d6f28241321cb0dc668a8ce99eeed1f8d3dc7a5eeaee9108eed2ef39f",
+    "VIE_offshore_wind": "fe3e18d91b3ac09692fe30dec4fc690a53f6a13b482fab9e2883998cb7bf64b4",
+    "VIE_dppa_market_reform": "ce0f2037271abe050aaf89548d4b3e7f6548eb1fccf736398c20481418547ef2",
+    "VIE_petrolimex_downstream_network": "99c113ddd27aa7161b381dac4546710046bb8474af97e38fd581e6ad742487b4",
+    "VIE_strategic_petroleum_reserve": "ee68ab6545f27ad03e735cafa04c26428ad8d128f6393155d2f4dd2b8c453341",
+    "VIE_petrolimex_eneos_partnership": "0326c545babf36ff40bbf886ab2139b71f48a1840f06e5fc418f74c76670bc4d",
+    "VIE_petrolimex_green_ev_hubs": "8f50ea50ef07d10e315730c60cc8ceac2f16e423b1ae14772151321c4a08fc57",
+    "VIE_rare_earths": "e4f80eae2d95f42eb0865ecc2ce656293e729f5f33c77d72f660bda367a02396",
+    "VIE_than_quang_ninh": "1db6046696f732e7f3ccfef2cc7510c4930fbffde4dfefb7ed3cdff654a2ec73",
+    "VIE_nui_phao_tungsten": "4eb7a12cb56a897902890c4d1e72a307a2d725a020ccc0ffaf3e777503a740bc",
+    "VIE_thach_khe_mine_start": "91fab24f1e50ab7963b9103ff9c5e163e2ad73a6ecd2c0fa7af3549f4b6047f0",
+    "VIE_500kv_grid": "e2876163569dda42190cd308d48da9710a3ebef70cf1ccd320fee8d20cbed28b",
+    "VIE_peoples_defence": "ac6cd11264e7e718d991ce868945187a15cf3783564c8f091ce5bb34d5900302",
+    "VIE_militia_law": "5a0c3eea94d1c9119bc64c3d8ab9fa7bd8db51658ba64a7326e5da7cf59fc5a7",
+    "VIE_cyber_command": "b5312ddffbca3020d59e00bb43b1bdbcbdf9d1c2ed5d14bf717be856b533b999",
+    "VIE_un_peacekeeping": "632216afc2ab506f8f042bb82ea73d314842eac60eb8093e8313355befaf71f5",
+    "VIE_jetp_partnership": "99fd3b9e693eec65f4335cb9a842df72502d250798c9069184459b2acecfeda7",
+    "VIE_cashless_payments": "ff0efa618e23863e7c9e124f277fbc32b5410917a39c4f715ebd4ae08336ad2f",
+    "VIE_sci_digital_root": "23901d44758fff325d0b0c1635e25b81f1a2e4ecb115aee7aa59b091e6be3eef",
+    "VIE_internet_expansion": "365917a8ed49a870e7f3057f922656209b7558e35ab613809f4b25f9216c301e",
+    "VIE_mobile_3g_4g": "6e44e2317f674a617167dab176b804dd3331cd7170d40d1ec2afa16047dc0916",
+    "VIE_mobile_networks": "f558b2d044f729787113df6b9e0ccb4b73a4de6078fbbeb2c8076af80c2b9202",
+    "VIE_submarine_cables": "3b774cca4df5bc8b7969a87e99377bfd3222f1f993b6c0a163f816036af687f7",
+    "VIE_national_digital_transformation": "e416794e32226e1b99a5f7140e921527ed2431654470ba0726380ec7909283db",
+    "VIE_ai_strategy": "86a97a44ed92d2cc3f91ac9c7aa49aab9805026749e67ebd6f47ce0b723b6782",
+    "VIE_digital_id": "72615edbd10e78cf89b760c0a9ff0f0286dd058ea40dbccda247cf628d78bab8",
+    "VIE_national_data_center": "9d10313a6b002f9cc99b3865ee4ee33aca8f8e97cc22e51a9b03fa243e43c752",
+    "VIE_digital_nation": "8bcceb01365a99d1da07a72350a959dc8f9743ec765ae81355424d9d4894d56c",
+    "VIE_viettel_global": "acacd7c70dd5d0ff1bcad2427d803955c87555ba6ebb2d3bbb5f376909903930",
+    "VIE_make_in_vietnam": "e76e19a6b51d0263e93209b33e779323128cff9b4103dc97f642ed5c0486dbe4",
+    "VIE_digital_tech_industry_law": "5926f8ef96360243d276d6643dc2009dfb2e1cd2e5844a116c9e43f542418e86",
+    "VIE_nafosted": "889250bcf644fcee18a0bc17976f46425a3a5915dfc7c44dc02507fb943d1302",
+    "VIE_research_universities": "c17c08b17aedd2bf2a911905958259f2ce7e0ed3227bc8d7499fc4ae151d73a2",
+    "VIE_earth_observation": "827edd60db9cf3a294f8deea970305a6b0f3a9e61461344ab75c09c5c8c0e1c3",
+    "VIE_nuclear_research": "0abd40b478e81f75fb24151a2397e4310876839dc58d6c4b86471a243e27581b",
+    "VIE_science_breakthrough": "77f242d9dad7ecae3bfda7531ce6f72aee6cfbd0ae8bbdfea596544110bf86db",
+    "VIE_new_rural_development": "0949e75d303e191d17ac9255c7f086094dff6f94362778841da878d1249a88f8",
+    "VIE_energy_security_2045": "bd176a1159a4c009bcc944391d2da6d8b73eccc7b366e1a2ca5a438dd607e619",
+    "VIE_us_engagement": "84e071b6f2d9ec68ac777ab0164084124dac979a1aa21e646066e26a8ff96bb8",
+    "VIE_multilateral_champion": "f804fedb6a39d1ad63f4969520c5cb79e3ef9d05763febda544c2a770ae56801",
+    "VIE_concentration_of_power": "cfb013258e7e6a0093392c4df04297f1386623f68e8eef36b30a42cef18cb2eb",
+    "VIE_institutional_opening": "0f5bcd3ff13818d3d249821504785004e6340e0f6a28c2f1b170352e0ba1458c",
+    "VIE_cadre_accountability": "d27c303ad8983c52b75cde1704d389db93e16c4ee3721bdf619d1e26e5a558af",
+    "VIE_peoples_oversight": "0ed5719674998e2293350b9cb1f45baeb5aaf7f338a5f63e00bdedc99cdf816f",
+    "VIE_digital_anticorruption": "3a47ef525bd997440b9dc6efc2e39481316b5d3e867892f0e5bb929a7a6e57b9"
+  },
+  "protected_files": {
+    "common/dynamic_modifiers/VIE_md_dynamic_modifiers.txt": "ca08fff4e7b7eb05ce6a67ccde9b1009c4f915f58ede1eb5cf59f8721bb86f2a",
+    "common/decisions/VIE_md_decisions.txt": "9d95be5c1e2ccac97b1bb03475d703368d82e152af33b60567b281c429e4ac52",
+    "common/decisions/categories/VIE_md_categories.txt": "95b511d8f8e171feb4279a5fbeb21365afa55dc8d4fc4646f61a5b3702f6bf72",
+    "common/ideas/VIE_md_ideas_p2.txt": "17cb3be6fd023bd0065f429356f8d43f5f8b0f7d30cf01bf97534d1850000fc7",
+    "common/game_rules/VIE_md_rules.txt": "ee5cb816d504a08f22aa35a3eb847cf4bc2a99b93ae7c7389c363d7e9b5ee27a",
+    "common/on_actions/VIE_md_on_actions.txt": "8949bfa2b813f993b91a57dbf2919cd7732f7ddbe2bbc5b574698846180e8348",
+    "common/ai_focuses/VIE.txt": "e08d971a828d24fe63fc3aaf8a6c2079100a5fb4f491acc80e819612569d1b87",
+    "interface/VIE_md_focus_icons.gfx": "345c424452ee5d20006243441cbc2039ddd3a95f5c0b787da59ae2b86dd0469b",
+    "interface/VIE_md_ideas.gfx": "b8f630a88d24530824654a0823d34f62778db2dc506b3bde6d9d4765438e0e10",
+    "assets/focus_icons/raw/asean_integration.png": "32caaf35ccff7de71db9d254c207f719d61deb791ee2e63624b0439c3c0710e2",
+    "assets/focus_icons/raw/border_settlement.png": "649958b5cc39d62cc021077a5c7f18e3d2cc704fa5ed4e8ff2b82a5d91fb1132"
+  }
+}
