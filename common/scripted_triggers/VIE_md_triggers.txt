@@ -1,3 +1,12 @@
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - ALL SCRIPTED TRIGGERS
+# Consolidated single scripted_triggers file
+# ====================================================================
+
+# ====================================================================
+# SECTION: VIE_md_triggers.txt
+# ====================================================================
+
 # Vietnam submod triggers
 
 # The Communist Party still holds power (Neutral_Communism = historical CPV, Communist-State = hardline variant).
@@ -63,3 +72,1254 @@ VIE_us_arms_open_tt = {
 			has_country_flag = VIE_us_arms_open
 	}
 }
+
+# ====================================================================
+# SECTION: VIE_infra_triggers.txt
+# ====================================================================
+
+# Gate ha tang v30; moi nganh chi tinh mot lan.
+
+VIE_infra_road_foundation_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_road_foundation_done
+		has_country_flag = VIE_infra_road_foundation_done
+	}
+}
+
+VIE_infra_road_spine_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_road_spine_done
+		has_country_flag = VIE_infra_road_spine_done
+	}
+}
+
+VIE_infra_ports_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_ports_done
+		has_country_flag = VIE_infra_ports_done
+	}
+}
+
+VIE_infra_logistics_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_logistics_done
+		has_country_flag = VIE_infra_logistics_done
+	}
+}
+
+VIE_infra_air_modern_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_air_modern_done
+		has_country_flag = VIE_infra_air_modern_done
+	}
+}
+
+VIE_infra_partner_selected = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_partner_selected
+		OR = {
+			has_country_flag = VIE_hsr_partner_japan
+			has_country_flag = VIE_hsr_partner_eu
+			has_country_flag = VIE_hsr_partner_china
+		}
+	}
+}
+
+VIE_infra_partner_unselected = {
+	NOT = { VIE_infra_partner_selected = yes }
+}
+
+VIE_infra_road_network_gate = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_road_network_gate
+		has_country_flag = VIE_infra_road_regions_done
+		check_variable = { VIE_expressway_km > 1799 }
+	}
+}
+
+VIE_infra_hsr_approval_gate = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_hsr_approval_gate
+		OR = {
+			has_country_flag = VIE_infra_hsr_early
+			date > 2024.11.30
+		}
+	}
+}
+
+VIE_infra_rail_network_gate = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_rail_network_gate
+		has_country_flag = VIE_infra_rail_upgrade_done
+		has_country_flag = VIE_infra_metro_done
+		has_country_flag = VIE_infra_rail_training_done
+		has_country_flag = VIE_infra_hsr_launch_done
+	}
+}
+
+VIE_infra_road_ready = {
+	has_completed_focus = VIE_expressway_5000km_2030
+	check_variable = { VIE_expressway_km > 4999 }
+}
+
+VIE_infra_rail_ready = {
+	has_completed_focus = VIE_modern_rail_network
+	has_country_flag = VIE_infra_rail_network_ready
+}
+
+VIE_infra_ports_ready = {
+	has_completed_focus = VIE_multimodal_transport
+	has_country_flag = VIE_infra_multimodal_done
+}
+
+VIE_infra_air_ready = {
+	has_completed_focus = VIE_long_thanh_airport
+	has_country_flag = VIE_infra_long_thanh_done
+}
+
+VIE_infra_three_programs_ready = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_three_programs
+		count_triggers = {
+			amount = 3
+			VIE_infra_road_ready = yes
+			VIE_infra_rail_ready = yes
+			VIE_infra_ports_ready = yes
+			VIE_infra_air_ready = yes
+		}
+	}
+}
+
+VIE_infra_road_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_road_free
+		NOT = { has_country_flag = VIE_infra_road_busy }
+	}
+}
+
+VIE_infra_rail_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_rail_free
+		NOT = { has_country_flag = VIE_infra_rail_busy }
+	}
+}
+
+VIE_infra_ports_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_ports_free
+		NOT = { has_country_flag = VIE_infra_ports_busy }
+	}
+}
+
+VIE_infra_air_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_air_free
+		NOT = { has_country_flag = VIE_infra_air_busy }
+	}
+}
+
+VIE_infra_d_road_foundation_1_can_start = {
+	has_completed_focus = VIE_transport_strategy_2004
+	check_variable = { VIE_infra_road_foundation_stage = 0 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_foundation_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_foundation
+		NOT = { check_variable = { treasury < 7 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_foundation_1
+		owns_state = 521
+		controls_state = 521
+		owns_state = 518
+		controls_state = 518
+	}
+}
+
+VIE_infra_d_road_spine_1_can_start = {
+	has_completed_focus = VIE_north_south_expressway
+	check_variable = { VIE_infra_road_spine_stage = 0 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_spine_1_running }
+	VIE_infra_road_foundation_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_spine
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 5.25 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 7 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_spine_1
+		owns_state = 522
+		controls_state = 522
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_road_regions_1_can_start = {
+	has_completed_focus = VIE_expressway_regional_links
+	check_variable = { VIE_infra_road_regions_stage = 0 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_regions_1_running }
+	VIE_infra_road_spine_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_regions
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_regions_1
+		owns_state = 523
+		controls_state = 523
+	}
+}
+
+VIE_infra_d_road_regions_2_can_start = {
+	has_completed_focus = VIE_expressway_regional_links
+	check_variable = { VIE_infra_road_regions_stage = 1 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_regions_2_running }
+	VIE_infra_road_spine_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_regions
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_regions_2
+		owns_state = 518
+		controls_state = 518
+	}
+}
+
+VIE_infra_d_road_3000_1_can_start = {
+	has_completed_focus = VIE_expressway_5000km_2030
+	check_variable = { VIE_infra_road_3000_stage = 0 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_3000_1_running }
+	VIE_infra_road_network_gate = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_3000
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 7.875 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 10.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_3000_1
+		owns_state = 521
+		controls_state = 521
+		owns_state = 519
+		controls_state = 519
+		owns_state = 522
+		controls_state = 522
+	}
+}
+
+VIE_infra_d_road_5000_1_can_start = {
+	has_completed_focus = VIE_expressway_5000km_2030
+	check_variable = { VIE_infra_road_5000_stage = 0 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_5000_1_running }
+	has_country_flag = VIE_infra_road_3000_done
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_5000
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_5000_1
+		owns_state = 520
+		controls_state = 520
+	}
+}
+
+VIE_infra_d_road_5000_2_can_start = {
+	has_completed_focus = VIE_expressway_5000km_2030
+	check_variable = { VIE_infra_road_5000_stage = 1 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_5000_2_running }
+	has_country_flag = VIE_infra_road_3000_done
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_5000
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_5000_2
+		owns_state = 524
+		controls_state = 524
+	}
+}
+
+VIE_infra_d_road_5000_3_can_start = {
+	has_completed_focus = VIE_expressway_5000km_2030
+	check_variable = { VIE_infra_road_5000_stage = 2 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_5000_3_running }
+	has_country_flag = VIE_infra_road_3000_done
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_5000
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_5000_3
+		owns_state = 521
+		controls_state = 521
+	}
+}
+
+VIE_infra_d_road_5000_4_can_start = {
+	has_completed_focus = VIE_expressway_5000km_2030
+	check_variable = { VIE_infra_road_5000_stage = 3 }
+	VIE_infra_road_free = yes
+	NOT = { has_country_flag = VIE_infra_d_road_5000_4_running }
+	has_country_flag = VIE_infra_road_3000_done
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_road_5000
+		OR = {
+			AND = { has_country_flag = VIE_infra_funding_bot NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_funding_bot } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_road_5000_4
+		owns_state = 518
+		controls_state = 518
+	}
+}
+
+VIE_infra_d_rail_upgrade_1_can_start = {
+	has_completed_focus = VIE_reunification_line_upgrade
+	check_variable = { VIE_infra_rail_upgrade_stage = 0 }
+	VIE_infra_rail_free = yes
+	NOT = { has_country_flag = VIE_infra_d_rail_upgrade_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_rail_upgrade
+		NOT = { check_variable = { treasury < 7 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_rail_upgrade_1
+		owns_state = 521
+		controls_state = 521
+		owns_state = 523
+		controls_state = 523
+	}
+}
+
+VIE_infra_d_metro_1_can_start = {
+	has_completed_focus = VIE_urban_rail_program
+	check_variable = { VIE_infra_metro_stage = 0 }
+	VIE_infra_rail_free = yes
+	NOT = { has_country_flag = VIE_infra_d_metro_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_metro
+		NOT = { check_variable = { treasury < 3.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_metro_1
+		owns_state = 522
+		controls_state = 522
+	}
+}
+
+VIE_infra_d_metro_2_can_start = {
+	has_completed_focus = VIE_urban_rail_program
+	check_variable = { VIE_infra_metro_stage = 1 }
+	VIE_infra_rail_free = yes
+	NOT = { has_country_flag = VIE_infra_d_metro_2_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_metro
+		NOT = { check_variable = { treasury < 3.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_metro_2
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_rail_training_1_can_start = {
+	has_completed_focus = VIE_rail_technology_transfer
+	check_variable = { VIE_infra_rail_training_stage = 0 }
+	VIE_infra_rail_free = yes
+	NOT = { has_country_flag = VIE_infra_d_rail_training_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_rail_training
+		NOT = { check_variable = { treasury < 1 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_rail_training_1
+		always = yes
+	}
+}
+
+VIE_infra_d_hsr_japan_1_can_start = {
+	has_completed_focus = VIE_rail_technology_transfer
+	check_variable = { VIE_infra_hsr_japan_stage = 0 }
+	VIE_infra_rail_free = yes
+	NOT = { has_country_flag = VIE_infra_d_hsr_japan_1_running }
+	has_country_flag = VIE_infra_rail_training_done
+	has_country_flag = VIE_hsr_partner_japan
+	NOT = { has_country_flag = VIE_infra_hsr_launch_done }
+	OR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_hsr_japan
+		NOT = { check_variable = { treasury < 10.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_hsr_japan_1
+		owns_state = 522
+		controls_state = 522
+		owns_state = 521
+		controls_state = 521
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_hsr_eu_1_can_start = {
+	has_completed_focus = VIE_rail_technology_transfer
+	check_variable = { VIE_infra_hsr_eu_stage = 0 }
+	VIE_infra_rail_free = yes
+	NOT = { has_country_flag = VIE_infra_d_hsr_eu_1_running }
+	has_country_flag = VIE_infra_rail_training_done
+	has_country_flag = VIE_hsr_partner_eu
+	NOT = { has_country_flag = VIE_infra_hsr_launch_done }
+	OR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_hsr_eu
+		NOT = { check_variable = { treasury < 9.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_hsr_eu_1
+		owns_state = 522
+		controls_state = 522
+		owns_state = 521
+		controls_state = 521
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_hsr_china_1_can_start = {
+	has_completed_focus = VIE_rail_technology_transfer
+	check_variable = { VIE_infra_hsr_china_stage = 0 }
+	VIE_infra_rail_free = yes
+	NOT = { has_country_flag = VIE_infra_d_hsr_china_1_running }
+	has_country_flag = VIE_infra_rail_training_done
+	has_country_flag = VIE_hsr_partner_china
+	NOT = { has_country_flag = VIE_infra_hsr_launch_done }
+	OR = { AND = { has_country_flag = VIE_infra_hsr_early date > 2011.12.31 } date > 2026.11.30 }
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_hsr_china
+		NOT = { check_variable = { treasury < 7.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_hsr_china_1
+		owns_state = 522
+		controls_state = 522
+		owns_state = 521
+		controls_state = 521
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_ports_1_can_start = {
+	has_completed_focus = VIE_national_deepwater_ports
+	check_variable = { VIE_infra_ports_stage = 0 }
+	VIE_infra_ports_free = yes
+	NOT = { has_country_flag = VIE_infra_d_ports_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_ports
+		NOT = { check_variable = { treasury < 3.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_ports_1
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_ports_2_can_start = {
+	has_completed_focus = VIE_national_deepwater_ports
+	check_variable = { VIE_infra_ports_stage = 1 }
+	VIE_infra_ports_free = yes
+	NOT = { has_country_flag = VIE_infra_d_ports_2_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_ports
+		NOT = { check_variable = { treasury < 3.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_ports_2
+		owns_state = 522
+		controls_state = 522
+	}
+}
+
+VIE_infra_d_logistics_1_can_start = {
+	has_completed_focus = VIE_logistics_strategy
+	check_variable = { VIE_infra_logistics_stage = 0 }
+	VIE_infra_ports_free = yes
+	NOT = { has_country_flag = VIE_infra_d_logistics_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_logistics
+		NOT = { check_variable = { treasury < 3.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_logistics_1
+		owns_state = 523
+		controls_state = 523
+	}
+}
+
+VIE_infra_d_multimodal_1_can_start = {
+	has_completed_focus = VIE_multimodal_transport
+	check_variable = { VIE_infra_multimodal_stage = 0 }
+	VIE_infra_ports_free = yes
+	NOT = { has_country_flag = VIE_infra_d_multimodal_1_running }
+	VIE_infra_logistics_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_multimodal
+		NOT = { check_variable = { treasury < 3.5 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_multimodal_1
+		owns_state = 520
+		controls_state = 520
+	}
+}
+
+VIE_infra_d_air_modern_1_can_start = {
+	has_completed_focus = VIE_airport_network_2030
+	check_variable = { VIE_infra_air_modern_stage = 0 }
+	VIE_infra_air_free = yes
+	NOT = { has_country_flag = VIE_infra_d_air_modern_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_air_modern
+		OR = {
+			AND = { has_country_flag = VIE_infra_air_private NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_air_private } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_air_modern_1
+		owns_state = 522
+		controls_state = 522
+	}
+}
+
+VIE_infra_d_air_modern_2_can_start = {
+	has_completed_focus = VIE_airport_network_2030
+	check_variable = { VIE_infra_air_modern_stage = 1 }
+	VIE_infra_air_free = yes
+	NOT = { has_country_flag = VIE_infra_d_air_modern_2_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_air_modern
+		OR = {
+			AND = { has_country_flag = VIE_infra_air_private NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_air_private } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_air_modern_2
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_long_thanh_prepare_1_can_start = {
+	has_completed_focus = VIE_long_thanh_airport
+	check_variable = { VIE_infra_long_thanh_prepare_stage = 0 }
+	VIE_infra_air_free = yes
+	NOT = { has_country_flag = VIE_infra_d_long_thanh_prepare_1_running }
+	VIE_infra_air_modern_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_long_thanh_prepare
+		NOT = { check_variable = { treasury < 2 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_long_thanh_prepare_1
+		always = yes
+	}
+}
+
+VIE_infra_d_long_thanh_1_can_start = {
+	has_completed_focus = VIE_long_thanh_airport
+	check_variable = { VIE_infra_long_thanh_stage = 0 }
+	VIE_infra_air_free = yes
+	NOT = { has_country_flag = VIE_infra_d_long_thanh_1_running }
+	has_country_flag = VIE_infra_long_thanh_prepared
+	date > 2020.12.31
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_long_thanh
+		OR = {
+			AND = { has_country_flag = VIE_infra_air_private NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_air_private } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_long_thanh_1
+		owns_state = 519
+		controls_state = 519
+	}
+}
+
+VIE_infra_d_van_don_1_can_start = {
+	has_completed_focus = VIE_airport_network_2030
+	check_variable = { VIE_infra_van_don_stage = 0 }
+	VIE_infra_air_free = yes
+	NOT = { has_country_flag = VIE_infra_d_van_don_1_running }
+	has_country_flag = VIE_infra_air_private
+	date > 2017.12.31
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_van_don
+		OR = {
+			AND = { has_country_flag = VIE_infra_air_private NOT = { check_variable = { treasury < 2.625 } } }
+			AND = { NOT = { has_country_flag = VIE_infra_air_private } NOT = { check_variable = { treasury < 3.5 } } }
+		}
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_van_don_1
+		owns_state = 523
+		controls_state = 523
+	}
+}
+
+VIE_infra_d_dual_use_1_can_start = {
+	has_completed_focus = VIE_airport_network_2030
+	check_variable = { VIE_infra_dual_use_stage = 0 }
+	VIE_infra_air_free = yes
+	NOT = { has_country_flag = VIE_infra_d_dual_use_1_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_money_dual_use
+		NOT = { check_variable = { treasury < 3 } }
+	}
+	custom_trigger_tooltip = { tooltip = VIE_tt_infra_targets_VIE_infra_d_dual_use_1
+		owns_state = 521
+		controls_state = 521
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_industry_triggers.txt
+# ====================================================================
+
+# Cong nghiep v31: gate dau tu va sau nhom nang luc.
+
+VIE_ind_wto_ready = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_wto_ready has_completed_focus = VIE_wto_negotiations }
+}
+
+VIE_ind_education_ready = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_education_ready has_completed_focus = VIE_higher_education_law }
+}
+
+VIE_ind_green_trade_ready = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_green_trade_ready OR = { has_completed_focus = VIE_cptpp_member has_completed_focus = VIE_evfta } }
+}
+
+VIE_ind_support_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_support_done has_country_flag = VIE_ind_support_done }
+}
+
+VIE_ind_ship_governance_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_ship_governance_done has_country_flag = VIE_ind_ship_governance_done }
+}
+
+VIE_ind_ship_civil_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_ship_civil_done has_country_flag = VIE_ind_ship_civil_done }
+}
+
+VIE_ind_textile_base_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_textile_base_done has_country_flag = VIE_ind_textile_base_done }
+}
+
+VIE_ind_textile_green_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_textile_green_done has_country_flag = VIE_ind_textile_green_done }
+}
+
+VIE_ind_steel_base_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_steel_base_done has_country_flag = VIE_ind_steel_base_done }
+}
+
+VIE_ind_steel_hrc_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_steel_hrc_done has_country_flag = VIE_ind_steel_hrc_done }
+}
+
+VIE_ind_auto_base_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_auto_base_done has_country_flag = VIE_ind_auto_base_done }
+}
+
+VIE_ind_auto_ev_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_auto_ev_done has_country_flag = VIE_ind_auto_ev_done }
+}
+
+VIE_ind_auto_export_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_auto_export_done has_country_flag = VIE_ind_auto_export_done }
+}
+
+VIE_ind_electronics_base_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_electronics_base_done has_country_flag = VIE_ind_electronics_base_done }
+}
+
+VIE_ind_electronics_suppliers_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_electronics_suppliers_done has_country_flag = VIE_ind_electronics_suppliers_done }
+}
+
+VIE_ind_chip_workforce_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_chip_workforce_done has_country_flag = VIE_ind_chip_workforce_done }
+}
+
+VIE_ind_chip_design_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_chip_design_done has_country_flag = VIE_ind_chip_design_done }
+}
+
+VIE_ind_chip_osat_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_chip_osat_done has_country_flag = VIE_ind_chip_osat_done }
+}
+
+VIE_ind_chip_fab_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_chip_fab_done has_country_flag = VIE_ind_chip_fab_done }
+}
+
+VIE_ind_productivity_done = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_productivity_done has_country_flag = VIE_ind_productivity_done }
+}
+
+VIE_ind_ship_ready = {
+	has_country_flag = VIE_ind_ship_governance_done has_country_flag = VIE_ind_ship_civil_done
+}
+
+VIE_ind_textile_ready = {
+	has_country_flag = VIE_ind_textile_base_done has_country_flag = VIE_ind_textile_green_done
+}
+
+VIE_ind_steel_ready = {
+	has_country_flag = VIE_ind_steel_base_done has_country_flag = VIE_ind_steel_hrc_done
+}
+
+VIE_ind_auto_ready = {
+	has_country_flag = VIE_ind_auto_base_done has_country_flag = VIE_ind_auto_ev_done has_country_flag = VIE_ind_auto_export_done
+}
+
+VIE_ind_electronics_ready = {
+	has_country_flag = VIE_ind_electronics_base_done has_country_flag = VIE_ind_electronics_suppliers_done has_completed_focus = VIE_manufacturing_hub
+}
+
+VIE_ind_chip_ready = {
+	has_country_flag = VIE_ind_chip_workforce_done has_country_flag = VIE_ind_chip_design_done has_country_flag = VIE_ind_chip_osat_done
+}
+
+VIE_ind_semiconductor_foundation_ready = {
+	VIE_ind_chip_workforce_done = yes
+}
+
+VIE_ind_three_sectors = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_three_sectors
+		count_triggers = { amount = 3 VIE_ind_ship_ready = yes VIE_ind_textile_ready = yes VIE_ind_steel_ready = yes VIE_ind_auto_ready = yes VIE_ind_electronics_ready = yes VIE_ind_chip_ready = yes }
+	}
+}
+
+VIE_ind_capstone_ready = {
+	VIE_ind_three_sectors = yes
+	VIE_ind_productivity_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_localization_32 NOT = { check_variable = { VIE_ind_localization < 32 } } }
+}
+
+VIE_ind_common_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_common_free NOT = { has_country_flag = VIE_ind_common_busy } }
+}
+
+VIE_ind_ship_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_ship_free NOT = { has_country_flag = VIE_ind_ship_busy } }
+}
+
+VIE_ind_textile_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_textile_free NOT = { has_country_flag = VIE_ind_textile_busy } }
+}
+
+VIE_ind_steel_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_steel_free NOT = { has_country_flag = VIE_ind_steel_busy } }
+}
+
+VIE_ind_auto_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_auto_free NOT = { has_country_flag = VIE_ind_auto_busy } }
+}
+
+VIE_ind_electronics_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_electronics_free NOT = { has_country_flag = VIE_ind_electronics_busy } }
+}
+
+VIE_ind_chip_free = {
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_chip_free NOT = { has_country_flag = VIE_ind_chip_busy } }
+}
+
+VIE_ind_d_support_can_start = {
+	has_completed_focus = VIE_supporting_industries
+	check_variable = { VIE_ind_support_stage = 0 }
+	VIE_ind_common_free = yes
+	NOT = { has_country_flag = VIE_ind_d_support_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_support NOT = { check_variable = { treasury < 2 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_support always = yes }
+}
+
+VIE_ind_d_ship_governance_can_start = {
+	has_completed_focus = VIE_vinashin_restructuring_sbic
+	check_variable = { VIE_ind_ship_governance_stage = 0 }
+	VIE_ind_ship_free = yes
+	NOT = { has_country_flag = VIE_ind_d_ship_governance_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_ship_governance NOT = { check_variable = { treasury < 1 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_ship_governance always = yes }
+}
+
+VIE_ind_d_ship_civil_can_start = {
+	has_completed_focus = VIE_shipbuilding_joint_ventures
+	check_variable = { VIE_ind_ship_civil_stage = 0 }
+	VIE_ind_ship_free = yes
+	NOT = { has_country_flag = VIE_ind_d_ship_civil_running }
+	VIE_ind_ship_governance_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_ship_civil NOT = { check_variable = { treasury < 7.5 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_ship_civil owns_state = 519 controls_state = 519 }
+}
+
+VIE_ind_d_textile_base_can_start = {
+	has_completed_focus = VIE_textile_garment_exports
+	check_variable = { VIE_ind_textile_base_stage = 0 }
+	VIE_ind_textile_free = yes
+	NOT = { has_country_flag = VIE_ind_d_textile_base_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_textile_base NOT = { check_variable = { treasury < 7.5 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_textile_base owns_state = 522 controls_state = 522 }
+}
+
+VIE_ind_d_textile_green_can_start = {
+	has_completed_focus = VIE_green_textiles
+	check_variable = { VIE_ind_textile_green_stage = 0 }
+	VIE_ind_textile_free = yes
+	NOT = { has_country_flag = VIE_ind_d_textile_green_running }
+	VIE_ind_textile_base_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_textile_green NOT = { check_variable = { treasury < 2 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_textile_green always = yes }
+}
+
+VIE_ind_d_steel_foreign_can_start = {
+	has_completed_focus = VIE_national_steel_program
+	check_variable = { VIE_ind_steel_base_stage = 0 }
+	VIE_ind_steel_free = yes
+	NOT = { has_country_flag = VIE_ind_d_steel_foreign_running }
+	has_country_flag = VIE_ind_steel_foreign
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_steel_foreign NOT = { check_variable = { treasury < 6 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_steel_foreign owns_state = 521 controls_state = 521 }
+}
+
+VIE_ind_d_steel_domestic_can_start = {
+	has_completed_focus = VIE_national_steel_program
+	check_variable = { VIE_ind_steel_base_stage = 0 }
+	VIE_ind_steel_free = yes
+	NOT = { has_country_flag = VIE_ind_d_steel_domestic_running }
+	has_country_flag = VIE_ind_steel_domestic
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_steel_domestic NOT = { check_variable = { treasury < 7.5 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_steel_domestic owns_state = 521 controls_state = 521 }
+}
+
+VIE_ind_d_steel_hrc_can_start = {
+	has_completed_focus = VIE_hoa_phat_hrc_steel
+	check_variable = { VIE_ind_steel_hrc_stage = 0 }
+	VIE_ind_steel_free = yes
+	NOT = { has_country_flag = VIE_ind_d_steel_hrc_running }
+	VIE_ind_steel_base_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_steel_hrc NOT = { check_variable = { treasury < 7.5 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_steel_hrc owns_state = 521 controls_state = 521 }
+}
+
+VIE_ind_d_auto_base_can_start = {
+	has_completed_focus = VIE_domestic_automotive
+	check_variable = { VIE_ind_auto_base_stage = 0 }
+	VIE_ind_auto_free = yes
+	NOT = { has_country_flag = VIE_ind_d_auto_base_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_auto_base NOT = { check_variable = { treasury < 7.5 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_auto_base owns_state = 522 controls_state = 522 }
+}
+
+VIE_ind_d_auto_ev_can_start = {
+	has_completed_focus = VIE_ev_revolution_batteries
+	check_variable = { VIE_ind_auto_ev_stage = 0 }
+	VIE_ind_auto_free = yes
+	NOT = { has_country_flag = VIE_ind_d_auto_ev_running }
+	VIE_ind_auto_base_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_auto_ev NOT = { check_variable = { treasury < 7.5 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_auto_ev owns_state = 521 controls_state = 521 }
+}
+
+VIE_ind_d_auto_export_can_start = {
+	has_completed_focus = VIE_global_auto_export
+	check_variable = { VIE_ind_auto_export_stage = 0 }
+	VIE_ind_auto_free = yes
+	NOT = { has_country_flag = VIE_ind_d_auto_export_running }
+	VIE_ind_auto_ev_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_auto_export NOT = { check_variable = { treasury < 1 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_auto_export always = yes }
+}
+
+VIE_ind_d_electronics_base_can_start = {
+	has_completed_focus = VIE_electronics_export_program
+	check_variable = { VIE_ind_electronics_base_stage = 0 }
+	VIE_ind_electronics_free = yes
+	NOT = { has_country_flag = VIE_ind_d_electronics_base_running }
+	OR = { has_country_flag = VIE_fdi_open_door has_country_flag = VIE_fdi_technology_screening }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_electronics_base OR = { AND = { has_country_flag = VIE_fdi_open_door NOT = { check_variable = { treasury < 5.625 } } } AND = { NOT = { has_country_flag = VIE_fdi_open_door } NOT = { check_variable = { treasury < 7.5 } } } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_electronics_base owns_state = 522 controls_state = 522 }
+}
+
+VIE_ind_d_electronics_suppliers_can_start = {
+	has_completed_focus = VIE_apple_supply_chain
+	check_variable = { VIE_ind_electronics_suppliers_stage = 0 }
+	VIE_ind_electronics_free = yes
+	NOT = { has_country_flag = VIE_ind_d_electronics_suppliers_running }
+	VIE_ind_electronics_base_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_electronics_suppliers NOT = { check_variable = { treasury < 2 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_electronics_suppliers always = yes }
+}
+
+VIE_ind_d_chip_workforce_can_start = {
+	has_completed_focus = VIE_chip_engineers
+	check_variable = { VIE_ind_chip_workforce_stage = 0 }
+	VIE_ind_chip_free = yes
+	NOT = { has_country_flag = VIE_ind_d_chip_workforce_running }
+
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_chip_workforce NOT = { check_variable = { treasury < 2 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_chip_workforce always = yes }
+}
+
+VIE_ind_d_chip_design_can_start = {
+	has_completed_focus = VIE_chip_design
+	check_variable = { VIE_ind_chip_design_stage = 0 }
+	VIE_ind_chip_free = yes
+	NOT = { has_country_flag = VIE_ind_d_chip_design_running }
+	VIE_ind_chip_workforce_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_chip_design OR = { AND = { has_country_flag = VIE_ind_priority_design NOT = { check_variable = { treasury < 0.75 } } } AND = { NOT = { has_country_flag = VIE_ind_priority_design } NOT = { check_variable = { treasury < 1 } } } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_chip_design always = yes }
+}
+
+VIE_ind_d_chip_osat_can_start = {
+	has_completed_focus = VIE_osat_packaging
+	check_variable = { VIE_ind_chip_osat_stage = 0 }
+	VIE_ind_chip_free = yes
+	NOT = { has_country_flag = VIE_ind_d_chip_osat_running }
+	VIE_ind_chip_workforce_done = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_chip_osat OR = { AND = { has_country_flag = VIE_ind_priority_design NOT = { check_variable = { treasury < 5.625 } } } AND = { NOT = { has_country_flag = VIE_ind_priority_design } NOT = { check_variable = { treasury < 7.5 } } } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_chip_osat owns_state = 519 controls_state = 519 }
+}
+
+VIE_ind_d_fab_design_can_start = {
+	has_completed_focus = VIE_semiconductor_fab
+	check_variable = { VIE_ind_chip_fab_stage = 0 }
+	VIE_ind_chip_free = yes
+	NOT = { has_country_flag = VIE_ind_d_fab_design_running }
+	VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_design
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_fab_design NOT = { check_variable = { treasury < 15 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_fab_design owns_state = 519 controls_state = 519 }
+}
+
+VIE_ind_d_fab_pilot_can_start = {
+	has_completed_focus = VIE_semiconductor_fab
+	check_variable = { VIE_ind_chip_fab_stage = 0 }
+	VIE_ind_chip_free = yes
+	NOT = { has_country_flag = VIE_ind_d_fab_pilot_running }
+	VIE_ind_chip_ready = yes has_country_flag = VIE_ind_priority_fab
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_fab_pilot NOT = { check_variable = { treasury < 12 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_fab_pilot owns_state = 519 controls_state = 519 }
+}
+
+VIE_ind_d_productivity_can_start = {
+	has_completed_focus = VIE_industrial_productivity_program
+	check_variable = { VIE_ind_productivity_stage = 0 }
+	VIE_ind_common_free = yes
+	NOT = { has_country_flag = VIE_ind_d_productivity_running }
+	VIE_ind_three_sectors = yes
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_money_VIE_ind_d_productivity NOT = { check_variable = { treasury < 1 } } }
+	custom_trigger_tooltip = { tooltip = VIE_tt_ind_target_VIE_ind_d_productivity always = yes }
+}
+
+# ====================================================================
+# SECTION: VIE_md_triggers_hardline.txt
+# ====================================================================
+
+# Vietnam submod triggers: "Con duong Kien dinh" (CPV Hardline, MD ruling party index 4 = Communist-State).
+# Design: Con_duong_Kien_dinh_noi_dung_cay_focus_v2.md. Code plan: Con_duong_Kien_dinh_plan_code.md.
+
+# The hardline party (index 4) is in power. Every focus of the tree checks this, so the whole tree closes
+# the moment the party loses power; finished focuses keep their rewards.
+VIE_hl_in_power = {
+	original_tag = VIE
+	OR = {
+		emerging_communist_state_are_in_power = yes
+		emerging_communist_state_are_in_coalition = yes
+	}
+}
+
+# The conservative wing clearly leads the balance of power (below -0.3, inside the conservative range).
+# Deliberately shallower than VIE_bop_is_hardline (below -0.6): summing every conservative effect in the mod,
+# -0.6 is out of reach before 2011, while -0.3 is reachable with a consistently conservative course.
+# VIE_hl_take_power resets the balance to -0.5 afterwards.
+VIE_hl_bop_leads_conservative = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_bop_lead_tt
+		has_country_flag = VIE_bop_active
+		power_balance_value = {
+			id = VIE_party_balance
+			value < -0.3
+		}
+	}
+}
+
+# Taking power: the third choice of the Congress XIV row (focus VIE_hl_unity_of_will).
+VIE_hl_can_take_power_congress = {
+	OR = {
+		neutrality_neutral_communism_are_in_power = yes
+		neutrality_neutral_communism_are_in_coalition = yes
+	}
+	VIE_hl_bop_leads_conservative = yes
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_no_recent_change_tt
+		NOT = { has_country_flag = VIE_regime_changed_recently }
+		NOT = { has_country_flag = VIE_hardline_retired }
+	}
+}
+
+# At least three of the four pillars are finished (last focus of each pillar: A5, B5, C5, D5).
+VIE_hl_pillars_three = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_pillars_three_tt
+		count_triggers = {
+			amount = 3
+			has_completed_focus = VIE_hl_five_year_plan
+			has_completed_focus = VIE_hl_party_defence_industry
+			has_completed_focus = VIE_hl_fatherland_front
+			has_completed_focus = VIE_hl_no_dependence
+		}
+	}
+}
+
+VIE_hl_pillars_all = {
+	custom_trigger_tooltip = {
+		tooltip = VIE_hl_pillars_all_tt
+		has_completed_focus = VIE_hl_five_year_plan
+		has_completed_focus = VIE_hl_party_defence_industry
+		has_completed_focus = VIE_hl_fatherland_front
+		has_completed_focus = VIE_hl_no_dependence
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_md_triggers_p3.txt
+# ====================================================================
+
+# Vietnam submod triggers (Phase 3: alternative regimes and collapse)
+
+VIE_corruption_high_trigger = {
+	OR = {
+		has_idea = corruption_level_07
+		has_idea = corruption_level_08
+		has_idea = corruption_level_09
+		has_idea = corruption_level_10
+	}
+}
+
+# Reading helpers for Balance-of-power tooltips in focuses
+VIE_bop_is_hardline = {
+	hidden_trigger = { has_country_flag = VIE_bop_active }
+	power_balance_value = { id = VIE_party_balance value < -0.6 }
+}
+
+# ====================================================================
+# SECTION: VIE_md_triggers_p3b.txt
+# ====================================================================
+
+# Flag readers with a localised name, for focus tooltips (Phase 3)
+
+# Set by event vie_eco.6 option a (Formosa handled in public)
+VIE_formosa_open_tt = {
+	has_country_flag = VIE_formosa_open
+}
+
+# Set by event vie_alt.2 option b (civil-society dialogue)
+VIE_d2_open_tt = {
+	has_country_flag = VIE_door_d2_open
+}
+
+# ====================================================================
+# SECTION: VIE_md_triggers_p4.txt
+# ====================================================================
+
+# Vietnam AI behaviour game rule. Historical remains the locked-by-default choice set;
+# Hardline selectively enables only the AI choices explicitly whitelisted for this path.
+
+# Keep the broad historical-choice kill switch permanent. Hardline exceptions use VIE_ai_hardline
+# directly so selecting this path cannot unlock unrelated alternative-history choices.
+VIE_ai_historical = {
+	always = yes
+}
+
+# Selected AI profile; separate from VIE_ai_historical, which remains the broad
+# historical-choice lock for whitelisted and non-whitelisted alternative choices.
+VIE_ai_historical_path = {
+	has_global_flag = VIE_AI_PATH_HISTORICAL
+}
+
+VIE_ai_hardline = {
+	has_global_flag = VIE_AI_PATH_HARDLINE
+}
+
+# Decisions marked "AI only when VIE_ai_free" stay off for the AI (historical line is permanent).
+VIE_ai_free = {
+	always = no
+}
+# Door D3 (security state): stability below 40%
+VIE_gate_security_stability = {
+	has_stability < 0.40
+}
+
+# ====================================================================
+# SECTION: VIE_md_triggers_scs_coop.txt
+# ====================================================================
+
+########################################################################
+# Hop tac an ninh bien (nhanh Bien Dong): cac cong dung chung cho decision / event.
+# Thiet ke: plan giai doan 2 (tap tran, tham cang Cam Ranh, huan luyen chung).
+########################################################################
+
+# Doi tac $T$ co the gui tau tham Cam Ranh: ton tai, khong co chien tranh voi VIE, chua tham trong 3 nam qua.
+VIE_scs_pc_ok = {
+	country_exists = $T$
+	NOT = { has_war_with = $T$ }
+	NOT = { has_country_flag = VIE_scs_pc_$T$ }
+}
+
+# It nhat mot doi tac co the tham cang (cong cua decision VIE_scs_d2_port_call).
+VIE_scs_pc_any = {
+	OR = {
+		AND = {
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+			NOT = { has_country_flag = VIE_scs_pc_JAP }
+		}
+		AND = {
+			country_exists = RAJ
+			NOT = { has_war_with = RAJ }
+			NOT = { has_country_flag = VIE_scs_pc_RAJ }
+		}
+		AND = {
+			country_exists = USA
+			NOT = { has_war_with = USA }
+			NOT = { has_country_flag = VIE_scs_pc_USA }
+		}
+		AND = {
+			country_exists = FRA
+			NOT = { has_war_with = FRA }
+			NOT = { has_country_flag = VIE_scs_pc_FRA }
+		}
+		AND = {
+			country_exists = AST
+			NOT = { has_war_with = AST }
+			NOT = { has_country_flag = VIE_scs_pc_AST }
+		}
+		AND = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+			NOT = { has_country_flag = VIE_scs_pc_SOV }
+		}
+		AND = {
+			country_exists = CHI
+			NOT = { has_war_with = CHI }
+			NOT = { has_country_flag = VIE_scs_pc_CHI }
+		}
+	}
+}
+
+# Chinh sach Bon Khong / khong lien minh con hieu luc: dieu kien de mo cang cho tau nuoc ngoai.
+VIE_scs_non_aligned = {
+	OR = {
+		has_idea = VIE_four_nos
+		has_idea = VIE_non_alignment_policy
+	}
+}
+
+# ====================================================================
+# SECTION: VIE_md_triggers_land_force.txt
+# ====================================================================
+
+# Luc quan v39: flag thuong chi la guard chong replay, khong thay prerequisite.
+VIE_lf_d1_achieved = {
+	OR = { has_completed_focus = VIE_lf_territorial_defense_foundation has_country_flag = VIE_lf_reward_d1_applied }
+}
+
+VIE_lf_d3_achieved = {
+	OR = { has_completed_focus = VIE_lf_reserve_mobilization has_country_flag = VIE_lf_reward_d3_applied }
+}
+
+VIE_lf_d4_achieved = {
+	OR = { has_completed_focus = VIE_lf_strategic_defense_zones has_country_flag = VIE_lf_reward_d4_applied }
+}
+
+VIE_lf_d8_achieved = {
+	OR = { has_completed_focus = VIE_lf_active_defense_in_depth has_country_flag = VIE_lf_reward_d8_applied }
+}
+
+VIE_lf_i1_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_production_governance has_country_flag = VIE_lf_reward_i1_applied }
+}
+
+VIE_lf_i2_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_precision_z131 has_country_flag = VIE_lf_reward_i2_applied }
+}
+
+VIE_lf_d6_achieved = {
+	OR = { has_completed_focus = VIE_lf_local_logistics_stockpiles has_country_flag = VIE_lf_reward_d6_applied }
+}
+
+VIE_lf_p5_achieved = {
+	OR = { has_completed_focus = VIE_lf_p5_protracted_combat_sustainment has_country_flag = VIE_lf_reward_p5_applied }
+}
+
+VIE_lf_m3_achieved = {
+	OR = { has_completed_focus = VIE_lf_m3_mechanized_infantry_formations has_country_flag = VIE_lf_reward_m3_applied }
+}
+
+VIE_lf_i3_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_armor_structures has_country_flag = VIE_lf_reward_i3_applied }
+}
+
+VIE_lf_i4_achieved = {
+	OR = { has_completed_focus = VIE_lf_ind_xcb01_design has_country_flag = VIE_lf_reward_i4_applied }
+}
+
+VIE_lf_p3_achieved = {
+	OR = { has_completed_focus = VIE_lf_p3_operational_reserves has_country_flag = VIE_lf_reward_p3_applied }
+}
+
+VIE_lf_p1_achieved = {
+	OR = { has_completed_focus = VIE_lf_p1_strategic_defense has_country_flag = VIE_lf_reward_p1_applied }
+}
+
+VIE_lf_p6_achieved = {
+	OR = { has_completed_focus = VIE_lf_p6_active_defense_counterattack has_country_flag = VIE_lf_reward_p6_applied }
+}
+
+VIE_lf_m1_achieved = {
+	OR = { has_completed_focus = VIE_lf_m1_combined_arms_mechanized has_country_flag = VIE_lf_reward_m1_applied }
+}
+
+VIE_lf_m6_achieved = {
+	OR = { has_completed_focus = VIE_lf_m6_operational_mechanized_counteroffensive has_country_flag = VIE_lf_reward_m6_applied }
+}
+
+VIE_lf_r1_achieved = {
+	OR = { has_completed_focus = VIE_lf_r1_flexible_mobile_warfare has_country_flag = VIE_lf_reward_r1_applied }
+}
+
+VIE_lf_r6_achieved = {
+	OR = { has_completed_focus = VIE_lf_r6_terrain_maneuver_mastery has_country_flag = VIE_lf_reward_r6_applied }
+}
+
+VIE_lf_xcb01_technology_ready = {
+	OR = {
+		AND = { has_dlc = "No Step Back" has_tech = mbt_tech_2 }
+		AND = { NOT = { has_dlc = "No Step Back" } has_tech = IFV_4 }
+	}
+}
+
+VIE_lf_xcb01_design_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_lf_ind_xcb01_design
+	NOT = { has_country_flag = VIE_lf_xcb01_design_running }
+	NOT = { has_country_flag = VIE_lf_xcb01_design_done }
+	NOT = { has_active_mission = bankruptcy_incoming_collapse }
+	check_variable = { var = treasury value = 0.6 compare = greater_than_or_equals }
+}
+
+VIE_lf_xcb01_evaluation_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_lf_ind_xcb01_design
+	NOT = { has_country_flag = VIE_lf_xcb01_evaluation_running }
+	NOT = { has_country_flag = VIE_lf_xcb01_evaluation_done }
+	NOT = { has_active_mission = bankruptcy_incoming_collapse }
+	check_variable = { var = treasury value = 0.3 compare = greater_than_or_equals }
+	has_country_flag = VIE_lf_xcb01_design_done
+	VIE_lf_xcb01_technology_ready = yes
+}
+
+VIE_lf_xcb01_serial_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_lf_ind_serial_ground_equipment
+	NOT = { has_country_flag = VIE_lf_xcb01_serial_running }
+	NOT = { has_country_flag = VIE_lf_xcb01_serial_done }
+	NOT = { has_active_mission = bankruptcy_incoming_collapse }
+	check_variable = { var = treasury value = 0.6 compare = greater_than_or_equals }
+	has_country_flag = VIE_lf_xcb01_evaluation_done
+}
+
