@@ -1,4 +1,4 @@
-# ====================================================================
+﻿# ====================================================================
 # MILLENNIUM DAWN: VIETNAM - ALL DECISIONS
 # Consolidated single decisions file
 # ====================================================================
@@ -2667,7 +2667,7 @@ VIE_military_readiness_category = {
 			OR = {
 				has_country_flag = VIE_lf_xcb01_serial_running
 				AND = {
-					has_completed_focus = VIE_lf_ind_serial_ground_equipment
+					has_completed_focus = VIE_lf_ind_serial_industrialization
 					NOT = { has_country_flag = VIE_lf_xcb01_serial_done }
 				}
 			}
@@ -3125,6 +3125,570 @@ VIE_naval_procurement_category = {
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 0 check_variable = { treasury < 1.0 } }
 		}
+	}
+
+}
+
+# ── XTC Programme decisions ────────────────────────────────────────────
+VIE_military_readiness_category = {
+
+	VIE_lf_xtc02_prototype_program = {
+		icon = GFX_decision_VIE_lf_arm_program
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i5_applied }
+		available = {
+			has_country_flag = VIE_lf_reward_i5_applied
+			has_political_power > 49
+			has_manpower > 0
+		}
+
+		cost = 50
+		days_remove = 120
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xtc02_prototype_program"
+			add_tech_bonus = { name = VIE_lf_xtc02_tech category = CAT_motorized_mechanized uses = 1 bonus = 1.0 }
+			VIE_proc_create_xtc02_variant = yes
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_to_stockpile = { type = medium_tank_amphibious_chassis_2 variant_name = "XTC-02" amount = 40 producer = VIE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = APC_5 amount = 40 producer = VIE }
+			}
+			set_country_flag = VIE_lf_xtc02_complete
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VIE_lf_xtc03_upgrade_program = {
+		icon = GFX_decision_VIE_lf_arm_program
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i5_applied }
+		available = {
+			has_country_flag = VIE_lf_xtc02_complete
+			has_political_power > 49
+		}
+
+		cost = 50
+		days_remove = 150
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xtc03_upgrade_program"
+			add_tech_bonus = { name = VIE_lf_xtc03_tech category = CAT_motorized_mechanized uses = 1 bonus = 0.75 }
+			VIE_proc_create_xtc03_variant = yes
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_to_stockpile = { type = medium_tank_amphibious_chassis_2 variant_name = "XTC-03" amount = 30 producer = VIE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = APC_6 amount = 30 producer = VIE }
+			}
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	# ── T-1 Light Tank decisions ────────────────────────────────────────────
+	VIE_lf_t1_design_program = {
+		icon = GFX_decision_VIE_lf_arm_armor
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i6_applied }
+		available = {
+			has_country_flag = VIE_lf_reward_i6_applied
+			has_political_power > 49
+		}
+
+		cost = 50
+		days_remove = 120
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_t1_design_program"
+			add_tech_bonus = { name = VIE_lf_t1_design_tech category = CAT_armor uses = 1 bonus = 1.0 }
+			set_country_flag = VIE_lf_t1_design_complete
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VIE_lf_t1_prototype_evaluation = {
+		icon = GFX_decision_VIE_lf_arm_armor
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i6_applied }
+		available = {
+			has_country_flag = VIE_lf_t1_design_complete
+			has_political_power > 49
+		}
+
+		cost = 50
+		days_remove = 150
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_t1_prototype_evaluation"
+			add_tech_bonus = { name = VIE_lf_t1_proto_tech category = CAT_armor uses = 1 bonus = 0.75 }
+			VIE_proc_create_t1_variant = yes
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_to_stockpile = { type = medium_tank_destroyer_chassis_2 variant_name = "T-1" amount = 20 producer = VIE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = Rec_tank_2 amount = 20 producer = VIE }
+			}
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	# ── SPG Programme decisions ────────────────────────────────────────────
+	VIE_lf_spg_design_program = {
+		icon = GFX_decision_VIE_lf_arm_arty
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i7_applied }
+		available = {
+			has_country_flag = VIE_lf_reward_i7_applied
+			has_political_power > 49
+		}
+
+		cost = 50
+		days_remove = 120
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_spg_design_program"
+			add_tech_bonus = { name = VIE_lf_spg_design_tech category = CAT_artillery uses = 1 bonus = 1.0 }
+			set_country_flag = VIE_lf_spg_design_complete
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VIE_lf_spg_prototype_evaluation = {
+		icon = GFX_decision_VIE_lf_arm_arty
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i7_applied }
+		available = {
+			has_country_flag = VIE_lf_spg_design_complete
+			has_political_power > 49
+		}
+
+		cost = 50
+		days_remove = 150
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_spg_prototype_evaluation"
+			add_tech_bonus = { name = VIE_lf_spg_proto_tech category = CAT_artillery uses = 1 bonus = 0.75 }
+			VIE_proc_create_pth152m_variant = yes
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_to_stockpile = { type = medium_tank_artillery_chassis_2 variant_name = "PTH-152M" amount = 30 producer = VIE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = SP_arty_2 amount = 30 producer = VIE }
+			}
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	# ── T-2 Main Battle Tank decisions ─────────────────────────────────────
+	VIE_lf_t2_design_program = {
+		icon = GFX_decision_VIE_lf_arm_armor
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i9_applied }
+		available = {
+			has_country_flag = VIE_lf_reward_i9_applied
+			has_political_power > 74
+		}
+
+		cost = 75
+		days_remove = 180
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_t2_design_program"
+			add_tech_bonus = { name = VIE_lf_t2_design_tech category = CAT_armor uses = 2 bonus = 1.0 }
+			set_country_flag = VIE_lf_t2_design_complete
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VIE_lf_t2_prototype_evaluation = {
+		icon = GFX_decision_VIE_lf_arm_armor
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i9_applied }
+		available = {
+			has_country_flag = VIE_lf_t2_design_complete
+			has_political_power > 74
+		}
+
+		cost = 75
+		days_remove = 210
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_t2_prototype_evaluation"
+			add_tech_bonus = { name = VIE_lf_t2_proto_tech category = CAT_armor uses = 1 bonus = 0.75 }
+			VIE_proc_create_t2_variant = yes
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_to_stockpile = { type = medium_tank_chassis_4 variant_name = "T-2 MBT" amount = 10 producer = VIE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = MBT_7 amount = 10 producer = VIE }
+			}
+			set_country_flag = VIE_lf_t2_prototype_complete
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VIE_lf_t2_serial_production = {
+		icon = GFX_decision_VIE_lf_arm_armor
+
+		allowed = { original_tag = VIE }
+		visible = { has_country_flag = VIE_lf_reward_i9_applied }
+		available = {
+			has_country_flag = VIE_lf_t2_prototype_complete
+			has_political_power > 99
+		}
+
+		cost = 100
+		days_remove = 365
+		fire_only_once = yes
+
+		modifier = {
+			political_power_gain = -0.20
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_t2_serial_production"
+			add_tech_bonus = { name = VIE_lf_t2_serial_tech category = CAT_armor uses = 1 bonus = 0.50 }
+			VIE_proc_create_t2_variant = yes
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_to_stockpile = { type = medium_tank_chassis_4 variant_name = "T-2 MBT" amount = 50 producer = VIE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = MBT_7 amount = 50 producer = VIE }
+			}
+			519 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = { base = 5 }
+	}
+}
+
+
+# ==============================================================================
+# VIETNAM AIR FORCE (PK-KQ) V8 DECISIONS
+# ==============================================================================
+VIE_air_category = {
+
+	VIE_air8_dec_s300pmu1 = {
+		icon = GFX_decision_generic_military
+		cost = 40
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_p02_s300pmu1
+			NOT = { has_country_flag = VIE_air8_s300pmu1_delivered }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_s300pmu1_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_s300pmu1"
+			VIE_air8_dec_s300pmu1_start = yes
+		}
+
+		days_remove = 360
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_s300pmu1 (complete)"
+			VIE_air8_dec_s300pmu1_finish = yes
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	VIE_air8_dec_s125vt_upgrade = {
+		icon = GFX_decision_generic_military
+		cost = 25
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_i03_s125vt_upgrade_program
+			NOT = { has_country_flag = VIE_air8_s125vt_upgraded }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_s125vt_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_s125vt_upgrade"
+			VIE_air8_dec_s125vt_upgrade_start = yes
+		}
+
+		days_remove = 240
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_s125vt_upgrade (complete)"
+			VIE_air8_dec_s125vt_upgrade_finish = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	VIE_air8_dec_su30mk2_batch1 = {
+		icon = GFX_decision_generic_air
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_f02_su30mk2_procurement
+			NOT = { has_country_flag = VIE_air8_su30mk2_delivered }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_su30mk2_batch1_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_su30mk2_batch1"
+			VIE_air8_dec_su30mk2_batch1_start = yes
+		}
+
+		days_remove = 360
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_su30mk2_batch1 (complete)"
+			VIE_air8_dec_su30mk2_batch1_finish = yes
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	VIE_air8_dec_su30mk2_batch2 = {
+		icon = GFX_decision_generic_air
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_f03_su30mk2_fleet_expansion
+			has_country_flag = VIE_air8_su30mk2_delivered
+			NOT = { has_country_flag = VIE_air8_su30mk2_batch2_done }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_su30mk2_batch2_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_su30mk2_batch2"
+			VIE_air8_dec_su30mk2_batch2_start = yes
+		}
+
+		days_remove = 360
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_su30mk2_batch2 (complete)"
+			VIE_air8_dec_su30mk2_batch2_finish = yes
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	VIE_air8_dec_nextgen_fighter = {
+		icon = GFX_decision_generic_air
+		cost = 60
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_b02_nextgen_multirole_program
+			NOT = { has_country_flag = VIE_air8_nextgen_fighter_done }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_nextgen_fighter_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_nextgen_fighter"
+			VIE_air8_dec_nextgen_fighter_start = yes
+		}
+
+		days_remove = 540
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_nextgen_fighter (complete)"
+			VIE_air8_dec_nextgen_fighter_finish = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	VIE_air8_dec_t6c_trainer = {
+		icon = GFX_decision_generic_air
+		cost = 20
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_t02_t6c_basic_trainer
+			NOT = { has_country_flag = VIE_air8_t6c_done }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_t6c_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_t6c_trainer"
+			VIE_air8_dec_t6c_trainer_start = yes
+		}
+
+		days_remove = 180
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_t6c_trainer (complete)"
+			VIE_air8_dec_t6c_trainer_finish = yes
+		}
+
+		ai_will_do = { base = 40 }
+	}
+
+	VIE_air8_dec_l39ng_trainer = {
+		icon = GFX_decision_generic_air
+		cost = 25
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_t03_l39ng_jet_trainer
+			NOT = { has_country_flag = VIE_air8_l39ng_done }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_l39ng_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_l39ng_trainer"
+			VIE_air8_dec_l39ng_trainer_start = yes
+		}
+
+		days_remove = 240
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_l39ng_trainer (complete)"
+			VIE_air8_dec_l39ng_trainer_finish = yes
+		}
+
+		ai_will_do = { base = 45 }
+	}
+
+	VIE_air8_dec_yak130_trainer = {
+		icon = GFX_decision_generic_air
+		cost = 30
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_t04_yak130_advanced_trainer
+			NOT = { has_country_flag = VIE_air8_yak130_done }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_yak130_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_yak130_trainer"
+			VIE_air8_dec_yak130_trainer_start = yes
+		}
+
+		days_remove = 270
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_yak130_trainer (complete)"
+			VIE_air8_dec_yak130_trainer_finish = yes
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	VIE_air8_dec_tactical_uav = {
+		icon = GFX_decision_generic_military
+		cost = 25
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = VIE_air8_i06_viettel_tactical_uav
+			NOT = { has_country_flag = VIE_air8_uav_tactical_ready }
+		}
+
+		available = {
+			NOT = { has_country_flag = VIE_air8_tactical_uav_running }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_tactical_uav"
+			VIE_air8_dec_tactical_uav_start = yes
+		}
+
+		days_remove = 180
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_air8_dec_tactical_uav (complete)"
+			VIE_air8_dec_tactical_uav_finish = yes
+		}
+
+		ai_will_do = { base = 40 }
 	}
 
 }

@@ -134,6 +134,11 @@ class State:
             elif k == 'clr_country_flag': self.flags.discard(v);self.flag_dates.pop(v,None)
             elif k == 'add_ideas': self.ideas.add(v)
             elif k == 'remove_ideas': self.ideas.discard(v)
+            elif k == 'swap_ideas':
+                rem = value(v, 'remove_idea')
+                add = value(v, 'add_idea')
+                if rem: self.ideas.discard(rem)
+                if add: self.ideas.add(add)
             elif k == 'add_timed_idea': self.ideas.add(value(v, 'idea'))
             elif k == 'set_temp_variable':
                 for var, _, number, _ in v: self.variables[var] = float(number)
@@ -157,7 +162,8 @@ class State:
             elif k == 'one_state_dockyard':
                 self.dockyards += 1
                 if not self.variables.get('skip_payment'): self.variables['treasury'] -= 7.5
-            elif k in ('log', 'custom_effect_tooltip', 'add_command_power', 'add_stability'): pass
+            elif k in ('log', 'custom_effect_tooltip', 'add_command_power', 'add_stability', 'unlock_decision_tooltip', 'unlock_decision_category_tooltip', 'air_experience', 'army_experience', 'add_equipment_to_stockpile', 'add_doctrine_cost_reduction', 'add_to_variable', 'force_update_dynamic_modifier', 'add_building_construction', 'add_extra_state_shared_building_slots'): pass
+            elif k.isdigit(): self.apply(v)
             elif k in EFFECTS: self.apply(EFFECTS[k])
             else: raise AssertionError(f'Unsupported effect {k}:{line}')
 
@@ -190,43 +196,45 @@ def graph_tests():
     check(len([k for k in FOCUSES if k.startswith('VIE_nav35_')]) == 40, 'exactly 40 V35 focuses')
     for n in SPEC['nodes']:
         block = FOCUSES[n['id']]
-        deps = list(dict.fromkeys(([n['parent']] if n['parent'] else []) + n['all']))
-        expected = [frozenset({'VIE_nav35_'+d}) for d in deps]
+        expected = [frozenset({'VIE_nav35_'+n['parent']})] if n['parent'] else []
         if n['code'] == 'N00': expected += [frozenset({'VIE_modernize_vpa'})]
         if n['any']: expected += [frozenset('VIE_nav35_'+d for d in n['any'])]
+        if n['all']: expected += [frozenset({'VIE_nav35_'+d}) for d in n['all']]
         actual = [frozenset(values(g,'focus')) for g in values(block,'prerequisite')]
         check(set(actual) == set(expected), n['code']+' AND/OR matches design')
+        avail_focuses = {v for k, op, v, line in value(block, 'available', []) if k == 'has_completed_focus'}
+        check(avail_focuses == set(), n['code']+' gates in available')
         mutex = set(itertools.chain.from_iterable(values(g,'focus') for g in values(block,'mutually_exclusive')))
         check(mutex == {'VIE_nav35_'+d for d in n['mutex']}, n['code']+' mutex matches design')
-        declared_year=int(n['year'])
-        if declared_year>2000:
-            s=State(declared_year-1);s.focuses.update(v for group in values(block,'prerequisite') for v in values(group,'focus'))
-            check(not s.can_focus(n['id']),n['code']+' cannot open before stated year')
-            s.year=declared_year
-            check(s.can_focus(n['id']),n['code']+' opens at stated year with prerequisites satisfied')
-    for route,year in [('P',2011),('G',2014),('B',2015)]:
-        s=State(year)
+        # Free military development (no hard date locks): verify prerequisites open the focus
+        s = State(2000)
+        s.focuses.update(v for group in values(block, 'prerequisite') for v in values(group, 'focus'))
+        s.focuses.update('VIE_nav35_' + d for d in n['all'])
+        check(s.can_focus(n['id']), n['code'] + ' opens with prerequisites satisfied')
+    for route, year in [('P', 2011), ('G', 2014), ('B', 2015)]:
+        s = State(year)
         s.focuses.add('VIE_modernize_vpa')
-        excluded = ({'H01','H02','G01','G02','G03','B01','B02','B03'} if route == 'P'
-                    else {'P01','P02','P03','P04','P05','P06'} | ({'B01','B02','B03'} if route == 'G' else {'G01','G02','G03'}))
+        base_excluded = {'I07', 'L03'}
+        excluded = (base_excluded | {'H01', 'H02', 'G01', 'G02', 'G03', 'B01', 'B02', 'B03'} if route == 'P'
+                    else base_excluded | {'P01', 'P02', 'P03', 'P04', 'P05', 'P06'} | ({'B01', 'B02', 'B03'} if route == 'G' else {'G01', 'G02', 'G03'}))
         for n in SPEC['nodes']:
             if n['code'] not in excluded and s.can_focus(n['id']): s.finish_focus(n['code'])
-        check('VIE_nav35_F02' in s.focuses, route+' reaches F02 by '+str(year)+' without I07/L03')
-        check('VIE_nav35_I07' not in s.focuses, route+' does not require 2026 project')
-        routeideas=[i for i in s.ideas if i.startswith(('VPA_Integrated','VPA_Fleet','VPA_Multirole','VPA_Greenwater','VPA_Bluewater','VIE_nav_capstone'))]
-        check(len(routeideas)==1 and routeideas[0].startswith('VIE_nav_capstone'),route+' final replaces all starter/capstone route ideas')
-        before=copy.deepcopy(s.__dict__)
+        check('VIE_nav35_F02' in s.focuses, route + ' reaches F02 by ' + str(year) + ' without I07/L03')
+        check('VIE_nav35_I07' not in s.focuses, route + ' does not require 2026 project')
+        routeideas = [i for i in s.ideas if i.startswith(('VPA_Integrated', 'VPA_Fleet', 'VPA_Multirole', 'VPA_Greenwater', 'VPA_Bluewater', 'VIE_nav_capstone'))]
+        check(len(routeideas) == 1 and routeideas[0].startswith('VIE_nav_capstone'), route + ' final replaces all starter/capstone route ideas')
+        before = copy.deepcopy(s.__dict__)
         for _ in range(3): s.apply(EFFECTS['VIE_nav35_refresh'])
-        check(s.__dict__==before,route+' repeated refresh has zero side effects')
-    s=State(2026);s.focuses={'VIE_nav35_T02'}
+        check(s.__dict__ == before, route + ' repeated refresh has zero side effects')
+    s = State(2026); s.focuses = {'VIE_nav35_T02'}
     check(not s.can_focus('VIE_nav35_T04'), 'T04 blocks when T03 missing')
-    for c in ('P06','G03','B03'):
-        s.focuses={'VIE_nav35_'+c}
-        check(s.can_focus('VIE_nav35_F01'),'F01 accepts '+c+' independently')
-    s=State(2000);s.focuses={'VIE_nav35_F01','VIE_nav35_S03'}
-    check(not s.can_focus('VIE_nav35_F02'),'F02 requires L04 explicitly')
-    s=State(2025);s.focuses={'VIE_nav35_I05','VIE_nav35_I06'}
-    check(not s.can_focus('VIE_nav35_I07'),'I07 cannot start before 2026')
+    for c in ('P06', 'G03', 'B03'):
+        s.focuses = {'VIE_nav35_' + c}
+        check(s.can_focus('VIE_nav35_F01'), 'F01 accepts ' + c + ' independently')
+    s = State(2000); s.focuses = {'VIE_nav35_F01'}
+    check(s.can_focus('VIE_nav35_F02'), 'F02 requires only F01')
+    s = State(2000); s.focuses = {'VIE_nav35_I05', 'VIE_nav35_I06'}
+    check(s.can_focus('VIE_nav35_I07'), 'I07 opens when I05 and I06 satisfied')
 
 
 def project_tests():

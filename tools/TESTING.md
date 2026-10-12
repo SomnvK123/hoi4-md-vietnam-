@@ -289,13 +289,9 @@ Layout changed: East block rows 1..6 now hold D3 (x 33..39), D4 (x 40..44), D5 (
 * `vie_col.8`: appears once during the civil war (20% per month).
 
 ## Shortcut menu
-The left-hand buttons are 17, not 11: Doi Moi root, anti-corruption, WTO, banks, state groups, roads, army,
-East Sea, ASEAN, digital, alternative paths, and one per military column (army/navy/air/defence-industry) plus
-rule-of-law and bilateral-diplomacy (`common/national_focus/VIE_md_focus.txt`, the `shortcut = { ... }` blocks
-right after `focus_tree = {`). Click each and check the view lands on the right focus. The "alternative paths"
-button (`VIE_alt_paths_shortcut`) is currently broken: its target, `VIE_developmental_state`, does not exist in
-the tree any more (a leftover from one of the deleted alt-regime bands) — clicking it should either do nothing or
-log an error; either way this is a known game-file bug, not a TESTING.md error, and is not fixed here.
+There are 11 left-hand shortcuts: Doi Moi, congress, army, East Sea, ASEAN, finance, rule of law, industry,
+roads, digital, and the Kiên định path (`common/national_focus/VIE_md_focus.txt`, the `shortcut = { ... }`
+blocks right after `focus_tree = {`). Click each and check that the view lands on its target focus.
 
 ## Leader lifecycle (2026-09-20)
 Code: `VIE_create_leader_*`, `VIE_new_leader_*`, `VIE_recreate_general_secretary`, `VIE_create_leader_restored_party`

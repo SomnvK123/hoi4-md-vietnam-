@@ -1,4 +1,4 @@
-# ====================================================================
+﻿# ====================================================================
 # MILLENNIUM DAWN: VIETNAM - ALL SCRIPTED EFFECTS
 # Consolidated single scripted_effects file
 # ====================================================================
@@ -7554,6 +7554,46 @@ VIE_lf_xp_15_effect = {
 	else = { army_experience = 15 }
 }
 
+VIE_lf_xp_20_effect = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 20 folder = land }
+	}
+	else = { army_experience = 20 }
+}
+
+VIE_lf_xp_25_effect = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 25 folder = land }
+	}
+	else = { army_experience = 25 }
+}
+
+VIE_lf_xp_30_effect = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 30 folder = land }
+	}
+	else = { army_experience = 30 }
+}
+
+VIE_lf_xp_35_effect = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 35 folder = land }
+	}
+	else = { army_experience = 35 }
+}
+
+VIE_lf_xp_40_effect = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = { amount = 40 folder = land }
+	}
+	else = { army_experience = 40 }
+}
+
 VIE_lf_reconcile_ideas_effect = {
 	if = {
 		limit = { original_tag = VIE }
@@ -7726,7 +7766,6 @@ VIE_lf_reconcile_ideas_effect = {
 }
 
 VIE_lf_reward_l0_effect = {
-	custom_effect_tooltip = VIE_lf_l0_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_l0_applied } }
@@ -7739,7 +7778,6 @@ VIE_lf_reward_l0_effect = {
 }
 
 VIE_lf_reward_d1_effect = {
-	custom_effect_tooltip = VIE_lf_d1_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d1_applied } }
@@ -7750,7 +7788,6 @@ VIE_lf_reward_d1_effect = {
 }
 
 VIE_lf_reward_d2_effect = {
-	custom_effect_tooltip = VIE_lf_d2_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d2_applied } }
@@ -7764,7 +7801,6 @@ VIE_lf_reward_d2_effect = {
 }
 
 VIE_lf_reward_d3_effect = {
-	custom_effect_tooltip = VIE_lf_d3_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d3_applied } }
@@ -7777,7 +7813,6 @@ VIE_lf_reward_d3_effect = {
 }
 
 VIE_lf_reward_d4_effect = {
-	custom_effect_tooltip = VIE_lf_d4_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d4_applied } }
@@ -7788,7 +7823,6 @@ VIE_lf_reward_d4_effect = {
 }
 
 VIE_lf_reward_d5_effect = {
-	custom_effect_tooltip = VIE_lf_d5_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d5_applied } }
@@ -7801,7 +7835,6 @@ VIE_lf_reward_d5_effect = {
 }
 
 VIE_lf_reward_d6_effect = {
-	custom_effect_tooltip = VIE_lf_d6_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d6_applied } }
@@ -7814,7 +7847,6 @@ VIE_lf_reward_d6_effect = {
 }
 
 VIE_lf_reward_d7_effect = {
-	custom_effect_tooltip = VIE_lf_d7_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d7_applied } }
@@ -7828,7 +7860,6 @@ VIE_lf_reward_d7_effect = {
 }
 
 VIE_lf_reward_d8_effect = {
-	custom_effect_tooltip = VIE_lf_d8_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_d8_applied } }
@@ -7839,7 +7870,6 @@ VIE_lf_reward_d8_effect = {
 }
 
 VIE_lf_reward_b1_effect = {
-	custom_effect_tooltip = VIE_lf_b1_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b1_applied } }
@@ -7852,7 +7882,6 @@ VIE_lf_reward_b1_effect = {
 }
 
 VIE_lf_reward_b2_effect = {
-	custom_effect_tooltip = VIE_lf_b2_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b2_applied } }
@@ -7866,19 +7895,16 @@ VIE_lf_reward_b2_effect = {
 }
 
 VIE_lf_reward_b3_effect = {
-	custom_effect_tooltip = VIE_lf_b3_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b3_applied } }
 			set_country_flag = VIE_lf_reward_b3_applied
-			add_tech_bonus = { name = VIE_lf_b3_research_bonus bonus = 0.2 uses = 1 category = CAT_infantry_weapons }
 			VIE_lf_reconcile_ideas_effect = yes
 		}
 	}
 }
 
 VIE_lf_reward_b4_effect = {
-	custom_effect_tooltip = VIE_lf_b4_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b4_applied } }
@@ -7892,12 +7918,10 @@ VIE_lf_reward_b4_effect = {
 }
 
 VIE_lf_reward_b5_effect = {
-	custom_effect_tooltip = VIE_lf_b5_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b5_applied } }
 			set_country_flag = VIE_lf_reward_b5_applied
-			add_tech_bonus = { name = VIE_lf_b5_research_bonus bonus = 0.2 uses = 1 category = CAT_artillery }
 			VIE_lf_xp_10_effect = yes
 			VIE_lf_reconcile_ideas_effect = yes
 		}
@@ -7905,25 +7929,21 @@ VIE_lf_reward_b5_effect = {
 }
 
 VIE_lf_reward_b6_effect = {
-	custom_effect_tooltip = VIE_lf_b6_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b6_applied } }
 			set_country_flag = VIE_lf_reward_b6_applied
-			add_tech_bonus = { name = VIE_lf_b6_research_bonus bonus = 0.2 uses = 1 category = CAT_anti_air }
 			VIE_lf_reconcile_ideas_effect = yes
 		}
 	}
 }
 
 VIE_lf_reward_b7_effect = {
-	custom_effect_tooltip = VIE_lf_b7_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b7_applied } }
 			set_country_flag = VIE_lf_reward_b7_applied
 			add_to_variable = { VIE_af_recon_factor = 0.02 }
-			add_tech_bonus = { name = VIE_lf_b7_research_bonus bonus = 0.15 uses = 1 category = CAT_land_drones }
 			force_update_dynamic_modifier = yes
 			VIE_lf_reconcile_ideas_effect = yes
 		}
@@ -7931,7 +7951,6 @@ VIE_lf_reward_b7_effect = {
 }
 
 VIE_lf_reward_b8_effect = {
-	custom_effect_tooltip = VIE_lf_b8_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_b8_applied } }
@@ -7945,7 +7964,6 @@ VIE_lf_reward_b8_effect = {
 }
 
 VIE_lf_reward_i1_effect = {
-	custom_effect_tooltip = VIE_lf_i1_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i1_applied } }
@@ -7956,36 +7974,30 @@ VIE_lf_reward_i1_effect = {
 }
 
 VIE_lf_reward_i2_effect = {
-	custom_effect_tooltip = VIE_lf_i2_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i2_applied } }
 			set_country_flag = VIE_lf_reward_i2_applied
-			add_tech_bonus = { name = VIE_lf_i2_research_bonus bonus = 0.2 uses = 1 category = CAT_artillery_ammunition }
 			VIE_lf_reconcile_ideas_effect = yes
 		}
 	}
 }
 
 VIE_lf_reward_i3_effect = {
-	custom_effect_tooltip = VIE_lf_i3_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i3_applied } }
 			set_country_flag = VIE_lf_reward_i3_applied
-			add_tech_bonus = { name = VIE_lf_i3_research_bonus bonus = 0.15 uses = 1 category = CAT_infantry_fighting_vehicles }
 			VIE_lf_reconcile_ideas_effect = yes
 		}
 	}
 }
 
 VIE_lf_reward_i4_effect = {
-	custom_effect_tooltip = VIE_lf_i4_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i4_applied } }
 			set_country_flag = VIE_lf_reward_i4_applied
-			add_tech_bonus = { name = VIE_lf_i4_research_bonus bonus = 0.2 uses = 1 category = CAT_infantry_fighting_vehicles }
 			unlock_decision_tooltip = VIE_lf_xcb01_design_program
 			unlock_decision_tooltip = VIE_lf_xcb01_prototype_evaluation
 			VIE_lf_reconcile_ideas_effect = yes
@@ -7993,12 +8005,48 @@ VIE_lf_reward_i4_effect = {
 	}
 }
 
+
 VIE_lf_reward_i5_effect = {
-	custom_effect_tooltip = VIE_lf_i5_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i5_applied } }
 			set_country_flag = VIE_lf_reward_i5_applied
+			activate_decision = VIE_lf_xtc02_prototype_program
+			activate_decision = VIE_lf_xtc03_upgrade_program
+			VIE_lf_reconcile_ideas_effect = yes
+		}
+	}
+}
+
+VIE_lf_reward_i6_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i6_applied } }
+			set_country_flag = VIE_lf_reward_i6_applied
+			activate_decision = VIE_lf_t1_design_program
+			activate_decision = VIE_lf_t1_prototype_evaluation
+			VIE_lf_reconcile_ideas_effect = yes
+		}
+	}
+}
+
+VIE_lf_reward_i7_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i7_applied } }
+			set_country_flag = VIE_lf_reward_i7_applied
+			activate_decision = VIE_lf_spg_design_program
+			activate_decision = VIE_lf_spg_prototype_evaluation
+			VIE_lf_reconcile_ideas_effect = yes
+		}
+	}
+}
+
+VIE_lf_reward_i8_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i8_applied } }
+			set_country_flag = VIE_lf_reward_i8_applied
 			unlock_decision_tooltip = VIE_lf_xcb01_serial_preparation
 			VIE_lf_reconcile_ideas_effect = yes
 		}
@@ -8006,7 +8054,6 @@ VIE_lf_reward_i5_effect = {
 }
 
 VIE_lf_reward_p1_effect = {
-	custom_effect_tooltip = VIE_lf_p1_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_p1_applied } }
@@ -8017,7 +8064,6 @@ VIE_lf_reward_p1_effect = {
 }
 
 VIE_lf_reward_p2_effect = {
-	custom_effect_tooltip = VIE_lf_p2_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_p2_applied } }
@@ -8030,7 +8076,6 @@ VIE_lf_reward_p2_effect = {
 }
 
 VIE_lf_reward_p3_effect = {
-	custom_effect_tooltip = VIE_lf_p3_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_p3_applied } }
@@ -8041,7 +8086,6 @@ VIE_lf_reward_p3_effect = {
 }
 
 VIE_lf_reward_p4_effect = {
-	custom_effect_tooltip = VIE_lf_p4_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_p4_applied } }
@@ -8054,7 +8098,6 @@ VIE_lf_reward_p4_effect = {
 }
 
 VIE_lf_reward_p5_effect = {
-	custom_effect_tooltip = VIE_lf_p5_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_p5_applied } }
@@ -8067,7 +8110,6 @@ VIE_lf_reward_p5_effect = {
 }
 
 VIE_lf_reward_p6_effect = {
-	custom_effect_tooltip = VIE_lf_p6_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_p6_applied } }
@@ -8078,7 +8120,6 @@ VIE_lf_reward_p6_effect = {
 }
 
 VIE_lf_reward_m1_effect = {
-	custom_effect_tooltip = VIE_lf_m1_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_m1_applied } }
@@ -8089,7 +8130,6 @@ VIE_lf_reward_m1_effect = {
 }
 
 VIE_lf_reward_m2_effect = {
-	custom_effect_tooltip = VIE_lf_m2_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_m2_applied } }
@@ -8101,7 +8141,6 @@ VIE_lf_reward_m2_effect = {
 }
 
 VIE_lf_reward_m3_effect = {
-	custom_effect_tooltip = VIE_lf_m3_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_m3_applied } }
@@ -8114,7 +8153,6 @@ VIE_lf_reward_m3_effect = {
 }
 
 VIE_lf_reward_m4_effect = {
-	custom_effect_tooltip = VIE_lf_m4_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_m4_applied } }
@@ -8127,7 +8165,6 @@ VIE_lf_reward_m4_effect = {
 }
 
 VIE_lf_reward_m5_effect = {
-	custom_effect_tooltip = VIE_lf_m5_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_m5_applied } }
@@ -8140,7 +8177,6 @@ VIE_lf_reward_m5_effect = {
 }
 
 VIE_lf_reward_m6_effect = {
-	custom_effect_tooltip = VIE_lf_m6_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_m6_applied } }
@@ -8151,7 +8187,6 @@ VIE_lf_reward_m6_effect = {
 }
 
 VIE_lf_reward_r1_effect = {
-	custom_effect_tooltip = VIE_lf_r1_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_r1_applied } }
@@ -8162,7 +8197,6 @@ VIE_lf_reward_r1_effect = {
 }
 
 VIE_lf_reward_r2_effect = {
-	custom_effect_tooltip = VIE_lf_r2_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_r2_applied } }
@@ -8175,7 +8209,6 @@ VIE_lf_reward_r2_effect = {
 }
 
 VIE_lf_reward_r3_effect = {
-	custom_effect_tooltip = VIE_lf_r3_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_r3_applied } }
@@ -8188,19 +8221,16 @@ VIE_lf_reward_r3_effect = {
 }
 
 VIE_lf_reward_r4_effect = {
-	custom_effect_tooltip = VIE_lf_r4_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_r4_applied } }
 			set_country_flag = VIE_lf_reward_r4_applied
-			add_tech_bonus = { name = VIE_lf_r4_research_bonus bonus = 0.2 uses = 1 category = CAT_utility_vehicles }
 			VIE_lf_reconcile_ideas_effect = yes
 		}
 	}
 }
 
 VIE_lf_reward_r5_effect = {
-	custom_effect_tooltip = VIE_lf_r5_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_r5_applied } }
@@ -8213,7 +8243,6 @@ VIE_lf_reward_r5_effect = {
 }
 
 VIE_lf_reward_r6_effect = {
-	custom_effect_tooltip = VIE_lf_r6_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_r6_applied } }
@@ -8224,7 +8253,6 @@ VIE_lf_reward_r6_effect = {
 }
 
 VIE_lf_reward_f1_effect = {
-	custom_effect_tooltip = VIE_lf_f1_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_f1_applied } }
@@ -8238,7 +8266,6 @@ VIE_lf_reward_f1_effect = {
 }
 
 VIE_lf_reward_f2_effect = {
-	custom_effect_tooltip = VIE_lf_f2_reward_tt
 	hidden_effect = {
 		if = {
 			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_f2_applied } }
@@ -8284,6 +8311,14 @@ VIE_lf_xcb01_prototype_evaluation_finish_effect = {
 		limit = { original_tag = VIE has_country_flag = VIE_lf_xcb01_evaluation_running NOT = { has_country_flag = VIE_lf_xcb01_evaluation_done } }
 		clr_country_flag = VIE_lf_xcb01_evaluation_running
 		set_country_flag = VIE_lf_xcb01_evaluation_done
+		VIE_proc_create_xcb01_variant = yes
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			add_equipment_to_stockpile = { type = medium_tank_flame_chassis_3 variant_name = "XCB-01" amount = 20 producer = VIE }
+		}
+		else = {
+			add_equipment_to_stockpile = { type = IFV_6 amount = 20 producer = VIE }
+		}
 		VIE_lf_reconcile_ideas_effect = yes
 	}
 }
@@ -8302,6 +8337,14 @@ VIE_lf_xcb01_serial_preparation_finish_effect = {
 		limit = { original_tag = VIE has_country_flag = VIE_lf_xcb01_serial_running NOT = { has_country_flag = VIE_lf_xcb01_serial_done } }
 		clr_country_flag = VIE_lf_xcb01_serial_running
 		set_country_flag = VIE_lf_xcb01_serial_done
+		VIE_proc_create_xcb01_variant = yes
+		if = {
+			limit = { has_dlc = "No Step Back" }
+			add_equipment_to_stockpile = { type = medium_tank_flame_chassis_3 variant_name = "XCB-01" amount = 40 producer = VIE }
+		}
+		else = {
+			add_equipment_to_stockpile = { type = IFV_6 amount = 40 producer = VIE }
+		}
 		VIE_lf_reconcile_ideas_effect = yes
 	}
 }
@@ -11350,4 +11393,906 @@ VIE_nav35_asw_frigate_finish = {
 		set_country_flag = VIE_nav35_asw_frigate_ready
 		VIE_nav35_asw_frigate_deliver = yes
 	}
+}
+
+# ====================================================================
+# VIE NAVAL DYNAMIC MODIFIER REWARD EFFECTS (40 FOCUSES)
+# ====================================================================
+
+VIE_nav_reward_n00_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_n00_applied } }
+			set_country_flag = VIE_nav_reward_n00_applied
+			add_to_variable = { VIE_af_navy_org_factor = 0.02 }
+			add_to_variable = { VIE_af_naval_coordination = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_t01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_t01_applied } }
+			set_country_flag = VIE_nav_reward_t01_applied
+			add_to_variable = { VIE_af_naval_coordination = 0.03 }
+			add_to_variable = { VIE_af_navy_org_factor = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_t02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_t02_applied } }
+			set_country_flag = VIE_nav_reward_t02_applied
+			add_to_variable = { VIE_af_experience_gain_navy_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_t03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_t03_applied } }
+			set_country_flag = VIE_nav_reward_t03_applied
+			add_to_variable = { VIE_af_navy_org_factor = 0.03 }
+			add_to_variable = { VIE_af_naval_hit_chance = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_t04_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_t04_applied } }
+			set_country_flag = VIE_nav_reward_t04_applied
+			add_to_variable = { VIE_af_naval_coordination = 0.05 }
+			add_to_variable = { VIE_af_navy_org_factor = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_s01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_s01_applied } }
+			set_country_flag = VIE_nav_reward_s01_applied
+			add_to_variable = { VIE_af_naval_detection = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_s02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_s02_applied } }
+			set_country_flag = VIE_nav_reward_s02_applied
+			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.05 }
+			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_s03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_s03_applied } }
+			set_country_flag = VIE_nav_reward_s03_applied
+			add_to_variable = { VIE_af_naval_detection = 0.05 }
+			add_to_variable = { VIE_af_naval_coordination = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_w01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_w01_applied } }
+			set_country_flag = VIE_nav_reward_w01_applied
+			add_to_variable = { VIE_af_naval_speed_factor = 0.03 }
+			add_to_variable = { VIE_af_naval_hit_chance = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_w02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_w02_applied } }
+			set_country_flag = VIE_nav_reward_w02_applied
+			add_to_variable = { VIE_af_naval_speed_factor = 0.05 }
+			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_w03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_w03_applied } }
+			set_country_flag = VIE_nav_reward_w03_applied
+			add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.05 }
+			add_to_variable = { VIE_af_naval_hit_chance = 0.03 }
+			add_to_variable = { VIE_af_navy_capital_ship_defence_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_w04_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_w04_applied } }
+			set_country_flag = VIE_nav_reward_w04_applied
+			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.08 }
+			add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_w05_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_w05_applied } }
+			set_country_flag = VIE_nav_reward_w05_applied
+			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.05 }
+			add_to_variable = { VIE_af_naval_detection = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_i01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_i01_applied } }
+			set_country_flag = VIE_nav_reward_i01_applied
+			add_to_variable = { VIE_af_naval_speed_factor = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_i02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_i02_applied } }
+			set_country_flag = VIE_nav_reward_i02_applied
+			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_i03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_i03_applied } }
+			set_country_flag = VIE_nav_reward_i03_applied
+			add_to_variable = { VIE_af_naval_detection = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_i04_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_i04_applied } }
+			set_country_flag = VIE_nav_reward_i04_applied
+			add_to_variable = { VIE_af_naval_coordination = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_i05_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_i05_applied } }
+			set_country_flag = VIE_nav_reward_i05_applied
+			add_to_variable = { VIE_af_naval_speed_factor = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_i06_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_i06_applied } }
+			set_country_flag = VIE_nav_reward_i06_applied
+			add_to_variable = { VIE_af_naval_hit_chance = 0.03 }
+			add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_i07_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_i07_applied } }
+			set_country_flag = VIE_nav_reward_i07_applied
+			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_l01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_l01_applied } }
+			set_country_flag = VIE_nav_reward_l01_applied
+			add_to_variable = { VIE_af_naval_speed_factor = 0.02 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_l02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_l02_applied } }
+			set_country_flag = VIE_nav_reward_l02_applied
+			add_to_variable = { VIE_af_navy_submarine_defence_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_l03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_l03_applied } }
+			set_country_flag = VIE_nav_reward_l03_applied
+			add_to_variable = { VIE_af_naval_invasion_capacity = 10 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_l04_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_l04_applied } }
+			set_country_flag = VIE_nav_reward_l04_applied
+			add_to_variable = { VIE_af_navy_max_range_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_p01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_p01_applied } }
+			set_country_flag = VIE_nav_reward_p01_applied
+			add_to_variable = { VIE_af_mines_planting_by_fleets_factor = 0.05 }
+			add_to_variable = { VIE_af_naval_mines_effect_reduction = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_p02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_p02_applied } }
+			set_country_flag = VIE_nav_reward_p02_applied
+			add_to_variable = { VIE_af_naval_strike_attack_factor = 0.08 }
+			add_to_variable = { VIE_af_naval_hit_chance = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_p03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_p03_applied } }
+			set_country_flag = VIE_nav_reward_p03_applied
+			add_to_variable = { VIE_af_naval_invasion_planning_bonus_speed = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_p04_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_p04_applied } }
+			set_country_flag = VIE_nav_reward_p04_applied
+			add_to_variable = { VIE_af_naval_coordination = 0.05 }
+			add_to_variable = { VIE_af_naval_detection = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_p05_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_p05_applied } }
+			set_country_flag = VIE_nav_reward_p05_applied
+			add_to_variable = { VIE_af_naval_invasion_capacity = 10 }
+			add_to_variable = { VIE_af_naval_speed_factor = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_p06_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_p06_applied } }
+			set_country_flag = VIE_nav_reward_p06_applied
+			add_to_variable = { VIE_af_navy_org_factor = 0.04 }
+			add_to_variable = { VIE_af_naval_coordination = 0.05 }
+			add_to_variable = { VIE_af_naval_detection = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_h01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_h01_applied } }
+			set_country_flag = VIE_nav_reward_h01_applied
+			add_to_variable = { VIE_af_naval_speed_factor = 0.03 }
+			add_to_variable = { VIE_af_naval_coordination = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_h02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_h02_applied } }
+			set_country_flag = VIE_nav_reward_h02_applied
+			add_to_variable = { VIE_af_navy_anti_air_attack_factor = 0.05 }
+			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_g01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_g01_applied } }
+			set_country_flag = VIE_nav_reward_g01_applied
+			add_to_variable = { VIE_af_naval_hit_chance = 0.03 }
+			add_to_variable = { VIE_af_naval_coordination = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_g02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_g02_applied } }
+			set_country_flag = VIE_nav_reward_g02_applied
+			add_to_variable = { VIE_af_navy_submarine_attack_factor = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_g03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_g03_applied } }
+			set_country_flag = VIE_nav_reward_g03_applied
+			add_to_variable = { VIE_af_navy_org_factor = 0.04 }
+			add_to_variable = { VIE_af_naval_coordination = 0.05 }
+			add_to_variable = { VIE_af_naval_hit_chance = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_b01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_b01_applied } }
+			set_country_flag = VIE_nav_reward_b01_applied
+			add_to_variable = { VIE_af_navy_max_range_factor = 0.06 }
+			add_to_variable = { VIE_af_naval_speed_factor = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_b02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_b02_applied } }
+			set_country_flag = VIE_nav_reward_b02_applied
+			add_to_variable = { VIE_af_navy_max_range_factor = 0.04 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_b03_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_b03_applied } }
+			set_country_flag = VIE_nav_reward_b03_applied
+			add_to_variable = { VIE_af_navy_max_range_factor = 0.08 }
+			add_to_variable = { VIE_af_navy_org_factor = 0.04 }
+			add_to_variable = { VIE_af_naval_coordination = 0.05 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_f01_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_f01_applied } }
+			set_country_flag = VIE_nav_reward_f01_applied
+			add_to_variable = { VIE_af_navy_org_factor = 0.03 }
+			add_to_variable = { VIE_af_naval_coordination = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_nav_reward_f02_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_nav_reward_f02_applied } }
+			set_country_flag = VIE_nav_reward_f02_applied
+			add_to_variable = { VIE_af_navy_org_factor = 0.05 }
+			add_to_variable = { VIE_af_naval_coordination = 0.05 }
+			add_to_variable = { VIE_af_naval_hit_chance = 0.03 }
+			add_to_variable = { VIE_af_naval_speed_factor = 0.03 }
+			force_update_dynamic_modifier = yes
+		}
+	}
+}
+
+VIE_lf_reward_i9_effect = {
+	hidden_effect = {
+		if = {
+			limit = { original_tag = VIE NOT = { has_country_flag = VIE_lf_reward_i9_applied } }
+			set_country_flag = VIE_lf_reward_i9_applied
+			activate_decision = VIE_lf_t2_design_program
+			activate_decision = VIE_lf_t2_prototype_evaluation
+			VIE_lf_reconcile_ideas_effect = yes
+		}
+	}
+}
+
+# ======================================================================
+# GROUND FORCES EQUIPMENT VARIANTS (NSB TANK DESIGNER)
+# ======================================================================
+
+VIE_proc_create_xcb01_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_xcb01_variant }
+		}
+		set_country_flag = VIE_xcb01_variant
+		create_equipment_variant = {
+			name = "XCB-01"
+			type = medium_tank_flame_chassis_3
+			parent_version = 0
+			modules = {
+				main_armament_slot = afv_assault_gun_2
+				secondary_armament_slot = afv_coax_machine_gun_2
+				reload_type_slot = automatic_loading
+				ammunition_load_slot = anti_infantry_main_ammo_2
+				turret_type_slot = tank_base_tank_turret
+				suspension_type_slot = tank_torsion_bar_suspension_medium
+				armor_type_slot = afv_alum_armor_gen2
+				engine_type_slot = tank_diesel_engine_gen3
+				special_type_slot_1 = smoothbore_atgm_gen2
+				special_type_slot_2 = smoke_launchers_2
+				special_type_slot_3 = afv_troop_capacity
+				special_type_slot_4 = tank_battlestation_2_thermal
+				special_type_slot_5 = afv_gun_ports
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 2
+				tank_nsb_engine_upgrade = 2
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_create_xtc02_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_xtc02_variant }
+		}
+		set_country_flag = VIE_xtc02_variant
+		create_equipment_variant = {
+			name = "XTC-02"
+			type = medium_tank_amphibious_chassis_2
+			parent_version = 0
+			modules = {
+				main_armament_slot = afv_machine_gun_2
+				secondary_armament_slot = afv_coax_machine_gun_2
+				reload_type_slot = manual_loading
+				ammunition_load_slot = machine_gun_ammo_1
+				turret_type_slot = tank_base_tank_turret
+				suspension_type_slot = tank_wheeled_suspension_medium
+				armor_type_slot = tank_steel_armor_gen2
+				engine_type_slot = tank_diesel_engine_gen3
+				special_type_slot_1 = smoke_launchers_2
+				special_type_slot_2 = afv_troop_capacity
+				special_type_slot_3 = afv_gun_ports
+				special_type_slot_4 = tank_battlestation_2
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 2
+				tank_nsb_engine_upgrade = 2
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_create_xtc03_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_xtc03_variant }
+		}
+		set_country_flag = VIE_xtc03_variant
+		create_equipment_variant = {
+			name = "XTC-03"
+			type = medium_tank_amphibious_chassis_2
+			parent_version = 0
+			modules = {
+				main_armament_slot = afv_machine_gun_2
+				secondary_armament_slot = afv_coax_machine_gun_2
+				reload_type_slot = manual_loading
+				ammunition_load_slot = machine_gun_ammo_1
+				turret_type_slot = tank_base_tank_turret
+				suspension_type_slot = tank_wheeled_suspension_medium
+				armor_type_slot = tank_steel_armor_gen2
+				engine_type_slot = tank_diesel_engine_gen3
+				special_type_slot_1 = smoke_launchers_2
+				special_type_slot_2 = afv_troop_capacity
+				special_type_slot_3 = afv_gun_ports
+				special_type_slot_4 = tank_battlestation_2_thermal
+				special_type_slot_5 = spaced_armor_gen2
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 3
+				tank_nsb_engine_upgrade = 3
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_create_t1_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_t1_variant }
+		}
+		set_country_flag = VIE_t1_variant
+		create_equipment_variant = {
+			name = "T-1"
+			type = medium_tank_destroyer_chassis_2
+			parent_version = 0
+			modules = {
+				main_armament_slot = tank_small_medium_cannon
+				secondary_armament_slot = afv_coax_machine_gun_2
+				reload_type_slot = manual_loading
+				ammunition_load_slot = mixed_main_ammo_2
+				turret_type_slot = tank_soviet_turret
+				suspension_type_slot = tank_torsion_bar_suspension_light
+				armor_type_slot = afv_alum_armor_gen2
+				engine_type_slot = tank_diesel_engine_gen3
+				special_type_slot_1 = smoke_launchers_2
+				special_type_slot_2 = additional_mg
+				special_type_slot_3 = smoothbore_atgm_gen2
+				special_type_slot_4 = tank_battlestation_2_thermal
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 2
+				tank_nsb_engine_upgrade = 4
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_create_pth152m_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_pth152m_variant }
+		}
+		set_country_flag = VIE_pth152m_variant
+		create_equipment_variant = {
+			name = "PTH-152M"
+			type = medium_tank_artillery_chassis_2
+			parent_version = 0
+			modules = {
+				main_armament_slot = art_med_gun_gen2
+				secondary_armament_slot = afv_coax_machine_gun_2
+				reload_type_slot = automatic_loading
+				ammunition_load_slot = artillery_medium_ammo_2
+				turret_type_slot = tank_base_tank_turret
+				suspension_type_slot = tank_pneumatic_suspension_medium
+				armor_type_slot = tank_steel_armor_gen2
+				engine_type_slot = tank_diesel_engine_gen3
+				special_type_slot_1 = smoke_launchers_2
+				special_type_slot_2 = additional_mg
+				special_type_slot_3 = laser_guided_ammo_1
+				special_type_slot_4 = tank_battlestation_3
+			}
+			upgrades = {
+				tank_nsb_fire_upgrade = 3
+				tank_nsb_engine_upgrade = 2
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+VIE_proc_create_t2_variant = {
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+			NOT = { has_country_flag = VIE_t2_variant }
+		}
+		set_country_flag = VIE_t2_variant
+		create_equipment_variant = {
+			name = "T-2 MBT"
+			type = medium_tank_chassis_4
+			parent_version = 0
+			modules = {
+				main_armament_slot = tank_medium_cannon_3
+				secondary_armament_slot = afv_coax_machine_gun_2
+				reload_type_slot = automatic_loading
+				ammunition_load_slot = mixed_main_ammo_2
+				turret_type_slot = tank_base_tank_turret
+				suspension_type_slot = tank_torsion_bar_suspension_medium
+				armor_type_slot = nera_armor_gen2
+				engine_type_slot = tank_diesel_engine_gen4
+				special_type_slot_1 = smoke_launchers_3
+				special_type_slot_2 = additional_mg
+				special_type_slot_3 = smoothbore_atgm_gen3
+				special_type_slot_4 = tank_battlestation_3
+				special_type_slot_6 = reactive_armor_gen3
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 4
+				tank_nsb_engine_upgrade = 4
+				tank_nsb_fire_upgrade = 4
+			}
+			design_team = mio:VIE_gdt_manufacturer
+		}
+	}
+}
+
+# ==============================================================================
+# VIETNAM AIR FORCE (PK-KQ) SCRIPTED EFFECTS
+# ==============================================================================
+
+VIE_air_xp_15 = {
+	if = {
+		limit = { has_selected_air_grand_doctrine = yes }
+		add_mastery = { amount = 15 folder = air }
+	}
+	else = {
+		air_experience = 15
+	}
+}
+
+VIE_air_xp_20 = {
+	if = {
+		limit = { has_selected_air_grand_doctrine = yes }
+		add_mastery = { amount = 20 folder = air }
+	}
+	else = {
+		air_experience = 20
+	}
+}
+
+VIE_air_xp_25 = {
+	if = {
+		limit = { has_selected_air_grand_doctrine = yes }
+		add_mastery = { amount = 25 folder = air }
+	}
+	else = {
+		air_experience = 25
+	}
+}
+
+# Decision start / finish effects for Air Force Programs (V8)
+
+# 1. S-300PMU1 Procurement
+VIE_air8_dec_s300pmu1_start = {
+	set_temp_variable = { treasury_change = -0.60 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_s300pmu1_running
+}
+
+VIE_air8_dec_s300pmu1_finish = {
+	clr_country_flag = VIE_air8_s300pmu1_running
+	set_country_flag = VIE_air8_s300pmu1_delivered
+	add_equipment_to_stockpile = { type = sam_missile_equipment_3 amount = 48 producer = VIE }
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = air_home_defence_factor_tt }
+}
+
+# 2. S-125-VT Upgrade
+VIE_air8_dec_s125vt_upgrade_start = {
+	set_temp_variable = { treasury_change = -0.30 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_s125vt_running
+}
+
+VIE_air8_dec_s125vt_upgrade_finish = {
+	clr_country_flag = VIE_air8_s125vt_running
+	set_country_flag = VIE_air8_s125vt_upgraded
+	add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 60 producer = VIE }
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_air_intercept_efficiency = 0.02 tooltip = air_intercept_efficiency_tt }
+}
+
+# 3. Su-30MK2 Batch 1
+VIE_air8_dec_su30mk2_batch1_start = {
+	set_temp_variable = { treasury_change = -1.00 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_su30mk2_batch1_running
+}
+
+VIE_air8_dec_su30mk2_batch1_finish = {
+	clr_country_flag = VIE_air8_su30mk2_batch1_running
+	set_country_flag = VIE_air8_su30mk2_delivered
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 12 producer = VIE }
+	}
+	else = {
+		add_equipment_to_stockpile = { type = MR_Fighter2 amount = 12 producer = VIE }
+	}
+	VIE_air_xp_15 = yes
+}
+
+# 4. Su-30MK2 Batch 2 (Expansion)
+VIE_air8_dec_su30mk2_batch2_start = {
+	set_temp_variable = { treasury_change = -1.00 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_su30mk2_batch2_running
+}
+
+VIE_air8_dec_su30mk2_batch2_finish = {
+	clr_country_flag = VIE_air8_su30mk2_batch2_running
+	set_country_flag = VIE_air8_su30mk2_batch2_done
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		add_equipment_to_stockpile = { type = medium_plane_airframe_2 amount = 12 producer = VIE }
+	}
+	else = {
+		add_equipment_to_stockpile = { type = MR_Fighter2 amount = 12 producer = VIE }
+	}
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_naval_strike_targetting_factor = 0.03 tooltip = naval_strike_targetting_factor_tt }
+}
+
+# 5. Next-Gen Fighter (Doctrine B)
+VIE_air8_dec_nextgen_fighter_start = {
+	set_temp_variable = { treasury_change = -1.80 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_nextgen_fighter_running
+}
+
+VIE_air8_dec_nextgen_fighter_finish = {
+	clr_country_flag = VIE_air8_nextgen_fighter_running
+	set_country_flag = VIE_air8_nextgen_fighter_done
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		add_equipment_to_stockpile = { type = medium_plane_airframe_3 amount = 16 producer = VIE }
+	}
+	else = {
+		add_equipment_to_stockpile = { type = MR_Fighter3 amount = 16 producer = VIE }
+	}
+	VIE_air_xp_25 = yes
+}
+
+# 6. T-6C Texan II Trainer
+VIE_air8_dec_t6c_trainer_start = {
+	set_temp_variable = { treasury_change = -0.20 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_t6c_running
+}
+
+VIE_air8_dec_t6c_trainer_finish = {
+	clr_country_flag = VIE_air8_t6c_running
+	set_country_flag = VIE_air8_t6c_done
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		add_equipment_to_stockpile = { type = small_plane_airframe_1 amount = 6 producer = VIE }
+	}
+	else = {
+		add_equipment_to_stockpile = { type = L_Strike_fighter1 amount = 6 producer = VIE }
+	}
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_experience_gain_air_factor = 0.02 tooltip = experience_gain_air_factor_tt }
+}
+
+# 7. L-39NG Jet Trainer
+VIE_air8_dec_l39ng_trainer_start = {
+	set_temp_variable = { treasury_change = -0.35 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_l39ng_running
+}
+
+VIE_air8_dec_l39ng_trainer_finish = {
+	clr_country_flag = VIE_air8_l39ng_running
+	set_country_flag = VIE_air8_l39ng_done
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		add_equipment_to_stockpile = { type = small_plane_airframe_2 amount = 6 producer = VIE }
+	}
+	else = {
+		add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 6 producer = VIE }
+	}
+	VIE_air_xp_15 = yes
+}
+
+# 8. Yak-130 Jet Trainer
+VIE_air8_dec_yak130_trainer_start = {
+	set_temp_variable = { treasury_change = -0.45 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_yak130_running
+}
+
+VIE_air8_dec_yak130_trainer_finish = {
+	clr_country_flag = VIE_air8_yak130_running
+	set_country_flag = VIE_air8_yak130_done
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		add_equipment_to_stockpile = { type = small_plane_airframe_2 amount = 6 producer = VIE }
+	}
+	else = {
+		add_equipment_to_stockpile = { type = L_Strike_fighter2 amount = 6 producer = VIE }
+	}
+	VIE_air_xp_15 = yes
+}
+
+# 9. Tactical UAV Program
+VIE_air8_dec_tactical_uav_start = {
+	set_temp_variable = { treasury_change = -0.25 }
+	modify_treasury_effect = yes
+	set_country_flag = VIE_air8_tactical_uav_running
+}
+
+VIE_air8_dec_tactical_uav_finish = {
+	clr_country_flag = VIE_air8_tactical_uav_running
+	set_country_flag = VIE_air8_uav_tactical_ready
+	add_equipment_to_stockpile = { type = land_drone_equipment_1 amount = 40 producer = VIE }
+	custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+	add_to_variable = { VIE_af_recon_factor = 0.05 tooltip = recon_factor_tt }
 }

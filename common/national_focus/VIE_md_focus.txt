@@ -1,4 +1,4 @@
-## Vietnam focus tree (submod) - Phase 1 vertical slice.
+﻿## Vietnam focus tree (submod) - Phase 1 vertical slice.
 ## History runs on dated events (events/VIE_md_*.txt); focuses are the player's choices.
 ## Rewards use only MD systems: decrease_corruption, change_*_opinion (temp_opinion), modify_treasury_effect
 ## (treasury_change), increase_economic_growth, building constructions on states 519/522.
@@ -13,6 +13,7 @@ focus_tree = {
 		}
 	}
 	## v41 (11/10/2026): I07 mo event va hop dong ho ve Song Thu 1095 ngay; ban giao mot frigate, khong thuong lap.
+	## v42 (12/10/2026): bo shortcut VIE_air_shortcut khoi menu cay focus theo yeu cau.
 	## v40 (11/10/2026): Hai quan V35.1, dung 40 focus; AND/OR/mutex, chuong trinh tra phi, moc lich su, idea khong cong chong; game moi.
 	## v39 (10/10/2026): Them 42 focus Luc quan theo de an da duyet; XCB-01 dau tu ba giai doan, game moi. Cay focus: 317 -> 359 focus.
 	## v38 (10/10/2026): Xoa bo hoan toan nhanh Luc quan (De an V31) va toan bo y niem/quyet dinh/hieu ung/loc lien quan theo yeu cau. Cay focus: 372 -> 317 focus.
@@ -70,7 +71,7 @@ focus_tree = {
 		target = VIE_prepare_congress_9
 		scroll_wheel_factor = 0.80
 	}
-	shortcut = {
+shortcut = {
 		name = VIE_army_shortcut
 		target = VIE_modernize_vpa
 		scroll_wheel_factor = 0.80
@@ -3717,7 +3718,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { date > 2011.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_law_of_the_sea"
@@ -3774,7 +3774,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { date > 2012.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_fisheries_surveillance"
@@ -3856,7 +3855,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { date > 2016.7.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_legal_warfare"
@@ -3894,7 +3892,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_EXPENDITURE }
 
-		available = { date > 2020.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_spratly_fortification"
@@ -3978,7 +3975,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
 
-		available = { date > 2018.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_coast_guard_law"
@@ -4180,7 +4176,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
-			date > 2011.12.31
 			has_completed_focus = VIE_asean_integration
 		}
 
@@ -5107,7 +5102,7 @@ focus_tree = {
 		id = VIE_lf_root_modern_army
 		icon = GFX_focus_VIE_lf_selective_modernization
 
-		x = -20
+		x = -18
 		y = 1
 		relative_position_id = VIE_modernize_vpa
 
@@ -5115,16 +5110,20 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_modernize_vpa }
 
-		search_filters = { FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_root_modern_army"
+			custom_effect_tooltip = VIE_lf_l0_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_20_effect = yes
+			add_tech_bonus = { name = VIE_lf_l0_bonus category = CAT_infantry_weapons uses = 1 bonus = 0.50 }
+			add_ideas = VIE_vpa_modernization_idea
 			VIE_lf_reward_l0_effect = yes
 		}
 
 		ai_will_do = {
 			base = 60
-			modifier = { factor = 1.2 has_war = yes }
 		}
 	}
 
@@ -5132,8 +5131,8 @@ focus_tree = {
 		id = VIE_lf_territorial_defense_foundation
 		icon = GFX_focus_VIE_lf_dev_territorial
 
-		x = -8
-		y = 2
+		x = -6
+		y = 1
 		relative_position_id = VIE_lf_root_modern_army
 
 		cost = 5
@@ -5144,12 +5143,16 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_territorial_defense_foundation"
+			custom_effect_tooltip = VIE_lf_d1_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			add_ideas = VIE_lf_territorial_1_idea
+			add_equipment_to_stockpile = { type = infantry_weapons_1 amount = 2500 producer = VIE }
 			VIE_lf_reward_d1_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5169,12 +5172,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_local_forces_militia"
+			custom_effect_tooltip = VIE_lf_d2_reward_tt
+			add_command_power = 15
+			VIE_lf_xp_15_effect = yes
+			add_equipment_to_stockpile = { type = infantry_weapons_1 amount = 3000 producer = VIE }
 			VIE_lf_reward_d2_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5194,12 +5200,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_reserve_mobilization"
+			custom_effect_tooltip = VIE_lf_d3_reward_tt
+			add_command_power = 15
+			VIE_lf_xp_15_effect = yes
+			add_ideas = VIE_lf_reserve_system_idea
 			VIE_lf_reward_d3_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5219,12 +5228,22 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_strategic_defense_zones"
+			custom_effect_tooltip = VIE_lf_d4_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			swap_ideas = { remove_idea = VIE_lf_territorial_1_idea add_idea = VIE_lf_territorial_2_idea }
+			524 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+				}
+			}
 			VIE_lf_reward_d4_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5240,16 +5259,32 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_lf_reserve_mobilization }
 
-		search_filters = { FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_fortifications_defense_sites"
+			custom_effect_tooltip = VIE_lf_d5_reward_tt
+			add_command_power = 20
+			add_tech_bonus = { name = VIE_lf_d5_bonus category = CAT_fortifications uses = 1 bonus = 0.50 }
+			523 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+				}
+			}
+			524 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+				}
+			}
 			VIE_lf_reward_d5_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5270,12 +5305,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_local_logistics_stockpiles"
+			custom_effect_tooltip = VIE_lf_d6_reward_tt
+			add_command_power = 15
+			VIE_lf_xp_15_effect = yes
+			add_equipment_to_stockpile = { type = util_vehicle_1 amount = 50 producer = VIE }
 			VIE_lf_reward_d6_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5293,16 +5331,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { date > 2009.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_coordination_regular_local"
+			custom_effect_tooltip = VIE_lf_d7_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			add_doctrine_cost_reduction = { name = VIE_lf_d7_doctrine cost_reduction = 0.20 uses = 1 category = land_doctrine }
 			VIE_lf_reward_d7_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5320,16 +5360,19 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { date > 2019.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_active_defense_in_depth"
+			custom_effect_tooltip = VIE_lf_d8_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_20_effect = yes
+			swap_ideas = { remove_idea = VIE_lf_territorial_2_idea add_idea = VIE_lf_territorial_3_idea }
+			add_doctrine_cost_reduction = { name = VIE_lf_d8_doctrine cost_reduction = 0.25 uses = 1 category = land_doctrine }
 			VIE_lf_reward_d8_effect = yes
 		}
 
 		ai_will_do = {
-			base = 85
-			modifier = { factor = 1.2 has_war = yes }
+			base = 60
 		}
 	}
 
@@ -5338,7 +5381,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_lf_army_reform
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_lf_root_modern_army
 
 		cost = 5
@@ -5349,12 +5392,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_standardize_infantry_structure"
+			custom_effect_tooltip = VIE_lf_b1_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			add_equipment_to_stockpile = { type = infantry_weapons_2 amount = 1500 producer = VIE }
 			VIE_lf_reward_b1_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5372,16 +5418,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { date > 2014.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_combined_arms_readiness"
+			custom_effect_tooltip = VIE_lf_b2_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_20_effect = yes
+			add_doctrine_cost_reduction = { name = VIE_lf_b2_doctrine cost_reduction = 0.25 uses = 1 category = land_doctrine }
 			VIE_lf_reward_b2_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5389,7 +5437,7 @@ focus_tree = {
 		id = VIE_lf_infantry_modern_equipment
 		icon = GFX_focus_VIE_lf_arm_infantry_org
 
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = VIE_lf_combined_arms_readiness
 
@@ -5401,12 +5449,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_infantry_modern_equipment"
+			custom_effect_tooltip = VIE_lf_b3_reward_tt
+			add_command_power = 20
+			add_tech_bonus = { name = VIE_lf_b3_research_bonus category = CAT_infantry_weapons uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = infantry_weapons_2 amount = 3000 producer = VIE }
 			VIE_lf_reward_b3_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5422,16 +5473,19 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_lf_combined_arms_readiness }
 
-		search_filters = { FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_combat_engineers"
+			custom_effect_tooltip = VIE_lf_b4_reward_tt
+			add_command_power = 15
+			add_tech_bonus = { name = VIE_lf_b4_bonus category = CAT_support_weapons uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = util_vehicle_1 amount = 50 producer = VIE }
 			VIE_lf_reward_b4_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5439,7 +5493,7 @@ focus_tree = {
 		id = VIE_lf_ground_artillery_modernization
 		icon = GFX_focus_VIE_lf_arm_arty_org
 
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = VIE_lf_combined_arms_readiness
 
@@ -5449,16 +5503,19 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2009.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ground_artillery_modernization"
+			custom_effect_tooltip = VIE_lf_b5_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			add_tech_bonus = { name = VIE_lf_b5_research_bonus category = CAT_artillery uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = artillery_2 amount = 60 producer = VIE }
 			VIE_lf_reward_b5_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5476,16 +5533,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2009.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_tactical_air_defense"
+			custom_effect_tooltip = VIE_lf_b6_reward_tt
+			add_command_power = 20
+			add_tech_bonus = { name = VIE_lf_b6_research_bonus category = CAT_anti_air uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = Anti_Air_2 amount = 40 producer = VIE }
 			VIE_lf_reward_b6_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5493,7 +5552,7 @@ focus_tree = {
 		id = VIE_lf_recon_tactical_command
 		icon = GFX_focus_VIE_lf_cap_info_ops
 
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = VIE_lf_infantry_modern_equipment
 
@@ -5504,16 +5563,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2019.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_recon_tactical_command"
+			custom_effect_tooltip = VIE_lf_b7_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_b7_research_bonus category = CAT_land_drones uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = cnc_equipment_1 amount = 50 producer = VIE }
 			VIE_lf_reward_b7_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5521,9 +5582,9 @@ focus_tree = {
 		id = VIE_lf_operational_logistics_maintenance
 		icon = GFX_focus_VIE_lf_logistics_merge
 
-		x = 2
-		y = 1
-		relative_position_id = VIE_lf_recon_tactical_command
+		x = 0
+		y = 2
+		relative_position_id = VIE_lf_combat_engineers
 
 		cost = 7
 
@@ -5532,16 +5593,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ARMY }
 
-		available = { date > 2009.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_operational_logistics_maintenance"
+			custom_effect_tooltip = VIE_lf_b8_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			add_equipment_to_stockpile = { type = util_vehicle_2 amount = 80 producer = VIE }
 			VIE_lf_reward_b8_effect = yes
 		}
 
 		ai_will_do = {
-			base = 85
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5549,8 +5612,8 @@ focus_tree = {
 		id = VIE_lf_ind_production_governance
 		icon = GFX_focus_VIE_lf_army_reform
 
-		x = 10
-		y = 2
+		x = 6
+		y = 1
 		relative_position_id = VIE_lf_root_modern_army
 
 		cost = 7
@@ -5559,15 +5622,26 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2009.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_production_governance"
+			custom_effect_tooltip = VIE_lf_i1_reward_tt
+			add_command_power = 20
+			add_ideas = VIE_lf_production_governance_idea
+			add_tech_bonus = { name = VIE_lf_i1_bonus category = CAT_industry uses = 1 bonus = 0.50 }
+			522 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 			VIE_lf_reward_i1_effect = yes
 		}
 
 		ai_will_do = {
-			base = 40
+			base = 50
 		}
 	}
 
@@ -5585,15 +5659,26 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2009.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_precision_z131"
+			custom_effect_tooltip = VIE_lf_i2_reward_tt
+			add_command_power = 20
+			add_ideas = VIE_lf_material_support_idea
+			add_tech_bonus = { name = VIE_lf_i2_research_bonus category = CAT_artillery_ammunition uses = 1 bonus = 0.50 }
+			524 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 			VIE_lf_reward_i2_effect = yes
 		}
 
 		ai_will_do = {
-			base = 40
+			base = 50
 		}
 	}
 
@@ -5611,38 +5696,14 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2014.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_armor_structures"
+			custom_effect_tooltip = VIE_lf_i3_reward_tt
+			add_command_power = 20
+			add_tech_bonus = { name = VIE_lf_i3_research_bonus category = CAT_infantry_fighting_vehicles uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = APC_2 amount = 50 producer = VIE }
 			VIE_lf_reward_i3_effect = yes
-		}
-
-		ai_will_do = {
-			base = 40
-		}
-	}
-
-	focus = {
-		id = VIE_lf_ind_xcb01_design
-		icon = GFX_focus_VIE_lf_arm_armor_train
-
-		x = 2
-		y = 1
-		relative_position_id = VIE_lf_ind_precision_z131
-
-		cost = 7
-
-		prerequisite = { focus = VIE_lf_ind_precision_z131 }
-		prerequisite = { focus = VIE_lf_ind_armor_structures }
-
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
-
-		available = { date > 2021.12.31 }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_xcb01_design"
-			VIE_lf_reward_i4_effect = yes
 		}
 
 		ai_will_do = {
@@ -5651,8 +5712,102 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VIE_lf_ind_serial_ground_equipment
-		icon = GFX_focus_VIE_lf_force_complete
+		id = VIE_lf_ind_xcb01_design
+		icon = GFX_focus_VIE_lf_arm_armor_train
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_ind_precision_z131
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_precision_z131 }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_xcb01_design"
+			custom_effect_tooltip = VIE_lf_i4_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_i4_research_bonus category = CAT_infantry_fighting_vehicles uses = 1 bonus = 0.50 }
+			unlock_decision_tooltip = VIE_lf_xcb01_design_program
+			unlock_decision_tooltip = VIE_lf_xcb01_prototype_evaluation
+			add_ideas = VIE_lf_ifv_integration_idea
+			VIE_lf_reward_i4_effect = yes
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+
+	focus = {
+		id = VIE_lf_ind_xtc_program
+		icon = GFX_focus_VIE_lf_arm_armor_org
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_ind_armor_structures
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_armor_structures }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_xtc_program"
+			custom_effect_tooltip = VIE_lf_i5_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_i5_bonus category = CAT_motorized_mechanized uses = 1 bonus = 0.50 }
+			add_ideas = VIE_lf_xtc_program_idea
+			unlock_decision_tooltip = VIE_lf_xtc02_prototype_program
+			unlock_decision_tooltip = VIE_lf_xtc03_upgrade_program
+			VIE_lf_reward_i5_effect = yes
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ind_t1_light_tank
+		icon = GFX_focus_VIE_lf_arm_armor_train
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_ind_xtc_program
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_xtc_program }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_t1_light_tank"
+			custom_effect_tooltip = VIE_lf_i6_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_i6_bonus category = CAT_armor uses = 1 bonus = 0.50 }
+			add_ideas = VIE_lf_t1_light_tank_idea
+			unlock_decision_tooltip = VIE_lf_t1_design_program
+			unlock_decision_tooltip = VIE_lf_t1_prototype_evaluation
+			VIE_lf_reward_i6_effect = yes
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+	}
+
+	focus = {
+		id = VIE_lf_ind_spg_program
+		icon = GFX_focus_VIE_lf_arm_arty_train
 
 		x = 0
 		y = 1
@@ -5664,11 +5819,93 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2024.12.31 }
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_serial_ground_equipment"
-			VIE_lf_reward_i5_effect = yes
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_spg_program"
+			custom_effect_tooltip = VIE_lf_i7_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_i7_bonus category = CAT_artillery uses = 1 bonus = 0.50 }
+			add_ideas = VIE_lf_spg_program_idea
+			unlock_decision_tooltip = VIE_lf_spg_design_program
+			unlock_decision_tooltip = VIE_lf_spg_prototype_evaluation
+			VIE_lf_reward_i7_effect = yes
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+	}
+	focus = {
+		id = VIE_lf_ind_serial_industrialization
+		icon = GFX_focus_VIE_lf_force_complete
+
+		x = 0
+		y = 4
+		relative_position_id = VIE_lf_ind_production_governance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_lf_ind_spg_program }
+		prerequisite = { focus = VIE_lf_ind_t1_light_tank }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_serial_industrialization"
+			custom_effect_tooltip = VIE_lf_i8_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_i8_bonus category = CAT_armor uses = 1 bonus = 0.50 }
+			unlock_decision_tooltip = VIE_lf_xcb01_serial_preparation
+			add_ideas = VIE_lf_ifv_serial_ready_idea
+			519 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			VIE_proc_create_xcb01_variant = yes
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				add_equipment_to_stockpile = { type = medium_tank_flame_chassis_3 variant_name = "XCB-01" amount = 30 producer = VIE }
+			}
+			else = {
+				add_equipment_to_stockpile = { type = IFV_6 amount = 30 producer = VIE }
+			}
+			VIE_lf_reward_i8_effect = yes
+		}
+
+		ai_will_do = {
+			base = 50
+		}
+	}
+	focus = {
+		id = VIE_lf_ind_t2_main_tank
+		icon = GFX_focus_VIE_lf_arm_armor_train
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_lf_ind_serial_industrialization
+
+		cost = 10
+
+		prerequisite = { focus = VIE_lf_ind_serial_industrialization }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_ind_t2_main_tank"
+			custom_effect_tooltip = VIE_lf_i9_reward_tt
+			add_command_power = 30
+			add_tech_bonus = { name = VIE_lf_i9_bonus category = CAT_armor uses = 2 bonus = 0.75 }
+			add_ideas = VIE_lf_t2_main_tank_idea
+			unlock_decision_tooltip = VIE_lf_t2_design_program
+			unlock_decision_tooltip = VIE_lf_t2_prototype_evaluation
+			unlock_decision_tooltip = VIE_lf_t2_serial_production
+			VIE_lf_reward_i9_effect = yes
 		}
 
 		ai_will_do = {
@@ -5676,12 +5913,13 @@ focus_tree = {
 		}
 	}
 
+
 	focus = {
 		id = VIE_lf_p1_strategic_defense
 		icon = GFX_focus_VIE_lf_fs_depth_defence
 
-		x = -8
-		y = 2
+		x = -6
+		y = 4
 		relative_position_id = VIE_lf_operational_logistics_maintenance
 
 		cost = 7
@@ -5694,13 +5932,16 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p1_strategic_defense"
+			custom_effect_tooltip = VIE_lf_p1_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_20_effect = yes
+			add_ideas = VIE_lf_p_priority_1_idea
+			add_doctrine_cost_reduction = { name = VIE_lf_p1_doctrine cost_reduction = 0.20 uses = 1 category = land_doctrine }
 			VIE_lf_reward_p1_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 1.500000 VIE_ai_historical_path = yes }
-			modifier = { factor = 0.583333 VIE_ai_hardline = yes }
+			base = 50
 		}
 	}
 
@@ -5720,12 +5961,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p2_multi_layered_defense"
+			custom_effect_tooltip = VIE_lf_p2_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			add_equipment_to_stockpile = { type = Anti_tank_2 amount = 50 producer = VIE }
 			VIE_lf_reward_p2_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5745,12 +5989,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p3_operational_reserves"
+			custom_effect_tooltip = VIE_lf_p3_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_20_effect = yes
+			add_ideas = VIE_lf_operational_reserve_idea
 			VIE_lf_reward_p3_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5766,16 +6013,19 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_lf_p2_multi_layered_defense }
 
-		search_filters = { FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p4_defensive_anti_breakthrough_firepower"
+			custom_effect_tooltip = VIE_lf_p4_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_p4_bonus category = CAT_anti_tank uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = Anti_tank_3 amount = 60 producer = VIE }
 			VIE_lf_reward_p4_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5795,12 +6045,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p5_protracted_combat_sustainment"
+			custom_effect_tooltip = VIE_lf_p5_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_15_effect = yes
+			add_equipment_to_stockpile = { type = infantry_weapons_2 amount = 2000 producer = VIE }
 			VIE_lf_reward_p5_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5821,12 +6074,17 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_p6_active_defense_counterattack"
+			custom_effect_tooltip = VIE_lf_p6_reward_tt
+			add_command_power = 35
+			VIE_lf_xp_30_effect = yes
+			swap_ideas = { remove_idea = VIE_lf_p_priority_1_idea add_idea = VIE_lf_p_priority_2_idea }
+			add_doctrine_cost_reduction = { name = VIE_lf_p6_doctrine cost_reduction = 0.30 uses = 1 category = land_doctrine }
+			add_equipment_to_stockpile = { type = artillery_2 amount = 40 producer = VIE }
 			VIE_lf_reward_p6_effect = yes
 		}
 
 		ai_will_do = {
-			base = 85
-			modifier = { factor = 1.2 has_war = yes }
+			base = 60
 		}
 	}
 
@@ -5835,7 +6093,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_lf_arm_armor_org
 
 		x = 0
-		y = 2
+		y = 4
 		relative_position_id = VIE_lf_operational_logistics_maintenance
 
 		cost = 7
@@ -5848,14 +6106,16 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m1_combined_arms_mechanized"
+			custom_effect_tooltip = VIE_lf_m1_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_25_effect = yes
+			add_ideas = VIE_lf_m_priority_1_idea
+			add_doctrine_cost_reduction = { name = VIE_lf_m1_doctrine cost_reduction = 0.20 uses = 1 category = land_doctrine }
 			VIE_lf_reward_m1_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 0.416667 VIE_ai_historical_path = yes }
-			modifier = { factor = 1.333333 VIE_ai_hardline = yes }
-			modifier = { factor = 0.3 check_variable = { treasury < 1 } }
+			base = 50
 		}
 	}
 
@@ -5875,12 +6135,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m2_armor_combat_readiness"
+			custom_effect_tooltip = VIE_lf_m2_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_20_effect = yes
+			add_equipment_to_stockpile = { type = MBT_2 amount = 30 producer = VIE }
 			VIE_lf_reward_m2_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5896,16 +6159,19 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_lf_m1_combined_arms_mechanized }
 
-		search_filters = { FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m3_mechanized_infantry_formations"
+			custom_effect_tooltip = VIE_lf_m3_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_m3_bonus category = CAT_main_battle_tanks uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = IFV_2 amount = 40 producer = VIE }
 			VIE_lf_reward_m3_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5921,16 +6187,19 @@ focus_tree = {
 
 		prerequisite = { focus = VIE_lf_m2_armor_combat_readiness }
 
-		search_filters = { FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m4_mobile_fire_support"
+			custom_effect_tooltip = VIE_lf_m4_reward_tt
+			add_command_power = 25
+			add_tech_bonus = { name = VIE_lf_m4_bonus category = CAT_artillery uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = SP_arty_2 amount = 36 producer = VIE }
 			VIE_lf_reward_m4_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5950,12 +6219,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m5_operational_combined_arms_units"
+			custom_effect_tooltip = VIE_lf_m5_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_25_effect = yes
+			add_equipment_to_stockpile = { type = heavy_util_vehicle_1 amount = 60 producer = VIE }
 			VIE_lf_reward_m5_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -5976,12 +6248,17 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_m6_operational_mechanized_counteroffensive"
+			custom_effect_tooltip = VIE_lf_m6_reward_tt
+			add_command_power = 35
+			VIE_lf_xp_35_effect = yes
+			swap_ideas = { remove_idea = VIE_lf_m_priority_1_idea add_idea = VIE_lf_m_priority_2_idea }
+			add_doctrine_cost_reduction = { name = VIE_lf_m6_doctrine cost_reduction = 0.30 uses = 1 category = land_doctrine }
+			add_equipment_to_stockpile = { type = MBT_2 amount = 20 producer = VIE }
 			VIE_lf_reward_m6_effect = yes
 		}
 
 		ai_will_do = {
-			base = 85
-			modifier = { factor = 1.2 has_war = yes }
+			base = 60
 		}
 	}
 
@@ -5989,8 +6266,8 @@ focus_tree = {
 		id = VIE_lf_r1_flexible_mobile_warfare
 		icon = GFX_focus_VIE_lf_fs_mobile_force
 
-		x = 10
-		y = 2
+		x = 6
+		y = 4
 		relative_position_id = VIE_lf_operational_logistics_maintenance
 
 		cost = 7
@@ -6003,13 +6280,16 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r1_flexible_mobile_warfare"
+			custom_effect_tooltip = VIE_lf_r1_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_20_effect = yes
+			add_ideas = VIE_lf_r_priority_1_idea
+			add_doctrine_cost_reduction = { name = VIE_lf_r1_doctrine cost_reduction = 0.20 uses = 1 category = land_doctrine }
 			VIE_lf_reward_r1_effect = yes
 		}
 
 		ai_will_do = {
-			base = 60
-			modifier = { factor = 0.916667 VIE_ai_historical_path = yes }
-			modifier = { factor = 1.000000 VIE_ai_hardline = yes }
+			base = 50
 		}
 	}
 
@@ -6029,12 +6309,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r2_modernize_mobile_infantry"
+			custom_effect_tooltip = VIE_lf_r2_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_20_effect = yes
+			add_equipment_to_stockpile = { type = infantry_weapons_2 amount = 2500 producer = VIE }
 			VIE_lf_reward_r2_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -6054,12 +6337,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r3_terrain_adaptive_warfare"
+			custom_effect_tooltip = VIE_lf_r3_reward_tt
+			add_command_power = 20
+			VIE_lf_xp_20_effect = yes
+			add_equipment_to_stockpile = { type = util_vehicle_2 amount = 80 producer = VIE }
 			VIE_lf_reward_r3_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -6079,12 +6365,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r4_tactical_motorized_mobility"
+			custom_effect_tooltip = VIE_lf_r4_reward_tt
+			add_command_power = 20
+			add_tech_bonus = { name = VIE_lf_r4_research_bonus category = CAT_utility_vehicles uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = APC_2 amount = 60 producer = VIE }
 			VIE_lf_reward_r4_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -6104,12 +6393,15 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r5_rapid_reaction_corps"
+			custom_effect_tooltip = VIE_lf_r5_reward_tt
+			add_command_power = 25
+			VIE_lf_xp_25_effect = yes
+			add_equipment_to_stockpile = { type = transport_helicopter_1 amount = 20 producer = VIE }
 			VIE_lf_reward_r5_effect = yes
 		}
 
 		ai_will_do = {
-			base = 75
-			modifier = { factor = 1.2 has_war = yes }
+			base = 50
 		}
 	}
 
@@ -6130,12 +6422,17 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_r6_terrain_maneuver_mastery"
+			custom_effect_tooltip = VIE_lf_r6_reward_tt
+			add_command_power = 35
+			VIE_lf_xp_35_effect = yes
+			swap_ideas = { remove_idea = VIE_lf_r_priority_1_idea add_idea = VIE_lf_r_priority_2_idea }
+			add_doctrine_cost_reduction = { name = VIE_lf_r6_doctrine cost_reduction = 0.30 uses = 1 category = land_doctrine }
+			add_equipment_to_stockpile = { type = util_vehicle_2 amount = 60 producer = VIE }
 			VIE_lf_reward_r6_effect = yes
 		}
 
 		ai_will_do = {
-			base = 85
-			modifier = { factor = 1.2 has_war = yes }
+			base = 60
 		}
 	}
 
@@ -6144,23 +6441,27 @@ focus_tree = {
 		icon = GFX_focus_VIE_lf_command_reform_2
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_lf_m6_operational_mechanized_counteroffensive
 
 		cost = 7
 
 		prerequisite = { focus = VIE_lf_p6_active_defense_counterattack focus = VIE_lf_m6_operational_mechanized_counteroffensive focus = VIE_lf_r6_terrain_maneuver_mastery }
 
-		search_filters = { FOCUS_FILTER_ARMY }
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_modernize_army_command_system"
+			custom_effect_tooltip = VIE_lf_f1_reward_tt
+			add_command_power = 35
+			VIE_lf_xp_25_effect = yes
+			add_tech_bonus = { name = VIE_lf_f1_bonus category = CAT_command_and_control_equipment uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = cnc_equipment_2 amount = 80 producer = VIE }
 			VIE_lf_reward_f1_effect = yes
 		}
 
 		ai_will_do = {
-			base = 85
-			modifier = { factor = 1.2 has_war = yes }
+			base = 60
 		}
 	}
 
@@ -6181,12 +6482,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_lf_modern_elite_combined_army_capstone"
+			custom_effect_tooltip = VIE_lf_f2_reward_tt
+			add_command_power = 50
+			VIE_lf_xp_40_effect = yes
+			add_ideas = VIE_peoples_defence_idea
+			add_equipment_to_stockpile = { type = infantry_weapons_3 amount = 2500 producer = VIE }
+			add_equipment_to_stockpile = { type = MBT_3 amount = 20 producer = VIE }
+			add_equipment_to_stockpile = { type = IFV_3 amount = 30 producer = VIE }
 			VIE_lf_reward_f2_effect = yes
 		}
 
 		ai_will_do = {
-			base = 85
-			modifier = { factor = 1.2 has_war = yes }
+			base = 75
 		}
 	}
 
@@ -6200,7 +6507,7 @@ focus_tree = {
 		id = VIE_nav35_N00
 		icon = GFX_focus_VIE_naval_defence_2030
 
-		x = 8
+		x = 5
 		y = 1
 		relative_position_id = VIE_modernize_vpa
 
@@ -6212,15 +6519,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_N00"
+			custom_effect_tooltip = VIE_nav35_N00_reward_tt
+			add_command_power = 25
 			VIE_nav_xp_15 = yes
-
+			add_doctrine_cost_reduction = { name = VIE_nav35_N00_doctrine cost_reduction = 0.25 uses = 1 category = naval_doctrine }
+			add_equipment_to_stockpile = { type = cnc_equipment_1 amount = 50 producer = VIE }
+			VIE_nav_reward_n00_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 75
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6228,8 +6538,8 @@ focus_tree = {
 		id = VIE_nav35_T01
 		icon = GFX_focus_VIE_nf_command_reform_1
 
-		x = -11
-		y = 2
+		x = -8
+		y = 1
 		relative_position_id = VIE_nav35_N00
 
 		cost = 7
@@ -6240,14 +6550,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_T01"
-			add_command_power = 10
+			custom_effect_tooltip = VIE_nav35_T01_reward_tt
+			add_command_power = 20
+			add_doctrine_cost_reduction = { name = VIE_nav35_T01_doctrine cost_reduction = 0.20 uses = 1 category = naval_doctrine }
+			add_equipment_to_stockpile = { type = cnc_equipment_1 amount = 80 producer = VIE }
+			add_ideas = VPA_Naval_Org_1
+			VIE_nav_reward_t01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6255,8 +6569,8 @@ focus_tree = {
 		id = VIE_nav35_T02
 		icon = GFX_focus_VIE_nf_training_standardization
 
-		x = -2
-		y = 2
+		x = -1
+		y = 1
 		relative_position_id = VIE_nav35_T01
 
 		cost = 7
@@ -6267,14 +6581,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_T02"
+			custom_effect_tooltip = VIE_nav35_T02_reward_tt
+			add_command_power = 15
 			VIE_nav_xp_15 = yes
+			add_tech_bonus = { name = VIE_nav35_T02 category = CAT_naval uses = 1 bonus = 0.50 }
+			add_doctrine_cost_reduction = { name = VIE_nav35_T02_doctrine cost_reduction = 0.30 uses = 1 category = naval_doctrine }
+			VIE_nav_reward_t02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6282,8 +6600,8 @@ focus_tree = {
 		id = VIE_nav35_T03
 		icon = GFX_focus_VIE_nf_training_standardization
 
-		x = 2
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = VIE_nav35_T01
 
 		cost = 7
@@ -6294,14 +6612,17 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_T03"
+			custom_effect_tooltip = VIE_nav35_T03_reward_tt
+			add_command_power = 20
 			VIE_nav_xp_20 = yes
+			add_equipment_to_stockpile = { type = util_vehicle_1 amount = 30 producer = VIE }
+			VIE_nav_reward_t03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6309,9 +6630,9 @@ focus_tree = {
 		id = VIE_nav35_T04
 		icon = GFX_focus_VIE_nf_command_reform_2
 
-		x = 2
-		y = 4
-		relative_position_id = VIE_nav35_T02
+		x = 0
+		y = 2
+		relative_position_id = VIE_nav35_T01
 
 		cost = 7
 
@@ -6322,15 +6643,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_T04"
-			add_command_power = 15
+			custom_effect_tooltip = VIE_nav35_T04_reward_tt
+			add_command_power = 25
 			VIE_nav_xp_15 = yes
+			add_ideas = VPA_Naval_Org_4
+			add_doctrine_cost_reduction = { name = VIE_nav35_T04_doctrine cost_reduction = 0.50 uses = 1 category = naval_doctrine }
+			add_equipment_to_stockpile = { type = cnc_equipment_2 amount = 50 producer = VIE }
+			VIE_nav_reward_t04_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6338,26 +6663,31 @@ focus_tree = {
 		id = VIE_nav35_S01
 		icon = GFX_focus_VIE_scs_maritime_militia
 
-		x = -6
-		y = 2
+		x = -4
+		y = 1
 		relative_position_id = VIE_nav35_N00
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_N00 }
 
-		search_filters = { FOCUS_FILTER_NAVY }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_S01"
-			add_tech_bonus = { name = VIE_nav35_S01 category = CAT_naval_radar uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_S01_reward_tt
+			add_command_power = 15
+			519 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } }
+			521 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } }
+			add_tech_bonus = { name = VIE_nav35_S01 category = CAT_naval_radar uses = 1 bonus = 0.50 }
+			add_ideas = VPA_Maritime_MDA_1
+			VIE_nav_reward_s01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6365,29 +6695,32 @@ focus_tree = {
 		id = VIE_nav35_S02
 		icon = GFX_focus_VIE_nf_naval_aviation
 
-		x = -2
-		y = 3
+		x = -1
+		y = 1
 		relative_position_id = VIE_nav35_S01
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_S01 }
 
-		search_filters = { FOCUS_FILTER_NAVY }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_AIRCRAFT }
 
-		available = { date > 2012.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_S02"
+			custom_effect_tooltip = VIE_nav35_S02_reward_tt
+			add_command_power = 15
 			VIE_nav_xp_15 = yes
-			add_tech_bonus = { name = VIE_nav35_S02 category = CAT_naval_sonar uses = 1 bonus = 0.25 }
+			air_experience = 25
+			add_tech_bonus = { name = VIE_nav35_S02 category = CAT_naval_sonar uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = transport_helicopter_1 amount = 8 producer = VIE }
+			VIE_nav_reward_s02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6396,7 +6729,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_naval_systems_integration
 
 		x = 0
-		y = 6
+		y = 2
 		relative_position_id = VIE_nav35_S01
 
 		cost = 7
@@ -6407,14 +6740,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_S03"
-			add_command_power = 10
+			custom_effect_tooltip = VIE_nav35_S03_reward_tt
+			add_command_power = 20
+			520 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } }
+			add_ideas = VIE_nav35_joint_picture_idea
+			add_equipment_to_stockpile = { type = cnc_equipment_2 amount = 60 producer = VIE }
+			VIE_nav_reward_s03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6423,7 +6760,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_surface_force
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_N00
 
 		cost = 7
@@ -6434,14 +6771,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_W01"
+			custom_effect_tooltip = VIE_nav35_W01_reward_tt
+			add_command_power = 20
 			VIE_nav_xp_15 = yes
+			add_tech_bonus = { name = VIE_nav35_W01 category = CAT_surface_ships uses = 1 bonus = 0.50 }
+			add_doctrine_cost_reduction = { name = VIE_nav35_W01_doctrine cost_reduction = 0.25 uses = 1 category = naval_doctrine }
+			VIE_nav_reward_w01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6450,7 +6791,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_small_combatant_construction
 
 		x = -3
-		y = 3
+		y = 1
 		relative_position_id = VIE_nav35_W01
 
 		cost = 7
@@ -6459,19 +6800,21 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		available = { date > 2013.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_W02"
+			custom_effect_tooltip = VIE_nav35_W02_reward_tt
+			add_command_power = 15
 			VIE_nav_xp_20 = yes
-
+			add_tech_bonus = { name = VIE_nav35_W02 category = CAT_corvettes uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_1 amount = 32 producer = VIE }
+			VIE_nav_reward_w02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6479,8 +6822,8 @@ focus_tree = {
 		id = VIE_nav35_W03
 		icon = GFX_focus_VIE_nf_surface_force
 
-		x = 0
-		y = 3
+		x = -1
+		y = 1
 		relative_position_id = VIE_nav35_W01
 
 		cost = 7
@@ -6489,19 +6832,21 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		available = { date > 2010.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_W03"
-			VIE_nav_xp_20 = yes
-
+			custom_effect_tooltip = VIE_nav35_W03_reward_tt
+			add_command_power = 20
+			add_ideas = VIE_nav_surface_fleet_readiness
+			add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 40 producer = VIE }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_1 amount = 24 producer = VIE }
+			VIE_nav_reward_w03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6509,30 +6854,31 @@ focus_tree = {
 		id = VIE_nav35_W04
 		icon = GFX_focus_VIE_nf_submarine_force
 
-		x = 3
-		y = 3
+		x = 1
+		y = 1
 		relative_position_id = VIE_nav35_W01
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_W01 }
 
-		search_filters = { FOCUS_FILTER_NAVY }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2010.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_W04"
-			VIE_nav_xp_25 = yes
-
-			add_tech_bonus = { name = VIE_nav35_W04 category = CAT_submarines uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_W04_reward_tt
+			add_command_power = 20
+			VIE_nav_xp_20 = yes
+			add_tech_bonus = { name = VIE_nav35_W04 category = CAT_submarines uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 16 producer = VIE }
+			VIE_nav_reward_w04_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6540,8 +6886,8 @@ focus_tree = {
 		id = VIE_nav35_W05
 		icon = GFX_focus_VIE_nf_ocean_escort
 
-		x = 0
-		y = 4
+		x = 1
+		y = 1
 		relative_position_id = VIE_nav35_W03
 
 		cost = 7
@@ -6551,18 +6897,22 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		available = { date > 2013.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_W05"
-			VIE_nav_xp_20 = yes
+			custom_effect_tooltip = VIE_nav35_W05_reward_tt
+			add_command_power = 20
+			VIE_nav_xp_15 = yes
+			add_tech_bonus = { name = VIE_nav35_W05 category = CAT_naval_sonar uses = 1 bonus = 0.50 }
+			add_doctrine_cost_reduction = { name = VIE_nav35_W05_doctrine cost_reduction = 0.25 uses = 1 category = naval_doctrine }
+			add_ideas = VIE_nav_asw_mastery
+			VIE_nav_reward_w05_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6571,19 +6921,31 @@ focus_tree = {
 		icon = GFX_focus_VIE_ba_son_shipyards
 
 		x = 6
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_N00
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_N00 }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I01"
-			add_tech_bonus = { name = VIE_nav35_I01 category = CAT_naval uses = 1 bonus = 0.25 }
 			custom_effect_tooltip = VIE_nav35_investment_tt
+			add_command_power = 15
+			522 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			unlock_decision_tooltip = VIE_nav35_dockyard_program
+			unlock_decision_tooltip = VIE_nav35_industry_program
+			add_ideas = VPA_Naval_Industry_1
+			VIE_nav_reward_i01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
@@ -6598,29 +6960,38 @@ focus_tree = {
 		id = VIE_nav35_I02
 		icon = GFX_focus_VIE_ba_son_shipyards
 
-		x = -2
-		y = 2
+		x = -3
+		y = 1
 		relative_position_id = VIE_nav35_I01
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_I01 }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2008.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I02"
-			add_tech_bonus = { name = VIE_nav35_I02 category = CAT_corvettes uses = 1 bonus = 0.25 }
 			custom_effect_tooltip = VIE_nav35_molniya_tt
+			522 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			unlock_decision_tooltip = VIE_nav35_molniya_program
+			add_tech_bonus = { name = VIE_nav35_I02 category = CAT_corvettes uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = guided_missile_equipment_1 amount = 32 producer = VIE }
+			VIE_nav_reward_i02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6628,26 +6999,37 @@ focus_tree = {
 		id = VIE_nav35_I03
 		icon = GFX_focus_VIE_small_combatant_construction
 
-		x = 2
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = VIE_nav35_I01
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_I01 }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I03"
-			add_tech_bonus = { name = VIE_nav35_I03 category = CAT_patrol_boats uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_I03_reward_tt
+			519 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			unlock_decision_tooltip = VIE_nav35_tt400_program
+			add_tech_bonus = { name = VIE_nav35_I03 category = CAT_patrol_boats uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 20 producer = VIE }
+			VIE_nav_reward_i03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6655,8 +7037,8 @@ focus_tree = {
 		id = VIE_nav35_I04
 		icon = GFX_focus_VIE_naval_systems_integration
 
-		x = -2
-		y = 4
+		x = -1
+		y = 1
 		relative_position_id = VIE_nav35_I01
 
 		cost = 7
@@ -6665,18 +7047,21 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2008.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I04"
-			add_tech_bonus = { name = VIE_nav35_I04 category = CAT_frigates uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_I04_reward_tt
+			add_command_power = 20
+			unlock_decision_tooltip = VIE_nav35_design_program
+			add_tech_bonus = { name = VIE_nav35_I04 category = CAT_frigates uses = 1 bonus = 0.50 }
+			add_doctrine_cost_reduction = { name = VIE_nav35_I04_doctrine cost_reduction = 0.25 uses = 1 category = naval_doctrine }
+			VIE_nav_reward_i04_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6685,25 +7070,36 @@ focus_tree = {
 		icon = GFX_focus_VIE_naval_mro
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_I03
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_I03 }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I05"
-			add_tech_bonus = { name = VIE_nav35_I05 category = CAT_surface_ships uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_I05_reward_tt
+			520 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			unlock_decision_tooltip = VIE_nav35_support_program
+			add_tech_bonus = { name = VIE_nav35_I05 category = CAT_surface_ships uses = 1 bonus = 0.50 }
+			add_equipment_to_stockpile = { type = convoy_1 amount = 15 producer = VIE }
+			VIE_nav_reward_i05_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6712,7 +7108,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_naval_systems_integration
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_I04
 
 		cost = 7
@@ -6721,18 +7117,22 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2008.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I06"
-			add_tech_bonus = { name = VIE_nav35_I06 category = CAT_naval_radar uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_I06_reward_tt
+			add_command_power = 20
+			unlock_decision_tooltip = VIE_nav35_integration_program
+			add_tech_bonus = { name = VIE_nav35_I06 category = CAT_naval_radar uses = 1 bonus = 0.50 }
+			add_ideas = VPA_Naval_Industry_4
+			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 20 producer = VIE }
+			VIE_nav_reward_i06_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6740,21 +7140,30 @@ focus_tree = {
 		id = VIE_nav35_I07
 		icon = GFX_focus_VIE_nf_regional_frigates
 
-		x = -2
-		y = 4
-		relative_position_id = VIE_nav35_I05
+		x = 1
+		y = 1
+		relative_position_id = VIE_nav35_I06
 
 		prerequisite = { focus = VIE_nav35_I05 }
 		prerequisite = { focus = VIE_nav35_I06 }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
-		available = { date > 2025.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I07"
 			custom_effect_tooltip = VIE_nav35_asw_program_tt
+			add_command_power = 25
+			520 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			unlock_decision_tooltip = VIE_nav35_asw_frigate_program
 			VIE_nav35_asw_frigate_offer = yes
+			VIE_nav_reward_i07_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
@@ -6770,7 +7179,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_scs_cam_ranh_port
 
 		x = 12
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_N00
 
 		cost = 7
@@ -6782,6 +7191,18 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_L01"
 			custom_effect_tooltip = VIE_nav35_base_support_tt
+			add_command_power = 20
+			521 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			unlock_decision_tooltip = VIE_nav35_base_program
+			add_ideas = VPA_Naval_Logistics_1
+			add_equipment_to_stockpile = { type = util_vehicle_2 amount = 40 producer = VIE }
+			VIE_nav_reward_l01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
@@ -6797,7 +7218,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_naval_mro
 
 		x = -2
-		y = 3
+		y = 1
 		relative_position_id = VIE_nav35_L01
 
 		cost = 7
@@ -6806,18 +7227,28 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		available = { date > 2010.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_L02"
-			VIE_nav_xp_10 = yes
+			custom_effect_tooltip = VIE_nav35_L02_reward_tt
+			add_command_power = 15
+			VIE_nav_xp_15 = yes
+			521 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_ideas = VPA_Naval_Logistics_2
+			VIE_nav_reward_l02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6826,7 +7257,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_replenishment
 
 		x = 2
-		y = 3
+		y = 1
 		relative_position_id = VIE_nav35_L01
 
 		cost = 7
@@ -6835,18 +7266,21 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		available = { date > 2025.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_L03"
 			custom_effect_tooltip = VIE_nav35_vt_program_tt
+			add_command_power = 20
+			unlock_decision_tooltip = VIE_nav35_vt_program
+			add_equipment_to_stockpile = { type = convoy_1 amount = 20 producer = VIE }
+			add_equipment_to_stockpile = { type = APC_2 amount = 20 producer = VIE }
+			VIE_nav_reward_l03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6854,8 +7288,8 @@ focus_tree = {
 		id = VIE_nav35_L04
 		icon = GFX_focus_VIE_nf_operating_range
 
-		x = 2
-		y = 3
+		x = 0
+		y = 1
 		relative_position_id = VIE_nav35_L02
 
 		cost = 7
@@ -6866,14 +7300,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_L04"
+			custom_effect_tooltip = VIE_nav35_L04_reward_tt
+			add_command_power = 20
 			VIE_nav_xp_15 = yes
+			add_ideas = VPA_Naval_Logistics_4
+			add_ideas = VIE_nav35_rescue_range_idea
+			add_equipment_to_stockpile = { type = transport_helicopter_2 amount = 6 producer = VIE }
+			VIE_nav_reward_l04_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6881,29 +7320,31 @@ focus_tree = {
 		id = VIE_nav35_P01
 		icon = GFX_focus_VIE_nf_denial
 
-		x = 0
-		y = 4
+		x = -2
+		y = 1
 		relative_position_id = VIE_nav35_S03
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_S03 }
 		prerequisite = { focus = VIE_nav35_T04 }
-		prerequisite = { focus = VIE_nav35_W01 }
-		mutually_exclusive = { focus = VIE_nav35_H01 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_P01"
-			VIE_nav_xp_10 = yes
+			custom_effect_tooltip = VIE_nav35_P01_reward_tt
+			add_command_power = 20
+			VIE_nav_xp_15 = yes
+			add_ideas = VPA_Integrated_Defense_Doctrine_1
+			add_doctrine_cost_reduction = { name = VIE_nav35_P01_doctrine cost_reduction = 0.30 uses = 1 category = naval_doctrine }
+			VIE_nav_reward_p01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 3 VIE_ai_historical_path = yes }
 			modifier = { factor = 0 VIE_ai_hardline = yes }
 		}
@@ -6913,8 +7354,8 @@ focus_tree = {
 		id = VIE_nav35_P02
 		icon = GFX_focus_VIE_nf_denial_defence
 
-		x = -3
-		y = 2
+		x = -1
+		y = 1
 		relative_position_id = VIE_nav35_P01
 
 		cost = 7
@@ -6923,19 +7364,35 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		available = { date > 2005.12.31 }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_P02"
+			custom_effect_tooltip = VIE_nav35_P02_reward_tt
+			add_command_power = 20
 			VIE_nav_xp_15 = yes
-
+			521 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+				}
+			}
+			519 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = VIE_nav35_coastal_batteries_idea
+			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 36 producer = VIE }
+			VIE_nav_reward_p02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6943,8 +7400,8 @@ focus_tree = {
 		id = VIE_nav35_P03
 		icon = GFX_focus_VIE_scs_spratly_fortification
 
-		x = 3
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = VIE_nav35_P01
 
 		cost = 7
@@ -6955,14 +7412,30 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_P03"
-			add_command_power = 10
+			custom_effect_tooltip = VIE_nav35_P03_reward_tt
+			add_command_power = 25
+			801 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = VIE_nav35_island_defense_idea
+			add_equipment_to_stockpile = { type = infantry_weapons_2 amount = 2000 producer = VIE }
+			add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 24 producer = VIE }
+			VIE_nav_reward_p03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6970,9 +7443,9 @@ focus_tree = {
 		id = VIE_nav35_P04
 		icon = GFX_focus_VIE_nf_denial_command
 
-		x = 3
+		x = 0
 		y = 2
-		relative_position_id = VIE_nav35_P02
+		relative_position_id = VIE_nav35_P01
 
 		cost = 7
 
@@ -6983,14 +7456,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_P04"
+			custom_effect_tooltip = VIE_nav35_P04_reward_tt
+			add_command_power = 20
 			VIE_nav_xp_15 = yes
+			add_ideas = VIE_nav35_coastal_coordination_idea
+			add_doctrine_cost_reduction = { name = VIE_nav35_P04_doctrine cost_reduction = 0.25 uses = 1 category = naval_doctrine }
+			add_equipment_to_stockpile = { type = cnc_equipment_2 amount = 60 producer = VIE }
+			VIE_nav_reward_p04_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -6999,7 +7477,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_sf_marine
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_P04
 
 		cost = 7
@@ -7010,14 +7488,20 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_P05"
+			custom_effect_tooltip = VIE_nav35_P05_reward_tt
+			add_command_power = 25
 			VIE_nav_xp_20 = yes
+			army_experience = 25
+			add_ideas = VIE_nav_marine_brigades
+			add_equipment_to_stockpile = { type = infantry_weapons_2 amount = 2500 producer = VIE }
+			add_equipment_to_stockpile = { type = APC_2 amount = 30 producer = VIE }
+			VIE_nav_reward_p05_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -7026,7 +7510,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_denial
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_P05
 
 		prerequisite = { focus = VIE_nav35_P05 }
@@ -7035,15 +7519,36 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_P06"
+			custom_effect_tooltip = VIE_nav35_P06_reward_tt
+			add_command_power = 30
 			VIE_nav_xp_25 = yes
-
+			801 = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			521 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = VPA_Integrated_Defense_Doctrine_1
+				add_idea = VPA_Integrated_Defense_Doctrine_Capstone
+			}
+			add_ideas = VIE_nav_capstone_iron_shield
+			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 48 producer = VIE }
+			VIE_nav_reward_p06_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -7051,22 +7556,25 @@ focus_tree = {
 		id = VIE_nav35_H01
 		icon = GFX_focus_VIE_nf_medium_force
 
-		x = 6
-		y = 3
+		x = 2
+		y = 1
 		relative_position_id = VIE_nav35_W05
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_W05 }
 		prerequisite = { focus = VIE_nav35_I06 }
-		prerequisite = { focus = VIE_nav35_L02 }
-		mutually_exclusive = { focus = VIE_nav35_P01 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_H01"
-			add_tech_bonus = { name = VIE_nav35_H01 category = CAT_surface_ships uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_H01_reward_tt
+			add_command_power = 20
+			add_tech_bonus = { name = VIE_nav35_H01 category = CAT_surface_ships uses = 1 bonus = 0.50 }
+			add_doctrine_cost_reduction = { name = VIE_nav35_H01_doctrine cost_reduction = 0.30 uses = 1 category = naval_doctrine }
+			add_ideas = VPA_Fleet_Development_Priority
+			VIE_nav_reward_h01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
@@ -7085,7 +7593,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_ocean_escort
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_H01
 
 		cost = 7
@@ -7096,14 +7604,22 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_H02"
+			custom_effect_tooltip = VIE_nav35_H02_reward_tt
+			add_command_power = 25
 			VIE_nav_xp_20 = yes
+			swap_ideas = {
+				remove_idea = VPA_Fleet_Development_Priority
+				add_idea = VPA_Multirole_Task_Groups
+			}
+			add_equipment_to_stockpile = { type = guided_missile_equipment_1 amount = 24 producer = VIE }
+			add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 30 producer = VIE }
+			VIE_nav_reward_h02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -7111,27 +7627,32 @@ focus_tree = {
 		id = VIE_nav35_G01
 		icon = GFX_focus_VIE_nf_greenwater
 
-		x = -3
-		y = 2
+		x = -1
+		y = 1
 		relative_position_id = VIE_nav35_H02
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_H02 }
-		mutually_exclusive = { focus = VIE_nav35_B01 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
+		mutually_exclusive = { focus = VIE_nav35_B01 }
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G01"
+			custom_effect_tooltip = VIE_nav35_G01_reward_tt
+			add_command_power = 25
 			VIE_nav_xp_15 = yes
+			add_ideas = VPA_Greenwater_Doctrine_1
+			add_doctrine_cost_reduction = { name = VIE_nav35_G01_doctrine cost_reduction = 0.35 uses = 1 category = naval_doctrine }
+			VIE_nav_reward_g01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 			modifier = { factor = 3 VIE_ai_hardline = yes }
 		}
 	}
@@ -7141,26 +7662,36 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_regional_frigates
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_G01
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_G01 }
-		prerequisite = { focus = VIE_nav35_I06 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G02"
-			add_tech_bonus = { name = VIE_nav35_G02 category = CAT_naval_sonar uses = 1 bonus = 0.25 }
+			custom_effect_tooltip = VIE_nav35_G02_reward_tt
+			add_command_power = 20
+			520 = {
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_tech_bonus = { name = VIE_nav35_G02 category = CAT_naval_sonar uses = 1 bonus = 0.50 }
+			add_ideas = VIE_nav35_domestic_asw_support_idea
+			VIE_nav_reward_g02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -7169,7 +7700,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_regional_command
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_G02
 
 		prerequisite = { focus = VIE_nav35_G02 }
@@ -7178,15 +7709,23 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G03"
+			custom_effect_tooltip = VIE_nav35_G03_reward_tt
+			add_command_power = 30
 			VIE_nav_xp_25 = yes
-
+			swap_ideas = {
+				remove_idea = VPA_Greenwater_Doctrine_1
+				add_idea = VPA_Greenwater_Doctrine_Capstone
+			}
+			add_ideas = VIE_nav_capstone_master_of_seas
+			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 40 producer = VIE }
+			add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 30 producer = VIE }
+			VIE_nav_reward_g03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -7194,22 +7733,27 @@ focus_tree = {
 		id = VIE_nav35_B01
 		icon = GFX_focus_VIE_nf_bluewater
 
-		x = 3
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = VIE_nav35_H02
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_H02 }
-		mutually_exclusive = { focus = VIE_nav35_G01 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		available = { date > 2014.12.31 }
+		mutually_exclusive = { focus = VIE_nav35_G01 }
+
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B01"
+			custom_effect_tooltip = VIE_nav35_B01_reward_tt
+			add_command_power = 25
 			VIE_nav_xp_15 = yes
+			add_ideas = VPA_Bluewater_Doctrine_1
+			add_doctrine_cost_reduction = { name = VIE_nav35_B01_doctrine cost_reduction = 0.35 uses = 1 category = naval_doctrine }
+			VIE_nav_reward_b01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
@@ -7228,19 +7772,30 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_replenishment
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_B01
 
 		cost = 7
 
 		prerequisite = { focus = VIE_nav35_B01 }
-		prerequisite = { focus = VIE_nav35_L04 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B02"
 			custom_effect_tooltip = VIE_nav35_blue_support_tt
+			add_command_power = 20
+			521 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			unlock_decision_tooltip = VIE_nav35_blue_support_program
+			add_ideas = VIE_nav35_blue_support_idea
+			add_equipment_to_stockpile = { type = convoy_1 amount = 25 producer = VIE }
+			VIE_nav_reward_b02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
@@ -7256,7 +7811,7 @@ focus_tree = {
 		icon = GFX_focus_VIE_nf_regional_command
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_B02
 
 		prerequisite = { focus = VIE_nav35_B02 }
@@ -7265,15 +7820,23 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B03"
+			custom_effect_tooltip = VIE_nav35_B03_reward_tt
+			add_command_power = 30
 			VIE_nav_xp_25 = yes
-
+			swap_ideas = {
+				remove_idea = VPA_Bluewater_Doctrine_1
+				add_idea = VPA_Bluewater_Doctrine_Capstone
+			}
+			add_ideas = VIE_nav_capstone_ocean_surge
+			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 48 producer = VIE }
+			add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 36 producer = VIE }
+			VIE_nav_reward_b03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 50
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -7281,9 +7844,9 @@ focus_tree = {
 		id = VIE_nav35_F01
 		icon = GFX_focus_VIE_nf_command_reform_2
 
-		x = -3
-		y = 2
-		relative_position_id = VIE_nav35_G03
+		x = 4
+		y = 1
+		relative_position_id = VIE_nav35_P06
 
 		cost = 7
 
@@ -7293,15 +7856,17 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_F01"
+			custom_effect_tooltip = VIE_nav35_F01_reward_tt
+			add_command_power = 30
 			VIE_nav_xp_25 = yes
-			add_command_power = 15
+			add_doctrine_cost_reduction = { name = VIE_nav35_F01_doctrine cost_reduction = 0.50 uses = 1 category = naval_doctrine }
+			VIE_nav_reward_f01_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 75
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
 
@@ -7310,30 +7875,1101 @@ focus_tree = {
 		icon = GFX_focus_VIE_naval_defence_law
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = VIE_nav35_F01
 
 		prerequisite = { focus = VIE_nav35_F01 }
-		prerequisite = { focus = VIE_nav35_S03 }
-		prerequisite = { focus = VIE_nav35_L04 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_F02"
+			custom_effect_tooltip = VIE_nav35_F02_reward_tt
+			add_command_power = 50
+			add_stability = 0.05
 			VIE_nav_xp_35 = yes
-			add_command_power = 20
-			add_stability = 0.02
-
+			521 = {
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 50 producer = VIE }
+			add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 40 producer = VIE }
+			add_equipment_to_stockpile = { type = cnc_equipment_2 amount = 80 producer = VIE }
+			VIE_nav_reward_f02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
 
 		ai_will_do = {
 			base = 75
-			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
+
+
+	# ==============================================================================
+	# QUAN CHUNG PHONG KHONG - KHONG QUAN (PK-KQ) - 38 NATIONAL FOCUSES (V8)
+	# ==============================================================================
+
+	# ------------------------------------------------------------------------------
+	# 1. KHOI NEN TANG CHUNG (13 FOCUSES)
+	# ------------------------------------------------------------------------------
+
+	# Root R00 (246, 2)
+	focus = {
+		id = VIE_air8_r00_foundation
+		icon = GFX_focus_VIE_modernize_vpa
+
+		x = 44
+		y = 1
+		relative_position_id = VIE_modernize_vpa
+
+		cost = 5
+
+		prerequisite = { focus = VIE_modernize_vpa }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_r00_foundation"
+			VIE_air_xp_15 = yes
+			add_command_power = 10
+			unlock_decision_category_tooltip = VIE_air_category
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_accidents_factor = -0.02 tooltip = air_accidents_factor_tt }
+		}
+
+		ai_will_do = { base = 80 }
+	}
+
+	# P01: Mang canh gioi radar (236, 3)
+	focus = {
+		id = VIE_air8_p01_radar_network
+		icon = GFX_focus_VIE_apm_radar
+
+		x = -10
+		y = 1
+		relative_position_id = VIE_air8_r00_foundation
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_r00_foundation }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_p01_radar_network"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = air_detection_tt }
+			add_tech_bonus = {
+				name = VIE_air8_radar_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_military_electronics
+			}
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	# P02: Tiep nhan S-300PMU1 (236, 4)
+	focus = {
+		id = VIE_air8_p02_s300pmu1
+		icon = GFX_focus_VIE_airf_sam_force
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_p01_radar_network
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_p01_radar_network }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_p02_s300pmu1"
+			unlock_decision_tooltip = VIE_air8_dec_s300pmu1
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_intercept_efficiency = 0.01 tooltip = air_intercept_efficiency_tt }
+			add_tech_bonus = {
+				name = VIE_air8_s300_sam_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_surface_to_air_missiles
+			}
+		}
+
+		ai_will_do = { base = 75 }
+	}
+
+	# P03: Luc luong phong khong da tang (236, 5)
+	focus = {
+		id = VIE_air8_p03_multitier_sam
+		icon = GFX_focus_VIE_airf_layered_defence
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_p02_s300pmu1
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_p02_s300pmu1 }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_p03_multitier_sam"
+			VIE_air_xp_15 = yes
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = air_home_defence_factor_tt }
+			add_to_variable = { VIE_af_air_intercept_efficiency = 0.01 tooltip = air_intercept_efficiency_tt }
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	# F01: Duy tri Su-22, Su-27 (244, 3)
+	focus = {
+		id = VIE_air8_f01_legacy_fleet
+		icon = GFX_focus_VIE_airf_sustainment
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_air8_r00_foundation
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_r00_foundation }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_f01_legacy_fleet"
+			add_command_power = 10
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_accidents_factor = -0.02 tooltip = air_accidents_factor_tt }
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = air_mission_efficiency_tt }
+		}
+
+		ai_will_do = { base = 75 }
+	}
+
+	# F02: Tiep nhan Su-30MK2 (244, 4)
+	focus = {
+		id = VIE_air8_f02_su30mk2_procurement
+		icon = GFX_focus_VIE_airf_multirole
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_f01_legacy_fleet
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_f01_legacy_fleet }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_AIRCRAFT }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_f02_su30mk2_procurement"
+			unlock_decision_tooltip = VIE_air8_dec_su30mk2_batch1
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_agility_factor = 0.02 tooltip = air_agility_factor_tt }
+			add_tech_bonus = {
+				name = VIE_air8_multirole_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_medium_aircraft
+			}
+		}
+
+		ai_will_do = { base = 80 }
+	}
+
+	# F03: Mo rong phi doi Su-30MK2 (244, 5)
+	focus = {
+		id = VIE_air8_f03_su30mk2_fleet_expansion
+		icon = GFX_focus_VIE_airf_multirole_fleet
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_f02_su30mk2_procurement
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_f02_su30mk2_procurement }
+
+		available = {
+			has_country_flag = VIE_air8_su30mk2_delivered
+		}
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_AIRCRAFT }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_f03_su30mk2_fleet_expansion"
+			unlock_decision_tooltip = VIE_air8_dec_su30mk2_batch2
+			VIE_air_xp_20 = yes
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_naval_strike_targetting_factor = 0.03 tooltip = naval_strike_targetting_factor_tt }
+			add_to_variable = { VIE_af_air_range_factor = 0.02 tooltip = air_range_factor_tt }
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	# T01: Doi moi Truong SQKQ (252, 3)
+	focus = {
+		id = VIE_air8_t01_academy_reform
+		icon = GFX_focus_VIE_airf_training_standardization
+
+		x = 6
+		y = 1
+		relative_position_id = VIE_air8_r00_foundation
+
+		cost = 5
+
+		prerequisite = { focus = VIE_air8_r00_foundation }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_t01_academy_reform"
+			VIE_air_xp_15 = yes
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_experience_gain_air_factor = 0.05 tooltip = experience_gain_air_factor_tt }
+			add_to_variable = { VIE_af_air_ace_generation_chance_factor = 0.02 tooltip = air_ace_generation_chance_factor_tt }
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	# T02: T-6C - Huan luyen co ban (250, 4)
+	focus = {
+		id = VIE_air8_t02_t6c_basic_trainer
+		icon = GFX_focus_VIE_airf_first_force
+
+		x = -2
+		y = 1
+		relative_position_id = VIE_air8_t01_academy_reform
+
+		cost = 5
+
+		prerequisite = { focus = VIE_air8_t01_academy_reform }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_AIRCRAFT }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_t02_t6c_basic_trainer"
+			unlock_decision_tooltip = VIE_air8_dec_t6c_trainer
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_accidents_factor = -0.02 tooltip = air_accidents_factor_tt }
+			add_to_variable = { VIE_af_experience_gain_air_factor = 0.02 tooltip = experience_gain_air_factor_tt }
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	# T03: L-39NG - Huan luyen phan luc (252, 4)
+	focus = {
+		id = VIE_air8_t03_l39ng_jet_trainer
+		icon = GFX_focus_VIE_airf_medium_force
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_t01_academy_reform
+
+		cost = 5
+
+		prerequisite = { focus = VIE_air8_t01_academy_reform }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_AIRCRAFT }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_t03_l39ng_jet_trainer"
+			unlock_decision_tooltip = VIE_air8_dec_l39ng_trainer
+			VIE_air_xp_15 = yes
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = air_mission_efficiency_tt }
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	# T04: Yak-130 - Chuyen loai nang cao (254, 4)
+	focus = {
+		id = VIE_air8_t04_yak130_advanced_trainer
+		icon = GFX_focus_VIE_airf_fighter_force
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_air8_t01_academy_reform
+
+		cost = 5
+
+		prerequisite = { focus = VIE_air8_t01_academy_reform }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_AIRCRAFT }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_t04_yak130_advanced_trainer"
+			unlock_decision_tooltip = VIE_air8_dec_yak130_trainer
+			VIE_air_xp_15 = yes
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_agility_factor = 0.02 tooltip = air_agility_factor_tt }
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	# R01: Cai cach so chi huy va dan duong (244, 6)
+	focus = {
+		id = VIE_air8_r01_c2_guidance_reform
+		icon = GFX_focus_VIE_airf_command_reform_1
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_f03_su30mk2_fleet_expansion
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_p03_multitier_sam }
+		prerequisite = { focus = VIE_air8_f03_su30mk2_fleet_expansion }
+		prerequisite = {
+			focus = VIE_air8_t03_l39ng_jet_trainer
+			focus = VIE_air8_t04_yak130_advanced_trainer
+		}
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_r01_c2_guidance_reform"
+			VIE_air_xp_20 = yes
+			add_command_power = 15
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = air_detection_tt }
+			add_to_variable = { VIE_af_air_intercept_efficiency = 0.01 tooltip = air_intercept_efficiency_tt }
+		}
+
+		ai_will_do = { base = 75 }
+	}
+
+	# R02: Xac lap dinh huong phat trien khong quan (244, 7)
+	focus = {
+		id = VIE_air8_r02_air_orientation
+		icon = GFX_focus_VIE_airf_command_reform_2
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_r01_c2_guidance_reform
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_r01_c2_guidance_reform }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_r02_air_orientation"
+			VIE_air_xp_15 = yes
+			add_political_power = 50
+		}
+
+		ai_will_do = { base = 80 }
+	}
+
+	# ------------------------------------------------------------------------------
+	# 2. HUONG A: PHONG KHONG CHIEU SAU (6 FOCUSES)
+	# ------------------------------------------------------------------------------
+
+	# A01: Hoc thuyet phong khong chieu sau (236, 8)
+	focus = {
+		id = VIE_air8_a01_doctrine_defense_in_depth
+		icon = GFX_focus_VIE_airf_iads
+
+		x = -8
+		y = 1
+		relative_position_id = VIE_air8_r02_air_orientation
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_r02_air_orientation }
+
+		mutually_exclusive = { focus = VIE_air8_b01_doctrine_mobile_air_defense }
+		mutually_exclusive = { focus = VIE_air8_c01_doctrine_integrated_air_warfare }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_a01_doctrine_defense_in_depth"
+			VIE_air_xp_20 = yes
+			add_ideas = VIE_air8_spirit_defense_in_depth
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# A02: Mo rong he thong bao dong phong khong (235, 9)
+	focus = {
+		id = VIE_air8_a02_expanded_air_defense_alert
+		icon = GFX_focus_VIE_airf_layered_defence
+
+		x = -1
+		y = 1
+		relative_position_id = VIE_air8_a01_doctrine_defense_in_depth
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_a01_doctrine_defense_in_depth }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_a02_expanded_air_defense_alert"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = air_home_defence_factor_tt }
+			521 = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# A03: Tiem kich danh chan bao ve vung troi (237, 9)
+	focus = {
+		id = VIE_air8_a03_interceptor_airspace_defense
+		icon = GFX_focus_VIE_airf_fighter_force
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_air8_a01_doctrine_defense_in_depth
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_a01_doctrine_defense_in_depth }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_a03_interceptor_airspace_defense"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_intercept_efficiency = 0.02 tooltip = air_intercept_efficiency_tt }
+			add_to_variable = { VIE_af_air_agility_factor = 0.01 tooltip = air_agility_factor_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# A04: Kip chien dau ten lua va radar (236, 10)
+	focus = {
+		id = VIE_air8_a04_sam_radar_combat_crews
+		icon = GFX_focus_VIE_airf_sam_force
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_air8_a01_doctrine_defense_in_depth
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_a02_expanded_air_defense_alert }
+		prerequisite = { focus = VIE_air8_a03_interceptor_airspace_defense }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_a04_sam_radar_combat_crews"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = air_detection_tt }
+			add_tech_bonus = {
+				name = VIE_air8_sam_doctrine_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_surface_to_air_missiles
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# A05: Phan tan, nguy trang va khoi phuc san bay (236, 11)
+	focus = {
+		id = VIE_air8_a05_dispersion_recovery_readiness
+		icon = GFX_focus_VIE_airf_sustainment
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_a04_sam_radar_combat_crews
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_a04_sam_radar_combat_crews }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_a05_dispersion_recovery_readiness"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_accidents_factor = -0.02 tooltip = air_accidents_factor_tt }
+			add_to_variable = { VIE_af_air_home_defence_factor = 0.02 tooltip = air_home_defence_factor_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# A06: Vung troi bat kha xam pham (236, 12) - Capstone A
+	focus = {
+		id = VIE_air8_a06_multilayer_sky_shield
+		icon = GFX_focus_VIE_airf_iads_command
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_a05_dispersion_recovery_readiness
+
+		cost = 10
+
+		prerequisite = { focus = VIE_air8_a05_dispersion_recovery_readiness }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_a06_multilayer_sky_shield"
+			VIE_air_xp_25 = yes
+			swap_ideas = {
+				remove_idea = VIE_air8_spirit_defense_in_depth
+				add_idea = VIE_air8_spirit_sky_shield
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# ------------------------------------------------------------------------------
+	# 3. HUONG B: PHONG THU CO DONG KHONG QUAN (6 FOCUSES)
+	# ------------------------------------------------------------------------------
+
+	# B01: Hoc thuyet phong thu co dong khong quan (244, 8)
+	focus = {
+		id = VIE_air8_b01_doctrine_mobile_air_defense
+		icon = GFX_focus_VIE_airf_multirole_wing
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_r02_air_orientation
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_r02_air_orientation }
+
+		mutually_exclusive = { focus = VIE_air8_a01_doctrine_defense_in_depth }
+		mutually_exclusive = { focus = VIE_air8_c01_doctrine_integrated_air_warfare }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_b01_doctrine_mobile_air_defense"
+			VIE_air_xp_20 = yes
+			add_ideas = VIE_air8_spirit_mobile_air
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# B02: Dinh huong tiem kich da nang the he moi (243, 9)
+	focus = {
+		id = VIE_air8_b02_nextgen_multirole_program
+		icon = GFX_focus_VIE_airf_multirole
+
+		x = -1
+		y = 1
+		relative_position_id = VIE_air8_b01_doctrine_mobile_air_defense
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_b01_doctrine_mobile_air_defense }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_AIRCRAFT }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_b02_nextgen_multirole_program"
+			unlock_decision_tooltip = VIE_air8_dec_nextgen_fighter
+			add_tech_bonus = {
+				name = VIE_air8_nextgen_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_medium_aircraft
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# B03: Dong quan tien phuong va phan ung nhanh (245, 9)
+	focus = {
+		id = VIE_air8_b03_forward_basing_rapid_reaction
+		icon = GFX_focus_VIE_airf_operating_range
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_air8_b01_doctrine_mobile_air_defense
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_b01_doctrine_mobile_air_defense }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_b03_forward_basing_rapid_reaction"
+			add_command_power = 15
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = air_mission_efficiency_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# B04: Huan luyen tac chien mat bien va bay dem (244, 10)
+	focus = {
+		id = VIE_air8_b04_maritime_night_strike_training
+		icon = GFX_focus_VIE_airf_multirole_fleet
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_air8_b01_doctrine_mobile_air_defense
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_b02_nextgen_multirole_program }
+		prerequisite = { focus = VIE_air8_b03_forward_basing_rapid_reaction }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_b04_maritime_night_strike_training"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_naval_strike_targetting_factor = 0.03 tooltip = naval_strike_targetting_factor_tt }
+			add_to_variable = { VIE_af_air_night_penalty = -0.02 tooltip = air_night_penalty_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# B05: Nang cao nang luc dan duong va danh chan co dong (244, 11)
+	focus = {
+		id = VIE_air8_b05_mobile_interception_command
+		icon = GFX_focus_VIE_airf_command_reform_2
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_b04_maritime_night_strike_training
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_b04_maritime_night_strike_training }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_b05_mobile_interception_command"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_superiority_efficiency = 0.03 tooltip = air_superiority_efficiency_tt }
+			add_to_variable = { VIE_af_air_range_factor = 0.03 tooltip = air_range_factor_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# B06: Khong quan da nhiem linh hoat (244, 12) - Capstone B
+	focus = {
+		id = VIE_air8_b06_agile_multirole_air_force
+		icon = GFX_focus_VIE_airf_airlift_tanker
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_b05_mobile_interception_command
+
+		cost = 10
+
+		prerequisite = { focus = VIE_air8_b05_mobile_interception_command }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_b06_agile_multirole_air_force"
+			VIE_air_xp_25 = yes
+			swap_ideas = {
+				remove_idea = VIE_air8_spirit_mobile_air
+				add_idea = VIE_air8_spirit_multirole_air_supremacy
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# ------------------------------------------------------------------------------
+	# 4. HUONG C: TAC CHIEN PK-KQ TICH HOP (6 FOCUSES)
+	# ------------------------------------------------------------------------------
+
+	# C01: Hoc thuyet tac chien PK-KQ tich hop (252, 8)
+	focus = {
+		id = VIE_air8_c01_doctrine_integrated_air_warfare
+		icon = GFX_focus_VIE_airf_datalink
+
+		x = 8
+		y = 1
+		relative_position_id = VIE_air8_r02_air_orientation
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_r02_air_orientation }
+
+		mutually_exclusive = { focus = VIE_air8_a01_doctrine_defense_in_depth }
+		mutually_exclusive = { focus = VIE_air8_b01_doctrine_mobile_air_defense }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_c01_doctrine_integrated_air_warfare"
+			VIE_air_xp_20 = yes
+			add_ideas = VIE_air8_spirit_integrated_c4isr
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# C02: Tich hop mang radar va truyen so lieu (251, 9)
+	focus = {
+		id = VIE_air8_c02_unified_radar_data_network
+		icon = GFX_focus_VIE_apm_radar
+
+		x = -1
+		y = 1
+		relative_position_id = VIE_air8_c01_doctrine_integrated_air_warfare
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_c01_doctrine_integrated_air_warfare }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_c02_unified_radar_data_network"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = air_detection_tt }
+			add_to_variable = { VIE_af_recon_factor = 0.03 tooltip = recon_factor_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# C03: Tac chien mang trung tam giua cac bien doi (253, 9)
+	focus = {
+		id = VIE_air8_c03_network_centric_fighters
+		icon = GFX_focus_VIE_airf_ew_antistealth
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_air8_c01_doctrine_integrated_air_warfare
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_c01_doctrine_integrated_air_warfare }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_c03_network_centric_fighters"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_superiority_efficiency = 0.02 tooltip = air_superiority_efficiency_tt }
+			add_to_variable = { VIE_af_air_agility_factor = 0.01 tooltip = air_agility_factor_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# C04: Dien tap mo phong va hop dong quan binh chung (252, 10)
+	focus = {
+		id = VIE_air8_c04_joint_simulated_exercises
+		icon = GFX_focus_VIE_airf_training_standardization
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_air8_c01_doctrine_integrated_air_warfare
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_c02_unified_radar_data_network }
+		prerequisite = { focus = VIE_air8_c03_network_centric_fighters }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_c04_joint_simulated_exercises"
+			VIE_air_xp_20 = yes
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_experience_gain_air_factor = 0.03 tooltip = experience_gain_air_factor_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# C05: Tich hop UAV trinh sat va chi thi muc tieu (252, 11)
+	focus = {
+		id = VIE_air8_c05_uav_fleet_recon_teaming
+		icon = GFX_focus_VIE_airf_teaming
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_c04_joint_simulated_exercises
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_c04_joint_simulated_exercises }
+
+		search_filters = { FOCUS_FILTER_AIR }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_c05_uav_fleet_recon_teaming"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_recon_factor = 0.05 tooltip = recon_factor_tt }
+			add_to_variable = { VIE_af_air_cas_efficiency = 0.03 tooltip = air_cas_efficiency_tt }
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# C06: He sinh thai PK-KQ so hoa (252, 12) - Capstone C
+	focus = {
+		id = VIE_air8_c06_networked_pkkq_battlespace
+		icon = GFX_focus_VIE_airf_isr_uav
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_c05_uav_fleet_recon_teaming
+
+		cost = 10
+
+		prerequisite = { focus = VIE_air8_c05_uav_fleet_recon_teaming }
+
+		search_filters = { FOCUS_FILTER_AIR FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_c06_networked_pkkq_battlespace"
+			VIE_air_xp_25 = yes
+			swap_ideas = {
+				remove_idea = VIE_air8_spirit_integrated_c4isr
+				add_idea = VIE_air8_spirit_digital_air_network
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	# ------------------------------------------------------------------------------
+	# 5. KHOI CONG NGHIEP PK-KQ (7 FOCUSES)
+	# ------------------------------------------------------------------------------
+
+	# I00: Lam chu cong nghe PK-KQ co chon loc (262, 3)
+	focus = {
+		id = VIE_air8_i00_selective_air_industry
+		icon = GFX_focus_VIE_apm_law
+
+		x = 16
+		y = 1
+		relative_position_id = VIE_air8_r00_foundation
+
+		cost = 5
+
+		prerequisite = { focus = VIE_air8_r00_foundation }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_i00_selective_air_industry"
+			add_ideas = VIE_air8_spirit_aviation_industry
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	# I01: Nha may A32 - Dai tu Su-30MK2 (258, 4)
+	focus = {
+		id = VIE_air8_i01_a32_su30mk2_overhaul
+		icon = GFX_focus_VIE_apm_a32
+
+		x = -4
+		y = 1
+		relative_position_id = VIE_air8_i00_selective_air_industry
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_i00_selective_air_industry }
+
+		available = {
+			has_country_flag = VIE_air8_su30mk2_delivered
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_i01_a32_su30mk2_overhaul"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_accidents_factor = -0.02 tooltip = air_accidents_factor_tt }
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	# I02: Thiet bi dien tu may bay noi dia (258, 5)
+	focus = {
+		id = VIE_air8_i02_domestic_avionics
+		icon = GFX_focus_VIE_apm_integration
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_i01_a32_su30mk2_overhaul
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_i01_a32_su30mk2_overhaul }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_i02_domestic_avionics"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_airforce_personnel_cost_multiplier_modifier = -0.01 tooltip = airforce_personnel_cost_multiplier_modifier_tt }
+			add_tech_bonus = {
+				name = VIE_air8_avionics_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_air_modules
+			}
+		}
+
+		ai_will_do = { base = 60 }
+	}
+
+	# I03: S-125-VT - Hien dai hoa phong khong (261, 4)
+	focus = {
+		id = VIE_air8_i03_s125vt_upgrade_program
+		icon = GFX_focus_VIE_apm_mature
+
+		x = -1
+		y = 1
+		relative_position_id = VIE_air8_i00_selective_air_industry
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_i00_selective_air_industry }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_i03_s125vt_upgrade_program"
+			unlock_decision_tooltip = VIE_air8_dec_s125vt_upgrade
+			add_tech_bonus = {
+				name = VIE_air8_s125vt_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_surface_to_air_missiles
+			}
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	# I04: Viettel - Radar 3D VRS (264, 4)
+	focus = {
+		id = VIE_air8_i04_viettel_vrs_3d_radar
+		icon = GFX_focus_VIE_apm_radar
+
+		x = 2
+		y = 1
+		relative_position_id = VIE_air8_i00_selective_air_industry
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_i00_selective_air_industry }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_i04_viettel_vrs_3d_radar"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_detection = 0.02 tooltip = air_detection_tt }
+			add_tech_bonus = {
+				name = VIE_air8_vrs_radar_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_military_electronics
+			}
+		}
+
+		ai_will_do = { base = 70 }
+	}
+
+	# I05: VQ2 - Chi huy tac chien so (264, 5)
+	focus = {
+		id = VIE_air8_i05_vq2_digital_c2
+		icon = GFX_focus_VIE_airf_command_reform_1
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_air8_i04_viettel_vrs_3d_radar
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_i04_viettel_vrs_3d_radar }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_i05_vq2_digital_c2"
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = VIE_armed_forces_modifier }
+			add_to_variable = { VIE_af_air_intercept_efficiency = 0.02 tooltip = air_intercept_efficiency_tt }
+			add_to_variable = { VIE_af_air_mission_efficiency = 0.02 tooltip = air_mission_efficiency_tt }
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+	# I06: Viettel - UAV chien thuat (267, 4)
+	focus = {
+		id = VIE_air8_i06_viettel_tactical_uav
+		icon = GFX_focus_VIE_apm_uav
+
+		x = 5
+		y = 1
+		relative_position_id = VIE_air8_i00_selective_air_industry
+
+		cost = 7
+
+		prerequisite = { focus = VIE_air8_i00_selective_air_industry }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_air8_i06_viettel_tactical_uav"
+			unlock_decision_tooltip = VIE_air8_dec_tactical_uav
+			add_tech_bonus = {
+				name = VIE_air8_tactical_uav_tech
+				bonus = 0.50
+				uses = 1
+				category = CAT_air_drones
+			}
+		}
+
+		ai_will_do = { base = 65 }
+	}
+
+
 
 
 	focus = {

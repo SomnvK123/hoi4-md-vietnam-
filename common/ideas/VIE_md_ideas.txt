@@ -1,4 +1,4 @@
-# ====================================================================
+﻿# ====================================================================
 # MILLENNIUM DAWN: VIETNAM - ALL COUNTRY IDEAS
 # Consolidated single ideas file
 # ====================================================================
@@ -1369,6 +1369,50 @@ ideas = {
 				}
 			}
 		}
+
+		VIE_lf_xtc_program_idea = {
+			picture = GFX_idea_VIE_lf_arm_program
+			modifier = {
+				mechanized_equipment_design_speed_factor = 0.10
+				mechanized_equipment_production_efficiency_cap = 0.05
+				armored_car_equipment_design_speed_factor = 0.10
+			}
+			cancelable = no
+		}
+
+		VIE_lf_t1_light_tank_idea = {
+			picture = GFX_idea_VIE_lf_arm_armor
+			modifier = {
+				light_tank_equipment_design_speed_factor = 0.10
+				light_tank_equipment_production_efficiency_cap = 0.05
+				tank_production_factor = 0.05
+			}
+			cancelable = no
+		}
+
+		VIE_lf_spg_program_idea = {
+			picture = GFX_idea_VIE_lf_arm_arty
+			modifier = {
+				artillery_equipment_design_speed_factor = 0.10
+				artillery_production_factor = 0.05
+				self_propelled_artillery_research_speed_factor = 0.10
+			}
+			cancelable = no
+		}
+
+		VIE_lf_t2_main_tank_idea = {
+			picture = GFX_idea_VIE_lf_arm_armor
+			modifier = {
+				medium_tank_equipment_design_speed_factor = 0.15
+				medium_tank_equipment_production_efficiency_cap = 0.10
+				tank_production_factor = 0.10
+				armor_research_speed_factor = 0.10
+			}
+			cancelable = no
+		}
+
+
+
 
 		# ====================================================================
 		# Hai quan V35.1: bonus theo bac, khong cong chong hoc thuyet.
@@ -2975,6 +3019,96 @@ ideas = {
 				research_speed_factor = 0.03
 				political_power_gain = 0.05
 			}
+
+		# =============================================
+		# VIETNAM AIR FORCE (PK-KQ) V8 IDEAS
+		# =============================================
+		VIE_air8_spirit_defense_in_depth = {
+			picture = air_support_focus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				air_home_defence_factor = 0.03
+				air_intercept_efficiency = 0.02
+			}
+		}
+
+		VIE_air8_spirit_sky_shield = {
+			picture = air_support_focus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				air_home_defence_factor = 0.06
+				air_intercept_efficiency = 0.04
+				static_anti_air_damage_factor = 0.10
+			}
+		}
+
+		VIE_air8_spirit_mobile_air = {
+			picture = strategic_bombing_focus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				air_mission_efficiency = 0.03
+				air_range_factor = 0.03
+			}
+		}
+
+		VIE_air8_spirit_multirole_air_supremacy = {
+			picture = strategic_bombing_focus
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				air_mission_efficiency = 0.06
+				air_range_factor = 0.06
+				naval_strike_targetting_factor = 0.05
+			}
+		}
+
+		VIE_air8_spirit_integrated_c4isr = {
+			picture = air_superiority
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				air_detection = 0.02
+				air_mission_efficiency = 0.03
+			}
+		}
+
+		VIE_air8_spirit_digital_air_network = {
+			picture = air_superiority
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				air_detection = 0.05
+				air_mission_efficiency = 0.05
+				recon_factor = 0.10
+			}
+		}
+
+		VIE_air8_spirit_aviation_industry = {
+			picture = GFX_idea_VIE_lf_arm_precision
+			allowed = { always = no }
+			allowed_civil_war = { always = no }
+			cancel_if_invalid = no
+
+			modifier = {
+				airforce_personnel_cost_multiplier_modifier = -0.02
+				air_equipment_upgrade_xp_cost = -0.10
+			}
+		}
 		}
 	}
 }

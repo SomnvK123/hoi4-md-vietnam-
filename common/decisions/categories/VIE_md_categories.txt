@@ -72,3 +72,10 @@ VIE_naval_procurement_category = {
 	priority = 90
 	visible = { has_completed_focus = VIE_nav35_N00 }
 }
+
+# Chuong trinh phat trien Phong khong - Khong quan PK-KQ
+VIE_air_category = {
+	allowed = { original_tag = VIE }
+	priority = 89
+	visible = { has_completed_focus = VIE_air8_r00_foundation }
+}

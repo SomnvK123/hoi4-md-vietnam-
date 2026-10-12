@@ -1,4 +1,4 @@
-# ====================================================================
+﻿# ====================================================================
 # MILLENNIUM DAWN: VIETNAM - ALL SCRIPTED TRIGGERS
 # Consolidated single scripted_triggers file
 # ====================================================================
@@ -1315,7 +1315,7 @@ VIE_lf_xcb01_evaluation_can_start = {
 
 VIE_lf_xcb01_serial_can_start = {
 	original_tag = VIE
-	has_completed_focus = VIE_lf_ind_serial_ground_equipment
+	has_completed_focus = VIE_lf_ind_serial_industrialization
 	NOT = { has_country_flag = VIE_lf_xcb01_serial_running }
 	NOT = { has_country_flag = VIE_lf_xcb01_serial_done }
 	NOT = { has_active_mission = bankruptcy_incoming_collapse }

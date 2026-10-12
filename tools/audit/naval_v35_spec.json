@@ -751,13 +751,10 @@
       "y": 12,
       "parent": "S03",
       "all": [
-        "T04",
-        "W01"
+        "T04"
       ],
       "any": [],
-      "mutex": [
-        "H01"
-      ],
+      "mutex": [],
       "year": 2000,
       "status": "Thiết kế dựa trên nguồn",
       "cost": 7,
@@ -939,13 +936,10 @@
       "y": 12,
       "parent": "W05",
       "all": [
-        "I06",
-        "L02"
+        "I06"
       ],
       "any": [],
-      "mutex": [
-        "P01"
-      ],
+      "mutex": [],
       "year": 2000,
       "status": "Thiết kế dựa trên nguồn",
       "cost": 7,
@@ -1038,9 +1032,7 @@
       "x": 32,
       "y": 18,
       "parent": "G01",
-      "all": [
-        "I06"
-      ],
+      "all": [],
       "any": [],
       "mutex": [],
       "year": 2000,
@@ -1140,9 +1132,7 @@
       "x": 44,
       "y": 18,
       "parent": "B01",
-      "all": [
-        "L04"
-      ],
+      "all": [],
       "any": [],
       "mutex": [],
       "year": 2000,
@@ -1234,10 +1224,7 @@
       "x": 28,
       "y": 24,
       "parent": "F01",
-      "all": [
-        "S03",
-        "L04"
-      ],
+      "all": [],
       "any": [],
       "mutex": [],
       "year": 2000,
