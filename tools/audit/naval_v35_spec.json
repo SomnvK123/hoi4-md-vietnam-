@@ -1,5 +1,5 @@
 {
-  "version": "V35.1",
+  "version": "V35.4",
   "new_game_only": true,
   "nodes": [
     {
@@ -7,8 +7,8 @@
       "code": "N00",
       "title": "Hiện đại hóa lực lượng bảo vệ hướng biển",
       "group": "root",
-      "x": 28,
-      "y": 0,
+      "x": 207,
+      "y": 2,
       "parent": null,
       "all": [],
       "any": [],
@@ -38,8 +38,8 @@
       "code": "T01",
       "title": "Kiện toàn hệ thống các Vùng Hải quân",
       "group": "command",
-      "x": 6,
-      "y": 2,
+      "x": 199,
+      "y": 3,
       "parent": "N00",
       "all": [],
       "any": [],
@@ -74,7 +74,7 @@
       "code": "T02",
       "title": "Học viện Hải quân: đào tạo sĩ quan thế hệ mới",
       "group": "command",
-      "x": 2,
+      "x": 198,
       "y": 4,
       "parent": "T01",
       "all": [],
@@ -105,7 +105,7 @@
       "code": "T03",
       "title": "Kíp tàu chính quy và luyện tập trên biển",
       "group": "command",
-      "x": 10,
+      "x": 200,
       "y": 4,
       "parent": "T01",
       "all": [],
@@ -136,8 +136,8 @@
       "code": "T04",
       "title": "Bộ chỉ huy hiệp đồng tác chiến biển",
       "group": "command",
-      "x": 6,
-      "y": 8,
+      "x": 199,
+      "y": 5,
       "parent": "T02",
       "all": [
         "T03"
@@ -169,8 +169,8 @@
       "code": "S01",
       "title": "Mạng cảnh giới biển và radar bờ",
       "group": "sensor",
-      "x": 17,
-      "y": 2,
+      "x": 203,
+      "y": 3,
       "parent": "N00",
       "all": [],
       "any": [],
@@ -200,8 +200,8 @@
       "code": "S02",
       "title": "Lữ đoàn Không quân Hải quân 954",
       "group": "sensor",
-      "x": 13,
-      "y": 5,
+      "x": 202,
+      "y": 4,
       "parent": "S01",
       "all": [],
       "any": [],
@@ -231,8 +231,8 @@
       "code": "S03",
       "title": "Bức tranh tình huống biển hợp nhất",
       "group": "sensor",
-      "x": 17,
-      "y": 8,
+      "x": 203,
+      "y": 5,
       "parent": "S01",
       "all": [],
       "any": [],
@@ -257,8 +257,8 @@
       "code": "W01",
       "title": "Tái cơ cấu đội tàu chiến hiện đại",
       "group": "fleet",
-      "x": 27,
-      "y": 2,
+      "x": 207,
+      "y": 3,
       "parent": "N00",
       "all": [],
       "any": [],
@@ -288,8 +288,8 @@
       "code": "W02",
       "title": "Lữ đoàn 167: khai thác Molniya",
       "group": "fleet",
-      "x": 21,
-      "y": 5,
+      "x": 204,
+      "y": 4,
       "parent": "W01",
       "all": [],
       "any": [],
@@ -319,8 +319,8 @@
       "code": "W03",
       "title": "Lữ đoàn 162: làm chủ tàu hộ vệ Gepard",
       "group": "fleet",
-      "x": 27,
-      "y": 5,
+      "x": 206,
+      "y": 4,
       "parent": "W01",
       "all": [],
       "any": [],
@@ -345,8 +345,8 @@
       "code": "W04",
       "title": "Lữ đoàn 189: làm chủ tàu ngầm Kilo 636",
       "group": "fleet",
-      "x": 33,
-      "y": 5,
+      "x": 208,
+      "y": 4,
       "parent": "W01",
       "all": [],
       "any": [],
@@ -371,8 +371,8 @@
       "code": "W05",
       "title": "Đội hình hộ vệ và chống ngầm phối hợp",
       "group": "fleet",
-      "x": 27,
-      "y": 9,
+      "x": 207,
+      "y": 5,
       "parent": "W03",
       "all": [
         "W04"
@@ -409,8 +409,8 @@
       "code": "I01",
       "title": "Chương trình công nghiệp đóng tàu quân sự",
       "group": "industry",
-      "x": 39,
-      "y": 2,
+      "x": 213,
+      "y": 3,
       "parent": "N00",
       "all": [],
       "any": [],
@@ -440,7 +440,7 @@
       "code": "I02",
       "title": "Ba Son: loạt tàu tên lửa Molniya",
       "group": "industry",
-      "x": 35,
+      "x": 210,
       "y": 4,
       "parent": "I01",
       "all": [],
@@ -471,7 +471,7 @@
       "code": "I03",
       "title": "Z173 Hồng Hà: các dòng TT400–TT400TP",
       "group": "industry",
-      "x": 43,
+      "x": 214,
       "y": 4,
       "parent": "I01",
       "all": [],
@@ -497,8 +497,8 @@
       "code": "I04",
       "title": "Viện Thiết kế tàu quân sự: tự chủ thiết kế",
       "group": "industry",
-      "x": 35,
-      "y": 6,
+      "x": 212,
+      "y": 4,
       "parent": "I01",
       "all": [],
       "any": [],
@@ -528,8 +528,8 @@
       "code": "I05",
       "title": "Sông Thu: công nghệ tàu chuyên dụng và bảo đảm",
       "group": "industry",
-      "x": 43,
-      "y": 6,
+      "x": 214,
+      "y": 5,
       "parent": "I03",
       "all": [],
       "any": [],
@@ -559,8 +559,8 @@
       "code": "I06",
       "title": "Tích hợp hệ thống vũ khí và khí tài tàu chiến",
       "group": "industry",
-      "x": 35,
-      "y": 8,
+      "x": 212,
+      "y": 5,
       "parent": "I04",
       "all": [],
       "any": [],
@@ -590,8 +590,8 @@
       "code": "I07",
       "title": "Sông Thu: dự án hộ vệ chống ngầm đa năng",
       "group": "industry",
-      "x": 40,
-      "y": 10,
+      "x": 213,
+      "y": 6,
       "parent": "I05",
       "all": [
         "I06"
@@ -624,12 +624,38 @@
       ]
     },
     {
+      "id": "VIE_nav35_I08",
+      "code": "I08",
+      "title": "Khinh hạm tàng hình đa nhiệm",
+      "group": "industry",
+      "x": 213,
+      "y": 7,
+      "parent": "I07",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2026,
+      "status": "Đề án gameplay dựa trên hull/project MD",
+      "cost": 7,
+      "summary": "Phát triển blueprint khinh hạm tàng hình đa nhiệm và hợp đồng đóng chiếc đầu tiên.",
+      "detail": "Tham khảo Istanbul-class cho định hướng đa nhiệm; 4.000 tấn là giới hạn thiết kế gameplay. Hull MD không có slot sonar riêng trong cấu hình này; chống ngầm được mô phỏng bằng đạn balanced và trực thăng. Chỉ chốt blueprint sau khi hoàn thành Special Project Stealth Frigate và nghiên cứu module cần thiết.",
+      "game": "Event phê duyệt; blueprint stealth_frigate_hull_1; hợp đồng 0,8 tỷ USD/1.460 ngày; bàn giao đúng một chiếc.",
+      "gate": "I07 AND Special Project sp_stealth_frigate hoàn tất trước khi chốt blueprint/ký hợp đồng.",
+      "refs": [
+        {
+          "key": "istanbul_class",
+          "label": "STM I-Class Frigate",
+          "url": "https://www.stm.com.tr/en/i-class-frigate"
+        }
+      ]
+    },
+    {
       "id": "VIE_nav35_L01",
       "code": "L01",
       "title": "Cam Ranh: trung tâm bảo đảm hải quân",
       "group": "logistics",
-      "x": 50,
-      "y": 2,
+      "x": 219,
+      "y": 3,
       "parent": "N00",
       "all": [],
       "any": [],
@@ -659,8 +685,8 @@
       "code": "L02",
       "title": "Nhà máy X52: bảo dưỡng tàu mặt nước và tàu ngầm",
       "group": "logistics",
-      "x": 46,
-      "y": 5,
+      "x": 217,
+      "y": 4,
       "parent": "L01",
       "all": [],
       "any": [],
@@ -685,8 +711,8 @@
       "code": "L03",
       "title": "VTĐN-01: tàu vận tải đa năng 530 và 531",
       "group": "logistics",
-      "x": 54,
-      "y": 5,
+      "x": 221,
+      "y": 4,
       "parent": "L01",
       "all": [],
       "any": [],
@@ -711,8 +737,8 @@
       "code": "L04",
       "title": "Cứu hộ tàu ngầm và bảo đảm hoạt động dài ngày",
       "group": "logistics",
-      "x": 50,
-      "y": 8,
+      "x": 217,
+      "y": 5,
       "parent": "L02",
       "all": [],
       "any": [],
@@ -747,8 +773,8 @@
       "code": "P01",
       "title": "Học thuyết phòng thủ biển tích hợp",
       "group": "denial",
-      "x": 17,
-      "y": 12,
+      "x": 201,
+      "y": 6,
       "parent": "S03",
       "all": [
         "T04"
@@ -780,8 +806,8 @@
       "code": "P02",
       "title": "Lữ đoàn 681: làm chủ tên lửa bờ",
       "group": "denial",
-      "x": 12,
-      "y": 14,
+      "x": 200,
+      "y": 7,
       "parent": "P01",
       "all": [],
       "any": [],
@@ -806,8 +832,8 @@
       "code": "P03",
       "title": "Lữ đoàn 146 và thế trận bảo vệ đảo",
       "group": "denial",
-      "x": 22,
-      "y": 14,
+      "x": 202,
+      "y": 7,
       "parent": "P01",
       "all": [],
       "any": [],
@@ -837,8 +863,8 @@
       "code": "P04",
       "title": "Lưới phối hợp bờ — đảo — hạm đội",
       "group": "denial",
-      "x": 17,
-      "y": 16,
+      "x": 201,
+      "y": 8,
       "parent": "P02",
       "all": [
         "P03"
@@ -870,8 +896,8 @@
       "code": "P05",
       "title": "Hải quân đánh bộ 101/147: cơ động bảo vệ đảo",
       "group": "denial",
-      "x": 17,
-      "y": 18,
+      "x": 201,
+      "y": 9,
       "parent": "P04",
       "all": [],
       "any": [],
@@ -901,8 +927,8 @@
       "code": "P06",
       "title": "Lá chắn biển nhiều tầng",
       "group": "denial",
-      "x": 17,
-      "y": 20,
+      "x": 201,
+      "y": 10,
       "parent": "P05",
       "all": [],
       "any": [],
@@ -932,8 +958,8 @@
       "code": "H01",
       "title": "Ưu tiên xây dựng các biên đội hạm đội",
       "group": "choice",
-      "x": 38,
-      "y": 12,
+      "x": 209,
+      "y": 6,
       "parent": "W05",
       "all": [
         "I06"
@@ -965,8 +991,8 @@
       "code": "H02",
       "title": "Biên đội tàu hộ vệ — chống ngầm",
       "group": "choice",
-      "x": 38,
-      "y": 14,
+      "x": 209,
+      "y": 7,
       "parent": "H01",
       "all": [],
       "any": [],
@@ -997,24 +1023,76 @@
       ]
     },
     {
-      "id": "VIE_nav35_G01",
-      "code": "G01",
-      "title": "Lựa chọn Green-water: làm chủ vùng biển lân cận",
+      "id": "VIE_nav35_G00",
+      "code": "G00",
+      "title": "Chọn học thuyết Greenwater",
       "group": "green",
-      "x": 32,
-      "y": 16,
+      "x": 206,
+      "y": 8,
       "parent": "H02",
       "all": [],
       "any": [],
       "mutex": [
-        "B01"
+        "B00"
       ],
       "year": 2000,
+      "status": "Lựa chọn học thuyết",
+      "cost": 5,
+      "summary": "Chọn hướng tác chiến Greenwater và mở hai cột xây dựng lực lượng.",
+      "detail": "Chọn hướng biển gần, kiểm soát vùng biển và bảo vệ tuyến hàng hải khu vực. Profile Greenwater được áp dụng; grand doctrine MD vẫn do người chơi chọn.",
+      "game": "Chỉ xác lập hướng và profile; không tự chọn grand doctrine MD.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_G01",
+      "code": "G01",
+      "title": "Huấn luyện cụm tác chiến biển gần",
+      "group": "green",
+      "x": 205,
+      "y": 9,
+      "parent": "G00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
       "status": "Định hướng lựa chọn",
-      "cost": 7,
-      "summary": "Ưu tiên đội tàu hoạt động khu vực, hộ tống, chống ngầm và tự chủ bảo đảm.",
-      "detail": "Green-water không có nghĩa là chỉ đứng sát bờ: đây là khả năng hoạt động lâu dài tại vùng biển lân cận với năng lực bảo đảm phù hợp, thay vì triển khai viễn dương thường xuyên.",
-      "game": "Green-water Doctrine I; escort +; maintenance burden vừa.",
+      "cost": 5,
+      "summary": "Chuẩn hóa chỉ huy, liên lạc và hiệp đồng cụm tác chiến biển gần với lực lượng trên bờ. Chọn định hướng Greenwater, khóa các điểm vào Bluewater.",
+      "detail": "Chuẩn hóa chỉ huy, liên lạc và hiệp đồng cụm tác chiến biển gần với lực lượng trên bờ. Chọn định hướng Greenwater, khóa các điểm vào Bluewater.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_G04",
+      "code": "G04",
+      "title": "Huấn luyện kíp tàu ngầm tiến công",
+      "group": "green",
+      "x": 207,
+      "y": 9,
+      "parent": "G00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Định hướng lựa chọn",
+      "cost": 5,
+      "summary": "Đào tạo kíp tàu ngầm tiến công, vận hành khí tài và kiểm soát hư hỏng. Có thể bắt đầu định hướng Greenwater từ cột này; vẫn cần hoàn thiện cả hai cột.",
+      "detail": "Đào tạo kíp tàu ngầm tiến công, vận hành khí tài và kiểm soát hư hỏng. Có thể bắt đầu định hướng Greenwater từ cột này; vẫn cần hoàn thiện cả hai cột.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
       "gate": "",
       "refs": [
         {
@@ -1027,10 +1105,10 @@
     {
       "id": "VIE_nav35_G02",
       "code": "G02",
-      "title": "Tự chủ chuỗi bảo đảm tàu hộ vệ",
+      "title": "Tổ chức cụm hộ tống và săn ngầm khu vực",
       "group": "green",
-      "x": 32,
-      "y": 18,
+      "x": 205,
+      "y": 10,
       "parent": "G01",
       "all": [],
       "any": [],
@@ -1038,9 +1116,9 @@
       "year": 2000,
       "status": "Thiết kế dựa trên nguồn",
       "cost": 7,
-      "summary": "Gắn năng lực tàu hộ vệ với công nghiệp sửa chữa và tích hợp kỹ thuật trong nước.",
-      "detail": "Không yêu cầu dự án Sông Thu 2026 hoàn thành mới phát triển green-water. Nếu I07 đã hoàn thành, nhận thêm một nhánh tiến độ/tích hợp cho tàu chống ngầm mới.",
-      "game": "Screening/ASW bonus; nội địa hóa bảo đảm; I07 optional extra.",
+      "summary": "Tổ chức cụm hộ tống, chuẩn hóa sonar và hiệp đồng săn ngầm. Có thêm bảo đảm nội địa khi chiếc hộ vệ Sông Thu thực sự được bàn giao; focus không tự cấp tàu hoặc xưởng.",
+      "detail": "Tổ chức cụm hộ tống, chuẩn hóa sonar và hiệp đồng săn ngầm. Có thêm bảo đảm nội địa khi chiếc hộ vệ Sông Thu thực sự được bàn giao; focus không tự cấp tàu hoặc xưởng.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
       "gate": "",
       "refs": [
         {
@@ -1061,23 +1139,51 @@
       ]
     },
     {
-      "id": "VIE_nav35_G03",
-      "code": "G03",
-      "title": "Hạm đội khu vực tự chủ",
+      "id": "VIE_nav35_G05",
+      "code": "G05",
+      "title": "Xây dựng lực lượng tàu ngầm biển gần",
       "group": "green",
-      "x": 32,
-      "y": 20,
-      "parent": "G02",
+      "x": 207,
+      "y": 10,
+      "parent": "G04",
       "all": [],
       "any": [],
       "mutex": [],
       "year": 2000,
-      "status": "Kết quả lựa chọn",
-      "cost": 10,
-      "summary": "Capstone green-water: cân bằng chi phí, sự sẵn sàng và lực lượng tàu mặt nước.",
-      "detail": "Ưu tiên hệ thống tàu mặt nước, chống ngầm và hậu cần đủ dùng, phù hợp mức ngân sách trung bình. Mở công nghệ tàu hộ vệ nội địa qua decision nếu điều kiện công nghiệp đáp ứng.",
-      "game": "Green-water mastery +; ASW & screening +; sustainment bonus.",
+      "status": "Định hướng lựa chọn",
+      "cost": 7,
+      "summary": "Tổ chức phân đội tàu ngầm và chu kỳ trực chiến, huấn luyện, bảo dưỡng trong khu vực. Tàu thực tế sử dụng hệ thống mua sắm và sản xuất hiện hành.",
+      "detail": "Tổ chức phân đội tàu ngầm và chu kỳ trực chiến, huấn luyện, bảo dưỡng trong khu vực. Tàu thực tế sử dụng hệ thống mua sắm và sản xuất hiện hành.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
       "gate": "",
+      "refs": [
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_G03",
+      "code": "G03",
+      "title": "Lực lượng kiểm soát vùng biển",
+      "group": "green",
+      "x": 206,
+      "y": 11,
+      "parent": "G02",
+      "all": [
+        "G05"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Kết quả lựa chọn",
+      "cost": 7,
+      "summary": "Nghiệm thu hai cột lực lượng: cần căn cứ đang sở hữu/kiểm soát, ít nhất hai tàu mặt nước phù hợp và một tàu ngầm tiến công. Điều kiện phải còn hợp lệ khi chạy focus.",
+      "detail": "Nghiệm thu hai cột lực lượng: cần căn cứ đang sở hữu/kiểm soát, ít nhất hai tàu mặt nước phù hợp và một tàu ngầm tiến công. Điều kiện phải còn hợp lệ khi chạy focus.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
+      "gate": "VIE_nav35_g03_can_start",
       "refs": [
         {
           "key": "trade",
@@ -1092,24 +1198,86 @@
       ]
     },
     {
-      "id": "VIE_nav35_B01",
-      "code": "B01",
-      "title": "Lựa chọn Blue-water: triển khai biển xa",
+      "id": "VIE_nav35_B00",
+      "code": "B00",
+      "title": "Chọn học thuyết Bluewater",
       "group": "blue",
-      "x": 44,
-      "y": 16,
+      "x": 212,
+      "y": 8,
       "parent": "H02",
       "all": [],
       "any": [],
       "mutex": [
-        "G01"
+        "G00"
       ],
-      "year": 2015,
+      "year": 2000,
+      "status": "Lựa chọn học thuyết",
+      "cost": 5,
+      "summary": "Chọn hướng tác chiến Bluewater và mở hai cột xây dựng lực lượng.",
+      "detail": "Chọn hướng triển khai hạm đội biển xa, hiệp đồng lực lượng mặt nước và tàu ngầm viễn dương. Profile Bluewater được áp dụng; grand doctrine MD vẫn do người chơi chọn.",
+      "game": "Chỉ xác lập hướng và profile; không tự chọn grand doctrine MD.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_B01",
+      "code": "B01",
+      "title": "Huấn luyện hiệp đồng hạm đội biển xa",
+      "group": "blue",
+      "x": 211,
+      "y": 9,
+      "parent": "B00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
       "status": "Giả định chiến lược",
-      "cost": 7,
-      "summary": "Phương án thay thế lịch sử hướng tới hoạt động trên các tuyến biển xa.",
-      "detail": "Khả năng viễn dương đòi hỏi đầu tư cơ sở bảo đảm, dự trữ và mạng lưới hợp tác phù hợp chính sách quốc phòng. Đây là lựa chọn giả định, không phải chương trình tàu sân bay đã công bố.",
-      "game": "Blue-water Doctrine I; naval max range +; treasury upkeep cao.",
+      "cost": 5,
+      "summary": "Chuẩn hóa sở chỉ huy hạm đội, hộ tống và triển khai dài ngày. Chọn định hướng Bluewater với chi phí nhân sự hải quân cao hơn; không tự chọn học thuyết MD.",
+      "detail": "Chuẩn hóa sở chỉ huy hạm đội, hộ tống và triển khai dài ngày. Chọn định hướng Bluewater với chi phí nhân sự hải quân cao hơn; không tự chọn học thuyết MD.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
+      "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_B04",
+      "code": "B04",
+      "title": "Huấn luyện tàu ngầm viễn dương",
+      "group": "blue",
+      "x": 213,
+      "y": 9,
+      "parent": "B00",
+      "all": [],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Giả định chiến lược",
+      "cost": 5,
+      "summary": "Huấn luyện kíp tàu ngầm triển khai viễn dương, duy trì kỹ thuật và phối hợp hạm đội. Có thể bắt đầu định hướng Bluewater từ cột này.",
+      "detail": "Huấn luyện kíp tàu ngầm triển khai viễn dương, duy trì kỹ thuật và phối hợp hạm đội. Có thể bắt đầu định hướng Bluewater từ cột này.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
       "gate": "",
       "refs": [
         {
@@ -1127,10 +1295,10 @@
     {
       "id": "VIE_nav35_B02",
       "code": "B02",
-      "title": "Hạm đội tiếp tế và bảo đảm viễn hành",
+      "title": "Cụm tác chiến mặt nước và hàng không hạm",
       "group": "blue",
-      "x": 44,
-      "y": 18,
+      "x": 211,
+      "y": 10,
       "parent": "B01",
       "all": [],
       "any": [],
@@ -1138,9 +1306,9 @@
       "year": 2000,
       "status": "Giả định chiến lược",
       "cost": 7,
-      "summary": "Vận hành hải quân biển xa bằng năng lực hậu cần trước khi mở rộng quy mô tàu.",
-      "detail": "Tăng năng lực tàu hậu cần, sửa chữa và tổ chức vận tải. Nếu hoàn thành L03, sử dụng thành quả VTĐN-01 làm bước đệm; không tự ý suy diễn VTĐN-01 là tàu tiếp dầu hạm đội biển xa.",
-      "game": "Naval max range +; sortie efficiency +; treasury - lớn.",
+      "summary": "Tổ chức cụm mặt nước đa nhiệm và chuẩn bị hàng không hạm. Event cho chọn một bonus nghiên cứu; lớp hàng không chỉ hoạt động khi có carrier và carrier_operations. Không bắt buộc carrier để hoàn tất hướng Bluewater.",
+      "detail": "Tổ chức cụm mặt nước đa nhiệm và chuẩn bị hàng không hạm. Event cho chọn một bonus nghiên cứu; lớp hàng không chỉ hoạt động khi có carrier và carrier_operations. Không bắt buộc carrier để hoàn tất hướng Bluewater.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
       "gate": "",
       "refs": [
         {
@@ -1156,23 +1324,56 @@
       ]
     },
     {
-      "id": "VIE_nav35_B03",
-      "code": "B03",
-      "title": "Hải quân biển xa cân đối",
+      "id": "VIE_nav35_B05",
+      "code": "B05",
+      "title": "Bảo đảm và triển khai lực lượng biển xa",
       "group": "blue",
-      "x": 44,
-      "y": 20,
-      "parent": "B02",
+      "x": 213,
+      "y": 10,
+      "parent": "B04",
       "all": [],
       "any": [],
       "mutex": [],
       "year": 2000,
       "status": "Giả định chiến lược",
-      "cost": 10,
-      "summary": "Capstone blue-water, không đồng nghĩa với thiết lập hạm đội hai đại dương.",
-      "detail": "Khả năng hoạt động xa bờ theo kỳ hạn dài, nhiệm vụ hộ tống và hợp tác hàng hải. Muốn phát triển tiếp đến hạm đội tàu sân bay cần nhánh viễn cảnh riêng, không thể là kết quả tự động.",
-      "game": "Blue-water mastery gain +; range and organization +; maintenance/tradeoff cao.",
+      "cost": 7,
+      "summary": "Chuẩn hóa bảo dưỡng và triển khai biển xa, mở đầu tư hỗ trợ 8 tỷ USD/365 ngày. Hiệu quả đầu tư chỉ xuất hiện sau khi chương trình hoàn tất; không tự mở rule tiếp tế trên biển của doctrine MD.",
+      "detail": "Chuẩn hóa bảo dưỡng và triển khai biển xa, mở đầu tư hỗ trợ 8 tỷ USD/365 ngày. Hiệu quả đầu tư chỉ xuất hiện sau khi chương trình hoàn tất; không tự mở rule tiếp tế trên biển của doctrine MD.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
       "gate": "",
+      "refs": [
+        {
+          "key": "whitepaper",
+          "label": "whitepaper",
+          "url": "https://www.mod.gov.vn/vn/chi-tiet/sa-qpvn/sa_qpvn_csqp/sa_qpvn_stqp/268a9f30-8c60-4444-a76e-f2bad429b364"
+        },
+        {
+          "key": "trade",
+          "label": "trade",
+          "url": "https://www.trade.gov/country-commercial-guides/vietnam-defense-and-security-sector"
+        }
+      ]
+    },
+    {
+      "id": "VIE_nav35_B03",
+      "code": "B03",
+      "title": "Hạm đội viễn dương sẵn sàng triển khai",
+      "group": "blue",
+      "x": 212,
+      "y": 11,
+      "parent": "B02",
+      "all": [
+        "B05"
+      ],
+      "any": [],
+      "mutex": [],
+      "year": 2000,
+      "status": "Giả định chiến lược",
+      "cost": 7,
+      "summary": "Nghiệm thu hạm đội biển xa: cần hai cột hoàn tất, chương trình hỗ trợ đã vận hành, căn cứ hợp lệ, ít nhất hai tàu mặt nước và một tàu ngầm tiến công. Không yêu cầu sở hữu tàu sân bay.",
+      "detail": "Nghiệm thu hạm đội biển xa: cần hai cột hoàn tất, chương trình hỗ trợ đã vận hành, căn cứ hợp lệ, ít nhất hai tàu mặt nước và một tàu ngầm tiến công. Không yêu cầu sở hữu tàu sân bay.",
+      "game": "Reward một lần; xem hợp đồng reward V35.4.",
+      "gate": "VIE_nav35_b03_can_start",
       "refs": [
         {
           "key": "whitepaper",
@@ -1191,12 +1392,14 @@
       "code": "F01",
       "title": "Chuẩn hóa học thuyết và cơ cấu quân chủng",
       "group": "end",
-      "x": 28,
-      "y": 22,
+      "x": 209,
+      "y": 12,
       "parent": null,
-      "all": [],
+      "anchor": "G03",
+      "all": [
+        "P06"
+      ],
       "any": [
-        "P06",
         "G03",
         "B03"
       ],
@@ -1204,8 +1407,8 @@
       "year": 2000,
       "status": "Capstone dùng chung",
       "cost": 7,
-      "summary": "OR(P06,G03,B03): sau khi hoàn thành bất cứ một trong ba mô hình lực lượng, tiến hành chuẩn hóa quân chủng.",
-      "detail": "Một trong ba capstone P06/G03/B03 đủ để mở F01, không dùng ba prerequisite AND vì các nhánh lựa chọn loại trừ nhau. Tùy focus trước đó, hiệu ứng F01 phản ánh ưu tiên sea-denial, green-water hoặc blue-water.",
+      "summary": "P06 AND (G03 OR B03): kết hợp phòng thủ biển nhiều tầng với một capstone phát triển lực lượng.",
+      "detail": "Bắt buộc hoàn thành P06 và một trong hai capstone G03/B03. G03 và B03 loại trừ nhau ở root Greenwater/Bluewater; P06 vẫn là điều kiện chung.",
       "game": "Naval XP +, Command Power +; bonus theo nhánh đã chọn.",
       "gate": "",
       "refs": [
@@ -1221,8 +1424,8 @@
       "code": "F02",
       "title": "Hải quân nhân dân chính quy, tinh nhuệ, hiện đại",
       "group": "end",
-      "x": 28,
-      "y": 24,
+      "x": 209,
+      "y": 13,
       "parent": "F01",
       "all": [],
       "any": [],
@@ -1231,7 +1434,7 @@
       "status": "Capstone toàn quân chủng",
       "cost": 10,
       "summary": "Đích cuối phải phản ánh tổ chức, nhận thức biển, bảo đảm và học thuyết đã chọn.",
-      "detail": "Hoàn thành sau F01 với các điều kiện S03 và L04. Đầu tư công nghiệp và các chương trình hậu 2026 không mặc nhiên bắt buộc cho mọi lối chơi; được thưởng theo tiến độ đã đạt và con đường chiến lược.",
+      "detail": "Hoàn thành sau F01 để chốt hiện đại hóa Hải quân; S03 và L04 là các hướng phát triển riêng, không bắt buộc.",
       "game": "Idea Modern Navy; reward theo lựa chọn, bonus nếu I06/I07/L03 đã hoàn thành.",
       "gate": "",
       "refs": [
@@ -1249,46 +1452,53 @@
     }
   ],
   "coordinates": {
-    "N00": 14,
-    "T01": 3,
-    "T02": 1,
-    "T03": 5,
-    "T04": 3,
-    "S01": 8,
-    "S02": 6,
-    "S03": 8,
-    "W01": 14,
-    "W02": 11,
-    "W03": 14,
-    "W04": 17,
-    "W05": 14,
-    "I01": 20,
-    "I02": 18,
-    "I03": 22,
-    "I04": 18,
-    "I05": 22,
-    "I06": 18,
-    "I07": 20,
-    "L01": 26,
-    "L02": 24,
-    "L03": 28,
-    "L04": 26,
-    "P01": 8,
-    "P02": 5,
-    "P03": 11,
-    "P04": 8,
-    "P05": 8,
-    "P06": 8,
-    "H01": 20,
-    "H02": 20,
-    "G01": 17,
-    "G02": 17,
-    "G03": 17,
-    "B01": 23,
-    "B02": 23,
-    "B03": 23,
-    "F01": 14,
-    "F02": 14
+    "N00": 207,
+    "T01": 199,
+    "T02": 198,
+    "T03": 200,
+    "T04": 199,
+    "S01": 203,
+    "S02": 202,
+    "S03": 203,
+    "W01": 207,
+    "W02": 204,
+    "W03": 206,
+    "W04": 208,
+    "W05": 207,
+    "I01": 213,
+    "I02": 210,
+    "I03": 214,
+    "I04": 212,
+    "I05": 214,
+    "I06": 212,
+    "I07": 213,
+    "I08": 213,
+    "L01": 219,
+    "L02": 217,
+    "L03": 221,
+    "L04": 217,
+    "P01": 201,
+    "P02": 200,
+    "P03": 202,
+    "P04": 201,
+    "P05": 201,
+    "P06": 201,
+    "H01": 209,
+    "H02": 209,
+    "G01": 205,
+    "G02": 205,
+    "G03": 206,
+    "B01": 211,
+    "B02": 211,
+    "B03": 212,
+    "F01": 209,
+    "F02": 209,
+    "G04": 207,
+    "G05": 207,
+    "B04": 213,
+    "B05": 213,
+    "G00": 206,
+    "B00": 212
   },
   "icons": {
     "N00": "naval_defence_2030",
@@ -1311,6 +1521,7 @@
     "I05": "naval_mro",
     "I06": "naval_systems_integration",
     "I07": "nf_regional_frigates",
+    "I08": "nf_regional_frigates",
     "L01": "scs_cam_ranh_port",
     "L02": "naval_mro",
     "L03": "nf_replenishment",
@@ -1330,7 +1541,13 @@
     "B02": "nf_replenishment",
     "B03": "nf_regional_command",
     "F01": "nf_command_reform_2",
-    "F02": "naval_defence_law"
+    "F02": "naval_defence_law",
+    "G04": "nf_submarine_force",
+    "G05": "nf_medium_force",
+    "B04": "nf_submarine_force",
+    "B05": "nf_replenishment",
+    "G00": "nf_greenwater",
+    "B00": "nf_bluewater"
   },
   "mapping": {
     "VIE_nav_n00_maritime_strategy_21st": "VIE_nav35_N00",
@@ -1372,7 +1589,9 @@
     "VIE_nav_g03_self_reliant_greenwater_capstone": "VIE_nav35_G03",
     "VIE_nav_b03_sustained_bluewater_capstone": "VIE_nav35_B03",
     "VIE_nav_f01_tactical_doctrine_alignment": "VIE_nav35_F01",
-    "VIE_nav_f02_regular_modern_navy": "VIE_nav35_F02"
+    "VIE_nav_f02_regular_modern_navy": "VIE_nav35_F02",
+    "VIE_nav_g00_greenwater_doctrine": "VIE_nav35_G00",
+    "VIE_nav_b00_bluewater_doctrine": "VIE_nav35_B00"
   },
   "projects": [
     {
@@ -1404,7 +1623,7 @@
       "focus": "I03",
       "days": 180,
       "cost": 0.75,
-      "result": "CAT_patrol_boats",
+      "result": "CAT_corvettes",
       "title": "Hồng Hà: hoàn thiện dòng TT400"
     },
     {
@@ -1449,7 +1668,7 @@
     },
     {
       "key": "blue_support",
-      "focus": "B02",
+      "focus": "B05",
       "days": 365,
       "cost": 8.0,
       "result": "VIE_nav35_blue_support_idea",
@@ -1462,14 +1681,32 @@
       "cost": 0.6,
       "result": "one_ship",
       "title": "Đóng hộ vệ chống ngầm Sông Thu đầu tiên"
+    },
+    {
+      "key": "molniya_ship",
+      "focus": "I02",
+      "days": 730,
+      "cost": 0.15,
+      "result": "one_ship",
+      "title": "Đóng VIE Molniya 12418"
+    },
+    {
+      "key": "tt400_ship",
+      "focus": "I03",
+      "days": 365,
+      "cost": 0.05,
+      "result": "one_ship",
+      "title": "Đóng VIE TT400TP"
     }
   ],
   "implementation_deviations": {
     "Cam Ranh": "base support capability; no unverified province construction",
     "VTĐN-01": "paid operating capability; no equipment spawn",
     "ASW frigate 2026": "I07 approval event unlocks a funded 1095-day first-ship contract; delivers one fixed MD frigate variant; historical keel news is informational",
-    "procurement": "first Song Thu frigate is an actual ship; other programs remain sustainment/research, no additional OOB grants",
-    "focus flags": "completed focus is canonical; redundant V34 completion/unlock flags removed"
+    "Stealth frigate 4000": "Optional I08 after I07; Istanbul-class-inspired 4000 t gameplay target on MD stealth_frigate_hull_1, gated by completed sp_stealth_frigate; one 0.8bn/1460-day first-ship timer contract.",
+    "procurement": "Four first-ship contracts: Molniya, TT400 corvette approximation, Song Thu and stealth frigate; no repeat batch or OOB edits.",
+    "focus flags": "completed focus is canonical; redundant V34 completion/unlock flags removed",
+    "Greenwater / Bluewater": "V35.4: 5 focus mỗi hướng; capstone cần 2 tàu mặt nước + 1 attack submarine và căn cứ; Bluewater cần đầu tư 8bn/365 ngày; carrier là capability có điều kiện."
   },
   "ship_blueprint": {
     "name": "Song Thu ASW 2026",
@@ -1499,5 +1736,250 @@
       "tech_vls_surface_1"
     ],
     "amount": 1
-  }
+  },
+  "ship_contracts": {
+    "molniya_ship": {
+      "name": "VIE Molniya 12418",
+      "hull": "corvette_hull_2",
+      "focus": "I02",
+      "project": "molniya",
+      "days": 730,
+      "cost": 0.15,
+      "offer": 8,
+      "delivery": 10,
+      "modules": {
+        "fixed_ship_engine_slot": "module_light_surface_diesel_power_1",
+        "fixed_ship_fire_control_system_slot": "module_analog_fire_control",
+        "fixed_ship_radar_slot": "module_radar_3",
+        "fixed_ship_auxillary_slot": "module_naval_missile_mount_quad",
+        "fixed_ship_battery_slot": "module_76mm_gun_2",
+        "front_1_custom_slot": "module_ciws_1",
+        "rear_1_custom_slot": "module_naval_missile_mount_quad",
+        "fixed_ship_missile_ammo_slot": "module_naval_ammo_anti_ship_2"
+      },
+      "technologies": [
+        "corvette_hull_2",
+        "tech_diesel_power_systems_1",
+        "tech_fire_control_1",
+        "tech_combat_radar_2",
+        "tech_light_guns_2",
+        "tech_point_defense_system_1",
+        "tech_vls_surface_1",
+        "tech_vls_surface_2"
+      ]
+    },
+    "tt400_ship": {
+      "name": "VIE TT400TP",
+      "hull": "corvette_hull_2",
+      "focus": "I03",
+      "project": "tt400",
+      "days": 365,
+      "cost": 0.05,
+      "offer": 9,
+      "delivery": 11,
+      "modules": {
+        "fixed_ship_engine_slot": "module_light_surface_diesel_power_1",
+        "fixed_ship_fire_control_system_slot": "module_analog_fire_control",
+        "fixed_ship_radar_slot": "module_radar_2",
+        "fixed_ship_auxillary_slot": "module_fuel_tank",
+        "fixed_ship_battery_slot": "module_76mm_gun_1",
+        "front_1_custom_slot": "module_ciws_1",
+        "rear_1_custom_slot": "empty",
+        "fixed_ship_missile_ammo_slot": "empty"
+      },
+      "technologies": [
+        "corvette_hull_2",
+        "tech_diesel_power_systems_1",
+        "tech_fire_control_1",
+        "tech_combat_radar_1",
+        "tech_light_guns_1",
+        "tech_point_defense_system_1",
+        "tech_naval_systems_engineering"
+      ]
+    },
+    "asw_frigate": {
+      "name": "Song Thu ASW 2026",
+      "hull": "frigate_hull_4",
+      "modules": {
+        "fixed_ship_engine_slot": "module_light_surface_diesel_power_2",
+        "fixed_ship_fire_control_system_slot": "module_digital_integrated_fire_control",
+        "fixed_ship_radar_slot": "module_sonar_4",
+        "fixed_ship_auxillary_slot_2": "module_ciws_4",
+        "fixed_ship_auxillary_slot_1": "module_torpedoes_4",
+        "fixed_ship_auxillary_slot": "empty",
+        "fixed_ship_battery_slot": "module_76mm_gun_3",
+        "front_1_custom_slot": "module_naval_missile_mount_quad",
+        "rear_1_custom_slot": "module_fuel_tank",
+        "fixed_ship_missile_ammo_slot": "module_naval_ammo_balanced_3"
+      },
+      "technologies": [
+        "frigate_hull_4",
+        "tech_diesel_power_systems_2",
+        "tech_fire_control_2",
+        "tech_combat_sonar_3",
+        "tech_light_guns_3",
+        "tech_point_defense_system_4",
+        "tech_torpedoes_4",
+        "tech_vls_surface_3",
+        "tech_naval_systems_engineering",
+        "tech_vls_surface_1"
+      ],
+      "amount": 1,
+      "focus": "I07",
+      "project": null,
+      "days": 1095,
+      "cost": 0.6,
+      "offer": 5,
+      "delivery": 6
+    },
+    "stealth_frigate": {
+      "name": "VIE Stealth Frigate 4000",
+      "hull": "stealth_frigate_hull_1",
+      "focus": "I08",
+      "project": null,
+      "special_project": "sp:sp_stealth_frigate",
+      "days": 1460,
+      "cost": 0.8,
+      "offer": 12,
+      "delivery": 13,
+      "modules": {
+        "fixed_ship_engine_slot": "module_light_surface_diesel_power_2",
+        "fixed_ship_fire_control_system_slot": "module_digital_integrated_fire_control",
+        "fixed_ship_radar_slot": "module_radar_4",
+        "fixed_ship_auxillary_slot": "module_naval_vls_cells_16",
+        "fixed_ship_auxillary_slot_1": "module_ciws_4",
+        "fixed_ship_battery_slot": "module_76mm_gun_3",
+        "front_1_custom_slot": "module_naval_missile_mount_quad",
+        "rear_1_custom_slot": "module_light_helipad_1",
+        "fixed_ship_missile_ammo_slot": "module_naval_ammo_balanced_3"
+      },
+      "technologies": [
+        "stealth_frigate_hull_1",
+        "tech_diesel_power_systems_2",
+        "tech_fire_control_2",
+        "tech_combat_radar_3",
+        "tech_light_guns_3",
+        "tech_point_defense_system_4",
+        "tech_vls_surface_1",
+        "tech_vls_surface_3",
+        "tech_naval_systems_engineering",
+        "aircraft_heli_engineering_1"
+      ]
+    }
+  },
+  "industry_additions": {
+    "rd_cost": 8,
+    "rd_priority": [
+      519,
+      522,
+      521
+    ],
+    "subsidies": {
+      "i01": {
+        "focus": "I01",
+        "state": 519,
+        "province": null
+      },
+      "i02": {
+        "focus": "I02",
+        "state": 519,
+        "province": null
+      },
+      "i03": {
+        "focus": "I03",
+        "state": 522,
+        "province": null
+      },
+      "i05": {
+        "focus": "I05",
+        "state": 521,
+        "province": null
+      },
+      "i07": {
+        "focus": "I07",
+        "state": 521,
+        "province": 10309
+      }
+    },
+    "concurrency": 1,
+    "new_game_only": true
+  },
+  "route_rewards": {
+    "G01": {
+      "xp": 10,
+      "command_power": 10,
+      "modifiers": {
+        "naval_coordination": 0.03
+      }
+    },
+    "G04": {
+      "xp": 10,
+      "command_power": 10,
+      "modifiers": {
+        "navy_submarine_defence_factor": 0.03
+      }
+    },
+    "G02": {
+      "xp": 0,
+      "command_power": 15,
+      "modifiers": {
+        "screening_efficiency": 0.04,
+        "navy_submarine_detection_factor": 0.04
+      }
+    },
+    "G05": {
+      "xp": 0,
+      "command_power": 15,
+      "modifiers": {
+        "navy_submarine_attack_factor": 0.05
+      }
+    },
+    "G03": {
+      "xp": 20,
+      "command_power": 25,
+      "modifiers": {
+        "navy_org_factor": 0.04,
+        "naval_coordination": 0.02
+      }
+    },
+    "B01": {
+      "xp": 10,
+      "command_power": 10,
+      "modifiers": {
+        "naval_coordination": 0.03
+      }
+    },
+    "B04": {
+      "xp": 10,
+      "command_power": 10,
+      "modifiers": {
+        "navy_submarine_defence_factor": 0.03
+      }
+    },
+    "B02": {
+      "xp": 0,
+      "command_power": 15,
+      "modifiers": {
+        "screening_efficiency": 0.04,
+        "navy_anti_air_attack_factor": 0.03
+      }
+    },
+    "B05": {
+      "xp": 0,
+      "command_power": 15,
+      "modifiers": {
+        "navy_submarine_attack_factor": 0.03,
+        "repair_speed_factor": 0.03
+      }
+    },
+    "B03": {
+      "xp": 20,
+      "command_power": 25,
+      "modifiers": {
+        "navy_org_factor": 0.04,
+        "naval_coordination": 0.02
+      }
+    }
+  },
+  "coordinate_system": "absolute HOI4 focus units"
 }

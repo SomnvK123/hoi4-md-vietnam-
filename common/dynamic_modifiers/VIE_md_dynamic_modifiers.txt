@@ -14,6 +14,9 @@ VIE_armed_forces_modifier = {
 	experience_gain_navy_factor = VIE_af_experience_gain_navy_factor
 	navy_max_range_factor = VIE_af_navy_max_range_factor
 	naval_coordination = VIE_af_naval_coordination
+	repair_speed_factor = VIE_af_repair_speed_factor
+	navy_submarine_detection_factor = VIE_af_navy_submarine_detection_factor
+	screening_efficiency = VIE_af_screening_efficiency
 	navy_org_factor = VIE_af_navy_org_factor
 	naval_detection = VIE_af_naval_detection
 	navy_submarine_attack_factor = VIE_af_navy_submarine_attack_factor
@@ -76,4 +79,11 @@ VIE_armed_forces_modifier = {
 	# (token MD, money_modifier_definitions.txt:37). Ngoai khoi GEN de generator khong ghi de.
 	air_attack_factor = VIE_af_air_attack_factor
 	airforce_personnel_cost_multiplier_modifier = VIE_af_airforce_personnel_cost_multiplier_modifier
+}
+
+VIE_nav35_carrier_readiness = {
+	icon = GFX_idea_navy_strengthened
+	enable = { VIE_nav35_carrier_ready = yes }
+	sortie_efficiency = 0.06
+	navy_carrier_air_targetting_factor = 0.03
 }

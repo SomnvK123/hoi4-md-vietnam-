@@ -1722,8 +1722,7 @@ ideas = {
 			allowed_civil_war = { original_tag = VIE }
 			cancel_if_invalid = no
 			modifier = {
-				navy_max_range_factor = 0.1
-				sortie_efficiency = 0.03
+				navy_max_range_factor = 0.06
 				navy_personnel_cost_multiplier_modifier = 0.25
 			}
 		}
@@ -1734,8 +1733,7 @@ ideas = {
 			allowed_civil_war = { original_tag = VIE }
 			cancel_if_invalid = no
 			modifier = {
-				navy_max_range_factor = 0.18
-				sortie_efficiency = 0.06
+				navy_max_range_factor = 0.14
 				navy_org = 4
 				navy_personnel_cost_multiplier_modifier = 0.25
 			}
@@ -1773,8 +1771,7 @@ ideas = {
 			allowed_civil_war = { original_tag = VIE }
 			cancel_if_invalid = no
 			modifier = {
-				navy_max_range_factor = 0.22
-				sortie_efficiency = 0.08
+				navy_max_range_factor = 0.18
 				navy_org = 6
 				navy_personnel_cost_multiplier_modifier = 0.25
 			}
@@ -1881,7 +1878,6 @@ ideas = {
 			cancel_if_invalid = no
 			modifier = {
 				navy_max_range_factor = 0.05
-				sortie_efficiency = 0.03
 			}
 		}
 

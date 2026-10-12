@@ -1,4 +1,4 @@
-﻿# ====================================================================
+# ====================================================================
 # MILLENNIUM DAWN: VIETNAM - ALL SCRIPTED TRIGGERS
 # Consolidated single scripted_triggers file
 # ====================================================================
@@ -1391,10 +1391,13 @@ VIE_nav35_vt_can_start = {
 }
 VIE_nav35_blue_support_can_start = {
 	original_tag = VIE
-	has_completed_focus = VIE_nav35_B02
+	has_completed_focus = VIE_nav35_B05
 	NOT = { has_country_flag = VIE_nav35_blue_support_running }
+	NOT = { has_country_flag = VIE_nav35_blue_support_ready }
 	NOT = { has_country_flag = VIE_nav35_blue_support_done }
-	check_variable = { treasury > 7.999 }
+	check_variable = { treasury >= 8 }
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_has_shipyard = yes
 }
 
 # Ho ve Song Thu 2026: cong nghe va co so da doi chieu MD.
@@ -1414,21 +1417,298 @@ VIE_nav35_asw_frigate_has_base = {
 	any_owned_state = { is_controlled_by = ROOT is_coastal = yes naval_base > 0 }
 }
 VIE_nav35_asw_frigate_can_start = {
+    original_tag = VIE
+    has_completed_focus = VIE_nav35_I07
+    has_country_flag = VIE_nav35_asw_frigate_offered
+    has_country_flag = VIE_nav35_asw_frigate_blueprint_done
+    NOT = { has_country_flag = VIE_nav35_asw_frigate_running }
+    NOT = { has_country_flag = VIE_nav35_asw_frigate_ready }
+    NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
+    check_variable = { treasury >= 0.6 }
+    VIE_nav35_domestic_contract_free = yes
+    VIE_nav35_asw_frigate_technology_ready = yes
+    VIE_nav35_asw_frigate_has_base = yes
+    VIE_nav35_has_shipyard = yes
+}
+VIE_nav35_asw_frigate_can_deliver = {
+    original_tag = VIE
+    has_country_flag = VIE_nav35_asw_frigate_ready
+    has_country_flag = VIE_nav35_asw_frigate_blueprint_done
+    NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
+    VIE_nav35_asw_frigate_has_base = yes
+    VIE_nav35_has_shipyard = yes
+    VIE_nav35_asw_frigate_technology_ready = yes
+}
+
+# Hai quan V35.2: R&D 8 ty; tro cap cong trinh va blueprint tach khoi hop dong.
+VIE_nav35_rd_state_ready = {
+	is_owned_by = ROOT
+	is_controlled_by = ROOT
+	is_coastal = yes
+	can_construct_building = naval_facility
+}
+VIE_nav35_rd_can_apply = {
+	original_tag = VIE
+	NOT = { has_country_flag = VIE_nav35_rd_done }
+	check_variable = { treasury >= 8 }
+	OR = {
+		519 = { VIE_nav35_rd_state_ready = yes }
+		522 = { VIE_nav35_rd_state_ready = yes }
+		521 = { VIE_nav35_rd_state_ready = yes }
+	}
+}
+VIE_nav35_has_rd = {
+	any_owned_state = { is_controlled_by = ROOT naval_facility > 0 }
+}
+VIE_nav35_has_shipyard = {
+	any_owned_state = { is_controlled_by = ROOT is_coastal = yes dockyard > 0 }
+}
+VIE_nav35_domestic_contract_free = {
+	NOT = { OR = {
+		has_country_flag = VIE_nav35_molniya_ship_running
+		has_country_flag = VIE_nav35_tt400_ship_running
+		has_country_flag = VIE_nav35_asw_frigate_running
+		has_country_flag = VIE_nav35_stealth_frigate_running
+	} }
+}
+VIE_nav35_i01_subsidy_can_apply = {
+	has_country_flag = VIE_nav35_i01_subsidy_pending
+	NOT = { has_country_flag = VIE_nav35_i01_subsidy_done }
+	519 = { is_owned_by = ROOT is_controlled_by = ROOT is_coastal = yes OR = { NOT = { ROOT = { has_country_flag = VIE_nav35_i01_subsidy_slot_added } } free_building_slots = { building = dockyard size > 0 include_locked = yes } } }
+}
+VIE_nav35_i02_subsidy_can_apply = {
+	has_country_flag = VIE_nav35_i02_subsidy_pending
+	NOT = { has_country_flag = VIE_nav35_i02_subsidy_done }
+	519 = { is_owned_by = ROOT is_controlled_by = ROOT is_coastal = yes OR = { NOT = { ROOT = { has_country_flag = VIE_nav35_i02_subsidy_slot_added } } free_building_slots = { building = dockyard size > 0 include_locked = yes } } }
+}
+VIE_nav35_i03_subsidy_can_apply = {
+	has_country_flag = VIE_nav35_i03_subsidy_pending
+	NOT = { has_country_flag = VIE_nav35_i03_subsidy_done }
+	522 = { is_owned_by = ROOT is_controlled_by = ROOT is_coastal = yes OR = { NOT = { ROOT = { has_country_flag = VIE_nav35_i03_subsidy_slot_added } } free_building_slots = { building = dockyard size > 0 include_locked = yes } } }
+}
+VIE_nav35_i05_subsidy_can_apply = {
+	has_country_flag = VIE_nav35_i05_subsidy_pending
+	NOT = { has_country_flag = VIE_nav35_i05_subsidy_done }
+	521 = { is_owned_by = ROOT is_controlled_by = ROOT is_coastal = yes OR = { NOT = { ROOT = { has_country_flag = VIE_nav35_i05_subsidy_slot_added } } free_building_slots = { building = dockyard size > 0 include_locked = yes } } }
+}
+VIE_nav35_i07_subsidy_can_apply = {
+	has_country_flag = VIE_nav35_i07_subsidy_pending
+	NOT = { has_country_flag = VIE_nav35_i07_subsidy_done }
+	521 = { is_owned_by = ROOT is_controlled_by = ROOT is_coastal = yes free_building_slots = { building = naval_base province = 10309 size > 0 } }
+}
+VIE_nav35_molniya_ship_technology_ready = {
+	has_tech = corvette_hull_2
+	has_tech = tech_diesel_power_systems_1
+	has_tech = tech_fire_control_1
+	has_tech = tech_combat_radar_2
+	has_tech = tech_light_guns_2
+	has_tech = tech_point_defense_system_1
+	has_tech = tech_vls_surface_1
+	has_tech = tech_vls_surface_2
+}
+VIE_nav35_molniya_ship_blueprint_can_finalize = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I02
+	has_country_flag = VIE_nav35_molniya_ship_offered
+	NOT = { has_country_flag = VIE_nav35_molniya_ship_blueprint_done }
+	has_country_flag = VIE_nav35_molniya_done
+	VIE_nav35_has_rd = yes
+	VIE_nav35_molniya_ship_technology_ready = yes
+}
+VIE_nav35_molniya_ship_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I02
+	has_country_flag = VIE_nav35_molniya_ship_offered
+	has_country_flag = VIE_nav35_molniya_ship_blueprint_done
+	NOT = { has_country_flag = VIE_nav35_molniya_ship_running }
+	NOT = { has_country_flag = VIE_nav35_molniya_ship_ready }
+	NOT = { has_country_flag = VIE_nav35_molniya_ship_done }
+	check_variable = { treasury >= 0.15 }
+	VIE_nav35_domestic_contract_free = yes
+	VIE_nav35_molniya_ship_technology_ready = yes
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_has_shipyard = yes
+}
+VIE_nav35_molniya_ship_can_deliver = {
+	original_tag = VIE
+	has_country_flag = VIE_nav35_molniya_ship_ready
+	has_country_flag = VIE_nav35_molniya_ship_blueprint_done
+	NOT = { has_country_flag = VIE_nav35_molniya_ship_done }
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_has_shipyard = yes
+	VIE_nav35_molniya_ship_technology_ready = yes
+}
+VIE_nav35_tt400_ship_technology_ready = {
+	has_tech = corvette_hull_2
+	has_tech = tech_diesel_power_systems_1
+	has_tech = tech_fire_control_1
+	has_tech = tech_combat_radar_1
+	has_tech = tech_light_guns_1
+	has_tech = tech_point_defense_system_1
+	has_tech = tech_naval_systems_engineering
+}
+VIE_nav35_tt400_ship_blueprint_can_finalize = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I03
+	has_country_flag = VIE_nav35_tt400_ship_offered
+	NOT = { has_country_flag = VIE_nav35_tt400_ship_blueprint_done }
+	has_country_flag = VIE_nav35_tt400_done
+	VIE_nav35_has_rd = yes
+	VIE_nav35_tt400_ship_technology_ready = yes
+}
+VIE_nav35_tt400_ship_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I03
+	has_country_flag = VIE_nav35_tt400_ship_offered
+	has_country_flag = VIE_nav35_tt400_ship_blueprint_done
+	NOT = { has_country_flag = VIE_nav35_tt400_ship_running }
+	NOT = { has_country_flag = VIE_nav35_tt400_ship_ready }
+	NOT = { has_country_flag = VIE_nav35_tt400_ship_done }
+	check_variable = { treasury >= 0.05 }
+	VIE_nav35_domestic_contract_free = yes
+	VIE_nav35_tt400_ship_technology_ready = yes
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_has_shipyard = yes
+}
+VIE_nav35_tt400_ship_can_deliver = {
+	original_tag = VIE
+	has_country_flag = VIE_nav35_tt400_ship_ready
+	has_country_flag = VIE_nav35_tt400_ship_blueprint_done
+	NOT = { has_country_flag = VIE_nav35_tt400_ship_done }
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_has_shipyard = yes
+	VIE_nav35_tt400_ship_technology_ready = yes
+}
+VIE_nav35_asw_frigate_blueprint_can_finalize = {
 	original_tag = VIE
 	has_completed_focus = VIE_nav35_I07
 	has_country_flag = VIE_nav35_asw_frigate_offered
-	NOT = { has_country_flag = VIE_nav35_asw_frigate_running }
-	NOT = { has_country_flag = VIE_nav35_asw_frigate_ready }
-	NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
-	check_variable = { treasury >= 0.6 }
+	NOT = { has_country_flag = VIE_nav35_asw_frigate_blueprint_done }
+	has_country_flag = VIE_nav35_design_done
+	has_country_flag = VIE_nav35_integration_done
+	VIE_nav35_has_rd = yes
 	VIE_nav35_asw_frigate_technology_ready = yes
-	VIE_nav35_asw_frigate_has_base = yes
-	any_owned_state = { is_controlled_by = ROOT is_coastal = yes dockyard > 0 }
 }
-VIE_nav35_asw_frigate_can_deliver = {
+
+# I08: khinh ham tang hinh da nhiem; yeu cau special project MD va bo module hop le.
+VIE_nav35_stealth_frigate_technology_ready = {
+	has_tech = stealth_frigate_hull_1
+	has_tech = tech_diesel_power_systems_2
+	has_tech = tech_fire_control_2
+	has_tech = tech_combat_radar_3
+	has_tech = tech_light_guns_3
+	has_tech = tech_point_defense_system_4
+	has_tech = tech_vls_surface_1
+	has_tech = tech_vls_surface_3
+	has_tech = tech_naval_systems_engineering
+	has_tech = aircraft_heli_engineering_1
+}
+VIE_nav35_stealth_frigate_project_ready = {
+	is_special_project_completed = sp:sp_stealth_frigate
+	has_tech = stealth_frigate_hull_1
+}
+VIE_nav35_stealth_frigate_blueprint_can_finalize = {
 	original_tag = VIE
-	has_country_flag = VIE_nav35_asw_frigate_ready
-	NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
+	has_completed_focus = VIE_nav35_I08
+	has_country_flag = VIE_nav35_stealth_frigate_offered
+	NOT = { has_country_flag = VIE_nav35_stealth_frigate_blueprint_done }
+	VIE_nav35_stealth_frigate_project_ready = yes
+	VIE_nav35_stealth_frigate_technology_ready = yes
+	VIE_nav35_has_rd = yes
+}
+VIE_nav35_stealth_frigate_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_nav35_I08
+	has_country_flag = VIE_nav35_stealth_frigate_offered
+	has_country_flag = VIE_nav35_stealth_frigate_blueprint_done
+	NOT = { has_country_flag = VIE_nav35_stealth_frigate_running }
+	NOT = { has_country_flag = VIE_nav35_stealth_frigate_ready }
+	NOT = { has_country_flag = VIE_nav35_stealth_frigate_done }
+	check_variable = { treasury >= 0.8 }
+	VIE_nav35_domestic_contract_free = yes
+	VIE_nav35_stealth_frigate_project_ready = yes
+	VIE_nav35_stealth_frigate_technology_ready = yes
 	VIE_nav35_asw_frigate_has_base = yes
-	VIE_nav35_asw_frigate_technology_ready = yes
+	VIE_nav35_has_shipyard = yes
+}
+VIE_nav35_stealth_frigate_can_deliver = {
+	original_tag = VIE
+	has_country_flag = VIE_nav35_stealth_frigate_ready
+	has_country_flag = VIE_nav35_stealth_frigate_blueprint_done
+	NOT = { has_country_flag = VIE_nav35_stealth_frigate_done }
+	VIE_nav35_stealth_frigate_project_ready = yes
+	VIE_nav35_stealth_frigate_technology_ready = yes
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_has_shipyard = yes
+}
+
+VIE_nav35_blue_support_can_deliver = {
+	original_tag = VIE
+	has_country_flag = VIE_nav35_blue_support_ready
+	NOT = { has_country_flag = VIE_nav35_blue_support_done }
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_has_shipyard = yes
+}
+
+VIE_nav35_two_surface_ships = {
+	OR = {
+		# Screen destroyer la sub-unit rieng cua MD, dung chung equipment destroyer.
+		check_variable = { num_ships_with_type@screen_destroyer >= 2 }
+		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@corvette >= 1 } }
+		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@stealth_corvette >= 1 } }
+		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+		check_variable = { num_ships_with_type@corvette >= 2 }
+		check_variable = { num_ships_with_type@stealth_corvette >= 2 }
+		check_variable = { num_ships_with_type@frigate >= 2 }
+		check_variable = { num_ships_with_type@stealth_frigate >= 2 }
+		check_variable = { num_ships_with_type@heavy_frigate >= 2 }
+		check_variable = { num_ships_with_type@destroyer >= 2 }
+		check_variable = { num_ships_with_type@stealth_destroyer >= 2 }
+		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@stealth_corvette >= 1 } }
+		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_frigate >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_frigate >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@stealth_frigate >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@heavy_frigate >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@heavy_frigate >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+		AND = { check_variable = { num_ships_with_type@destroyer >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+	}
+}
+
+VIE_nav35_fleet_ready = {
+	VIE_nav35_asw_frigate_has_base = yes
+	VIE_nav35_two_surface_ships = yes
+	check_variable = { num_ships_with_type@attack_submarine >= 1 }
+}
+
+VIE_nav35_g03_can_start = {
+	VIE_nav35_fleet_ready = yes
+}
+
+VIE_nav35_b03_can_start = {
+	VIE_nav35_fleet_ready = yes
+	has_country_flag = VIE_nav35_blue_support_done
+}
+
+VIE_nav35_carrier_ready = {
+	has_completed_focus = VIE_nav35_B02
+	check_variable = { num_ships_with_type@carrier > 0 }
+	has_doctrine = carrier_operations
 }

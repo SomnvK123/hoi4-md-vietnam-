@@ -13,6 +13,13 @@ focus_tree = {
 		}
 	}
 	## v50 (12/10/2026): Ten lua V5, 10 focus 1-6-2-1; bao duong, ba chuong trinh 180 ngay, spirit khong cong chong; mapping VCS chua bat, game moi.
+	## v49 (12/10/2026): F01 can P06 AND (G03 OR B03); F02 chi can F01.
+	## v48 (12/10/2026): F02 chi con yeu cau F01; bo prerequisite S03 va L04 de capstone mo sau khi chot hoc thuyet.
+	## v47 (12/10/2026): Them root chon hoc thuyet Greenwater/Bluewater; moi root mo hai cot va capstone hoi tu, 47 focus Hai quan.
+	## v46 (12/10/2026): Gom cum Greenwater/Bluewater vao truc giua; capstone hoi tu can xung quanh F01, giu nguyen gate va reward V35.4.
+	## v45 (12/10/2026): Hai quan V35.4, Greenwater/Bluewater moi huong 5 focus; gate luc luong, carrier co dieu kien, ho tro 8 ty/365 ngay, audit idea + dynamic.
+	## v44 (12/10/2026): Them I08 khinh ham tang hinh da nhiem sau I07; Special Project gate, blueprint va hop dong dau tien 0.8 ty/1460 ngay.
+	## v43 (12/10/2026): Hai quan V35.2, R&D 8 ty, blueprint va ba hop dong tau dau tien; tro cap dung dia diem, game moi.
 	## v41 (11/10/2026): I07 mo event va hop dong ho ve Song Thu 1095 ngay; ban giao mot frigate, khong thuong lap.
 	## v42 (12/10/2026): bo shortcut VIE_air_shortcut khoi menu cay focus theo yeu cau.
 	## v40 (11/10/2026): Hai quan V35.1, dung 40 focus; AND/OR/mutex, chuong trinh tra phi, moc lich su, idea khong cong chong; game moi.
@@ -6929,20 +6936,20 @@ shortcut = {
 
 		prerequisite = { focus = VIE_nav35_N00 }
 
-		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_EXPENDITURE }
+
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_rd_requirements_tt VIE_nav35_rd_can_apply = yes } }
+		cancel_if_invalid = no
+		continue_if_invalid = yes
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I01"
 			custom_effect_tooltip = VIE_nav35_investment_tt
+			if = { limit = { NOT = { has_country_flag = VIE_nav35_rd_done } } set_country_flag = VIE_nav35_rd_pending }
+			VIE_nav35_rd_apply = yes
 			add_command_power = 15
-			522 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
+			if = { limit = { NOT = { has_country_flag = VIE_nav35_i01_subsidy_done } } set_country_flag = VIE_nav35_i01_subsidy_pending }
+			VIE_nav35_i01_subsidy_apply = yes
 			unlock_decision_tooltip = VIE_nav35_dockyard_program
 			unlock_decision_tooltip = VIE_nav35_industry_program
 			add_ideas = VPA_Naval_Industry_1
@@ -6953,6 +6960,7 @@ shortcut = {
 
 		ai_will_do = {
 			base = 50
+			modifier = { factor = 0 NOT = { VIE_nav35_rd_can_apply = yes } }
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -6975,14 +6983,8 @@ shortcut = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I02"
 			custom_effect_tooltip = VIE_nav35_molniya_tt
-			522 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
+			if = { limit = { NOT = { has_country_flag = VIE_nav35_i02_subsidy_done } } set_country_flag = VIE_nav35_i02_subsidy_pending }
+			VIE_nav35_i02_subsidy_apply = yes
 			unlock_decision_tooltip = VIE_nav35_molniya_program
 			add_tech_bonus = { name = VIE_nav35_I02 category = CAT_corvettes uses = 1 bonus = 0.50 }
 			add_equipment_to_stockpile = { type = guided_missile_equipment_1 amount = 32 producer = VIE }
@@ -7013,16 +7015,10 @@ shortcut = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I03"
 			custom_effect_tooltip = VIE_nav35_I03_reward_tt
-			519 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
+			if = { limit = { NOT = { has_country_flag = VIE_nav35_i03_subsidy_done } } set_country_flag = VIE_nav35_i03_subsidy_pending }
+			VIE_nav35_i03_subsidy_apply = yes
 			unlock_decision_tooltip = VIE_nav35_tt400_program
-			add_tech_bonus = { name = VIE_nav35_I03 category = CAT_patrol_boats uses = 1 bonus = 0.50 }
+			add_tech_bonus = { name = VIE_nav35_I03 category = CAT_corvettes uses = 1 bonus = 0.50 }
 			add_equipment_to_stockpile = { type = sam_missile_equipment_1 amount = 20 producer = VIE }
 			VIE_nav_reward_i03_effect = yes
 			VIE_nav35_refresh = yes
@@ -7083,14 +7079,8 @@ shortcut = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I05"
 			custom_effect_tooltip = VIE_nav35_I05_reward_tt
-			520 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
+			if = { limit = { NOT = { has_country_flag = VIE_nav35_i05_subsidy_done } } set_country_flag = VIE_nav35_i05_subsidy_pending }
+			VIE_nav35_i05_subsidy_apply = yes
 			unlock_decision_tooltip = VIE_nav35_support_program
 			add_tech_bonus = { name = VIE_nav35_I05 category = CAT_surface_ships uses = 1 bonus = 0.50 }
 			add_equipment_to_stockpile = { type = convoy_1 amount = 15 producer = VIE }
@@ -7155,13 +7145,8 @@ shortcut = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I07"
 			custom_effect_tooltip = VIE_nav35_asw_program_tt
 			add_command_power = 25
-			520 = {
-				add_building_construction = {
-					type = naval_base
-					level = 1
-					instant_build = yes
-				}
-			}
+			if = { limit = { NOT = { has_country_flag = VIE_nav35_i07_subsidy_done } } set_country_flag = VIE_nav35_i07_subsidy_pending }
+			VIE_nav35_i07_subsidy_apply = yes
 			unlock_decision_tooltip = VIE_nav35_asw_frigate_program
 			VIE_nav35_asw_frigate_offer = yes
 			VIE_nav_reward_i07_effect = yes
@@ -7171,6 +7156,35 @@ shortcut = {
 
 		ai_will_do = {
 			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+	}
+
+	focus = {
+		id = VIE_nav35_I08
+		icon = GFX_focus_VIE_nf_regional_frigates
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_nav35_I07
+
+		cost = 7
+
+		prerequisite = { focus = VIE_nav35_I07 }
+
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_I08"
+			custom_effect_tooltip = VIE_nav35_stealth_frigate_focus_tt
+			VIE_nav35_stealth_frigate_offer = yes
+			unlock_decision_tooltip = VIE_nav35_stealth_frigate_blueprint
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
+		}
+
+		ai_will_do = {
+			base = 25
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
 		}
 	}
@@ -7625,29 +7639,23 @@ shortcut = {
 	}
 
 	focus = {
-		id = VIE_nav35_G01
+		id = VIE_nav35_G00
 		icon = GFX_focus_VIE_nf_greenwater
 
-		x = -1
+		x = -3
 		y = 1
 		relative_position_id = VIE_nav35_H02
 
-		cost = 7
+		cost = 5
 
 		prerequisite = { focus = VIE_nav35_H02 }
+		mutually_exclusive = { focus = VIE_nav35_B00 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
-		mutually_exclusive = { focus = VIE_nav35_B01 }
-
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G01"
-			custom_effect_tooltip = VIE_nav35_G01_reward_tt
-			add_command_power = 25
-			VIE_nav_xp_15 = yes
-			add_ideas = VPA_Greenwater_Doctrine_1
-			add_doctrine_cost_reduction = { name = VIE_nav35_G01_doctrine cost_reduction = 0.35 uses = 1 category = naval_doctrine }
-			VIE_nav_reward_g01_effect = yes
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G00"
+			custom_effect_tooltip = VIE_nav35_G00_reward_tt
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
@@ -7655,6 +7663,93 @@ shortcut = {
 		ai_will_do = {
 			base = 50
 			modifier = { factor = 3 VIE_ai_hardline = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_nav35_B00
+		icon = GFX_focus_VIE_nf_bluewater
+
+		x = 3
+		y = 1
+		relative_position_id = VIE_nav35_H02
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nav35_H02 }
+		mutually_exclusive = { focus = VIE_nav35_G00 }
+
+		search_filters = { FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B00"
+			custom_effect_tooltip = VIE_nav35_B00_reward_tt
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 VIE_ai_historical_path = yes }
+			modifier = { factor = 0.1 VIE_ai_hardline = yes }
+			modifier = { factor = 0 check_variable = { treasury < 15 } }
+		}
+	}
+
+	focus = {
+		id = VIE_nav35_G01
+		icon = GFX_focus_VIE_nf_greenwater
+
+		x = -1
+		y = 1
+		relative_position_id = VIE_nav35_G00
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nav35_G00 }
+
+		search_filters = { FOCUS_FILTER_NAVY }
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 3 VIE_ai_hardline = yes }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G01"
+			custom_effect_tooltip = VIE_nav35_G01_reward_tt
+			VIE_nav_reward_g01_effect = yes
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
+		}
+	}
+
+	focus = {
+		id = VIE_nav35_G04
+		icon = GFX_focus_VIE_nf_submarine_force
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_nav35_G00
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nav35_G00 }
+
+		search_filters = { FOCUS_FILTER_NAVY }
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 3 VIE_ai_hardline = yes }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G04"
+			custom_effect_tooltip = VIE_nav35_G04_reward_tt
+			VIE_nav_reward_g04_effect = yes
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
 		}
 	}
 
@@ -7672,27 +7767,43 @@ shortcut = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
+		ai_will_do = {
+			base = 50
+		}
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G02"
 			custom_effect_tooltip = VIE_nav35_G02_reward_tt
-			add_command_power = 20
-			520 = {
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			add_tech_bonus = { name = VIE_nav35_G02 category = CAT_naval_sonar uses = 1 bonus = 0.50 }
-			add_ideas = VIE_nav35_domestic_asw_support_idea
 			VIE_nav_reward_g02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
+	}
+
+	focus = {
+		id = VIE_nav35_G05
+		icon = GFX_focus_VIE_nf_medium_force
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_nav35_G04
+
+		cost = 7
+
+		prerequisite = { focus = VIE_nav35_G04 }
+
+		search_filters = { FOCUS_FILTER_NAVY }
 
 		ai_will_do = {
 			base = 50
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G05"
+			custom_effect_tooltip = VIE_nav35_G05_reward_tt
+			VIE_nav_reward_g05_effect = yes
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
 		}
 	}
 
@@ -7700,33 +7811,30 @@ shortcut = {
 		id = VIE_nav35_G03
 		icon = GFX_focus_VIE_nf_regional_command
 
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = VIE_nav35_G02
 
+		cost = 7
+
 		prerequisite = { focus = VIE_nav35_G02 }
+		prerequisite = { focus = VIE_nav35_G05 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_G03_requirements_tt VIE_nav35_g03_can_start = yes } }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
+		ai_will_do = {
+			base = 50
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_G03"
 			custom_effect_tooltip = VIE_nav35_G03_reward_tt
-			add_command_power = 30
-			VIE_nav_xp_25 = yes
-			swap_ideas = {
-				remove_idea = VPA_Greenwater_Doctrine_1
-				add_idea = VPA_Greenwater_Doctrine_Capstone
-			}
-			add_ideas = VIE_nav_capstone_master_of_seas
-			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 40 producer = VIE }
-			add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 30 producer = VIE }
 			VIE_nav_reward_g03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
-		}
-
-		ai_will_do = {
-			base = 50
 		}
 	}
 
@@ -7734,30 +7842,15 @@ shortcut = {
 		id = VIE_nav35_B01
 		icon = GFX_focus_VIE_nf_bluewater
 
-		x = 1
+		x = -1
 		y = 1
-		relative_position_id = VIE_nav35_H02
+		relative_position_id = VIE_nav35_B00
 
-		cost = 7
+		cost = 5
 
-		prerequisite = { focus = VIE_nav35_H02 }
+		prerequisite = { focus = VIE_nav35_B00 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
-
-		mutually_exclusive = { focus = VIE_nav35_G01 }
-
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B01"
-			custom_effect_tooltip = VIE_nav35_B01_reward_tt
-			add_command_power = 25
-			VIE_nav_xp_15 = yes
-			add_ideas = VPA_Bluewater_Doctrine_1
-			add_doctrine_cost_reduction = { name = VIE_nav35_B01_doctrine cost_reduction = 0.35 uses = 1 category = naval_doctrine }
-			VIE_nav_reward_b01_effect = yes
-			VIE_nav35_refresh = yes
-			VIE_nav35_scheduler = yes
-		}
 
 		ai_will_do = {
 			base = 50
@@ -7765,6 +7858,45 @@ shortcut = {
 			modifier = { factor = 0 VIE_ai_historical_path = yes }
 			modifier = { factor = 0.1 VIE_ai_hardline = yes }
 			modifier = { factor = 0 check_variable = { treasury < 15 } }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B01"
+			custom_effect_tooltip = VIE_nav35_B01_reward_tt
+			VIE_nav_reward_b01_effect = yes
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
+		}
+	}
+
+	focus = {
+		id = VIE_nav35_B04
+		icon = GFX_focus_VIE_nf_submarine_force
+
+		x = 1
+		y = 1
+		relative_position_id = VIE_nav35_B00
+
+		cost = 5
+
+		prerequisite = { focus = VIE_nav35_B00 }
+
+		search_filters = { FOCUS_FILTER_NAVY }
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 VIE_ai_historical_path = yes }
+			modifier = { factor = 0.1 VIE_ai_hardline = yes }
+			modifier = { factor = 0 check_variable = { treasury < 15 } }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B04"
+			custom_effect_tooltip = VIE_nav35_B04_reward_tt
+			VIE_nav_reward_b04_effect = yes
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
 		}
 	}
 
@@ -7782,28 +7914,45 @@ shortcut = {
 
 		search_filters = { FOCUS_FILTER_NAVY }
 
+		ai_will_do = {
+			base = 50
+		}
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B02"
-			custom_effect_tooltip = VIE_nav35_blue_support_tt
-			add_command_power = 20
-			521 = {
-				add_building_construction = {
-					type = naval_base
-					level = 1
-					instant_build = yes
-				}
-			}
-			unlock_decision_tooltip = VIE_nav35_blue_support_program
-			add_ideas = VIE_nav35_blue_support_idea
-			add_equipment_to_stockpile = { type = convoy_1 amount = 25 producer = VIE }
+			custom_effect_tooltip = VIE_nav35_B02_reward_tt
 			VIE_nav_reward_b02_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
 		}
+	}
+
+	focus = {
+		id = VIE_nav35_B05
+		icon = GFX_focus_VIE_nf_replenishment
+
+		x = 0
+		y = 1
+		relative_position_id = VIE_nav35_B04
+
+		cost = 7
+
+		prerequisite = { focus = VIE_nav35_B04 }
+
+		search_filters = { FOCUS_FILTER_NAVY }
 
 		ai_will_do = {
 			base = 50
 			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B05"
+			custom_effect_tooltip = VIE_nav35_B05_reward_tt
+			unlock_decision_tooltip = VIE_nav35_blue_support_program
+			VIE_nav_reward_b05_effect = yes
+			VIE_nav35_refresh = yes
+			VIE_nav35_scheduler = yes
 		}
 	}
 
@@ -7811,33 +7960,30 @@ shortcut = {
 		id = VIE_nav35_B03
 		icon = GFX_focus_VIE_nf_regional_command
 
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = VIE_nav35_B02
 
+		cost = 7
+
 		prerequisite = { focus = VIE_nav35_B02 }
+		prerequisite = { focus = VIE_nav35_B05 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_B03_requirements_tt VIE_nav35_b03_can_start = yes } }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
+		ai_will_do = {
+			base = 50
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_nav35_B03"
 			custom_effect_tooltip = VIE_nav35_B03_reward_tt
-			add_command_power = 30
-			VIE_nav_xp_25 = yes
-			swap_ideas = {
-				remove_idea = VPA_Bluewater_Doctrine_1
-				add_idea = VPA_Bluewater_Doctrine_Capstone
-			}
-			add_ideas = VIE_nav_capstone_ocean_surge
-			add_equipment_to_stockpile = { type = guided_missile_equipment_2 amount = 48 producer = VIE }
-			add_equipment_to_stockpile = { type = sam_missile_equipment_2 amount = 36 producer = VIE }
 			VIE_nav_reward_b03_effect = yes
 			VIE_nav35_refresh = yes
 			VIE_nav35_scheduler = yes
-		}
-
-		ai_will_do = {
-			base = 50
 		}
 	}
 
@@ -7845,13 +7991,14 @@ shortcut = {
 		id = VIE_nav35_F01
 		icon = GFX_focus_VIE_nf_command_reform_2
 
-		x = 4
+		x = 3
 		y = 1
-		relative_position_id = VIE_nav35_P06
+		relative_position_id = VIE_nav35_G03
 
 		cost = 7
 
-		prerequisite = { focus = VIE_nav35_P06 focus = VIE_nav35_G03 focus = VIE_nav35_B03 }
+		prerequisite = { focus = VIE_nav35_P06 }
+		prerequisite = { focus = VIE_nav35_G03 focus = VIE_nav35_B03 }
 
 		search_filters = { FOCUS_FILTER_NAVY }
 

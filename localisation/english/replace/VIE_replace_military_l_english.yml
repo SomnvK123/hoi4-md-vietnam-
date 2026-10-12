@@ -279,11 +279,11 @@
  VIE_nav35_W05:0 "Đội hình hộ vệ và chống ngầm phối hợp"
  VIE_nav35_W05_desc:0 "Phát triển cách tổ chức và huấn luyện giữa tàu hộ vệ, tàu ngầm và đơn vị hỗ trợ. Mốc 2014 phản ánh bước đầu chuyển đổi năng lực, không khẳng định Việt Nam đã sở hữu một biên đội chống ngầm đầy đủ theo cấu hình giả định trong game."
  VIE_nav35_I01:0 "Chương trình công nghiệp đóng tàu quân sự"
- VIE_nav35_I01_desc:0 "Định hướng làm chủ kỹ thuật, tăng tỷ lệ nội địa hóa từng bước và xây dựng danh mục dự án tàu quân sự, tàu bổ trợ. Không biến công nghiệp thành một khoản thưởng dockyard miễn phí."
+ VIE_nav35_I01_desc:0 "Đầu tư nền tảng công nghiệp và R&D đóng tàu quân sự: thu 8 tỷ USD cho một cơ sở nghiên cứu hải quân và trợ cấp một dockyard cùng một slot tại Ba Son. Cơ sở cần địa điểm ven biển hợp lệ; nếu điều kiện mất giữa focus, có thể giải ngân khi được khôi phục. Dành cho game mới."
  VIE_nav35_I02:0 "Ba Son: loạt tàu tên lửa Molniya"
- VIE_nav35_I02_desc:0 "Khởi động chương trình đóng theo giấy phép Project 12418 từ năm 2009; chuyển giao bản vẽ, công nghệ và tổ chức phân đoạn, tổng đoạn; các sự kiện nghiệm thu/bàn giao được phân theo năm 2014-2017, không cấp đủ sáu tàu ngay khi hoàn thành focus."
+ VIE_nav35_I02_desc:0 "Phát triển năng lực đóng Molniya theo giấy phép. Sau chương trình công nghệ trả phí, event phê duyệt mở bước chốt thiết kế và hợp đồng đóng một chiếc đầu tiên; không tự bàn giao sáu tàu theo lịch sử 2014–2017."
  VIE_nav35_I03:0 "Z173 Hồng Hà: các dòng TT400-TT400TP"
- VIE_nav35_I03_desc:0 "Nhà máy Z173 góp phần hình thành năng lực thiết kế và đóng các loại tàu nhỏ và vừa. Phân biệt tàu tuần tra và tàu chiến chủ lực; không dùng TT400TP làm tàu khu trục giả định."
+ VIE_nav35_I03_desc:0 "Phát triển năng lực Hồng Hà tại Hải Phòng (522). TT400TP được mô phỏng bằng hull corvette đời cũ trong MD, trang bị pháo/CIWS và không có tên lửa chống hạm; không yêu cầu Jeune École. Cần nghiên cứu hull và module trước khi chốt blueprint."
  VIE_nav35_I04:0 "Viện Thiết kế tàu quân sự: tự chủ thiết kế"
  VIE_nav35_I04_desc:0 "Viện Thiết kế tàu quân sự thành lập năm 2009. Các nghiên cứu thiết kế, thử nghiệm và tích hợp là một tuyến riêng, khác với mở rộng nhà máy đóng tàu."
  VIE_nav35_I05:0 "Sông Thu: công nghệ tàu chuyên dụng và bảo đảm"
@@ -291,7 +291,9 @@
  VIE_nav35_I06:0 "Tích hợp hệ thống vũ khí và khí tài tàu chiến"
  VIE_nav35_I06_desc:0 "Tích hợp radar, khí tài và hệ thống chỉ huy tàu chiến. Các mốc tiến bộ kỹ thuật năm 2022 và 2025 bổ sung năng lực khi chương trình đã được triển khai."
  VIE_nav35_I07:0 "Sông Thu: dự án hộ vệ chống ngầm đa năng"
- VIE_nav35_I07_desc:0 "Khởi động chương trình đóng tàu hộ vệ chống ngầm đa năng tại Sông Thu từ năm 2026. Sau event phê duyệt, quyết định đóng chiếc đầu tiên giải ngân 0,6 tỷ USD và bàn giao một hộ vệ sau 1.095 ngày; cần công nghệ và cơ sở đóng tàu phù hợp."
+ VIE_nav35_I07_desc:0 "Phê duyệt hộ vệ Sông Thu: chốt blueprint tại cơ sở R&D sau khi hoàn tất đầu tư Viện Thiết kế, tích hợp khí tài và đủ công nghệ. Hợp đồng chiếc đầu tiên thu 0,6 tỷ USD, chạy 1.095 ngày; bàn giao cần căn cứ và xưởng hợp lệ. Không giữ chỗ production queue."
+ VIE_nav35_I08:0 "Khinh hạm tàng hình đa nhiệm"
+ VIE_nav35_I08_desc:0 "Khởi động chương trình khinh hạm đa nhiệm lấy Istanbul-class làm cảm hứng thiết kế. Blueprint VIE trên stealth_frigate_hull_1 và hợp đồng chiếc đầu tiên chỉ mở sau khi hoàn tất Special Project Stealth Frigate của Millennium Dawn. Mốc 4.000 tấn là giới hạn thiết kế gameplay, không phải thuộc tính engine."
  VIE_nav35_L01:0 "Cam Ranh: trung tâm bảo đảm hải quân"
  VIE_nav35_L01_desc:0 "Củng cố tổ chức bảo đảm kỹ thuật, cứu hộ và tiếp tế với Cam Ranh làm trung tâm. Mở chương trình đầu tư bảo đảm căn cứ; mở rộng xưởng đóng tàu được thực hiện bằng quyết định riêng tại một state ven biển đang sở hữu."
  VIE_nav35_L02:0 "Nhà máy X52: bảo dưỡng tàu mặt nước và tàu ngầm"
@@ -316,22 +318,26 @@
  VIE_nav35_H01_desc:0 "Chấp nhận đầu tư lớn hơn cho vận hành tàu mặt nước, chống ngầm và hậu cần. Đây là lựa chọn ngân sách, không mặc định Việt Nam sẽ có tàu sân bay."
  VIE_nav35_H02:0 "Biên đội tàu hộ vệ - chống ngầm"
  VIE_nav35_H02_desc:0 "Dựa trên bài học khai thác Gepard, Kilo và khả năng hàng không hải quân. Mở hai hướng green-water và blue-water với mức đầu tư, phạm vi nhiệm vụ khác nhau."
- VIE_nav35_G01:0 "Lựa chọn Green-water: làm chủ vùng biển lân cận"
- VIE_nav35_G01_desc:0 "Green-water không có nghĩa là chỉ đứng sát bờ: đây là khả năng hoạt động lâu dài tại vùng biển lân cận với năng lực bảo đảm phù hợp, thay vì triển khai viễn dương thường xuyên."
- VIE_nav35_G02:0 "Tự chủ chuỗi bảo đảm tàu hộ vệ"
- VIE_nav35_G02_desc:0 "Tự chủ chuỗi bảo đảm tàu hộ vệ trong nước. Không bắt buộc dự án Sông Thu 2026 để hoàn thiện green-water; nhận thêm bonus bảo đảm khi chiếc hộ vệ đầu tiên đã được bàn giao."
- VIE_nav35_G03:0 "Hạm đội khu vực tự chủ"
- VIE_nav35_G03_desc:0 "Ưu tiên hệ thống tàu mặt nước, chống ngầm và hậu cần đủ dùng, phù hợp mức ngân sách trung bình. Mở công nghệ tàu hộ vệ nội địa qua decision nếu điều kiện công nghiệp đáp ứng."
- VIE_nav35_B01:0 "Lựa chọn Blue-water: triển khai biển xa"
- VIE_nav35_B01_desc:0 "Khả năng viễn dương đòi hỏi đầu tư cơ sở bảo đảm, dự trữ và mạng lưới hợp tác phù hợp chính sách quốc phòng. Đây là lựa chọn giả định, không phải chương trình tàu sân bay đã công bố."
- VIE_nav35_B02:0 "Hạm đội tiếp tế và bảo đảm viễn hành"
- VIE_nav35_B02_desc:0 "Tăng năng lực tàu hậu cần, sửa chữa và tổ chức vận tải. Nếu hoàn thành L03, sử dụng thành quả VTĐN-01 làm bước đệm; không tự ý suy diễn VTĐN-01 là tàu tiếp dầu hạm đội biển xa."
- VIE_nav35_B03:0 "Hải quân biển xa cân đối"
- VIE_nav35_B03_desc:0 "Khả năng hoạt động xa bờ theo kỳ hạn dài, nhiệm vụ hộ tống và hợp tác hàng hải. Muốn phát triển tiếp đến hạm đội tàu sân bay cần nhánh viễn cảnh riêng, không thể là kết quả tự động."
+ VIE_nav35_G00:0 "Chọn học thuyết Greenwater"
+ VIE_nav35_G00_desc:0 "Chọn hướng tác chiến biển gần, kiểm soát vùng biển và bảo vệ tuyến hàng hải khu vực. Focus này loại trừ root Bluewater và mở hai nhánh huấn luyện cụm mặt nước, lực lượng tàu ngầm. Không tự chọn grand doctrine của Millennium Dawn."
+ VIE_nav35_B00:0 "Chọn học thuyết Bluewater"
+ VIE_nav35_B00_desc:0 "Chọn hướng triển khai hạm đội biển xa, hiệp đồng lực lượng mặt nước và tàu ngầm viễn dương. Focus này loại trừ root Greenwater và mở hai nhánh xây dựng lực lượng. Không tự chọn grand doctrine của Millennium Dawn."
+ VIE_nav35_G01:0 "Huấn luyện cụm tác chiến biển gần"
+ VIE_nav35_G01_desc:0 "Chuẩn hóa chỉ huy, liên lạc và hiệp đồng cụm tác chiến biển gần với lực lượng trên bờ."
+ VIE_nav35_G02:0 "Tổ chức cụm hộ tống và săn ngầm khu vực"
+ VIE_nav35_G02_desc:0 "Tổ chức cụm hộ tống, chuẩn hóa sonar và hiệp đồng săn ngầm. Có thêm bảo đảm nội địa khi chiếc hộ vệ Sông Thu thực sự được bàn giao; focus không tự cấp tàu hoặc xưởng."
+ VIE_nav35_G03:0 "Lực lượng kiểm soát vùng biển"
+ VIE_nav35_G03_desc:0 "Nghiệm thu hai cột lực lượng: cần căn cứ đang sở hữu/kiểm soát, ít nhất hai tàu mặt nước phù hợp và một tàu ngầm tiến công. Điều kiện phải còn hợp lệ khi chạy focus."
+ VIE_nav35_B01:0 "Huấn luyện hiệp đồng hạm đội biển xa"
+ VIE_nav35_B01_desc:0 "Chuẩn hóa sở chỉ huy hạm đội, hộ tống và triển khai dài ngày trong định hướng Bluewater."
+ VIE_nav35_B02:0 "Cụm tác chiến mặt nước và hàng không hạm"
+ VIE_nav35_B02_desc:0 "Tổ chức cụm mặt nước đa nhiệm và chuẩn bị hàng không hạm. Event cho chọn một bonus nghiên cứu; lớp hàng không chỉ hoạt động khi có carrier và carrier_operations. Không bắt buộc carrier để hoàn tất hướng Bluewater."
+ VIE_nav35_B03:0 "Hạm đội viễn dương sẵn sàng triển khai"
+ VIE_nav35_B03_desc:0 "Nghiệm thu hạm đội biển xa: cần hai cột hoàn tất, chương trình hỗ trợ đã vận hành, căn cứ hợp lệ, ít nhất hai tàu mặt nước và một tàu ngầm tiến công. Không yêu cầu sở hữu tàu sân bay."
  VIE_nav35_F01:0 "Chuẩn hóa học thuyết và cơ cấu quân chủng"
- VIE_nav35_F01_desc:0 "Một trong ba capstone P06/G03/B03 đủ để mở F01, không dùng ba prerequisite AND vì các nhánh lựa chọn loại trừ nhau. Tùy focus trước đó, hiệu ứng F01 phản ánh ưu tiên sea-denial, green-water hoặc blue-water."
+ VIE_nav35_F01_desc:0 "Cần hoàn thành P06 và thêm một trong hai capstone G03 hoặc B03. Kết hợp năng lực phòng thủ biển nhiều tầng với một hướng phát triển lực lượng Greenwater hoặc Bluewater."
  VIE_nav35_F02:0 "Hải quân nhân dân chính quy, tinh nhuệ, hiện đại"
- VIE_nav35_F02_desc:0 "Hoàn thành sau F01 với các điều kiện S03 và L04. Đầu tư công nghiệp và các chương trình hậu 2026 không mặc nhiên bắt buộc cho mọi lối chơi; được thưởng theo tiến độ đã đạt và con đường chiến lược."
+ VIE_nav35_F02_desc:0 "Hoàn thành sau F01 để chốt quá trình hiện đại hóa Hải quân. Các nhánh công nghiệp S03 và hậu cần L04 vẫn là những hướng phát triển riêng, không còn là điều kiện bắt buộc của capstone."
  VIE_nav35_dockyard_program:0 "Mở rộng xưởng đóng tàu quân sự"
  VIE_nav35_dockyard_program_desc:0 "Đầu tư 7,5 tỷ USD qua cơ chế xây dựng của Millennium Dawn để thêm một xưởng đóng tàu tại state ven biển đang sở hữu và kiểm soát, còn chỗ xây dựng. Quyết định được theo dõi trong 365 ngày; xưởng được xây khi giải ngân."
  VIE_nav35_dockyard_start_tt:0 "Giải ngân §Y7.5 tỷ USD§! một lần; theo dõi chương trình trong §Y365 ngày§!."
@@ -343,11 +349,11 @@
  VIE_nav35_molniya_program:0 "Ba Son: chuẩn bị sản xuất Molniya"
  VIE_nav35_molniya_program_desc:0 "Đầu tư 1.5 tỷ USD qua quỹ quốc gia. Chương trình hoàn thành sau 365 ngày, chỉ thực hiện một lần."
  VIE_nav35_molniya_start_tt:0 "Giải ngân §Y1.5 tỷ USD§! một lần; theo dõi chương trình trong §Y365 ngày§!."
- VIE_nav35_molniya_finish_tt:0 "Nhận một lượt giảm 25% thời gian nghiên cứu công nghệ chuyên ngành của chương trình; không cấp tàu trực tiếp."
+ VIE_nav35_molniya_finish_tt:0 "Nhận một bonus nghiên cứu corvette 25%, một lượt; xếp hàng event phê duyệt bước chốt blueprint Molniya. Chưa cấp tàu."
  VIE_nav35_tt400_program:0 "Hồng Hà: hoàn thiện dòng TT400"
  VIE_nav35_tt400_program_desc:0 "Đầu tư 0.75 tỷ USD qua quỹ quốc gia. Chương trình hoàn thành sau 180 ngày, chỉ thực hiện một lần."
  VIE_nav35_tt400_start_tt:0 "Giải ngân §Y0.75 tỷ USD§! một lần; theo dõi chương trình trong §Y180 ngày§!."
- VIE_nav35_tt400_finish_tt:0 "Nhận một lượt giảm 25% thời gian nghiên cứu công nghệ chuyên ngành của chương trình; không cấp tàu trực tiếp."
+ VIE_nav35_tt400_finish_tt:0 "Nhận một bonus nghiên cứu corvette 25%, một lượt; xếp hàng event phê duyệt bước chốt blueprint TT400TP. Chưa cấp tàu."
  VIE_nav35_design_program:0 "Đầu tư Viện Thiết kế tàu quân sự"
  VIE_nav35_design_program_desc:0 "Đầu tư 1 tỷ USD qua quỹ quốc gia. Chương trình hoàn thành sau 365 ngày, chỉ thực hiện một lần."
  VIE_nav35_design_start_tt:0 "Giải ngân §Y1 tỷ USD§! một lần; theo dõi chương trình trong §Y365 ngày§!."
@@ -369,9 +375,9 @@
  VIE_nav35_vt_start_tt:0 "Giải ngân §Y2 tỷ USD§! một lần; theo dõi chương trình trong §Y180 ngày§!."
  VIE_nav35_vt_finish_tt:0 "Hoàn thành chương trình; nhận năng lực hoặc một lượt giảm thời gian nghiên cứu như mô tả. Không thu thêm tiền và không cấp tàu trực tiếp."
  VIE_nav35_blue_support_program:0 "Đầu tư bảo đảm triển khai biển xa"
- VIE_nav35_blue_support_program_desc:0 "Đầu tư 8 tỷ USD qua quỹ quốc gia. Chương trình hoàn thành sau 365 ngày, chỉ thực hiện một lần."
+ VIE_nav35_blue_support_program_desc:0 "Sau B05, đầu tư 8 tỷ USD/365 ngày. Cần căn cứ và dockyard ven biển đang sở hữu/kiểm soát. Đến hạn thiếu địa điểm sẽ chờ khôi phục; không thu thêm tiền hoặc khởi động lại timer."
  VIE_nav35_blue_support_start_tt:0 "Giải ngân §Y8 tỷ USD§! một lần; theo dõi chương trình trong §Y365 ngày§!."
- VIE_nav35_blue_support_finish_tt:0 "Hoàn thành chương trình; nhận năng lực hoặc một lượt giảm thời gian nghiên cứu như mô tả. Không thu thêm tiền và không cấp tàu trực tiếp."
+ VIE_nav35_blue_support_finish_tt:0 "Đủ 365 ngày và còn căn cứ/xưởng hợp lệ: nhận range +5% một lần. Thiếu điều kiện sẽ chờ scheduler thử lại; không thu thêm tiền."
  VIE_decision_molniya_production_run:0 "Ba Son: đẩy nhanh năng lực sản xuất"
  VIE_decision_molniya_production_run_desc:0 "Chi 1.5 tỷ USD và 20 quyền lực chính trị cho chương trình kéo dài 180 ngày. Cải thiện năng lực hiện có; không cấp thêm tàu hoặc công trình."
  VIE_decision_gepard_batch_procurement:0 "Nâng cao bảo đảm kỹ thuật Gepard"
@@ -399,23 +405,23 @@
  vie_nav35.4.d:0 "Kíp tàu và hệ thống kỹ thuật đã hoàn thành chương trình tiếp nhận năng lực VTĐN-01. Kết quả nâng cao tầm hoạt động và hộ tống; thông báo này không cấp thêm tàu 530 hoặc 531."
  vie_nav35.4.a:0 "Tiếp tục củng cố Hải quân"
  vie_nav35.5.t:0 "Phê duyệt đóng hộ vệ chống ngầm Sông Thu"
- vie_nav35.5.d:0 "Chương trình hộ vệ chống ngầm đa năng đã được phê duyệt. Có thể giải ngân đóng chiếc đầu tiên bằng quyết định riêng, với thời gian 1.095 ngày. Cấu hình trong trò chơi sử dụng thân hộ vệ và module chống ngầm đã làm chủ; đây là mô hình hóa gameplay từ thông số và vai trò của dự án năm 2026."
+ vie_nav35.5.d:0 "Chương trình hộ vệ Sông Thu đã được phê duyệt. Chốt thiết kế khi có R&D, đủ công nghệ, đã hoàn tất chương trình Viện Thiết kế và tích hợp khí tài; sau đó ký hợp đồng chiếc đầu tiên 0,6 tỷ USD/1.095 ngày."
  vie_nav35.5.a:0 "Mở chương trình đóng chiếc đầu tiên"
  vie_nav35.6.t:0 "Bàn giao hộ vệ chống ngầm Sông Thu"
  vie_nav35.6.d:0 "Chiếc hộ vệ Song Thu ASW 2026 đã hoàn tất và được bàn giao vào hạm đội dự bị. Chương trình chiếc đầu tiên kết thúc, không thu thêm tiền hoặc cấp thêm tàu khi xem lại thông báo."
  vie_nav35.6.a:0 "Đưa tàu vào đội hình Hải quân"
- VIE_nav35_investment_tt:0 "Khởi động Đề án Công nghiệp Đóng tàu Quân sự tự chủ chiến lược:\n • Xây dựng §G1 Xưởng đóng tàu quân sự (Dockyard)§! và mở thêm §G1 ô đất xây dựng công nghiệp§! tại TP.HCM / Ba Son (§Y522§!).\n • Tốc độ cơ động hạm tàu: §G+2.0%§!; cấp tinh thần §YCông nghiệp Đóng tàu Quân sự (Bậc 1)§!.\n • Mở khóa các quyết định đầu tư công nghệ đóng tàu và nhận §G+15 Điểm Chỉ huy§!."
- VIE_nav35_molniya_tt:0 "Chuyển giao công nghệ và tổ chức đóng loạt tàu tên lửa Molniya tại Tổng công ty Ba Son:\n • Xây dựng thêm §G1 Xưởng đóng tàu quân sự (Dockyard)§! và §G1 ô đất xây dựng§! tại Ba Son (§Y522§!).\n • Bàn giao §G32 quả tên lửa chống hạm Kh-35 Uran-E§! vào kho đạn của nhà máy đóng tàu.\n • Nâng cấp tinh thần §YCông nghiệp Đóng tàu Quân sự§! và ưu đãi nghiên cứu Tàu tên lửa §G+50%§!.\n • Mở quyết định chuẩn bị đóng mới loạt tàu Molniya trong nước."
- VIE_nav35_asw_program_tt:0 "Phê duyệt chương trình đóng tàu hộ vệ chống ngầm đa năng Sông Thu (Mốc 2026):\n • Mở rộng §G1 Căn cứ Hải quân (Naval Base)§! tại Đà Nẵng (§Y520§!) phục vụ neo đậu và thử nghiệm.\n • Sức tấn công chống ngầm: §G+3.0%§!.\n • Mở thông báo phê duyệt chương trình và quyết định đóng chiếc hộ vệ đầu tiên (0,6 tỷ USD, 1.095 ngày).\n • Nhận §G+25 Điểm Chỉ huy§!."
+ VIE_nav35_investment_tt:0 "Đầu tư §Y8 tỷ USD§! xây §G1 cơ sở R&D hải quân§! tại miền Nam (519), ưu tiên tiếp theo Hải Phòng (522) và miền Trung (521). Không tự cấp công nghệ hoặc scientist.\nTrợ cấp miễn phí §G1 dockyard và 1 slot công nghiệp§! tại Ba Son (519); công trình bị chặn sẽ chờ điều kiện hợp lệ.\nNhận §G15 CP§!, tốc độ tàu §G+2%§! và tinh thần công nghiệp bậc 1; mở các decision đầu tư xưởng/công nghệ."
+ VIE_nav35_molniya_tt:0 "Trợ cấp miễn phí 1 dockyard và 1 slot tại Ba Son (519), cấp 32 tên lửa và một bonus nghiên cứu corvette 50%. Mở đầu tư công nghệ 1,5 tỷ/365 ngày; sau phê duyệt và chốt blueprint có thể đóng chiếc đầu tiên với 0,15 tỷ/730 ngày."
+ VIE_nav35_asw_program_tt:0 "Trợ cấp một cấp căn cứ thử nghiệm tại Đà Nẵng: state 521, province 10309. Nhận 25 CP và sức chống ngầm +3%. Event phê duyệt mở blueprint cần R&D, công nghệ, chương trình Viện Thiết kế và tích hợp khí tài; sau đó đóng một chiếc với 0,6 tỷ/1.095 ngày."
  VIE_nav35_base_support_tt:0 "Phát triển Cam Ranh thành Trung tâm Hậu cần — Kỹ thuật Hải quân Chiến lược:\n • Xây dựng mở rộng §G2 Cấp Căn cứ Hải quân (Naval Base)§! kiên cố tại Cam Ranh (§Y521§!).\n • Cải thiện tốc độ cơ động hậu cần hạm đội: §G+2.0%§!.\n • Cung cấp §G40 xe hậu cần cơ động kỹ thuật quân sự hạng nặng§! cho căn cứ.\n • Cấp tinh thần: §YBảo đảm Kỹ thuật Hải quân (Bậc 1)§! và mở quyết định bảo đảm căn cứ (2 tỷ USD).\n • Nhận §G+20 Điểm Chỉ huy§!."
  VIE_nav35_vt_program_tt:0 "Tiếp nhận hai tàu vận tải đa năng Ro-Ro 5612 VTĐN-01 số hiệu 530 và 531:\n • Nâng cao năng lực vận tải đổ bộ đường biển (Naval Invasion Capacity): §G+10 sư đoàn / lữ đoàn§!.\n • Tiếp nhận §G20 tàu vận tải đa năng (Convoys)§! và §G20 xe bọc thép lội nước chuyên dụng (APC)§!.\n • Mở quyết định tiếp nhận năng lực vận tải đa năng (2 tỷ USD, 180 ngày).\n • Nhận §G+20 Điểm Chỉ huy§!."
- VIE_nav35_blue_support_tt:0 "Xây dựng hạm đội tiếp tế và bảo đảm kỹ thuật hậu cần viễn hành:\n • Xây dựng mở rộng §G1 Căn cứ Hải quân (Naval Base)§! tại Cam Ranh (§Y521§!).\n • Tầm hoạt động tối đa của hạm đội: tăng thêm §G+4.0%§!.\n • Tiếp nhận §G25 tàu vận tải tiếp dầu và hậu cần viễn dương (Convoys)§! vào biên chế.\n • Cấp tinh thần: §YBảo đảm Triển khai Biển xa§! và mở quyết định bảo đảm biển xa (8 tỷ USD).\n • Nhận §G+20 Điểm Chỉ huy§!."
+ VIE_nav35_blue_support_tt:0 "Mở đầu tư hỗ trợ biển xa sau B05: 8 tỷ USD/365 ngày, range +5% sau hoàn tất. Không tự cấp cảng, convoy hoặc rule tiếp tế trên biển."
  VIE_nav35_base_support_idea:0 "Bảo đảm căn cứ Hải quân"
  VIE_nav35_base_support_idea_desc:0 "Năng lực chuyên ngành được ghi nhận từ chương trình Hải quân; chỉ áp dụng một lần, không cộng chồng cùng ý niệm."
  VIE_nav35_vt_support_idea:0 "Năng lực vận tải đa năng"
  VIE_nav35_vt_support_idea_desc:0 "Năng lực chuyên ngành được ghi nhận từ chương trình Hải quân; chỉ áp dụng một lần, không cộng chồng cùng ý niệm."
  VIE_nav35_blue_support_idea:0 "Bảo đảm triển khai biển xa"
- VIE_nav35_blue_support_idea_desc:0 "Năng lực chuyên ngành được ghi nhận từ chương trình Hải quân; chỉ áp dụng một lần, không cộng chồng cùng ý niệm."
+ VIE_nav35_blue_support_idea_desc:0 "Đầu tư hỗ trợ biển xa đã hoàn tất: tầm hoạt động hải quân +5%. Năng lực hàng không hạm được kiểm tra riêng."
  VIE_nav35_regional_command_idea:0 "Phối hợp chỉ huy các Vùng"
  VIE_nav35_regional_command_idea_desc:0 "Năng lực chuyên ngành được ghi nhận từ chương trình Hải quân; chỉ áp dụng một lần, không cộng chồng cùng ý niệm."
  VIE_nav35_integration_idea:0 "Tích hợp khí tài hạm tàu"
@@ -479,11 +485,11 @@
  VIE_nav_capstone_ocean_surge_desc:0 "Năng lực được chuẩn hóa theo tuyến đã chọn. Ý niệm học thuyết cao hơn thay thế giai đoạn trước, không cộng chồng. Chi phí nhân sự hải quân tăng 25%, do hệ thống ngân sách Millennium Dawn tính."
  VIE_nav_shipbuilding_mastery_desc:0 "Kinh nghiệm hoàn thành chiếc hộ vệ Sông Thu đầu tiên củng cố năng lực đóng tàu quân sự. Bonus công nghiệp không tự cấp thêm tàu."
 
- VIE_nav35_asw_frigate_program:0 "Đóng hộ vệ chống ngầm Sông Thu đầu tiên"
- VIE_nav35_asw_frigate_program_desc:0 "Giải ngân 0,6 tỷ USD một lần để đóng một hộ vệ Song Thu ASW 2026 trong 1.095 ngày. Cần một xưởng đóng tàu và căn cứ hải quân ven biển đang sở hữu, kiểm soát, cùng công nghệ của cấu hình cố định. Nếu khi hoàn thành không còn căn cứ phù hợp, tàu chờ bàn giao; hệ thống kiểm tra lại mỗi tháng. Đây là hợp đồng duy nhất cho chiếc đầu tiên, không phải giá lịch sử được xác nhận."
- VIE_nav35_asw_frigate_requirements_tt:0 "Đã nhận phê duyệt I07; còn ít nhất 0,6 tỷ USD; có xưởng đóng tàu và căn cứ ven biển đang sở hữu, kiểm soát. Đã nghiên cứu thân hộ vệ 2010, động lực diesel 1990, điều khiển hỏa lực 1990, sonar 2005, pháo nhẹ 2025, CIWS 2020, ngư lôi 2020, VLS/tên lửa mặt nước 2000 và kỹ thuật hệ thống tàu. Chưa khởi đóng hoặc bàn giao chiếc đầu tiên."
- VIE_nav35_asw_frigate_start_tt:0 "Chi §Y0,6 tỷ USD§! một lần; bắt đầu đóng §Y1 hộ vệ§! theo cấu hình cố định trong §Y1.095 ngày§!."
- VIE_nav35_asw_frigate_finish_tt:0 "Hoàn tất đóng tàu. Bàn giao §Y1 hộ vệ Song Thu ASW 2026§! vào hạm đội dự bị khi có căn cứ và công nghệ phù hợp; nếu thiếu thì chờ và kiểm tra lại mỗi tháng. Không thu thêm tiền."
+ VIE_nav35_asw_frigate_program:0 "Đóng chiếc đầu tiên: Song Thu ASW 2026"
+ VIE_nav35_asw_frigate_program_desc:0 "Hợp đồng gameplay 0.6 tỷ USD/1095 ngày cho một chiếc. Cần blueprint đã chốt, ngân sách, căn cứ và dockyard đang kiểm soát. Tối đa một hợp đồng nội địa đang đóng; timer không sử dụng hoặc giữ chỗ production queue."
+ VIE_nav35_asw_frigate_requirements_tt:0 "Cần blueprint Song Thu ASW 2026, đủ công nghệ, ít nhất 0.6 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy và chưa nhận chiếc đầu tiên."
+ VIE_nav35_asw_frigate_start_tt:0 "Thu 0.6 tỷ USD một lần, đóng trong 1095 ngày. Không giữ chỗ production queue hoặc phát tàu ngay."
+ VIE_nav35_asw_frigate_finish_tt:0 "Bàn giao đúng một Song Thu ASW 2026 khi đủ thời gian, công nghệ, blueprint, căn cứ và xưởng. Thiếu điều kiện: chờ và thử lại hằng tháng; không thu thêm tiền."
 
  VIE_nav35_N00_reward_tt:0 "Khởi động §YChương trình Hiện đại hóa Hải quân Nhân dân Việt Nam§!:\n • Mở khóa 5 trụ cột phát triển: §YChỉ huy & Đào tạo§!, §YTrinh sát biển C4ISR§!, §YHạm đội tác chiến§!, §YCông nghiệp đóng tàu§!, §YCăn cứ hậu cần kỹ thuật§!.\n • Tăng sẵn sàng tổ chức hải quân: §G+2.0%§!, phối hợp tác chiến: §G+2.0%§!.\n • Tiếp nhận §G50 thiết bị C4ISR / Thông tin chỉ huy§! vào kho dự trữ.\n • Giảm §G25%§! chi phí nghiên cứu Học thuyết Hải quân; nhận §G+25 Điểm Chỉ huy§! và §G+15 Kinh nghiệm Hải quân§!."
  VIE_nav35_T01_reward_tt:0 "Kiện toàn cơ cấu tổ chức và chỉ huy 5 Vùng Hải quân (Vùng 1 đến Vùng 5):\n • Cấp tinh thần: §YTổ chức Quân chủng Hải quân (Bậc 1)§!\n   - Sẵn sàng tổ chức hải quân: §G+2.0§!\n   - Phối hợp tác chiến biên đội: §G+1.5%§!\n   - Tốc độ tích lũy kinh nghiệm: §G+2.5%§!\n • Hiệp đồng chỉ huy tác chiến biển: §G+3.0%§!, tổ chức hạm đội: §G+2.0%§!.\n • Tiếp nhận §G80 thiết bị Thông tin C4ISR§! cho các sở chỉ huy vùng.\n • Giảm §G20%§! chi phí nghiên cứu Học thuyết Hải quân và nhận §G+20 Điểm Chỉ huy§!."
@@ -498,9 +504,9 @@
  VIE_nav35_W03_reward_tt:0 "Làm chủ biên đội tàu hộ vệ tên lửa tàng hình Gepard 3.9 (Lữ đoàn 162):\n • Hỏa lực phòng không hạm đội (Fleet Anti-Air): §G+5.0%§!, xác suất bắn trúng mục tiêu: §G+3.0%§!.\n • Phòng thủ tàu chủ lực: §G+5.0%§!; cấp tinh thần §YSẵn sàng Chiến đấu Tàu mặt nước§!.\n • Tiếp nhận §G40 quả tên lửa phòng không hạm tàu§! và §G24 quả tên lửa chống hạm Kh-35§!.\n • Nhận §G+20 Điểm Chỉ huy§!."
  VIE_nav35_W04_reward_tt:0 "Xây dựng lực lượng tàu ngầm Kilo 636.1 hiện đại tại căn cứ Cam Ranh (Lữ đoàn 189):\n • Sức tấn công của tàu ngầm (Submarine Attack): §G+8.0%§!, phòng thủ tàu ngầm: §G+5.0%§!.\n • Khai thác hỏa lực tên lửa Club-S và ngư lôi hạng nặng 533mm dưới nước.\n • Tiếp nhận §G16 tên lửa hành trình tấn công ngầm Kalibr/Club-S§! vào biên chế.\n • Nhận ưu đãi nghiên cứu Tàu ngầm §G+50%§!, §G+20 Điểm Chỉ huy§! và §G+20 Kinh nghiệm Hải quân§!."
  VIE_nav35_W05_reward_tt:0 "Xây dựng biên đội tác chiến phối hợp Hộ vệ mặt nước và Chống ngầm liên hợp:\n • Khả năng săn ngầm và diệt tàu ngầm (Submarine Attack): §G+5.0%§!, phát hiện tàu ngầm: §G+3.0%§!.\n • Cấp tinh thần: §YNăng lực Chống ngầm Toàn diện (ASW Mastery)§!.\n • Giảm §G25%§! chi phí nghiên cứu Học thuyết Hải quân.\n • Nhận ưu đãi nghiên cứu Sonar và Thiết bị Săn ngầm §G+50%§!, §G+20 Điểm Chỉ huy§! và §G+15 Kinh nghiệm Hải quân§!."
- VIE_nav35_I03_reward_tt:0 "Tự chủ thiết kế và đóng mới loạt tàu pháo tuần tra TT-400TP tại Nhà máy Z173 Hồng Hà:\n • Xây dựng §G1 Xưởng đóng tàu quân sự (Dockyard)§! và §G1 ô đất công nghiệp§! tại Nam Định / Hải Phòng (§Y519§!).\n • Nâng cao khả năng cảnh giới ven bờ (Naval Detection): §G+2.0%§!.\n • Bổ sung §G20 quả tên lửa phòng không tầm thấp vác vai Igla/Strela§! trang bị cho kíp tàu.\n • Nhận ưu đãi nghiên cứu Tàu tuần tiễu và tàu nhỏ §G+50%§!."
+ VIE_nav35_I03_reward_tt:0 "Trợ cấp miễn phí 1 dockyard và 1 slot tại Hồng Hà (522), cấp 20 tên lửa phòng không vào kho và một bonus corvette 50%. Mở đầu tư 0,75 tỷ/180 ngày; sau phê duyệt và chốt thiết kế có thể đóng TT400TP đầu tiên với 0,05 tỷ/365 ngày. Blueprint TT400TP không lắp tên lửa."
  VIE_nav35_I04_reward_tt:0 "Thành lập Viện Thiết kế Tàu quân sự trực thuộc Tổng cục Công nghiệp Quốc phòng:\n • Nâng cao khả năng hiệp đồng thiết kế hạm tàu: §G+2.0%§!.\n • Giảm §G25%§! chi phí nghiên cứu Học thuyết Hải quân và nhận ưu đãi nghiên cứu Tàu hộ vệ §G+50%§!.\n • Mở khóa quyết định thiết kế các dòng thân tàu chiến đấu thế hệ mới.\n • Nhận §G+20 Điểm Chỉ huy§!."
- VIE_nav35_I05_reward_tt:0 "Phát triển công nghệ đóng tàu chuyên dụng và bảo đảm tại Nhà máy đóng tàu Sông Thu:\n • Xây dựng §G1 Xưởng đóng tàu quân sự (Dockyard)§! và §G1 ô đất xây dựng§! tại Đà Nẵng (§Y520§!).\n • Tốc độ vận tải và cứu nạn trên biển: §G+2.0%§!.\n • Tiếp nhận §G15 tàu vận tải / tàu kéo chuyên dụng (Convoys)§! vào hạm đội bảo đảm.\n • Nhận ưu đãi nghiên cứu Tàu chuyên dụng mặt nước §G+50%§!."
+ VIE_nav35_I05_reward_tt:0 "Trợ cấp miễn phí 1 dockyard và 1 slot tại Sông Thu (521); cấp 15 convoy, bonus tàu mặt nước 50% và tốc độ tàu +2%. Mở chương trình kỹ thuật bảo đảm 1 tỷ/180 ngày, nhận XP/mastery; chưa tạo mẫu tàu bảo đảm riêng."
  VIE_nav35_I06_reward_tt:0 "Làm chủ tích hợp hệ thống điều khiển hỏa lực, cảm biến radar và vũ khí hạm tàu:\n • Xác suất bắn trúng mục tiêu hải chiến: §G+3.0%§!, phòng không hạm tàu: §G+5.0%§!.\n • Bổ sung §G20 tổ hợp tên lửa chống hạm thế hệ mới§! vào dự trữ kỹ thuật.\n • Cấp tinh thần: §YCông nghiệp Đóng tàu Quân sự (Bậc 4)§! và ưu đãi nghiên cứu Radar hải quân §G+50%§!.\n • Nhận §G+20 Điểm Chỉ huy§!."
  VIE_nav35_L02_reward_tt:0 "Hiện đại hóa Nhà máy X52 — Cơ sở đại tu chiến lược cho tàu ngầm Kilo và tàu mặt nước:\n • Xây dựng §G1 Xưởng đóng tàu / Ụ nổi quân sự (Dockyard)§! và §G1 ô đất công nghiệp§! tại Cam Ranh (§Y521§!).\n • Phòng thủ và độ bền bảo đảm kỹ thuật của tàu ngầm: §G+5.0%§!.\n • Cấp tinh thần: §YBảo đảm Kỹ thuật Hải quân (Bậc 2)§!.\n • Nhận §G+15 Điểm Chỉ huy§! và §G+15 Kinh nghiệm Hải quân§!."
  VIE_nav35_L04_reward_tt:0 "Trang bị tàu cứu hộ tàu ngầm 927 Yết Kiêu và năng lực bảo đảm dài ngày trên biển:\n • Tầm hoạt động tối đa của toàn hạm đội (Navy Max Range): §G+5.0%§!.\n • Tiếp nhận §G6 trực thăng vận tải và cứu hộ biển tầm xa§! phục vụ nhiệm vụ cứu nạn.\n • Cấp tinh thần: §YBảo đảm Kỹ thuật Hải quân (Bậc 4 / 5)§! và §YVận tải Cứu hộ Dài ngày§!.\n • Nhận §G+20 Điểm Chỉ huy§! và §G+15 Kinh nghiệm Hải quân§!."
@@ -512,11 +518,13 @@
  VIE_nav35_P06_reward_tt:0 "Hoàn thành đỉnh cao Lá chắn Biển Nhiều tầng (Iron Shield) bảo vệ thềm lục địa:\n • Xây dựng §G1 Trạm Radar trinh sát biển tầm xa§! tại Trường Sa (§Y801§!) và §G1 Cụm công sự phòng ngự biển§! tại Cam Ranh (§Y521§!).\n • Sẵn sàng tổ chức hải quân: §G+4.0%§!, phối hợp tác chiến: §G+5.0%§!, cảnh giới biển: §G+5.0%§!.\n • Cấp học thuyết tối cao: §YLá chắn Thép Biển Đông (Iron Shield)§!.\n • Bổ sung §G48 quả tên lửa hành trình diệt hạm tầm xa§! vào kho đạn dự trữ chiến lược.\n • Nhận §G+30 Điểm Chỉ huy§! và §G+25 Kinh nghiệm Hải quân§!."
  VIE_nav35_H01_reward_tt:0 "Ưu tiên xây dựng các biên đội hạm đội cơ động tác chiến đa nhiệm:\n • Tốc độ cơ động đội hình hạm đội: §G+3.0%§!, phối hợp tác chiến biển: §G+3.0%§!.\n • Cấp học thuyết: §YƯu tiên Xây dựng Biên đội Hạm đội§! (Chi phí nhân sự +5%).\n • Giảm §G30%§! chi phí nghiên cứu Học thuyết Hải quân và ưu đãi nghiên cứu Tàu mặt nước §G+50%§!.\n • Nhận §G+20 Điểm Chỉ huy§!."
  VIE_nav35_H02_reward_tt:0 "Biên đội tàu hộ vệ phối hợp săn ngầm và phòng không mặt nước:\n • Hỏa lực phòng không biên đội: §G+5.0%§!, sức tấn công săn ngầm: §G+5.0%§!.\n • Nâng cấp học thuyết: §YBiên đội Hộ vệ — Chống ngầm Đa nhiệm§!.\n • Bàn giao §G24 quả tên lửa chống hạm Kh-35§! và §G30 quả tên lửa phòng không hạm tàu§!.\n • Nhận §G+25 Điểm Chỉ huy§! và §G+20 Kinh nghiệm Hải quân§!."
- VIE_nav35_G01_reward_tt:0 "Chọn con đường Hạm đội Vùng biển Lân cận Tự chủ (Học thuyết Green-water):\n • Xác suất bắn trúng mục tiêu hải chiến: §G+3.0%§!, phối hợp tác chiến hạm đội: §G+3.0%§!.\n • Cấp học thuyết: §YHải quân Biển gần Hiện đại (Green-water I)§! (Chi phí nhân sự +10%).\n • Giảm §G35%§! chi phí nghiên cứu Học thuyết Hải quân.\n • Nhận §G+25 Điểm Chỉ huy§! và §G+15 Kinh nghiệm Hải quân§!."
- VIE_nav35_G02_reward_tt:0 "Tự chủ chuỗi bảo đảm kỹ thuật và hậu cần khép kín cho các biên đội tàu hộ vệ:\n • Xây dựng §G1 Xưởng đóng tàu quân sự (Dockyard)§! và §G1 ô đất xây dựng§! tại Đà Nẵng (§Y520§!).\n • Nâng cao năng lực săn ngầm độc lập của hạm đội khu vực: §G+5.0%§!.\n • Cấp tinh thần: §YBảo đảm Chống ngầm Nội địa§! và ưu đãi nghiên cứu Sonar §G+50%§!.\n • Nhận §G+20 Điểm Chỉ huy§!."
- VIE_nav35_G03_reward_tt:0 "Hoàn thiện Hạm đội Khu vực Tự chủ — Làm chủ Vùng biển Đặc quyền Kinh tế:\n • Sẵn sàng tổ chức hải quân: §G+4.0%§!, phối hợp tác chiến: §G+5.0%§!, xác suất bắn trúng: §G+3.0%§!.\n • Cấp học thuyết tối cao: §YLàm chủ Vùng biển Chủ quyền (Master of Seas)§!.\n • Bổ sung §G40 quả tên lửa diệt hạm tiên tiến§! và §G30 tên lửa phòng không hạm tàu§!.\n • Nhận §G+30 Điểm Chỉ huy§! và §G+25 Kinh nghiệm Hải quân§!."
- VIE_nav35_B01_reward_tt:0 "Chọn con đường Hải quân Biển xa Hiện đại (Học thuyết Blue-water):\n • Tầm hoạt động tối đa của hạm đội: §G+6.0%§!, tốc độ cơ động viễn dương: §G+3.0%§!.\n • Cấp học thuyết: §YChương trình Hải quân Biển xa (Blue-water I)§! (Chi phí nhân sự +25%).\n • Giảm §G35%§! chi phí nghiên cứu Học thuyết Hải quân.\n • Nhận §G+25 Điểm Chỉ huy§! và §G+15 Kinh nghiệm Hải quân§!."
- VIE_nav35_B03_reward_tt:0 "Hoàn thiện Hải quân Biển xa Cân đối — Hùng cường Vươn khơi Đại dương:\n • Tầm hoạt động tối đa: §G+8.0%§!, tổ chức hạm đội: §G+4.0%§!, phối hợp tác chiến biển: §G+5.0%§!.\n • Cấp học thuyết tối cao: §YHùng cường Vươn khơi Đại dương (Ocean Surge)§!.\n • Tiếp nhận §G48 tên lửa hành trình diệt hạm tầm xa§! và §G36 tên lửa phòng không tầm trung/xa hạm tàu§!.\n • Nhận §G+30 Điểm Chỉ huy§! và §G+25 Kinh nghiệm Hải quân§!."
+ VIE_nav35_G00_reward_tt:0 "Chọn Greenwater và khóa root Bluewater. Áp dụng profile khởi đầu: bảo vệ đội hình +5%, hộ tống convoy +4%, nhân sự hải quân +10%. Không tự chọn grand doctrine của Millennium Dawn."
+ VIE_nav35_B00_reward_tt:0 "Chọn Bluewater và khóa root Greenwater. Áp dụng profile khởi đầu: tầm hoạt động hạm đội +6%, nhân sự hải quân +25%. Không tự chọn grand doctrine của Millennium Dawn."
+ VIE_nav35_G01_reward_tt:0 "Nhận 10 điểm chỉ huy. Nhận 10 naval mastery nếu đã chọn grand doctrine, hoặc 10 kinh nghiệm hải quân nếu chưa chọn. phối hợp tác chiến +3%."
+ VIE_nav35_G02_reward_tt:0 "Nhận 15 điểm chỉ huy. hiệu quả bảo vệ đội hình +4%; phát hiện tàu ngầm +4%. Một bonus nghiên cứu 50%, một lượt, cho $CAT_naval_sonar$. Khi hợp đồng Sông Thu đã bàn giao: sửa chữa +3%, bảo vệ đội hình +2%."
+ VIE_nav35_G03_reward_tt:0 "Nhận 25 điểm chỉ huy. Nhận 20 naval mastery nếu đã chọn grand doctrine, hoặc 20 kinh nghiệm hải quân nếu chưa chọn. hệ số tổ chức hải quân +4%; phối hợp tác chiến +2%. Giảm chi phí naval doctrine 35%, một lượt. Profile capstone thay profile khởi đầu."
+ VIE_nav35_B01_reward_tt:0 "Nhận 10 điểm chỉ huy. Nhận 10 naval mastery nếu đã chọn grand doctrine, hoặc 10 kinh nghiệm hải quân nếu chưa chọn. phối hợp tác chiến +3%."
+ VIE_nav35_B03_reward_tt:0 "Nhận 25 điểm chỉ huy. Nhận 20 naval mastery nếu đã chọn grand doctrine, hoặc 20 kinh nghiệm hải quân nếu chưa chọn. hệ số tổ chức hải quân +4%; phối hợp tác chiến +2%. Giảm chi phí naval doctrine 35%, một lượt. Profile capstone thay profile khởi đầu."
  VIE_nav35_F01_reward_tt:0 "Chuẩn hóa toàn diện học thuyết, biểu biên chế và cơ cấu quân chủng Hải quân:\n • Sẵn sàng tổ chức hải quân: §G+3.0%§!, phối hợp tác chiến toàn quân chủng: §G+3.0%§!.\n • Giảm §G50%§! chi phí nghiên cứu Học thuyết Hải quân.\n • Hội tụ các thành tựu chỉ huy, công nghiệp, hậu cần và tác chiến theo con đường đã chọn.\n • Nhận §G+30 Điểm Chỉ huy§! và §G+25 Kinh nghiệm Hải quân§!."
  VIE_nav35_F02_reward_tt:0 "Xây dựng Hải quân Nhân dân Việt Nam Chính quy, Tinh nhuệ, Hiện đại:\n • Xây dựng mở rộng §G1 Căn cứ Hải quân Chiến lược§! tại Cam Ranh (§Y521§!).\n • Tổ chức hải quân toàn quân: §G+5.0%§!, phối hợp tác chiến: §G+5.0%§!, xác suất bắn trúng: §G+3.0%§!, tốc độ hạm đội: §G+3.0%§!.\n • Bàn giao §G50 tên lửa diệt hạm tiên tiến§!, §G40 tên lửa phòng không hạm tàu§! và §G80 thiết bị thông tin tác chiến C4ISR§!.\n • Tăng §G+5.0% Độ ổn định chính trị§! và nhận §G+50 Điểm Chỉ huy§!, §G+35 Kinh nghiệm Hải quân§!."
  # ====================================================================
@@ -836,3 +844,153 @@
  recon_factor_tt:0 "Năng lực trinh sát đường không: $RIGHT|+%1$"
  air_cas_efficiency_tt:0 "Hiệu suất yểm trợ hỏa lực mặt đất: $RIGHT|+%1$"
  airforce_personnel_cost_multiplier_modifier_tt:0 "Chi phí nhân sự không quân: $RIGHT|-%1$"
+
+ VIE_nav35_rd_recover:0 "Hoàn tất đầu tư cơ sở R&D Hải quân"
+
+ VIE_nav35_rd_recover_desc:0 "Giải ngân 8 tỷ USD để hoàn tất cơ sở R&D đã được I01 phê duyệt. Ưu tiên miền Nam, sau đó Hải Phòng và miền Trung; chỉ xây tại địa điểm ven biển hợp lệ đang sở hữu và kiểm soát."
+
+ VIE_nav35_rd_requirements_tt:0 "Cần ít nhất 8 tỷ USD và địa điểm xây R&D hợp lệ tại state 519, 522 hoặc 521. Chưa nhận cơ sở R&D của chương trình này."
+
+ VIE_nav35_rd_recover_start_tt:0 "Thu 8 tỷ USD một lần và xây một cơ sở R&D hải quân. Không cấp research slot, scientist hoặc công nghệ."
+
+ VIE_nav35_subsidy_recover:0 "Tiếp nhận công trình Hải quân được trợ cấp"
+
+ VIE_nav35_subsidy_recover_desc:0 "Hoàn tất các công trình trợ cấp bị chặn khi hoàn thành focus. Xây tại đúng địa điểm đã phê duyệt; không thu Treasury và không cấp lại công trình hoặc slot đã nhận."
+
+ VIE_nav35_subsidy_requirements_tt:0 "Có công trình trợ cấp đang chờ và địa điểm tương ứng đang sở hữu, kiểm soát, còn khả năng xây."
+
+ VIE_nav35_subsidy_recover_start_tt:0 "Thử bàn giao các dockyard/slot hoặc một cấp căn cứ tại Đà Nẵng còn chờ. Mỗi khoản trợ cấp chỉ nhận một lần."
+
+ VIE_nav35_molniya_ship_blueprint:0 "Chốt thiết kế VIE Molniya 12418"
+
+ VIE_nav35_molniya_ship_blueprint_desc:0 "Chốt blueprint VIE Molniya 12418 một lần, không thu thêm tiền sau đầu tư công nghệ. Cần chương trình công nghệ tương ứng, cơ sở R&D đang kiểm soát và các công nghệ hull/module. Thiết kế có thể dùng trong sản xuất bình thường."
+
+ VIE_nav35_molniya_ship_blueprint_requirements_tt:0 "Cần event phê duyệt, hoàn tất chương trình công nghệ tương ứng, R&D đang sở hữu/kiểm soát và công nghệ: $corvette_hull_2$, $tech_diesel_power_systems_1$, $tech_fire_control_1$, $tech_combat_radar_2$, $tech_light_guns_2$, $tech_point_defense_system_1$, $tech_vls_surface_1$, $tech_vls_surface_2$. Chưa chốt blueprint."
+
+ VIE_nav35_molniya_ship_blueprint_start_tt:0 "Tạo thiết kế VIE Molniya 12418 một lần; không cấp tàu, không thu thêm tiền và không tự cấp công nghệ."
+
+ VIE_nav35_molniya_ship_program:0 "Đóng chiếc đầu tiên: VIE Molniya 12418"
+
+ VIE_nav35_molniya_ship_program_desc:0 "Hợp đồng gameplay 0.15 tỷ USD/730 ngày cho một chiếc. Cần blueprint đã chốt, ngân sách, căn cứ và dockyard đang kiểm soát. Tối đa một hợp đồng nội địa đang đóng; timer không sử dụng hoặc giữ chỗ production queue."
+
+ VIE_nav35_molniya_ship_requirements_tt:0 "Cần blueprint VIE Molniya 12418, đủ công nghệ, ít nhất 0.15 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy và chưa nhận chiếc đầu tiên."
+
+ VIE_nav35_molniya_ship_start_tt:0 "Thu 0.15 tỷ USD một lần, đóng trong 730 ngày. Không giữ chỗ production queue hoặc phát tàu ngay."
+
+ VIE_nav35_molniya_ship_finish_tt:0 "Bàn giao đúng một VIE Molniya 12418 khi đủ thời gian, công nghệ, blueprint, căn cứ và xưởng. Thiếu điều kiện: chờ và thử lại hằng tháng; không thu thêm tiền."
+
+ VIE_nav35_molniya_ship_program_start_tt:0 "Thu 0.15 tỷ USD một lần, chạy hợp đồng 730 ngày; chưa cấp tàu."
+
+ VIE_nav35_molniya_ship_program_finish_tt:0 "Bàn giao một VIE Molniya 12418 khi đủ thời gian và điều kiện căn cứ/xưởng/công nghệ; nếu thiếu thì chờ, không thu thêm tiền."
+
+ vie_nav35.8.t:0 "Phê duyệt thiết kế VIE Molniya 12418"
+
+ vie_nav35.8.d:0 "Đầu tư công nghệ đã hoàn tất. Có thể chốt blueprint VIE Molniya 12418 tại cơ sở R&D khi đã nghiên cứu đủ hull/module, rồi ký hợp đồng đóng một chiếc đầu tiên. Thông báo này không thu tiền hoặc cấp tàu."
+
+ vie_nav35.8.a:0 "Chuẩn bị chốt thiết kế"
+
+ vie_nav35.10.t:0 "Bàn giao VIE Molniya 12418"
+
+ vie_nav35.10.d:0 "Hợp đồng đã bàn giao một VIE Molniya 12418. Các chiếc tiếp theo có thể sản xuất bằng dockyard bình thường. Thông báo không cấp thêm tàu hoặc thu tiền."
+
+ vie_nav35.10.a:0 "Tiếp nhận tàu"
+
+ VIE_nav35_tt400_ship_blueprint:0 "Chốt thiết kế VIE TT400TP"
+
+ VIE_nav35_tt400_ship_blueprint_desc:0 "Chốt blueprint VIE TT400TP một lần, không thu thêm tiền sau đầu tư công nghệ. Cần chương trình công nghệ tương ứng, cơ sở R&D đang kiểm soát và các công nghệ hull/module. Thiết kế có thể dùng trong sản xuất bình thường."
+
+ VIE_nav35_tt400_ship_blueprint_requirements_tt:0 "Cần event phê duyệt, hoàn tất chương trình công nghệ tương ứng, R&D đang sở hữu/kiểm soát và công nghệ: $corvette_hull_2$, $tech_diesel_power_systems_1$, $tech_fire_control_1$, $tech_combat_radar_1$, $tech_light_guns_1$, $tech_point_defense_system_1$, $tech_naval_systems_engineering$. Chưa chốt blueprint."
+
+ VIE_nav35_tt400_ship_blueprint_start_tt:0 "Tạo thiết kế VIE TT400TP một lần; không cấp tàu, không thu thêm tiền và không tự cấp công nghệ."
+
+ VIE_nav35_tt400_ship_program:0 "Đóng chiếc đầu tiên: VIE TT400TP"
+
+ VIE_nav35_tt400_ship_program_desc:0 "Hợp đồng gameplay 0.05 tỷ USD/365 ngày cho một chiếc. Cần blueprint đã chốt, ngân sách, căn cứ và dockyard đang kiểm soát. Tối đa một hợp đồng nội địa đang đóng; timer không sử dụng hoặc giữ chỗ production queue."
+
+ VIE_nav35_tt400_ship_requirements_tt:0 "Cần blueprint VIE TT400TP, đủ công nghệ, ít nhất 0.05 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy và chưa nhận chiếc đầu tiên."
+
+ VIE_nav35_tt400_ship_start_tt:0 "Thu 0.05 tỷ USD một lần, đóng trong 365 ngày. Không giữ chỗ production queue hoặc phát tàu ngay."
+
+ VIE_nav35_tt400_ship_finish_tt:0 "Bàn giao đúng một VIE TT400TP khi đủ thời gian, công nghệ, blueprint, căn cứ và xưởng. Thiếu điều kiện: chờ và thử lại hằng tháng; không thu thêm tiền."
+
+ VIE_nav35_tt400_ship_program_start_tt:0 "Thu 0.05 tỷ USD một lần, chạy hợp đồng 365 ngày; chưa cấp tàu."
+
+ VIE_nav35_tt400_ship_program_finish_tt:0 "Bàn giao một VIE TT400TP khi đủ thời gian và điều kiện căn cứ/xưởng/công nghệ; nếu thiếu thì chờ, không thu thêm tiền."
+
+ vie_nav35.9.t:0 "Phê duyệt thiết kế VIE TT400TP"
+
+ vie_nav35.9.d:0 "Đầu tư công nghệ đã hoàn tất. Có thể chốt blueprint VIE TT400TP tại cơ sở R&D khi đã nghiên cứu đủ hull/module, rồi ký hợp đồng đóng một chiếc đầu tiên. Thông báo này không thu tiền hoặc cấp tàu."
+
+ vie_nav35.9.a:0 "Chuẩn bị chốt thiết kế"
+
+ vie_nav35.11.t:0 "Bàn giao VIE TT400TP"
+
+ vie_nav35.11.d:0 "Hợp đồng đã bàn giao một VIE TT400TP. Các chiếc tiếp theo có thể sản xuất bằng dockyard bình thường. Thông báo không cấp thêm tàu hoặc thu tiền."
+
+ vie_nav35.11.a:0 "Tiếp nhận tàu"
+
+ VIE_nav35_asw_frigate_blueprint:0 "Chốt thiết kế Song Thu ASW 2026"
+
+ VIE_nav35_asw_frigate_blueprint_desc:0 "Chốt blueprint Song Thu ASW 2026 một lần, không thu thêm tiền sau đầu tư công nghệ. Cần chương trình Viện Thiết kế và tích hợp khí tài, cơ sở R&D đang kiểm soát và các công nghệ hull/module. Thiết kế có thể dùng trong sản xuất bình thường."
+
+ VIE_nav35_asw_frigate_blueprint_requirements_tt:0 "Cần event phê duyệt, hoàn tất chương trình Viện Thiết kế và tích hợp khí tài, R&D đang sở hữu/kiểm soát và công nghệ: $frigate_hull_4$, $tech_diesel_power_systems_2$, $tech_fire_control_2$, $tech_combat_sonar_3$, $tech_light_guns_3$, $tech_point_defense_system_4$, $tech_torpedoes_4$, $tech_vls_surface_3$, $tech_naval_systems_engineering$, $tech_vls_surface_1$. Chưa chốt blueprint."
+
+ VIE_nav35_asw_frigate_blueprint_start_tt:0 "Tạo thiết kế Song Thu ASW 2026 một lần; không cấp tàu, không thu thêm tiền và không tự cấp công nghệ."
+
+ VIE_nav35_asw_frigate_program_start_tt:0 "Thu 0.6 tỷ USD một lần, chạy hợp đồng 1095 ngày; chưa cấp tàu."
+
+ VIE_nav35_asw_frigate_program_finish_tt:0 "Bàn giao một Song Thu ASW 2026 khi đủ thời gian và điều kiện căn cứ/xưởng/công nghệ; nếu thiếu thì chờ, không thu thêm tiền."
+
+ VIE_nav35_stealth_frigate_focus_tt:0 "Mở chương trình thiết kế khinh hạm tàng hình đa nhiệm. Decision chốt blueprint và ký hợp đồng chờ hoàn tất Special Project Stealth Frigate cùng các công nghệ hull/module; focus không tự cấp blueprint hoặc tàu."
+
+ VIE_nav35_stealth_frigate_blueprint:0 "Chốt thiết kế khinh hạm tàng hình đa nhiệm VIE"
+
+ VIE_nav35_stealth_frigate_blueprint_desc:0 "Tạo blueprint VIE Stealth Frigate 4000 một lần trên stealth_frigate_hull_1 sau khi hoàn thành Special Project Stealth Frigate và nghiên cứu đủ công nghệ/module. Lấy Istanbul-class làm cảm hứng đa nhiệm; 4.000 tấn là mục tiêu mô phỏng gameplay. Hull MD không có slot sonar riêng trong cấu hình này; khả năng chống ngầm được mô phỏng bằng đạn balanced và trực thăng. Không cấp tàu hoặc tự nghiên cứu công nghệ."
+
+ VIE_nav35_stealth_frigate_blueprint_requirements_tt:0 "Cần I08, event phê duyệt, hoàn thành Special Project Stealth Frigate, có stealth_frigate_hull_1, cơ sở R&D đang sở hữu/kiểm soát và đủ công nghệ/module: $tech_diesel_power_systems_2$, $tech_fire_control_2$, $tech_combat_radar_3$, $tech_light_guns_3$, $tech_point_defense_system_4$, $tech_vls_surface_1$, $tech_vls_surface_3$, $tech_naval_systems_engineering$, $aircraft_heli_engineering_1$."
+
+ VIE_nav35_stealth_frigate_blueprint_start_tt:0 "Tạo blueprint VIE Stealth Frigate 4000 một lần; không thu tiền, không cấp tàu và không tự cấp tech/project."
+
+ VIE_nav35_stealth_frigate_program:0 "Ký hợp đồng chiếc đầu tiên: VIE Stealth Frigate 4000"
+
+ VIE_nav35_stealth_frigate_program_desc:0 "Hợp đồng gameplay 0,8 tỷ USD/1.460 ngày cho một chiếc. Cần blueprint đã chốt, Special Project và tech còn hiệu lực, ngân sách, căn cứ và dockyard đang kiểm soát. Dùng timer, không giữ chỗ production queue."
+
+ VIE_nav35_stealth_frigate_requirements_tt:0 "Cần I08, blueprint VIE Stealth Frigate 4000, Special Project Stealth Frigate đã hoàn tất, đủ công nghệ, ít nhất 0,8 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy."
+
+ VIE_nav35_stealth_frigate_program_start_tt:0 "Thu 0,8 tỷ USD một lần, chạy hợp đồng 1.460 ngày; chưa cấp tàu."
+
+ VIE_nav35_stealth_frigate_program_finish_tt:0 "Bàn giao đúng một VIE Stealth Frigate 4000 khi đủ hạn và còn điều kiện project, công nghệ, căn cứ, xưởng. Nếu thiếu, chờ scheduler; không thu thêm tiền."
+
+ vie_nav35.12.t:0 "Phê duyệt chương trình khinh hạm tàng hình đa nhiệm"
+
+ vie_nav35.12.d:0 "I08 mở chương trình phát triển khinh hạm đa nhiệm. Có thể chốt blueprint và ký hợp đồng sau khi Special Project Stealth Frigate của Millennium Dawn hoàn tất, hull/module cần thiết đã được nghiên cứu và cơ sở R&D hợp lệ. Thông báo này chưa tạo thiết kế, chưa trừ tiền và chưa cấp tàu."
+
+ vie_nav35.12.a:0 "Đưa chương trình vào danh mục"
+
+ vie_nav35.13.t:0 "Bàn giao VIE Stealth Frigate 4000"
+
+ vie_nav35.13.d:0 "Hợp đồng đã bàn giao một VIE Stealth Frigate 4000. Blueprint vẫn có thể dùng trong sản xuất thông thường. Thông báo không cấp thêm tàu hoặc thu tiền."
+
+ vie_nav35.13.a:0 "Tiếp nhận tàu"
+ VIE_nav35_G04:0 "Huấn luyện kíp tàu ngầm tiến công"
+ VIE_nav35_G04_desc:0 "Đào tạo kíp tàu ngầm tiến công, vận hành khí tài và kiểm soát hư hỏng trong hướng Greenwater."
+ VIE_nav35_G04_reward_tt:0 "Nhận 10 điểm chỉ huy. Nhận 10 naval mastery nếu đã chọn grand doctrine, hoặc 10 kinh nghiệm hải quân nếu chưa chọn. phòng thủ tàu ngầm +3%."
+ VIE_nav35_G05:0 "Xây dựng lực lượng tàu ngầm biển gần"
+ VIE_nav35_G05_desc:0 "Tổ chức phân đội tàu ngầm và chu kỳ trực chiến, huấn luyện, bảo dưỡng trong khu vực. Tàu thực tế sử dụng hệ thống mua sắm và sản xuất hiện hành."
+ VIE_nav35_G05_reward_tt:0 "Nhận 15 điểm chỉ huy. tấn công tàu ngầm +5%. Một bonus nghiên cứu 25%, một lượt, cho $CAT_attack_submarines$."
+ VIE_nav35_B04:0 "Huấn luyện tàu ngầm viễn dương"
+ VIE_nav35_B04_desc:0 "Huấn luyện kíp tàu ngầm triển khai viễn dương, duy trì kỹ thuật và phối hợp hạm đội trong hướng Bluewater."
+ VIE_nav35_B04_reward_tt:0 "Nhận 10 điểm chỉ huy. Nhận 10 naval mastery nếu đã chọn grand doctrine, hoặc 10 kinh nghiệm hải quân nếu chưa chọn. phòng thủ tàu ngầm +3%. Một bonus nghiên cứu 25%, một lượt, cho $CAT_attack_submarines$."
+ VIE_nav35_B02_reward_tt:0 "Nhận 15 điểm chỉ huy. hiệu quả bảo vệ đội hình +4%; hỏa lực phòng không hải quân +3%. Event chọn nghiên cứu frigate hoặc carrier 25%, một lượt. Lớp hàng không hạm: sortie +6%, carrier targeting +3% khi có carrier và carrier_operations."
+ VIE_nav35_B05:0 "Bảo đảm và triển khai lực lượng biển xa"
+ VIE_nav35_B05_desc:0 "Chuẩn hóa bảo dưỡng và triển khai biển xa, mở đầu tư hỗ trợ 8 tỷ USD/365 ngày. Hiệu quả đầu tư chỉ xuất hiện sau khi chương trình hoàn tất; không tự mở rule tiếp tế trên biển của doctrine MD."
+ VIE_nav35_B05_reward_tt:0 "Nhận 15 điểm chỉ huy. tấn công tàu ngầm +3%; tốc độ sửa chữa +3%. Mở đầu tư 8 tỷ USD/365 ngày; range +5% chỉ sau hoàn tất."
+ VIE_nav35_G03_requirements_tt:0 "Cần căn cứ hải quân ven biển đang sở hữu/kiểm soát, ít nhất hai tàu corvette/frigate/destroyer phù hợp (gồm biến thể hiện đại) và một attack submarine. Điều kiện phải còn hợp lệ trong thời gian focus chạy."
+ VIE_nav35_B03_requirements_tt:0 "Cần đầu tư hỗ trợ biển xa đã hoàn tất, căn cứ ven biển đang sở hữu/kiểm soát, ít nhất hai tàu mặt nước phù hợp và một attack submarine. Không yêu cầu carrier; điều kiện phải còn hợp lệ khi focus chạy."
+ VIE_nav35_blue_support_requirements_tt:0 "Cần B05, ít nhất 8 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; chưa chạy, chưa chờ bàn giao và chưa hoàn tất chương trình."
+ VIE_nav35_carrier_readiness:0 "Sẵn sàng hàng không hạm"
+ VIE_nav35_carrier_readiness_desc:0 "B02, ít nhất một carrier và doctrine carrier_operations: sortie efficiency +6%, carrier air targeting +3%. Lớp này tắt khi thiếu điều kiện và bật lại khi được khôi phục."
+ vie_nav35.14.t:0 "Định hướng nghiên cứu cụm tác chiến biển xa"
+ vie_nav35.14.d:0 "Chọn một ưu tiên nghiên cứu sau khi chuẩn bị cụm tác chiến mặt nước và hàng không hạm. Mỗi chương trình nhận một bonus 25%, một lượt; không tự hoàn tất công nghệ hoặc cấp tàu."
+ vie_nav35.14.a:0 "Ưu tiên tàu hộ vệ đa nhiệm — nghiên cứu frigate 25%"
+ vie_nav35.14.b:0 "Ưu tiên hàng không hạm — nghiên cứu carrier 25%"

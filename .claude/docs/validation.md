@@ -71,7 +71,45 @@ Không gọi mọi reference nằm ngoài submod là lỗi; phải tra provider 
 - Sửa tool thì chạy lại trên cây hiện tại và so kết quả với trước đó. Không làm yếu một kiểm tra để cho nó "xanh".
 - File `.json` do `audit.py` sinh ra nằm trong `.gitignore`, đừng commit.
 
-## Hải quân V35.1 — 11/10/2026
+## Hải quân V35.4 — cập nhật V48 — 12/10/2026
+
+`python tools/audit/naval_scenarios.py --md <MD checkout>` kiểm 47 focus, root
+chọn hướng G00/B00 loại trừ nhau, hai cột mỗi hướng và capstone hội tụ AND,
+gate tàu/căn cứ, XP/mastery/CP và reward một lần,
+event nghiên cứu, carrier enable, hỗ trợ 8 tỷ/365 ngày và trạng thái chờ.
+Audit cân bằng cộng idea và dynamic modifier, tách organization points/factor.
+`python tools/audit/naval_balance.py` là entry point cùng bộ scenario.
+
+`python tools/focus_layout/naval_diagram_v35_4.py` xuất PNG và manifest từ live
+focus, dùng Pillow và DDS đăng ký sẵn. Layout v47 đặt root G00/B00 dưới H02,
+tỏa ra hai cột rồi hội tụ G03/B03; F01 cần P06 AND (G03 OR B03), F02 chỉ cần F01;
+S03/L04 là nhánh tùy chọn. Cần kiểm UI/mutex/dây
+nối trong game;
+ảnh không phải screenshot engine. Runtime: gate mất khi focus đang chạy, carrier
+bật/tắt, timer, save/load và error.log. Không migration save cũ.
+
+Đợt 12/10/2026 sau V49: 1.292 scenario với provider MD PASS; focus tree, references,
+event, province, localisation, DDS/texture/focus sprite và diff whitespace qua.
+Audit ảnh local vẫn báo các event picture bên ngoài checkout; xác minh provider
+riêng thay vì invent ID. Runtime chưa chạy.
+
+## Hải quân V35.3 — 12/10/2026
+
+Chạy `python tools/audit/naval_scenarios.py --md <đường dẫn MD>` để kiểm I08,
+Special Project `sp_stealth_frigate`, unlock `stealth_frigate_hull_1`, module/slot
+provider, hợp đồng 0,8 tỷ/1.460 ngày, điều kiện chờ/khôi phục và bàn giao một lần.
+Fixture không xác nhận Ship Designer hoặc save HOI4 thật; cần nghiệm thu runtime.
+
+## Hải quân V35.2 — 12/10/2026
+
+Chạy `python tools/audit/naval_scenarios.py --md <đường dẫn MD>` để kiểm R&D 8 tỷ,
+trợ cấp đúng state/province, blueprint trước hợp đồng, công nghệ/module/slot,
+giới hạn một hợp đồng chạy, thời gian và giao dịch một lần; thử mất và khôi phục
+căn cứ/xưởng. `--md` chạy độc lập; thêm `--game` để kiểm modifier/sprite provider.
+TT400 dùng corvette, fuel tank auxiliary và CIWS front. Fixture đọc live code,
+không xác nhận Ship Designer hoặc save HOI4 thật.
+
+## Hải quân V35.1 — 11/10/2026 (ghi nhận trước bổ sung)
 
 Hải quân V35.1: chạy `python tools/audit/naval_scenarios.py` (hoặc entry point
 `naval_balance.py`). Thêm `--md <MD root> --game <HOI4 root>` để kiểm provider

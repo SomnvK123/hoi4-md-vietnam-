@@ -1,0 +1,252 @@
+[
+  {
+    "id": "VIE_nav35_H02",
+    "title": "Biên đội tàu hộ vệ - chống ngầm",
+    "absolute": [
+      209,
+      7
+    ],
+    "anchor": "VIE_nav35_H01",
+    "prerequisite": [
+      [
+        "VIE_nav35_H01"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_P06",
+    "title": "Lá chắn biển nhiều tầng",
+    "absolute": [
+      201,
+      10
+    ],
+    "anchor": "VIE_nav35_P05",
+    "prerequisite": [
+      [
+        "VIE_nav35_P05"
+      ]
+    ],
+    "cost": 10
+  },
+  {
+    "id": "VIE_nav35_G00",
+    "title": "Chọn học thuyết Greenwater",
+    "absolute": [
+      206,
+      8
+    ],
+    "anchor": "VIE_nav35_H02",
+    "prerequisite": [
+      [
+        "VIE_nav35_H02"
+      ]
+    ],
+    "cost": 5
+  },
+  {
+    "id": "VIE_nav35_B00",
+    "title": "Chọn học thuyết Bluewater",
+    "absolute": [
+      212,
+      8
+    ],
+    "anchor": "VIE_nav35_H02",
+    "prerequisite": [
+      [
+        "VIE_nav35_H02"
+      ]
+    ],
+    "cost": 5
+  },
+  {
+    "id": "VIE_nav35_G01",
+    "title": "Huấn luyện cụm tác chiến biển gần",
+    "absolute": [
+      205,
+      9
+    ],
+    "anchor": "VIE_nav35_G00",
+    "prerequisite": [
+      [
+        "VIE_nav35_G00"
+      ]
+    ],
+    "cost": 5
+  },
+  {
+    "id": "VIE_nav35_G04",
+    "title": "Huấn luyện kíp tàu ngầm tiến công",
+    "absolute": [
+      207,
+      9
+    ],
+    "anchor": "VIE_nav35_G00",
+    "prerequisite": [
+      [
+        "VIE_nav35_G00"
+      ]
+    ],
+    "cost": 5
+  },
+  {
+    "id": "VIE_nav35_G02",
+    "title": "Tổ chức cụm hộ tống và săn ngầm khu vực",
+    "absolute": [
+      205,
+      10
+    ],
+    "anchor": "VIE_nav35_G01",
+    "prerequisite": [
+      [
+        "VIE_nav35_G01"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_G05",
+    "title": "Xây dựng lực lượng tàu ngầm biển gần",
+    "absolute": [
+      207,
+      10
+    ],
+    "anchor": "VIE_nav35_G04",
+    "prerequisite": [
+      [
+        "VIE_nav35_G04"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_G03",
+    "title": "Lực lượng kiểm soát vùng biển",
+    "absolute": [
+      206,
+      11
+    ],
+    "anchor": "VIE_nav35_G02",
+    "prerequisite": [
+      [
+        "VIE_nav35_G02"
+      ],
+      [
+        "VIE_nav35_G05"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_B01",
+    "title": "Huấn luyện hiệp đồng hạm đội biển xa",
+    "absolute": [
+      211,
+      9
+    ],
+    "anchor": "VIE_nav35_B00",
+    "prerequisite": [
+      [
+        "VIE_nav35_B00"
+      ]
+    ],
+    "cost": 5
+  },
+  {
+    "id": "VIE_nav35_B04",
+    "title": "Huấn luyện tàu ngầm viễn dương",
+    "absolute": [
+      213,
+      9
+    ],
+    "anchor": "VIE_nav35_B00",
+    "prerequisite": [
+      [
+        "VIE_nav35_B00"
+      ]
+    ],
+    "cost": 5
+  },
+  {
+    "id": "VIE_nav35_B02",
+    "title": "Cụm tác chiến mặt nước và hàng không hạm",
+    "absolute": [
+      211,
+      10
+    ],
+    "anchor": "VIE_nav35_B01",
+    "prerequisite": [
+      [
+        "VIE_nav35_B01"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_B05",
+    "title": "Bảo đảm và triển khai lực lượng biển xa",
+    "absolute": [
+      213,
+      10
+    ],
+    "anchor": "VIE_nav35_B04",
+    "prerequisite": [
+      [
+        "VIE_nav35_B04"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_B03",
+    "title": "Hạm đội viễn dương sẵn sàng triển khai",
+    "absolute": [
+      212,
+      11
+    ],
+    "anchor": "VIE_nav35_B02",
+    "prerequisite": [
+      [
+        "VIE_nav35_B02"
+      ],
+      [
+        "VIE_nav35_B05"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_F01",
+    "title": "Chuẩn hóa học thuyết và cơ cấu quân chủng",
+    "absolute": [
+      209,
+      12
+    ],
+    "anchor": "VIE_nav35_G03",
+    "prerequisite": [
+      [
+        "VIE_nav35_P06"
+      ],
+      [
+        "VIE_nav35_G03",
+        "VIE_nav35_B03"
+      ]
+    ],
+    "cost": 7
+  },
+  {
+    "id": "VIE_nav35_F02",
+    "title": "Hải quân nhân dân chính quy, tinh nhuệ, hiện đại",
+    "absolute": [
+      209,
+      13
+    ],
+    "anchor": "VIE_nav35_F01",
+    "prerequisite": [
+      [
+        "VIE_nav35_F01"
+      ]
+    ],
+    "cost": 10
+  }
+]

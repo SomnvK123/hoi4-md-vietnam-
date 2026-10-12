@@ -6450,3 +6450,97 @@ country_event = {
 	is_triggered_only = yes
 	option = { name = vie_nav35.6.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.6" }
 }
+
+country_event = {
+	id = vie_nav35.8
+	title = vie_nav35.8.t
+	desc = vie_nav35.8.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = vie_nav35.8.a
+		log = "[GetDateText]: [Root.GetName]: Event vie_nav35.8"
+		if = { limit = { has_completed_focus = VIE_nav35_I02 has_country_flag = VIE_nav35_molniya_done has_country_flag = VIE_nav35_molniya_ship_offer_queued NOT = { has_country_flag = VIE_nav35_molniya_ship_offered } }
+			clr_country_flag = VIE_nav35_molniya_ship_offer_queued
+			set_country_flag = VIE_nav35_molniya_ship_offered
+		}
+	}
+}
+country_event = {
+	id = vie_nav35.10
+	title = vie_nav35.10.t
+	desc = vie_nav35.10.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.10.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.10" }
+}
+
+country_event = {
+	id = vie_nav35.9
+	title = vie_nav35.9.t
+	desc = vie_nav35.9.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = vie_nav35.9.a
+		log = "[GetDateText]: [Root.GetName]: Event vie_nav35.9"
+		if = { limit = { has_completed_focus = VIE_nav35_I03 has_country_flag = VIE_nav35_tt400_done has_country_flag = VIE_nav35_tt400_ship_offer_queued NOT = { has_country_flag = VIE_nav35_tt400_ship_offered } }
+			clr_country_flag = VIE_nav35_tt400_ship_offer_queued
+			set_country_flag = VIE_nav35_tt400_ship_offered
+		}
+	}
+}
+country_event = {
+	id = vie_nav35.11
+	title = vie_nav35.11.t
+	desc = vie_nav35.11.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.11.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.11" }
+}
+
+country_event = {
+	id = vie_nav35.12
+	title = vie_nav35.12.t
+	desc = vie_nav35.12.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = vie_nav35.12.a
+		log = "[GetDateText]: [Root.GetName]: Event vie_nav35.12"
+		if = { limit = { has_completed_focus = VIE_nav35_I08 has_country_flag = VIE_nav35_stealth_frigate_offer_queued NOT = { has_country_flag = VIE_nav35_stealth_frigate_offered } }
+			clr_country_flag = VIE_nav35_stealth_frigate_offer_queued
+			set_country_flag = VIE_nav35_stealth_frigate_offered
+		}
+	}
+}
+
+country_event = {
+	id = vie_nav35.13
+	title = vie_nav35.13.t
+	desc = vie_nav35.13.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = { name = vie_nav35.13.a log = "[GetDateText]: [Root.GetName]: Event vie_nav35.13" }
+}
+
+# V35.4: mot lua chon nghien cuu, khong phat lai reward.
+country_event = {
+	id = vie_nav35.14
+	title = vie_nav35.14.t
+	desc = vie_nav35.14.d
+	picture = GFX_naval_base
+	is_triggered_only = yes
+	option = {
+		name = vie_nav35.14.a
+		ai_chance = { base = 100 modifier = { factor = 0 OR = { check_variable = { num_ships_with_type@carrier > 0 } has_doctrine = carrier_operations } } }
+		log = "[GetDateText]: [Root.GetName]: Event vie_nav35.14 surface"
+		VIE_nav35_blue_research_surface = yes
+	}
+	option = {
+		name = vie_nav35.14.b
+		ai_chance = { base = 100 modifier = { factor = 0 NOT = { OR = { check_variable = { num_ships_with_type@carrier > 0 } has_doctrine = carrier_operations } } } }
+		log = "[GetDateText]: [Root.GetName]: Event vie_nav35.14 carrier"
+		VIE_nav35_blue_research_carrier = yes
+	}
+}

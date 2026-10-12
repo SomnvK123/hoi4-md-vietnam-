@@ -1,4 +1,4 @@
-﻿# ====================================================================
+# ====================================================================
 # MILLENNIUM DAWN: VIETNAM - ALL DECISIONS
 # Consolidated single decisions file
 # ====================================================================
@@ -2967,9 +2967,9 @@ VIE_naval_procurement_category = {
 		cost = 0
 		days_remove = 365
 		visible = {
-			OR = { has_country_flag = VIE_nav35_blue_support_running AND = { has_completed_focus = VIE_nav35_B02 NOT = { has_country_flag = VIE_nav35_blue_support_done } } }
+			OR = { has_country_flag = VIE_nav35_blue_support_running AND = { has_completed_focus = VIE_nav35_B05 NOT = { has_country_flag = VIE_nav35_blue_support_done } NOT = { has_country_flag = VIE_nav35_blue_support_ready } } }
 		}
-		available = { VIE_nav35_blue_support_can_start = yes }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_blue_support_requirements_tt VIE_nav35_blue_support_can_start = yes } }
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_blue_support_program start"
 			custom_effect_tooltip = VIE_nav35_blue_support_start_tt
@@ -3127,6 +3127,140 @@ VIE_naval_procurement_category = {
 		}
 	}
 
+
+	VIE_nav35_rd_recover = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+
+		visible = { has_country_flag = VIE_nav35_rd_pending NOT = { has_country_flag = VIE_nav35_rd_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_rd_requirements_tt VIE_nav35_rd_can_apply = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_rd_recover"
+			custom_effect_tooltip = VIE_nav35_rd_recover_start_tt
+			hidden_effect = { VIE_nav35_rd_apply = yes }
+		}
+
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_rd_can_apply = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_subsidy_recover = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+
+		visible = { OR = { has_country_flag = VIE_nav35_i01_subsidy_pending has_country_flag = VIE_nav35_i02_subsidy_pending has_country_flag = VIE_nav35_i03_subsidy_pending has_country_flag = VIE_nav35_i05_subsidy_pending has_country_flag = VIE_nav35_i07_subsidy_pending } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_subsidy_requirements_tt OR = { VIE_nav35_i01_subsidy_can_apply = yes VIE_nav35_i02_subsidy_can_apply = yes VIE_nav35_i03_subsidy_can_apply = yes VIE_nav35_i05_subsidy_can_apply = yes VIE_nav35_i07_subsidy_can_apply = yes } } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_subsidy_recover"
+			custom_effect_tooltip = VIE_nav35_subsidy_recover_start_tt
+			hidden_effect = { VIE_nav35_subsidies_refresh = yes }
+		}
+
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { OR = { VIE_nav35_i01_subsidy_can_apply = yes VIE_nav35_i02_subsidy_can_apply = yes VIE_nav35_i03_subsidy_can_apply = yes VIE_nav35_i05_subsidy_can_apply = yes VIE_nav35_i07_subsidy_can_apply = yes } } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_molniya_ship_blueprint = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+
+		visible = { has_country_flag = VIE_nav35_molniya_ship_offered NOT = { has_country_flag = VIE_nav35_molniya_ship_blueprint_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_molniya_ship_blueprint_requirements_tt VIE_nav35_molniya_ship_blueprint_can_finalize = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_molniya_ship_blueprint"
+			custom_effect_tooltip = VIE_nav35_molniya_ship_blueprint_start_tt
+			hidden_effect = { VIE_nav35_molniya_ship_blueprint_finalize = yes }
+		}
+
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_molniya_ship_blueprint_can_finalize = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_molniya_ship_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 730
+		visible = { has_country_flag = VIE_nav35_molniya_ship_offered NOT = { has_country_flag = VIE_nav35_molniya_ship_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_molniya_ship_requirements_tt VIE_nav35_molniya_ship_can_start = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_molniya_ship_program"
+			custom_effect_tooltip = VIE_nav35_molniya_ship_program_start_tt
+			hidden_effect = { VIE_nav35_molniya_ship_start = yes }
+		}
+		remove_effect = { custom_effect_tooltip = VIE_nav35_molniya_ship_program_finish_tt hidden_effect = { VIE_nav35_molniya_ship_finish = yes } }
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_molniya_ship_can_start = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_tt400_ship_blueprint = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+
+		visible = { has_country_flag = VIE_nav35_tt400_ship_offered NOT = { has_country_flag = VIE_nav35_tt400_ship_blueprint_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_tt400_ship_blueprint_requirements_tt VIE_nav35_tt400_ship_blueprint_can_finalize = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_tt400_ship_blueprint"
+			custom_effect_tooltip = VIE_nav35_tt400_ship_blueprint_start_tt
+			hidden_effect = { VIE_nav35_tt400_ship_blueprint_finalize = yes }
+		}
+
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_tt400_ship_blueprint_can_finalize = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_tt400_ship_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 365
+		visible = { has_country_flag = VIE_nav35_tt400_ship_offered NOT = { has_country_flag = VIE_nav35_tt400_ship_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_tt400_ship_requirements_tt VIE_nav35_tt400_ship_can_start = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_tt400_ship_program"
+			custom_effect_tooltip = VIE_nav35_tt400_ship_program_start_tt
+			hidden_effect = { VIE_nav35_tt400_ship_start = yes }
+		}
+		remove_effect = { custom_effect_tooltip = VIE_nav35_tt400_ship_program_finish_tt hidden_effect = { VIE_nav35_tt400_ship_finish = yes } }
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_tt400_ship_can_start = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_asw_frigate_blueprint = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+
+		visible = { has_country_flag = VIE_nav35_asw_frigate_offered NOT = { has_country_flag = VIE_nav35_asw_frigate_blueprint_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_asw_frigate_blueprint_requirements_tt VIE_nav35_asw_frigate_blueprint_can_finalize = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_asw_frigate_blueprint"
+			custom_effect_tooltip = VIE_nav35_asw_frigate_blueprint_start_tt
+			hidden_effect = { VIE_nav35_asw_frigate_blueprint_finalize = yes }
+		}
+
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_asw_frigate_blueprint_can_finalize = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_stealth_frigate_blueprint = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+
+		visible = { has_country_flag = VIE_nav35_stealth_frigate_offered NOT = { has_country_flag = VIE_nav35_stealth_frigate_blueprint_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_stealth_frigate_blueprint_requirements_tt VIE_nav35_stealth_frigate_blueprint_can_finalize = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_stealth_frigate_blueprint"
+			custom_effect_tooltip = VIE_nav35_stealth_frigate_blueprint_start_tt
+			hidden_effect = { VIE_nav35_stealth_frigate_blueprint_finalize = yes }
+		}
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_stealth_frigate_blueprint_can_finalize = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
+
+	VIE_nav35_stealth_frigate_program = {
+		icon = GFX_decision_generic_naval
+		cost = 0
+		days_remove = 1460
+		visible = { has_country_flag = VIE_nav35_stealth_frigate_offered NOT = { has_country_flag = VIE_nav35_stealth_frigate_done } }
+		available = { custom_trigger_tooltip = { tooltip = VIE_nav35_stealth_frigate_requirements_tt VIE_nav35_stealth_frigate_can_start = yes } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_nav35_stealth_frigate_program"
+			custom_effect_tooltip = VIE_nav35_stealth_frigate_program_start_tt
+			hidden_effect = { VIE_nav35_stealth_frigate_start = yes }
+		}
+		remove_effect = { custom_effect_tooltip = VIE_nav35_stealth_frigate_program_finish_tt hidden_effect = { VIE_nav35_stealth_frigate_finish = yes } }
+		ai_will_do = { base = 20 modifier = { factor = 0 NOT = { VIE_nav35_stealth_frigate_can_start = yes } } modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse } }
+	}
 }
 
 # ── XTC Programme decisions ────────────────────────────────────────────

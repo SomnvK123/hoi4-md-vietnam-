@@ -11,6 +11,7 @@ Chạy từ gốc repo. Cần `matplotlib` cho hai script render (đặt `OPENBL
 | `apply_plan.py <plan.json>` | Ghi kế hoạch vào `VIE_md_focus.txt` (dừng nếu có ô trùng hoặc khoảng cách dưới 2). |
 | `render_tree.py x0 x1 y0 y1 out.png` | Vẽ cây hiện tại. |
 | `land_diagram_v30_2.py` | Render nhánh Lục quân live V30.2, xuất PNG và manifest từ prerequisite cùng tọa độ trong focus tree. |
+| `naval_diagram_v35_4.py` | Dùng Pillow, DDS đã đăng ký và tọa độ live để xuất toàn cây Hải quân và cụm Greenwater/Bluewater V35.4 kèm manifest. |
 | `render_plan.py plan.json out.png` | Vẽ kế hoạch trước khi áp dụng. |
 
 Sau mỗi lần áp dụng: `python tools/check_static.py` phải giữ nguyên 90 lỗi nền.
