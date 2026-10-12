@@ -1,0 +1,380 @@
+{
+  "version": "V5.0",
+  "new_game_only": true,
+  "mapping_status": "unverified_disabled",
+  "provider_commit": "60accbc19a19369d8c4095b40b5144d5bb6c0fd2",
+  "nodes": [
+    {
+      "code": "M00",
+      "id": "VIE_msl_national_program",
+      "title": "Chương trình tên lửa trọng điểm quốc gia",
+      "absolute": [
+        284,
+        2
+      ],
+      "anchor": "VIE_modernize_vpa",
+      "relative": [
+        82,
+        1
+      ],
+      "cost": 5,
+      "treasury_cost": 1.0,
+      "all": [
+        "VIE_modernize_vpa"
+      ],
+      "icon": "GFX_focus_VIE_nf_command_reform_2",
+      "texture": "gfx/interface/goals/nf_command_reform_2.dds",
+      "filters": [
+        "FOCUS_FILTER_RESEARCH",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M01",
+      "id": "VIE_msl_scud_b_maintenance",
+      "title": "Duy trì lực lượng Scud-B",
+      "absolute": [
+        269,
+        4
+      ],
+      "anchor": "VIE_msl_national_program",
+      "relative": [
+        -15,
+        2
+      ],
+      "cost": 5,
+      "treasury_cost": 0.4,
+      "all": [
+        "VIE_msl_national_program"
+      ],
+      "icon": "GFX_focus_VIE_nf_denial_defence",
+      "texture": "gfx/interface/goals/nf_denial_defence.dds",
+      "filters": [
+        "FOCUS_FILTER_ARMY",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M02",
+      "id": "VIE_msl_redut_maintenance",
+      "title": "Duy trì tổ hợp Redut-M",
+      "absolute": [
+        273,
+        4
+      ],
+      "anchor": "VIE_msl_national_program",
+      "relative": [
+        -11,
+        2
+      ],
+      "cost": 5,
+      "treasury_cost": 0.4,
+      "all": [
+        "VIE_msl_national_program"
+      ],
+      "icon": "GFX_focus_VIE_nf_denial_defence",
+      "texture": "gfx/interface/goals/nf_denial_defence.dds",
+      "filters": [
+        "FOCUS_FILTER_NAVY",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M03",
+      "id": "VIE_msl_rubezh_maintenance",
+      "title": "Duy trì tổ hợp Rubezh",
+      "absolute": [
+        277,
+        4
+      ],
+      "anchor": "VIE_msl_national_program",
+      "relative": [
+        -7,
+        2
+      ],
+      "cost": 5,
+      "treasury_cost": 0.4,
+      "all": [
+        "VIE_msl_national_program"
+      ],
+      "icon": "GFX_focus_VIE_nf_denial_defence",
+      "texture": "gfx/interface/goals/nf_denial_defence.dds",
+      "filters": [
+        "FOCUS_FILTER_NAVY",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M05",
+      "id": "VIE_msl_vcm01_program",
+      "title": "Chương trình VCM-01",
+      "absolute": [
+        291,
+        4
+      ],
+      "anchor": "VIE_msl_national_program",
+      "relative": [
+        7,
+        2
+      ],
+      "cost": 7,
+      "treasury_cost": 1.0,
+      "all": [
+        "VIE_msl_national_program"
+      ],
+      "icon": "GFX_focus_VIE_research_universities",
+      "texture": "gfx/interface/goals/research_universities.dds",
+      "filters": [
+        "FOCUS_FILTER_RESEARCH",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M06",
+      "id": "VIE_msl_vsm01a_song_hong",
+      "title": "VSM-01A Sông Hồng",
+      "absolute": [
+        295,
+        4
+      ],
+      "anchor": "VIE_msl_national_program",
+      "relative": [
+        11,
+        2
+      ],
+      "cost": 7,
+      "treasury_cost": 1.5,
+      "all": [
+        "VIE_msl_national_program"
+      ],
+      "icon": "GFX_focus_VIE_research_universities",
+      "texture": "gfx/interface/goals/research_universities.dds",
+      "filters": [
+        "FOCUS_FILTER_RESEARCH",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M07",
+      "id": "VIE_msl_vcs01_truong_son",
+      "title": "VCS-01 Trường Sơn",
+      "absolute": [
+        299,
+        4
+      ],
+      "anchor": "VIE_msl_national_program",
+      "relative": [
+        15,
+        2
+      ],
+      "cost": 7,
+      "treasury_cost": 2.0,
+      "all": [
+        "VIE_msl_national_program"
+      ],
+      "icon": "GFX_focus_VIE_research_universities",
+      "texture": "gfx/interface/goals/research_universities.dds",
+      "filters": [
+        "FOCUS_FILTER_RESEARCH",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M04",
+      "id": "VIE_msl_technical_autonomy",
+      "title": "Làm chủ bảo đảm kỹ thuật tên lửa",
+      "absolute": [
+        273,
+        6
+      ],
+      "anchor": "VIE_msl_redut_maintenance",
+      "relative": [
+        0,
+        2
+      ],
+      "cost": 7,
+      "treasury_cost": 0.8,
+      "all": [
+        "VIE_msl_scud_b_maintenance",
+        "VIE_msl_redut_maintenance",
+        "VIE_msl_rubezh_maintenance"
+      ],
+      "icon": "GFX_focus_VIE_nf_command_reform_2",
+      "texture": "gfx/interface/goals/nf_command_reform_2.dds",
+      "filters": [
+        "FOCUS_FILTER_MILITARY_LAWS",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M08",
+      "id": "VIE_msl_cruise_missile_industry",
+      "title": "Làm chủ thiết kế và sản xuất tên lửa hành trình",
+      "absolute": [
+        295,
+        6
+      ],
+      "anchor": "VIE_msl_vsm01a_song_hong",
+      "relative": [
+        0,
+        2
+      ],
+      "cost": 8,
+      "treasury_cost": 2.0,
+      "all": [
+        "VIE_msl_vcm01_program",
+        "VIE_msl_vsm01a_song_hong",
+        "VIE_msl_vcs01_truong_son"
+      ],
+      "icon": "GFX_focus_VIE_def_industry_law",
+      "texture": "gfx/interface/goals/def_industry_law.dds",
+      "filters": [
+        "FOCUS_FILTER_INDUSTRY",
+        "FOCUS_FILTER_EXPENDITURE"
+      ]
+    },
+    {
+      "code": "M09",
+      "id": "VIE_msl_national_capability",
+      "title": "Phát triển năng lực tên lửa quốc gia",
+      "absolute": [
+        284,
+        8
+      ],
+      "anchor": "VIE_msl_technical_autonomy",
+      "relative": [
+        11,
+        2
+      ],
+      "cost": 5,
+      "treasury_cost": 0,
+      "all": [
+        "VIE_msl_technical_autonomy",
+        "VIE_msl_cruise_missile_industry"
+      ],
+      "icon": "GFX_focus_VIE_nf_command_reform_2",
+      "texture": "gfx/interface/goals/nf_command_reform_2.dds",
+      "filters": [
+        "FOCUS_FILTER_MILITARY_LAWS"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "VIE_msl_dec_scud_sustainment",
+      "focus": "VIE_msl_scud_b_maintenance",
+      "kind": "maintenance",
+      "pp": 20,
+      "treasury_cost": 0.1,
+      "cooldown": 365,
+      "idea": "VIE_msl_scud_sustainment_active_idea",
+      "duration": 365,
+      "trigger": "VIE_msl_scud_sustainment_can_start",
+      "start": "VIE_msl_scud_sustainment_start"
+    },
+    {
+      "id": "VIE_msl_dec_redut_sustainment",
+      "focus": "VIE_msl_redut_maintenance",
+      "kind": "maintenance",
+      "pp": 15,
+      "treasury_cost": 0.1,
+      "cooldown": 365,
+      "idea": "VIE_msl_redut_sustainment_active_idea",
+      "duration": 365,
+      "trigger": "VIE_msl_redut_sustainment_can_start",
+      "start": "VIE_msl_redut_sustainment_start"
+    },
+    {
+      "id": "VIE_msl_dec_rubezh_sustainment",
+      "focus": "VIE_msl_rubezh_maintenance",
+      "kind": "maintenance",
+      "pp": 15,
+      "treasury_cost": 0.1,
+      "cooldown": 365,
+      "idea": "VIE_msl_rubezh_sustainment_active_idea",
+      "duration": 365,
+      "trigger": "VIE_msl_rubezh_sustainment_can_start",
+      "start": "VIE_msl_rubezh_sustainment_start"
+    },
+    {
+      "id": "VIE_msl_dec_vcm_development",
+      "focus": "VIE_msl_vcm01_program",
+      "kind": "program",
+      "pp": 50,
+      "treasury_cost": 0.5,
+      "duration": 180,
+      "trigger": "VIE_msl_vcm_can_start",
+      "start": "VIE_msl_vcm_start",
+      "finish": "VIE_msl_vcm_finish",
+      "event": "vie_msl.10",
+      "running": "VIE_msl_vcm_in_progress",
+      "done": "VIE_msl_vcm_ready",
+      "previous": null
+    },
+    {
+      "id": "VIE_msl_dec_vsm_validation",
+      "focus": "VIE_msl_vsm01a_song_hong",
+      "kind": "program",
+      "pp": 50,
+      "treasury_cost": 0.75,
+      "duration": 180,
+      "trigger": "VIE_msl_vsm_can_start",
+      "start": "VIE_msl_vsm_start",
+      "finish": "VIE_msl_vsm_finish",
+      "event": "vie_msl.20",
+      "running": "VIE_msl_vsm_in_progress",
+      "done": "VIE_msl_vsm_certified",
+      "previous": "VIE_msl_vcm_ready"
+    },
+    {
+      "id": "VIE_msl_dec_vcs_integration",
+      "focus": "VIE_msl_vcs01_truong_son",
+      "kind": "program",
+      "pp": 75,
+      "treasury_cost": 1,
+      "duration": 180,
+      "trigger": "VIE_msl_vcs_can_start",
+      "start": "VIE_msl_vcs_start",
+      "finish": "VIE_msl_vcs_finish",
+      "event": "vie_msl.30",
+      "running": "VIE_msl_vcs_in_progress",
+      "done": "VIE_msl_vcs_certified",
+      "previous": "VIE_msl_vsm_certified"
+    },
+    {
+      "id": "VIE_msl_dec_batch_production",
+      "kind": "integration_stub",
+      "pp": 0
+    },
+    {
+      "id": "VIE_msl_dec_expand_industry",
+      "kind": "integration_stub",
+      "pp": 0
+    }
+  ],
+  "ideas": {
+    "VIE_msl_sustainment_idea": {
+      "experience_gain_army_factor": 0.02,
+      "experience_gain_navy_factor": 0.02
+    },
+    "VIE_msl_industry_idea": {
+      "production_factory_efficiency_gain_factor": 0.02,
+      "research_speed_factor": 0.01
+    },
+    "VIE_msl_integrated_idea": {
+      "experience_gain_army_factor": 0.02,
+      "experience_gain_navy_factor": 0.02,
+      "production_factory_efficiency_gain_factor": 0.025,
+      "research_speed_factor": 0.01
+    },
+    "VIE_msl_scud_sustainment_active_idea": {
+      "experience_gain_army_factor": 0.005
+    },
+    "VIE_msl_redut_sustainment_active_idea": {
+      "experience_gain_navy_factor": 0.0025
+    },
+    "VIE_msl_rubezh_sustainment_active_idea": {
+      "experience_gain_navy_factor": 0.0025
+    }
+  }
+}

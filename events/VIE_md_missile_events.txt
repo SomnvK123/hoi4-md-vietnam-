@@ -1,0 +1,36 @@
+add_namespace = vie_msl
+
+# Callback tu remove_effect; khong delay them, khong thu tien lan hai.
+
+country_event = {
+	id = vie_msl.10
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: Event vie_msl.10 executed"
+		VIE_msl_vcm_finish = yes
+	}
+}
+
+country_event = {
+	id = vie_msl.20
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: Event vie_msl.20 executed"
+		VIE_msl_vsm_finish = yes
+	}
+}
+
+country_event = {
+	id = vie_msl.30
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: Event vie_msl.30 executed"
+		VIE_msl_vcs_finish = yes
+	}
+}

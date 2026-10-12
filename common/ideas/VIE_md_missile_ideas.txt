@@ -1,0 +1,56 @@
+ideas = {
+	country = {
+		VIE_msl_sustainment_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			modifier = {
+				experience_gain_army_factor = 0.02
+				experience_gain_navy_factor = 0.02
+			}
+		}
+
+		VIE_msl_industry_idea = {
+			picture = economic_boom
+			allowed = { original_tag = VIE }
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.02
+				research_speed_factor = 0.01
+			}
+		}
+
+		VIE_msl_integrated_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			modifier = {
+				experience_gain_army_factor = 0.02
+				experience_gain_navy_factor = 0.02
+				production_factory_efficiency_gain_factor = 0.025
+				research_speed_factor = 0.01
+			}
+		}
+
+		VIE_msl_scud_sustainment_active_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			modifier = {
+				experience_gain_army_factor = 0.005
+			}
+		}
+
+		VIE_msl_redut_sustainment_active_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			modifier = {
+				experience_gain_navy_factor = 0.0025
+			}
+		}
+
+		VIE_msl_rubezh_sustainment_active_idea = {
+			picture = army_planning
+			allowed = { original_tag = VIE }
+			modifier = {
+				experience_gain_navy_factor = 0.0025
+			}
+		}
+	}
+}

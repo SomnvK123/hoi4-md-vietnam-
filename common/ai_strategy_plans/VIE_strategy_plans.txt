@@ -19,6 +19,18 @@
 
 	# Historical Vietnam: giu chuoi Dai hoi va cac moc ngay do focus quyet dinh.
 	focus_factors = {
+		# Ten lua V5: Decision nghiem thu van quyet dinh tien do.
+		VIE_msl_national_program = 50
+		VIE_msl_scud_b_maintenance = 50
+		VIE_msl_redut_maintenance = 50
+		VIE_msl_rubezh_maintenance = 50
+		VIE_msl_vcm01_program = 50
+		VIE_msl_vsm01a_song_hong = 50
+		VIE_msl_vcs01_truong_son = 50
+		VIE_msl_technical_autonomy = 50
+		VIE_msl_cruise_missile_industry = 50
+		VIE_msl_national_capability = 50
+
 		VIE_doi_moi_continues = 100
 		VIE_prepare_congress_9 = 100
 		VIE_resolution_congress_9 = 100
@@ -179,6 +191,18 @@ VIE_HARDLINE_plan = {
 	}
 
 	focus_factors = {
+		# Ten lua V5: Decision nghiem thu van quyet dinh tien do.
+		VIE_msl_national_program = 50
+		VIE_msl_scud_b_maintenance = 50
+		VIE_msl_redut_maintenance = 50
+		VIE_msl_rubezh_maintenance = 50
+		VIE_msl_vcm01_program = 50
+		VIE_msl_vsm01a_song_hong = 50
+		VIE_msl_vcs01_truong_son = 50
+		VIE_msl_technical_autonomy = 50
+		VIE_msl_cruise_missile_industry = 50
+		VIE_msl_national_capability = 50
+
 		VIE_hl_unity_of_will = 500
 		VIE_hl_ideological_foundation = 500
 		VIE_hl_party_rectification = 500

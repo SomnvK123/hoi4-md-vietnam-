@@ -1,0 +1,5 @@
+VIE_msl_program_category = {
+	allowed = { original_tag = VIE }
+	priority = 80
+	visible = { has_country_flag = VIE_msl_program_started }
+}

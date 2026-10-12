@@ -1,0 +1,41 @@
+============================================================
+COMPREHENSIVE DDS & GFX AUDIT
+============================================================
+Total DDS files found in gfx/: 382
+
+DDS Format Errors: 0
+DDS Content Warnings: 0
+
+Checking 7 .gfx files in interface/...
+Total spriteType definitions: 283
+Missing texturefiles referenced in .gfx: 0
+
+Focus Tree Icon References:
+  Custom GFX_ references: 269
+  Vanilla / MD fallback icon tags: 149
+  Missing spriteType definitions for GFX_ icons: 0
+Missing event picture sprites in events/: 196
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_ruins'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_read_write'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_conference'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_sign_treaty1'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_Arrest'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_Corruption_1'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_stock_traders'
+  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'
+
+============================================================
+AUDIT COMPLETE
+============================================================

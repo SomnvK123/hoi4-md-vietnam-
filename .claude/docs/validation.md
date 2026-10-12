@@ -11,6 +11,11 @@ mà crash `UnicodeEncodeError` thì đặt `PYTHONIOENCODING=utf-8` (đã có tr
 
 ## Bộ kiểm tra theo loại thay đổi
 
+Tên lửa V5/v50 (12/10/2026): kiểm `python tools/audit/missile_scenarios.py --md <MD root>`,
+xuất sơ đồ `python tools/focus_layout/missile_diagram_v5.py`.
+[Kết quả, cảnh báo hidden-event và checklist runtime](missile/validation.md).
+Mốc A gồm 10 focus và chuỗi nghiệm thu; mapping VCS/batch production chưa bật.
+
 | Bạn vừa sửa | Chạy | Kết quả mong đợi |
 |---|---|---|
 | Cây focus (thêm/xoá/dời) | `python tools/audit/audit.py` | 0 prerequisite treo, 0 trùng toạ độ, 0 forward-ref, 0 vòng lặp, 0 thiếu x/y |

@@ -1,0 +1,207 @@
+# Ten lua V5: reward mot lan, dau tu va nghiem thu.
+
+VIE_msl_naval_xp_5 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = { amount = 5 folder = naval }
+	}
+	else = { navy_experience = 5 }
+}
+
+VIE_msl_refresh_spirits = {
+	if = {
+		limit = { has_country_flag = VIE_msl_m09_reward_applied }
+		if = { limit = { has_idea = VIE_msl_sustainment_idea } remove_ideas = VIE_msl_sustainment_idea }
+		if = { limit = { has_idea = VIE_msl_industry_idea } remove_ideas = VIE_msl_industry_idea }
+		if = { limit = { NOT = { has_idea = VIE_msl_integrated_idea } } add_ideas = VIE_msl_integrated_idea }
+	}
+	else = {
+		if = { limit = { has_country_flag = VIE_msl_m04_reward_applied NOT = { has_idea = VIE_msl_sustainment_idea } } add_ideas = VIE_msl_sustainment_idea }
+		if = { limit = { has_country_flag = VIE_msl_m08_reward_applied NOT = { has_idea = VIE_msl_industry_idea } } add_ideas = VIE_msl_industry_idea }
+	}
+}
+
+VIE_msl_m00_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m00_reward_applied } }
+		set_country_flag = VIE_msl_m00_reward_applied
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_tech_bonus = { name = VIE_msl_national_program bonus = 0.1 uses = 1 category = CAT_missiles }
+		set_country_flag = VIE_msl_program_started
+	}
+}
+
+VIE_msl_m01_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m01_reward_applied } }
+		set_country_flag = VIE_msl_m01_reward_applied
+		set_temp_variable = { treasury_change = -0.4 }
+		modify_treasury_effect = yes
+		if = { limit = { has_selected_land_grand_doctrine = yes } add_mastery = { amount = 5 folder = land } }
+		else = { army_experience = 5 }
+		unlock_decision_tooltip = VIE_msl_dec_scud_sustainment
+	}
+}
+
+VIE_msl_m02_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m02_reward_applied } }
+		set_country_flag = VIE_msl_m02_reward_applied
+		set_temp_variable = { treasury_change = -0.4 }
+		modify_treasury_effect = yes
+		VIE_msl_naval_xp_5 = yes
+		unlock_decision_tooltip = VIE_msl_dec_redut_sustainment
+	}
+}
+
+VIE_msl_m03_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m03_reward_applied } }
+		set_country_flag = VIE_msl_m03_reward_applied
+		set_temp_variable = { treasury_change = -0.4 }
+		modify_treasury_effect = yes
+		VIE_msl_naval_xp_5 = yes
+		unlock_decision_tooltip = VIE_msl_dec_rubezh_sustainment
+	}
+}
+
+VIE_msl_m05_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m05_reward_applied } }
+		set_country_flag = VIE_msl_m05_reward_applied
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+		add_tech_bonus = { name = VIE_msl_vcm01_program bonus = 0.25 uses = 1 category = CAT_missiles }
+		unlock_decision_tooltip = VIE_msl_dec_vcm_development
+	}
+}
+
+VIE_msl_m06_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m06_reward_applied } }
+		set_country_flag = VIE_msl_m06_reward_applied
+		set_temp_variable = { treasury_change = -1.5 }
+		modify_treasury_effect = yes
+		add_tech_bonus = { name = VIE_msl_vsm01a_song_hong bonus = 0.15 uses = 1 category = CAT_missiles }
+		unlock_decision_tooltip = VIE_msl_dec_vsm_validation
+	}
+}
+
+VIE_msl_m07_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m07_reward_applied } }
+		set_country_flag = VIE_msl_m07_reward_applied
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		add_tech_bonus = { name = VIE_msl_vcs01_truong_son bonus = 0.2 uses = 1 category = CAT_military_electronics }
+		unlock_decision_tooltip = VIE_msl_dec_vcs_integration
+	}
+}
+
+VIE_msl_m04_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m04_reward_applied } }
+		set_country_flag = VIE_msl_m04_reward_applied
+		set_temp_variable = { treasury_change = -0.8 }
+		modify_treasury_effect = yes
+		VIE_msl_refresh_spirits = yes
+	}
+}
+
+VIE_msl_m08_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m08_reward_applied } }
+		set_country_flag = VIE_msl_m08_reward_applied
+		set_temp_variable = { treasury_change = -2 }
+		modify_treasury_effect = yes
+		VIE_msl_refresh_spirits = yes
+	}
+}
+
+VIE_msl_m09_reward = {
+	if = {
+		limit = { original_tag = VIE NOT = { has_country_flag = VIE_msl_m09_reward_applied } }
+		set_country_flag = VIE_msl_m09_reward_applied
+		VIE_msl_refresh_spirits = yes
+		add_political_power = 20
+	}
+}
+
+VIE_msl_scud_sustainment_start = {
+	if = {
+		limit = { VIE_msl_scud_sustainment_can_start = yes }
+		set_temp_variable = { treasury_change = -0.1 }
+		modify_treasury_effect = yes
+		add_timed_idea = { idea = VIE_msl_scud_sustainment_active_idea days = 365 }
+	}
+}
+
+VIE_msl_redut_sustainment_start = {
+	if = {
+		limit = { VIE_msl_redut_sustainment_can_start = yes }
+		set_temp_variable = { treasury_change = -0.1 }
+		modify_treasury_effect = yes
+		add_timed_idea = { idea = VIE_msl_redut_sustainment_active_idea days = 365 }
+	}
+}
+
+VIE_msl_rubezh_sustainment_start = {
+	if = {
+		limit = { VIE_msl_rubezh_sustainment_can_start = yes }
+		set_temp_variable = { treasury_change = -0.1 }
+		modify_treasury_effect = yes
+		add_timed_idea = { idea = VIE_msl_rubezh_sustainment_active_idea days = 365 }
+	}
+}
+
+VIE_msl_vcm_start = {
+	if = {
+		limit = { VIE_msl_vcm_can_start = yes }
+		set_country_flag = VIE_msl_vcm_in_progress
+		set_temp_variable = { treasury_change = -0.5 }
+		modify_treasury_effect = yes
+	}
+}
+
+VIE_msl_vcm_finish = {
+	if = {
+		limit = { original_tag = VIE has_completed_focus = VIE_msl_vcm01_program has_country_flag = VIE_msl_vcm_in_progress NOT = { has_country_flag = VIE_msl_vcm_ready } }
+		set_country_flag = VIE_msl_vcm_ready
+		clr_country_flag = VIE_msl_vcm_in_progress
+	}
+}
+
+VIE_msl_vsm_start = {
+	if = {
+		limit = { VIE_msl_vsm_can_start = yes }
+		set_country_flag = VIE_msl_vsm_in_progress
+		set_temp_variable = { treasury_change = -0.75 }
+		modify_treasury_effect = yes
+	}
+}
+
+VIE_msl_vsm_finish = {
+	if = {
+		limit = { original_tag = VIE has_completed_focus = VIE_msl_vsm01a_song_hong has_country_flag = VIE_msl_vsm_in_progress NOT = { has_country_flag = VIE_msl_vsm_certified } has_country_flag = VIE_msl_vcm_ready }
+		set_country_flag = VIE_msl_vsm_certified
+		clr_country_flag = VIE_msl_vsm_in_progress
+	}
+}
+
+VIE_msl_vcs_start = {
+	if = {
+		limit = { VIE_msl_vcs_can_start = yes }
+		set_country_flag = VIE_msl_vcs_in_progress
+		set_temp_variable = { treasury_change = -1 }
+		modify_treasury_effect = yes
+	}
+}
+
+VIE_msl_vcs_finish = {
+	if = {
+		limit = { original_tag = VIE has_completed_focus = VIE_msl_vcs01_truong_son has_country_flag = VIE_msl_vcs_in_progress NOT = { has_country_flag = VIE_msl_vcs_certified } has_country_flag = VIE_msl_vsm_certified }
+		set_country_flag = VIE_msl_vcs_certified
+		clr_country_flag = VIE_msl_vcs_in_progress
+	}
+}

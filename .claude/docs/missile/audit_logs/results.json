@@ -1,0 +1,135 @@
+{
+  "audit": {
+    "exit_code": 0,
+    "lines": 20,
+    "tail": [
+      "",
+      "=== [FOCUS] prerequisite cycles: 0 ===",
+      "",
+      "=== [FOCUS] roots: 19 ===",
+      "    ['VIE_doi_moi_continues', 'VIE_prepare_congress_9', 'VIE_hl_unity_of_will', 'VIE_sez_three_zones', 'VIE_sez_postpone', 'VIE_sez_pass_99', 'VIE_vinacomin_founding', 'VIE_asean_integration', 'VIE_law_of_the_sea', 'VIE_petrovietnam_expansion', 'VIE_modernize_vpa', 'VIE_rice_export_power', 'VIE_shared_future', 'VIE_upper_middle_income', 'VIE_soe_gradual_restructuring', 'VIE_soe_rapid_divestment', 'VIE_household_business', 'VIE_peoples_defence', 'VIE_sci_digital_root']",
+      "",
+      "=== [FOCUS] no completion_reward: 0 === []",
+      "=== [FOCUS] no icon: 0 === []",
+      "=== [FOCUS] cost distribution: {'5': 99, '7': 280, '16': 1, None: 32, '10': 4, '8': 2} ==="
+    ]
+  },
+  "live": {
+    "exit_code": 0,
+    "lines": 27,
+    "tail": [
+      "=== [LOC keys used as tooltip/custom_*_tooltip] used=481 defined=4483 MISSING=0 ===",
+      "",
+      "=== [EVENTS] fired but undefined: 0 ===",
+      "",
+      "=== [EVENTS] defined but never fired anywhere (true orphans): 0 ===",
+      "    []",
+      "",
+      "=== [IDEAS] defined but never granted/referenced: 0 ===",
+      "    []"
+    ]
+  },
+  "ev": {
+    "exit_code": 0,
+    "lines": 11,
+    "tail": [
+      "DUPLICATE event ids: {}",
+      "  events\\VIE_md_events.txt: 199 events, prefixes=['vie_alt', 'vie_army_commanders', 'vie_auto', 'vie_axis', 'vie_cor', 'vie_dip', 'vie_disaster', 'vie_eco', 'vie_hl', 'vie_ind', 'vie_infra', 'vie_int', 'vie_nav35', 'vie_news', 'vie_petro', 'vie_pol', 'vie_scs', 'vie_scs_coop', 'vie_sec', 'vie_soc'], add_namespace=True",
+      "  events\\VIE_md_missile_events.txt: 3 events, prefixes=['vie_msl'], add_namespace=True",
+      "",
+      "EVENTS never referenced anywhere (defined only): 0",
+      "[]",
+      "",
+      "EVENTS missing title/desc/option loc: 2  (hidden events excluded: 4)",
+      "['vie_msl.20', 'vie_msl.30']"
+    ]
+  },
+  "prov": {
+    "exit_code": 0,
+    "lines": 17,
+    "tail": [
+      "  common\\national_focus\\VIE_md_focus.txt:4009  province 14178 -> state 518 (owner VIE)  coastal: Phu Quoc (dao)",
+      "  common\\scripted_effects\\VIE_md_effects.txt:12412  province 10309 -> state 521 (owner VIE)  coastal: Da Nang (coastal)",
+      "  common\\scripted_triggers\\VIE_md_triggers.txt:1497  province 10309 -> state 521 (owner VIE)  coastal: Da Nang (coastal)",
+      "",
+      "=== \"NNN = { ... }\" state-scope blocks: state ownership at 2000 start ===",
+      "",
+      "=== PROVINCE MISMATCH: state-scope block vs province id ===",
+      "",
+      "=== TỔNG HỢP LỖI: 0 ==="
+    ]
+  },
+  "audit_loc_errors": {
+    "exit_code": 0,
+    "lines": 13,
+    "tail": [
+      "",
+      "Localisation syntax errors: 0",
+      "",
+      "Total focuses in VIE_md_focus.txt: 418",
+      "",
+      "Focuses missing title: 0",
+      "Focuses missing description: 0",
+      "Missing tooltips referenced in focus tree: 0",
+      "Missing idea names referenced in focus tree: 0"
+    ]
+  },
+  "verify_all_loc": {
+    "exit_code": 0,
+    "lines": 18,
+    "tail": [
+      "  replace\\VIE_replace_politics_l_english.yml   : OK (764 keys)",
+      "",
+      "Total unique keys loaded: 4483",
+      "",
+      "All localisation files passed with ZERO errors!",
+      "",
+      "Focus tree check: 418 focuses found.",
+      "Missing focus name keys: 0",
+      "Missing focus desc keys: 0"
+    ]
+  },
+  "audit_dds_and_gfx": {
+    "exit_code": 0,
+    "lines": 41,
+    "tail": [
+      "  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_sign_treaty1'",
+      "  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_Arrest'",
+      "  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_Corruption_1'",
+      "  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_stock_traders'",
+      "  [MISSING EVENT PIC] in VIE_md_events.txt: 'GFX_report_event_generic_factory'",
+      "",
+      "============================================================",
+      "AUDIT COMPLETE",
+      "============================================================"
+    ]
+  },
+  "missile_scenarios": {
+    "exit_code": 0,
+    "lines": 7,
+    "tail": [
+      "PASS node_tests",
+      "PASS reward_tests",
+      "PASS decision_tests",
+      "PASS ai_tests",
+      "PASS reference_tests",
+      "PASS baseline regression",
+      "PASS 2888 assertions; file fixture only, HOI4 runtime not tested"
+    ]
+  },
+  "naval_scenarios": {
+    "exit_code": 0,
+    "lines": 1293,
+    "tail": [
+      "PASS  naval_facility is a real MD building",
+      "PASS  MD stealth frigate special project exists",
+      "PASS  MD special project requires frigate_hull_4",
+      "PASS  MD special project unlocks stealth_frigate_hull_1",
+      "PASS  R&D/subsidy state belongs to VIE 519",
+      "PASS  R&D/subsidy state belongs to VIE 522",
+      "PASS  R&D/subsidy state belongs to VIE 521",
+      "PASS  Da Nang province 10309 belongs to state 521 and has a base",
+      "ALL PASS: 1292 static scenarios. In-game runtime NOT RUN."
+    ]
+  }
+}

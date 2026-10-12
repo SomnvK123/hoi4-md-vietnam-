@@ -12,6 +12,7 @@ focus_tree = {
 			original_tag = VIE
 		}
 	}
+	## v50 (12/10/2026): Ten lua V5, 10 focus 1-6-2-1; bao duong, ba chuong trinh 180 ngay, spirit khong cong chong; mapping VCS chua bat, game moi.
 	## v41 (11/10/2026): I07 mo event va hop dong ho ve Song Thu 1095 ngay; ban giao mot frigate, khong thuong lap.
 	## v42 (12/10/2026): bo shortcut VIE_air_shortcut khoi menu cay focus theo yeu cau.
 	## v40 (11/10/2026): Hai quan V35.1, dung 40 focus; AND/OR/mutex, chuong trinh tra phi, moc lich su, idea khong cong chong; game moi.
@@ -13707,4 +13708,290 @@ shortcut = {
 	# ==== GEN:R end ====
 
 	# Nhánh Phòng không - Không quân & CNQP Hàng không đã được gỡ bỏ
+
+	###############################
+	## CHUONG TRINH TEN LUA QUOC GIA V5
+	###############################
+
+	focus = {
+		id = VIE_msl_national_program
+		icon = GFX_focus_VIE_nf_command_reform_2
+
+		x = 82
+		y = 1
+		relative_position_id = VIE_modernize_vpa
+
+		cost = 5
+
+		prerequisite = { focus = VIE_modernize_vpa }
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_national_program"
+			custom_effect_tooltip = VIE_tt_msl_m00_reward
+			hidden_effect = { VIE_msl_m00_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 1 compare = greater_than_or_equals } } }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_scud_b_maintenance
+		icon = GFX_focus_VIE_nf_denial_defence
+
+		x = -15
+		y = 2
+		relative_position_id = VIE_msl_national_program
+
+		cost = 5
+
+		prerequisite = { focus = VIE_msl_national_program }
+
+		search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_scud_b_maintenance"
+			custom_effect_tooltip = VIE_tt_msl_m01_reward
+			hidden_effect = { VIE_msl_m01_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 0.4 compare = greater_than_or_equals } } }
+			modifier = { factor = 2 VIE_ai_historical_path = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_redut_maintenance
+		icon = GFX_focus_VIE_nf_denial_defence
+
+		x = -11
+		y = 2
+		relative_position_id = VIE_msl_national_program
+
+		cost = 5
+
+		prerequisite = { focus = VIE_msl_national_program }
+
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_redut_maintenance"
+			custom_effect_tooltip = VIE_tt_msl_m02_reward
+			hidden_effect = { VIE_msl_m02_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 0.4 compare = greater_than_or_equals } } }
+			modifier = { factor = 2 VIE_ai_historical_path = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_rubezh_maintenance
+		icon = GFX_focus_VIE_nf_denial_defence
+
+		x = -7
+		y = 2
+		relative_position_id = VIE_msl_national_program
+
+		cost = 5
+
+		prerequisite = { focus = VIE_msl_national_program }
+
+		search_filters = { FOCUS_FILTER_NAVY FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_rubezh_maintenance"
+			custom_effect_tooltip = VIE_tt_msl_m03_reward
+			hidden_effect = { VIE_msl_m03_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 0.4 compare = greater_than_or_equals } } }
+			modifier = { factor = 2 VIE_ai_historical_path = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_vcm01_program
+		icon = GFX_focus_VIE_research_universities
+
+		x = 7
+		y = 2
+		relative_position_id = VIE_msl_national_program
+
+		cost = 7
+
+		prerequisite = { focus = VIE_msl_national_program }
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_vcm01_program"
+			custom_effect_tooltip = VIE_tt_msl_m05_reward
+			hidden_effect = { VIE_msl_m05_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 1 compare = greater_than_or_equals } } }
+			modifier = { factor = 0.25 VIE_ai_historical_path = yes date < 2015.1.1 }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_vsm01a_song_hong
+		icon = GFX_focus_VIE_research_universities
+
+		x = 11
+		y = 2
+		relative_position_id = VIE_msl_national_program
+
+		cost = 7
+
+		prerequisite = { focus = VIE_msl_national_program }
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_vsm01a_song_hong"
+			custom_effect_tooltip = VIE_tt_msl_m06_reward
+			hidden_effect = { VIE_msl_m06_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 1.5 compare = greater_than_or_equals } } }
+			modifier = { factor = 0.25 VIE_ai_historical_path = yes date < 2015.1.1 }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_vcs01_truong_son
+		icon = GFX_focus_VIE_research_universities
+
+		x = 15
+		y = 2
+		relative_position_id = VIE_msl_national_program
+
+		cost = 7
+
+		prerequisite = { focus = VIE_msl_national_program }
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_vcs01_truong_son"
+			custom_effect_tooltip = VIE_tt_msl_m07_reward
+			hidden_effect = { VIE_msl_m07_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 2 compare = greater_than_or_equals } } }
+			modifier = { factor = 0.25 VIE_ai_historical_path = yes date < 2015.1.1 }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_technical_autonomy
+		icon = GFX_focus_VIE_nf_command_reform_2
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_msl_redut_maintenance
+
+		cost = 7
+
+		prerequisite = { focus = VIE_msl_scud_b_maintenance }
+		prerequisite = { focus = VIE_msl_redut_maintenance }
+		prerequisite = { focus = VIE_msl_rubezh_maintenance }
+
+		search_filters = { FOCUS_FILTER_MILITARY_LAWS FOCUS_FILTER_EXPENDITURE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_technical_autonomy"
+			custom_effect_tooltip = VIE_tt_msl_m04_reward
+			hidden_effect = { VIE_msl_m04_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 45
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 0.8 compare = greater_than_or_equals } } }
+			modifier = { factor = 2 VIE_ai_historical_path = yes }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_cruise_missile_industry
+		icon = GFX_focus_VIE_def_industry_law
+
+		x = 0
+		y = 2
+		relative_position_id = VIE_msl_vsm01a_song_hong
+
+		cost = 8
+
+		prerequisite = { focus = VIE_msl_vcm01_program }
+		prerequisite = { focus = VIE_msl_vsm01a_song_hong }
+		prerequisite = { focus = VIE_msl_vcs01_truong_son }
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_EXPENDITURE }
+
+		available = { custom_trigger_tooltip = { tooltip = VIE_tt_msl_vcs_certified has_country_flag = VIE_msl_vcs_certified } }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_cruise_missile_industry"
+			custom_effect_tooltip = VIE_tt_msl_m08_reward
+			hidden_effect = { VIE_msl_m08_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 45
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { check_variable = { var = treasury value = 2 compare = greater_than_or_equals } } }
+		}
+	}
+
+	focus = {
+		id = VIE_msl_national_capability
+		icon = GFX_focus_VIE_nf_command_reform_2
+
+		x = 11
+		y = 2
+		relative_position_id = VIE_msl_technical_autonomy
+
+		cost = 5
+
+		prerequisite = { focus = VIE_msl_technical_autonomy }
+		prerequisite = { focus = VIE_msl_cruise_missile_industry }
+
+		search_filters = { FOCUS_FILTER_MILITARY_LAWS }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_msl_national_capability"
+			custom_effect_tooltip = VIE_tt_msl_m09_reward
+			hidden_effect = { VIE_msl_m09_reward = yes }
+		}
+
+		ai_will_do = {
+			base = 40
+		}
+	}
 }

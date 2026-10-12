@@ -1,0 +1,11 @@
+namespaces declared: {'vie_alt': ['events\\VIE_md_events.txt'], 'vie_army_commanders': ['events\\VIE_md_events.txt'], 'vie_auto': ['events\\VIE_md_events.txt'], 'vie_axis': ['events\\VIE_md_events.txt'], 'vie_col': ['events\\VIE_md_events.txt'], 'vie_cor': ['events\\VIE_md_events.txt'], 'vie_dip': ['events\\VIE_md_events.txt'], 'vie_disaster': ['events\\VIE_md_events.txt'], 'vie_eco': ['events\\VIE_md_events.txt'], 'vie_hl': ['events\\VIE_md_events.txt'], 'vie_ind': ['events\\VIE_md_events.txt'], 'vie_infra': ['events\\VIE_md_events.txt'], 'vie_int': ['events\\VIE_md_events.txt'], 'vie_news': ['events\\VIE_md_events.txt'], 'vie_petro': ['events\\VIE_md_events.txt'], 'vie_pol': ['events\\VIE_md_events.txt'], 'vie_scs': ['events\\VIE_md_events.txt'], 'vie_scs_coop': ['events\\VIE_md_events.txt'], 'vie_sec': ['events\\VIE_md_events.txt'], 'vie_soc': ['events\\VIE_md_events.txt'], 'vie_nav35': ['events\\VIE_md_events.txt'], 'vie_msl': ['events\\VIE_md_missile_events.txt']}
+event ids: 202
+DUPLICATE event ids: {}
+  events\VIE_md_events.txt: 199 events, prefixes=['vie_alt', 'vie_army_commanders', 'vie_auto', 'vie_axis', 'vie_cor', 'vie_dip', 'vie_disaster', 'vie_eco', 'vie_hl', 'vie_ind', 'vie_infra', 'vie_int', 'vie_nav35', 'vie_news', 'vie_petro', 'vie_pol', 'vie_scs', 'vie_scs_coop', 'vie_sec', 'vie_soc'], add_namespace=True
+  events\VIE_md_missile_events.txt: 3 events, prefixes=['vie_msl'], add_namespace=True
+
+EVENTS never referenced anywhere (defined only): 0
+[]
+
+EVENTS missing title/desc/option loc: 2  (hidden events excluded: 4)
+['vie_msl.20', 'vie_msl.30']

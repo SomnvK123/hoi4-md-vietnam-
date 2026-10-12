@@ -1,0 +1,27 @@
+DEFS: {'effect': 440, 'trigger': 199, 'idea': 260, 'event': 203, 'decision': 154, 'dec_cat': 12, 'dyn_mod': 3, 'opinion': 12, 'rule': 1, 'rule_opt': 2, 'bop': 1, 'mio': 4, 'loc': 4483, 'gfx': 323, 'char': 41, 'focus': 418, 'state_mod': 0}
+
+=== [SCRIPTED EFFECT / TRIGGER CALLS (X = yes)] used=412 defined=639 MISSING=0 ===
+
+=== [IDEAS (add_ideas/has_idea/remove_idea)] used=228 defined=260 MISSING=0 ===
+
+=== [DECISIONS (activate/has/remove)] used=8 defined=154 MISSING=0 ===
+
+=== [DECISION CATEGORIES (unlock_decision_category)] used=0 defined=12 MISSING=0 ===
+
+=== [DYNAMIC MODIFIERS] used=3 defined=3 MISSING=0 ===
+
+=== [FOCUS refs (has_completed_focus / shortcut target / prerequisite)] used=359 defined=418 MISSING=0 ===
+
+=== [GAME RULE OPTIONS] used=1 defined=2 MISSING=0 ===
+
+=== [MIO organizations] used=0 defined=4 MISSING=0 ===
+
+=== [LOC keys used as tooltip/custom_*_tooltip] used=481 defined=4483 MISSING=0 ===
+
+=== [EVENTS] fired but undefined: 0 ===
+
+=== [EVENTS] defined but never fired anywhere (true orphans): 0 ===
+    []
+
+=== [IDEAS] defined but never granted/referenced: 0 ===
+    []

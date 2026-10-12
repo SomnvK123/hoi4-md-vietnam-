@@ -1,0 +1,53 @@
+# Cong chuong trinh ten lua V5; dung chung available va guard giao dich.
+
+VIE_msl_scud_sustainment_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_msl_scud_b_maintenance
+	NOT = { has_idea = VIE_msl_scud_sustainment_active_idea }
+	check_variable = { var = treasury value = 0.1 compare = greater_than_or_equals }
+}
+
+VIE_msl_redut_sustainment_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_msl_redut_maintenance
+	NOT = { has_idea = VIE_msl_redut_sustainment_active_idea }
+	check_variable = { var = treasury value = 0.1 compare = greater_than_or_equals }
+}
+
+VIE_msl_rubezh_sustainment_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_msl_rubezh_maintenance
+	NOT = { has_idea = VIE_msl_rubezh_sustainment_active_idea }
+	check_variable = { var = treasury value = 0.1 compare = greater_than_or_equals }
+}
+
+VIE_msl_vcm_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_msl_vcm01_program
+	NOT = { has_country_flag = VIE_msl_vcm_ready }
+	NOT = { has_country_flag = VIE_msl_vcm_in_progress }
+	custom_trigger_tooltip = { tooltip = VIE_tt_msl_funds_vcm check_variable = { var = treasury value = 0.5 compare = greater_than_or_equals } }
+}
+
+VIE_msl_vsm_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_msl_vsm01a_song_hong
+	NOT = { has_country_flag = VIE_msl_vsm_certified }
+	NOT = { has_country_flag = VIE_msl_vsm_in_progress }
+	custom_trigger_tooltip = { tooltip = VIE_tt_msl_vcm_ready has_country_flag = VIE_msl_vcm_ready }
+	custom_trigger_tooltip = { tooltip = VIE_tt_msl_funds_vsm check_variable = { var = treasury value = 0.75 compare = greater_than_or_equals } }
+}
+
+VIE_msl_vcs_can_start = {
+	original_tag = VIE
+	has_completed_focus = VIE_msl_vcs01_truong_son
+	NOT = { has_country_flag = VIE_msl_vcs_certified }
+	NOT = { has_country_flag = VIE_msl_vcs_in_progress }
+	custom_trigger_tooltip = { tooltip = VIE_tt_msl_vsm_certified has_country_flag = VIE_msl_vsm_certified }
+	custom_trigger_tooltip = { tooltip = VIE_tt_msl_funds_vcs check_variable = { var = treasury value = 1 compare = greater_than_or_equals } }
+}
+
+# Mapping VCS chua duoc xac minh; khong bat bang co gameplay.
+VIE_msl_equipment_mapping_ready = {
+	always = no
+}

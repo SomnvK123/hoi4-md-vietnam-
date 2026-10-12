@@ -1,0 +1,317 @@
+{
+  "nodes": [
+    {
+      "code": "M00",
+      "id": "VIE_msl_national_program",
+      "title": "Chương trình tên lửa trọng điểm quốc gia",
+      "absolute": [
+        284,
+        2
+      ],
+      "relative": [
+        82,
+        1
+      ],
+      "anchor": "VIE_modernize_vpa",
+      "all": [
+        [
+          "VIE_modernize_vpa"
+        ]
+      ],
+      "cost": 5,
+      "icon": "GFX_focus_VIE_nf_command_reform_2",
+      "texture": "gfx/interface/goals/nf_command_reform_2.dds"
+    },
+    {
+      "code": "M01",
+      "id": "VIE_msl_scud_b_maintenance",
+      "title": "Duy trì lực lượng Scud-B",
+      "absolute": [
+        269,
+        4
+      ],
+      "relative": [
+        -15,
+        2
+      ],
+      "anchor": "VIE_msl_national_program",
+      "all": [
+        [
+          "VIE_msl_national_program"
+        ]
+      ],
+      "cost": 5,
+      "icon": "GFX_focus_VIE_nf_denial_defence",
+      "texture": "gfx/interface/goals/nf_denial_defence.dds"
+    },
+    {
+      "code": "M02",
+      "id": "VIE_msl_redut_maintenance",
+      "title": "Duy trì tổ hợp Redut-M",
+      "absolute": [
+        273,
+        4
+      ],
+      "relative": [
+        -11,
+        2
+      ],
+      "anchor": "VIE_msl_national_program",
+      "all": [
+        [
+          "VIE_msl_national_program"
+        ]
+      ],
+      "cost": 5,
+      "icon": "GFX_focus_VIE_nf_denial_defence",
+      "texture": "gfx/interface/goals/nf_denial_defence.dds"
+    },
+    {
+      "code": "M03",
+      "id": "VIE_msl_rubezh_maintenance",
+      "title": "Duy trì tổ hợp Rubezh",
+      "absolute": [
+        277,
+        4
+      ],
+      "relative": [
+        -7,
+        2
+      ],
+      "anchor": "VIE_msl_national_program",
+      "all": [
+        [
+          "VIE_msl_national_program"
+        ]
+      ],
+      "cost": 5,
+      "icon": "GFX_focus_VIE_nf_denial_defence",
+      "texture": "gfx/interface/goals/nf_denial_defence.dds"
+    },
+    {
+      "code": "M05",
+      "id": "VIE_msl_vcm01_program",
+      "title": "Chương trình VCM-01",
+      "absolute": [
+        291,
+        4
+      ],
+      "relative": [
+        7,
+        2
+      ],
+      "anchor": "VIE_msl_national_program",
+      "all": [
+        [
+          "VIE_msl_national_program"
+        ]
+      ],
+      "cost": 7,
+      "icon": "GFX_focus_VIE_research_universities",
+      "texture": "gfx/interface/goals/research_universities.dds"
+    },
+    {
+      "code": "M06",
+      "id": "VIE_msl_vsm01a_song_hong",
+      "title": "VSM-01A Sông Hồng",
+      "absolute": [
+        295,
+        4
+      ],
+      "relative": [
+        11,
+        2
+      ],
+      "anchor": "VIE_msl_national_program",
+      "all": [
+        [
+          "VIE_msl_national_program"
+        ]
+      ],
+      "cost": 7,
+      "icon": "GFX_focus_VIE_research_universities",
+      "texture": "gfx/interface/goals/research_universities.dds"
+    },
+    {
+      "code": "M07",
+      "id": "VIE_msl_vcs01_truong_son",
+      "title": "VCS-01 Trường Sơn",
+      "absolute": [
+        299,
+        4
+      ],
+      "relative": [
+        15,
+        2
+      ],
+      "anchor": "VIE_msl_national_program",
+      "all": [
+        [
+          "VIE_msl_national_program"
+        ]
+      ],
+      "cost": 7,
+      "icon": "GFX_focus_VIE_research_universities",
+      "texture": "gfx/interface/goals/research_universities.dds"
+    },
+    {
+      "code": "M04",
+      "id": "VIE_msl_technical_autonomy",
+      "title": "Làm chủ bảo đảm kỹ thuật tên lửa",
+      "absolute": [
+        273,
+        6
+      ],
+      "relative": [
+        0,
+        2
+      ],
+      "anchor": "VIE_msl_redut_maintenance",
+      "all": [
+        [
+          "VIE_msl_scud_b_maintenance"
+        ],
+        [
+          "VIE_msl_redut_maintenance"
+        ],
+        [
+          "VIE_msl_rubezh_maintenance"
+        ]
+      ],
+      "cost": 7,
+      "icon": "GFX_focus_VIE_nf_command_reform_2",
+      "texture": "gfx/interface/goals/nf_command_reform_2.dds"
+    },
+    {
+      "code": "M08",
+      "id": "VIE_msl_cruise_missile_industry",
+      "title": "Làm chủ thiết kế và sản xuất tên lửa hành trình",
+      "absolute": [
+        295,
+        6
+      ],
+      "relative": [
+        0,
+        2
+      ],
+      "anchor": "VIE_msl_vsm01a_song_hong",
+      "all": [
+        [
+          "VIE_msl_vcm01_program"
+        ],
+        [
+          "VIE_msl_vsm01a_song_hong"
+        ],
+        [
+          "VIE_msl_vcs01_truong_son"
+        ]
+      ],
+      "cost": 8,
+      "icon": "GFX_focus_VIE_def_industry_law",
+      "texture": "gfx/interface/goals/def_industry_law.dds"
+    },
+    {
+      "code": "M09",
+      "id": "VIE_msl_national_capability",
+      "title": "Phát triển năng lực tên lửa quốc gia",
+      "absolute": [
+        284,
+        8
+      ],
+      "relative": [
+        11,
+        2
+      ],
+      "anchor": "VIE_msl_technical_autonomy",
+      "all": [
+        [
+          "VIE_msl_technical_autonomy"
+        ],
+        [
+          "VIE_msl_cruise_missile_industry"
+        ]
+      ],
+      "cost": 5,
+      "icon": "GFX_focus_VIE_nf_command_reform_2",
+      "texture": "gfx/interface/goals/nf_command_reform_2.dds"
+    }
+  ],
+  "edges": [
+    {
+      "from": "VIE_modernize_vpa",
+      "to": "VIE_msl_national_program",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_national_program",
+      "to": "VIE_msl_scud_b_maintenance",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_national_program",
+      "to": "VIE_msl_redut_maintenance",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_national_program",
+      "to": "VIE_msl_rubezh_maintenance",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_national_program",
+      "to": "VIE_msl_vcm01_program",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_national_program",
+      "to": "VIE_msl_vsm01a_song_hong",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_national_program",
+      "to": "VIE_msl_vcs01_truong_son",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_scud_b_maintenance",
+      "to": "VIE_msl_technical_autonomy",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_redut_maintenance",
+      "to": "VIE_msl_technical_autonomy",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_rubezh_maintenance",
+      "to": "VIE_msl_technical_autonomy",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_vcm01_program",
+      "to": "VIE_msl_cruise_missile_industry",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_vsm01a_song_hong",
+      "to": "VIE_msl_cruise_missile_industry",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_vcs01_truong_son",
+      "to": "VIE_msl_cruise_missile_industry",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_technical_autonomy",
+      "to": "VIE_msl_national_capability",
+      "operator": "AND"
+    },
+    {
+      "from": "VIE_msl_cruise_missile_industry",
+      "to": "VIE_msl_national_capability",
+      "operator": "AND"
+    }
+  ],
+  "runtime_validated": false
+}

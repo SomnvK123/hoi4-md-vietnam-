@@ -1,0 +1,17 @@
+MD Vietnam-related states parsed: [518, 519, 520, 521, 522, 523, 524, 526, 801, 802, 813, 816]
+province->state map size: 81
+
+=== every "province = N" / "generator" / "states = {" in the mod, validated against MD ===
+  common\national_focus\VIE_md_focus.txt:3933  province 11168 -> state 801 (owner VIE)  coastal: Southwest Cay (dao)
+  common\national_focus\VIE_md_focus.txt:3939  province 11149 -> state 801 (owner VIE)  coastal: Collins Reef (dao)
+  common\national_focus\VIE_md_focus.txt:3945  province 11134 -> state 801 (owner VIE)  coastal: Spratly Is (dao)
+  common\national_focus\VIE_md_focus.txt:3958  province 4284 -> state 518 (owner VIE)  coastal: Rach Gia (coastal - MD dat naval_base 4 o day)
+  common\national_focus\VIE_md_focus.txt:4009  province 14178 -> state 518 (owner VIE)  coastal: Phu Quoc (dao)
+  common\scripted_effects\VIE_md_effects.txt:12412  province 10309 -> state 521 (owner VIE)  coastal: Da Nang (coastal)
+  common\scripted_triggers\VIE_md_triggers.txt:1497  province 10309 -> state 521 (owner VIE)  coastal: Da Nang (coastal)
+
+=== "NNN = { ... }" state-scope blocks: state ownership at 2000 start ===
+
+=== PROVINCE MISMATCH: state-scope block vs province id ===
+
+=== TỔNG HỢP LỖI: 0 ===

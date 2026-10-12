@@ -1,0 +1,173 @@
+VIE_msl_program_category = {
+	VIE_msl_dec_scud_sustainment = {
+		icon = GFX_decision_generic_military
+		cost = 20
+		days_re_enable = 365
+
+		visible = { has_completed_focus = VIE_msl_scud_b_maintenance }
+		available = { custom_trigger_tooltip = { tooltip = VIE_tt_msl_scud_sustainment_ready VIE_msl_scud_sustainment_can_start = yes } }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_scud_sustainment"
+			custom_effect_tooltip = VIE_tt_msl_scud_sustainment_start
+			hidden_effect = { VIE_msl_scud_sustainment_start = yes }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { VIE_msl_scud_sustainment_can_start = yes } }
+		}
+	}
+
+	VIE_msl_dec_redut_sustainment = {
+		icon = GFX_decision_generic_naval
+		cost = 15
+		days_re_enable = 365
+
+		visible = { has_completed_focus = VIE_msl_redut_maintenance }
+		available = { custom_trigger_tooltip = { tooltip = VIE_tt_msl_redut_sustainment_ready VIE_msl_redut_sustainment_can_start = yes } }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_redut_sustainment"
+			custom_effect_tooltip = VIE_tt_msl_redut_sustainment_start
+			hidden_effect = { VIE_msl_redut_sustainment_start = yes }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { VIE_msl_redut_sustainment_can_start = yes } }
+		}
+	}
+
+	VIE_msl_dec_rubezh_sustainment = {
+		icon = GFX_decision_generic_naval
+		cost = 15
+		days_re_enable = 365
+
+		visible = { has_completed_focus = VIE_msl_rubezh_maintenance }
+		available = { custom_trigger_tooltip = { tooltip = VIE_tt_msl_rubezh_sustainment_ready VIE_msl_rubezh_sustainment_can_start = yes } }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_rubezh_sustainment"
+			custom_effect_tooltip = VIE_tt_msl_rubezh_sustainment_start
+			hidden_effect = { VIE_msl_rubezh_sustainment_start = yes }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { VIE_msl_rubezh_sustainment_can_start = yes } }
+		}
+	}
+
+	VIE_msl_dec_vcm_development = {
+		icon = GFX_decision_generic_research
+		cost = 50
+		days_remove = 180
+
+		visible = { has_completed_focus = VIE_msl_vcm01_program NOT = { has_country_flag = VIE_msl_vcm_ready } }
+		available = { VIE_msl_vcm_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_vcm_development"
+			custom_effect_tooltip = VIE_tt_msl_vcm_start
+			hidden_effect = { VIE_msl_vcm_start = yes }
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_vcm_development completed"
+			custom_effect_tooltip = VIE_tt_msl_vcm_ready
+			hidden_effect = { country_event = { id = vie_msl.10 } }
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { VIE_msl_vcm_can_start = yes } }
+		}
+	}
+
+	VIE_msl_dec_vsm_validation = {
+		icon = GFX_decision_generic_research
+		cost = 50
+		days_remove = 180
+
+		visible = { has_completed_focus = VIE_msl_vsm01a_song_hong NOT = { has_country_flag = VIE_msl_vsm_certified } }
+		available = { VIE_msl_vsm_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_vsm_validation"
+			custom_effect_tooltip = VIE_tt_msl_vsm_start
+			hidden_effect = { VIE_msl_vsm_start = yes }
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_vsm_validation completed"
+			custom_effect_tooltip = VIE_tt_msl_vsm_certified
+			hidden_effect = { country_event = { id = vie_msl.20 } }
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { VIE_msl_vsm_can_start = yes } }
+		}
+	}
+
+	VIE_msl_dec_vcs_integration = {
+		icon = GFX_decision_generic_research
+		cost = 75
+		days_remove = 180
+
+		visible = { has_completed_focus = VIE_msl_vcs01_truong_son NOT = { has_country_flag = VIE_msl_vcs_certified } }
+		available = { VIE_msl_vcs_can_start = yes }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_vcs_integration"
+			custom_effect_tooltip = VIE_tt_msl_vcs_start
+			hidden_effect = { VIE_msl_vcs_start = yes }
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_vcs_integration completed"
+			custom_effect_tooltip = VIE_tt_msl_vcs_certified
+			hidden_effect = { country_event = { id = vie_msl.30 } }
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { factor = 0 has_active_mission = bankruptcy_incoming_collapse }
+			modifier = { factor = 0 NOT = { VIE_msl_vcs_can_start = yes } }
+		}
+	}
+
+	VIE_msl_dec_batch_production = {
+		icon = GFX_decision_generic_research
+		cost = 0
+
+		visible = { is_debug = yes has_completed_focus = VIE_msl_cruise_missile_industry }
+		available = { custom_trigger_tooltip = { tooltip = VIE_tt_msl_equipment_mapping_ready VIE_msl_equipment_mapping_ready = yes } }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_batch_production integration unavailable"
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	VIE_msl_dec_expand_industry = {
+		icon = GFX_decision_generic_research
+		cost = 0
+
+		visible = { is_debug = yes has_completed_focus = VIE_msl_cruise_missile_industry }
+		available = { custom_trigger_tooltip = { tooltip = VIE_tt_msl_equipment_mapping_ready VIE_msl_equipment_mapping_ready = yes } }
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VIE_msl_dec_expand_industry integration unavailable"
+		}
+
+		ai_will_do = { base = 0 }
+	}
+}
