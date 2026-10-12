@@ -1,4 +1,4 @@
-spriteTypes = {
+﻿spriteTypes = {
 	spriteType = {
 		name = "GFX_focus_VIE_lf_army_reform"
 		texturefile = "gfx/interface/goals/lf_army_reform.dds"
@@ -439,26 +439,11 @@ spriteTypes = {
 		name = "GFX_focus_VIE_digital_nation"
 		texturefile = "gfx/interface/goals/digital_nation.dds"
 	}
-	spriteType = {
-		name = "GFX_focus_VIE_semiconductor_ambition"
-		texturefile = "gfx/interface/goals/semiconductor_ambition.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_VIE_chip_design"
-		texturefile = "gfx/interface/goals/chip_design.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_VIE_osat_packaging"
-		texturefile = "gfx/interface/goals/osat_packaging.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_VIE_chip_engineers"
-		texturefile = "gfx/interface/goals/chip_engineers.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_VIE_semiconductor_fab"
-		texturefile = "gfx/interface/goals/semiconductor_fab.dds"
-	}
+
+
+
+
+
 	spriteType = {
 		name = "GFX_focus_VIE_viettel_global"
 		texturefile = "gfx/interface/goals/viettel_global.dds"

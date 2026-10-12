@@ -99,7 +99,7 @@ def main():
     print("\n== 2. Doc Focus Rewards tu code ==")
     focus_rewards = parse_focus_rewards()
     print(f"Parsed {len(focus_rewards)} V8 Focuses from code.")
-    check(len(focus_rewards) == 38, f"Parsed exactly 38 V8 focuses (got {len(focus_rewards)})")
+    check(len(focus_rewards) == 39, f"Parsed exactly 39 V8 focuses (got {len(focus_rewards)})")
 
     # Group focuses by branch
     foundation = [
@@ -130,11 +130,14 @@ def main():
         "VIE_air8_i04_viettel_vrs_3d_radar", "VIE_air8_i05_vq2_digital_c2",
         "VIE_air8_i06_viettel_tactical_uav",
     ]
+    capstone = [
+        "VIE_air8_r03_master_of_the_skies",
+    ]
 
     branches = {
-        "Hoc thuyet A (Phong khong chieu sau)": foundation + doctrine_a + industry,
-        "Hoc thuyet B (Phong thu co dong)": foundation + doctrine_b + industry,
-        "Hoc thuyet C (Tac chien tich hop C4ISR)": foundation + doctrine_c + industry,
+        "Hoc thuyet A (Phong khong chieu sau)": foundation + doctrine_a + industry + capstone,
+        "Hoc thuyet B (Phong thu co dong)": foundation + doctrine_b + industry + capstone,
+        "Hoc thuyet C (Tac chien tich hop C4ISR)": foundation + doctrine_c + industry + capstone,
     }
 
     print("\n== 3. Kiem tra Tran Can Bang (Caps Audit) theo tung Nhanh ==")

@@ -1,4 +1,4 @@
-﻿VIE_HISTORICAL_plan = {
+VIE_HISTORICAL_plan = {
 	name = "Historical Vietnam"
 	desc = "Vietnam follows its historical political and economic development."
 
@@ -52,24 +52,9 @@
 		VIE_concentration_of_power = 70
 
 		# Cac moc phat trien va hoi nhap theo trinh tu focus hien co.
-		VIE_enterprise_law = 60
-		VIE_investment_law_2005 = 50
-		VIE_industrialization_strategy = 50
 		# Uu tien chon loc FDI va thiet ke/dong goi; khong khoa dau tu che tao.
-		VIE_fdi_fast_track = 30
-		VIE_fdi_technology_screening = 70
-		VIE_chip_design_packaging_priority = 60
-		VIE_chip_pilot_fab_priority = 20
-		VIE_fdi_attraction = 40
-		VIE_infrastructure_development = 50
-		VIE_investment_grade = 40
-		VIE_international_financial_centre = 30
 
-		VIE_wto_negotiations = 80
-		VIE_wto_reforms = 60
 		VIE_asean_integration = 60
-		VIE_cptpp_member = 60
-		VIE_evfta = 60
 		VIE_bamboo_diplomacy = 60
 
 		# Hien dai hoa phong thu; prerequisite/date/available van giu quyen quyet dinh.

@@ -130,10 +130,6 @@
  vie_hl.3.a:0 "Trấn an: ban hành hướng dẫn rõ ràng và ưu đãi bổ sung"
  vie_hl.3.b:0 "Không thay đổi, dòng vốn sẽ tự điều chỉnh"
 
- vie_hl.4.t:0 "Cảnh báo về cam kết lao động và thương mại"
- vie_hl.4.d:0 "Đối tác trong EVFTA và CPTPP gửi công hàm quan ngại về việc quản lý nội dung mạng và báo chí, cho rằng ảnh hưởng tới các cam kết về tự do hiệp hội và minh bạch thông tin trong hiệp định."
- vie_hl.4.a:0 "Điều chỉnh để tuân thủ các cam kết"
- vie_hl.4.b:0 "Giữ lập trường, chấp nhận ảnh hưởng quan hệ"
 
  vie_hl.5.t:0 "Hội nghị Trung ương đánh giá giữa nhiệm kỳ"
  vie_hl.5.d:0 "Ban Chấp hành Trung ương họp đánh giá việc thực hiện đường lối Kiên định. Có ba luồng ý kiến: giữ nguyên nhịp độ, nới nhẹ để giảm áp lực, hoặc siết thêm để hoàn tất các mục tiêu chỉnh đốn."
@@ -213,7 +209,6 @@
  VIE_flag_VIE_hsr_partner_china_tt:0 "Đã chọn Trung Quốc làm đối tác đường sắt cao tốc"
  VIE_flag_VIE_hsr_partner_eu_tt:0 "Đã chọn EU làm đối tác đường sắt cao tốc"
  VIE_flag_VIE_indochina_open_tt:0 "Quan hệ Đông Dương đã được mở rộng"
- VIE_flag_VIE_infra_funding_bot_tt:0 "Đã chọn nguồn vốn BOT cho hạ tầng"
  VIE_flag_VIE_sched_vinashin_tt:0 "Vụ Vinashin đã nổ ra"
  VIE_flag_VIE_security_unlocked_tt:0 "Nhánh an ninh đã được mở khóa"
  VIE_flag_VIE_sez_bill_debated_tt:0 "Dự luật đặc khu đã được đưa ra thảo luận"
@@ -263,7 +258,6 @@
  VIE_flag_VIE_hsr_partner_china_tt_NOT:0 "Không đúng: Đã chọn Trung Quốc làm đối tác đường sắt cao tốc"
  VIE_flag_VIE_hsr_partner_eu_tt_NOT:0 "Không đúng: Đã chọn EU làm đối tác đường sắt cao tốc"
  VIE_flag_VIE_indochina_open_tt_NOT:0 "Không đúng: Quan hệ Đông Dương đã được mở rộng"
- VIE_flag_VIE_infra_funding_bot_tt_NOT:0 "Không đúng: Đã chọn nguồn vốn BOT cho hạ tầng"
  VIE_flag_VIE_sched_vinashin_tt_NOT:0 "Không đúng: Vụ Vinashin đã nổ ra"
  VIE_flag_VIE_security_unlocked_tt_NOT:0 "Không đúng: Nhánh an ninh đã được mở khóa"
  VIE_flag_VIE_sez_bill_debated_tt_NOT:0 "Không đúng: Dự luật đặc khu đã được đưa ra thảo luận"
@@ -652,8 +646,6 @@
  VIE_us_bta_idea_desc:0 "Cánh cửa tiếp cận thị trường Mỹ đã mở ra cơ hội vàng cho hàng dệt may, thủy hải sản và da giày Việt Nam vươn tới phân khúc khách hàng tiềm năng mới."
  VIE_fdi_zones_idea:0 "Khu Công nghiệp và Thu hút FDI"
  VIE_fdi_zones_idea_desc:0 "Hàng loạt khu công nghiệp xung quanh Hà Nội và TP. Hồ Chí Minh thu hút mạnh mẽ các nhà sản xuất Nhật Bản, Hàn Quốc và Đài Loan."
- VIE_wto_member:0 "Thành viên WTO"
- VIE_wto_member_desc:0 "Tư cách thành viên Tổ chức Thương mại Thế giới đảm bảo sự tiếp cận thị trường toàn cầu và đặt các doanh nghiệp nhà nước vào khuôn khổ cạnh tranh khắt khe."
  VIE_public_anger:0 "Làn sóng Phẫn nộ Dư luận"
  VIE_public_anger_desc:0 "Tinh thần dân tộc dâng cao sau các vụ đối đầu căng thẳng quanh giàn khoan."
  VIE_fdi_confidence_shock:0 "Cú Sốc Niềm tin Nhà đầu tư"
@@ -689,16 +681,6 @@
  VIE_grassroots_democracy_desc:0 "Tham vấn ý kiến nhân dân ở cấp thôn xóm, xã phường trao cho người dân tiếng nói trong các công việc địa phương và giải tỏa những bức xúc trước khi lan rộng."
  VIE_anti_corruption_steering:0 "Ban Chỉ đạo Phòng chống Tham nhũng"
  VIE_anti_corruption_steering_desc:0 "Một cơ quan trung ương nhằm điều phối toàn diện cuộc đấu tranh phòng chống tham nhũng. Điều này chắc chắn sẽ vấp phải sự kháng cự từ những kẻ từng trục lợi theo lề lối cũ."
- VIE_enterprise_law:0 "Luật Doanh nghiệp"
- VIE_enterprise_law_desc:0 "Từ tháng 1 năm 2000, công dân được tự do thành lập và kinh doanh trong mọi ngành nghề mà pháp luật không cấm. Hàng chục ngàn doanh nghiệp mới nhanh chóng ra đời."
- VIE_bilateral_trade_agreement_usa:0 "Hiệp định Thương mại với Hoa Kỳ"
- VIE_bilateral_trade_agreement_usa_desc:0 "Chỉ ít năm sau khi bình thường hóa quan hệ, Hà Nội và Washington đã ký kết hiệp định thương mại song phương mang tính lịch sử."
- VIE_equitization_soes:0 "Cổ phần hóa Doanh nghiệp Nhà nước"
- VIE_equitization_soes_desc:0 "Bán bớt cổ phần trong các doanh nghiệp nhà nước vừa tạo nguồn thu cho ngân sách vừa hiện đại hóa công tác quản trị, dù các cán bộ điều hành cũ không mấy hài lòng."
- VIE_fdi_attraction:0 "Khu Công nghiệp và Thu hút FDI"
- VIE_fdi_attraction_desc:0 "Các khu công nghiệp với giá thuê đất ưu đãi, miễn giảm thuế và nguồn điện ổn định đã thu hút mạnh mẽ các tập đoàn sản xuất nước ngoài về vùng đồng bằng sông Hồng và đồng bằng sông Cửu Long."
- VIE_wto_negotiations:0 "Đàm phán Gia nhập WTO"
- VIE_wto_negotiations_desc:0 "Hàng năm trời đàm phán song phương mở đường cho việc gia nhập tổ chức thương mại toàn cầu. Một thỏa thuận thương mại với Washington và mối quan hệ ấm dần lên với Hoa Kỳ sẽ rút ngắn chặng đường này."
  VIE_border_settlement:0 "Hoàn tất Phân giới Cắm mốc Biên giới"
  VIE_border_settlement_desc:0 "Hiệp ước biên giới trên đất liền được phê chuẩn, các cột mốc chủ quyền được dựng lên dọc đường biên. Việc loại bỏ các tranh chấp tồn đọng trong lịch sử giúp hai bên giao thương hòa bình."
  VIE_asean_integration:0 "Đường lối Đối ngoại"
@@ -724,9 +706,6 @@
  vie_pol.5.b:0 "Nhóm chủ trương của Chính phủ chiếm ưu thế"
 
  ### Events: economy
- vie_eco.1.t:0 "Việt Nam Chính thức Gia nhập WTO"
- vie_eco.1.d:0 "Sau hơn một thập kỷ kiên trì đàm phán, Tổ chức Thương mại Thế giới chính thức phê chuẩn tư cách thành viên của Việt Nam. Thuế quan cắt giảm, các doanh nghiệp xuất khẩu tiếp cận được những thị trường mới rộng lớn, và khối doanh nghiệp nhà nước buộc phải đương đầu với sự cạnh tranh khốc liệt."
- vie_eco.1.a:0 "Một chương mới mở ra cho nền kinh tế"
  vie_eco.2.t:0 "Chuyên án Năm Cam"
  vie_eco.2.d:0 "Công an đã bắt giữ ông trùm thế giới ngầm khét tiếng tại TP. Hồ Chí Minh, kẻ sở hữu mạng lưới bảo kê vươn sâu vào các cơ quan cảnh sát và viện kiểm sát. Các điều tra viên khẳng định các đầu mối còn dẫn tới những nhân vật quyền lực cao hơn nữa."
  vie_eco.2.a:0 "Xử lý nghiêm minh mọi đối tượng, bất kể cấp bậc"
@@ -789,8 +768,6 @@
  ### Focus tree shortcut buttons (left-hand menu)
  VIE_doi_moi_shortcut:0 "Con đường Đổi Mới"
  VIE_congress_shortcut:0 "Đại hội Đảng"
- VIE_finance_shortcut:0 "Ngân hàng và Tài chính"
- VIE_industry_shortcut:0 "Tập đoàn Nhà nước và Công nghiệp"
  VIE_army_shortcut:0 "Hiện đại hóa Quân đội"
  VIE_east_sea_shortcut:0 "Biển Đông"
  VIE_asean_shortcut:0 "Đường lối Đối ngoại"
@@ -830,8 +807,6 @@
 
 
 
- VIE_jetp_partnership:0 "Đối tác Năng lượng Công bằng JETP"
- VIE_jetp_partnership_desc:0 "Ký kết thỏa thuận chính trị lịch sử với khối G7 và Liên minh Châu Âu, huy động 15,5 tỷ USD tài chính xanh. Nguồn lực quốc tế giúp Việt Nam đóng cửa dần các lò than cũ, dọn đường cho kỷ nguyên điện gió ngoài khơi."
 
  ### Ideas
  VIE_military_rescue_idea:0 "Binh chủng Cứu nạn Quân sự"

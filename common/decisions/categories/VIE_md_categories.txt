@@ -57,14 +57,10 @@ VIE_party_balance_category = {
 
 
 # Ha tang quoc gia: bon nganh dau tu doc lap.
-VIE_infrastructure_category = {
-	allowed = { original_tag = VIE }
-	priority = 80
-	visible = { has_completed_focus = VIE_infrastructure_development }
-}
+
 
 # Chuong trinh cong nghiep quoc gia.
-VIE_industry_category = { allowed = { original_tag = VIE } priority = 81 visible = { has_completed_focus = VIE_industrialization_strategy } }
+
 
 # Chuong trinh dau tu va bao dam Hai quan V35.1
 VIE_naval_procurement_category = {

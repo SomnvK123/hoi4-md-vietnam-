@@ -7,14 +7,14 @@
     {
       "code": "M00",
       "id": "VIE_msl_national_program",
-      "title": "Chương trình tên lửa trọng điểm quốc gia",
+      "title": "Chương trình tên lửa quốc gia",
       "absolute": [
-        284,
+        280,
         2
       ],
       "anchor": "VIE_modernize_vpa",
       "relative": [
-        82,
+        78,
         1
       ],
       "cost": 5,
@@ -34,13 +34,13 @@
       "id": "VIE_msl_scud_b_maintenance",
       "title": "Duy trì lực lượng Scud-B",
       "absolute": [
-        269,
-        4
+        275,
+        3
       ],
       "anchor": "VIE_msl_national_program",
       "relative": [
-        -15,
-        2
+        -5,
+        1
       ],
       "cost": 5,
       "treasury_cost": 0.4,
@@ -59,13 +59,13 @@
       "id": "VIE_msl_redut_maintenance",
       "title": "Duy trì tổ hợp Redut-M",
       "absolute": [
-        273,
-        4
+        277,
+        3
       ],
       "anchor": "VIE_msl_national_program",
       "relative": [
-        -11,
-        2
+        -3,
+        1
       ],
       "cost": 5,
       "treasury_cost": 0.4,
@@ -84,13 +84,13 @@
       "id": "VIE_msl_rubezh_maintenance",
       "title": "Duy trì tổ hợp Rubezh",
       "absolute": [
-        277,
-        4
+        279,
+        3
       ],
       "anchor": "VIE_msl_national_program",
       "relative": [
-        -7,
-        2
+        -1,
+        1
       ],
       "cost": 5,
       "treasury_cost": 0.4,
@@ -109,13 +109,13 @@
       "id": "VIE_msl_vcm01_program",
       "title": "Chương trình VCM-01",
       "absolute": [
-        291,
-        4
+        281,
+        3
       ],
       "anchor": "VIE_msl_national_program",
       "relative": [
-        7,
-        2
+        1,
+        1
       ],
       "cost": 7,
       "treasury_cost": 1.0,
@@ -134,13 +134,13 @@
       "id": "VIE_msl_vsm01a_song_hong",
       "title": "VSM-01A Sông Hồng",
       "absolute": [
-        295,
-        4
+        283,
+        3
       ],
       "anchor": "VIE_msl_national_program",
       "relative": [
-        11,
-        2
+        3,
+        1
       ],
       "cost": 7,
       "treasury_cost": 1.5,
@@ -159,13 +159,13 @@
       "id": "VIE_msl_vcs01_truong_son",
       "title": "VCS-01 Trường Sơn",
       "absolute": [
-        299,
-        4
+        285,
+        3
       ],
       "anchor": "VIE_msl_national_program",
       "relative": [
-        15,
-        2
+        5,
+        1
       ],
       "cost": 7,
       "treasury_cost": 2.0,
@@ -182,15 +182,15 @@
     {
       "code": "M04",
       "id": "VIE_msl_technical_autonomy",
-      "title": "Làm chủ bảo đảm kỹ thuật tên lửa",
+      "title": "Tự chủ kỹ thuật tên lửa",
       "absolute": [
-        273,
-        6
+        277,
+        4
       ],
       "anchor": "VIE_msl_redut_maintenance",
       "relative": [
         0,
-        2
+        1
       ],
       "cost": 7,
       "treasury_cost": 0.8,
@@ -209,15 +209,15 @@
     {
       "code": "M08",
       "id": "VIE_msl_cruise_missile_industry",
-      "title": "Làm chủ thiết kế và sản xuất tên lửa hành trình",
+      "title": "Tự chủ tên lửa hành trình",
       "absolute": [
-        295,
-        6
+        283,
+        4
       ],
       "anchor": "VIE_msl_vsm01a_song_hong",
       "relative": [
         0,
-        2
+        1
       ],
       "cost": 8,
       "treasury_cost": 2.0,
@@ -236,15 +236,15 @@
     {
       "code": "M09",
       "id": "VIE_msl_national_capability",
-      "title": "Phát triển năng lực tên lửa quốc gia",
+      "title": "Năng lực tên lửa quốc gia",
       "absolute": [
-        284,
-        8
+        280,
+        5
       ],
       "anchor": "VIE_msl_technical_autonomy",
       "relative": [
-        11,
-        2
+        3,
+        1
       ],
       "cost": 5,
       "treasury_cost": 0,

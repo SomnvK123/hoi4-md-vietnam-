@@ -51,16 +51,16 @@ Không dùng thiếu designer để kết luận MD không có tên lửa hoặc
 
 | Mã | ID focus | Tên hiển thị | Prerequisite, tất cả là AND | Available bổ sung | Cost |
 |---|---|---|---|---|---:|
-| M00 | `VIE_msl_national_program` | Chương trình tên lửa trọng điểm quốc gia | `VIE_modernize_vpa` | Không | 5 |
+| M00 | `VIE_msl_national_program` | Chương trình tên lửa quốc gia | `VIE_modernize_vpa` | Không | 5 |
 | M01 | `VIE_msl_scud_b_maintenance` | Duy trì lực lượng Scud-B | M00 | Không | 5 |
 | M02 | `VIE_msl_redut_maintenance` | Duy trì tổ hợp Redut-M | M00 | Không | 5 |
 | M03 | `VIE_msl_rubezh_maintenance` | Duy trì tổ hợp Rubezh | M00 | Không | 5 |
 | M05 | `VIE_msl_vcm01_program` | Chương trình VCM-01 | M00 | Không | 7 |
 | M06 | `VIE_msl_vsm01a_song_hong` | VSM-01A Sông Hồng | M00 | Không | 7 |
 | M07 | `VIE_msl_vcs01_truong_son` | VCS-01 Trường Sơn | M00 | Không | 7 |
-| M04 | `VIE_msl_technical_autonomy` | Làm chủ bảo đảm kỹ thuật tên lửa | M01 + M02 + M03 | Không | 7 |
-| M08 | `VIE_msl_cruise_missile_industry` | Làm chủ thiết kế và sản xuất tên lửa hành trình | M05 + M06 + M07 | `VIE_msl_vcs_certified` | **8** |
-| M09 | `VIE_msl_national_capability` | Phát triển năng lực tên lửa quốc gia | M04 + M08 | Không | 5 |
+| M04 | `VIE_msl_technical_autonomy` | Tự chủ kỹ thuật tên lửa | M01 + M02 + M03 | Không | 7 |
+| M08 | `VIE_msl_cruise_missile_industry` | Tự chủ tên lửa hành trình | M05 + M06 + M07 | `VIE_msl_vcs_certified` | **8** |
+| M09 | `VIE_msl_national_capability` | Năng lực tên lửa quốc gia | M04 + M08 | Không | 5 |
 
 M08 cost 8 là ngoại lệ có chủ đích để giữ spec V5, phải ghi trong kế hoạch và test; không tự sửa thành 7 theo mặc định skill. Cost là điểm thời gian, không phải PP hoặc treasury. Tài liệu repo có mô tả số ngày không đồng nhất với renderer hiện có; chỉ ghi cost trong spec, xác nhận số ngày từ defines/game thực trước khi đưa vào loc.
 
@@ -68,24 +68,22 @@ M06/M07 không bị khóa bởi cờ VCM/VSM trong focus: có thể chuẩn bị
 
 ### 2.2. Tọa độ chốt cho cây đang khảo sát
 
-Giữ các độ lệch cục bộ của V5. Đặt M00 bên phải PK-KQ; không dời nhánh cũ. Anchor của capstone đổi sang một prerequisite trực tiếp để phù hợp repo, nhưng tọa độ tuyệt đối và đồ thị HTML không đổi.
+Bố cục siêu thu gọn đối xứng (ultra-compact layout) quanh trục tâm $X=280$, bước nhảy dọc chuẩn $\Delta y = 1$ đồng bộ với toàn bộ các nhánh Lục quân, Hải quân và PK-KQ (hàng 2, 3, 4, 5). M01 cách cụm Không quân tại $X=268$ đúng 7 cột khoảng cách an toàn (triệt tiêu hoàn toàn dính chữ/icon). Tất cả các node trên hàng 3 xếp liền nhau với bước tối thiểu chuẩn engine $\Delta x = 2$, nối liền mạch và không còn khoảng trống thừa theo cả chiều ngang lẫn chiều dọc.
 
 | Mã | X tuyệt đối | Y tuyệt đối | Anchor trong code | x tương đối | y tương đối |
 |---|---:|---:|---|---:|---:|
-| M00 | 284 | 2 | `VIE_modernize_vpa` | 82 | 1 |
-| M01 | 269 | 4 | M00 | -15 | 2 |
-| M02 | 273 | 4 | M00 | -11 | 2 |
-| M03 | 277 | 4 | M00 | -7 | 2 |
-| M05 | 291 | 4 | M00 | 7 | 2 |
-| M06 | 295 | 4 | M00 | 11 | 2 |
-| M07 | 299 | 4 | M00 | 15 | 2 |
-| M04 | 273 | 6 | M02 | 0 | 2 |
-| M08 | 295 | 6 | M06 | 0 | 2 |
-| M09 | 284 | 8 | M04 | 11 | 2 |
+| M00 | 280 | 2 | `VIE_modernize_vpa` | 78 | 1 |
+| M01 | 275 | 3 | M00 | -5 | 1 |
+| M02 | 277 | 3 | M00 | -3 | 1 |
+| M03 | 279 | 3 | M00 | -1 | 1 |
+| M05 | 281 | 3 | M00 | 1 | 1 |
+| M06 | 283 | 3 | M00 | 3 | 1 |
+| M07 | 285 | 3 | M00 | 5 | 1 |
+| M04 | 277 | 4 | M02 | 0 | 1 |
+| M08 | 283 | 4 | M06 | 0 | 1 |
+| M09 | 280 | 5 | M04 | 3 | 1 |
 
-Đã tính tọa độ từ parser live: cả 10 vị trí không va chạm/gap<2 với cây 408 focus. M01 cách node ngoài cụm ở X=267 đúng 2. Sáu node giữa có gap nội bộ 4,4,14,4,4. Chiều ngang toàn cây tăng 32 đơn vị ở phía phải; đây là mở lane cho nội dung mới, cần ghi rõ khi review.
-
-Nếu cây thay đổi trước lúc code, tính lại tọa độ và cập nhật manifest, không tin mốc 408 hoặc X=267 cố định. Không tự dời nhánh khác để giữ con số này.
+Đã tính tọa độ từ parser live: cả 10 vị trí không va chạm/gap<2 với toàn bộ cây focus. Sáu node hàng Y=3 có gap nội bộ đồng đều $\Delta x = 2$ cực kỳ gọn gàng. Chiều ngang toàn nhánh tên lửa thu gọn còn đúng 10 đơn vị (từ 275 đến 285), chiều dọc 4 tầng liên tiếp từ Y=2 đến Y=5.
 
 Đồ thị engine phải có đúng **15 cạnh** gồm cạnh từ root quân sự: 1 vào M00, 6 từ M00, 3 vào M04, 3 vào M08, 2 vào M09. Mỗi cha tại capstone là một block prerequisite riêng; không gộp thành OR. Không có bypass, mutex hoặc prerequisite cùng hàng.
 

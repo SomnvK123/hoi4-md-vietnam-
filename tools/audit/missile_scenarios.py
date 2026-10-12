@@ -254,7 +254,7 @@ def node_tests():
     actual = {fid for fid in FOCUSES if fid.startswith('VIE_msl_')}
     check(actual == {n['id'] for n in NODES.values()}, 'exact missile focus set')
     check(sum(len(values(FOCUSES[n['id']], 'prerequisite')) for n in NODES.values()) == 15, '15 AND edges')
-    check({position(NODES[c]['id'])[1] for c in ('M01','M02','M03','M05','M06','M07')} == {4}, 'six programs same row')
+    check({position(NODES[c]['id'])[1] for c in ('M01','M02','M03','M05','M06','M07')} == {3}, 'six programs same row')
     for n in NODES.values():
         b = FOCUSES[n['id']]
         check(position(n['id']) == tuple(n['absolute']), n['code']+' position')
