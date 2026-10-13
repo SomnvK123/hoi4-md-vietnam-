@@ -183,8 +183,18 @@
       "refs": "3.2;4.2;4.3;6;10;11.1;11.3;CSV;I2;I3; được người dùng chốt, mỗi checkpoint thương lượng"
     },
     "choice_full_exception": {
-      "value": {"program": "inspection", "e102": "C", "e103": ["B", "C"]},
-      "refs": "4.2;6.4;6.5;10;11.1;11.3;12;I5; chỉ miễn dự phòng cho tổ hợp người chơi đã chọn, không đổi deadline/giá"
+      "value": {
+        "program": "inspection",
+        "e102": [
+          "C"
+        ],
+        "e103": [
+          "B",
+          "C"
+        ],
+        "include_rejected_A": true
+      },
+      "refs": "4.2;6.5;10;11.3;I5; all player-choice exceptions with reasons, not an automatic exemption from the reserve floor"
     },
     "checkpoint_pp": {
       "value": 15,
@@ -445,11 +455,12 @@
         "A_pp": 0,
         "rejection_cohesion": -6,
         "reappraisal_days": 180,
-        "B_pp": 30,
-        "extension_days": 120,
-        "C_pp": 15
+        "B_pp": 0,
+        "C_pp": 15,
+        "B_treasury": 0.5,
+        "B_deadline": 780
       },
-      "refs": "6.5;8.3;10;11; B giữ độ gia hạn cũ 780−660=120"
+      "refs": "6.5;8.1;10;11.1;11.3;12;CSV; B=0PP+0.50 treasury and contract deadline780 explicitly confirmed by user; C unchanged"
     },
     "e104": {
       "value": {
@@ -520,6 +531,443 @@
     "max_fast_reward_pp_difference": {
       "value": 10,
       "refs": "I2;11.3"
+    },
+    "l2_history_anchors": {
+      "value": {
+        "resolution_02_2013": "2013-01-07",
+        "vamc_started": "2013-07-09",
+        "hysy981_detected": "2014-05-01",
+        "hysy981_placed": "2014-05-02",
+        "corporate_bond_market_freeze": "2022-Q4"
+      },
+      "refs": "2;7.2;7.4;11.3; sourced historical anchors, separate from assumed gameplay gates"
+    },
+    "node_choice_delays": {
+      "value": {
+        "X01": 30,
+        "X02": 60,
+        "X06": 90,
+        "XI01": 30,
+        "XI04": 60,
+        "XI05": 90,
+        "XI07": 60,
+        "XI08": 30,
+        "XII02": 60,
+        "XII04": 30,
+        "XII08": 60,
+        "XIII08": 60,
+        "XIV04": 30,
+        "XIV06": 90,
+        "XIV08": -30,
+        "XIV05": 180
+      },
+      "refs": "7.4;11.3; node event/decision delays in days; all are assumptions for gameplay; XIV08 là giảm gián đoạn 30 ngày; XIV05 chỉ gia hạn hồ sơ 180 ngày, không đổi deadline programme"
+    },
+    "node_choice_prices": {
+      "value": {
+        "X01": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "X02": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "X03": [
+          [
+            30,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "X04": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "X05": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "X06": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "X07": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "X08": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XI01": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XI02": [
+          [
+            0,
+            0.75
+          ],
+          [
+            25,
+            0
+          ]
+        ],
+        "XI03": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XI04": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XI05": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XI06": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XI07": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XI08": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XII01": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XII02": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XII03": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XII04": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XII05": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XII06": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XII07": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XII08": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIII01": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIII02": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XIII03": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIII04": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XIII05": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIII06": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XIII07": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIII08": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIV01": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIV02": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XIV03": [
+          [
+            15,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIV04": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIV05": [
+          [
+            30,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XIV06": [
+          [
+            20,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ],
+        "XIV07": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.75
+          ]
+        ],
+        "XIV08": [
+          [
+            25,
+            0
+          ],
+          [
+            0,
+            0.5
+          ]
+        ]
+      },
+      "format": "mỗi cặp là [PP, ngân khố] cho lựa chọn A rồi B",
+      "refs": "7.4;11.3; X01–X08; XI01–XI08; XII01–XII08; XIII01–XIII08; XIV01–XIV08"
     },
     "focus_nodes": {
       "value": {
@@ -675,22 +1123,26 @@
         },
         "XI05": {
           "cost": 5,
-          "name": "Rà soát tín dụng bất động sản",
+          "name": "Rà soát nợ xấu có tài sản bảo đảm là bất động sản",
+          "old_name": "Rà soát tín dụng bất động sản",
           "source_row": "Kiểm tra dự án có vốn vay |"
         },
         "XI06": {
           "cost": 7,
-          "name": "Yêu cầu công bố nghĩa vụ trái phiếu",
+          "name": "Xử lý nợ xấu qua cơ chế mua bán nợ",
+          "old_name": "Yêu cầu công bố nghĩa vụ trái phiếu",
           "source_row": "Event tổ chức phát hành–người mua |"
         },
         "XI07": {
           "cost": 7,
-          "name": "Tái cơ cấu dự án mất khả năng thanh toán",
+          "name": "Xử lý dự án bất động sản đóng băng",
+          "old_name": "Tái cơ cấu dự án mất khả năng thanh toán",
           "source_row": "Hỗ trợ có điều kiện |"
         },
         "XI08": {
           "cost": 3,
-          "name": "Bảo vệ người mua trong phương án xử lý",
+          "name": "Lập hồ sơ ứng phó sự cố giàn khoan",
+          "old_name": "Bảo vệ người mua trong phương án xử lý",
           "source_row": "Milestone dân vận |"
         },
         "XI09": {
@@ -710,7 +1162,8 @@
         },
         "XI12": {
           "cost": 5,
-          "name": "Kiểm tra trách nhiệm bên bảo lãnh trái phiếu",
+          "name": "Kiểm tra trách nhiệm bên bảo lãnh tín dụng",
+          "old_name": "Kiểm tra trách nhiệm bên bảo lãnh trái phiếu",
           "source_row": "Event xác định bên chịu trách nhiệm; mở decision bồi hoàn có điều kiện và hậu quả đối với nhóm lợi ích. |"
         },
         "XII01": {
@@ -795,22 +1248,26 @@
         },
         "XIII05": {
           "cost": 5,
-          "name": "Đa dạng hóa hợp đồng và đối tác",
+          "name": "Công khai nghĩa vụ trái phiếu doanh nghiệp",
+          "old_name": "Đa dạng hóa hợp đồng và đối tác",
           "source_row": "Đàm phán hữu hạn |"
         },
         "XIII06": {
           "cost": 7,
-          "name": "Công khai giới hạn hợp tác an ninh",
+          "name": "Đàm phán cơ cấu lại kỳ hạn",
+          "old_name": "Công khai giới hạn hợp tác an ninh",
           "source_row": "Event an ninh–ngoại giao |"
         },
         "XIII07": {
           "cost": 7,
-          "name": "Đàm phán quyền tiếp cận có điều kiện",
+          "name": "Bảo vệ người mua trong phương án xử lý",
+          "old_name": "Đàm phán quyền tiếp cận có điều kiện",
           "source_row": "Đối tác chọn |"
         },
         "XIII08": {
           "cost": 3,
-          "name": "Điều chỉnh hợp tác sau khủng hoảng",
+          "name": "Kiểm tra trách nhiệm bên phân phối và bảo lãnh",
+          "old_name": "Điều chỉnh hợp tác sau khủng hoảng",
           "source_row": "Thay điều kiện theo kết quả |"
         },
         "XIII09": {
@@ -894,7 +1351,1583 @@
           "source_row": "Event chuẩn bị roster kế tiếp, kiểm tra kiêm nhiệm và kế cận; tạo phương án cho XV giả định, chưa tự thay người. |"
         }
       },
-      "refs": "6.2;7.4; toàn bộ cost và giá đã ghi trong các node; giá chưa ghi được đánh dấu ở báo cáo B1"
+      "refs": "6.2;7.4; tên/cost của 74 node; giá PP/ngân khố 40 node L2 nằm riêng trong node_choice_prices; source_row giữ ảnh chụp nội dung trước Lượt 2"
+    },
+    "designed_identifiers": {
+      "value": [
+        "VIE_leadership_balance",
+        "VIE_leadership_cohesion",
+        "VIE_last_congress",
+        "VIE_office_holders",
+        "VIE_last_resolved_program",
+        "VIE_last_side_project_epoch"
+      ],
+      "refs": "3;5;8.1; nhãn thiết kế chưa là định nghĩa engine"
+    },
+    "l3_document_checks": {
+      "value": {
+        "fixed_node_count": 74,
+        "target_node_count": 40,
+        "focus_costs": [
+          3,
+          5,
+          7
+        ],
+        "mutex_pairs": [
+          [
+            "F03",
+            "F04"
+          ],
+          [
+            "IX11",
+            "IX12"
+          ],
+          [
+            "X09",
+            "X10"
+          ],
+          [
+            "XI09",
+            "XI10"
+          ],
+          [
+            "XII01",
+            "XII05"
+          ],
+          [
+            "XII04",
+            "XII08"
+          ],
+          [
+            "XIII10",
+            "XIII11"
+          ],
+          [
+            "XIV05",
+            "XIV06"
+          ],
+          [
+            "XIV08",
+            "XIV09"
+          ]
+        ]
+      },
+      "refs": "6.1;7.1;7.4;11.3; script kiểm, không thêm node/gate gameplay"
+    },
+    "legacy_node_terms": {
+      "value": {
+        "IX11": {
+          "pp": 20,
+          "cohesion_gain": 4,
+          "delay_days": 30
+        },
+        "IX12": {
+          "independent_audit_pp": 20
+        },
+        "X09": {
+          "installments": 2,
+          "treasury_per_installment": 0.25
+        },
+        "X10": {
+          "treasury": 0.5,
+          "delay_days": -30
+        },
+        "X12": {
+          "bop_delta_choices": [
+            -0.05,
+            0.05
+          ]
+        },
+        "XI09": {
+          "treasury": 0.5
+        },
+        "XI10": {
+          "delay_days": 90
+        },
+        "XI12": {
+          "reparation_pp": 20,
+          "reparation_treasury": 0.5
+        },
+        "XII09": {
+          "training_days": 90
+        },
+        "XII10": {
+          "days": 180,
+          "pp": 30,
+          "cohesion": 8,
+          "alternative_treasury": 0.25
+        },
+        "XII12": {
+          "handover_days": 60,
+          "immediate_cohesion_loss": 6
+        },
+        "XIII11": {
+          "days": 180,
+          "treasury": 0.5
+        },
+        "XIII12": {
+          "cancellation_cost": "unreceived_e104_support"
+        },
+        "XIV09": {
+          "delay_days": 30
+        },
+        "XIV10": {
+          "reward_days": 365,
+          "stability_reward": 0.01,
+          "stability_cap": 0.01,
+          "stack_with_social_tier": false,
+          "requires_matching_acceptance": true,
+          "guard": "một lần trên địa điểm/epoch; thay thế idea trùng; effective stability=max(social_tier_stability,service_idea_stability), không cộng"
+        },
+        "XIV11": {
+          "sign_window_days": 21,
+          "retain_cost": 15,
+          "amend_cost": 0.5,
+          "cancel_cost": "unreceived_e104_support"
+        }
+      },
+      "refs": "7.4;8.1;10;11.3;12;CSV lựa chọn node;report I3",
+      "basis": "Giả định gameplay, chưa cân bằng bằng engine. Giá XI12 bồi hoàn khác XII12 thay roster. Bộ giá được người dùng chốt ở lượt hoàn thiện; không sửa giá/timer programme."
+    },
+    "focus_prerequisites": {
+      "value": {
+        "X01": [
+          "F07"
+        ],
+        "X02": [
+          "X01"
+        ],
+        "X03": [
+          "X01"
+        ],
+        "X04": [
+          "X03"
+        ],
+        "X05": [
+          "F07"
+        ],
+        "X06": [
+          "X05"
+        ],
+        "X07": [
+          "X05"
+        ],
+        "X08": [
+          "X06",
+          "X07"
+        ],
+        "XI01": [
+          "F07"
+        ],
+        "XI02": [
+          "XI01"
+        ],
+        "XI03": [
+          "XI01"
+        ],
+        "XI04": [
+          "XI01"
+        ],
+        "XI05": [
+          "XI01"
+        ],
+        "XI06": [
+          "XI05"
+        ],
+        "XI07": [
+          "XI05"
+        ],
+        "XI08": [
+          "XI07"
+        ],
+        "XII01": [
+          "XI08",
+          "F07"
+        ],
+        "XII02": [
+          "XII01",
+          "XII05"
+        ],
+        "XII03": [
+          "XII02"
+        ],
+        "XII04": [
+          "XII07"
+        ],
+        "XII05": [
+          "XI08",
+          "F07"
+        ],
+        "XII06": [
+          "XII01",
+          "XII05"
+        ],
+        "XII07": [
+          "XII03",
+          "XII06"
+        ],
+        "XII08": [
+          "XII07"
+        ],
+        "XIII01": [
+          "XI08"
+        ],
+        "XIII02": [
+          "XIII01"
+        ],
+        "XIII03": [
+          "XIII01"
+        ],
+        "XIII04": [
+          "XIII02"
+        ],
+        "XIII05": [
+          "XIII03"
+        ],
+        "XIII06": [
+          "XIII05"
+        ],
+        "XIII07": [
+          "XIII05"
+        ],
+        "XIII08": [
+          "XIII06",
+          "XIII07"
+        ],
+        "XIV01": [
+          "XII07"
+        ],
+        "XIV02": [
+          "X04",
+          "XIII08"
+        ],
+        "XIV03": [
+          "XI02",
+          "F05"
+        ],
+        "XIV04": [
+          "XIV02"
+        ],
+        "XIV05": [
+          "XIV03"
+        ],
+        "XIV06": [
+          "XIV03"
+        ],
+        "XIV07": [
+          "XIV02"
+        ],
+        "XIV08": [
+          "XIV04"
+        ],
+        "IX11": [
+          "F09"
+        ],
+        "IX12": [
+          "F09"
+        ],
+        "X09": [
+          "X02"
+        ],
+        "X10": [
+          "X02"
+        ],
+        "X11": [
+          "X01"
+        ],
+        "X12": [
+          "X06",
+          "X07"
+        ],
+        "XI09": [
+          "XI07"
+        ],
+        "XI10": [
+          "XI07"
+        ],
+        "XI11": [
+          "XI04"
+        ],
+        "XI12": [
+          "XI06"
+        ],
+        "XII09": [
+          "XII07"
+        ],
+        "XII10": [
+          "XII02"
+        ],
+        "XII11": [
+          "XII06"
+        ],
+        "XII12": [
+          "XII07"
+        ],
+        "XIII09": [
+          "XIII03"
+        ],
+        "XIII10": [
+          "XIII01"
+        ],
+        "XIII11": [
+          "XIII02"
+        ],
+        "XIII12": [
+          "XIII09"
+        ],
+        "XIV09": [
+          "XIV04"
+        ],
+        "XIV10": [
+          "XIV03"
+        ],
+        "XIV11": [
+          "XIV02"
+        ],
+        "XIV12": [
+          "XIV04"
+        ]
+      },
+      "refs": "7.4;40 detailed nodes; OR if multiple entries; all edges checked against mutex and cycles"
+    },
+    "exception_reserve_days": {
+      "value": 60,
+      "refs": "4.2;6.5;10;11.3;12;I5 exceptions; user confirmed floor, report violations without changing timers"
+    },
+    "e103_margin_warning_pp": {
+      "value": 3,
+      "refs": "6.5;11.3;report; user requires warning for margins below3, no auto tuning"
+    },
+    "legacy_node_specs": {
+      "value": {
+        "IX11": {
+          "term": "IX",
+          "anchor_parameter": "congress_dates.IX",
+          "prerequisites": [
+            "F09"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "dự án đang chạy và roster có người thay",
+          "writer": "IX11",
+          "reader": "X01",
+          "carryover_effect": "đọc người đã bàn giao và kiến nghị về người mới",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "IX12": {
+          "term": "IX",
+          "anchor_parameter": "congress_dates.IX",
+          "prerequisites": [
+            "F09"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "dự án đang chạy và có người phụ trách hợp lệ",
+          "writer": "IX12",
+          "reader": "X04",
+          "carryover_effect": "đọc yêu cầu kiểm toán độc lập chưa đóng",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "X09": {
+          "term": "X",
+          "anchor_parameter": "congress_dates.X",
+          "prerequisites": [
+            "X02"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Decision",
+          "condition": "có dự án vốn nhà nước và hồ sơ kiểm toán",
+          "writer": "X09",
+          "reader": "XI05",
+          "carryover_effect": "đọc hai đợt vốn đã trả và checkpoint còn thiếu",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "X10": {
+          "term": "X",
+          "anchor_parameter": "congress_dates.X",
+          "prerequisites": [
+            "X02"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có dự án vốn nhà nước và đủ ngân khố",
+          "writer": "X10",
+          "reader": "XI05",
+          "carryover_effect": "đọc vốn ứng trước và kiến nghị giám sát",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "X11": {
+          "term": "X",
+          "anchor_parameter": "congress_dates.X",
+          "prerequisites": [
+            "X01"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có hồ sơ bảo lãnh định danh",
+          "writer": "X11",
+          "reader": "XI06",
+          "carryover_effect": "đọc bảo lãnh và nghĩa vụ nợ đã công bố",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "X12": {
+          "term": "X",
+          "anchor_parameter": "congress_dates.X",
+          "prerequisites": [
+            "X06",
+            "X07"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có đối tượng đầu tư và điều kiện được đề nghị",
+          "writer": "X12",
+          "reader": "XI01",
+          "carryover_effect": "đọc điều kiện giữ hoặc mở cùng trách nhiệm hậu kiểm",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XI09": {
+          "term": "XI",
+          "anchor_parameter": "congress_dates.XI",
+          "prerequisites": [
+            "XI07"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Decision",
+          "condition": "có dự án dở dang và kiến nghị người mua",
+          "writer": "XI09",
+          "reader": "XII10",
+          "carryover_effect": "đọc nghĩa vụ cứu dự án chưa nghiệm thu",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XI10": {
+          "term": "XI",
+          "anchor_parameter": "congress_dates.XI",
+          "prerequisites": [
+            "XI07"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có dự án dở dang và hồ sơ chủ đầu tư",
+          "writer": "XI10",
+          "reader": "XII10",
+          "carryover_effect": "đọc lịch tái cơ cấu và cam kết chưa bàn giao",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XI11": {
+          "term": "XI",
+          "anchor_parameter": "congress_dates.XI",
+          "prerequisites": [
+            "XI04"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có hồ sơ thanh tra đất đai và kiến nghị định danh",
+          "writer": "XI11",
+          "reader": "XII07",
+          "carryover_effect": "đọc kết luận và kiến nghị đã đóng hoặc chuyển",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XI12": {
+          "term": "XI",
+          "anchor_parameter": "congress_dates.XI",
+          "prerequisites": [
+            "XI06"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có nghĩa vụ bảo lãnh và chứng cứ trách nhiệm",
+          "writer": "XI12",
+          "reader": "XII07",
+          "carryover_effect": "đọc bên chịu trách nhiệm và bồi hoàn còn thiếu",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XII09": {
+          "term": "XII",
+          "anchor_parameter": "congress_dates.XII",
+          "prerequisites": [
+            "XII07"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Decision",
+          "condition": "có người thực thi và hồ sơ quyết định cần bảo vệ",
+          "writer": "XII09",
+          "reader": "E103",
+          "carryover_effect": "đọc chứng chỉ đào tạo trước khi mở thẩm định trách nhiệm",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XII10": {
+          "term": "XII",
+          "anchor_parameter": "congress_dates.XII",
+          "prerequisites": [
+            "XII02"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Decision",
+          "condition": "có hồ sơ liên ngành tồn đọng",
+          "writer": "XII10",
+          "reader": "XIII09",
+          "carryover_effect": "đọc đầu mối hoặc hội đồng chịu trách nhiệm hồ sơ",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XII11": {
+          "term": "XII",
+          "anchor_parameter": "congress_dates.XII",
+          "prerequisites": [
+            "XII06"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "roster hợp lệ, phân vai hoặc kiêm nhiệm",
+          "writer": "XII11",
+          "reader": "XIII09",
+          "carryover_effect": "đọc quyền ký đã công khai và checkpoint giám sát",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XII12": {
+          "term": "XII",
+          "anchor_parameter": "congress_dates.XII",
+          "prerequisites": [
+            "XII07"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "roster có phương án thay người hợp lệ",
+          "writer": "XII12",
+          "reader": "XIII09",
+          "carryover_effect": "đọc bàn giao đang chờ hoặc kiện toàn đã trả cohesion",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIII09": {
+          "term": "XIII",
+          "anchor_parameter": "congress_dates.XIII",
+          "prerequisites": [
+            "XIII03"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có hợp đồng kỹ thuật pending và phản hồi an ninh",
+          "writer": "XIII09",
+          "reader": "XIV11",
+          "carryover_effect": "đọc phạm vi dữ liệu và chữ ký trong cửa sổ",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIII10": {
+          "term": "XIII",
+          "anchor_parameter": "congress_dates.XIII",
+          "prerequisites": [
+            "XIII01"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có hồ sơ sự cố và đối tác đối thoại",
+          "writer": "XIII10",
+          "reader": "XIV11",
+          "carryover_effect": "đọc đối tác chấp nhận hoặc từ chối kênh liên lạc",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIII11": {
+          "term": "XIII",
+          "anchor_parameter": "congress_dates.XIII",
+          "prerequisites": [
+            "XIII02"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Decision",
+          "condition": "có hồ sơ sự cố và lực lượng chấp pháp hợp lệ",
+          "writer": "XIII11",
+          "reader": "XIV07",
+          "carryover_effect": "đọc cam kết hiện diện và phản hồi chưa xử lý",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIII12": {
+          "term": "XIII",
+          "anchor_parameter": "congress_dates.XIII",
+          "prerequisites": [
+            "XIII09"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có cảnh báo an ninh đối với hợp đồng đang hiệu lực",
+          "writer": "XIII12",
+          "reader": "XIV11",
+          "carryover_effect": "đọc điều kiện đã sửa hoặc hỗ trợ đã mất khi hủy",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIV09": {
+          "term": "XIV",
+          "anchor_parameter": "congress_dates.XIV",
+          "prerequisites": [
+            "XIV04"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có kết luận kiểm toán và đội thay thế hợp lệ",
+          "writer": "XIV09",
+          "reader": "XIV12",
+          "carryover_effect": "đọc roster mới và phần bàn giao chậm",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIV10": {
+          "term": "XIV",
+          "anchor_parameter": "congress_dates.XIV",
+          "prerequisites": [
+            "XIV03"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có nghiệm thu tương ứng và phản hồi địa phương",
+          "writer": "XIV10",
+          "reader": "XIV12",
+          "carryover_effect": "đọc cam kết dịch vụ đã công khai, không cộng lại thưởng",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIV11": {
+          "term": "XIV",
+          "anchor_parameter": "congress_dates.XIV",
+          "prerequisites": [
+            "XIV02"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có hợp đồng còn nghĩa vụ và phản hồi đối tác",
+          "writer": "XIV11",
+          "reader": "XIV12",
+          "carryover_effect": "đọc hợp đồng giữ, sửa hoặc chấm dứt cùng hỗ trợ còn lại",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        },
+        "XIV12": {
+          "term": "XIV",
+          "anchor_parameter": "congress_dates.XIV",
+          "prerequisites": [
+            "XIV04"
+          ],
+          "mode": "mọi chế độ",
+          "caller": "Event",
+          "condition": "có hồ sơ bàn giao và phương án roster kế tiếp",
+          "writer": "XIV12",
+          "reader": "archive_XV",
+          "carryover_effect": "lưu phương án cho XV giả định; không tự đổi người hoặc thêm focus",
+          "guard": "một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả"
+        }
+      },
+      "basis": "Hoàn thiện 22 node theo yêu cầu hiện tại; giữ ID/cost/nội dung/loại trừ. Gate và caller là giả định gameplay.",
+      "refs": "7.4;8.1;10;11.3;12;crosscheck I6"
+    },
+    "node_opportunity_effects": {
+      "value": {
+        "X01": {
+          "reader": "XI05",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "rà soát hồ sơ vốn nội bộ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đối chiếu vốn bằng bản công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.X01",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "X02": {
+          "reader": "XI06",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "bộ chủ quản điều phối bảo lãnh",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "dùng báo cáo bảo lãnh tách biệt",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "A",
+          "delay_parameter": "node_choice_delays.X02",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "X03": {
+          "reader": "XI07",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "áp điều khoản lao động và phủ quyết đã giữ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "dùng định giá độc lập khi xử lý tài sản",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "X04": {
+          "reader": "XI12",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "thẩm tra chủ sở hữu trong phạm vi nội bộ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "truy vết chủ sở hữu qua kiểm toán ngoài",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "X05": {
+          "reader": "XI01",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "xét ngoại lệ đầu tư theo từng hồ sơ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đối chiếu thu hồi đất theo tiêu chí công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "X06": {
+          "reader": "XI03",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "bảo lưu ngoại lệ ngành đã đàm phán",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đọc dữ liệu nhà cung ứng theo cam kết rà soát",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.X06",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "X07": {
+          "reader": "XI08",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "giữ quyền thẩm tra kín hồ sơ nhạy cảm",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "dùng tiền lệ chia sẻ hồ sơ với hội đồng",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "X08": {
+          "reader": "XII10",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "bộ chủ quản tự duyệt truy cập hồ sơ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "cơ quan kiểm toán duyệt liên thông hồ sơ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI01": {
+          "reader": "XII07",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "xem danh sách hộ trong phạm vi cơ quan",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đối chiếu kiến nghị người dân qua sổ công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.XI01",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI02": {
+          "reader": "XII10",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "giải ngân từ quỹ đã khóa cho hộ đủ hồ sơ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "giữ ngân sách chưa khóa và xét cam kết theo tiến độ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI03": {
+          "reader": "XII12",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "tỉnh chủ trì xử lý theo biên bản kín",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đại diện hộ bị ảnh hưởng chủ trì phiên có biên bản",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI04": {
+          "reader": "XII07",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "địa phương tự kiểm sổ thu đã giữ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "cơ quan kiểm tra truy trách nhiệm từ sổ liên ngành",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.XI04",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI05": {
+          "reader": "XII10",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "ngân hàng tiếp tục xử lý khoản vay nội bộ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đối chiếu tài sản từ định giá chéo công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.XI05",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI06": {
+          "reader": "XII10",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "ngân hàng trực tiếp quyết thu hồi khoản vay",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đọc kế hoạch xử lý theo kỳ của hồ sơ đã chuyển",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI07": {
+          "reader": "XII10",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "yêu cầu bàn giao theo danh sách người mua ưu tiên",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "dùng năng lực thi công của chủ đầu tư được tái cơ cấu",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.XI07",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XI08": {
+          "reader": "XIII01",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "tái sử dụng kênh trao đổi kín",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "tái sử dụng hồ sơ chứng cứ công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.XI08",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII01": {
+          "reader": "XIII09",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "đầu mối trung ương ký hồ sơ chuẩn",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đầu mối địa phương ký hồ sơ chuẩn",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII02": {
+          "reader": "XIII09",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "thẩm định trách nhiệm trước khi ký",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "ký theo hậu kiểm với trách nhiệm cá nhân",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "A",
+          "delay_parameter": "node_choice_delays.XII02",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII03": {
+          "reader": "XIII09",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "chia sẻ bản tổng hợp giữ dữ liệu cá nhân kín",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "cho đối tác kiểm toán đọc hồ sơ gốc",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII04": {
+          "reader": "XIII09",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "nhóm cũ hỗ trợ hồ sơ trong bàn giao tuần tự",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "chủ mới tự xác nhận trách nhiệm khi đã bàn giao",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "A",
+          "delay_parameter": "node_choice_delays.XII04",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII05": {
+          "reader": "XIII09",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "từng bộ thương lượng lịch hợp đồng riêng",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đầu mối chung đặt lịch hợp đồng liên ngành",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII06": {
+          "reader": "XIII09",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "ký theo roster kiêm nhiệm đã công khai xung đột",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "ký tách quy trình với xác nhận độc lập",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII07": {
+          "reader": "XIII12",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "yêu cầu miễn trừ quyết định thiện chí có căn cứ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "mở kiểm tra độc lập mà cơ quan nội bộ không đóng được",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XII08": {
+          "reader": "XIII09",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "nhóm cũ truy cập hồ sơ trong bàn giao tuần tự",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "chủ mới truy cập độc quyền hồ sơ bàn giao đồng thời",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "A",
+          "delay_parameter": "node_choice_delays.XII08",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII01": {
+          "reader": "XIV11",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "duy trì liên lạc kín không chia tọa độ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "nhận cảnh báo sớm qua tọa độ đã chia sẻ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII02": {
+          "reader": "XIV07",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "cơ quan chủ lệnh tự điều phối lực lượng",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đầu mối liên ngành phối hợp theo bản đồ trách nhiệm",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII03": {
+          "reader": "XIV11",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "thương lượng riêng với chi tiết vận hành kín",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "giải mật và đối chiếu chứng cứ đã công bố",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII04": {
+          "reader": "XIV07",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "ưu tiên tuyến chính theo quyền điều phối riêng",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "thực hiện nghĩa vụ chia sẻ rủi ro cho tuyến phụ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII05": {
+          "reader": "XIV02",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "rà soát nghĩa vụ của từng tổ chức phát hành",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đối chiếu nghĩa vụ bằng sổ công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII06": {
+          "reader": "XIV11",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "yêu cầu thanh toán theo hạn gốc",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "thực hiện lịch trả nợ đã được chủ nợ đồng ý",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII07": {
+          "reader": "XIV03",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "xử lý hồ sơ của từng người mua",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "giám sát dự án còn vận hành theo cam kết",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIII08": {
+          "reader": "XIV02",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "duy trì quan hệ trung gian khi kiểm một hợp đồng",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "mở trách nhiệm toàn chuỗi phân phối và bảo lãnh",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.XIII08",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV01": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "bộ tự công nhận chuẩn theo hồ sơ cũ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đơn vị độc lập công nhận theo tiêu chí công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV02": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "lưu bản tổng hợp và phụ lục hạn chế",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "xử lý kiến nghị được mở lại từ dữ liệu công khai",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV03": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "cơ quan chủ quản xác nhận địa điểm nghiệm thu",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đại diện người dùng yêu cầu khắc phục địa điểm",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV04": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "nhóm cũ hỗ trợ tiếp nhận mission",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "nhóm mới tự xác nhận trách nhiệm mission",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "B",
+          "delay_parameter": "node_choice_delays.XIV04",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV05": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "tiếp tục hồ sơ cũ trong thời hạn gia hạn",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đơn vị mới kiểm chứng đúng mục tiêu đã khóa",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "A",
+          "delay_parameter": "node_choice_delays.XIV05",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV06": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "giữ nguồn lực cho mục tiêu cũ chưa đạt",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "dùng nguồn lực đã chuyển cho mục tiêu thay thế",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "A",
+          "delay_parameter": "node_choice_delays.XIV06",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV07": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "chủ động chọn hồ sơ rủi ro cao để kiểm",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "đối chiếu mẫu ngẫu nhiên đã được khóa",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": null,
+          "delay_parameter": null,
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        },
+        "XIV08": {
+          "reader": "archive_XV",
+          "record_key": "node/object/epoch",
+          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "A": {
+            "action": "nhóm chuyên môn cũ tiếp tục hỗ trợ dự án",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "B": {
+            "action": "nhóm mới tự dùng hồ sơ bàn giao không phụ thuộc nhóm cũ",
+            "available": 1,
+            "counterpart_available": 0
+          },
+          "delay_option": "A",
+          "delay_parameter": "node_choice_delays.XIV08",
+          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
+          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
+        }
+      },
+      "basis": "Cụ thể hóa hậu quả quyền/dữ liệu/vị thế đã viết ở 40 node; 0/1 là gate hành động, không là điểm thưởng hoặc tỷ giá PP. Các consumer là nhánh của caller hiện có, không thêm focus/event ID.",
+      "refs": "7.4;8.1;10;11.3;12;CSV cơ hội;I10"
+    },
+    "forecast_gate": {
+      "value": {
+        "trigger_label": "forecast_programme_completion",
+        "default_limit_parameter": [
+          "program_deadline",
+          "reserve_days"
+        ],
+        "choice_limit_parameter": [
+          "program_deadline",
+          "exception_reserve_days"
+        ],
+        "uncertain_A_reappraisal": "warning_only_until_rejection_is_known",
+        "inputs": [
+          "programme",
+          "route",
+          "signed_mode",
+          "cohesion_at_start",
+          "known_delay_days",
+          "known_e103_rejection",
+          "elapsed_congress_days",
+          "recovery_cooldown_remaining",
+          "pending_recovery_remaining"
+        ],
+        "freeze": "timer/mode/chuẩn bị đã ký; phục hồi sau start không rút timer cũ",
+        "scope": "chỉ khóa trễ tất định; không khóa vì rủi ro chưa hiện thực; điều kiện milestone/giá/BoP/cohesion vẫn áp dụng"
+      },
+      "basis": "Cổng dự báo được người dùng chốt; giữ giá/timer và900, mặc định800/ngoại lệ840; A chưa đủ hồ sơ chỉ cảnh báo rủi ro.",
+      "refs": "4.2;6.4;6.5;6.6;8.1;10;11.3;CSV;I5"
+    },
+    "i3_pareto_exceptions": {
+      "value": {
+        "nodes": [
+          "XII12",
+          "XIII12"
+        ],
+        "direct_money_test_other_nodes": true,
+        "near_duplicate_relative_threshold": 0.1,
+        "dimensions": {
+          "converted_cost": "min",
+          "handover_pending_days": "min",
+          "cohesion_loss": "min",
+          "old_holder_access": "max",
+          "new_holder_authority": "max",
+          "unreceived_support_lost": "min",
+          "unused_cooperation_access": "max",
+          "contract_obligation_open": "min"
+        },
+        "XII12": {
+          "A": {
+            "cost_source": null,
+            "handover_days_source": "legacy_node_terms.XII12.handover_days",
+            "cohesion_loss_source": null,
+            "old_holder_access": 1,
+            "new_holder_authority": 0,
+            "centre": "văn phòng và người kế cận",
+            "roster_state": "pending_handover"
+          },
+          "B": {
+            "cost_source": "legacy_node_terms.XII12.immediate_cohesion_loss * cohesion_pp_rate",
+            "handover_days_source": null,
+            "cohesion_loss_source": "legacy_node_terms.XII12.immediate_cohesion_loss",
+            "old_holder_access": 0,
+            "new_holder_authority": 1,
+            "centre": "văn phòng và người kế cận",
+            "roster_state": "replacement_effective"
+          }
+        },
+        "XIII12": {
+          "A": {
+            "fee": 0,
+            "cash_debit": 0,
+            "support_lost": 0,
+            "cooperation_state": "modified_active_if_partner_accepts",
+            "contract_obligation_open": 1,
+            "centre": "đối tác/DNNN giữ quyền hỗ trợ; an ninh tiếp tục kiểm chứng điều kiện sửa"
+          },
+          "B": {
+            "fee": 0,
+            "cash_debit": 0,
+            "support_lost": "unreceived_e104_support",
+            "cooperation_state": "terminated",
+            "contract_obligation_open": 0,
+            "centre": "đối tác/DNNN mất kênh hỗ trợ; an ninh đóng nghĩa vụ dữ liệu tương lai"
+          },
+          "added_programme_days": 0,
+          "history_not_erased": true,
+          "scenario_inputs": [
+            "remaining_support",
+            "unused_cooperation_access"
+          ],
+          "empty_support_scenario": "0 hỗ trợ chưa nhận và0 quyền hợp tác còn dùng: phải kiểm, không tự giả có quyền mới",
+          "gate_scope": "chỉ sửa ở XIII12; hủy luôn mở; sửa bị thống trị bị khóa, không khóa hủy"
+        },
+        "repair_requires_remaining_benefit": true,
+        "repair_trigger_label": "e104_contract_amendment_gate"
+      },
+      "basis": "Người dùng chốt Pareto CHỈ XII12/XIII12; không quy ngày/quyền thànhPP, không đổi giá/timer; hiệu ứng ngoài tiền là trạng thái cụ thể đọc record có sẵn, tooltip trước chọn.",
+      "refs": "7.4;8.1;10;11.3;12;report I3;CSV lựa chọn node"
+    },
+    "e104_contract_ledger": {
+      "value": {
+        "trigger_label": "e104_contract_amendment_gate",
+        "fields": {
+          "support_promised": "số hỗ trợ đã cam kết E104 theo gói; không là tiền mới",
+          "support_received": "hỗ trợ đã thanh toán thực",
+          "support_forfeited": "hỗ trợ đã mất khi hủy; không thu hồi support_received",
+          "rights_granted": "tập quyền hợp tác đã chấp nhận, đào tạo/chuyên sâu theo gói hiện có",
+          "rights_used": "quyền đã thực hiện, giữ lịch sử",
+          "rights_revoked": "quyền chưa dùng bị thu hồi khi hủy",
+          "contract_state": "pending/accepted/modified/terminated/refused"
+        },
+        "writer": "ký/phản hồi E104 và sửa/hủy XIII12, theo cùng hợp đồng/đối tượng/source epoch",
+        "reader": "available và tooltip XIII12 dùng cùng đầu ra trigger",
+        "amend_gate": "support_promised-support_received-support_forfeited > 0 HOẶC granted-used-revoked không rỗng",
+        "cancel_gate": "luôn mở; idempotent, không tạo phí khi gọi lại",
+        "cancel_scope": "chỉ ledger E104: mất phần chưa nhận, thu hồi quyền chưa dùng, đóng nghĩa vụ tương lai; không sửa mission/tier/early_reward/paid_support/history",
+        "new_rewards_or_timers": false
+      },
+      "refs": "7.4 XIII12;8.1;10;11.3;report I3;CSV node",
+      "basis": "Cổng bổ sung XIII12 được người dùng chốt; tránh phương án sửa bị thống trị khi hợp đồng đã cạn; giữ giá/timer và nhiệm kỳ."
+    },
+    "focus_commitment_gate": {
+      "value": {
+        "trigger_label": "forecast_programme_completion",
+        "forecast_modes": [
+          "standard",
+          "fast_paid"
+        ],
+        "scope": "cổng chung: bất kỳ chương trình còn đường; từng lựa chọn: programme mà lựa chọn chốt còn đường",
+        "window_parameter": "program_start_latest",
+        "reserve_parameter": "reserve_days",
+        "low_cohesion_parameter": "recovery.low_below",
+        "inputs": [
+          "elapsed_congress_days",
+          "cohesion_current",
+          "recovery_cooldown_remaining",
+          "pending_recovery_remaining",
+          "route",
+          "signed_mode/timers nếu đã bắt đầu"
+        ],
+        "assumption": "các bước còn lại thành công; PP/ngân khố và các gate kỳ/chế độ/lựa chọn90ngày hiện có vẫn áp dụng; không giả có thêm cohesion từ event chưa biết",
+        "recovery_bypasses_new_gate": true,
+        "reconciliation_bypasses_new_gate": true,
+        "cooldown_preserved": true,
+        "not_retroactive": true,
+        "no_new_failure_or_fallback": true
+      },
+      "refs": "3.3;4.2;8.1;10;11.3;12;CSV dự báo;report I5;JSON kiểm tra tùy chọn",
+      "basis": "Người dùng chốt cổng trọng tâm; dùng MỘT forecast_programme_completion cho available/tooltip/AI và ngàyfull800/840; giữ mọi giá/timer. Hai mode bao phủ cả hai lịch; vượt/kiêm nhiệm có cùng timer cấp tốc nhưng thêm gate/giá."
     }
   },
   "baseline_sha256": "126bee8bfde9bc3184a56d61d89f7537c78b99e2b631a0275b9e5a28f39288bb",
@@ -911,5 +2944,68 @@
     "10": "05025e4ea882dc2465977391e3c4bb2d69fe0750f0c519f3eb09500658f65d24",
     "11": "0a95f4316550030ef65430243265ef855cdaaee7481b6a266c03e55a1d3f6b8b",
     "12": "43923d71c417cd47abb2c6dae2219c1457686020e4e883ac365fc937a65bdafb"
+  },
+  "l3_protected_sections": {
+    "1": "aeacd7ab8e0a49ea746177e3d2f37766d4dd9510e82c0f8de1cdffa9d5943815",
+    "3": "ec5c114c303efce11fd05ad22d0a5d5f718451411b89b5dca98dd957593da688",
+    "4": "c783231ad7e0c242dc4b90dda6f1b904362e3a63caea7fdf1043bbc166207bc4",
+    "5": "58aaf007872de90865bea1e0c04499bc25b0d9a792f8d0fe8db7a68454019897",
+    "6": "33127c234e403dde44fbcce847b3250821c5beaad71afb96b66985a494c1a6f8",
+    "9": "3a7149dcdc29d91dc6e9f9d72d53d83262ddc020c17af73e394c5f4ae0150063"
+  },
+  "approved_change_scope": {
+    "e103_price": {
+      "old_pp": 30,
+      "new_pp": 0,
+      "new_treasury": 0.5
+    },
+    "e103_B_deadline": {
+      "previous_document": 810,
+      "user_confirmed": 780
+    },
+    "i5_default_reserve": 100,
+    "i5_exception_reserve": 60,
+    "e102_delay_preserved": 90,
+    "e103_reappraisal_preserved": 180,
+    "programme_deadline_preserved": 900
+  },
+  "approved_section_hashes": {
+    "3": "6427ce1df8428d2a54bf1d18578c6f687b63437fff4c4b5719ef0f3ffc716eb3",
+    "4": "56922f279825ab33c1f4c9395f892a01bc1375cb348b573c3c6411737abc66a6",
+    "6": "59b3e8ebe2168bd2c19b25aa0b625d5d372eaf1add4180b8c6235cd0bf748878"
+  },
+  "completion_change_scope": {
+    "legacy_prices_approved": true,
+    "forecast_gate_approved": true,
+    "no_timer_or_programme_price_changes": true,
+    "rights_effects_basis": "cụ thể hóa các quyền/hậu quả đã có trong40node; không thêm focus hoặc chỉ số thưởng",
+    "mapping": "XI12 bồi hoàn; XII12 kiện toàn roster",
+    "xiii12_amend_gate_approved": true,
+    "focus_commitment_gate_approved": true
+  },
+  "focus_gate_preserved_parameter_hashes": {
+    "program_deadline": "bdc5d8a48c23897906b09a9a3680bd2e9c8b3121edbda36f949800f0959c8d55",
+    "action_days": "213d5ce6118330c852bd74ffeddd88fa575a6012cc3ce976bf0f08a7d47cb60e",
+    "prepare_days": "bc75ba743fae95929b42615fb15f54d784dab14a6de201195587686c6e7465f5",
+    "tools": "21fac81581967b6f403135a644a27b89da8050a98deb97db65688e44c0667336",
+    "early_days": "7677dad9728770a27ea55d862e6f274b6dab90977d8efae2efb0505271a5dd08",
+    "early_pp": "1a6562590ef19d1045d06c4055742d38288e9e6dcd71ccde5cee80f1d5a774eb",
+    "program_start_latest": "d8d1790737d57ac4fe91a2c0a28087c0a97c81f5dc6b19d5e4aec20c08bb95ae",
+    "program_selection_days": "69f59c273b6e669ac32a6dd5e1b2cb63333d8b004f9696447aee2d422ce63763",
+    "recovery": "ab1ecbc7f1599c3a4fabf2b374299cee218c86c37939c9d598607572e67bfd8a",
+    "e101": "e9a4f10e3f913dbbfeec6027abc39279804575bb392cd93b9e2112f942eb02bd",
+    "e102": "f51e13451dcc78241a37f59fa918f45a3a5b8f21afc08cb0634c5d65d926e48e",
+    "e103": "70487bdd2ffbbd5787529f945410af07c6500331cc938bc1ffcf9f02f7739db1",
+    "e104": "3c5ab2fb252360268257f85b98bb34e199a37185b9ca57b09fdd3443b4374351",
+    "sign_days": "a9e62f575bbf7084be7c708e2fab8a02aee593de685c3c50c266d79816eb6693",
+    "fast_upfront_pp": "b7a56873cd771f2c446d369b649430b65a756ba278ff97ec81bb6f55b2e73569",
+    "checkpoint_pp": "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb",
+    "checkpoint_treasury": "a30a043314fa89294fa2c1c989a01fbb5329e5c085a5c5a8d27317656de24ae0",
+    "node_choice_prices": "3a24f573648031bcb226a195448190d8242e48748ad6f45a40fd1e1d00a2ba6a",
+    "legacy_node_terms": "1ee1641cf0494fc1cf3d6b92627e3ac3eeb5c3ff193d9aba99b92cd585f3c1e1"
+  },
+  "archived_review_hashes": {
+    "VIETNAM_POLITICAL_REVIEW_L1_VI.md": "e1f62ebcabc13ae931986946b236a99f02c5ca68335adfaa5cecc782269bba5b",
+    "VIETNAM_POLITICAL_REVIEW_L2_VI.md": "d30ed01174013ef259dac493083fbbe45cfe560d1fe8155f7ab855f9e0bd279d"
   }
 }

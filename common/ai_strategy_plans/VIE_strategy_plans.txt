@@ -12,8 +12,7 @@ VIE_HISTORICAL_plan = {
 	abort = {
 		OR = {
 			is_subject = yes
-			VIE_hl_in_power = yes
-			VIE_ai_hardline = yes
+						VIE_ai_hardline = yes
 		}
 	}
 
@@ -32,26 +31,9 @@ VIE_HISTORICAL_plan = {
 		VIE_msl_national_capability = 50
 
 		VIE_doi_moi_continues = 100
-		VIE_prepare_congress_9 = 100
-		VIE_resolution_congress_9 = 100
-		VIE_grassroots_democracy = 40
-		VIE_mass_mobilization = 40
-		VIE_ethnic_policy = 40
-		VIE_state_audit = 40
-		VIE_resolution_congress_10 = 100
-		VIE_resolution_congress_11 = 100
-		VIE_resolution_congress_12 = 100
-		VIE_resolution_congress_13 = 100
-		VIE_resolution_congress_14 = 100
-		# Keep the post-Congress XIV historical route reachable through its real prerequisites.
-		VIE_asset_recovery = 50
-		VIE_clean_cadres = 60
-		VIE_streamline_apparatus = 50
-		VIE_national_digital_transformation = 50
-		VIE_e_government = 60
-		VIE_concentration_of_power = 70
-
-		# Cac moc phat trien va hoi nhap theo trinh tu focus hien co.
+																								# Keep the post-Congress XIV historical route reachable through its real prerequisites.
+								VIE_national_digital_transformation = 50
+						# Cac moc phat trien va hoi nhap theo trinh tu focus hien co.
 		# Uu tien chon loc FDI va thiet ke/dong goi; khong khoa dau tu che tao.
 
 		VIE_asean_integration = 60
@@ -94,66 +76,6 @@ VIE_HISTORICAL_plan = {
 
 # Before the transfer: keep the congress timeline moving and avoid reforms that pull
 # the balance away from the existing conservative eligibility checks.
-VIE_HARDLINE_entry_plan = {
-	name = "Hardline Vietnam: Path to power"
-	desc = "Prepare the existing congress route and take power only when its triggers allow it."
-
-	allowed = { original_tag = VIE }
-
-	enable = {
-		VIE_ai_hardline = yes
-		VIE_party_rule_active = yes
-		NOT = { VIE_hl_in_power = yes }
-		NOT = { has_country_flag = VIE_hardline_retired }
-	}
-
-	abort = {
-		OR = {
-			is_subject = yes
-			VIE_hl_in_power = yes
-			NOT = { VIE_party_rule_active = yes }
-			NOT = { VIE_ai_hardline = yes }
-			has_country_flag = VIE_hardline_retired
-		}
-	}
-
-	focus_factors = {
-		VIE_doi_moi_continues = 150
-		VIE_prepare_congress_9 = 200
-		VIE_resolution_congress_9 = 150
-		VIE_resolution_congress_10 = 150
-		VIE_resolution_congress_11 = 150
-		VIE_resolution_congress_12 = 150
-		VIE_resolution_congress_13 = 150
-		VIE_resolution_congress_14 = 150
-		VIE_anti_corruption_steering = 100
-		VIE_tw4_party_building = 100
-		VIE_platform_2011 = 100
-
-		VIE_grassroots_democracy = 0
-		VIE_mass_mobilization = 0
-		VIE_ethnic_policy = 0
-		VIE_state_audit = 0
-	}
-
-	research = {
-		CAT_industry = 6
-		CAT_construction = 6
-		CAT_energy = 5
-		CAT_microchips = 5
-		CAT_small_arms = 8
-		CAT_support_weapons = 7
-		CAT_artillery = 6
-		CAT_anti_air = 7
-		CAT_surface_to_air_missiles = 7
-		CAT_command_and_control_equipment = 6
-		CAT_corvettes = 5
-		CAT_frigates = 5
-		CAT_attack_submarines = 5
-		CAT_naval_modules = 4
-	}
-}
-
 # Once the transfer event places the hardline party in power, switch to its tree and
 # a defence-industry research agenda. The branch's own available/AI guards still apply.
 VIE_HARDLINE_plan = {
@@ -164,8 +86,7 @@ VIE_HARDLINE_plan = {
 
 	enable = {
 		VIE_ai_hardline = yes
-		VIE_hl_in_power = yes
-	}
+			}
 
 	abort = {
 		OR = {
@@ -188,33 +109,8 @@ VIE_HARDLINE_plan = {
 		VIE_msl_cruise_missile_industry = 50
 		VIE_msl_national_capability = 50
 
-		VIE_hl_unity_of_will = 500
-		VIE_hl_ideological_foundation = 500
-		VIE_hl_party_rectification = 500
-		VIE_hl_party_leads_army = 500
-		VIE_hl_party_diplomacy = 500
-		VIE_hl_cyber_ideology = 500
-		VIE_hl_school_theory = 500
-		VIE_hl_state_sector_leading = 500
-		VIE_hl_cadre_centralisation = 500
-		VIE_hl_army_political_education = 500
-		VIE_hl_no_dependence = 500
-		VIE_hl_press_planning = 500
-		VIE_hl_key_sectors = 500
-		VIE_hl_soe_spearhead = 500
-		VIE_hl_no_party_business = 500
-		VIE_hl_all_people_defence = 500
-		VIE_hl_selective_partners = 500
-		VIE_hl_fatherland_front = 500
-		VIE_hl_selective_fdi = 500
-		VIE_hl_party_defence_industry = 500
-		VIE_hl_five_year_plan = 500
-		VIE_hl_term_review = 500
-		# Equal multiplier retains the authored 60/20/20 endpoint weights.
-		VIE_hl_steadfast_renewal = 500
-		VIE_hl_party_state_fusion = 500
-		VIE_hl_handover = 500
-		# Luc quan v39: ho tro tu chu cong nghiep sau khi du dieu kien.
+																																														# Equal multiplier retains the authored 60/20/20 endpoint weights.
+								# Luc quan v39: ho tro tu chu cong nghiep sau khi du dieu kien.
 		VIE_lf_root_modern_army = 50
 		VIE_lf_active_defense_in_depth = 50
 		VIE_lf_standardize_infantry_structure = 50

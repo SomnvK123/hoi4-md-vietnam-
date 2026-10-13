@@ -5,14 +5,7 @@ VIE_military_readiness_category = {
 }
 
 # "Thuc hien Nghi quyet": Party-Congress-term decisions (see VIE_congress_spine_redesign.md section 6).
-VIE_resolution_category = {
-	allowed = { original_tag = VIE }
-	priority = 95
-	visible = {
-		VIE_party_rule_active = yes
-		check_variable = { VIE_congress_term > 8 }
-	}
-}
+
 # Hop tac an ninh bien (nhanh Bien Dong): tap tran, tau nuoc ngoai tham cang Cam Ranh, huan luyen chung
 # (VIE_md_scs_coop_decisions.txt). Cong la Focus VIE_scs_maritime_cooperation. priority 88: duoi het cac category khac.
 VIE_scs_cooperation_category = {
@@ -22,37 +15,16 @@ VIE_scs_cooperation_category = {
 }
 
 # "Con duong Kien dinh": Indochinese Unification category (visible after Party-State Fusion X2)
-VIE_hl_indochina_category = {
-	allowed = { original_tag = VIE }
-	priority = 88
-	visible = {
-		VIE_hl_in_power = yes
-		has_country_flag = VIE_hl_fusion_done
-	}
-}
+
 
 # "Con duong Kien dinh" (CPV Hardline): debug-only decisions for the reform pressure (VIE_md_hardline_decisions.txt).
-VIE_hl_debug_category = {
-	allowed = { original_tag = VIE }
-	priority = 80
-	visible = { is_debug = yes }
-}
+
 
 # Bo may An ninh: decision cua nhanh Nha nuoc An ninh (focus goc VIE_sec_security_state dat co VIE_security_active).
-VIE_sec_category = {
-	allowed = { original_tag = VIE }
-	priority = 88
-	visible = { has_country_flag = VIE_security_active }
-}
+
 
 # Cán cân Định hướng của Đảng (liên kết với VIE_party_balance trong common/bop/VIE_md_bop.txt)
-VIE_party_balance_category = {
-	allowed = { original_tag = VIE }
-	priority = 100
-	visible = {
-		has_country_flag = VIE_bop_active
-	}
-}
+
 
 
 

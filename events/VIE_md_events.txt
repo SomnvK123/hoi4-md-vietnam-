@@ -11,13 +11,10 @@ add_namespace = vie_cor
 add_namespace = vie_dip
 add_namespace = vie_disaster
 add_namespace = vie_eco
-add_namespace = vie_hl
 add_namespace = vie_int
 add_namespace = vie_news
-add_namespace = vie_pol
 add_namespace = vie_scs
 add_namespace = vie_scs_coop
-add_namespace = vie_sec
 add_namespace = vie_soc
 
 # ====================================================================
@@ -68,8 +65,7 @@ country_event = {
 	option = {
 		name = vie_eco.2.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.2.b executed"
-		VIE_bop_conservative_small = yes
-		add_political_power = 25
+				add_political_power = 25
 		add_stability = 0.01
 		ai_chance = {
 			base = 20
@@ -109,8 +105,7 @@ country_event = {
 		name = vie_eco.3.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.3.b executed"
 		add_political_power = 25
-		VIE_bop_conservative_small = yes
-		ai_chance = {
+				ai_chance = {
 			base = 20
 			modifier = { factor = 0 VIE_ai_historical = yes }
 		}
@@ -132,8 +127,7 @@ country_event = {
 		name = vie_eco.4.a
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.4.a executed"
 		decrease_economic_growth = yes
-		VIE_bop_conservative_small = yes
-		ai_chance = { base = 70 }
+				ai_chance = { base = 70 }
 	}
 
 	# Keep growth going and accept a period of high inflation
@@ -229,8 +223,7 @@ country_event = {
 		name = vie_eco.8.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.8.b executed"
 		add_political_power = 25
-		VIE_bop_conservative_small = yes
-		ai_chance = {
+				ai_chance = {
 			base = 20
 			modifier = { factor = 0 VIE_ai_historical = yes }
 		}
@@ -327,8 +320,7 @@ country_event = {
 		name = vie_eco.11.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.11.b executed"
 		add_stability = 0.01
-		VIE_bop_conservative_small = yes
-		country_event = { id = vie_eco.12 days = 75 random_days = 30 }
+				country_event = { id = vie_eco.12 days = 75 random_days = 30 }
 		ai_chance = { base = 20 }
 	}
 }
@@ -358,8 +350,7 @@ country_event = {
 		name = vie_eco.12.b
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.12.b executed"
 		add_timed_idea = { idea = VIE_us_tariff_shock days = 240 }
-		VIE_bop_conservative_small = yes
-		ai_chance = { base = 20 }
+				ai_chance = { base = 20 }
 	}
 }
 
@@ -375,647 +366,75 @@ country_event = {
 #  - Party General Secretary Le Kha Phieu is the effective leader in 2000
 #  - informal non-alignment policy, balance of power, South China Sea tension = 0
 ########################################################################
-country_event = {
-	id = vie_pol.1
-	hidden = yes
-	is_triggered_only = yes
 
-	immediate = {
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.1 (init)"
-		set_variable = { VIE_scs_tension = 0 }
-		set_variable = { VIE_congress_term = 8 }
-		add_ideas = VIE_non_alignment_policy
-		if = {
-			limit = { VIE_party_rule_active = yes }
-			VIE_new_leader_phieu = yes
-			set_power_balance = {
-				id = VIE_party_balance
-				left_side = VIE_conservative_side
-				right_side = VIE_reform_side
-				set_value = -0.1
-			}
-			hidden_effect = { set_country_flag = VIE_bop_active }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.2  Ninth Party Congress (Apr 2001)  -- turning point A
 ########################################################################
-country_event = {
-	id = vie_pol.2
-	title = vie_pol.2.t
-	desc = vie_pol.2.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_party_rule_active = yes }
-
-	option = {
-		name = vie_pol.2.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.2.a executed"
-		VIE_new_leader_manh = yes
-		VIE_bop_reform_small = yes
-		add_political_power = 50
-		hidden_effect = { set_country_flag = VIE_congress9_manh }
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
-			# Take the first eligible hardline transfer instead of leaving it to weighted chance.
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_bop_leans_conservative = yes }
-		}
-	}
-
-	option = {
-		name = vie_pol.2.b
-		trigger = { VIE_bop_leans_conservative = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.2.b executed (Phieu & Hardline)"
-		custom_effect_tooltip = VIE_hl_take_power_tt
-		hidden_effect = {
-			set_country_flag = VIE_congress9_phieu
-			country_event = { id = vie_hl.1 days = 1 }
-		}
-		add_stability = 0.05
-		add_political_power = 50
-		ai_chance = {
-			base = 10000
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.3  Tenth Party Congress (Apr 2006)  -- turning point A
 ########################################################################
-country_event = {
-	id = vie_pol.3
-	title = vie_pol.3.t
-	desc = vie_pol.3.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_party_rule_active = yes }
-
-	immediate = { set_country_flag = VIE_era_2006 }
-
-	option = {
-		name = vie_pol.3.a
-		trigger = { NOT = { VIE_hl_in_power = yes } }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.3.a executed"
-		add_political_power = 50
-		VIE_bop_reform_small = yes
-		ai_chance = { base = 100 }
-	}
-
-	option = {
-		name = vie_pol.3.b
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			VIE_bop_is_reformist = yes
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.3.b executed"
-		VIE_bop_reform_medium = yes
-		add_stability = -0.02
-		hidden_effect = { set_country_flag = VIE_reform_mandate }
-		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	option = {
-		name = vie_pol.3.c
-		trigger = { VIE_hl_in_power = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.3.c executed (Hardline confirmed)"
-		add_political_power = 75
-		VIE_bop_conservative_small = yes
-		add_stability = 0.03
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_pol.4  Eleventh Party Congress (Jan 2011)  -- Nguyen Phu Trong
 ########################################################################
-country_event = {
-	id = vie_pol.4
-	title = vie_pol.4.t
-	desc = vie_pol.4.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_party_rule_active = yes }
-
-	immediate = { set_country_flag = VIE_era_2011 }
-
-	option = {
-		name = vie_pol.4.a
-		trigger = { NOT = { VIE_hl_in_power = yes } }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.4.a executed"
-		VIE_new_leader_trong = yes
-		VIE_bop_conservative_small = yes
-		add_political_power = 50
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	option = {
-		name = vie_pol.4.b
-		trigger = { VIE_hl_in_power = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.4.b executed (Hardline confirmed)"
-		add_political_power = 75
-		VIE_bop_conservative_small = yes
-		add_stability = 0.03
-		ai_chance = { base = 100 }
-	}
-
-	# Hardline takes power at Congress XI
-	option = {
-		name = vie_pol.4.hl_take
-		trigger = {
-			VIE_hl_can_take_power_congress = yes
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.4.hl_take executed (Hardline takes power)"
-		custom_effect_tooltip = VIE_hl_take_power_tt
-		hidden_effect = {
-			country_event = { id = vie_hl.1 days = 1 }
-		}
-		add_stability = 0.03
-		add_political_power = 50
-		ai_chance = {
-			base = 10000
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.5  Twelfth Party Congress (Jan 2016)  -- biggest fork
 #   historical: Trong re-elected        alt: Government camp (Dung) wins -> developmental state
 ########################################################################
-country_event = {
-	id = vie_pol.5
-	title = vie_pol.5.t
-	desc = vie_pol.5.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_party_rule_active = yes }
-
-	immediate = { set_country_flag = VIE_era_2016 }
-
-	option = {
-		name = vie_pol.5.a
-		trigger = { NOT = { VIE_hl_in_power = yes } }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.5.a executed"
-		VIE_bop_conservative_small = yes
-		add_political_power = 50
-		hidden_effect = { set_country_flag = VIE_trong_third_term }
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0.05 NOT = { VIE_ai_historical = yes } }
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	option = {
-		name = vie_pol.5.b
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			OR = {
-				VIE_bop_is_reformist = yes
-				has_country_flag = VIE_reform_mandate
-			}
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.5.b executed"
-		VIE_new_leader_dung = yes
-		VIE_bop_reform_large = yes
-		increase_economic_growth = yes
-		add_stability = -0.03
-		hidden_effect = { set_country_flag = VIE_developmental_unlocked }
-		hidden_effect = { clr_country_flag = VIE_conservative_unlocked }
-		ai_chance = {
-			base = 4
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	option = {
-		name = vie_pol.5.c
-		trigger = { VIE_hl_in_power = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.5.c executed (Hardline confirmed)"
-		add_political_power = 75
-		VIE_bop_conservative_small = yes
-		add_stability = 0.03
-		ai_chance = { base = 100 }
-	}
-
-	# Hardline takes power at Congress XII
-	option = {
-		name = vie_pol.5.hl_take
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			VIE_hl_can_take_power_congress = yes
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.5.hl_take executed (Hardline takes power)"
-		custom_effect_tooltip = VIE_hl_take_power_tt
-		hidden_effect = {
-			country_event = { id = vie_hl.1 days = 1 }
-		}
-		add_stability = 0.03
-		add_political_power = 50
-		ai_chance = {
-			base = 10000
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-
-}
 
 ########################################################################
 # vie_pol.6  Thirteenth Party Congress (Jan 2021)  -- turning point A
 ########################################################################
-country_event = {
-	id = vie_pol.6
-	title = vie_pol.6.t
-	desc = vie_pol.6.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_party_rule_active = yes }
-
-	immediate = { set_country_flag = VIE_era_2021_congress }
-
-	# Historical: an unprecedented third term for the General Secretary
-	option = {
-		name = vie_pol.6.a
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			has_country_flag = VIE_trong_third_term
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.a executed"
-		add_political_power = 50
-		VIE_bop_conservative_small = yes
-		hidden_effect = { set_country_flag = VIE_trong_third_term_confirmed }
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	# Government camp path: the reforming leadership is confirmed
-	option = {
-		name = vie_pol.6.b
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			has_country_flag = VIE_developmental_unlocked
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.b executed"
-		add_political_power = 50
-		VIE_bop_reform_small = yes
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	# Neither path recorded (e.g. Twelfth Congress skipped): simply confirm the leadership
-	option = {
-		name = vie_pol.6.c
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			NOT = { has_country_flag = VIE_trong_third_term }
-			NOT = { has_country_flag = VIE_developmental_unlocked }
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.c executed"
-		add_political_power = 50
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	# Hardline path: the vanguard leadership is reaffirmed
-	option = {
-		name = vie_pol.6.hl
-		trigger = { VIE_hl_in_power = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.hl executed (Hardline confirmed)"
-		add_political_power = 75
-		VIE_bop_conservative_small = yes
-		add_stability = 0.03
-		ai_chance = { base = 100 }
-	}
-
-	# Hardline takes power at Congress XIII
-	option = {
-		name = vie_pol.6.hl_take
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			VIE_hl_can_take_power_congress = yes
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.hl_take executed (Hardline takes power)"
-		custom_effect_tooltip = VIE_hl_take_power_tt
-		hidden_effect = {
-			country_event = { id = vie_hl.1 days = 1 }
-		}
-		add_stability = 0.03
-		add_political_power = 50
-		ai_chance = {
-			base = 10000
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-
-}
 
 ########################################################################
 # vie_pol.7  Extraordinary Central Committee meeting (Aug 2024) -- only on the Trong path
 ########################################################################
-country_event = {
-	id = vie_pol.7
-	title = vie_pol.7.t
-	desc = vie_pol.7.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = {
-		VIE_party_rule_active = yes
-		NOT = { VIE_hl_in_power = yes }
-	}
-
-	option = {
-		name = vie_pol.7.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.7.a executed"
-		VIE_new_leader_to_lam = yes
-		VIE_bop_conservative_small = yes
-		add_political_power = 50
-		hidden_effect = { set_country_flag = VIE_to_lam_era }
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_pol.8  Fourteenth Party Congress (Jan 2026) -- end marker of the historical content
 ########################################################################
-country_event = {
-	id = vie_pol.8
-	title = vie_pol.8.t
-	desc = vie_pol.8.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_party_rule_active = yes }
-
-	immediate = { set_country_flag = VIE_congress14_done }
-
-	option = {
-		name = vie_pol.8.a
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			has_country_flag = VIE_to_lam_era
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.a executed"
-		add_political_power = 100
-		VIE_bop_conservative_small = yes
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	option = {
-		name = vie_pol.8.b
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			NOT = { has_country_flag = VIE_to_lam_era }
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.b executed"
-		add_political_power = 50
-		ai_chance = {
-			base = 100
-			modifier = { factor = 0 VIE_ai_hardline = yes VIE_hl_can_take_power_congress = yes }
-		}
-	}
-
-	# Hardline path: the era of unbreakable socialist strength
-	option = {
-		name = vie_pol.8.c
-		trigger = { VIE_hl_in_power = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.c executed (Hardline confirmed)"
-		add_political_power = 100
-		VIE_bop_conservative_small = yes
-		add_stability = 0.05
-		ai_chance = { base = 100 }
-	}
-
-	# Hardline takes power at Congress XIV
-	option = {
-		name = vie_pol.8.hl_take
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			VIE_hl_can_take_power_congress = yes
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.8.hl_take executed (Hardline takes power)"
-		custom_effect_tooltip = VIE_hl_take_power_tt
-		hidden_effect = {
-			country_event = { id = vie_hl.1 days = 1 }
-		}
-		add_stability = 0.03
-		add_political_power = 50
-		ai_chance = {
-			base = 10000
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-
-}
 
 ########################################################################
 # vie_pol.9  General Secretary also becomes President (Apr 2026)
 ########################################################################
-country_event = {
-	id = vie_pol.9
-	title = vie_pol.9.t
-	desc = vie_pol.9.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_party_rule_active = yes }
-
-	option = {
-		name = vie_pol.9.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.9.a executed"
-		add_political_power = 50
-		add_stability = 0.02
-		hidden_effect = { set_country_flag = VIE_dual_role_2026 }
-		ai_chance = { base = 100 }
-	}
-
-	# Hypothetical: keep collective leadership, the National Assembly keeps its oversight role
-	option = {
-		name = vie_pol.9.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.9.b executed"
-		add_political_power = 25
-		add_stability = 0.01
-		hidden_effect = { set_country_flag = VIE_collective_leadership_2026 }
-		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.23
 ########################################################################
-country_event = {
-	id = vie_pol.23
-	title = vie_pol.23.t
-	desc = vie_pol.23.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	option = {
-		name = vie_pol.23.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.23.a executed"
-		add_stability = 0.02
-		add_political_power = -50
-		ai_chance = { base = 60 }
-	}
-
-	option = {
-		name = vie_pol.23.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.23.b executed"
-		add_political_power = 25
-		ai_chance = { base = 40 }
-	}
-
-}
 
 ########################################################################
 # vie_pol.24
 ########################################################################
-country_event = {
-	id = vie_pol.24
-	title = vie_pol.24.t
-	desc = vie_pol.24.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	option = {
-		name = vie_pol.24.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.24.a executed"
-		add_stability = -0.03
-		ai_chance = { base = 40 }
-	}
-
-	option = {
-		name = vie_pol.24.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.24.b executed"
-		ai_chance = { base = 60 }
-	}
-
-}
 
 ########################################################################
 # vie_pol.25
 ########################################################################
-country_event = {
-	id = vie_pol.25
-	title = vie_pol.25.t
-	desc = vie_pol.25.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { has_idea = VIE_unified_leadership_idea }
-
-	option = {
-		name = vie_pol.25.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.25.a executed"
-		decrease_corruption = yes
-		add_stability = -0.02
-		ai_chance = { base = 60 }
-	}
-
-	option = {
-		name = vie_pol.25.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.25.b executed"
-		add_political_power = 25
-		increase_corruption = yes
-		if = {
-			limit = { has_idea = communist_cadres }
-			set_temp_variable = { temp_opinion = -3 }
-			change_communist_cadres_opinion = yes
-		}
-		ai_chance = { base = 40 }
-	}
-
-}
 
 ########################################################################
 # vie_pol.26
 ########################################################################
-country_event = {
-	id = vie_pol.26
-	title = vie_pol.26.t
-	desc = vie_pol.26.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { has_idea = VIE_institutional_oversight_idea }
-
-	option = {
-		name = vie_pol.26.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.26.a executed"
-		add_stability = 0.02
-		add_political_power = -25
-		ai_chance = { base = 60 }
-	}
-
-	option = {
-		name = vie_pol.26.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.26.b executed"
-		add_stability = -0.01
-		ai_chance = { base = 40 }
-	}
-
-}
 
 ########################################################################
 # vie_pol.27  Labour Code 2019 and ILO Convention ratification (late 2019)
 #  -- class B choice event, scheduled from VIE_event_scheduler_p2
 #  -- ties the CPTPP-driven labour reform to an independent workers' representation body
 ########################################################################
-country_event = {
-	id = vie_pol.27
-	title = vie_pol.27.t
-	desc = vie_pol.27.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
 
-	option = {
-		name = vie_pol.27.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.27.a executed"
-		add_political_power = -25
-		hidden_effect = { set_country_flag = VIE_labor_convention_ratified }
-		ai_chance = { base = 75 }
-	}
-
-	option = {
-		name = vie_pol.27.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.27.b executed"
-		add_political_power = 25
-		add_stability = -0.01
-		ai_chance = {
-			base = 25
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-}
 
 ########################################################################
 # vie_pol.28  1992 Constitution amended: 2013 Constitution adopted (28 Nov 2013)
@@ -1023,91 +442,21 @@ country_event = {
 #     regardless of regime, because VIE_constitution_2013_adopted gates a later focus.
 #     Content branches on whether vie_pol.15 chose the wider public consultation.
 ########################################################################
-country_event = {
-	id = vie_pol.28
-	title = vie_pol.28.t
-	desc = vie_pol.28.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
 
-	immediate = {
-		hidden_effect = { set_country_flag = VIE_constitution_2013_adopted }
-	}
-
-	# Historical: Article 4 (Party leadership) kept unchanged
-	option = {
-		name = vie_pol.28.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.28.a executed"
-		add_stability = 0.02
-		ai_chance = { base = 100 }
-	}
-
-	# Only reachable if vie_pol.15 went with the wider public consultation
-	option = {
-		name = vie_pol.28.b
-		trigger = { has_country_flag = VIE_public_debate_2013 }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.28.b executed"
-		VIE_bop_reform_medium = yes
-		hidden_effect = { set_country_flag = VIE_constitution_2013_expanded }
-		ai_chance = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.29  President Tran Dai Quang dies in office (21 Sep 2018)
 #  -- only on the historical GS path (VIE_trong_third_term); class B, silent fallback
 #     VIE_fb_president_2018 below applies the historical option if the pop-up window closes
 ########################################################################
-country_event = {
-	id = vie_pol.29
-	title = vie_pol.29.t
-	desc = vie_pol.29.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	# Historical: acting President, then the National Assembly elects the General
-	# Secretary concurrently as President (23 Oct 2018)
-	option = {
-		name = vie_pol.29.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.29.a executed"
-		add_political_power = 50
-		hidden_effect = { set_country_flag = VIE_dual_role_2018 }
-		ai_chance = { base = 100 }
-	}
-
-	# A separate President is elected instead
-	option = {
-		name = vie_pol.29.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.29.b executed"
-		add_stability = 0.01
-		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.30  Two-tier local government goes live (1 Jul 2025)
 #  -- fired from decision VIE_rn_xiii_two_tier (added in a later phase), not from a
 #     scheduler; single option, just announces the effect already applied by the decision
 ########################################################################
-country_event = {
-	id = vie_pol.30
-	title = vie_pol.30.t
-	desc = vie_pol.30.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
 
-	option = {
-		name = vie_pol.30.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.30.a executed"
-		ai_chance = { base = 100 }
-	}
-}
 
 
 # ====================================================================
@@ -1122,26 +471,7 @@ country_event = {
 ########################################################################
 # vie_hl.1  The conservative line takes power
 ########################################################################
-country_event = {
-	id = vie_hl.1
-	title = vie_hl.1.t
-	desc = vie_hl.1.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	immediate = {
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.1 immediate (hardline takes power)"
-		VIE_hl_take_power = yes
-	}
-
-	option = {
-		name = vie_hl.1.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.1.a executed"
-		add_political_power = 50
-		news_event = { id = vie_hl.100 days = 1 }
-		ai_chance = { base = 100 }
-	}
-}
 
 # vie_hl.2 - .8 are fired by VIE_hl_event_scheduler (common/scripted_effects/VIE_md_effects_hardline.txt).
 # Rule of the branch: every event has at least one option without a heavy penalty, none dead-ends.
@@ -1149,72 +479,12 @@ country_event = {
 ########################################################################
 # vie_hl.2  Letter from the veteran leaders
 ########################################################################
-country_event = {
-	id = vie_hl.2
-	title = vie_hl.2.t
-	desc = vie_hl.2.d
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
 
-	trigger = { VIE_hl_in_power = yes }
-
-	# Listen
-	option = {
-		name = vie_hl.2.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.2.a executed"
-		set_temp_variable = { VIE_rp_add = -10 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_m10_tt
-		VIE_bop_reform_small = yes
-		set_temp_variable = { temp_opinion = -2 }
-		change_communist_cadres_opinion = yes
-		ai_chance = { base = 50 }
-	}
-
-	# Reject
-	option = {
-		name = vie_hl.2.b
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.2.b executed"
-		set_temp_variable = { VIE_rp_add = 5 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_p5_tt
-		add_stability = 0.01
-		ai_chance = { base = 50 }
-	}
-}
 
 ########################################################################
 # vie_hl.3  Foreign investors hold back
 ########################################################################
-country_event = {
-	id = vie_hl.3
-	title = vie_hl.3.t
-	desc = vie_hl.3.d
-	picture = GFX_report_event_generic_stock_traders
-	is_triggered_only = yes
 
-	trigger = { VIE_hl_in_power = yes }
-
-	# Reassure
-	option = {
-		name = vie_hl.3.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.3.a executed"
-		set_temp_variable = { treasury_change = -2 }
-		modify_treasury_effect = yes
-		set_temp_variable = { VIE_rp_add = -3 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_m3_tt
-		ai_chance = { base = 60 }
-	}
-
-	# Ignore
-	option = {
-		name = vie_hl.3.b
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.3.b executed"
-		add_timed_idea = { idea = VIE_hl_investors_wary_idea days = 365 }
-		ai_chance = { base = 40 }
-	}
-}
 
 ########################################################################
 # vie_hl.4  Labour and trade warning (EVFTA / CPTPP commitments)
@@ -1224,370 +494,67 @@ country_event = {
 ########################################################################
 # vie_hl.5  Central Committee review (focus E1, or the first time pressure reaches 56)
 ########################################################################
-country_event = {
-	id = vie_hl.5
-	title = vie_hl.5.t
-	desc = vie_hl.5.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	trigger = { VIE_hl_in_power = yes }
-
-	# Keep the course
-	option = {
-		name = vie_hl.5.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.5.a executed"
-		add_political_power = 25
-		ai_chance = { base = 60 }
-	}
-
-	# Ease off
-	option = {
-		name = vie_hl.5.b
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.5.b executed"
-		set_temp_variable = { VIE_rp_add = -10 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_m10_tt
-		VIE_bop_reform_small = yes
-		ai_chance = { base = 25 }
-	}
-
-	# Tighten further
-	option = {
-		name = vie_hl.5.c
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.5.c executed"
-		set_temp_variable = { VIE_rp_add = 5 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_p5_tt
-		VIE_bop_conservative_small = yes
-		add_political_power = 50
-		ai_chance = {
-			base = 15
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-}
 
 ########################################################################
 # vie_hl.6  Public reaction over the South China Sea
 ########################################################################
-country_event = {
-	id = vie_hl.6
-	title = vie_hl.6.t
-	desc = vie_hl.6.d
-	picture = GFX_report_event_generic_rally
-	is_triggered_only = yes
 
-	trigger = { VIE_hl_in_power = yes }
-
-	# Sovereignty line set by focus D2 (cooperation without dependence): a firm answer costs no stability
-	option = {
-		name = vie_hl.6.a
-		trigger = { has_country_flag = VIE_hl_sovereignty_line }
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.6.a executed"
-		add_war_support = 0.03
-		add_political_power = 25
-		ai_chance = { base = 100 }
-	}
-
-	# No sovereignty line: the leadership looks soft towards Beijing
-	option = {
-		name = vie_hl.6.b
-		trigger = { NOT = { has_country_flag = VIE_hl_sovereignty_line } }
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.6.b executed"
-		add_stability = -0.02
-		set_temp_variable = { VIE_rp_add = 5 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_p5_tt
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_hl.7  Legitimacy crisis (pressure 80+, forced)
 ########################################################################
-country_event = {
-	id = vie_hl.7
-	title = vie_hl.7.t
-	desc = vie_hl.7.d
-	picture = GFX_report_event_generic_riot
-	is_triggered_only = yes
 
-	trigger = { VIE_hl_in_power = yes }
-
-	# Step back
-	option = {
-		name = vie_hl.7.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.7.a executed"
-		set_temp_variable = { VIE_rp_add = -20 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_m20_tt
-		set_temp_variable = { temp_opinion = -3 }
-		change_communist_cadres_opinion = yes
-		if = {
-			limit = { has_country_flag = VIE_bop_active }
-			hidden_effect = {
-				set_power_balance = {
-					id = VIE_party_balance
-					left_side = VIE_conservative_side
-					right_side = VIE_reform_side
-					set_value = -0.3
-				}
-			}
-			custom_effect_tooltip = VIE_hl_bop_to_m03_tt
-		}
-		ai_chance = { base = 80 }
-	}
-
-	# Persist: a two year self-reliance period, then a re-evaluation (vie_hl.8)
-	option = {
-		name = vie_hl.7.b
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.7.b executed"
-		add_timed_idea = { idea = VIE_hl_self_reliance_idea days = 730 }
-		hidden_effect = { set_country_flag = VIE_hl_self_reliance_running }
-		hidden_effect = { clr_country_flag = VIE_hl_self_reliance_extended }
-		ai_chance = { base = 20 }
-	}
-}
 
 ########################################################################
 # vie_hl.8  Re-evaluation after the self-reliance period
 ########################################################################
-country_event = {
-	id = vie_hl.8
-	title = vie_hl.8.t
-	desc = vie_hl.8.d
-	picture = GFX_report_event_generic_conference
-	is_triggered_only = yes
 
-	trigger = { VIE_hl_in_power = yes }
-
-	# Reopen
-	option = {
-		name = vie_hl.8.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.8.a executed"
-		hidden_effect = { clr_country_flag = VIE_hl_self_reliance_running }
-		hidden_effect = { clr_country_flag = VIE_hl_self_reliance_extended }
-		set_variable = { VIE_rp = 50 }
-		VIE_hl_update_pressure_idea = yes
-		ai_chance = { base = 70 }
-	}
-
-	# Extend once (the second time the country must reopen)
-	option = {
-		name = vie_hl.8.b
-		trigger = { NOT = { has_country_flag = VIE_hl_self_reliance_extended } }
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.8.b executed"
-		hidden_effect = { set_country_flag = VIE_hl_self_reliance_extended }
-		add_timed_idea = { idea = VIE_hl_self_reliance_idea days = 365 }
-		add_stability = -0.05
-		ai_chance = { base = 30 }
-	}
-}
 
 ########################################################################
 # vie_hl.20  Ultimatum received (fired in the scope of LAO or CBD; FROM = VIE)
 ########################################################################
-country_event = {
-	id = vie_hl.20
-	title = vie_hl.20.t
-	desc = vie_hl.20.d
-	picture = GFX_report_event_generic_sign_treaty3
-	is_triggered_only = yes
 
-	# Accept: become a subject of Vietnam
-	option = {
-		name = vie_hl.20.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.20.a executed"
-		FROM = { puppet = ROOT }
-		FROM = { country_event = { id = vie_hl.22 } }
-		ai_chance = {
-			base = 40
-			modifier = { add = 40 has_opinion = { target = FROM value > 49 } }
-			modifier = { factor = 0.3 is_in_faction = yes }
-		}
-	}
-
-	# Refuse
-	option = {
-		name = vie_hl.20.b
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.20.b executed"
-		FROM = { country_event = { id = vie_hl.21 } }
-		ai_chance = { base = 60 }
-	}
-}
 
 ########################################################################
 # vie_hl.21  The ultimatum was refused (VIE scope; FROM = LAO or CBD)
 ########################################################################
-country_event = {
-	id = vie_hl.21
-	title = vie_hl.21.t
-	desc = vie_hl.21.d
-	picture = GFX_report_event_generic_rally
-	is_triggered_only = yes
 
-	# Enforce it by force: a war goal to make the refusing country a subject
-	option = {
-		name = vie_hl.21.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.21.a executed"
-		if = {
-			limit = { FROM = { tag = LAO } }
-			set_temp_variable = { wargoal_on = LAO }
-			add_threat_from_wargoal_effect = yes
-			create_wargoal = { type = puppet_wargoal_focus target = LAO }
-		}
-		else_if = {
-			limit = { FROM = { tag = CBD } }
-			set_temp_variable = { wargoal_on = CBD }
-			add_threat_from_wargoal_effect = yes
-			create_wargoal = { type = puppet_wargoal_focus target = CBD }
-		}
-		set_temp_variable = { VIE_rp_add = 4 }
-		VIE_hl_add_pressure = yes
-		custom_effect_tooltip = VIE_hl_rp_p4_tt
-		ai_chance = { base = 70 }
-	}
-
-	# Back down
-	option = {
-		name = vie_hl.21.b
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.21.b executed"
-		add_political_power = -50
-		add_stability = -0.02
-		ai_chance = { base = 30 }
-	}
-}
 
 ########################################################################
 # vie_hl.22  The ultimatum was accepted (VIE scope; FROM = new subject)
 ########################################################################
-country_event = {
-	id = vie_hl.22
-	title = vie_hl.22.t
-	desc = vie_hl.22.d
-	picture = GFX_report_event_generic_sign_treaty3
-	is_triggered_only = yes
 
-	option = {
-		name = vie_hl.22.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.22.a executed"
-		add_political_power = 50
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_hl.10  Promulgation of the Indicative Five-Year Plan
 ########################################################################
-country_event = {
-	id = vie_hl.10
-	title = vie_hl.10.t
-	desc = vie_hl.10.d
-	picture = GFX_report_event_generic_conference
-	is_triggered_only = yes
 
-	option = {
-		name = vie_hl.10.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.10.a executed"
-		add_political_power = 50
-		add_stability = 0.02
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_hl.11  Declaration of Party-State Fusion (X2)
 ########################################################################
-country_event = {
-	id = vie_hl.11
-	title = vie_hl.11.t
-	desc = vie_hl.11.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	option = {
-		name = vie_hl.11.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.11.a executed"
-		add_political_power = 100
-		add_war_support = 0.05
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_hl.12  The Historic Handover Congress (X3)
 ########################################################################
-country_event = {
-	id = vie_hl.12
-	title = vie_hl.12.t
-	desc = vie_hl.12.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	option = {
-		name = vie_hl.12.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.12.a executed"
-		add_political_power = 100
-		add_stability = 0.05
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_hl.23  Proclamation of the Indochinese Socialist Union
 ########################################################################
-country_event = {
-	id = vie_hl.23
-	title = vie_hl.23.t
-	desc = vie_hl.23.d
-	picture = GFX_report_event_generic_sign_treaty3
-	is_triggered_only = yes
 
-	option = {
-		name = vie_hl.23.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.23.a executed"
-		add_political_power = 150
-		add_stability = 0.05
-		add_war_support = 0.05
-		news_event = { id = vie_hl.101 days = 1 }
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_hl.100  World News: CPV Hardline Orthodoxy Asserts Power in Vietnam
 ########################################################################
-news_event = {
-	id = vie_hl.100
-	title = vie_hl.100.t
-	desc = vie_hl.100.d
-	picture = GFX_news_event_generic_parliament
-	is_triggered_only = yes
-	major = yes
 
-	option = {
-		name = vie_hl.100.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.100.a executed"
-	}
-}
 
 ########################################################################
 # vie_hl.101  World News: Formation of the Indochinese Socialist Union
 ########################################################################
-news_event = {
-	id = vie_hl.101
-	title = vie_hl.101.t
-	desc = vie_hl.101.d
-	picture = GFX_news_event_generic_sign_treaty2
-	is_triggered_only = yes
-	major = yes
 
-	option = {
-		name = vie_hl.101.a
-		log = "[GetDateText]: [This.GetName]: Event vie_hl.101.a executed"
-	}
-}
 
 
 # ====================================================================
@@ -1922,8 +889,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_dip.3.b executed"
 		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
 		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
-		VIE_bop_conservative_small = yes
-		ai_chance = {
+				ai_chance = {
 			base = 20
 			modifier = { factor = 0 VIE_ai_historical = yes }
 		}
@@ -1972,36 +938,12 @@ country_event = {
 ########################################################################
 # vie_sec.0  The shield takes power  (opened by VIE_sec_security_state)
 ########################################################################
-country_event = {
-	id = vie_sec.0
-	title = vie_sec.0.t
-	desc = vie_sec.0.d
-	picture = GFX_report_event_generic_rally
-	is_triggered_only = yes
 
-	option = {
-		name = vie_sec.0.a
-		log = "[GetDateText]: [This.GetName]: Event vie_sec.0.a executed"
-		ai_chance = { base = 100 }
-	}
-}
 
 ########################################################################
 # vie_sec.2  The red generation  (opened by VIE_sec_ideological_education)
 ########################################################################
-country_event = {
-	id = vie_sec.2
-	title = vie_sec.2.t
-	desc = vie_sec.2.d
-	picture = GFX_report_event_generic_rally
-	is_triggered_only = yes
 
-	option = {
-		name = vie_sec.2.a
-		log = "[GetDateText]: [This.GetName]: Event vie_sec.2.a executed"
-		ai_chance = { base = 100 }
-	}
-}
 
 
 # ====================================================================
@@ -2021,11 +963,11 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 
-	# Phuong an A: Da co Luat Phong thu dan su (he thong chi huy va luc luong cuu ho)
+	# Phuong an A: Chuan bi day du (he thong chi huy va luc luong cuu ho)
 	option = {
 		name = vie_disaster.1.a
 		trigger = {
-			has_completed_focus = VIE_civil_defense_law_2023
+			date > 2023.1.1
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.a executed"
 		add_stability = 0.03
@@ -2037,12 +979,12 @@ country_event = {
 		}
 	}
 
-	# Phuong an B: Moi co Luat Phong, chong thien tai
+	# Phuong an B: Chuan bi co ban
 	option = {
 		name = vie_disaster.1.b
 		trigger = {
-			has_completed_focus = VIE_disaster_law_2013
-			NOT = { has_completed_focus = VIE_civil_defense_law_2023 }
+			date > 2013.1.1
+			date <= 2023.1.1
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.b executed"
 		set_temp_variable = { treasury_change = -0.5 }
@@ -2054,7 +996,7 @@ country_event = {
 	option = {
 		name = vie_disaster.1.c
 		trigger = {
-			NOT = { has_completed_focus = VIE_disaster_law_2013 }
+			date <= 2013.1.1
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.c executed"
 		set_temp_variable = { treasury_change = -2.0 }
@@ -2062,33 +1004,6 @@ country_event = {
 		add_stability = -0.05
 	}
 }
-
-
-# ====================================================================
-# SECTION: VIE_md_axis.txt
-# ====================================================================
-
-
-# Alternative history failure and reversal edges (Batch 5).
-# Driven by axis thresholds and system tensions.
-
-########################################################################
-# vie_axis.4: Multi-dimensional structural crisis warning
-########################################################################
-country_event = {
-	id = vie_axis.4
-	title = vie_axis.4.t
-	desc = vie_axis.4.d
-	picture = GFX_report_event_generic_conference
-	is_triggered_only = yes
-
-	option = {
-		name = vie_axis.4.a
-		log = "[GetDateText]: [This.GetName]: Event vie_axis.4.a executed"
-		add_stability = -0.05
-		add_political_power = -50
-		ai_chance = { base = 100 }
-	}
 }
 
 
@@ -2166,6 +1081,23 @@ country_event = {
 }
 
 # ====================================================================
+
+country_event = {
+	id = vie_axis.4
+	title = vie_axis.4.t
+	desc = vie_axis.4.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	option = {
+		name = vie_axis.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_axis.4.a executed"
+		add_stability = -0.05
+		add_political_power = -50
+		ai_chance = { base = 100 }
+	}
+}
+
 # SECTION: VIE_md_alt.txt
 # ====================================================================
 
@@ -2192,23 +1124,7 @@ country_event = {
 		ai_chance = { base = 100 }
 	}
 
-	# The Party takes a hard line: strategic autonomy
-	option = {
-		name = vie_alt.1.b
-		trigger = {
-			check_variable = { VIE_hd981_response = 2 }
-			VIE_scs_escalated_trigger = yes
-			has_country_flag = VIE_bop_active
-			power_balance_value = { id = VIE_party_balance value < 0.6 }
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.1.b executed"
-		hidden_effect = { set_country_flag = VIE_hardline_unlocked }
-		VIE_bop_conservative_small = yes
-		add_political_power = 25
-		ai_chance = {
-			base = 5
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
+	
 	}
 }
 
@@ -2226,8 +1142,7 @@ country_event = {
 		name = vie_alt.2.a
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.2.a executed"
 		add_political_power = 25
-		VIE_bop_conservative_small = yes
-		ai_chance = { base = 100 }
+				ai_chance = { base = 100 }
 	}
 
 	option = {
@@ -2345,13 +1260,7 @@ country_event = {
 		add_stability = 0.01
 		decrease_corruption = yes
 		# A firm state response while the conservative wing is already ahead opens the hardline plenum
-		if = {
-			limit = {
-				has_country_flag = VIE_bop_active
-				power_balance_value = { id = VIE_party_balance value < -0.4 }
-			}
-			hidden_effect = { set_country_flag = VIE_hardline_unlocked }
-		}
+		
 		ai_chance = { base = 100 }
 	}
 
@@ -2545,106 +1454,17 @@ country_event = {
 ########################################################################
 # vie_pol.10  Cybersecurity Law (mid 2018)  -- class B
 ########################################################################
-country_event = {
-	id = vie_pol.10
-	title = vie_pol.10.t
-	desc = vie_pol.10.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
 
-	# Pass the law as drafted (data stored at home, tight rules on content)
-	option = {
-		name = vie_pol.10.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.10.a executed"
-		VIE_bop_conservative_small = yes
-		add_stability = 0.01
-		hidden_effect = { set_country_flag = VIE_cyber_law_strict }
-		ai_chance = { base = 80 }
-	}
-
-	# A softer text after talks with the technology firms
-	option = {
-		name = vie_pol.10.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.10.b executed"
-		VIE_bop_reform_small = yes
-		set_temp_variable = { treasury_change = 1 }
-		modify_treasury_effect = yes
-		ai_chance = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.18  Unrest in the Highlands (2004)  -- class B
 ########################################################################
-country_event = {
-	id = vie_pol.18
-	title = vie_pol.18.t
-	desc = vie_pol.18.d
-	picture = GFX_report_event_generic_rally
-	is_triggered_only = yes
 
-	# Send in the security forces and restore order
-	option = {
-		name = vie_pol.18.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.18.a executed"
-		add_stability = 0.01
-		add_political_power = -25
-		ai_chance = { base = 80 }
-	}
-
-	# Talks and investment, possible only if a highlands policy is in place
-	option = {
-		name = vie_pol.18.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.18.b executed"
-		trigger = { has_country_flag = VIE_ethnic_policy_done }
-		set_temp_variable = { treasury_change = -1 }
-		modify_treasury_effect = yes
-		add_stability = 0.02
-		ai_chance = {
-			base = 60
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-}
 
 ########################################################################
 # vie_pol.21  "Fear of making mistakes" (2023-24)  -- class B
 ########################################################################
-country_event = {
-	id = vie_pol.21
-	title = vie_pol.21.t
-	desc = vie_pol.21.d
-	picture = GFX_report_event_generic_conference
-	is_triggered_only = yes
 
-	# Protect officials who take honest risks
-	option = {
-		name = vie_pol.21.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.21.a executed"
-		if = {
-			limit = { has_idea = VIE_official_caution }
-			remove_ideas = VIE_official_caution
-		}
-		increase_economic_growth = yes
-		VIE_bop_reform_small = yes
-		ai_chance = { base = 70 }
-	}
-
-	# Keep the pressure on
-	option = {
-		name = vie_pol.21.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.21.b executed"
-		decrease_economic_growth = yes
-		VIE_bop_conservative_small = yes
-		ai_chance = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-}
 
 ########################################################################
 # vie_cor.6  A wave of senior resignations (2023-24)  -- class B
@@ -2662,8 +1482,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_cor.6.a executed"
 		decrease_corruption = yes
 		add_stability = -0.02
-		VIE_bop_conservative_small = yes
-		set_temp_variable = { temp_opinion = -3 }
+				set_temp_variable = { temp_opinion = -3 }
 		change_communist_cadres_opinion = yes
 		ai_chance = { base = 80 }
 	}
@@ -2716,8 +1535,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_eco.19.b executed"
 		add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
 		reverse_add_opinion_modifier = { target = USA modifier = VIE_trade_agreement }
-		VIE_bop_conservative_small = yes
-		ai_chance = {
+				ai_chance = {
 			base = 30
 			modifier = { factor = 0 VIE_ai_historical = yes }
 		}
@@ -3134,414 +1952,18 @@ country_event = {
 ########################################################################
 # vie_alt.31  The surveillance leak  (opened by VIE_sec_cyber_sovereignty)
 ########################################################################
-country_event = {
-	id = vie_alt.31
-	title = vie_alt.31.t
-	desc = vie_alt.31.d
-	picture = GFX_report_event_Corruption_1
-	is_triggered_only = yes
-
-	# Cover it up
-	option = {
-		name = vie_alt.31.a
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.31.a executed"
-		add_political_power = 25
-		add_stability = -0.01
-		if = {
-			limit = { VIE_hl_in_power = yes }
-			set_temp_variable = { VIE_rp_add = 4 }
-			custom_effect_tooltip = VIE_hl_rp_p4_tt
-			VIE_hl_add_pressure = yes
-		}
-		ai_chance = { base = 70 }
-	}
-
-	# Reform the services
-	option = {
-		name = vie_alt.31.b
-		log = "[GetDateText]: [This.GetName]: Event vie_alt.31.b executed"
-		VIE_bop_reform_small = yes
-		if = {
-			limit = { VIE_hl_in_power = yes }
-			set_temp_variable = { VIE_rp_add = -3 }
-			custom_effect_tooltip = VIE_hl_rp_m3_tt
-			VIE_hl_add_pressure = yes
-		}
-		ai_chance = { base = 30 }
-	}
-}
-
 # ====================================================================
 # SECTION: VIE_md_p10.txt
 # ====================================================================
 
 
-country_event = {
-	id = vie_pol.11
-	title = vie_pol.11.t
-	desc = vie_pol.11.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	option = {
-		name = vie_pol.11.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.11.a executed"
-		increase_corruption = yes
-		ai_chance = { base = 70 }
-	}
 
-	option = {
-		name = vie_pol.11.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.11.b executed"
-		VIE_bop_conservative_small = yes
-		add_stability = -0.02
-		ai_chance = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
 
-	# Only reachable once the Eleventh Congress's own party-building focus is done
-	# (see VIE_congress_spine_redesign.md section 7.3): partial success, unlike history
-	option = {
-		name = vie_pol.11.c
-		trigger = { has_completed_focus = VIE_tw4_party_building }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.11.c executed"
-		decrease_corruption = yes
-		add_political_power = 25
-		ai_chance = {
-			base = 15
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
 
-}
 
-country_event = {
-	id = vie_pol.12
-	title = vie_pol.12.t
-	desc = vie_pol.12.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
 
-	option = {
-		name = vie_pol.12.a
-		trigger = { NOT = { VIE_hl_in_power = yes } }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.12.a executed"
-		add_political_power = 100
-		add_stability = 0.02
-		VIE_bop_conservative_small = yes
-		ai_chance = {
-			base = 70
-			modifier = {
-				factor = 0
-				VIE_ai_hardline = yes
-				VIE_hl_can_take_power_congress = yes
-			}
-		}
-	}
 
-	option = {
-		name = vie_pol.12.b
-		trigger = { NOT = { VIE_hl_in_power = yes } }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.12.b executed"
-		add_political_power = 50
-		VIE_bop_reform_medium = yes
-		ai_chance = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = {
-				factor = 0
-				VIE_ai_hardline = yes
-				VIE_hl_can_take_power_congress = yes
-			}
-		}
-	}
-
-	# Hardline already in power: the Congress confirms the line (keeps the leader)
-	option = {
-		name = vie_pol.12.hl_keep
-		trigger = { VIE_hl_in_power = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.12.hl_keep executed"
-		add_political_power = 100
-		add_stability = 0.02
-		VIE_bop_conservative_small = yes
-		ai_chance = { base = 100 }
-	}
-
-	# Hardline takes power at Congress XV
-	option = {
-		name = vie_pol.12.hl_take
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			VIE_hl_can_take_power_congress = yes
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.12.hl_take executed (Hardline takes power)"
-		custom_effect_tooltip = VIE_hl_take_power_tt
-		hidden_effect = {
-			country_event = { id = vie_hl.1 days = 1 }
-		}
-		add_stability = 0.03
-		add_political_power = 50
-		ai_chance = {
-			base = 10000
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-
-}
-
-country_event = {
-	id = vie_pol.13
-	title = vie_pol.13.t
-	desc = vie_pol.13.d
-	picture = GFX_report_event_generic_communist_congress
-	is_triggered_only = yes
-
-	option = {
-		name = vie_pol.13.a
-		trigger = { NOT = { VIE_hl_in_power = yes } }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.13.a executed"
-		add_political_power = 100
-		add_stability = 0.02
-		VIE_bop_conservative_small = yes
-		ai_chance = {
-			base = 70
-			modifier = {
-				factor = 0
-				VIE_ai_hardline = yes
-				VIE_hl_can_take_power_congress = yes
-			}
-		}
-	}
-
-	option = {
-		name = vie_pol.13.b
-		trigger = { NOT = { VIE_hl_in_power = yes } }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.13.b executed"
-		add_political_power = 50
-		VIE_bop_reform_medium = yes
-		ai_chance = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = {
-				factor = 0
-				VIE_ai_hardline = yes
-				VIE_hl_can_take_power_congress = yes
-			}
-		}
-	}
-
-	# Hardline already in power: the Congress confirms the line (keeps the leader)
-	option = {
-		name = vie_pol.13.hl_keep
-		trigger = { VIE_hl_in_power = yes }
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.13.hl_keep executed"
-		add_political_power = 100
-		add_stability = 0.02
-		VIE_bop_conservative_small = yes
-		ai_chance = { base = 100 }
-	}
-
-	# Hardline takes power at Congress XVI
-	option = {
-		name = vie_pol.13.hl_take
-		trigger = {
-			NOT = { VIE_hl_in_power = yes }
-			VIE_hl_can_take_power_congress = yes
-		}
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.13.hl_take executed (Hardline takes power)"
-		custom_effect_tooltip = VIE_hl_take_power_tt
-		hidden_effect = {
-			country_event = { id = vie_hl.1 days = 1 }
-		}
-		add_stability = 0.03
-		add_political_power = 50
-		ai_chance = {
-			base = 10000
-			modifier = { factor = 0 VIE_ai_historical = yes }
-			modifier = { factor = 0 NOT = { VIE_ai_hardline = yes } }
-		}
-	}
-
-}
-
-country_event = {
-	id = vie_pol.14
-	title = vie_pol.14.t
-	desc = vie_pol.14.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
-
-	option = {
-		name = vie_pol.14.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.14.a executed"
-		add_political_power = 25
-		ai_chance = { base = 70 }
-	}
-
-	option = {
-		name = vie_pol.14.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.14.b executed"
-		VIE_bop_reform_small = yes
-		add_political_power = 25
-		add_stability = -0.01
-		ai_chance = {
-			base = 30
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-}
-
-country_event = {
-	id = vie_pol.15
-	title = vie_pol.15.t
-	desc = vie_pol.15.d
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
-
-	option = {
-		name = vie_pol.15.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.15.a executed"
-		add_political_power = 25
-		ai_chance = { base = 60 }
-	}
-
-	option = {
-		name = vie_pol.15.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.15.b executed"
-		VIE_bop_reform_small = yes
-		add_stability = -0.01
-		hidden_effect = { set_country_flag = VIE_public_debate_2013 }
-		ai_chance = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-	option = {
-		name = vie_pol.15.c
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.15.c executed"
-		VIE_bop_conservative_small = yes
-		add_political_power = 25
-		ai_chance = {
-			base = 20
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-}
-
-country_event = {
-	id = vie_pol.16
-	title = vie_pol.16.t
-	desc = vie_pol.16.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
-
-	option = {
-		name = vie_pol.16.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.16.a executed"
-		add_stability = -0.02
-		add_political_power = 75
-		set_temp_variable = { treasury_change = 1 }
-		modify_treasury_effect = yes
-		hidden_effect = { set_country_flag = VIE_streamline_go }
-		ai_chance = { base = 60 }
-	}
-
-	option = {
-		name = vie_pol.16.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.16.b executed"
-		add_political_power = 25
-		hidden_effect = { set_country_flag = VIE_streamline_wait_ever }
-		hidden_effect = { set_country_flag = { flag = VIE_streamline_wait value = 1 days = 180 } }
-		ai_chance = { base = 40 }
-	}
-
-}
-
-country_event = {
-	id = vie_pol.17
-	title = vie_pol.17.t
-	desc = vie_pol.17.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
-
-	option = {
-		name = vie_pol.17.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.17.a executed"
-		add_stability = -0.01
-		increase_economic_growth = yes
-		add_political_power = 50
-		hidden_effect = { set_country_flag = VIE_merge_provinces_started }
-		ai_chance = { base = 70 }
-	}
-
-	option = {
-		name = vie_pol.17.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.17.b executed"
-		add_political_power = 25
-		hidden_effect = { set_country_flag = VIE_merge_provinces_started }
-		ai_chance = { base = 30 }
-	}
-
-}
-
-country_event = {
-	id = vie_pol.19
-	title = vie_pol.19.t
-	desc = vie_pol.19.d
-	picture = GFX_report_event_generic_riot
-	is_triggered_only = yes
-
-	option = {
-		name = vie_pol.19.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.19.a executed"
-		add_stability = 0.01
-		ai_chance = { base = 70 }
-	}
-
-	option = {
-		name = vie_pol.19.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.19.b executed"
-		add_stability = 0.02
-		set_temp_variable = { treasury_change = -1 }
-		modify_treasury_effect = yes
-		ai_chance = { base = 30 }
-	}
-
-}
-
-country_event = {
-	id = vie_pol.22
-	title = vie_pol.22.t
-	desc = vie_pol.22.d
-	picture = GFX_report_event_generic_parliament
-	is_triggered_only = yes
-
-	option = {
-		name = vie_pol.22.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.22.a executed"
-		VIE_bop_conservative_small = yes
-		add_political_power = 50
-		ai_chance = { base = 60 }
-	}
-
-	option = {
-		name = vie_pol.22.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.22.b executed"
-		VIE_bop_reform_small = yes
-		add_political_power = 50
-		ai_chance = {
-			base = 40
-			modifier = { factor = 0 VIE_ai_historical = yes }
-		}
-	}
-
-}
 
 country_event = {
 	id = vie_cor.1
@@ -4688,8 +3110,7 @@ country_event = {
 	option = {
 		name = vie_alt.40.a
 		log = "[GetDateText]: [This.GetName]: Event vie_alt.40.a executed"
-		VIE_bop_conservative_small = yes
-		add_stability = 0.01
+				add_stability = 0.01
 		ai_chance = { base = 60 }
 	}
 
@@ -5076,8 +3497,7 @@ country_event = {
 	option = {
 		name = vie_scs.2.a
 		log = "[GetDateText]: [This.GetName]: Event vie_scs.2.a executed"
-		VIE_bop_conservative_small = yes
-		add_stability = 0.02
+				add_stability = 0.02
 		add_timed_idea = { idea = VIE_fdi_confidence_shock days = 120 }
 		country_event = { id = vie_scs.3 days = 45 random_days = 10 }
 		ai_chance = { base = 90 }
@@ -5238,8 +3658,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: Event vie_scs.6.b executed"
 		add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
 		reverse_add_opinion_modifier = { target = CHI modifier = VIE_hd981_restraint }
-		VIE_bop_conservative_small = yes
-		ai_chance = { base = 30 }
+				ai_chance = { base = 30 }
 	}
 
 	# Use the ruling as the basis for a wider diplomatic campaign
