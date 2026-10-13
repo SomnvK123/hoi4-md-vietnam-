@@ -1,0 +1,915 @@
+{
+  "schema": "B1: nguồn tham số duy nhất; số dẫn xuất do script tính; refs là mục sử dụng",
+  "parameters": {
+    "program_deadline": {
+      "value": 900,
+      "refs": "Kết luận;4.2;6.5;7.3;8.3;10;11;12"
+    },
+    "early_days": {
+      "value": {
+        "cadre": 600,
+        "administration": 600,
+        "inspection": 690,
+        "social": 600
+      },
+      "old": "660 cho mọi chương trình",
+      "refs": "Kết luận;4.2;6.5;7.3;8.3;10;11;12"
+    },
+    "early_pp": {
+      "value": 50,
+      "old": 60,
+      "refs": "4.2;8.3;10;11;12"
+    },
+    "program_start_latest": {
+      "value": 270,
+      "refs": "4.2;11"
+    },
+    "program_selection_days": {
+      "value": 90,
+      "refs": "4.2"
+    },
+    "reserve_days": {
+      "value": 100,
+      "refs": "4.2;6.5;11.3;I5"
+    },
+    "congress_preparation_days": {
+      "value": 180,
+      "refs": "5.1;4.2;11"
+    },
+    "congress_session_days": {
+      "value": 7,
+      "refs": "5.1"
+    },
+    "appointment_days": {
+      "value": 30,
+      "refs": "5.1"
+    },
+    "congress_dates": {
+      "value": {
+        "IX": "2001-04-19",
+        "X": "2006-04-18",
+        "XI": "2011-01-12",
+        "XII": "2016-01-20",
+        "XIII": "2021-01-25",
+        "XIV": "2026-01-19",
+        "XV": "2031-01-19"
+      },
+      "refs": "5.1;7;11; XV là giả định gameplay, các nguồn giữ ở 5.1"
+    },
+    "prepare_days": {
+      "value": {
+        "collective": 30,
+        "balanced": 30,
+        "central": 15
+      },
+      "refs": "3.1;4.3;11"
+    },
+    "action_days": {
+      "value": {
+        "training": [
+          180,
+          150
+        ],
+        "succession": [
+          180,
+          150
+        ],
+        "administration_project": [
+          270,
+          225
+        ],
+        "audit": [
+          270,
+          225
+        ],
+        "local_project": [
+          270,
+          225
+        ],
+        "audit_standard": [
+          90,
+          90
+        ],
+        "review": [
+          90,
+          90
+        ]
+      },
+      "refs": "3.2;4.1;4.3;6.5;11"
+    },
+    "tools": {
+      "value": {
+        "start": [
+          40,
+          0
+        ],
+        "training": [
+          25,
+          0.25
+        ],
+        "succession": [
+          30,
+          0
+        ],
+        "administration_project": [
+          40,
+          0.5
+        ],
+        "audit": [
+          30,
+          0.25
+        ],
+        "local_project": [
+          30,
+          0.5
+        ],
+        "audit_standard": [
+          25,
+          0.25
+        ],
+        "review": [
+          25,
+          0
+        ]
+      },
+      "refs": "4.3;11; mỗi cặp là [PP,ngân khố]"
+    },
+    "bop_initial": {
+      "value": 0,
+      "refs": "3.1"
+    },
+    "bop_limits": {
+      "value": [
+        -1,
+        1
+      ],
+      "refs": "3.1"
+    },
+    "bop_threshold": {
+      "value": 0.25,
+      "refs": "3.1;5.2;10;11.3"
+    },
+    "bop_route_snapshot": {
+      "value": {
+        "collective": -0.3,
+        "balanced": 0,
+        "central": 0.3
+      },
+      "refs": "3.1;6.2;11; CSV dùng snapshot chuẩn hóa, không mô phỏng focus trước snapshot"
+    },
+    "branch_pp_daily": {
+      "value": 0.03,
+      "refs": "3.1;11"
+    },
+    "consult_bop": {
+      "value": -0.05,
+      "refs": "3.1;3.2;10;11"
+    },
+    "override_bop": {
+      "value": 0.05,
+      "refs": "3.1;3.2;10;11"
+    },
+    "checkpoint_count": {
+      "value": 2,
+      "refs": "3.1;3.2;11"
+    },
+    "fast_upfront_pp": {
+      "value": 25,
+      "refs": "3.2;4.3;11"
+    },
+    "checkpoint_treasury": {
+      "value": 0.25,
+      "old": 0,
+      "refs": "3.2;4.2;4.3;6;10;11.1;11.3;CSV;I2;I3; được người dùng chốt, mỗi checkpoint thương lượng"
+    },
+    "choice_full_exception": {
+      "value": {"program": "inspection", "e102": "C", "e103": ["B", "C"]},
+      "refs": "4.2;6.4;6.5;10;11.1;11.3;12;I5; chỉ miễn dự phòng cho tổ hợp người chơi đã chọn, không đổi deadline/giá"
+    },
+    "checkpoint_pp": {
+      "value": 15,
+      "refs": "3.2;4.3;11;I3"
+    },
+    "override_cohesion": {
+      "value": 8,
+      "refs": "3.1;3.2;10;11"
+    },
+    "override_floor": {
+      "value": 40,
+      "refs": "3.2;3.3;10;11.3"
+    },
+    "cohesion_initial": {
+      "value": 60,
+      "refs": "3.3;11"
+    },
+    "cohesion_limits": {
+      "value": [
+        0,
+        100
+      ],
+      "refs": "3.3"
+    },
+    "cohesion_price_bands": {
+      "value": [
+        [
+          0,
+          19,
+          1.25
+        ],
+        [
+          20,
+          39,
+          1.15
+        ],
+        [
+          40,
+          54,
+          1.05
+        ],
+        [
+          55,
+          69,
+          1
+        ],
+        [
+          70,
+          100,
+          0.9
+        ]
+      ],
+      "old": "40–69:1.00",
+      "refs": "3.3;4.3;10;11"
+    },
+    "low_cohesion_prepare_extra": {
+      "value": 60,
+      "refs": "3.3;11"
+    },
+    "cadre_cohesion_required": {
+      "value": 55,
+      "refs": "4.1;5.2;11"
+    },
+    "recovery": {
+      "value": {
+        "pp": 30,
+        "low_pp": 15,
+        "low_below": 20,
+        "cohesion": 10,
+        "days": 90,
+        "cooldown": 180
+      },
+      "refs": "3.3;11"
+    },
+    "outcome_cohesion": {
+      "value": {
+        "full": 6,
+        "partial": 2,
+        "fail": -6
+      },
+      "refs": "3.3;4.2;11"
+    },
+    "collective_full_extra": {
+      "value": 4,
+      "refs": "3.1;3.3;11"
+    },
+    "collective_extra_cap": {
+      "value": 70,
+      "refs": "3.1;3.3;11"
+    },
+    "tier_cap": {
+      "value": 3,
+      "refs": "4.2;4.4;8.1;11"
+    },
+    "cadre_discount_pp": {
+      "value": [
+        0,
+        5,
+        10,
+        15
+      ],
+      "refs": "3.3;4.4;11"
+    },
+    "cadre_transition_cohesion": {
+      "value": [
+        12,
+        8,
+        5,
+        3
+      ],
+      "refs": "4.4;11"
+    },
+    "cadre_transition_days": {
+      "value": [
+        90,
+        75,
+        60,
+        45
+      ],
+      "refs": "4.4"
+    },
+    "transition_pp_factor": {
+      "value": -0.05,
+      "refs": "4.4"
+    },
+    "sign_days": {
+      "value": [
+        45,
+        30,
+        25,
+        21
+      ],
+      "old": [
+        45,
+        35,
+        30,
+        21
+      ],
+      "refs": "4.4;5.2;6.6;7.XIII09;7.XIV11;10;11"
+    },
+    "combined": {
+      "value": {
+        "pp": 60,
+        "cohesion": -6,
+        "bop": 0.1,
+        "sign_days": 21,
+        "departure_cohesion": -4,
+        "departure_days": 30
+      },
+      "refs": "3.1;4.4;5.2;6.6;11"
+    },
+    "split": {
+      "value": {
+        "pp": 45,
+        "cohesion": 2,
+        "bop": -0.1,
+        "after_days": 180
+      },
+      "refs": "3.1;5.2"
+    },
+    "tier_modifiers": {
+      "value": {
+        "bureaucracy": [
+          -0.02,
+          -0.04,
+          -0.06
+        ],
+        "corruption_cost": [
+          -0.02,
+          -0.04,
+          -0.06
+        ],
+        "stability": [
+          0.01,
+          0.02,
+          0.03
+        ]
+      },
+      "refs": "4.4;8.3"
+    },
+    "gdp_target_factor": {
+      "value": 1.04,
+      "refs": "4.1"
+    },
+    "bottom_corruption_helper_pp": {
+      "value": 150,
+      "refs": "4.1; tham chiếu repo giữ nguyên, không gọi helper tại đáy"
+    },
+    "timed_reward_days": {
+      "value": 365,
+      "refs": "4.2;6.4;7.XIV10;11"
+    },
+    "fail_penalty": {
+      "value": [
+        -0.03,
+        180
+      ],
+      "refs": "4.2"
+    },
+    "side_project": {
+      "value": {
+        "pp": 30,
+        "treasury": 0,
+        "days": 270,
+        "bureaucracy_cost_factor": -0.01
+      },
+      "refs": "4.2;8.1;8.3;10;11; giả định gameplay mới L1.2, deadline là chuẩn bị đại hội sau"
+    },
+    "e101": {
+      "value": {
+        "A": [
+          25,
+          0.5,
+          2,
+          -0.05,
+          60
+        ],
+        "B": [
+          0,
+          0,
+          -8,
+          0.05,
+          0
+        ],
+        "C": [
+          15,
+          0.25,
+          1,
+          0,
+          0
+        ]
+      },
+      "refs": "6.3;11; [PP,ngân khố,cohesion,BoP,trễ ngày]"
+    },
+    "e102": {
+      "value": {
+        "A": [
+          30,
+          0.5,
+          0
+        ],
+        "B": [
+          20,
+          0.25,
+          0
+        ],
+        "C": [
+          0,
+          0.75,
+          90
+        ]
+      },
+      "refs": "6.4;6.5;11; [PP,ngân khố,trễ ngày]"
+    },
+    "e103": {
+      "value": {
+        "caller_day": 450,
+        "A_pp": 0,
+        "rejection_cohesion": -6,
+        "reappraisal_days": 180,
+        "B_pp": 30,
+        "extension_days": 120,
+        "C_pp": 15
+      },
+      "refs": "6.5;8.3;10;11; B giữ độ gia hạn cũ 780−660=120"
+    },
+    "e104": {
+      "value": {
+        "caller_day": 500,
+        "window_days": 30,
+        "A_pp": 30,
+        "A_grant": 0.75,
+        "B_pp": 15,
+        "B_grant": 0.25,
+        "B_days": 21,
+        "C_pp": 0
+      },
+      "refs": "6.6;10;11"
+    },
+    "late_signature_windows": {
+      "value": {
+        "XIII09": 25,
+        "XIV11": 21
+      },
+      "refs": "7.XIII09;7.XIV11;10;11.3; giả định gameplay L1.5"
+    },
+    "focus_days_per_cost": {
+      "value": 7,
+      "refs": "6.2;7.3;7.4; giả định chưa đo engine"
+    },
+    "focus_pp": {
+      "value": {
+        "F01": 30,
+        "F02": -25,
+        "F03": 0,
+        "F04": -25,
+        "F07": 20
+      },
+      "refs": "6.2;11; trước snapshot nên tách khỏi CSV chuẩn hóa"
+    },
+    "focus_f03_cohesion": {
+      "value": 4,
+      "refs": "6.2"
+    },
+    "one_stop_legacy_factor": {
+      "value": -0.02,
+      "refs": "6.2;8.3"
+    },
+    "accounting_days": {
+      "value": 1800,
+      "refs": "11"
+    },
+    "r_values": {
+      "value": [
+        0.5,
+        1,
+        1.5
+      ],
+      "refs": "11; CSV"
+    },
+    "k_values": {
+      "value": [
+        20,
+        40,
+        60
+      ],
+      "refs": "11; CSV;I3"
+    },
+    "cohesion_pp_rate": {
+      "value": 3,
+      "refs": "11; CSV;I3"
+    },
+    "max_fast_reward_pp_difference": {
+      "value": 10,
+      "refs": "I2;11.3"
+    },
+    "focus_nodes": {
+      "value": {
+        "F01": {
+          "cost": 5,
+          "name": "Rà soát thủ tục và vốn nhà nước",
+          "source_row": "Năm 2000 | PP +30; chẩn đoán bộ/ngành và địa phương |"
+        },
+        "F02": {
+          "cost": 7,
+          "name": "Công bố quy trình trách nhiệm",
+          "source_row": "F01 | PP -25; mở công cụ cơ sở bốn chương trình |"
+        },
+        "F03": {
+          "cost": 5,
+          "name": "Tham vấn địa phương trước giải ngân",
+          "source_row": "IX; F02; loại trừ F04 | BoP -0.30; cohesion +4; công cụ tham vấn có kết quả |"
+        },
+        "F04": {
+          "cost": 5,
+          "name": "Lập đầu mối chỉ đạo dự án",
+          "source_row": "IX; F02; loại trừ F03 | BoP +0.30; PP -25; gói cấp tốc, decision kiêm nhiệm |"
+        },
+        "F05": {
+          "cost": 7,
+          "name": "Công khai phương án đền bù đất",
+          "source_row": "F03 | E101, dự án có kiến nghị định danh |"
+        },
+        "F06": {
+          "cost": 7,
+          "name": "Kiểm toán bảo lãnh DNNN",
+          "source_row": "F04 | E102; điều kiện vốn và dữ liệu cho E104 |"
+        },
+        "F07": {
+          "cost": 5,
+          "name": "Công bố kế hoạch thực hiện nghị quyết",
+          "source_row": "F05 OR F06 | PP +20; chương trình đã chọn và giá khởi động rõ |"
+        },
+        "F08": {
+          "cost": 7,
+          "name": "Thí điểm thủ tục một cửa",
+          "source_row": "F07 | Công cụ chuyên sâu: nghiệm thu hai dự án; một lần nhận DM bureaucracy cost -2% khi đủ chứng cứ |"
+        },
+        "F09": {
+          "cost": 5,
+          "name": "Đào tạo cán bộ và người kế cận",
+          "source_row": "F08 | Hai đợt đào tạo và phương án kế cận; bằng chứng cho tier |"
+        },
+        "F10": {
+          "cost": 5,
+          "name": "Công bố kiểm toán mua sắm công",
+          "source_row": "F08 | Quy trình xử lý hồ sơ E103 và công cụ giải quyết kiến nghị |"
+        },
+        "F11": {
+          "cost": 5,
+          "name": "Mở phiên tiếp nhận khiếu nại dự án",
+          "source_row": "F09 | Hai hồ sơ khác nhau; đóng kiến nghị theo lựa chọn |"
+        },
+        "F12": {
+          "cost": 3,
+          "name": "Nghiệm thu và công bố kết quả",
+          "source_row": "F10 | Yêu cầu review sớm; resolver full hoặc chờ deadline |"
+        },
+        "IX11": {
+          "cost": 5,
+          "name": "Luân chuyển cán bộ trong đợt thí điểm",
+          "source_row": "Event đổi người phụ trách dự án: 20 PP, cohesion +4 sau bàn giao, dự án +30 ngày; loại trừ IX12. |"
+        },
+        "IX12": {
+          "cost": 5,
+          "name": "Giữ người phụ trách đến nghiệm thu",
+          "source_row": "Event giữ roster dự án: giữ tiến độ, mở yêu cầu kiểm toán độc lập 20 PP; loại trừ IX11. |"
+        },
+        "X01": {
+          "cost": 5,
+          "name": "Công khai danh mục vốn nhà nước",
+          "source_row": "Event chọn đối tượng kiểm toán |"
+        },
+        "X02": {
+          "cost": 7,
+          "name": "Tách bảo lãnh khỏi kế hoạch kinh doanh",
+          "source_row": "Decision tái cơ cấu, chi phí chuyển đổi |"
+        },
+        "X03": {
+          "cost": 7,
+          "name": "Cổ phần hóa theo điều kiện công bố",
+          "source_row": "Chuỗi đàm phán và trách nhiệm người mua |"
+        },
+        "X04": {
+          "cost": 3,
+          "name": "Kiểm toán sau chuyển đổi sở hữu",
+          "source_row": "Milestone giám sát |"
+        },
+        "X05": {
+          "cost": 5,
+          "name": "Công bố quy trình chấp thuận đầu tư",
+          "source_row": "Công cụ xử lý đầu tư minh bạch |"
+        },
+        "X06": {
+          "cost": 7,
+          "name": "Đàm phán tiêu chuẩn tiếp cận thị trường",
+          "source_row": "Event đối tác chấp nhận/từ chối |"
+        },
+        "X07": {
+          "cost": 7,
+          "name": "Rà soát đầu tư tại ngành nhạy cảm",
+          "source_row": "Event mở cửa–an ninh |"
+        },
+        "X08": {
+          "cost": 3,
+          "name": "Phân định trách nhiệm quản lý dữ liệu",
+          "source_row": "Decision ngành có đánh đổi |"
+        },
+        "X09": {
+          "cost": 5,
+          "name": "Giải ngân vốn theo từng đợt kiểm chứng",
+          "source_row": "Decision chia hai đợt vốn, mỗi đợt cần checkpoint kiểm toán; loại trừ X10. |"
+        },
+        "X10": {
+          "cost": 5,
+          "name": "Cấp vốn trước cho dự án trọng điểm",
+          "source_row": "Event duyệt vốn trước: chi 0.50 ngân khố, rút 30 ngày dự án, mở kiến nghị giám sát; loại trừ X09. |"
+        },
+        "X11": {
+          "cost": 7,
+          "name": "Công khai bảo lãnh của doanh nghiệp",
+          "source_row": "Event DNNN công bố nghĩa vụ: mở hồ sơ nợ và decision điều chỉnh bảo lãnh; bổ sung bằng chứng kiểm tra. |"
+        },
+        "X12": {
+          "cost": 5,
+          "name": "Tổ chức đối thoại về điều kiện đầu tư",
+          "source_row": "Event bộ/ngành–doanh nghiệp: chọn giữ điều kiện hoặc mở có hậu kiểm; phản hồi đổi BoP ±0.05 một lần. |"
+        },
+        "XI01": {
+          "cost": 5,
+          "name": "Công bố hồ sơ thu hồi đất",
+          "source_row": "Event địa phương–người dân–nhà đầu tư |"
+        },
+        "XI02": {
+          "cost": 7,
+          "name": "Lập quỹ đền bù trước triển khai",
+          "source_row": "Decision chi ngân khố |"
+        },
+        "XI03": {
+          "cost": 7,
+          "name": "Mở phiên giải quyết tranh chấp đất",
+          "source_row": "Đóng kiến nghị hoặc tạm dừng |"
+        },
+        "XI04": {
+          "cost": 3,
+          "name": "Kiểm tra nguồn thu từ đất",
+          "source_row": "Event hụt thu và điều chỉnh ngân sách |"
+        },
+        "XI05": {
+          "cost": 5,
+          "name": "Rà soát tín dụng bất động sản",
+          "source_row": "Kiểm tra dự án có vốn vay |"
+        },
+        "XI06": {
+          "cost": 7,
+          "name": "Yêu cầu công bố nghĩa vụ trái phiếu",
+          "source_row": "Event tổ chức phát hành–người mua |"
+        },
+        "XI07": {
+          "cost": 7,
+          "name": "Tái cơ cấu dự án mất khả năng thanh toán",
+          "source_row": "Hỗ trợ có điều kiện |"
+        },
+        "XI08": {
+          "cost": 3,
+          "name": "Bảo vệ người mua trong phương án xử lý",
+          "source_row": "Milestone dân vận |"
+        },
+        "XI09": {
+          "cost": 7,
+          "name": "Lập quỹ xử lý dự án dở dang",
+          "source_row": "Decision chi 0.50 ngân khố cứu dự án theo kiến nghị người mua; loại trừ XI10. |"
+        },
+        "XI10": {
+          "cost": 7,
+          "name": "Buộc dự án dở dang tái cơ cấu",
+          "source_row": "Event chủ đầu tư và người mua chịu phương án tái cơ cấu: chậm 90 ngày, giữ ngân khố; loại trừ XI09. |"
+        },
+        "XI11": {
+          "cost": 5,
+          "name": "Công khai kết quả thanh tra đất đai",
+          "source_row": "Công bố một hồ sơ cụ thể, đóng hoặc chuyển kiến nghị qua event dân vận; thưởng theo bằng chứng. |"
+        },
+        "XI12": {
+          "cost": 5,
+          "name": "Kiểm tra trách nhiệm bên bảo lãnh trái phiếu",
+          "source_row": "Event xác định bên chịu trách nhiệm; mở decision bồi hoàn có điều kiện và hậu quả đối với nhóm lợi ích. |"
+        },
+        "XII01": {
+          "cost": 5,
+          "name": "Mở rộng quyền ký theo ủy quyền",
+          "source_row": "Nâng quy chế sau 2016, không lặp F03 |"
+        },
+        "XII02": {
+          "cost": 7,
+          "name": "Giao quyền phê duyệt kèm hậu kiểm",
+          "source_row": "Event trách nhiệm |"
+        },
+        "XII03": {
+          "cost": 7,
+          "name": "Công khai biên bản nghiệm thu cải cách",
+          "source_row": "Checkpoint và cohesion có trần |"
+        },
+        "XII04": {
+          "cost": 3,
+          "name": "Chốt chuyển giao trước đại hội",
+          "source_row": "Event tái nhiệm/chuyển giao |"
+        },
+        "XII05": {
+          "cost": 5,
+          "name": "Điều phối nhiều chương trình liên ngành",
+          "source_row": "Quy chế mới sau 2016, không lặp F04 |"
+        },
+        "XII06": {
+          "cost": 7,
+          "name": "Phê chuẩn phương án kiêm nhiệm dài hạn",
+          "source_row": "Event thay điều kiện nhiệm kỳ, không lặp bonus ký |"
+        },
+        "XII07": {
+          "cost": 7,
+          "name": "Kiểm tra trách nhiệm người đứng đầu",
+          "source_row": "Event giám sát |"
+        },
+        "XII08": {
+          "cost": 3,
+          "name": "Bàn giao hai chức vụ theo kế cận",
+          "source_row": "Kiện toàn nhiều vai trò |"
+        },
+        "XII09": {
+          "cost": 7,
+          "name": "Ban hành quy trình bảo vệ quyết định đúng",
+          "source_row": "Mở lựa chọn thẩm định trách nhiệm trước ký trong E103 kế tiếp; phải hoàn thành đào tạo 90 ngày. |"
+        },
+        "XII10": {
+          "cost": 5,
+          "name": "Đặt thời hạn xử lý hồ sơ liên ngành",
+          "source_row": "Decision xử lý một hồ sơ tồn đọng 180 ngày; chọn đầu mối hoặc hội đồng, trả PP/cohesion theo cách làm. |"
+        },
+        "XII11": {
+          "cost": 5,
+          "name": "Công khai quyền hạn khi kiêm nhiệm",
+          "source_row": "Event giám sát roster kiêm nhiệm hoặc phân vai: công bố quyền hạn, mở checkpoint kiểm tra người đứng đầu. |"
+        },
+        "XII12": {
+          "cost": 5,
+          "name": "Thẩm định phương án thay người giữa nhiệm kỳ",
+          "source_row": "Event tái phân công vai trò: lựa chọn bàn giao 60 ngày hoặc kiện toàn ngay với mất cohesion được công bố. |"
+        },
+        "XIII01": {
+          "cost": 5,
+          "name": "Thiết lập kênh xử lý sự cố trên biển",
+          "source_row": "Event đối thoại/ứng phó |"
+        },
+        "XIII02": {
+          "cost": 7,
+          "name": "Giao nhiệm vụ phối hợp chấp pháp",
+          "source_row": "Decision có deadline |"
+        },
+        "XIII03": {
+          "cost": 7,
+          "name": "Công bố lập trường tại diễn đàn khu vực",
+          "source_row": "Phản hồi đối tác |"
+        },
+        "XIII04": {
+          "cost": 3,
+          "name": "Bảo vệ hoạt động kinh tế biển",
+          "source_row": "Công cụ giảm tổn thất hoặc tăng áp lực |"
+        },
+        "XIII05": {
+          "cost": 5,
+          "name": "Đa dạng hóa hợp đồng và đối tác",
+          "source_row": "Đàm phán hữu hạn |"
+        },
+        "XIII06": {
+          "cost": 7,
+          "name": "Công khai giới hạn hợp tác an ninh",
+          "source_row": "Event an ninh–ngoại giao |"
+        },
+        "XIII07": {
+          "cost": 7,
+          "name": "Đàm phán quyền tiếp cận có điều kiện",
+          "source_row": "Đối tác chọn |"
+        },
+        "XIII08": {
+          "cost": 3,
+          "name": "Điều chỉnh hợp tác sau khủng hoảng",
+          "source_row": "Thay điều kiện theo kết quả |"
+        },
+        "XIII09": {
+          "cost": 5,
+          "name": "Công khai điều kiện hợp tác kỹ thuật",
+          "source_row": "Event đối tác–an ninh xác nhận quyền dữ liệu; mở hợp đồng hữu hạn nối tiếp E104. |"
+        },
+        "XIII10": {
+          "cost": 5,
+          "name": "Xử lý sự cố trên biển qua đối thoại",
+          "source_row": "Event đối tác chấp nhận hoặc từ chối kênh đối thoại; loại trừ XIII11 trong cùng hồ sơ sự cố. |"
+        },
+        "XIII11": {
+          "cost": 7,
+          "name": "Duy trì hiện diện chấp pháp sau sự cố",
+          "source_row": "Decision 180 ngày có ngân sách, sự kiện phản hồi và rủi ro tăng áp lực; loại trừ XIII10. |"
+        },
+        "XIII12": {
+          "cost": 5,
+          "name": "Điều chỉnh hợp đồng sau cảnh báo an ninh",
+          "source_row": "Chọn sửa điều kiện dữ liệu hoặc hủy hợp đồng; trả giá mất hỗ trợ hoặc kéo dài xác minh. |"
+        },
+        "XIV01": {
+          "cost": 5,
+          "name": "Áp chuẩn công vụ sau thí điểm",
+          "source_row": "Tier theo thành tựu |"
+        },
+        "XIV02": {
+          "cost": 7,
+          "name": "Công khai kết quả kiểm toán nhiệm kỳ",
+          "source_row": "Resolver vốn nhà nước |"
+        },
+        "XIV03": {
+          "cost": 7,
+          "name": "Nghiệm thu dịch vụ và đền bù",
+          "source_row": "Kết quả tại địa điểm |"
+        },
+        "XIV04": {
+          "cost": 3,
+          "name": "Bàn giao chương trình cho nhiệm kỳ mới",
+          "source_row": "Giữ nhiệm vụ cục bộ hợp lệ |"
+        },
+        "XIV05": {
+          "cost": 5,
+          "name": "Gia hạn chương trình chưa hoàn thành",
+          "source_row": "Event gia hạn một hồ sơ 180 ngày, 30 PP, giữ đánh giá partial và bỏ thưởng sớm; loại trừ XIV06. |"
+        },
+        "XIV06": {
+          "cost": 5,
+          "name": "Chuyển nguồn lực khỏi chương trình thất bại",
+          "source_row": "Event đóng hồ sơ không đạt, bảo toàn nguồn lực còn lại, mở chương trình phục hồi có mục tiêu mới; loại trừ XIV05. |"
+        },
+        "XIV07": {
+          "cost": 7,
+          "name": "Kiểm toán kết quả bàn giao",
+          "source_row": "Decision kiểm toán 180 ngày; công bố chênh lệch giữa báo cáo cũ và nghiệm thu, cập nhật milestone theo kết quả. |"
+        },
+        "XIV08": {
+          "cost": 5,
+          "name": "Giữ nhóm chuyên môn qua chuyển giao",
+          "source_row": "Event giữ đội triển khai trong khi đổi lãnh đạo; chi 25 PP và giảm 30 ngày gián đoạn dự án; loại trừ XIV09. |"
+        },
+        "XIV09": {
+          "cost": 5,
+          "name": "Thay nhóm triển khai sau kiểm toán",
+          "source_row": "Event đổi đội phụ trách: dự án +30 ngày, xử lý kiến nghị nhân sự theo chứng cứ; loại trừ XIV08. |"
+        },
+        "XIV10": {
+          "cost": 3,
+          "name": "Công khai cam kết dịch vụ đã nghiệm thu",
+          "source_row": "Event địa phương phản hồi cam kết; trao idea ổn định 365 ngày chỉ khi đã có nghiệm thu tương ứng. |"
+        },
+        "XIV11": {
+          "cost": 5,
+          "name": "Rà soát hợp đồng có nghĩa vụ kéo dài",
+          "source_row": "Mở danh sách hợp đồng đang hiệu lực và lựa chọn giữ, sửa hoặc chấm dứt với giá có thật. |"
+        },
+        "XIV12": {
+          "cost": 7,
+          "name": "Chốt phương án chuyển giao năm 2031",
+          "source_row": "Event chuẩn bị roster kế tiếp, kiểm tra kiêm nhiệm và kế cận; tạo phương án cho XV giả định, chưa tự thay người. |"
+        }
+      },
+      "refs": "6.2;7.4; toàn bộ cost và giá đã ghi trong các node; giá chưa ghi được đánh dấu ở báo cáo B1"
+    }
+  },
+  "baseline_sha256": "126bee8bfde9bc3184a56d61d89f7537c78b99e2b631a0275b9e5a28f39288bb",
+  "baseline_sections": {
+    "1": "aeacd7ab8e0a49ea746177e3d2f37766d4dd9510e82c0f8de1cdffa9d5943815",
+    "2": "8d31c8500ad7d4a9c9bbe59cf0ac044797170d2c686b30a8ed85c4952a628410",
+    "3": "be6c61a7259f7a659adffde49d3f1c393c96c0169e166c1ac225f84f9b0532ef",
+    "4": "1012bce56816dd019d5303ca579511a808925f9e2e4f5de889e5103f4dc50c46",
+    "5": "78819be432e519ebbe9c493db6c7e053ccaee420c4e29bb22e9477f15a3b1a85",
+    "6": "38f9e472e32ad0a690a1ef9671090d98631ee117ef054b17f64ef064fe427331",
+    "7": "5c9576b59d6808e203b1e274edadc487563059097df4be08c723298b06cf2757",
+    "8": "bc1960bd354ea2656d26f1df1c47cd785b86c92aafb8e87b65b6f72dc04c583e",
+    "9": "3a7149dcdc29d91dc6e9f9d72d53d83262ddc020c17af73e394c5f4ae0150063",
+    "10": "05025e4ea882dc2465977391e3c4bb2d69fe0750f0c519f3eb09500658f65d24",
+    "11": "0a95f4316550030ef65430243265ef855cdaaee7481b6a266c03e55a1d3f6b8b",
+    "12": "43923d71c417cd47abb2c6dae2219c1457686020e4e883ac365fc937a65bdafb"
+  }
+}
