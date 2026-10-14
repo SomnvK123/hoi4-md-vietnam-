@@ -89,7 +89,9 @@ VIE_bop_conservative_large = { VIE_bop_add_large_central = yes }
 # Chon Chuong trinh Nhiem ky
 # ------------------------------------------------------------
 VIE_select_programme_cadre = {
-	log = "[GetDateText]: [Root.GetName]: Select programme cadre"
+if = {
+limit = { VIE_politics_can_select = yes }
+log = "[GetDateText]: [Root.GetName]: Select programme cadre"
 	set_country_flag = VIE_programme_selected
 	set_country_flag = VIE_programme_cadre
 	clr_country_flag = VIE_programme_admin
@@ -97,10 +99,15 @@ VIE_select_programme_cadre = {
 	clr_country_flag = VIE_programme_social
 	set_variable = { VIE_programme_type = 1 }
 	add_to_variable = { VIE_programme_epoch = 1 }
+
+VIE_politics_forecast = yes}
+
 }
 
 VIE_select_programme_admin = {
-	log = "[GetDateText]: [Root.GetName]: Select programme admin"
+if = {
+limit = { VIE_politics_can_select = yes }
+log = "[GetDateText]: [Root.GetName]: Select programme admin"
 	set_country_flag = VIE_programme_selected
 	set_country_flag = VIE_programme_admin
 	clr_country_flag = VIE_programme_cadre
@@ -108,10 +115,15 @@ VIE_select_programme_admin = {
 	clr_country_flag = VIE_programme_social
 	set_variable = { VIE_programme_type = 2 }
 	add_to_variable = { VIE_programme_epoch = 1 }
+
+VIE_politics_forecast = yes}
+
 }
 
 VIE_select_programme_inspection = {
-	log = "[GetDateText]: [Root.GetName]: Select programme inspection"
+if = {
+limit = { VIE_politics_can_select_inspection = yes }
+log = "[GetDateText]: [Root.GetName]: Select programme inspection"
 	set_country_flag = VIE_programme_selected
 	set_country_flag = VIE_programme_inspection
 	clr_country_flag = VIE_programme_cadre
@@ -119,10 +131,15 @@ VIE_select_programme_inspection = {
 	clr_country_flag = VIE_programme_social
 	set_variable = { VIE_programme_type = 3 }
 	add_to_variable = { VIE_programme_epoch = 1 }
+
+VIE_politics_forecast = yes}
+
 }
 
 VIE_select_programme_social = {
-	log = "[GetDateText]: [Root.GetName]: Select programme social"
+if = {
+limit = { VIE_politics_can_select = yes }
+log = "[GetDateText]: [Root.GetName]: Select programme social"
 	set_country_flag = VIE_programme_selected
 	set_country_flag = VIE_programme_social
 	clr_country_flag = VIE_programme_cadre
@@ -130,67 +147,34 @@ VIE_select_programme_social = {
 	clr_country_flag = VIE_programme_inspection
 	set_variable = { VIE_programme_type = 4 }
 	add_to_variable = { VIE_programme_epoch = 1 }
+
+VIE_politics_forecast = yes}
+
 }
 
 # ------------------------------------------------------------
 # Khoi dong Chuong trinh theo Mode
 # ------------------------------------------------------------
 VIE_launch_programme_standard = {
-	log = "[GetDateText]: [Root.GetName]: Launch programme standard"
-	set_country_flag = VIE_programme_active
-	clr_country_flag = VIE_programme_selected
-	set_country_flag = VIE_mode_standard
-	clr_country_flag = VIE_mode_fast_paid
-	clr_country_flag = VIE_mode_fast_override
-	set_variable = { VIE_programme_targets_met = 0 }
-	set_variable = { VIE_verification_counter = 0 }
-
-	# Chi phi khoi dong tieu chuan: hoan tra PP dua tren Bậc cán bộ (base 40 da tru boi decision cost)
-	set_temp_variable = { startup_discount = 0 }
-	if = { limit = { check_variable = { VIE_tier_cadre > 2 } } add_to_temp_variable = { startup_discount = 15 } }
-	else_if = { limit = { check_variable = { VIE_tier_cadre > 1 } } add_to_temp_variable = { startup_discount = 10 } }
-	else_if = { limit = { check_variable = { VIE_tier_cadre > 0 } } add_to_temp_variable = { startup_discount = 5 } }
-
-	if = {
-		limit = { check_variable = { startup_discount > 0 } }
-		add_political_power = startup_discount
-	}
+VIE_politics_begin_standard = yes
 }
 
 VIE_launch_programme_fast_paid = {
-	log = "[GetDateText]: [Root.GetName]: Launch programme fast paid"
-	set_country_flag = VIE_programme_active
-	clr_country_flag = VIE_programme_selected
-	set_country_flag = VIE_mode_fast_paid
-	clr_country_flag = VIE_mode_standard
-	clr_country_flag = VIE_mode_fast_override
-	set_variable = { VIE_programme_targets_met = 0 }
-	set_variable = { VIE_verification_counter = 0 }
-	set_temp_variable = { treasury_change = -0.5 }
-	modify_treasury_effect = yes
-	VIE_bop_add_collective = yes
-	VIE_bop_add_collective = yes
+VIE_politics_begin_fast_paid = yes
 }
 
 VIE_launch_programme_fast_override = {
-	log = "[GetDateText]: [Root.GetName]: Launch programme fast override"
-	set_country_flag = VIE_programme_active
-	clr_country_flag = VIE_programme_selected
-	set_country_flag = VIE_mode_fast_override
-	clr_country_flag = VIE_mode_standard
-	clr_country_flag = VIE_mode_fast_paid
-	set_variable = { VIE_programme_targets_met = 0 }
-	set_variable = { VIE_verification_counter = 0 }
-	set_temp_variable = { cohesion_add = -16 }
-	VIE_modify_cohesion = yes
-	VIE_bop_add_central = yes
-	VIE_bop_add_central = yes
+VIE_politics_begin_fast_override = yes
 }
 
 # ------------------------------------------------------------
 # Resolver Chuong trinh (Full / Partial / Fail)
 # ------------------------------------------------------------
 VIE_resolve_programme_full = {
+if = {
+limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_review_done check_variable = { VIE_programme_targets_met > 3 } NOT = { check_variable = { VIE_programme_elapsed > 900 } } NOT = { check_variable = { var = VIE_resolved_programme_epoch value = VIE_programme_epoch compare = equals } } }
+set_variable = { VIE_resolved_programme_epoch = VIE_programme_epoch }
+
 	log = "[GetDateText]: [Root.GetName]: Resolve programme FULL"
 	set_country_flag = VIE_last_programme_full
 	clr_country_flag = VIE_programme_active
@@ -207,14 +191,14 @@ VIE_resolve_programme_full = {
 		VIE_modify_cohesion = yes
 	}
 
-	# Thuong som 50 PP neu hoan thanh truoc moc va khong bi mat quyen
-	if = {
-		limit = {
-			NOT = { has_country_flag = VIE_e103_early_reward_forfeited }
-		}
-		add_political_power = 50
-	}
-
+# Moc som tinh tu launch, E103 khong bo quyen thuong.
+if = { limit = { OR = {
+AND = { has_country_flag = VIE_programme_inspection NOT = { check_variable = { VIE_programme_elapsed > 690 } } }
+AND = { NOT = { has_country_flag = VIE_programme_inspection } NOT = { check_variable = { VIE_programme_elapsed > 600 } } }
+} }
+set_country_flag = VIE_programme_early_full
+add_political_power = 70
+}
 	# Tang Tier tuong ung & thuong chuyen nganh
 	if = {
 		limit = { has_country_flag = VIE_programme_cadre }
@@ -229,16 +213,21 @@ VIE_resolve_programme_full = {
 	if = {
 		limit = { has_country_flag = VIE_programme_inspection }
 		VIE_award_tier_inspection = yes
-		decrease_corruption = yes
+		if = { limit = { NOT = { has_idea = corruption_level_01 } } if = { limit = { NOT = { has_idea = corruption_level_01 } } log = "[GetDateText]: [Root.GetName]: Corruption evidence already verified" } }
 	}
 	if = {
 		limit = { has_country_flag = VIE_programme_social }
 		VIE_award_tier_social = yes
 		add_stability = 0.03
-	}
+	}}
+
 }
 
 VIE_resolve_programme_partial = {
+if = {
+limit = { has_country_flag = VIE_programme_active NOT = { check_variable = { var = VIE_resolved_programme_epoch value = VIE_programme_epoch compare = equals } } }
+set_variable = { VIE_resolved_programme_epoch = VIE_programme_epoch }
+
 	log = "[GetDateText]: [Root.GetName]: Resolve programme PARTIAL"
 	set_country_flag = VIE_last_programme_partial
 	clr_country_flag = VIE_programme_active
@@ -247,10 +236,15 @@ VIE_resolve_programme_partial = {
 	add_timed_idea = {
 		idea = VIE_programme_partial_support_idea
 		days = 365
-	}
+	}}
+
 }
 
 VIE_resolve_programme_fail = {
+if = {
+limit = { has_country_flag = VIE_programme_active NOT = { check_variable = { var = VIE_resolved_programme_epoch value = VIE_programme_epoch compare = equals } } }
+set_variable = { VIE_resolved_programme_epoch = VIE_programme_epoch }
+
 	log = "[GetDateText]: [Root.GetName]: Resolve programme FAIL"
 	set_country_flag = VIE_last_programme_fail
 	clr_country_flag = VIE_programme_active
@@ -259,7 +253,8 @@ VIE_resolve_programme_fail = {
 	add_timed_idea = {
 		idea = VIE_programme_fail_penalty_idea
 		days = 180
-	}
+	}}
+
 }
 
 # ------------------------------------------------------------
@@ -381,6 +376,7 @@ VIE_apply_congress_transition_cohesion = {
 }
 
 VIE_resolve_congress_9 = {
+
 	log = "[GetDateText]: [Root.GetName]: Resolve Congress IX"
 	set_variable = { VIE_last_congress = 9 }
 	set_country_flag = VIE_congress_9_resolved
@@ -389,9 +385,13 @@ VIE_resolve_congress_9 = {
 	clr_country_flag = VIE_programme_selected
 	set_variable = { VIE_programme_targets_met = 0 }
 	VIE_apply_congress_transition_cohesion = yes
+
+VIE_politics_new_term = yes
+
 }
 
 VIE_resolve_congress_10 = {
+
 	log = "[GetDateText]: [Root.GetName]: Resolve Congress X"
 	set_variable = { VIE_last_congress = 10 }
 	set_country_flag = VIE_congress_10_resolved
@@ -400,9 +400,13 @@ VIE_resolve_congress_10 = {
 	clr_country_flag = VIE_programme_selected
 	set_variable = { VIE_programme_targets_met = 0 }
 	VIE_apply_congress_transition_cohesion = yes
+
+VIE_politics_new_term = yes
+
 }
 
 VIE_resolve_congress_11 = {
+
 	log = "[GetDateText]: [Root.GetName]: Resolve Congress XI"
 	set_variable = { VIE_last_congress = 11 }
 	set_country_flag = VIE_congress_11_resolved
@@ -411,9 +415,13 @@ VIE_resolve_congress_11 = {
 	clr_country_flag = VIE_programme_selected
 	set_variable = { VIE_programme_targets_met = 0 }
 	VIE_apply_congress_transition_cohesion = yes
+
+VIE_politics_new_term = yes
+
 }
 
 VIE_resolve_congress_12 = {
+
 	log = "[GetDateText]: [Root.GetName]: Resolve Congress XII"
 	set_variable = { VIE_last_congress = 12 }
 	set_country_flag = VIE_congress_12_resolved
@@ -422,9 +430,13 @@ VIE_resolve_congress_12 = {
 	clr_country_flag = VIE_programme_selected
 	set_variable = { VIE_programme_targets_met = 0 }
 	VIE_apply_congress_transition_cohesion = yes
+
+VIE_politics_new_term = yes
+
 }
 
 VIE_resolve_congress_13 = {
+
 	log = "[GetDateText]: [Root.GetName]: Resolve Congress XIII"
 	set_variable = { VIE_last_congress = 13 }
 	set_country_flag = VIE_congress_13_resolved
@@ -433,9 +445,13 @@ VIE_resolve_congress_13 = {
 	clr_country_flag = VIE_programme_selected
 	set_variable = { VIE_programme_targets_met = 0 }
 	VIE_apply_congress_transition_cohesion = yes
+
+VIE_politics_new_term = yes
+
 }
 
 VIE_resolve_congress_14 = {
+
 	log = "[GetDateText]: [Root.GetName]: Resolve Congress XIV"
 	set_variable = { VIE_last_congress = 14 }
 	set_country_flag = VIE_congress_14_resolved
@@ -444,4 +460,7 @@ VIE_resolve_congress_14 = {
 	clr_country_flag = VIE_programme_selected
 	set_variable = { VIE_programme_targets_met = 0 }
 	VIE_apply_congress_transition_cohesion = yes
+
+VIE_politics_new_term = yes
+
 }

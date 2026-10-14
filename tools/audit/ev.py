@@ -1,4 +1,4 @@
-import re,os,collections
+import re,os,collections,ast
 ROOT=os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..'))
 ARCH={'v10_removed_nationalist_focuses.txt','v30_removed_infrastructure_focuses.txt','v31_removed_industry_focuses.txt','v11_removed_military_all_subbranches.txt','v11_removed_military_other_focuses.txt','scratch/test_focus.txt'}
 def read(p):
@@ -61,6 +61,31 @@ for p,t in live.items():
     # immediate/options co nhieu } long nhau, khop som se hut hidden event
     for m in re.finditer(r'(?:country_event|news_event)\s*=\s*\{\s*\n\s*id\s*=\s*([a-zA-Z_0-9\.]+)([\s\S]{0,400})',tt):
         if 'hidden = yes' in m.group(2): hidden.add(m.group(1))
-noloc=[e for e in sorted(ids) if e not in hidden and (e+'.t' not in loc and e+'.d' not in loc and e+'.a' not in loc)]
+# Kiem key duoc tham chieu that; event co the dung chung title/desc voi event khac.
+parser_source=ast.parse(read(os.path.join(ROOT,'tools','audit','audit.py')))
+parser_namespace={}
+exec(compile(ast.Module(body=[n for n in parser_source.body if isinstance(n,ast.FunctionDef)
+    and n.name in ('tokenize','parse')],type_ignores=[]),'event_parser','exec'),parser_namespace)
+def field(block,key,default=None):
+    return next((v for k,op,v,line in block if k==key),default)
+def loc_keys(value):
+    if isinstance(value,list):
+        return [key for k,op,v,line in value for key in (loc_keys(v) if k=='text' else [])]
+    return [value.strip('"')] if value else []
+missing_loc={}
+for path,text in live.items():
+    if not path.startswith('events'):continue
+    tokens=parser_namespace['tokenize'](re.sub(r'"(?:\\.|[^"\\])*"|#[^\n]*',
+        lambda m:m.group(0) if m.group(0).startswith('"') else '',text))
+    for kind,op,event,line in parser_namespace['parse'](tokens):
+        if kind not in ('country_event','news_event') or field(event,'hidden')=='yes':continue
+        event_id=field(event,'id');required=[]
+        for key in ('title','desc'):required.extend(loc_keys(field(event,key)))
+        for key,op,option,line in event:
+            if key=='option':required.extend(loc_keys(field(option,'name')))
+        absent=sorted(set(key for key in required if key not in loc))
+        if absent:missing_loc[event_id]=absent
+noloc=sorted(missing_loc)
 print(f'\nEVENTS missing title/desc/option loc: {len(noloc)}  (hidden events excluded: {len(hidden)})')
 print(noloc)
+if missing_loc:print('Missing referenced keys:',missing_loc)

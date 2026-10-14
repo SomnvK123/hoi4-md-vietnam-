@@ -11,6 +11,9 @@ tools/audit/missing.json
 __pycache__/
 *.py[cod]
 
+# Goi chia se thiet ke chinh tri, tao lai bang tools/package_political_design.py
+artifacts/vietnam-political-design.zip
+
 # OS
 .DS_Store
 Thumbs.db

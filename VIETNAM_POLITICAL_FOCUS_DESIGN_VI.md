@@ -2,7 +2,7 @@
 
 **Kết luận:** Cây mở theo kỳ đại hội; chương trình trọng điểm có deadline 900 ngày và mốc thưởng sớm riêng: cán bộ/công vụ/dân vận 600, kiểm tra 690 ngày. BoP thay đổi theo hành vi, gồm ba vùng. Tuyến tập trung mua thời gian để giữ cửa sổ cơ hội; tuyến tập thể tích lũy khả năng phối hợp. Tier cán bộ giảm tổn thất chuyển giao, giảm giá khởi động và mở công cụ ký theo ủy quyền. Bản mẫu giữ 12 focus, ba xung đột chính và một event quay lại của DNNN; mục tiêu phát hành giữ đúng 74 node.
 
-Các giá trị là thông số thiết kế từ [bảng tham số B1](VIETNAM_POLITICAL_PARAMETERS_VI.json), đã tính bằng [script ngân sách](VIETNAM_POLITICAL_BALANCE_VI.py). Báo cáo [lượt 1](VIETNAM_POLITICAL_REVIEW_L1_VI.md) ghi các bất biến còn FAIL. Chưa triển khai game file hoặc chạy HOI4. Bảng tính không phải mô phỏng engine.
+Các giá trị là thông số thiết kế từ [bảng tham số B1](VIETNAM_POLITICAL_PARAMETERS_VI.json), đã tính bằng [script ngân sách](VIETNAM_POLITICAL_BALANCE_VI.py). Báo cáo [hiện hành](VIETNAM_POLITICAL_REVIEW_L3_VI.md) ghi kết quả kiểm mô hình. Đã có [adapter game v57](VIE_political_v57_implementation.md) trong repo; chưa nghiệm thu HOI4. Bảng tính không phải mô phỏng engine.
 
 ## 1. Trang tóm tắt
 
@@ -123,17 +123,17 @@ Nhóm GDP chỉ hợp lệ khi cả hai dự án đã có kết quả được n
 - Deadline cuối = ngày bắt đầu +900 ngày; lịch đại hội vẫn độc lập.
 - Mốc thưởng sớm tính từ ngày bắt đầu: cán bộ/công vụ/dân vận 600 ngày; kiểm tra 690 ngày. Các mốc bao gồm chuẩn bị, triển khai và kiểm chứng cuối.
 - Full: đủ 4/4, tăng một tier và cohesion +6.
-- Full đúng hoặc trước mốc riêng: thêm 50 PP một lần, trừ hợp đồng E103 đã bỏ quyền thưởng sớm theo mục 6.5.
+- Full đúng hoặc trước mốc riêng: thêm 70 PP một lần.
 - Partial: 2–3/4, cohesion +2, idea hỗ trợ nhỏ 365 ngày.
 - Fail: 0–1/4, cohesion -6, PP factor -3% trong 180 ngày.
 - Tier tối đa 3; thành công ở tier tối đa nhận thưởng tạm thời thay tier mới.
-- E103 và E104 có cửa sổ hợp đồng riêng; resolver chương trình giữ deadline cuối của mình.
+- E103 ghi kết quả kiểm chứng tự động; E104 giữ cửa sổ hợp đồng riêng. Resolver chương trình giữ deadline900.
 
-**Ngày dư dùng được — decision “Dự án hỗ trợ thực thi sau nghiệm thu”.** Full đúng hoặc trước mốc riêng mở một dự án phụ, kể cả khi đã bỏ thưởng PP qua E103-B/C. Giá 30 PP, ngân khố 0; thời gian 270 ngày, một mục tiêu: hoàn tất dự án hỗ trợ tại cùng bộ phận đã được nghiệm thu. Khi thành công nhận idea bureaucracy cost factor -1% trong 365 ngày; không trao tier hoặc PP. Idea thay thế cùng loại khi còn hạn, không cộng chồng. Deadline dự án phụ là ngày mở chuẩn bị đại hội sau, tách khỏi mission trọng điểm đã đóng. Bắt đầu chỉ khi còn ít nhất thời gian dự án cộng 100 ngày dự phòng. Timeout/cancel không trao thưởng; tooltip báo điều kiện và tiền đã chi. Guard `VIE_last_side_project_epoch` ghi lúc nhận dự án, cùng epoch chương trình: tối đa một lần mỗi nhiệm kỳ, hủy cũng không mở lại. F12/timeout/load save dùng chung guard.
+**Ngày dư dùng được — decision “Dự án hỗ trợ thực thi sau nghiệm thu”.** Full đúng hoặc trước mốc riêng mở một dự án phụ. Giá 30 PP, ngân khố 0; thời gian 270 ngày, một mục tiêu: hoàn tất dự án hỗ trợ tại cùng bộ phận đã được nghiệm thu. Khi thành công nhận idea bureaucracy cost factor -1% trong 365 ngày; không trao tier hoặc PP. Idea thay thế cùng loại khi còn hạn, không cộng chồng. Deadline dự án phụ là ngày mở chuẩn bị đại hội sau, tách khỏi mission trọng điểm đã đóng. Bắt đầu chỉ khi còn ít nhất thời gian dự án cộng 100 ngày dự phòng. Timeout/cancel không trao thưởng; tooltip báo điều kiện và tiền đã chi. Guard `VIE_last_side_project_epoch` ghi lúc nhận dự án, cùng epoch chương trình: tối đa một lần mỗi nhiệm kỳ, hủy cũng không mở lại. F12/timeout/load save dùng chung guard.
 
-I2 kiểm **PP thuần**: gói55PP so với thưởng50PP chênh5PP, PASS. Gói trả đủ còn chi0.50ngân khố; chênh quy đổi ở k20/40/60 lần lượt15/25/35PP. Đây là sensitivity, không phải giá engine; không dùng chênh quy đổi để đổi định nghĩa I2. Giá trị còn lại của cấp tốc đến từ dự án phụ L1.2; cửa sổ hợp đồng được theo dõi riêng.
+I2 kiểm **chi phí quy đổi và cặp full/cohesion ngang nhau tại k=40**: gói55PP +0.50ngân khố so với thưởng70PP, chênh+5PP, trong ±10PP. Sensitivity k20/40/60 là −5/+5/+15PP; k là tham số kiểm, không phải tỷ giá engine. Dự án phụ30PP/270ngày lấy bureaucracy−1% trong365ngày là khoản mua thêm, không phải phần thưởng và không được dùng để bù chi phí cấp tốc. E103 tự động không có option bỏ thưởng; trượt mốc sớm chỉ mất thưởng sớm.
 
-**Bất biến lịch:** deadline programme vẫn bắt đầu+900. Trigger thiết kế `forecast_programme_completion` tính ngày từ timer/mode đã ký, chuẩn bị tại start và trễ tất định đã biết. Start chỉ mở khi lịch mặc định≤800; lựa chọn gây trễ chỉ mở khi dự báo≤840. Available, tooltip và CSV dùng chung kết quả trigger, không tự tính lại. E103-A chưa đủ hồ sơ chỉ là rủi ro: hiển thị nhánh thẩm định+180, không khóa chỉ vì rủi ro chưa hiện thực. Nếu rủi ro xảy ra, ghi ngày thực tế và dự phòng dưới sàn; không tự sửa timer hoặc ép partial. Sau start phục hồi cohesion không xóa+60ngày chuẩn bị đã ký. Đây là phạm vi I5 theo xác nhận mới: cổng trễ tất định, không bảo đảm mọi nhánh rủi ro giữ60ngày.
+**Bất biến lịch:** programme900; start≤800/choice≤840 theo cùng forecast_programme_completion. Mọi trễ trong mô hình đều tất định. E103 tự động, không thêm thời gian hoặc ngoại lệ cảnh báo. Phục hồi sau start không xóa thời gian chuẩn bị đã ký; available/tooltip/CSV dùng cùng dự báo.
 
 **Kiểm kẹt cửa sổ khởi động:** cổng chốt đã được bổ sung. Available/tooltip/AI chỉ đọc forecast_programme_completion. Với một lựa chọn, phải còn đường của programme mà nó chốt; cổng chung cần ít nhất một trong bốn programme. Trước start, trigger xét cohesion hiện tại, +60chuẩn bị khi dưới20, cooldown còn lại và lượt phục hồi đang chạy. Tính ngày khởi động sớm nhất trước hoặc đúng270, giả định các bước còn lại thành công; không chốt programme không thể mở trong cửa sổ. Sau start, timer/mode đã ký không giảm hồi tố. Gate kỳ/chế độ/90ngày chọn trọng tâm, PP/ngân khố giữ nguyên. Cổng không khóa phục hồi/hòa giải; giá/cooldown của chúng vẫn áp dụng. Không tự cứu trọng tâm đã chốt từ save cũ, không tạo fallback hoặc penalty mới.
 
@@ -256,190 +256,31 @@ Caller F06 hoặc lần khởi động kiểm toán cơ sở đầu tiên của 
 | Kiểm toán bằng đội trong nước, giữ dữ liệu hạn chế | 20 PP, 0.25 ngân khố | Hồ sơ kiểm toán hợp lệ; giữ phương án đối nội; E104 không mở gói quốc tế |
 | Giữ bảo lãnh, hoãn công khai | 0.75 ngân khố | Xây dựng +2% trong 365 ngày; kiểm toán +90 ngày; kiến nghị công khai còn mở |
 
-E102-C cộng90ngày vào chuỗi chứng cứ, kiến nghị công khai vẫn phải xử lý để đủ mục tiêu. Tooltip trước lựa chọn E102-C hiển thị kết quả dự kiến từng E103: nếu B/C, full840/825/735 và dự phòng60/75/165 theo mode; nếu A, hiển thị thẩm định lại và partial dự kiến. Khi mode chưa chốt, hiển thị các mode khả dụng; sau khi chốt lấy timer đã ký. Các phương án không tự cho cohesion dương. B rẻ hơn A nhưng bỏ cơ hội kỹ thuật; C hỗ trợ ngắn hạn nhưng làm trễ chứng cứ. Tất cả giá E102 giữ nguyên.
+E102-C cộng90ngày vào chuỗi chứng cứ; kiến nghị công khai vẫn phải xử lý để đủ4/4. Tooltip trước lựa chọn đọc ngày full và dự phòng từ forecast_programme_completion: chuẩn tập thể/cân bằng840, tập trung825, cấp tốc735; không có trục E103 A/B/C. Khi chưa chốt mode hiển thị các mode khả dụng; sau chốt giữ timer đã ký. Giá và các cơ hội E102 giữ nguyên.
 
-### 6.5. E103: bằng chứng trước hạn, trả tiền không làm chứng cứ xuất hiện
+### 6.5. E103: kết quả kiểm chứng tự động, không phải quyết định
 
-Caller: programme kiểm tra đến ngày450, xếp một lần theo epoch. F10 mở công cụ chuyên sâu. Hạn cam kết A vẫn là mốc sớm kiểm tra690.
+Mốc ngày450 chỉ thông báo tiến độ và chứng cứ còn thiếu. Khi đủ4/4, hệ thống tự ghi kết quả đúng epoch; không có menu A/B/C hoặc lựa chọn đánh đổi ở E103.
 
-| Lựa chọn | Giá | Kết quả |
+| Ngày đủ chứng cứ T | Kết quả tự động | Thưởng sớm |
 | --- | --- | --- |
-| A — Cam kết nộp hồ sơ đầy đủ đúng hạn | 0 PP | Đủ4/4 trước hoặc đúng690 được chấp nhận và giữ thưởng sớm. Nếu thiếu: cohesion-6; thẩm định lại tuần tự thêm180ngày. |
-| B — Xin gia hạn, công khai phần còn thiếu | 0 PP + 0.50 ngân khố | Gia hạn hợp đồng đến ngày780; đủ chứng cứ mới chấp nhận. Hủy thưởng PP sớm của kỳ; giữ quyền dự án phụ nếu programme full sớm. Không cộng thêm ngày programme. |
-| C — Công bố kết quả có giới hạn | 15 PP | Chốt hợp đồng partial; programme tiếp tục kiểm chứng tới deadline. Bỏ thưởng PP sớm, vẫn có thể full/tier khi đủ4/4. |
+| T≤690 | on_time_full; tăng tier/cohesion theo resolver | 70 PP một lần |
+| 690<T≤900 | late_full; vẫn full/tier/cohesion | 0 PP |
+| T>900 hoặc chưa đủ4/4 tại deadline | Resolver chấm partial/fail theo số nhóm đã đạt | 0 PP |
 
-**Quy tắc tuần tự giữ nguyên:** T là ngày chứng cứ sẵn sàng, gồm E102-C cộng90ngày. A thiếu ở hạn cam kết có ngày full tiềm năng=max(T,690)+180. B/C không thêm thẩm định lại; gia hạn không tạo chứng cứ. B trượt hạn hợp đồng780 không đổi deadline programme900. C không tự tạo nhóm mục tiêu còn thiếu.
+T lấy từ lịch triển khai và kiểm chứng thật; E102-C vẫn cộng90ngày. E103 không tự tạo chứng cứ, không thu PP/ngân khố, không trừ cohesion và không cộng180ngày thẩm định. Bỏ hợp đồng780 và phí B/C của thiết kế cũ. E104 vẫn là quyết định hợp đồng riêng.
 
-**Lệch đã xử lý theo xác nhận mới:** bản trước ghi B30PP và hạn810. Bạn chốt B0PP+0.50ngân khố, hạn780; do đó dùng780, không tự coi810 là hiệu ứng đã giữ. E102+90, thẩm định+180, C15PP và programme900 giữ nguyên.
+Chuẩn có T735/750: tự động late_full khi đủ4/4, không bị ép partial vì trượt690. Cấp tốc E102-A/B có T645: tự động on_time_full. Đây là hệ quả mode/E102 đã chọn, không gọi là canh bạc. Lịch E103 vẫn tất định; bất định chỉ được nêu tường minh ở IX11 và XI10, không cộng vào lịch programme này.
 
-**I3 — hai kịch bản:** A rẻ nhất khi hồ sơ đã đủ là chấp nhận được. A chưa đủ gồm6cohesion×3=18PP quy đổi và180ngày thẩm định riêng; không gán tỷ giá ngày sangPP. Không option nào rẻ nhất đồng thời ở cả hai kịch bản và mọi k. Cột B−A/B−C/A−C ghi chênh có dấu; cảnh báo dùng trị tuyệt đối. Biên nhỏ hơn3PP được báo, không chỉnh số.
+Cổng giữ nguyên: lựa chọn gây T>840 bị khóa, không dùng nhãn rủi ro để bỏ qua. Biên840 được mở,841 bị khóa. Sau khi đã ký, timer không giảm hồi tố. [CSV ngoại lệ I5](VIETNAM_POLITICAL_I5_EXCEPTIONS_VI.csv) giữ các ca phản thực bị khóa.
 
-| Hồ sơ | k | A | B | C | A thêm ngày | Rẻ nhất | Biên hạng1–2 | B−A | B−C | A−C | Cảnh báo |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Đủ hồ sơ | 20 | 0 | 10.0 | 15 | 0 | A | 10.0 | 10.0 | -5.0 | -15 |  |
-| Đủ hồ sơ | 40 | 0 | 20.0 | 15 | 0 | A | 15 | 20.0 | 5.0 | -15 |  |
-| Đủ hồ sơ | 60 | 0 | 30.0 | 15 | 0 | A | 15 | 30.0 | 15.0 | -15 |  |
-| Chưa đủ hồ sơ | 20 | 18 | 10.0 | 15 | 180 | B | 5.0 | -8.0 | -5.0 | 3 |  |
-| Chưa đủ hồ sơ | 40 | 18 | 20.0 | 15 | 180 | C | 3 | 2.0 | 5.0 | 3 | BIÊN <3 |
-| Chưa đủ hồ sơ | 60 | 18 | 30.0 | 15 | 180 | C | 3 | 12.0 | 15.0 | 3 |  |
-
-**E102 × E103, snapshot cohesion60:** ngày tiềm năng/kết quả hợp đồng lấy từ CSV; k/r không đổi timer.
-
-| Tuyến | Mode | E102 | E103 | Ngày full tiềm năng | Programme | Hợp đồng | Dự phòng |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| collective | standard | E102-A | E103-A | 930 | partial ở 900 | rejected | Không full |
-| collective | standard | E102-A | E103-B | 750 | full | extended | 150 |
-| collective | standard | E102-A | E103-C | 750 | full | partial | 150 |
-| collective | standard | E102-B | E103-A | 930 | partial ở 900 | rejected | Không full |
-| collective | standard | E102-B | E103-B | 750 | full | extended | 150 |
-| collective | standard | E102-B | E103-C | 750 | full | partial | 150 |
-| collective | standard | E102-C | E103-A | 1020 | partial ở 900 | rejected | Không full |
-| collective | standard | E102-C | E103-B | 840 | full | extension_missed | 60 |
-| collective | standard | E102-C | E103-C | 840 | full | partial | 60 |
-| balanced | standard | E102-A | E103-A | 930 | partial ở 900 | rejected | Không full |
-| balanced | standard | E102-A | E103-B | 750 | full | extended | 150 |
-| balanced | standard | E102-A | E103-C | 750 | full | partial | 150 |
-| balanced | standard | E102-B | E103-A | 930 | partial ở 900 | rejected | Không full |
-| balanced | standard | E102-B | E103-B | 750 | full | extended | 150 |
-| balanced | standard | E102-B | E103-C | 750 | full | partial | 150 |
-| balanced | standard | E102-C | E103-A | 1020 | partial ở 900 | rejected | Không full |
-| balanced | standard | E102-C | E103-B | 840 | full | extension_missed | 60 |
-| balanced | standard | E102-C | E103-C | 840 | full | partial | 60 |
-| central | standard | E102-A | E103-A | 915 | partial ở 900 | rejected | Không full |
-| central | standard | E102-A | E103-B | 735 | full | extended | 165 |
-| central | standard | E102-A | E103-C | 735 | full | partial | 165 |
-| central | standard | E102-B | E103-A | 915 | partial ở 900 | rejected | Không full |
-| central | standard | E102-B | E103-B | 735 | full | extended | 165 |
-| central | standard | E102-B | E103-C | 735 | full | partial | 165 |
-| central | standard | E102-C | E103-A | 1005 | partial ở 900 | rejected | Không full |
-| central | standard | E102-C | E103-B | 825 | full | extension_missed | 75 |
-| central | standard | E102-C | E103-C | 825 | full | partial | 75 |
-| central | fast_paid | E102-A | E103-A | 645 | full | accepted | 255 |
-| central | fast_paid | E102-A | E103-B | 645 | full | extended | 255 |
-| central | fast_paid | E102-A | E103-C | 645 | full | partial | 255 |
-| central | fast_paid | E102-B | E103-A | 645 | full | accepted | 255 |
-| central | fast_paid | E102-B | E103-B | 645 | full | extended | 255 |
-| central | fast_paid | E102-B | E103-C | 645 | full | partial | 255 |
-| central | fast_paid | E102-C | E103-A | 915 | partial ở 900 | rejected | Không full |
-| central | fast_paid | E102-C | E103-B | 735 | full | extended | 165 |
-| central | fast_paid | E102-C | E103-C | 735 | full | partial | 165 |
-| central | fast_override | E102-A | E103-A | 645 | full | accepted | 255 |
-| central | fast_override | E102-A | E103-B | 645 | full | extended | 255 |
-| central | fast_override | E102-A | E103-C | 645 | full | partial | 255 |
-| central | fast_override | E102-B | E103-A | 645 | full | accepted | 255 |
-| central | fast_override | E102-B | E103-B | 645 | full | extended | 255 |
-| central | fast_override | E102-B | E103-C | 645 | full | partial | 255 |
-| central | fast_override | E102-C | E103-A | 915 | partial ở 900 | rejected | Không full |
-| central | fast_override | E102-C | E103-B | 735 | full | extended | 165 |
-| central | fast_override | E102-C | E103-C | 735 | full | partial | 165 |
-| central | combined_fast_paid | E102-A | E103-A | 645 | full | accepted | 255 |
-| central | combined_fast_paid | E102-A | E103-B | 645 | full | extended | 255 |
-| central | combined_fast_paid | E102-A | E103-C | 645 | full | partial | 255 |
-| central | combined_fast_paid | E102-B | E103-A | 645 | full | accepted | 255 |
-| central | combined_fast_paid | E102-B | E103-B | 645 | full | extended | 255 |
-| central | combined_fast_paid | E102-B | E103-C | 645 | full | partial | 255 |
-| central | combined_fast_paid | E102-C | E103-A | 915 | partial ở 900 | rejected | Không full |
-| central | combined_fast_paid | E102-C | E103-B | 735 | full | extended | 165 |
-| central | combined_fast_paid | E102-C | E103-C | 735 | full | partial | 165 |
-
-**I5 — mọi đường ngoại lệ:** sàn60ngày. Bảng có snapshot60 và probe cohesion<20; probe thấp chỉ kiểm lịch kiểm tra, không giả lập thu nhập hoặc phục hồi của programme khác. Loại mode vượt/kiêm nhiệm nếu không đủ cohesion. Dự phòng=900−ngày full tiềm năng; số âm là chuỗi không full, được chốt partial tại deadline. Các hàng DƯỚI SÀN được báo, không tự sửa kết quả/timer.
-
-| Cohesion | Tuyến | Mode | E102 | E103 | Ngày tiềm năng | Dự phòng | Programme | Hợp đồng | Sàn | Lý do | Cổng | Dự báo tất định | Dự phòng dự báo | Rủi ro A |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| snapshot | collective | standard | A | A | 930 | -30 | partial_at_deadline | rejected | DƯỚI SÀN | E103-A bị bác:+180 tuần tự | available | 750 | 150 | CẢNH BÁO |
-| snapshot | collective | standard | A | B | 750 | 150 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | collective | standard | A | C | 750 | 150 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | collective | standard | B | A | 930 | -30 | partial_at_deadline | rejected | DƯỚI SÀN | E103-A bị bác:+180 tuần tự | available | 750 | 150 | CẢNH BÁO |
-| snapshot | collective | standard | B | B | 750 | 150 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | collective | standard | B | C | 750 | 150 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | collective | standard | C | A | 1020 | -120 | partial_at_deadline | rejected | DƯỚI SÀN | E102-C:+90; E103-A bị bác:+180 tuần tự | available | 840 | 60 | CẢNH BÁO |
-| snapshot | collective | standard | C | B | 840 | 60 | full | extension_missed | ĐẠT | E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | available | 840 | 60 |  |
-| snapshot | collective | standard | C | C | 840 | 60 | full | partial | ĐẠT | E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | available | 840 | 60 |  |
-| snapshot | balanced | standard | A | A | 930 | -30 | partial_at_deadline | rejected | DƯỚI SÀN | E103-A bị bác:+180 tuần tự | available | 750 | 150 | CẢNH BÁO |
-| snapshot | balanced | standard | A | B | 750 | 150 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | balanced | standard | A | C | 750 | 150 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | balanced | standard | B | A | 930 | -30 | partial_at_deadline | rejected | DƯỚI SÀN | E103-A bị bác:+180 tuần tự | available | 750 | 150 | CẢNH BÁO |
-| snapshot | balanced | standard | B | B | 750 | 150 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | balanced | standard | B | C | 750 | 150 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 750 | 150 |  |
-| snapshot | balanced | standard | C | A | 1020 | -120 | partial_at_deadline | rejected | DƯỚI SÀN | E102-C:+90; E103-A bị bác:+180 tuần tự | available | 840 | 60 | CẢNH BÁO |
-| snapshot | balanced | standard | C | B | 840 | 60 | full | extension_missed | ĐẠT | E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | available | 840 | 60 |  |
-| snapshot | balanced | standard | C | C | 840 | 60 | full | partial | ĐẠT | E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | available | 840 | 60 |  |
-| snapshot | central | standard | A | A | 915 | -15 | partial_at_deadline | rejected | DƯỚI SÀN | E103-A bị bác:+180 tuần tự | available | 735 | 165 | CẢNH BÁO |
-| snapshot | central | standard | A | B | 735 | 165 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | standard | A | C | 735 | 165 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | standard | B | A | 915 | -15 | partial_at_deadline | rejected | DƯỚI SÀN | E103-A bị bác:+180 tuần tự | available | 735 | 165 | CẢNH BÁO |
-| snapshot | central | standard | B | B | 735 | 165 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | standard | B | C | 735 | 165 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | standard | C | A | 1005 | -105 | partial_at_deadline | rejected | DƯỚI SÀN | E102-C:+90; E103-A bị bác:+180 tuần tự | available | 825 | 75 | CẢNH BÁO |
-| snapshot | central | standard | C | B | 825 | 75 | full | extension_missed | ĐẠT | E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | available | 825 | 75 |  |
-| snapshot | central | standard | C | C | 825 | 75 | full | partial | ĐẠT | E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | available | 825 | 75 |  |
-| snapshot | central | fast_paid | A | B | 645 | 255 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_paid | A | C | 645 | 255 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_paid | B | B | 645 | 255 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_paid | B | C | 645 | 255 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_paid | C | A | 915 | -15 | partial_at_deadline | rejected | DƯỚI SÀN | E102-C:+90; E103-A bị bác:+180 tuần tự | available | 735 | 165 | CẢNH BÁO |
-| snapshot | central | fast_paid | C | B | 735 | 165 | full | extended | ĐẠT | E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | fast_paid | C | C | 735 | 165 | full | partial | ĐẠT | E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | fast_override | A | B | 645 | 255 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_override | A | C | 645 | 255 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_override | B | B | 645 | 255 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_override | B | C | 645 | 255 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | fast_override | C | A | 915 | -15 | partial_at_deadline | rejected | DƯỚI SÀN | E102-C:+90; E103-A bị bác:+180 tuần tự | available | 735 | 165 | CẢNH BÁO |
-| snapshot | central | fast_override | C | B | 735 | 165 | full | extended | ĐẠT | E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | fast_override | C | C | 735 | 165 | full | partial | ĐẠT | E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | combined_fast_paid | A | B | 645 | 255 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | combined_fast_paid | A | C | 645 | 255 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | combined_fast_paid | B | B | 645 | 255 | full | extended | ĐẠT | E103-B:hợp đồng780, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | combined_fast_paid | B | C | 645 | 255 | full | partial | ĐẠT | E103-C:hợp đồng partial, không cộng ngày programme | available | 645 | 255 |  |
-| snapshot | central | combined_fast_paid | C | A | 915 | -15 | partial_at_deadline | rejected | DƯỚI SÀN | E102-C:+90; E103-A bị bác:+180 tuần tự | available | 735 | 165 | CẢNH BÁO |
-| snapshot | central | combined_fast_paid | C | B | 735 | 165 | full | extended | ĐẠT | E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | available | 735 | 165 |  |
-| snapshot | central | combined_fast_paid | C | C | 735 | 165 | full | partial | ĐẠT | E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | available | 735 | 165 |  |
-| low | collective | standard | A | A | 990 | -90 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | locked_start | 810 | 90 | CẢNH BÁO |
-| low | collective | standard | A | B | 810 | 90 | full | extension_missed | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | collective | standard | A | C | 810 | 90 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | collective | standard | B | A | 990 | -90 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | locked_start | 810 | 90 | CẢNH BÁO |
-| low | collective | standard | B | B | 810 | 90 | full | extension_missed | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | collective | standard | B | C | 810 | 90 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | collective | standard | C | A | 1080 | -180 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự | locked_start | 900 | 0 | CẢNH BÁO |
-| low | collective | standard | C | B | 900 | 0 | full | extension_missed | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | locked_start | 900 | 0 |  |
-| low | collective | standard | C | C | 900 | 0 | full | partial | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | locked_start | 900 | 0 |  |
-| low | balanced | standard | A | A | 990 | -90 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | locked_start | 810 | 90 | CẢNH BÁO |
-| low | balanced | standard | A | B | 810 | 90 | full | extension_missed | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | balanced | standard | A | C | 810 | 90 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | balanced | standard | B | A | 990 | -90 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | locked_start | 810 | 90 | CẢNH BÁO |
-| low | balanced | standard | B | B | 810 | 90 | full | extension_missed | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | balanced | standard | B | C | 810 | 90 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | locked_start | 810 | 90 |  |
-| low | balanced | standard | C | A | 1080 | -180 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự | locked_start | 900 | 0 | CẢNH BÁO |
-| low | balanced | standard | C | B | 900 | 0 | full | extension_missed | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | locked_start | 900 | 0 |  |
-| low | balanced | standard | C | C | 900 | 0 | full | partial | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | locked_start | 900 | 0 |  |
-| low | central | standard | A | A | 975 | -75 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | available | 795 | 105 | CẢNH BÁO |
-| low | central | standard | A | B | 795 | 105 | full | extension_missed | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | available | 795 | 105 |  |
-| low | central | standard | A | C | 795 | 105 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | available | 795 | 105 |  |
-| low | central | standard | B | A | 975 | -75 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | available | 795 | 105 | CẢNH BÁO |
-| low | central | standard | B | B | 795 | 105 | full | extension_missed | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | available | 795 | 105 |  |
-| low | central | standard | B | C | 795 | 105 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | available | 795 | 105 |  |
-| low | central | standard | C | A | 1065 | -165 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự | locked_choice | 885 | 15 | CẢNH BÁO |
-| low | central | standard | C | B | 885 | 15 | full | extension_missed | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | locked_choice | 885 | 15 |  |
-| low | central | standard | C | C | 885 | 15 | full | partial | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | locked_choice | 885 | 15 |  |
-| low | central | fast_paid | A | A | 885 | 15 | full | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | available | 705 | 195 | CẢNH BÁO |
-| low | central | fast_paid | A | B | 705 | 195 | full | extended | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | available | 705 | 195 |  |
-| low | central | fast_paid | A | C | 705 | 195 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | available | 705 | 195 |  |
-| low | central | fast_paid | B | A | 885 | 15 | full | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự | available | 705 | 195 | CẢNH BÁO |
-| low | central | fast_paid | B | B | 705 | 195 | full | extended | ĐẠT | cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme | available | 705 | 195 |  |
-| low | central | fast_paid | B | C | 705 | 195 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme | available | 705 | 195 |  |
-| low | central | fast_paid | C | A | 975 | -75 | partial_at_deadline | rejected | DƯỚI SÀN | cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự | available | 795 | 105 | CẢNH BÁO |
-| low | central | fast_paid | C | B | 795 | 105 | full | extension_missed | ĐẠT | cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme | available | 795 | 105 |  |
-| low | central | fast_paid | C | C | 795 | 105 | full | partial | ĐẠT | cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme | available | 795 | 105 |  |
-
-Ngày tiềm năng/kết quả ở bảng là phản thực để nhìn thấy đường bị khóa, không phải kết quả đã trao. Cột cổng dùng duy nhất `forecast_programme_completion`: locked_start khi lịch mặc định>800; locked_choice khi trễ tất định>840; A chưa đủ chỉ cảnh báo nhánh rủi ro. Trong8đường full cũ dưới sàn,6đường bị cổng start/choice khóa;2đường A cấp tốc thấp cohesion còn khả dụng với rủi ro885/dự phòng15. Chúng không được gọi là bảo đảm đạt sàn. Full825/840 giữ nguyên; A quá900 vẫn partial theo luật cũ. Tooltip nêu ngày, dự phòng, lý do khóa và cách mở lại; timer đã ký không bị phục hồi hồi tố.
-
-**I2 theo PP thuần, chênh quy đổi báo riêng:**
+**I2 theo chi phí quy đổi tại k=40, sensitivity báo riêng:**
 
 | k thử | Giá gói PP | Thưởng PP | Chênh PP thuần | Ngân khố gói | Chênh quy đổi |
 | --- | --- | --- | --- | --- | --- |
-| 20 | 55 | 50 | 5 | 0.5 | 15.0 |
-| 40 | 55 | 50 | 5 | 0.5 | 25.0 |
-| 60 | 55 | 50 | 5 | 0.5 | 35.0 |
+| 20 | 55 | 70 | -15 | 0.5 | -5.0 |
+| 40 | 55 | 70 | -15 | 0.5 | 5.0 |
+| 60 | 55 | 70 | -15 | 0.5 | 15.0 |
 
 **I3 checkpoint — biên mỏng k=40:**
 
@@ -450,14 +291,7 @@ Ngày tiềm năng/kết quả ở bảng là phản thực để nhìn thấy �
 | 60 | 30.0 | 24 | 6.0 |
 
 
-
-
-
-
-
-
-**Cổng dự báo dùng chung:** E102-C và các lựa chọn có trễ tất định gọi forecast_programme_completion với mode/timer đã ký; khóa khi ngày dự báo>840. E103-A chưa đủ hồ sơ chỉ hiển thị rủi ro; không khóa chỉ vì khả năng bị bác. E104 và hợp đồng nối tiếp vẫn kiểm riêng cửa sổ ký theo tier; không tự cộng timer ký vào chuỗi programme, không gia hạn cửa sổ để vượt cổng.
-
+**Cổng dự báo dùng chung:** E102-C và lựa chọn có trễ tất định dùng forecast_programme_completion với timer/mode đã ký; ngày>840 bị khóa. E103 không có lựa chọn hoặc ngoại lệ cảnh báo. E104 kiểm cửa sổ ký theo tier riêng, không tự cộng timer ký vào chuỗi programme.
 
 ### 6.6. E104: DNNN quay lại, an ninh và thời gian ký có giá
 
@@ -469,11 +303,11 @@ Caller chương trình kiểm tra ngày 500, chỉ khi đã có điều kiện c
 
 | Lựa chọn | Giá và thời gian | Hệ quả |
 | --- | --- | --- |
-| Ký gói có quyền tiếp cận dữ liệu | 30 PP; thời gian theo roster/tier | Trước hoặc đúng hạn nhận 0.75 ngân khố hỗ trợ; hoàn tất một checkpoint hợp tác; an ninh yêu cầu kiểm chứng phạm vi dữ liệu trong review cuối |
+| Ký gói có quyền tiếp cận dữ liệu | 30 PP; thời gian theo roster/tier | Ký trước hoặc đúng hạn xác lập hỗ trợ0.75ngân khố; chỉ nhận sau hai kỳ kiểm tra90/180ngày, mỗi kỳ10PP; hoàn tất một checkpoint hợp tác; an ninh yêu cầu kiểm chứng phạm vi dữ liệu trong review cuối |
 | Xin gói thu hẹp dữ liệu | 15 PP, 21 ngày | Hỗ trợ 0.25; chỉ dùng chuyên gia đào tạo, không có checkpoint hợp tác sâu |
 | Dùng đội trong nước | 0 PP | Giữ kế hoạch kiểm toán; không nhận hỗ trợ quốc tế |
 
-Hỗ trợ chỉ được trao khi đối tác chấp nhận và ký đúng hạn; bảng tính dùng tình huống họ chấp nhận. Checkpoint hợp tác là lợi ích riêng, không thay mục tiêu giảm corruption. Kiểm chứng dữ liệu gộp vào 90 ngày review, không cộng timer giấu kín.
+Hỗ trợ chỉ thanh toán sau khi đối tác chấp nhận, ký đúng hạn và hoàn tất hai kỳ kiểm tra hợp đồng90/180ngày. Bảng ngân sách giả định nghĩa vụ được thực hiện, đã cộng20PP kiểm tra; không tự cộng25PP đào tạo tùy chọn. Nghĩa vụ này không kéo dài timer programme hoặc thay chứng cứ4/4.
 
 Kiêm nhiệm có lợi ích ngay trong lát cắt, nhưng trả 60 PP/cohesion và đánh đổi dữ liệu. Đầu tư tier cán bộ mở cùng cửa sổ mà không gộp chức vụ.
 
@@ -530,8 +364,8 @@ IX11/IX12 bổ sung cho gói IX; F03–F12 là mười node còn lại. Các mã
 
 | Node | Focus | Cost | Gate: kỳ; ngày; prerequisite; chế độ | Caller, giá và hậu quả cụ thể |
 | --- | --- | ---: | --- | --- |
-| IX11 | Luân chuyển cán bộ trong đợt thí điểm | 5 | IX đã giải quyết; từ 19/04/2001; F09; mọi chế độ; dự án đang chạy và roster có người thay; loại trừ IX12 | Event đổi người phụ trách dự án: 20 PP, cohesion +4 sau bàn giao, dự án +30 ngày; loại trừ IX12. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader X01: đọc người đã bàn giao và kiến nghị về người mới. |
-| IX12 | Giữ người phụ trách đến nghiệm thu | 5 | IX đã giải quyết; từ 19/04/2001; F09; mọi chế độ; dự án đang chạy và có người phụ trách hợp lệ; loại trừ IX11 | Event giữ roster dự án: giữ tiến độ, mở yêu cầu kiểm toán độc lập 20 PP; loại trừ IX11. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader X04: đọc yêu cầu kiểm toán độc lập chưa đóng. |
+| IX11 | Luân chuyển cán bộ trong đợt thí điểm | 5 | IX đã giải quyết; từ 19/04/2001; F09; mọi chế độ; dự án đang chạy và roster có người thay; loại trừ IX12 | Luân chuyển20PP: 65% cohesion+4; 35% xử lý lại thêm24PP và cohesion−4. RNG lưu một lần theo hồ sơ/epoch; không coi cohesion+4 là bảo đảm. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Reader X01: đọc người đã bàn giao và kiến nghị về người mới. |
+| IX12 | Giữ người phụ trách đến nghiệm thu | 5 | IX đã giải quyết; từ 19/04/2001; F09; mọi chế độ; dự án đang chạy và có người phụ trách hợp lệ; loại trừ IX11 | Kiểm toán độc lập20PP, kết quả cố định, không nhận bonus cohesion của luân chuyển. Đây là đường chắc chắn đối ứng với IX11 có xác suất thất bại. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Reader X04: đọc yêu cầu kiểm toán độc lập chưa đóng. |
 
 ### Đặc tả Lượt 2 cho 40 node
 
@@ -541,7 +375,7 @@ Cost focus giữ đúng danh mục đã chụp tại B1; gate dùng kỳ đã gi
 
 | Node | Focus | Cost | Gate: kỳ; ngày; prerequisite; chế độ | Caller và hai lựa chọn có giá khác loại | Trung tâm phản ứng; hậu quả ở XI |
 | --- | --- | ---: | --- | --- | --- |
-| X01 | Công khai danh mục vốn nhà nước | 5 | X đã giải quyết; từ 18/04/2006; F07; mọi chế độ | Event phân loại danh mục. A: 20 PP để mở hồ sơ kiểm toán, giữ quyền truy cập nội bộ. B: 0,50 ngân khố để thuê đối chiếu độc lập, đổi lại công khai sớm và mất 30 ngày tiến độ. | Bộ/ngành và DNNN; XI đọc hồ sơ trách nhiệm còn thiếu trước khi phân loại nợ. |
+| X01 | Công khai danh mục vốn nhà nước | 5 | X đã giải quyết; từ 18/04/2006; F07; mọi chế độ | Event chọn hồ sơ. A: 20 PP, mở XI05. B: 0 PP, cohesion−6, khóa XI05. Gate chỉ áp cùng hồ sơ nguồn; chưa chốt thì reader bị khóa, không giả có quyền mở cả hai. | Bộ/ngành và DNNN; XI đọc hồ sơ trách nhiệm còn thiếu trước khi phân loại nợ. |
 | X02 | Tách bảo lãnh khỏi kế hoạch kinh doanh | 7 | X; từ 18/04/2006; X01; mọi chế độ | Decision chia rủi ro. A: 25 PP, giữ quyền điều phối của bộ chủ quản nhưng hoãn 60 ngày. B: 0,50 ngân khố cho kiểm toán tách biệt, đổi quyền tiếp cận dữ liệu của DNNN lấy báo cáo có thể dùng ở XI. | Bộ Tài chính và DNNN; XI thừa kế đánh dấu bảo lãnh đã tách/đang gộp. |
 | X03 | Cổ phần hóa theo điều kiện công bố | 7 | X; từ 18/04/2006; X01; mọi chế độ | Event thương lượng với người mua. A: 30 PP để giữ điều khoản lao động và quyền phủ quyết, chấp nhận giảm số nhà đầu tư. B: 0,75 ngân khố cho định giá độc lập, nhường quyền chọn thời điểm bán để giữ bằng chứng định giá. | DNNN, người lao động và nhà đầu tư; XI nhận nghĩa vụ sau chuyển đổi để xét khi tài sản đóng băng. |
 | X04 | Kiểm toán sau chuyển đổi sở hữu | 3 | X; từ 18/04/2006; X03; mọi chế độ | Milestone chọn phạm vi. A: 15 PP, kiểm tra hẹp và giữ kín hồ sơ; B: 0,50 ngân khố cho kiểm toán bên ngoài, công bố bất thường nhưng tiêu hao một lượt giám sát của bộ/ngành. | Cơ quan kiểm toán và DNNN; XI lưu cờ hồ sơ có/không có truy vết chủ sở hữu. |
@@ -576,8 +410,8 @@ XI09–XI12 giữ nguyên nội dung, cost và loại trừ; XI12 xử lý bảo
 
 | Node | Focus | Cost | Gate: kỳ; ngày; prerequisite; chế độ | Caller, giá và hậu quả cụ thể |
 | --- | --- | ---: | --- | --- |
-| XI09 | Lập quỹ xử lý dự án dở dang | 7 | XI đã giải quyết; từ 12/01/2011; XI07; mọi chế độ; có dự án dở dang và kiến nghị người mua; loại trừ XI10 | Decision chi 0.50 ngân khố cứu dự án theo kiến nghị người mua; loại trừ XI10. **Bổ sung hoàn thiện:** Decision do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader XII10: đọc nghĩa vụ cứu dự án chưa nghiệm thu. |
-| XI10 | Buộc dự án dở dang tái cơ cấu | 7 | XI đã giải quyết; từ 12/01/2011; XI07; mọi chế độ; có dự án dở dang và hồ sơ chủ đầu tư; loại trừ XI09 | Event chủ đầu tư và người mua chịu phương án tái cơ cấu: chậm 90 ngày, giữ ngân khố; loại trừ XI09. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader XII10: đọc lịch tái cơ cấu và cam kết chưa bàn giao. |
+| XI09 | Lập quỹ xử lý dự án dở dang | 7 | XI đã giải quyết; từ 12/01/2011; XI07; mọi chế độ; có dự án dở dang và kiến nghị người mua; loại trừ XI10 | Cứu dự án0.50ngân khố; sau nghiệm thu thu hồi0.75ngân khố, kết quả cố định. Không trao khoản thu hồi nếu chưa có chứng cứ bàn giao. **Bổ sung hoàn thiện:** Decision do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Reader XII10: đọc nghĩa vụ cứu dự án chưa nghiệm thu. |
+| XI10 | Buộc dự án dở dang tái cơ cấu | 7 | XI đã giải quyết; từ 12/01/2011; XI07; mọi chế độ; có dự án dở dang và hồ sơ chủ đầu tư; loại trừ XI09 | Tái cơ cấu90ngày, không ứng ngân khố: 70% thu hồi0.75ngân khố; 30% không thu hồi và cohesion−12. RNG một lần/đối tượng/epoch, không reroll khi load. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Reader XII10: đọc lịch tái cơ cấu và cam kết chưa bàn giao. |
 | XI11 | Công khai kết quả thanh tra đất đai | 5 | XI đã giải quyết; từ 12/01/2011; XI04; mọi chế độ; có hồ sơ thanh tra đất đai và kiến nghị định danh | Công bố một hồ sơ cụ thể, đóng hoặc chuyển kiến nghị qua event dân vận; thưởng theo bằng chứng. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader XII07: đọc kết luận và kiến nghị đã đóng hoặc chuyển. |
 | XI12 | Kiểm tra trách nhiệm bên bảo lãnh tín dụng | 5 | XI đã giải quyết; từ 12/01/2011; XI06; mọi chế độ; có nghĩa vụ bảo lãnh và chứng cứ trách nhiệm | Event xác định bên chịu trách nhiệm; mở decision bồi hoàn có điều kiện và hậu quả đối với nhóm lợi ích. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Bồi hoàn chọn 20 PP hoặc 0.50 ngân khố; cùng nghĩa vụ, khác nguồn chi. Giá này thuộc XI12, không thuộc XII12. Reader XII07: đọc bên chịu trách nhiệm và bồi hoàn còn thiếu. |
 
@@ -586,7 +420,7 @@ XI09–XI12 giữ nguyên nội dung, cost và loại trừ; XI12 xử lý bảo
 | Node | Focus | Cost | Gate: kỳ; ngày; prerequisite; chế độ | Caller và hai lựa chọn có giá khác loại | Trung tâm phản ứng; hậu quả ở XIII |
 | --- | --- | ---: | --- | --- | --- |
 | XII01 | Mở rộng quyền ký theo ủy quyền | 5 | XII đã giải quyết; từ 20/01/2016; XI08 hoặc F07; mọi chế độ; loại trừ XII05 | Decision chọn phạm vi ủy quyền. A: 20 PP giữ ký tập trung, mất thời gian xử lý; B: 0,50 ngân khố đào tạo đầu mối địa phương, nhường quyền ký hồ sơ chuẩn cho cấp dưới. | Bộ/ngành và địa phương; XIII đọc ai được ký hợp đồng kỹ thuật trong cửa sổ ngắn. |
-| XII02 | Giao quyền phê duyệt kèm hậu kiểm | 7 | XII; từ 20/01/2016; XII01 hoặc XII05; mọi chế độ | Event chọn thứ tự kiểm soát. A: 25 PP giữ phê duyệt trước, làm chậm 60 ngày; B: 0,75 ngân khố lập hậu kiểm, đổi quyền chặn trước lấy trách nhiệm cá nhân sau ký. | Cơ quan kiểm tra và người thực thi; XIII dùng tiền lệ này khi hợp tác an ninh cần quyết nhanh. |
+| XII02 | Giao quyền phê duyệt kèm hậu kiểm | 7 | XII; từ 20/01/2016; XII01 hoặc XII05; mọi chế độ | Event chọn trách nhiệm. A: 25 PP, mở XIII09. B: 0 PP, cohesion−8, khóa XIII09. Gate được AND với prerequisite/kỳ; không tự cho chữ ký hoặc bỏ kiểm chứng. | Cơ quan kiểm tra và người thực thi; XIII dùng tiền lệ này khi hợp tác an ninh cần quyết nhanh. |
 | XII03 | Công khai biên bản nghiệm thu cải cách | 7 | XII; từ 20/01/2016; XII02; mọi chế độ | Milestone chọn mức công khai. A: 15 PP công bố kết quả tổng hợp, giữ dữ liệu cá nhân; B: 0,50 ngân khố cho phép kiểm toán đọc hồ sơ gốc, giảm quyền sửa biên bản sau nghiệm thu. | Cơ quan kiểm toán và địa phương; XIII biết dữ liệu nào có thể chia sẻ ra ngoài. |
 | XII04 | Chốt chuyển giao trước đại hội | 3 | XII; từ 20/01/2016; XII07; mọi chế độ; loại trừ XII08 | Event roster chọn bàn giao. A: 20 PP giữ nguyên người phụ trách thêm 30 ngày; B: 0,50 ngân khố tổ chức bàn giao ngay, mất một lượt đào tạo nhưng không kéo dài quyền của người cũ. | Văn phòng điều phối và người kế cận; XIII thừa kế hồ sơ có chủ mới/đang chờ bàn giao. |
 | XII05 | Điều phối nhiều chương trình liên ngành | 5 | XII; từ 20/01/2016; XI08 hoặc F07; mọi chế độ; loại trừ XII01 | Decision chọn trung tâm điều phối. A: 25 PP để từng bộ tự quyết, từ bỏ quyền ưu tiên lịch chung; B: 0,75 ngân khố lập đầu mối chung, nhường quyền đặt lịch cho cơ quan điều phối. | Bộ/ngành và văn phòng điều phối; XIII dùng lịch chung hoặc phải thương lượng lại từng hợp đồng. |
@@ -598,10 +432,10 @@ XII09–XII12 giữ nguyên nội dung, cost và điều kiện.
 
 | Node | Focus | Cost | Gate: kỳ; ngày; prerequisite; chế độ | Caller, giá và hậu quả cụ thể |
 | --- | --- | ---: | --- | --- |
-| XII09 | Ban hành quy trình bảo vệ quyết định đúng | 7 | XII đã giải quyết; từ 20/01/2016; XII07; mọi chế độ; có người thực thi và hồ sơ quyết định cần bảo vệ | Mở lựa chọn thẩm định trách nhiệm trước ký trong E103 kế tiếp; phải hoàn thành đào tạo 90 ngày. **Bổ sung hoàn thiện:** Decision do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader E103: đọc chứng chỉ đào tạo trước khi mở thẩm định trách nhiệm. |
+| XII09 | Ban hành quy trình bảo vệ quyết định đúng | 7 | XII đã giải quyết; từ 20/01/2016; XII07; mọi chế độ; có người thực thi và hồ sơ quyết định cần bảo vệ | Mở công cụ thẩm định trách nhiệm, chứng chỉ được E103 tự động đọc khi kiểm hồ sơ kế tiếp; phải hoàn thành đào tạo 90 ngày. **Bổ sung hoàn thiện:** Decision do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader E103: đọc chứng chỉ đào tạo trước khi mở thẩm định trách nhiệm. |
 | XII10 | Đặt thời hạn xử lý hồ sơ liên ngành | 5 | XII đã giải quyết; từ 20/01/2016; XII02; mọi chế độ; có hồ sơ liên ngành tồn đọng | Decision xử lý một hồ sơ tồn đọng 180 ngày; chọn đầu mối hoặc hội đồng, trả PP/cohesion theo cách làm. **Bổ sung hoàn thiện:** Decision do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Đầu mối 30 PP; hội đồng 8 cohesion + 0.25 ngân khố; chỉ trả một cách, cả hai giữ 180 ngày. Reader XIII09: đọc đầu mối hoặc hội đồng chịu trách nhiệm hồ sơ. |
 | XII11 | Công khai quyền hạn khi kiêm nhiệm | 5 | XII đã giải quyết; từ 20/01/2016; XII06; mọi chế độ; roster hợp lệ, phân vai hoặc kiêm nhiệm | Event giám sát roster kiêm nhiệm hoặc phân vai: công bố quyền hạn, mở checkpoint kiểm tra người đứng đầu. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader XIII09: đọc quyền ký đã công khai và checkpoint giám sát. |
-| XII12 | Thẩm định phương án thay người giữa nhiệm kỳ | 5 | XII đã giải quyết; từ 20/01/2016; XII07; mọi chế độ; roster có phương án thay người hợp lệ | Event tái phân công vai trò: lựa chọn bàn giao 60 ngày hoặc kiện toàn ngay với mất cohesion được công bố. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Bàn giao 60 ngày, không thêm phí; kiện toàn ngay mất 6 cohesion, chỉ khi roster thay thế hợp lệ. Reader XIII09: đọc bàn giao đang chờ hoặc kiện toàn đã trả cohesion. |
+| XII12 | Thẩm định phương án thay người giữa nhiệm kỳ | 5 | XII đã giải quyết; từ 20/01/2016; XII07; mọi chế độ; roster có phương án thay người hợp lệ | A bàn giao60ngày, không thu phí nhưng khóa XII09 trong kỳ. B mất6cohesion, mở XII09 ngay; gate được AND với prerequisite/roster hợp lệ, không tự hoàn tất đào tạo. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Reader XIII09: đọc bàn giao đang chờ hoặc kiện toàn đã trả cohesion. |
 
 **XIII — neo 25/01/2021; Biển Đông và trái phiếu doanh nghiệp.** Cụm trái phiếu đặt trong thời kỳ có sự kiện thị trường: IMF ghi nhận phát hành dừng đột ngột từ cuối 2022 và thị trường đóng băng trong quý IV/2022. Các phản ứng trong node dưới đây là giả định gameplay, không mô tả hồ sơ hay tổ chức phát hành có thật. Focus có thể mở từ neo nhiệm kỳ, nhưng caller dùng bối cảnh khủng hoảng lịch sử chỉ chạy từ quý IV/2022; lựa chọn neo đầu quý là giả định gameplay, không khẳng định ngày khủng hoảng bắt đầu.
 
@@ -623,7 +457,7 @@ XIII09–XIII12 giữ nguyên nội dung, cost và loại trừ; XIII09 vẫn c�
 | XIII09 | Công khai điều kiện hợp tác kỹ thuật | 5 | XIII đã giải quyết; từ 25/01/2021; XIII03; mọi chế độ; có hợp đồng kỹ thuật pending và phản hồi an ninh | Event đối tác–an ninh xác nhận quyền dữ liệu; mở hợp đồng hữu hạn nối tiếp E104, cửa sổ 25 ngày (giả định gameplay); tier 2 trở lên hoặc kiêm nhiệm có thể ký đúng hạn, tier 1 có phương án thu hẹp. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader XIV11: đọc phạm vi dữ liệu và chữ ký trong cửa sổ. |
 | XIII10 | Xử lý sự cố trên biển qua đối thoại | 5 | XIII đã giải quyết; từ 25/01/2021; XIII01; mọi chế độ; có hồ sơ sự cố và đối tác đối thoại; loại trừ XIII11 | Event đối tác chấp nhận hoặc từ chối kênh đối thoại; loại trừ XIII11 trong cùng hồ sơ sự cố. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader XIV11: đọc đối tác chấp nhận hoặc từ chối kênh liên lạc. |
 | XIII11 | Duy trì hiện diện chấp pháp sau sự cố | 7 | XIII đã giải quyết; từ 25/01/2021; XIII02; mọi chế độ; có hồ sơ sự cố và lực lượng chấp pháp hợp lệ; loại trừ XIII10 | Decision 180 ngày có ngân sách, sự kiện phản hồi và rủi ro tăng áp lực; loại trừ XIII10. **Bổ sung hoàn thiện:** Decision do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Ngân sách 0.50 ngân khố cho 180 ngày; phản hồi theo hồ sơ, không tự cộng thưởng chương trình. Reader XIV07: đọc cam kết hiện diện và phản hồi chưa xử lý. |
-| XIII12 | Điều chỉnh hợp đồng sau cảnh báo an ninh | 5 | XIII đã giải quyết; từ 25/01/2021; XIII09; mọi chế độ; có cảnh báo an ninh đối với hợp đồng đang hiệu lực | Chọn sửa điều kiện dữ liệu hoặc hủy hợp đồng; trả giá mất hỗ trợ hoặc kéo dài xác minh. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Hủy không thu thêm phí; mất hỗ trợ E104 chưa nhận theo hợp đồng, không thu hồi khoản đã nhận hoặc tạo nợ âm. Sửa giữ điều kiện đối tác chấp nhận, không tự tạo hỗ trợ mới. Cổng bổ sung e104_contract_amendment_gate chỉ áp cho sửa tại XIII12: hỗ trợ chưa nhận>0 HOẶC quyền hợp tác chưa dùng>0. Cả hai0 thì sửa bị khóa; hủy luôn mở. Hủy chỉ đóng ledger/nghĩa vụ tương lai, không fail mission, không xóa bằng chứng đã hoàn tất, không mất tier/PP sớm/thưởng đã nhận. Giá/timer giữ nguyên. Reader XIV11: đọc điều kiện đã sửa hoặc hỗ trợ đã mất khi hủy. |
+| XIII12 | Điều chỉnh hợp đồng sau cảnh báo an ninh | 5 | XIII đã giải quyết; từ 25/01/2021; XIII09; mọi chế độ; có cảnh báo an ninh đối với hợp đồng đang hiệu lực | Sửa chỉ khi còn lợi ích và đối tác chấp nhận, mở XIV11; kiểm chứng sau90/180ngày, mỗi lần10PP. Hủy khóa XIV11, mất hỗ trợ chưa nhận và đóng nghĩa vụ; không trừ khoản hỗ trợ chưa nhận vào ngân khố thực. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả. Reader XIV11: đọc điều kiện đã sửa hoặc hỗ trợ đã mất khi hủy. |
 
 **XIV — neo 19/01/2026; nghiệm thu và bàn giao.**
 
@@ -648,109 +482,78 @@ XIV09–XIV12 giữ nguyên nội dung, cost và loại trừ; XIV11 vẫn có c
 | XIV12 | Chốt phương án chuyển giao năm 2031 | 7 | XIV đã giải quyết; từ 19/01/2026; XIV04; mọi chế độ; có hồ sơ bàn giao và phương án roster kế tiếp | Event chuẩn bị roster kế tiếp, kiểm tra kiêm nhiệm và kế cận; tạo phương án cho XV giả định, chưa tự thay người. **Bổ sung hoàn thiện:** Event do focus hoàn thành mở; một lần trên node/đối tượng/epoch; pending và resolved riêng; trả phí trước ghi kết quả.  Reader archive_XV: lưu phương án cho XV giả định; không tự đổi người hoặc thêm focus. |
 
 
-### 7.4a. Quyền và cơ hội có consumer cụ thể
+### 7.4a. Tác dụng có giá và tám node đổi cấu trúc
 
-Đổi hậu quả chỉ mô tả thành gate hành động đọc được. Mỗi hồ sơ lưu đúng một lựa chọn A/B theo node/đối tượng/epoch. Khi reader xử lý đúng hồ sơ, hành động tương ứng có available=1, hành động đối ứng=0; không mở cả hai và không thu lại phí đã trả. Đây là nhánh của caller hiện có, không thêm focus, event hay currency. Quyền không tự cộng tier, bằng chứng, thưởng PP hoặc rút timer ký. Thời gian ở bảng áp vào hồ sơ/dự án tương ứng, không tự cộng vào chuỗi programme độc lập. Gate điều kiện thực tế của reader vẫn áp dụng.
+Nguồn thực thi mô hình giấy: [consumer](VIETNAM_POLITICAL_CONSUMERS_VI.py). Các tỷ lệ65/35 và70/30 là giả định gameplay. RNG lấy một lần khi giải quyết hồ sơ, lưu theo node/đối tượng/epoch; load/replay không reroll hoặc thu lại phí. Thu hồi tài sản yêu cầu chứng cứ dự án/tái cơ cấu đã hoàn tất. Thất bại là kết quả có tác dụng, không phải option biết trước sẽ thua.
 
-Mỗi hành động là một cơ hội mang tên riêng; script so tập quyền theo quan hệ bao hàm, không cộng số quyền thành điểm. I10 kiểm cả hai nhu cầu hành động tại từng node, mọi tuyến/k, rồi đối chiếu ma trận programme. Không có một lựa chọn thắng tất cả nếu nó khóa hành động đối ứng mà đối thủ mở. Đây là kết luận của mô hình giấy, không chứng minh AI hay game thực thi đúng.
+| Node/nhánh | Option | Chi lúc chọn | Kết quả quan sát được |
+| --- | --- | --- | --- |
+| IX11 / IX12 | A | 20PP +0ngân khố +0cohesion | 65% Luân chuyển đạt đồng thuận: PP+0, ngân khố+0, cohesion+4; 35% Bị phản đối, phải xử lý lại: PP-24, ngân khố+0, cohesion-4 |
+| IX11 / IX12 | B | 20PP +0ngân khố +0cohesion | 100% Kiểm toán độc lập, chi phí cố định: PP+0, ngân khố+0, cohesion+0 |
+| XI09 / XI10 | A | 0PP +0.5ngân khố +0cohesion | 100% Cứu và thu hồi tài sản đã nghiệm thu: PP+0, ngân khố+0.75, cohesion+0 |
+| XI09 / XI10 | B | 0PP +0ngân khố +0cohesion | 70% Tái cơ cấu thu hồi đủ: PP+0, ngân khố+0.75, cohesion+0; 30% Tái cơ cấu thất bại: PP+0, ngân khố+0, cohesion-12 |
+| XII12 | A | 0PP +0ngân khố +0cohesion | 100% Bàn giao tuần tự; bỏ đợt đào tạo kỳ này: PP+0, ngân khố+0, cohesion+0, khóa XII09 |
+| XII12 | B | 0PP +0ngân khố +6cohesion | 100% Kiện toàn ngay; mở đào tạo trách nhiệm: PP+0, ngân khố+0, cohesion+0, mở XII09 |
+| XIII12 | A | 0PP +0ngân khố +0cohesion | 100% Sửa, giữ hợp đồng; phải hoàn tất hai kỳ kiểm tra: PP+0, ngân khố+0, cohesion+0, mở XIV11 |
+| XIII12 | B | 0PP +0ngân khố +0cohesion | 100% Hủy, đóng nghĩa vụ và mất hỗ trợ chưa nhận: PP+0, ngân khố+0, cohesion+0, khóa XIV11 |
+| X01 | A | 20PP +0ngân khố +0cohesion | 100% Hồ sơ kiểm toán vốn; mở xử lý nợ: PP+0, ngân khố+0, cohesion+0, mở XI05 |
+| X01 | B | 0PP +0ngân khố +6cohesion | 100% Chấp nhận tranh chấp để giữ vốn tại ngành; khóa xử lý nợ qua hồ sơ này: PP+0, ngân khố+0, cohesion+0, khóa XI05 |
+| XII02 | A | 25PP +0ngân khố +0cohesion | 100% Thẩm định trước, mở ký liên ngành: PP+0, ngân khố+0, cohesion+0, mở XIII09 |
+| XII02 | B | 0PP +0ngân khố +8cohesion | 100% Trách nhiệm cá nhân, khóa ký liên ngành: PP+0, ngân khố+0, cohesion+0, khóa XIII09 |
 
-`archive_XV` là nhãn lưu trữ cho XV giả định: lưu cả hai loại hồ sơ khác nhau, không tính là cơ hội sử dụng được trong phạm vi 2026 và không thêm node XV. Các quyền XIV chỉ dùng để kiểm khác biệt hồ sơ bàn giao, không được dùng để tăng opportunity_count hiện tại.
+XII12-A giữ bàn giao60ngày nhưng khóa XII09 trong kỳ; B mở XII09 ngay. Node XII09 cần cả prerequisite cũ và gate này. X01 đọc tại XI05; XII02 đọc tại XIII09; XIII12 đọc tại XIV11. Gate mặc định đóng trước khi có record và được AND với prerequisite; không bỏ qua kỳ/ngày/đối tượng. Nhánh khóa không cho chọn node rồi mới fail. Một node đã hoàn thành không nhận lại reward từ gate.
 
-| Node | Reader | Hành động nếu A (B khóa) | Hành động nếu B (A khóa) | Timer đã có |
-| --- | --- | --- | --- | --- |
-| X01 | XI05 | rà soát hồ sơ vốn nội bộ | đối chiếu vốn bằng bản công khai | B: 30 ngày |
-| X02 | XI06 | bộ chủ quản điều phối bảo lãnh | dùng báo cáo bảo lãnh tách biệt | A: 60 ngày |
-| X03 | XI07 | áp điều khoản lao động và phủ quyết đã giữ | dùng định giá độc lập khi xử lý tài sản | Theo quyền, không tự gán thêm timer |
-| X04 | XI12 | thẩm tra chủ sở hữu trong phạm vi nội bộ | truy vết chủ sở hữu qua kiểm toán ngoài | Theo quyền, không tự gán thêm timer |
-| X05 | XI01 | xét ngoại lệ đầu tư theo từng hồ sơ | đối chiếu thu hồi đất theo tiêu chí công khai | Theo quyền, không tự gán thêm timer |
-| X06 | XI03 | bảo lưu ngoại lệ ngành đã đàm phán | đọc dữ liệu nhà cung ứng theo cam kết rà soát | B: 90 ngày |
-| X07 | XI08 | giữ quyền thẩm tra kín hồ sơ nhạy cảm | dùng tiền lệ chia sẻ hồ sơ với hội đồng | Theo quyền, không tự gán thêm timer |
-| X08 | XII10 | bộ chủ quản tự duyệt truy cập hồ sơ | cơ quan kiểm toán duyệt liên thông hồ sơ | Theo quyền, không tự gán thêm timer |
-| XI01 | XII07 | xem danh sách hộ trong phạm vi cơ quan | đối chiếu kiến nghị người dân qua sổ công khai | B: 30 ngày |
-| XI02 | XII10 | giải ngân từ quỹ đã khóa cho hộ đủ hồ sơ | giữ ngân sách chưa khóa và xét cam kết theo tiến độ | Theo quyền, không tự gán thêm timer |
-| XI03 | XII12 | tỉnh chủ trì xử lý theo biên bản kín | đại diện hộ bị ảnh hưởng chủ trì phiên có biên bản | Theo quyền, không tự gán thêm timer |
-| XI04 | XII07 | địa phương tự kiểm sổ thu đã giữ | cơ quan kiểm tra truy trách nhiệm từ sổ liên ngành | B: 60 ngày |
-| XI05 | XII10 | ngân hàng tiếp tục xử lý khoản vay nội bộ | đối chiếu tài sản từ định giá chéo công khai | B: 90 ngày |
-| XI06 | XII10 | ngân hàng trực tiếp quyết thu hồi khoản vay | đọc kế hoạch xử lý theo kỳ của hồ sơ đã chuyển | Theo quyền, không tự gán thêm timer |
-| XI07 | XII10 | yêu cầu bàn giao theo danh sách người mua ưu tiên | dùng năng lực thi công của chủ đầu tư được tái cơ cấu | B: 60 ngày |
-| XI08 | XIII01 | tái sử dụng kênh trao đổi kín | tái sử dụng hồ sơ chứng cứ công khai | B: 30 ngày |
-| XII01 | XIII09 | đầu mối trung ương ký hồ sơ chuẩn | đầu mối địa phương ký hồ sơ chuẩn | Theo quyền, không tự gán thêm timer |
-| XII02 | XIII09 | thẩm định trách nhiệm trước khi ký | ký theo hậu kiểm với trách nhiệm cá nhân | A: 60 ngày |
-| XII03 | XIII09 | chia sẻ bản tổng hợp giữ dữ liệu cá nhân kín | cho đối tác kiểm toán đọc hồ sơ gốc | Theo quyền, không tự gán thêm timer |
-| XII04 | XIII09 | nhóm cũ hỗ trợ hồ sơ trong bàn giao tuần tự | chủ mới tự xác nhận trách nhiệm khi đã bàn giao | A: 30 ngày |
-| XII05 | XIII09 | từng bộ thương lượng lịch hợp đồng riêng | đầu mối chung đặt lịch hợp đồng liên ngành | Theo quyền, không tự gán thêm timer |
-| XII06 | XIII09 | ký theo roster kiêm nhiệm đã công khai xung đột | ký tách quy trình với xác nhận độc lập | Theo quyền, không tự gán thêm timer |
-| XII07 | XIII12 | yêu cầu miễn trừ quyết định thiện chí có căn cứ | mở kiểm tra độc lập mà cơ quan nội bộ không đóng được | Theo quyền, không tự gán thêm timer |
-| XII08 | XIII09 | nhóm cũ truy cập hồ sơ trong bàn giao tuần tự | chủ mới truy cập độc quyền hồ sơ bàn giao đồng thời | A: 60 ngày |
-| XIII01 | XIV11 | duy trì liên lạc kín không chia tọa độ | nhận cảnh báo sớm qua tọa độ đã chia sẻ | Theo quyền, không tự gán thêm timer |
-| XIII02 | XIV07 | cơ quan chủ lệnh tự điều phối lực lượng | đầu mối liên ngành phối hợp theo bản đồ trách nhiệm | Theo quyền, không tự gán thêm timer |
-| XIII03 | XIV11 | thương lượng riêng với chi tiết vận hành kín | giải mật và đối chiếu chứng cứ đã công bố | Theo quyền, không tự gán thêm timer |
-| XIII04 | XIV07 | ưu tiên tuyến chính theo quyền điều phối riêng | thực hiện nghĩa vụ chia sẻ rủi ro cho tuyến phụ | Theo quyền, không tự gán thêm timer |
-| XIII05 | XIV02 | rà soát nghĩa vụ của từng tổ chức phát hành | đối chiếu nghĩa vụ bằng sổ công khai | Theo quyền, không tự gán thêm timer |
-| XIII06 | XIV11 | yêu cầu thanh toán theo hạn gốc | thực hiện lịch trả nợ đã được chủ nợ đồng ý | Theo quyền, không tự gán thêm timer |
-| XIII07 | XIV03 | xử lý hồ sơ của từng người mua | giám sát dự án còn vận hành theo cam kết | Theo quyền, không tự gán thêm timer |
-| XIII08 | XIV02 | duy trì quan hệ trung gian khi kiểm một hợp đồng | mở trách nhiệm toàn chuỗi phân phối và bảo lãnh | B: 60 ngày |
-| XIV01 | archive_XV | bộ tự công nhận chuẩn theo hồ sơ cũ | đơn vị độc lập công nhận theo tiêu chí công khai | Theo quyền, không tự gán thêm timer |
-| XIV02 | archive_XV | lưu bản tổng hợp và phụ lục hạn chế | xử lý kiến nghị được mở lại từ dữ liệu công khai | Theo quyền, không tự gán thêm timer |
-| XIV03 | archive_XV | cơ quan chủ quản xác nhận địa điểm nghiệm thu | đại diện người dùng yêu cầu khắc phục địa điểm | Theo quyền, không tự gán thêm timer |
-| XIV04 | archive_XV | nhóm cũ hỗ trợ tiếp nhận mission | nhóm mới tự xác nhận trách nhiệm mission | B: 30 ngày |
-| XIV05 | archive_XV | tiếp tục hồ sơ cũ trong thời hạn gia hạn | đơn vị mới kiểm chứng đúng mục tiêu đã khóa | A: 180 ngày |
-| XIV06 | archive_XV | giữ nguồn lực cho mục tiêu cũ chưa đạt | dùng nguồn lực đã chuyển cho mục tiêu thay thế | A: 90 ngày |
-| XIV07 | archive_XV | chủ động chọn hồ sơ rủi ro cao để kiểm | đối chiếu mẫu ngẫu nhiên đã được khóa | Theo quyền, không tự gán thêm timer |
-| XIV08 | archive_XV | nhóm chuyên môn cũ tiếp tục hỗ trợ dự án | nhóm mới tự dùng hồ sơ bàn giao không phụ thuộc nhóm cũ | A: -30 ngày |
+### 7.4b. Hoàn trả công việc và nghĩa vụ hợp đồng
 
-Các giá/hiệu quả mới của22node là **giả định gameplay, chưa cân bằng bằng engine**. Giữ cost và loại trừ; không dùng giá mới để thay timer/deadline/giá programme. Bảng đối chiếu và biên giá ở báo cáo Lượt3.
+Các consumer còn lại hoàn trả chi phí tái sử dụng hồ sơ: A +8PP, B +0.20ngân khố khi reader hoàn thành trên cùng hồ sơ/source epoch; phí mở hồ sơ vẫn trả trước. Không nhận reader hoặc chưa đủ chứng cứ thì chưa hoàn trả. Archive XIV→XV chỉ lưu, thưởng0. Guard lưu consumed; hủy hoặc đọc sai đối tượng/epoch không tạo khoản hoàn trả. Các khoản này là giả định gameplay, không phải điểm cơ hội.
 
-### 7.4b. I3 Pareto chỉ cho XII12 và XIII12
+| Writer | Reader | A: PP hoàn trả | B: ngân khố hoàn trả |
+| --- | --- | --- | --- |
+| X02 | XI06 | 8 | 0.2 |
+| X03 | XI07 | 8 | 0.2 |
+| X04 | XI12 | 8 | 0.2 |
+| X05 | XI01 | 8 | 0.2 |
+| X06 | XI03 | 8 | 0.2 |
+| X07 | XI08 | 8 | 0.2 |
+| X08 | XII10 | 8 | 0.2 |
+| XI01 | XII07 | 8 | 0.2 |
+| XI02 | XII10 | 8 | 0.2 |
+| XI03 | XII12 | 8 | 0.2 |
+| XI04 | XII07 | 8 | 0.2 |
+| XI05 | XII10 | 8 | 0.2 |
+| XI06 | XII10 | 8 | 0.2 |
+| XI07 | XII10 | 8 | 0.2 |
+| XI08 | XIII01 | 8 | 0.2 |
+| XII01 | XIII09 | 8 | 0.2 |
+| XII03 | XIII09 | 8 | 0.2 |
+| XII04 | XIII09 | 8 | 0.2 |
+| XII05 | XIII09 | 8 | 0.2 |
+| XII06 | XIII09 | 8 | 0.2 |
+| XII07 | XIII12 | 8 | 0.2 |
+| XII08 | XIII09 | 8 | 0.2 |
+| XIII01 | XIV11 | 8 | 0.2 |
+| XIII02 | XIV07 | 8 | 0.2 |
+| XIII03 | XIV11 | 8 | 0.2 |
+| XIII04 | XIV07 | 8 | 0.2 |
+| XIII05 | XIV02 | 8 | 0.2 |
+| XIII06 | XIV11 | 8 | 0.2 |
+| XIII07 | XIV03 | 8 | 0.2 |
+| XIII08 | XIV02 | 8 | 0.2 |
+| XIV01 | archive_XV | 0 | 0 |
+| XIV02 | archive_XV | 0 | 0 |
+| XIV03 | archive_XV | 0 | 0 |
+| XIV04 | archive_XV | 0 | 0 |
+| XIV05 | archive_XV | 0 | 0 |
+| XIV06 | archive_XV | 0 | 0 |
+| XIV07 | archive_XV | 0 | 0 |
+| XIV08 | archive_XV | 0 | 0 |
 
-I3 của XII12 và XIII12 được đánh giá bằng Pareto, không bằng chi phí tiền đơn lẻ, theo xác nhận người dùng: chúng đổi thời gian/roster hoặc quyền hỗ trợ/nghĩa vụ đang có. Mọi node/event khác giữ phép kiểm chi phí quy đổi trực tiếp. Không quy ngày/quyền thànhPP, không thêm thưởng hay đổi timer. Available và tooltip đọc `i3_pareto_exceptions`/record hồ sơ: phí, bàn giao/khóa roster, cohesion mất, quyền người cũ/người mới, hỗ trợ chưa nhận bị mất, quyền hợp tác chưa dùng, nghĩa vụ hợp đồng mở. Hủy không thu hồi hỗ trợ đã nhận và không xóa lịch sử trách nhiệm.
+E102-A mở E104 theo hồ sơ công khai thật. Đào tạo E104 là task90ngày, cùng đối tượng/epoch, không có phí riêng; nhận25PP sau chứng cứ hoàn thành và hai kỳ kiểm tra hợp đồng. Cột training_reward_if_completed_pp chỉ là kết quả nếu thực hiện task, không cộng vào pp_net_cost trước khi hoàn tất và không dùng trong Pareto programme. Hủy hoặc thiếu kiểm tra thu hồi quyền chưa dùng; không thu hồi PP đã nhận.
 
-| Node | Bối cảnh | k | Option | Chi quy đổi | Chiều ngoài tiền | Trạng thái | Cổng |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| XII12 | roster hợp lệ | 20 | A | 0 | handover_pending_days=60; cohesion_loss=0; old_holder_access=1; new_holder_authority=0 | pending_handover | MỞ |
-| XII12 | roster hợp lệ | 20 | B | 18 | handover_pending_days=0; cohesion_loss=6; old_holder_access=0; new_holder_authority=1 | replacement_effective | MỞ |
-| XII12 | roster hợp lệ | 40 | A | 0 | handover_pending_days=60; cohesion_loss=0; old_holder_access=1; new_holder_authority=0 | pending_handover | MỞ |
-| XII12 | roster hợp lệ | 40 | B | 18 | handover_pending_days=0; cohesion_loss=6; old_holder_access=0; new_holder_authority=1 | replacement_effective | MỞ |
-| XII12 | roster hợp lệ | 60 | A | 0 | handover_pending_days=60; cohesion_loss=0; old_holder_access=1; new_holder_authority=0 | pending_handover | MỞ |
-| XII12 | roster hợp lệ | 60 | B | 18 | handover_pending_days=0; cohesion_loss=6; old_holder_access=0; new_holder_authority=1 | replacement_effective | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=0 | 20 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | KHÓA |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=0 | 20 | B | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=0 | 40 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | KHÓA |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=0 | 40 | B | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=0 | 60 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | KHÓA |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=0 | 60 | B | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=1 | 20 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=1 | 20 | B | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=1 | 40 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=1 | 40 | B | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=1 | 60 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0; quyền chưa dùng=1 | 60 | B | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=0 | 20 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=0 | 20 | B | 5.0 | unreceived_support_lost=0.25; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=0 | 40 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=0 | 40 | B | 10.0 | unreceived_support_lost=0.25; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=0 | 60 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=0 | 60 | B | 15.0 | unreceived_support_lost=0.25; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=1 | 20 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=1 | 20 | B | 5.0 | unreceived_support_lost=0.25; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=1 | 40 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=1 | 40 | B | 10.0 | unreceived_support_lost=0.25; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=1 | 60 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.25; quyền chưa dùng=1 | 60 | B | 15.0 | unreceived_support_lost=0.25; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=0 | 20 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=0 | 20 | B | 15.0 | unreceived_support_lost=0.75; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=0 | 40 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=0 | 40 | B | 30.0 | unreceived_support_lost=0.75; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=0 | 60 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=0; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=0 | 60 | B | 45.0 | unreceived_support_lost=0.75; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=1 | 20 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=1 | 20 | B | 15.0 | unreceived_support_lost=0.75; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=1 | 40 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=1 | 40 | B | 30.0 | unreceived_support_lost=0.75; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=1 | 60 | A | 0 | unreceived_support_lost=0; unused_cooperation_access=1; contract_obligation_open=1 | modified_active_if_partner_accepts | MỞ |
-| XIII12 | hỗ trợ=0.75; quyền chưa dùng=1 | 60 | B | 45.0 | unreceived_support_lost=0.75; unused_cooperation_access=0; contract_obligation_open=0 | terminated | MỞ |
+XIII12 sửa giữ hợp đồng phải kiểm hồ sơ sau90và180ngày tính từ lần sửa; mỗi lần10PP. Qua cả hai mới nhận phần hỗ trợ chưa thanh toán. Thiếu một lần: chấm dứt nghĩa vụ tương lai, mất hỗ trợ chưa nhận/quyền đào tạo chưa dùng và cohesion−6 đúng một lần. Hủy đóng nghĩa vụ ngay, mất hỗ trợ chưa nhận, khóa XIV11 cho hợp đồng này; không trừ ngân khố bằng khoản hỗ trợ chưa nhận và không thu hồi lịch sử. Nếu không còn lợi ích thì sửa bị khóa; đối tác phải chấp nhận sửa. Các chi phí tương lai chỉ ghi khi còn chưa trả, không thu hai lần khi sửa/timeout/load.
 
-Script kiểm63cặp mọi tuyến/k; có0cặp thống trị còn khả dụng, 0gần trùng. Bảng Δtừng chiều và so cặp ở báo cáoLượt3; near=mọi |B−A|/max(|A|,|B|)<10%, cả hai0 tính0%. XIII12 không còn hỗ trợ/quyền hợp tác: sửa (phương án bị thống trị) bị khóa theo cổng mới; hủy vẫn mở. Các9phép so của trạng thái này PASS cổng: chỉ còn1phương án, không được tuyên bố đã cân bằng2phương án. Các trạng thái còn lợi ích giữ2phương án và kiểm Pareto riêng.
+I3 chỉ báo REVIEW: kiểm được giao dịch, gate và kết quả hai nhánh, nhưng không tuyên bố mọi chiều sở thích hoặc thời gian có tỷ giá PP. So tiền trực tiếp vẫn chỉ rõ các phương án rẻ hơn; không dùng tên hành động hoặc cờ nghĩa vụ để đổi FAIL thành PASS.
+
 
 ### 7.5. Điều kiện hoàn thiện sau playtest
 
@@ -794,7 +597,7 @@ File dự kiến giữ cách chia: focus, decisions/categories, political_effect
 | Mode và timer đã ký | Dữ liệu nhiệm vụ, chốt lúc bắt đầu |
 | Kiến nghị | Milestone mở/đã giải quyết |
 | Chuỗi 90 ngày | Bộ đếm của điều kiện cần kiểm chứng |
-| Hợp đồng E103/E104 | Pending/kết quả lịch sử và deadline |
+| Kiểm chứng E103 / hợp đồng E104 | E103 ghi tiến độ/kết quả tự động; E104 lưu pending và deadline ký riêng |
 | Event đã xếp hàng | Pending guard |
 | Dự án phụ đã nhận trong kỳ | `VIE_last_side_project_epoch`, ghi tại nhận; mission phụ lưu deadline chuẩn bị đại hội sau, mục tiêu và kết quả |
 
@@ -814,19 +617,11 @@ Bỏ hai slot ưu tiên và hồ sơ hao mòn. Kiêm nhiệm query roster; phase
 | `VIE_last_resolved_program` | Resolver ghi epoch trước trao thưởng | Guard F12/timeout/load đọc; epoch cũ lưu để chống thưởng lại |
 | `VIE_last_side_project_epoch` | Ghi epoch khi nhận dự án phụ trước thu phí | Gate nhận lại đọc, không clear khi hủy; kết quả mission phụ tách riêng |
 | Baseline, mode/timer, counter, kiến nghị, hợp đồng, lựa chọn node và bộ nhớ trung tâm | Dữ liệu nhiệm vụ/hồ sơ được chốt khi bắt đầu hoặc khi người chơi chọn | Giữ record node/đối tượng/epoch, kết quả, giá đã trả, hạn và quyền dữ liệu; kỳ sau chỉ đọc record liên quan. Chưa gán thêm tên biến/flag/idea kỹ thuật; phải định danh và kiểm provider trước code |
-| `forecast_programme_completion` | Trigger thiết kế; Python cùng tên là nguồn tính dự báo duy nhất cho CSV/available/tooltip | Đọc timer/mode đã ký, chuẩn bị tại start, trễ tất định đã biết; xuất ngày/dự phòng/cổng. Rủi ro E103-A chưa hiện thực chỉ cảnh báo; chưa là trigger engine |
+| `forecast_programme_completion` | Trigger thiết kế; Python cùng tên là nguồn tính dự báo duy nhất cho CSV/available/tooltip | Đọc timer/mode đã ký, chuẩn bị tại start, trễ tất định đã biết; xuất ngày/dự phòng/cổng. E103 tự động không thêm trễ; mọi ngày trong mô hình đều tất định; chưa là trigger engine |
 | `node_opportunity_effects`; `legacy_node_specs`; `legacy_node_terms`; `archive_XV` | Focus/caller đã có ghi record node/đối tượng/epoch và phí một lần | Reader ở7.4/7.4a đọc; quyền đối ứng khóa, archive chỉ lưu không trao gameplay; giá mới là giả định gameplay |
 | `i3_pareto_exceptions` | Caller XII12/XIII12 đọc record roster/hợp đồng đã có | Lưu lựa chọn/trạng thái theo đối tượng/epoch, chiều/biên ở7.4b; Pareto chỉ hai node, tooltip trước chọn; chưa là ID engine |
 | `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
 | `focus_commitment_gate`; elapsed_congress_days; recovery_cooldown_remaining; pending_recovery_remaining | Scheduler đại hội/decision cập nhật tuổi cửa sổ, cooldown và lượt phục hồi purpose=cohesion đang chạy | Cùng forecast_programme_completion trả focus_available, earliest_feasible_start_day, latest_start_day, start_days_short cho available/tooltip/AI; cổng chung bất kỳ programme, cổng lựa chọn programme đích; không là trigger engine mới |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
-| `e104_contract_amendment_gate`; `e104_contract_ledger` | Ký/phản hồi E104 và sửa/hủy XIII12 ghi ledger: support_promised, support_received, support_forfeited, rights_granted, rights_used, rights_revoked, contract_state | Available và tooltip sửa XIII12 đọc cùng trigger; hủy luôn mở. Hủy giữ tiền đã nhận/quyền đã dùng/lịch sử, không ghi mission/tier/reward; chưa là ID engine |
 
 Registry này đóng phạm vi các ID/nhãn đã viết, không chứng minh tồn tại API hoặc định nghĩa trong game. Giá lựa chọn ở `node_choice_prices`/`legacy_node_terms`, timer ở `node_choice_delays`, gate/caller22node ở `legacy_node_specs`, consumer quyền ở `node_opportunity_effects`, lịch sử ở `l2_history_anchors` của B1. Quyền đọc theo đúng node/đối tượng/epoch; available=1 cho hành động đã chọn, 0 cho đối ứng; không cộng điểm quyền và không trao kết quả tự động.
 
@@ -842,10 +637,10 @@ Chỉ tiêu từ hoạt động bắt buộc và lịch sử 90 ngày không đ�
 
 - Resolver đại hội guard kỳ, kiểm tra chế độ, ghi kết quả và kiện toàn.
 - Adapter nhân sự kiểm tra tổ hợp vai trò, áp hiệu ứng theo người và đợt chuyển giao.
-- Resolver programme guard epoch, chấm 4 nhóm, tính mốc sớm theo chương trình 600/690 và kết quả hợp đồng E103, ghi kết quả trước thưởng.
+- Resolver programme guard epoch, chấm 4 nhóm, tính mốc sớm theo chương trình 600/690 và chứng cứ đã kiểm chứng; E103 ghi cùng kết quả tự động, ghi kết quả trước thưởng.
 - Review sớm chỉ chốt full; nếu chưa đủ, mission tiếp tục.
-- E103/E104 có guard hợp đồng riêng; resolver chúng không ghi programme đã hoàn thành.
-- Một programme full được +50 PP sớm tối đa một lần; gọi lại F12, load save hay đến timeout không trao lại.
+- E103 không có resolver hợp đồng riêng: cùng resolver programme ghi đúng một kết quả/epoch trước thưởng. E104 có guard hợp đồng riêng, không tự hoàn thành programme.
+- Một programme full được +70 PP sớm tối đa một lần; gọi lại F12, load save hay đến timeout không trao lại.
 - Di sản một cửa +tier công vụ được kiểm kê riêng: tối đa -2% dự án một lần và -6% tier.
 
 Programme, deadline, mode và giá được tính khi bắt đầu; expiry timed idea không tự tạo success reward. Dự án phụ ghi guard nhận theo epoch trước thu PP, không mở lại sau hủy; resolver phụ chỉ trao idea khi mục tiêu đạt, timeout/cancel không thưởng.
@@ -876,9 +671,9 @@ Phần này xử lý code hiện hành và tương tác giữa nước. Thiết 
 
 ## 10. Tooltip và AI
 
-UI hiển thị giá B1 và đầu ra duy nhất của `forecast_programme_completion`: ngày full dự báo, dự phòng, cổng và lý do khóa. Start>800: phục hồi bằng “Họp xử lý bất đồng” trước start; choice>840: chọn phương án không cộng trễ, không rút timer đã ký. A chưa đủ hiển thị riêng rủi ro cohesion−6/thẩm định+180/ngày và dự phòng nếu bị bác, không khóa vì rủi ro chưa hiện thực. B0PP+0.50/hạn780/bỏ thưởng; C15PP; E104 giữ ký theo tier45/30/25/21 và cửa sổ30/25/21. Node22 hiển thị legacy_node_terms, ghi “giả định gameplay, chưa cân bằng bằng engine”; XI12 bồi hoàn khác XII12 roster. Consumer40node hiển thị hành động được mở/đối ứng bị khóa, reader và thời điểm; archive_XV chỉ lưu. Giữ checkpoint15PP+0.25, gói55PP+0.50, vượt8/cổng40, BoP+0.30→+0.20, dự án phụ30PP/270ngày/guard một lần; k chỉ là tham số kiểm.
+UI hiển thị giá và ngày/cổng từ forecast_programme_completion. E103 chỉ báo tiến độ ngày450 và kết quả kiểm chứng tự động; không menu A/B/C, không cảnh báo rủi ro giả. E104 giữ cửa sổ ký theo tier; các node đọc record đúng đối tượng/epoch.
 
-AI chọn cấp tốc khi ngày dư mở dự án phụ hoặc cơ hội có hạn; so đủ55PP+0.50ngân khố với50PP sớm. Start và choice chỉ đọc cổng forecast_programme_completion, không tự tính ngày. B cần0.50ngân khố và khả năng hoàn tất hợp đồng780. A chưa đủ không bị khóa tự động; AI đọc cả dự báo tất định lẫn rủi ro+180 trước cam kết. Consumer đọc record đúng đối tượng/epoch, chọn hành động có ích thay vì cộng điểm quyền; archive_XV không tăng utility hiện tại. Giữ cổng cohesion/BoP/hàng đợi lịch sử; không thêm miễn phí hoặc trọng số thưởng.
+AI chọn cấp tốc khi đạt thưởng70PP hoặc cơ hội có ích; so gói55PP+0.50 với70PP, chênh+5PP ởk40. E103 không có lựa chọn AI; E102 và mode mới là quyết định. Đọc cổng start800/choice840/chốt270 từ cùng dự báo; dự án phụ là khoản mua thêm.
 
 Tên focus phản ánh việc làm và event có source trung tâm quyết định. Những bonus chưa được đo giá kinh tế được đánh dấu trong review, không quy đổi tùy ý thành PP.
 
@@ -886,15 +681,15 @@ XIII12 — tooltip/cổng: available và tooltip chỉ gọi e104_contract_amend
 
 AI XIII12 chỉ đọc cùng e104_contract_amendment_gate: sửa khi còn lợi ích và đối tác chấp nhận điều kiện; cả hai cạn thì chọn hủy đang mở. Trước xác nhận đọc lại ledger để tránh tooltip cũ. Không tự giảm giá hoặc bỏ guard một lần/đối tượng/epoch.
 
-Trọng tâm — tooltip/AI: lấy toàn bộ ngày/cổng từ forecast_programme_completion, không tự tính. Chặn phải hiển thị cohesion hiện tại, hạn khởi động270, ngày sớm nhất, ngày còn thiếu, phục hồi/cooldown cần chờ; không hứa phục hồi mở được kỳ đã hết hạn. AI chỉ chốt programme có focus_available=1, ưu tiên đường đang mở phù hợp mục tiêu; phục hồi/hòa giải không bị cổng chốt khóa. Lựa chọn kiểm tra bị khóa vẫn để công vụ/dân vận khả dụng nếu đủ gate cũ. Rủi ro E103-A chỉ cảnh báo như đã chốt; không đổi800/840/900, giá hoặc timer.
+Trọng tâm — tooltip/AI: lấy ngày/cổng từ cùng dự báo. Hiển thị cohesion, hạn270, ngày khởi động khả thi, cooldown và ngày thiếu. AI chỉ chốt programme có focus_available=1; phục hồi/hòa giải vẫn mở, không cứu hồi tố cửa sổ đã hết. E103 chỉ đọc chứng cứ để ghi kết quả tự động; giữ800/840/900.
 
 ## 11. Bảng tính trước code và playtest theo hai bước
 
 ### 11.1. Bảng ngân sách một nhiệm kỳ
 
-Nguồn duy nhất: [B1 JSON](VIETNAM_POLITICAL_PARAMETERS_VI.json), [script .py](VIETNAM_POLITICAL_BALANCE_VI.py), [CSV](VIETNAM_POLITICAL_BALANCE_VI.csv), [báo cáo lượt 1](VIETNAM_POLITICAL_REVIEW_L1_VI.md). Chạy `python VIETNAM_POLITICAL_BALANCE_VI.py --audit-l3` để dựng lại CSV, đối chiếu bảng và xuất báo cáo Lượt 3; kết quả là số học, chưa kiểm engine.
+Nguồn tham số và công cụ tái tạo (đi kèm trong gói): [B1 JSON](VIETNAM_POLITICAL_PARAMETERS_VI.json), [script .py](VIETNAM_POLITICAL_BALANCE_VI.py), [CSV](VIETNAM_POLITICAL_BALANCE_VI.csv), [báo cáo hiện hành](VIETNAM_POLITICAL_REVIEW_L3_VI.md). Chạy `python VIETNAM_POLITICAL_BALANCE_VI.py --audit-l3` để dựng lại CSV, đối chiếu bảng và xuất báo cáo Lượt 3; kết quả là số học, chưa kiểm engine.
 
-CSV có 1296 hàng: bốn chương trình × ba tuyến × bốn mode × k/r, với chín tổ hợp E102×E103 cho chương trình kiểm tra. 648 hàng hợp lệ; các hàng cấp tốc/kiêm nhiệm bị BoP khóa có `eligible=0`, không có kết quả giả. Mỗi tuyến nhận cùng bộ event và lựa chọn khi so cùng programme. Programme khác không tự nhận event kiểm toán.
+CSV chính có324hàng hợp lệ: bỏ324tổ hợp khóa BoP và trục lựa chọn E103 A/B/C đã bỏ. Script kiểm đúng tập tổ hợp và không trùng. Các ca khóa lịch E102-C/cohesion thấp ở CSV ngoại lệ I5; toàn bộ probe chỉ xuất khi dùng --audit-json.
 
 Snapshot chuẩn hóa: tier cán bộ 0, cohesion 60, BoP −0.30/0/+0.30. Các khoản focus và kiện toàn trước snapshot được tách khỏi phép so: F01/F07 trao 50 PP, F02 thu25, F04 thu thêm25 ở đường mở tập trung; CSV không giả vờ cân bằng có cùng lịch focus. E101 có caller riêng F05, được kiểm giá trong báo cáo, không cộng vào ma trận programme rồi làm lệch bộ event giữa tuyến. Cần chốt nếu muốn mở rộng snapshot sang cả lịch focus và E101.
 
@@ -910,21 +705,20 @@ Thu nhập r=[0.5,1,1.5], bonus nhánh0.03PP/ngày, cửa sổ1800ngày. k=[20,4
 | Dân vận | 660 | 645 | 600 | 555 |
 
 
+**Cột ngân sách E103 tự động:** pp_e103=0, treasury_e103=0. event_cost_pp gồm E102, ký E104 và pp_contract_checks=20 khi nhận hợp đồng; thưởng đào tạo chưa làm không trừ vào ngân sách; net_treasury_cost là alias của treasury_net_cost. Kết quả E103 suy từ ngày chứng cứ, không phải một option để tối ưu.
 
-**Cột ngân sách E103-B:** `event_cost_pp` là PP của E102+E103+ký E104; `net_treasury_cost` là alias của `treasury_net_cost`. B0PP+0.50ngân khố làm PP ròng giảm30 và ngân khố ròng tăng0.50 so bản trước, trước các quy đổi k; mọi số ở bảng lấy từ script, không sửa tay.
-
-**So cùng E102-A, E103-B, k=40, r=1:** B đã bỏ thưởng PP sớm ở mọi tuyến. E104 dùng cùng phản hồi đối tác chấp nhận: phân vai tier0 lấy gói thu hẹp, kiêm nhiệm ký gói đầy đủ.
+**So cùng E102-A, E103 tự động, k=40, r=1:** chuẩn trượt690 vẫn late_full khi đủ4/4; cấp tốc đạt690 nhận70PP. E104 dùng cùng phản hồi đối tác chấp nhận; phân vai tier0 ký gói thu hẹp, kiêm nhiệm ký gói đầy đủ.
 
 | Tuyến | Mode | Chi PP ròng | Chi ngân khố ròng | Ngày full | Thưởng PP sớm | Cohesion cuối | BoP cuối | Chi quy đổi | Dự án phụ mở |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| collective | standard | 195 | 1.5 | 750 | 0 | 70 | -0.3 | 225.0 | 0 |
-| balanced | standard | 195 | 1.5 | 750 | 0 | 66 | 0 | 237.0 | 0 |
-| central | standard | 195 | 1.5 | 735 | 0 | 66 | 0.3 | 237.0 | 0 |
-| central | fast_paid | 250 | 2.0 | 645 | 0 | 66 | 0.2 | 312.0 | 1 |
-| central | fast_override | 220 | 1.5 | 645 | 0 | 50 | 0.4 | 310.0 | 1 |
-| central | combined_fast_paid | 325 | 1.5 | 645 | 0 | 60 | 0.3 | 385.0 | 1 |
+| collective | standard | 215 | 1.0 | 750 | 0 | 70 | -0.3 | 225.0 | 0 |
+| balanced | standard | 215 | 1.0 | 750 | 0 | 66 | 0 | 237.0 | 0 |
+| central | standard | 215 | 1.0 | 735 | 0 | 66 | 0.3 | 237.0 | 0 |
+| central | fast_paid | 200 | 1.5 | 645 | 70 | 66 | 0.2 | 242.0 | 1 |
+| central | fast_override | 170 | 1.0 | 645 | 70 | 50 | 0.4 | 240.0 | 1 |
+| central | combined_fast_paid | 275 | 1.0 | 645 | 70 | 60 | 0.3 | 315.0 | 1 |
 
-Case đổi E103 sang A trên cùng chứng cứ chuẩn phải cộng thẩm định lại tuần tự; CSV ghi cả ngày full tiềm năng và kết quả partial khi quá 900. Case cấp tốc A đủ hồ sơ nhận 50 PP, còn B/C bỏ thưởng PP nhưng vẫn có ngày dư để mở dự án phụ nếu full trước mốc riêng.
+E103 không có lựa chọn để đổi. Chuẩn T735/750 là late_full; cấp tốc T645 là on_time_full; T>900 chấm partial/fail theo số nhóm thực đạt ởdeadline, không trao full theo ngày tiềm năng. CSV là fixture lịch khi hoàn tất chứng cứ, không tạo chứng cứ trong game.
 
 **Khoảng cách lịch:** chênh ngày đại hội −180 chuẩn bị −270 khởi động muộn −900 deadline.
 
@@ -939,7 +733,7 @@ Case đổi E103 sang A trên cùng chứng cứ chuẩn phải cộng thẩm đ
 
 Từ cohesion60, một gói vượt đưa về44; lần vượt tiếp theo bị khóa. Muốn vượt đủ gói sau cần hai lượt phục hồi:60PP, lên64, hoàn tất270ngày với cooldown180. Cadre cần giữ55 liên tục90ngày nên CSV cộng hai lượt30PP trong lúc triển khai; lịch165→255 và345→435 cho phép kiểm chứng465→555. Cadre kiêm nhiệm mất6 về54, cần thêm một lượt30PP trước kiểm chứng; CSV đã cộng. Kiêm nhiệm được chọn ngay sau khi chốt giá/mode programme, trước checkpoint khi BoP/cohesion còn đủ cổng, nên giá đã ký không bị tính lại. Các programme khác chưa cần phục hồi để nghiệm thu theo giả định của ma trận. BoP cuối chỉ tính hành động đã kê: snapshot tập trung +0.30, trả đủ →+0.20, vượt đủ →+0.40, trả đủ kèm kiêm nhiệm →+0.30. Cả mode hiện tại và quyền lần tới đều được nêu ở tooltip.
 
-Chiến tranh, counter reset, kiến nghị chưa đóng và chỉ tiêu kinh tế chưa đạt nằm ngoài lịch cơ sở. CSV không chứng minh full chắc chắn trong game. I5 cổng dự báo chỉ xử lý trễ tất định; rủi ro A và các tình huống ngoài mô hình được cảnh báo riêng. Không rút timer hoặc đổi900.
+Chiến tranh, counter reset, kiến nghị chưa đóng và chỉ tiêu kinh tế chưa đạt nằm ngoài fixture lịch cơ sở. Không giả định một xác suất trễ E103. Khi đã biết trễ, dự báo và cổng phải tính đầy đủ; CSV không chứng minh full chắc chắn trong game.
 
 ### 11.2. Thứ tự kiểm tra tiết kiệm công
 
@@ -954,10 +748,10 @@ Console và spreadsheet không thay playtest engine. Hiện mới hoàn thành b
 ### 11.3. Tiêu chí
 
 - Đúng một kết quả mỗi kỳ/epoch; mọi lĩnh vực lên tier bằng chương trình của mình.
-- Chuẩn→cấp tốc đổi mốc600/690; I2 kiểm PP thuần55−50=5. Gói trả đủ còn0.50ngân khố; chênh quy đổi15/25/35 ở k20/40/60 chỉ là tham số kiểm tra. Giá trị còn lại: dự án phụ270ngày/30PP. Kiểm checkpoint:20/25/30 so với vượt24, biên k40 chỉ1PP; không tự nới biên.
-- 40 event/decision của X01–X08, XI01–XI08, XII01–XII08, XIII01–XIII08 và XIV01–XIV08 dùng giá từng node trong B1. Script `python VIETNAM_POLITICAL_BALANCE_VI.py --check-l2` đối chiếu bảng 40 node, giá B1, cost focus và gate/caller; `--csv-only` dựng lại ma trận ngân sách mà không ghi đè báo cáo lịch sử Lượt 1. Với cặp 20 PP so 0.50 ngân khố, chi quy đổi A/B tại k20/40/60 là 20/(10,20,30); với 25 PP so 0.75 ngân khố là 25/(15,30,45); với 15 PP so 0.50 ngân khố là 15/(10,20,30). Các profile còn lại cũng đảo thứ hạng trong ba mức k được thử. Vì vậy thứ hạng chi phí trực tiếp đổi theo k ở từng event; không có lựa chọn nào rẻ nhất ở cả ba k. K không đổi theo tuyến, r chỉ đổi mẫu số thu nhập PP; mọi tuyến dùng cùng event nên phép so giữ nguyên. Consumer quyền/dữ liệu và timer hồ sơ ở7.4a được kiểm riêng, không quy đổi thànhPP; chỉ XII12/XIII12 dùng Pareto tại7.4b theo xác nhận, các node/event khác giữ phép kiểm tiền trực tiếp.
-- I5: dùng cùng forecast_programme_completion cho start≤800/choice≤840, CSV và tooltip; không khóa rủi ro A chưa hiện thực. Kiểm cohesion0–19, phục hồi0→20 và cửa sổ270; ghi cả đường phản thực bị khóa và nhánh rủi ro còn khả dụng. Timer/mode đã ký không đổi sau phục hồi; programme900/E102+90/thẩm định180 giữ nguyên.
-- A-E103 thiếu hồ sơ bị bác, cohesion−6 và thẩm định180ngày; A khi đủ được rẻ nhất. B0PP+0.50ngân khố/hạn780; C15PP. I3 kiểm hai kịch bản×k20/40/60, in chênh từng cặp; báo mọi biên<3PP, không tự chỉnh.
+- Chuẩn→cấp tốc giữ mốc600/690; thưởng sớm70PP thay50PP theo yêu cầu cân lại ngày14/10/2026. I2 kiểm55+0.50×40−70=+5PP và bốn cặp full/cohesion66 ởk40 trong ±10PP. Sensitivity k20/40/60:−5/+5/+15PP; dự án phụ270ngày/30PP là khoản mua thêm. Kiểm checkpoint giữ20/25/30 so với vượt24, biên k40 chỉ1PP; không tự nới biên.
+- 38 node thông thường giữ phép so tiền trực tiếp; X01/XII02 đổi nguồn chi sang cohesion và gate. Tám node trong7.4a có nhánh thất bại hoặc reader mở/khóa thật. I3/I10 là REVIEW, không suy ra cân bằng từ tên quyền hoặc chiều chưa định nghĩa.
+- I5: cùng forecast_programme_completion cho start≤800/choice≤840, CSV và tooltip. Mọi trễ trong mô hình tất định; khóa T>840, không có ngoại lệ rủi ro E103. Kiểm cohesion0–19, phục hồi0→20 và cửa sổ270; timer/mode đã ký không đổi, programme900/E102+90 giữ nguyên.
+- E103 tự động: không thuộc phép so lựa chọn I3. Kiểm T690/691,735/750,840/841,900/901 và một kết quả mỗi epoch; E103 không thu phí hoặc kéo dài thẩm định.
 - E104 dùng cùng nhân vật/đối tượng E102; dữ liệu hợp đồng và an ninh xuất hiện trong review.
 - BoP dịch -0.05/+0.05 theo checkpoint thật, lặp hành động không farm thanh.
 - Tier cán bộ và kiêm nhiệm có đường đạt cửa sổ ngay khi đủ điều kiện.
@@ -969,19 +763,18 @@ Console và spreadsheet không thay playtest engine. Hiện mới hoàn thành b
 - Counter liên tục theo ngày chỉ chạy trên chương trình active của VIE; content validation chạy bằng script trong repo.
 - Cohesion 0→40 có đường phục hồi số học 630 ngày; playtest xác nhận với thu nhập/event thực.
 
-- I6/I10 hoàn thiện: đối chiếu gate/caller/guard/reader22node theo legacy_node_specs; consumer40node available1/đối ứng0 theo node_opportunity_effects. Script kiểm các nhu cầu hành động riêng, không cộng điểm quyền, không tính archive_XV là cơ hội hiện tại.
+- I6/I10: đọc record cùng đối tượng/epoch; consumer hoàn trả8PP hoặc0.20ngân khố một lần khi reader hoàn thành. Archive không có reward. Bỏ cờ cơ hội khỏi so programme; I10 là REVIEW, không tuyên bố utility bằng tên hành động.
 - Giá node mới: XI12 bồi hoàn20PP/0.50; XII12 kiện toàn−6cohesion; XII10 30PP so8cohesion+0.25, báo biên1PP tại k20 không chỉnh. X09 hai đợt0.25, X10 ứng0.50/rút30/kiến nghị; kiểm cả thời gian và trạng thái checkpoint/kiến nghị. XIV10 ổn định+1%365ngày, trần1%, dùng max với tier dân vận, phải có nghiệm thu đúng địa điểm. XIV11 giữ15/sửa0.50/hủy mất hỗ trợ chưa nhận. Mọi số là giả định gameplay, chưa cân bằng bằng engine; không thay giá/timer programme.
 
-- XIII12 cổng bổ sung: e104_contract_amendment_gate dùng chung available/tooltip, chỉ sửa nếu hỗ trợ chưa nhận>0 hoặc quyền chưa dùng>0; hủy luôn mở. Kiểm9phép so trạng thái đã cạn và mọi trạng thái còn lợi ích; hủy chỉ ghi ledger E104, không fail mission/tier/reward/paid_support. Các chiều Pareto ngoài tiền phải hiện trước chọn; báo từng Δ và gần trùng<10%, không đổi giá/timer.
+- XIII12: sửa cần lợi ích còn lại và đối tác chấp nhận; phải kiểm hồ sơ ngày90/180, mỗi lần10PP. Thiếu một lần mất hỗ trợ chưa nhận/quyền đào tạo chưa dùng, cohesion-6; không thu hồi tiền đã nhận. Hủy luôn mở.
 
 - Cổng chốt: cùng forecast_programme_completion với full800/840; kiểm mọi cohesion0–39, cooldown0/90/180, mọi tuyến/4programme; biên19/20 và270/271, lượt phục hồi đang chạy. Chỉ chốt programme có đường trước270. Cổng không khóa phục hồi/hòa giải, không thay gate90ngày/giá/cooldown/timer; trường hợp hết cửa sổ ghi không còn đường kỳ hiện tại, không tự fail mission hoặc trao thưởng.
 
+
 ## 12. Trạng thái hoàn thành
 
-Đã áp dụng xác nhận E103-B0PP+0.50ngân khố và hạn hợp đồng780, giữ C15PP/E102+90/thẩm định180/programme900. Script tính lại PP/ngân khố và mọi bảng liên quan. I3 đã kiểm hai kịch bản đủ/chưa đủ hồ sơ, A được rẻ nhất khi đủ; biên nhỏ được báo chứ không điều chỉnh. I5 có bảng ngoại lệ/cổng đầy đủ:6/8đườngfull cũ dưới sàn bị khóa,2rủi ro A885 còn mở theo xác nhận; không đổi timer. Các giá mới22node đã chốt, là giả định gameplay, chưa cân bằng bằng engine.
+Mô hình giấy có74node; E103 đã chuyển thành hệ quả tự động của chứng cứ, không còn A/B/C hoặc phí/thẩm định cũ. Mode và E102 giữ quyết định thực. Thưởng sớm70PP; programme900/E102+90/start800/choice840 giữ nguyên.
 
-Danh mục vẫn74node. Đã bổ sung gate/caller/guard/reader22node và consumer quyền40node; I6/I10 được kiểm bằng script. I5 dùng cổng trễ tất định được chốt, vẫn cảnh báo rủi ro A; I3 được mở rộng kiểm giá22node và có kết quả chi tiết tại báo cáo. Chưa nghiệm thu gameplay; báo cáo hiện hành ở [Lượt 3](VIETNAM_POLITICAL_REVIEW_L3_VI.md). Changelog ghi cả lệch810→780 theo mốc người dùng vừa chốt. Tham chiếu repo tại9 và BLUF được giữ.
-
-Chỉ tính bằng script, chưa triển khai định nghĩa game của thiết kế này hoặc chạy engine/console/playtest.
+Báo cáo hiện hành ở [Lượt 3](VIETNAM_POLITICAL_REVIEW_L3_VI.md). Các giá là giả định gameplay; adapter game v57 đã được triển khai trong repo và có fixture đọc script; chưa nghiệm thu engine/AI/playtest.
 
 BLUF

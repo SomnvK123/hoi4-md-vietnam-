@@ -165,125 +165,165 @@ country_event = {
 # E102: Kiem toan bao lanh DNNN (Caller: F06)
 # ------------------------------------------------------------
 country_event = {
-	id = vie_pol.102
-	title = vie_pol.102.t
-	desc = vie_pol.102.d
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
 
-	# Option A: Cap von co dieu kien kiem toan va cong khai
-	option = {
-		name = vie_pol.102.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.102.a executed"
-		add_political_power = -30
-		set_temp_variable = { treasury_change = -0.5 }
-		modify_treasury_effect = yes
-		set_country_flag = VIE_e102_data_access_unlocked
-		set_country_flag = VIE_record_E102_A
-	}
+id = vie_pol.102
+title = vie_pol.102.t
+desc = vie_pol.102.d
+picture = GFX_report_event_generic_read_write
+is_triggered_only = yes
+trigger = {
+ has_country_flag = VIE_e102_choice_pending
+check_variable = { VIE_last_congress = 9 }
+}
+option = { name = vie_pol.102.a
+trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+NOT = { check_variable = { treasury < 0.5 } }
+  check_variable = { VIE_last_congress = 9 } }
+if = {
+limit = { check_variable = { VIE_last_congress = 9 } }
 
-	# Option B: Kiem toan bang doi trong nuoc
-	option = {
-		name = vie_pol.102.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.102.b executed"
-		add_political_power = -20
-		set_temp_variable = { treasury_change = -0.25 }
-		modify_treasury_effect = yes
-		set_country_flag = VIE_record_E102_B
-	}
+if = {
+limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+NOT = { check_variable = { treasury < 0.5 } }
+ }
+add_political_power = -30
+set_temp_variable = { treasury_change = -0.5 }
+modify_treasury_effect = yes
+set_country_flag = VIE_record_E102_A
+set_country_flag = VIE_e102_choice_resolved
+clr_country_flag = VIE_e102_choice_pending
+set_country_flag = VIE_e102_data_access_unlocked
+}
+}
+}
+option = { name = vie_pol.102.b
+trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+NOT = { check_variable = { treasury < 0.25 } }
+  check_variable = { VIE_last_congress = 9 } }
+if = {
+limit = { check_variable = { VIE_last_congress = 9 } }
 
-	# Option C: Giu bao lanh, hoan cong khai
-	option = {
-		name = vie_pol.102.c
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.102.c executed"
-		set_temp_variable = { treasury_change = -0.75 }
-		modify_treasury_effect = yes
-		add_timed_idea = {
-			idea = VIE_e102_c_soe_construction_idea
-			days = 365
-		}
-		set_country_flag = VIE_record_E102_C
-	}
+if = {
+limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+NOT = { check_variable = { treasury < 0.25 } }
+ }
+add_political_power = -20
+set_temp_variable = { treasury_change = -0.25 }
+modify_treasury_effect = yes
+set_country_flag = VIE_record_E102_B
+set_country_flag = VIE_e102_choice_resolved
+clr_country_flag = VIE_e102_choice_pending
+}
+}
+}
+option = { name = vie_pol.102.c
+trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { check_variable = { treasury < 0.75 } }
+NOT = { check_variable = { VIE_programme_forecast_days > 750 } }  check_variable = { VIE_last_congress = 9 } }
+if = {
+limit = { check_variable = { VIE_last_congress = 9 } }
+
+if = {
+limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { check_variable = { treasury < 0.75 } }
+NOT = { check_variable = { VIE_programme_forecast_days > 750 } } }
+set_temp_variable = { treasury_change = -0.75 }
+modify_treasury_effect = yes
+set_country_flag = VIE_record_E102_C
+set_country_flag = VIE_e102_choice_resolved
+clr_country_flag = VIE_e102_choice_pending
+add_to_variable = { VIE_programme_forecast_days = 90 }
+set_country_flag = VIE_programme_job_delay
+set_variable = { VIE_programme_delay_remaining = 90 }
+add_timed_idea = { idea = VIE_e102_c_soe_construction_idea days = 365 }
+}
+}
+}
+option = { name = vie_pol.102.wait
+trigger = { always = yes check_variable = { VIE_last_congress = 9 } }
+if = {
+limit = { check_variable = { VIE_last_congress = 9 } }
+  }
+}
+
 }
 
 # ------------------------------------------------------------
 # E103: Bang chung truoc han (Caller: Kiem tra ngay 450)
 # ------------------------------------------------------------
 country_event = {
-	id = vie_pol.103
-	title = vie_pol.103.t
-	desc = vie_pol.103.d
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
-
-	# Option A: Cam ket nop ho so day du dung han
-	option = {
-		name = vie_pol.103.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.103.a executed"
-		set_country_flag = VIE_e103_committed_standard
-		set_country_flag = VIE_record_E103_A
-	}
-
-	# Option B: Xin gia han, cong khai phan con thieu
-	option = {
-		name = vie_pol.103.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.103.b executed"
-		set_temp_variable = { treasury_change = -0.5 }
-		modify_treasury_effect = yes
-		set_country_flag = VIE_e103_early_reward_forfeited
-		set_country_flag = VIE_record_E103_B
-	}
-
-	# Option C: Cong bo ket qua co gioi han
-	option = {
-		name = vie_pol.103.c
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.103.c executed"
-		add_political_power = -15
-		set_country_flag = VIE_e103_early_reward_forfeited
-		set_country_flag = VIE_record_E103_C
-	}
+id = vie_pol.103
+title = vie_pol.103.t
+desc = vie_pol.103.d
+picture = GFX_report_event_generic_read_write
+is_triggered_only = yes
+option = { name = vie_pol.103.a }
 }
 
 # ------------------------------------------------------------
 # E104: Hop tac ky thuat DNNN va an ninh du lieu (Caller: ngay 500)
 # ------------------------------------------------------------
 country_event = {
-	id = vie_pol.104
-	title = vie_pol.104.t
-	desc = vie_pol.104.d
-	picture = GFX_report_event_generic_sign_treaty2
-	is_triggered_only = yes
 
-	# Option A: Ky goi co quyen tiep can du lieu
-	option = {
-		name = vie_pol.104.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.104.a executed"
-		add_political_power = -30
-		set_temp_variable = { treasury_change = 0.75 }
-		modify_treasury_effect = yes
-		set_country_flag = VIE_e104_signed
-		set_country_flag = VIE_e104_data_rights_granted
-		set_country_flag = VIE_record_E104_A
-	}
+id = vie_pol.104
+title = vie_pol.104.t
+desc = vie_pol.104.d
+picture = GFX_report_event_generic_read_write
+is_triggered_only = yes
+trigger = {
+ has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signed }
+check_variable = { VIE_last_congress = 9 }
+}
+option = { name = vie_pol.104.a
+trigger = {  NOT = { political_power < 30 }
+NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 9 } }
+if = {
+limit = { check_variable = { VIE_last_congress = 9 } }
 
-	# Option B: Xin goi thu hep du lieu
-	option = {
-		name = vie_pol.104.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.104.b executed"
-		add_political_power = -15
-		set_temp_variable = { treasury_change = 0.25 }
-		modify_treasury_effect = yes
-		set_country_flag = VIE_e104_signed
-		set_country_flag = VIE_record_E104_B
-	}
+if = {
+limit = { NOT = { political_power < 30 }
+NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
+add_political_power = -30
+set_variable = { VIE_e104_sign_days = 21 }
+if = { limit = { has_country_flag = VIE_dual_role_active } set_variable = { VIE_e104_sign_days = 21 } }
+else_if = { limit = { NOT = { check_variable = { VIE_tier_cadre < 3 } } } set_variable = { VIE_e104_sign_days = 21 } }
+else_if = { limit = { check_variable = { VIE_tier_cadre = 2 } } set_variable = { VIE_e104_sign_days = 25 } }
+else = { set_variable = { VIE_e104_sign_days = 30 } }
+set_country_flag = VIE_e104_offer_resolved
+set_variable = { VIE_e104_promised_support = 0.75 }
+set_country_flag = VIE_record_E104_A
+VIE_politics_e104_sign_begin = yes
+}
+}
+}
+option = { name = vie_pol.104.b
+trigger = {  NOT = { political_power < 15 }
+NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 9 } }
+if = {
+limit = { check_variable = { VIE_last_congress = 9 } }
 
-	# Option C: Dung doi trong nuoc
-	option = {
-		name = vie_pol.104.c
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.104.c executed"
-		set_country_flag = VIE_e104_refused
-		set_country_flag = VIE_record_E104_C
-	}
+if = {
+limit = { NOT = { political_power < 15 }
+NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
+add_political_power = -15
+set_variable = { VIE_e104_sign_days = 21 }
+set_country_flag = VIE_e104_offer_resolved
+set_variable = { VIE_e104_promised_support = 0.25 }
+set_country_flag = VIE_record_E104_B
+VIE_politics_e104_sign_begin = yes
+}
+}
+}
+option = { name = vie_pol.104.c
+trigger = { always = yes check_variable = { VIE_last_congress = 9 } }
+if = {
+limit = { check_variable = { VIE_last_congress = 9 } }
+
+if = {
+limit = { has_country_flag = VIE_programme_active NOT = { has_country_flag = VIE_e104_offer_resolved } check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } }
+set_country_flag = VIE_e104_refused
+set_country_flag = VIE_e104_offer_resolved}
+}
+}
+
 }
 
 # ------------------------------------------------------------
@@ -342,25 +382,41 @@ country_event = {
 # XIII12: Dieu chinh hop dong sau canh bao an ninh
 # ------------------------------------------------------------
 country_event = {
-	id = vie_pol.132
-	title = vie_pol.132.t
-	desc = vie_pol.132.d
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
 
-	# Option A: Sua dieu kien du lieu
-	option = {
-		name = vie_pol.132.a
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.132.a executed"
-		set_country_flag = VIE_e104_amended
-		set_country_flag = VIE_record_XIII12_A
-	}
+id = vie_pol.132
+title = vie_pol.132.t
+desc = vie_pol.132.d
+picture = GFX_report_event_generic_read_write
+is_triggered_only = yes
+trigger = {
+ has_completed_focus = VIE_xiii12_security_contract_adjustment NOT = { has_country_flag = VIE_record_XIII12 }
+check_variable = { VIE_e104_contract_epoch = 1 }
+}
+option = { name = vie_pol.132.a
+trigger = {  VIE_e104_can_amend = yes  check_variable = { VIE_e104_contract_epoch = 1 } }
+if = {
+limit = { check_variable = { VIE_e104_contract_epoch = 1 } }
 
-	# Option B: Huy hop dong
-	option = {
-		name = vie_pol.132.b
-		log = "[GetDateText]: [This.GetName]: Event vie_pol.132.b executed"
-		set_country_flag = VIE_e104_terminated
-		set_country_flag = VIE_record_XIII12_B
-	}
+if = {
+limit = { VIE_e104_can_amend = yes NOT = { has_country_flag = VIE_record_XIII12 } }
+set_country_flag = VIE_record_XIII12_A
+set_country_flag = VIE_record_XIII12
+set_country_flag = VIE_gate_XIV11
+VIE_politics_e104_amend = yes}
+}
+}
+option = { name = vie_pol.132.b
+trigger = { always = yes check_variable = { VIE_e104_contract_epoch = 1 } }
+if = {
+limit = { check_variable = { VIE_e104_contract_epoch = 1 } }
+
+if = {
+limit = { NOT = { has_country_flag = VIE_record_XIII12 } }
+set_country_flag = VIE_record_XIII12_B
+set_country_flag = VIE_record_XIII12
+clr_country_flag = VIE_gate_XIV11
+VIE_politics_e104_cancel = yes}
+}
+}
+
 }

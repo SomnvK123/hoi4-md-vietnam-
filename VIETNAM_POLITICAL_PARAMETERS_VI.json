@@ -16,8 +16,9 @@
       "refs": "Kết luận;4.2;6.5;7.3;8.3;10;11;12"
     },
     "early_pp": {
-      "value": 50,
-      "old": 60,
+      "value": 70,
+      "old": 50,
+      "reason": "14/10/2026: thưởng sớm bù gói 55 PP + 0.50 ngân khố; chênh quy đổi +5 PP tại k=40, mục tiêu ±10 PP. Dự án phụ là khoản mua thêm.",
       "refs": "4.2;8.3;10;11;12"
     },
     "program_start_latest": {
@@ -187,12 +188,7 @@
         "program": "inspection",
         "e102": [
           "C"
-        ],
-        "e103": [
-          "B",
-          "C"
-        ],
-        "include_rejected_A": true
+        ]
       },
       "refs": "4.2;6.5;10;11.3;I5; all player-choice exceptions with reasons, not an automatic exemption from the reserve floor"
     },
@@ -451,16 +447,23 @@
     },
     "e103": {
       "value": {
+        "mode": "automatic",
         "caller_day": 450,
-        "A_pp": 0,
-        "rejection_cohesion": -6,
-        "reappraisal_days": 180,
-        "B_pp": 0,
-        "C_pp": 15,
-        "B_treasury": 0.5,
-        "B_deadline": 780
+        "pp": 0,
+        "treasury": 0,
+        "adds_days": 0,
+        "cohesion_penalty": 0,
+        "early_cutoff_parameter": "early_days.inspection",
+        "deadline_parameter": "program_deadline",
+        "states": [
+          "on_time_full",
+          "late_full",
+          "partial_at_deadline"
+        ],
+        "requires_four_verified_targets": true
       },
-      "refs": "6.5;8.1;10;11.1;11.3;12;CSV; B=0PP+0.50 treasury and contract deadline780 explicitly confirmed by user; C unchanged"
+      "refs": "6.5;8.1;10;11;CSV; E103 is a deterministic evidence outcome, not a player choice",
+      "reason": "14/10/2026: user requested removal of a predetermined losing choice. No A/B/C prices, contract extension780, rejection−6 or reappraisal180 remain in the current model."
     },
     "e104": {
       "value": {
@@ -572,7 +575,7 @@
           ],
           [
             0,
-            0.5
+            0
           ]
         ],
         "X02": [
@@ -742,7 +745,7 @@
           ],
           [
             0,
-            0.75
+            0
           ]
         ],
         "XII03": [
@@ -2015,38 +2018,27 @@
     },
     "node_opportunity_effects": {
       "value": {
-        "X01": {
-          "reader": "XI05",
-          "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
-          "A": {
-            "action": "rà soát hồ sơ vốn nội bộ",
-            "available": 1,
-            "counterpart_available": 0
-          },
-          "B": {
-            "action": "đối chiếu vốn bằng bản công khai",
-            "available": 1,
-            "counterpart_available": 0
-          },
-          "delay_option": "B",
-          "delay_parameter": "node_choice_delays.X01",
-          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
-          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
-        },
         "X02": {
           "reader": "XI06",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "bộ chủ quản điều phối bảo lãnh",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "dùng báo cáo bảo lãnh tách biệt",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "A",
           "delay_parameter": "node_choice_delays.X02",
@@ -2056,16 +2048,24 @@
         "X03": {
           "reader": "XI07",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "áp điều khoản lao động và phủ quyết đã giữ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "dùng định giá độc lập khi xử lý tài sản",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2075,16 +2075,24 @@
         "X04": {
           "reader": "XI12",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "thẩm tra chủ sở hữu trong phạm vi nội bộ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "truy vết chủ sở hữu qua kiểm toán ngoài",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2094,16 +2102,24 @@
         "X05": {
           "reader": "XI01",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "xét ngoại lệ đầu tư theo từng hồ sơ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đối chiếu thu hồi đất theo tiêu chí công khai",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2113,16 +2129,24 @@
         "X06": {
           "reader": "XI03",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "bảo lưu ngoại lệ ngành đã đàm phán",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đọc dữ liệu nhà cung ứng theo cam kết rà soát",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.X06",
@@ -2132,16 +2156,24 @@
         "X07": {
           "reader": "XI08",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "giữ quyền thẩm tra kín hồ sơ nhạy cảm",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "dùng tiền lệ chia sẻ hồ sơ với hội đồng",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2151,16 +2183,24 @@
         "X08": {
           "reader": "XII10",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "bộ chủ quản tự duyệt truy cập hồ sơ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "cơ quan kiểm toán duyệt liên thông hồ sơ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2170,16 +2210,24 @@
         "XI01": {
           "reader": "XII07",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "xem danh sách hộ trong phạm vi cơ quan",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đối chiếu kiến nghị người dân qua sổ công khai",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.XI01",
@@ -2189,16 +2237,24 @@
         "XI02": {
           "reader": "XII10",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "giải ngân từ quỹ đã khóa cho hộ đủ hồ sơ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "giữ ngân sách chưa khóa và xét cam kết theo tiến độ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2208,16 +2264,24 @@
         "XI03": {
           "reader": "XII12",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "tỉnh chủ trì xử lý theo biên bản kín",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đại diện hộ bị ảnh hưởng chủ trì phiên có biên bản",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2227,16 +2291,24 @@
         "XI04": {
           "reader": "XII07",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "địa phương tự kiểm sổ thu đã giữ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "cơ quan kiểm tra truy trách nhiệm từ sổ liên ngành",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.XI04",
@@ -2246,16 +2318,24 @@
         "XI05": {
           "reader": "XII10",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "ngân hàng tiếp tục xử lý khoản vay nội bộ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đối chiếu tài sản từ định giá chéo công khai",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.XI05",
@@ -2265,16 +2345,24 @@
         "XI06": {
           "reader": "XII10",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "ngân hàng trực tiếp quyết thu hồi khoản vay",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đọc kế hoạch xử lý theo kỳ của hồ sơ đã chuyển",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2284,16 +2372,24 @@
         "XI07": {
           "reader": "XII10",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "yêu cầu bàn giao theo danh sách người mua ưu tiên",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "dùng năng lực thi công của chủ đầu tư được tái cơ cấu",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.XI07",
@@ -2303,16 +2399,24 @@
         "XI08": {
           "reader": "XIII01",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "tái sử dụng kênh trao đổi kín",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "tái sử dụng hồ sơ chứng cứ công khai",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.XI08",
@@ -2322,54 +2426,51 @@
         "XII01": {
           "reader": "XIII09",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "đầu mối trung ương ký hồ sơ chuẩn",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đầu mối địa phương ký hồ sơ chuẩn",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
           "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
           "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
         },
-        "XII02": {
-          "reader": "XIII09",
-          "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
-          "A": {
-            "action": "thẩm định trách nhiệm trước khi ký",
-            "available": 1,
-            "counterpart_available": 0
-          },
-          "B": {
-            "action": "ký theo hậu kiểm với trách nhiệm cá nhân",
-            "available": 1,
-            "counterpart_available": 0
-          },
-          "delay_option": "A",
-          "delay_parameter": "node_choice_delays.XII02",
-          "delay_scope": "hồ sơ/dự án của node, không tự cộng vào programme hoặc rút ngắn timer ký theo tier",
-          "guard": "chọn đúng một A/B; consumer kiểm reader + object + resolved epoch; không cộng chung hai quyền; giá trả một lần, consumer không thu lại phí mở quyền"
-        },
         "XII03": {
           "reader": "XIII09",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "chia sẻ bản tổng hợp giữ dữ liệu cá nhân kín",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "cho đối tác kiểm toán đọc hồ sơ gốc",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2379,16 +2480,24 @@
         "XII04": {
           "reader": "XIII09",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "nhóm cũ hỗ trợ hồ sơ trong bàn giao tuần tự",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "chủ mới tự xác nhận trách nhiệm khi đã bàn giao",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "A",
           "delay_parameter": "node_choice_delays.XII04",
@@ -2398,16 +2507,24 @@
         "XII05": {
           "reader": "XIII09",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "từng bộ thương lượng lịch hợp đồng riêng",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đầu mối chung đặt lịch hợp đồng liên ngành",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2417,16 +2534,24 @@
         "XII06": {
           "reader": "XIII09",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "ký theo roster kiêm nhiệm đã công khai xung đột",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "ký tách quy trình với xác nhận độc lập",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2436,16 +2561,24 @@
         "XII07": {
           "reader": "XIII12",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "yêu cầu miễn trừ quyết định thiện chí có căn cứ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "mở kiểm tra độc lập mà cơ quan nội bộ không đóng được",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2455,16 +2588,24 @@
         "XII08": {
           "reader": "XIII09",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "nhóm cũ truy cập hồ sơ trong bàn giao tuần tự",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "chủ mới truy cập độc quyền hồ sơ bàn giao đồng thời",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "A",
           "delay_parameter": "node_choice_delays.XII08",
@@ -2474,16 +2615,24 @@
         "XIII01": {
           "reader": "XIV11",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "duy trì liên lạc kín không chia tọa độ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "nhận cảnh báo sớm qua tọa độ đã chia sẻ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2493,16 +2642,24 @@
         "XIII02": {
           "reader": "XIV07",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "cơ quan chủ lệnh tự điều phối lực lượng",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đầu mối liên ngành phối hợp theo bản đồ trách nhiệm",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2512,16 +2669,24 @@
         "XIII03": {
           "reader": "XIV11",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "thương lượng riêng với chi tiết vận hành kín",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "giải mật và đối chiếu chứng cứ đã công bố",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2531,16 +2696,24 @@
         "XIII04": {
           "reader": "XIV07",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "ưu tiên tuyến chính theo quyền điều phối riêng",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "thực hiện nghĩa vụ chia sẻ rủi ro cho tuyến phụ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2550,16 +2723,24 @@
         "XIII05": {
           "reader": "XIV02",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "rà soát nghĩa vụ của từng tổ chức phát hành",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đối chiếu nghĩa vụ bằng sổ công khai",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2569,16 +2750,24 @@
         "XIII06": {
           "reader": "XIV11",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "yêu cầu thanh toán theo hạn gốc",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "thực hiện lịch trả nợ đã được chủ nợ đồng ý",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2588,16 +2777,24 @@
         "XIII07": {
           "reader": "XIV03",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "xử lý hồ sơ của từng người mua",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "giám sát dự án còn vận hành theo cam kết",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2607,16 +2804,24 @@
         "XIII08": {
           "reader": "XIV02",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "duy trì quan hệ trung gian khi kiểm một hợp đồng",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 8,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "mở trách nhiệm toàn chuỗi phân phối và bảo lãnh",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0.2
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.XIII08",
@@ -2626,16 +2831,24 @@
         "XIV01": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "bộ tự công nhận chuẩn theo hồ sơ cũ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đơn vị độc lập công nhận theo tiêu chí công khai",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2645,16 +2858,24 @@
         "XIV02": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "lưu bản tổng hợp và phụ lục hạn chế",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "xử lý kiến nghị được mở lại từ dữ liệu công khai",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2664,16 +2885,24 @@
         "XIV03": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "cơ quan chủ quản xác nhận địa điểm nghiệm thu",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đại diện người dùng yêu cầu khắc phục địa điểm",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2683,16 +2912,24 @@
         "XIV04": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "nhóm cũ hỗ trợ tiếp nhận mission",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "nhóm mới tự xác nhận trách nhiệm mission",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": "B",
           "delay_parameter": "node_choice_delays.XIV04",
@@ -2702,16 +2939,24 @@
         "XIV05": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "tiếp tục hồ sơ cũ trong thời hạn gia hạn",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đơn vị mới kiểm chứng đúng mục tiêu đã khóa",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": "A",
           "delay_parameter": "node_choice_delays.XIV05",
@@ -2721,16 +2966,24 @@
         "XIV06": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "giữ nguồn lực cho mục tiêu cũ chưa đạt",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "dùng nguồn lực đã chuyển cho mục tiêu thay thế",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": "A",
           "delay_parameter": "node_choice_delays.XIV06",
@@ -2740,16 +2993,24 @@
         "XIV07": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "chủ động chọn hồ sơ rủi ro cao để kiểm",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "đối chiếu mẫu ngẫu nhiên đã được khóa",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": null,
           "delay_parameter": null,
@@ -2759,16 +3020,24 @@
         "XIV08": {
           "reader": "archive_XV",
           "record_key": "node/object/epoch",
-          "activation": "kỳ đọc đã giải quyết và cùng đối tượng hồ sơ; archive_XV chỉ lưu, chưa có gameplay sau 2026",
+          "activation": "resolved record of same object/source epoch; reader completed; PP workload rebate or audited treasury refund once; no reader or no completed evidence means no rebate",
           "A": {
             "action": "nhóm chuyên môn cũ tiếp tục hỗ trợ dự án",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "B": {
             "action": "nhóm mới tự dùng hồ sơ bàn giao không phụ thuộc nhóm cũ",
             "available": 1,
-            "counterpart_available": 0
+            "counterpart_available": 0,
+            "effect": {
+              "pp": 0,
+              "treasury": 0
+            }
           },
           "delay_option": "A",
           "delay_parameter": "node_choice_delays.XIV08",
@@ -2777,7 +3046,7 @@
         }
       },
       "basis": "Cụ thể hóa hậu quả quyền/dữ liệu/vị thế đã viết ở 40 node; 0/1 là gate hành động, không là điểm thưởng hoặc tỷ giá PP. Các consumer là nhánh của caller hiện có, không thêm focus/event ID.",
-      "refs": "7.4;8.1;10;11.3;12;CSV cơ hội;I10"
+      "refs": "7.4a; observable PP/treasury rebates, not opportunity scores; archive_XV has no reward"
     },
     "forecast_gate": {
       "value": {
@@ -2790,20 +3059,18 @@
           "program_deadline",
           "exception_reserve_days"
         ],
-        "uncertain_A_reappraisal": "warning_only_until_rejection_is_known",
         "inputs": [
           "programme",
           "route",
           "signed_mode",
           "cohesion_at_start",
           "known_delay_days",
-          "known_e103_rejection",
           "elapsed_congress_days",
           "recovery_cooldown_remaining",
           "pending_recovery_remaining"
         ],
         "freeze": "timer/mode/chuẩn bị đã ký; phục hồi sau start không rút timer cũ",
-        "scope": "chỉ khóa trễ tất định; không khóa vì rủi ro chưa hiện thực; điều kiện milestone/giá/BoP/cohesion vẫn áp dụng"
+        "scope": "All modeled delays are deterministic; start≤800/choice≤840. E103 adds no delay or choice. Conditions on evidence, price, BoP and cohesion still apply."
       },
       "basis": "Cổng dự báo được người dùng chốt; giữ giá/timer và900, mặc định800/ngoại lệ840; A chưa đủ hồ sơ chỉ cảnh báo rủi ro.",
       "refs": "4.2;6.4;6.5;6.6;8.1;10;11.3;CSV;I5"
@@ -2820,19 +3087,16 @@
           "converted_cost": "min",
           "handover_pending_days": "min",
           "cohesion_loss": "min",
-          "old_holder_access": "max",
-          "new_holder_authority": "max",
           "unreceived_support_lost": "min",
-          "unused_cooperation_access": "max",
-          "contract_obligation_open": "min"
+          "xii09_available": "max",
+          "future_check_pp": "min",
+          "training_reward_pp": "max"
         },
         "XII12": {
           "A": {
             "cost_source": null,
             "handover_days_source": "legacy_node_terms.XII12.handover_days",
             "cohesion_loss_source": null,
-            "old_holder_access": 1,
-            "new_holder_authority": 0,
             "centre": "văn phòng và người kế cận",
             "roster_state": "pending_handover"
           },
@@ -2840,8 +3104,6 @@
             "cost_source": "legacy_node_terms.XII12.immediate_cohesion_loss * cohesion_pp_rate",
             "handover_days_source": null,
             "cohesion_loss_source": "legacy_node_terms.XII12.immediate_cohesion_loss",
-            "old_holder_access": 0,
-            "new_holder_authority": 1,
             "centre": "văn phòng và người kế cận",
             "roster_state": "replacement_effective"
           }
@@ -2852,7 +3114,6 @@
             "cash_debit": 0,
             "support_lost": 0,
             "cooperation_state": "modified_active_if_partner_accepts",
-            "contract_obligation_open": 1,
             "centre": "đối tác/DNNN giữ quyền hỗ trợ; an ninh tiếp tục kiểm chứng điều kiện sửa"
           },
           "B": {
@@ -2860,7 +3121,6 @@
             "cash_debit": 0,
             "support_lost": "unreceived_e104_support",
             "cooperation_state": "terminated",
-            "contract_obligation_open": 0,
             "centre": "đối tác/DNNN mất kênh hỗ trợ; an ninh đóng nghĩa vụ dữ liệu tương lai"
           },
           "added_programme_days": 0,
@@ -2928,6 +3188,252 @@
       },
       "refs": "3.3;4.2;8.1;10;11.3;12;CSV dự báo;report I5;JSON kiểm tra tùy chọn",
       "basis": "Người dùng chốt cổng trọng tâm; dùng MỘT forecast_programme_completion cho available/tooltip/AI và ngàyfull800/840; giữ mọi giá/timer. Hai mode bao phủ cả hai lịch; vượt/kiêm nhiệm có cùng timer cấp tốc nhưng thêm gate/giá."
+    },
+    "observable_choices": {
+      "value": {
+        "IX11 / IX12": {
+          "nodes": [
+            "IX11",
+            "IX12"
+          ],
+          "A": {
+            "pp": 20,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Luân chuyển đạt đồng thuận",
+                "probability": 0.65,
+                "cohesion": 4
+              },
+              {
+                "name": "Bị phản đối, phải xử lý lại",
+                "probability": 0.35,
+                "pp": -24,
+                "cohesion": -4
+              }
+            ]
+          },
+          "B": {
+            "pp": 20,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Kiểm toán độc lập, chi phí cố định",
+                "probability": 1
+              }
+            ]
+          }
+        },
+        "XI09 / XI10": {
+          "nodes": [
+            "XI09",
+            "XI10"
+          ],
+          "A": {
+            "pp": 0,
+            "treasury": 0.5,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Cứu và thu hồi tài sản đã nghiệm thu",
+                "probability": 1,
+                "treasury": 0.75
+              }
+            ]
+          },
+          "B": {
+            "pp": 0,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Tái cơ cấu thu hồi đủ",
+                "probability": 0.7,
+                "treasury": 0.75
+              },
+              {
+                "name": "Tái cơ cấu thất bại",
+                "probability": 0.3,
+                "cohesion": -12
+              }
+            ]
+          }
+        },
+        "XII12": {
+          "nodes": [
+            "XII12"
+          ],
+          "A": {
+            "pp": 0,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Bàn giao tuần tự; bỏ đợt đào tạo kỳ này",
+                "probability": 1,
+                "node_gates": {
+                  "XII09": false
+                }
+              }
+            ]
+          },
+          "B": {
+            "pp": 0,
+            "treasury": 0,
+            "cohesion": 6,
+            "outcomes": [
+              {
+                "name": "Kiện toàn ngay; mở đào tạo trách nhiệm",
+                "probability": 1,
+                "node_gates": {
+                  "XII09": true
+                }
+              }
+            ]
+          }
+        },
+        "XIII12": {
+          "nodes": [
+            "XIII12"
+          ],
+          "A": {
+            "pp": 0,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Sửa, giữ hợp đồng; phải hoàn tất hai kỳ kiểm tra",
+                "probability": 1,
+                "node_gates": {
+                  "XIV11": true
+                }
+              }
+            ]
+          },
+          "B": {
+            "pp": 0,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Hủy, đóng nghĩa vụ và mất hỗ trợ chưa nhận",
+                "probability": 1,
+                "node_gates": {
+                  "XIV11": false
+                }
+              }
+            ]
+          }
+        },
+        "X01": {
+          "nodes": [
+            "X01"
+          ],
+          "A": {
+            "pp": 20,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Hồ sơ kiểm toán vốn; mở xử lý nợ",
+                "probability": 1,
+                "node_gates": {
+                  "XI05": true
+                }
+              }
+            ]
+          },
+          "B": {
+            "pp": 0,
+            "treasury": 0,
+            "cohesion": 6,
+            "outcomes": [
+              {
+                "name": "Chấp nhận tranh chấp để giữ vốn tại ngành; khóa xử lý nợ qua hồ sơ này",
+                "probability": 1,
+                "node_gates": {
+                  "XI05": false
+                }
+              }
+            ]
+          }
+        },
+        "XII02": {
+          "nodes": [
+            "XII02"
+          ],
+          "A": {
+            "pp": 25,
+            "treasury": 0,
+            "cohesion": 0,
+            "outcomes": [
+              {
+                "name": "Thẩm định trước, mở ký liên ngành",
+                "probability": 1,
+                "node_gates": {
+                  "XIII09": true
+                }
+              }
+            ]
+          },
+          "B": {
+            "pp": 0,
+            "treasury": 0,
+            "cohesion": 8,
+            "outcomes": [
+              {
+                "name": "Trách nhiệm cá nhân, khóa ký liên ngành",
+                "probability": 1,
+                "node_gates": {
+                  "XIII09": false
+                }
+              }
+            ]
+          }
+        }
+      },
+      "refs": "7.4a;8.1;CSV; model transitions in VIETNAM_POLITICAL_CONSUMERS_VI.py; probabilities are gameplay assumptions, roll once/object/epoch"
+    },
+    "contract_obligations": {
+      "value": {
+        "check_days": [
+          90,
+          180
+        ],
+        "pp_per_check": 10,
+        "missed_cohesion": 6,
+        "relative_to": "E104 signature or XIII12 amendment",
+        "requires_completed_evidence": true,
+        "settlement": "pay remaining support only after both checks; missed check terminates future duties, forfeits unpaid support/unused training access, never claws back paid history"
+      },
+      "refs": "6.6;7.4a;XIII12; model advance_contract"
+    },
+    "e104_training": {
+      "value": {
+        "days": 90,
+        "reward_pp": 25,
+        "requires": [
+          "E102-A",
+          "accepted E104",
+          "both contract checks",
+          "completed training evidence"
+        ],
+        "guard": "one object/source epoch; refund only after actual training, cancellation or missed check revokes unused access"
+      },
+      "refs": "6.4;6.6; model training is an optional task, not free PP at signature"
+    },
+    "node_choice_cohesion": {
+      "value": {
+        "X01": {
+          "B": 6
+        },
+        "XII02": {
+          "B": 8
+        }
+      },
+      "refs": "7.4;7.4a; replaces treasury payment in two varied nodes"
     }
   },
   "baseline_sha256": "126bee8bfde9bc3184a56d61d89f7537c78b99e2b631a0275b9e5a28f39288bb",
@@ -2971,8 +3477,8 @@
   },
   "approved_section_hashes": {
     "3": "6427ce1df8428d2a54bf1d18578c6f687b63437fff4c4b5719ef0f3ffc716eb3",
-    "4": "56922f279825ab33c1f4c9395f892a01bc1375cb348b573c3c6411737abc66a6",
-    "6": "59b3e8ebe2168bd2c19b25aa0b625d5d372eaf1add4180b8c6235cd0bf748878"
+    "4": "bfe32007412e36c9951d14e46b5f4a213a81ca131ca8ae612fb484eee9094303",
+    "6": "abe963a9751b96531445bb7fe6457f6070afd9d92924035dd2b718a6e79c11c7"
   },
   "completion_change_scope": {
     "legacy_prices_approved": true,
@@ -3007,5 +3513,57 @@
   "archived_review_hashes": {
     "VIETNAM_POLITICAL_REVIEW_L1_VI.md": "e1f62ebcabc13ae931986946b236a99f02c5ca68335adfaa5cecc782269bba5b",
     "VIETNAM_POLITICAL_REVIEW_L2_VI.md": "d30ed01174013ef259dac493083fbbe45cfe560d1fe8155f7ab855f9e0bd279d"
+  },
+  "e103_automatic_change_scope": {
+    "user_requested": true,
+    "replaces_previous_e103_price_and_reappraisal_rules": true,
+    "preserved": [
+      "programme900",
+      "early_cutoff690",
+      "early_reward70",
+      "e102_delay90",
+      "start800",
+      "choice840",
+      "fixed74nodes"
+    ],
+    "removed": [
+      "A/B/C choice",
+      "contract780",
+      "E103 fees",
+      "rejection_cohesion",
+      "reappraisal180",
+      "uncertain_A_risk"
+    ]
+  },
+  "observable_change_scope": {
+    "requested_nodes": [
+      "IX11",
+      "IX12",
+      "XI09",
+      "XI10",
+      "XII12",
+      "XIII12",
+      "X01",
+      "XII02"
+    ],
+    "removes_from_utility": [
+      "technical_training_opportunity",
+      "deep_data_cooperation_opportunity",
+      "opportunity_count",
+      "contract_obligation_open",
+      "old_holder_access",
+      "new_holder_authority"
+    ],
+    "i3_claim": "structural transitions tested; monetary preference and probability calibration require playtest, no blanket balance PASS",
+    "original_B_prices": {
+      "X01": [
+        0,
+        0.5
+      ],
+      "XII02": [
+        0,
+        0.75
+      ]
+    }
   }
 }

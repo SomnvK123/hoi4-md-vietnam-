@@ -1,85 +1,19 @@
-﻿cohesion_case,cohesion_initial,route,mode,e102,e103,potential_full_day,remaining_reserve_days,result,contract,reserve_floor_met,reason,status,availability,forecast_full_day,forecast_reserve_days,reappraisal_risk,lock_reason,reopen
-snapshot,60,collective,standard,A,A,930,-30,partial_at_deadline,rejected,0,E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,750,150,1,,
-snapshot,60,collective,standard,A,B,750,150,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,collective,standard,A,C,750,150,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,collective,standard,B,A,930,-30,partial_at_deadline,rejected,0,E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,750,150,1,,
-snapshot,60,collective,standard,B,B,750,150,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,collective,standard,B,C,750,150,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,collective,standard,C,A,1020,-120,partial_at_deadline,rejected,0,E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,840,60,1,,
-snapshot,60,collective,standard,C,B,840,60,full,extension_missed,1,"E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,840,60,0,,
-snapshot,60,collective,standard,C,C,840,60,full,partial,1,"E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,840,60,0,,
-snapshot,60,balanced,standard,A,A,930,-30,partial_at_deadline,rejected,0,E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,750,150,1,,
-snapshot,60,balanced,standard,A,B,750,150,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,balanced,standard,A,C,750,150,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,balanced,standard,B,A,930,-30,partial_at_deadline,rejected,0,E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,750,150,1,,
-snapshot,60,balanced,standard,B,B,750,150,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,balanced,standard,B,C,750,150,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,750,150,0,,
-snapshot,60,balanced,standard,C,A,1020,-120,partial_at_deadline,rejected,0,E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,840,60,1,,
-snapshot,60,balanced,standard,C,B,840,60,full,extension_missed,1,"E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,840,60,0,,
-snapshot,60,balanced,standard,C,C,840,60,full,partial,1,"E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,840,60,0,,
-snapshot,60,central,standard,A,A,915,-15,partial_at_deadline,rejected,0,E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,735,165,1,,
-snapshot,60,central,standard,A,B,735,165,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,standard,A,C,735,165,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,standard,B,A,915,-15,partial_at_deadline,rejected,0,E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,735,165,1,,
-snapshot,60,central,standard,B,B,735,165,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,standard,B,C,735,165,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,standard,C,A,1005,-105,partial_at_deadline,rejected,0,E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,825,75,1,,
-snapshot,60,central,standard,C,B,825,75,full,extension_missed,1,"E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,825,75,0,,
-snapshot,60,central,standard,C,C,825,75,full,partial,1,"E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,825,75,0,,
-snapshot,60,central,fast_paid,A,B,645,255,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_paid,A,C,645,255,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_paid,B,B,645,255,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_paid,B,C,645,255,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_paid,C,A,915,-15,partial_at_deadline,rejected,0,E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,735,165,1,,
-snapshot,60,central,fast_paid,C,B,735,165,full,extended,1,"E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,fast_paid,C,C,735,165,full,partial,1,"E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,fast_override,A,B,645,255,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_override,A,C,645,255,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_override,B,B,645,255,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_override,B,C,645,255,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,fast_override,C,A,915,-15,partial_at_deadline,rejected,0,E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,735,165,1,,
-snapshot,60,central,fast_override,C,B,735,165,full,extended,1,"E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,fast_override,C,C,735,165,full,partial,1,"E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,combined_fast_paid,A,B,645,255,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,combined_fast_paid,A,C,645,255,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,combined_fast_paid,B,B,645,255,full,extended,1,"E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,combined_fast_paid,B,C,645,255,full,partial,1,"E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,645,255,0,,
-snapshot,60,central,combined_fast_paid,C,A,915,-15,partial_at_deadline,rejected,0,E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,735,165,1,,
-snapshot,60,central,combined_fast_paid,C,B,735,165,full,extended,1,"E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-snapshot,60,central,combined_fast_paid,C,C,735,165,full,partial,1,"E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,735,165,0,,
-low,19,collective,standard,A,A,990,-90,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,locked_start,810,90,1,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,A,B,810,90,full,extension_missed,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,A,C,810,90,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,B,A,990,-90,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,locked_start,810,90,1,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,B,B,810,90,full,extension_missed,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,B,C,810,90,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,C,A,1080,-180,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,locked_start,900,0,1,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,C,B,900,0,full,extension_missed,0,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,900,0,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,collective,standard,C,C,900,0,full,partial,0,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,900,0,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,A,A,990,-90,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,locked_start,810,90,1,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,A,B,810,90,full,extension_missed,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,A,C,810,90,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,B,A,990,-90,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,locked_start,810,90,1,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,B,B,810,90,full,extension_missed,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,B,C,810,90,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,810,90,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,C,A,1080,-180,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,locked_start,900,0,1,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,C,B,900,0,full,extension_missed,0,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,900,0,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,balanced,standard,C,C,900,0,full,partial,0,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_start,900,0,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
-low,19,central,standard,A,A,975,-75,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,795,105,1,,
-low,19,central,standard,A,B,795,105,full,extension_missed,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,795,105,0,,
-low,19,central,standard,A,C,795,105,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,795,105,0,,
-low,19,central,standard,B,A,975,-75,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,795,105,1,,
-low,19,central,standard,B,B,795,105,full,extension_missed,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,795,105,0,,
-low,19,central,standard,B,C,795,105,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,795,105,0,,
-low,19,central,standard,C,A,1065,-165,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,locked_choice,885,15,1,deterministic_delay,chọn phương án không cộng trễ; không đổi timer đã ký
-low,19,central,standard,C,B,885,15,full,extension_missed,0,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_choice,885,15,0,deterministic_delay,chọn phương án không cộng trễ; không đổi timer đã ký
-low,19,central,standard,C,C,885,15,full,partial,0,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,locked_choice,885,15,0,deterministic_delay,chọn phương án không cộng trễ; không đổi timer đã ký
-low,19,central,fast_paid,A,A,885,15,full,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,705,195,1,,
-low,19,central,fast_paid,A,B,705,195,full,extended,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,705,195,0,,
-low,19,central,fast_paid,A,C,705,195,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,705,195,0,,
-low,19,central,fast_paid,B,A,885,15,full,rejected,0,cohesion<20: chuẩn bị+60; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,705,195,1,,
-low,19,central,fast_paid,B,B,705,195,full,extended,1,"cohesion<20: chuẩn bị+60; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,705,195,0,,
-low,19,central,fast_paid,B,C,705,195,full,partial,1,"cohesion<20: chuẩn bị+60; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,705,195,0,,
-low,19,central,fast_paid,C,A,975,-75,partial_at_deadline,rejected,0,cohesion<20: chuẩn bị+60; E102-C:+90; E103-A bị bác:+180 tuần tự,paper_timeline_assuming_evidence_not_engine,available,795,105,1,,
-low,19,central,fast_paid,C,B,795,105,full,extension_missed,1,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-B:hợp đồng780, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,795,105,0,,
-low,19,central,fast_paid,C,C,795,105,full,partial,1,"cohesion<20: chuẩn bị+60; E102-C:+90; E103-C:hợp đồng partial, không cộng ngày programme",paper_timeline_assuming_evidence_not_engine,available,795,105,0,,
+﻿cohesion_case,cohesion_initial,route,mode,e102,e103,potential_full_day,remaining_reserve_days,result,e103_outcome,reserve_floor_met,reason,status,availability,forecast_full_day,forecast_reserve_days,lock_reason,reopen
+snapshot,60,collective,standard,C,AUTO,840,60,full,late_full,1,E102-C:+90,paper_deterministic_timeline_not_engine,available,840,60,,
+snapshot,60,balanced,standard,C,AUTO,840,60,full,late_full,1,E102-C:+90,paper_deterministic_timeline_not_engine,available,840,60,,
+snapshot,60,central,standard,C,AUTO,825,75,full,late_full,1,E102-C:+90,paper_deterministic_timeline_not_engine,available,825,75,,
+snapshot,60,central,fast_paid,C,AUTO,735,165,full,late_full,1,E102-C:+90,paper_deterministic_timeline_not_engine,available,735,165,,
+snapshot,60,central,fast_override,C,AUTO,735,165,full,late_full,1,E102-C:+90,paper_deterministic_timeline_not_engine,available,735,165,,
+snapshot,60,central,combined_fast_paid,C,AUTO,735,165,full,late_full,1,E102-C:+90,paper_deterministic_timeline_not_engine,available,735,165,,
+low,19,collective,standard,A,AUTO,810,90,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,locked_start,810,90,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
+low,19,collective,standard,B,AUTO,810,90,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,locked_start,810,90,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
+low,19,collective,standard,C,AUTO,900,0,full,late_full,0,cohesion<20: chuẩn bị+60; E102-C:+90,paper_deterministic_timeline_not_engine,locked_start,900,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
+low,19,balanced,standard,A,AUTO,810,90,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,locked_start,810,90,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
+low,19,balanced,standard,B,AUTO,810,90,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,locked_start,810,90,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
+low,19,balanced,standard,C,AUTO,900,0,full,late_full,0,cohesion<20: chuẩn bị+60; E102-C:+90,paper_deterministic_timeline_not_engine,locked_start,900,0,default_reserve,Họp xử lý bất đồng trước khởi động; sau ký timer không giảm
+low,19,central,standard,A,AUTO,795,105,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,available,795,105,,
+low,19,central,standard,B,AUTO,795,105,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,available,795,105,,
+low,19,central,standard,C,AUTO,885,15,full,late_full,0,cohesion<20: chuẩn bị+60; E102-C:+90,paper_deterministic_timeline_not_engine,locked_choice,885,15,deterministic_delay,chọn phương án không cộng trễ; không đổi timer đã ký
+low,19,central,fast_paid,A,AUTO,705,195,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,available,705,195,,
+low,19,central,fast_paid,B,AUTO,705,195,full,late_full,1,cohesion<20: chuẩn bị+60,paper_deterministic_timeline_not_engine,available,705,195,,
+low,19,central,fast_paid,C,AUTO,795,105,full,late_full,1,cohesion<20: chuẩn bị+60; E102-C:+90,paper_deterministic_timeline_not_engine,available,795,105,,

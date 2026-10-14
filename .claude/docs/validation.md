@@ -1,5 +1,14 @@
 # Kiểm tra (validation)
 
+## Chính trị v57 — 14/10/2026
+
+`python tools/audit/politics_runtime.py`: fixture đọc script game,351 kiểm về
+task/chứng cứ, mốc sớm/deadline, snapshot, nghĩa vụ E104, RNG, gate và epoch.
+Chạy kèm focus/live/event/loc và `git diff --check` như bảng bên dưới.
+Generator: `python tools/build_political_runtime.py`; không đổi file khi sinh lại.
+[Phạm vi adapter, kết quả và checklist HOI4](../../VIE_political_v57_implementation.md).
+Đã có script game; chưa nghiệm thu engine1.19, AI, UI hoặc save cũ.
+
 ## Sửa error.log v55 — 13/10/2026
 
 Cập nhật v56 (14/10/2026): kiểm thêm schema cộng BoP, bốn delta helper,

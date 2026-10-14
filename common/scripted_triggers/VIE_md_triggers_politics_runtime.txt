@@ -1,0 +1,232 @@
+# Adapter chinh tri v57; tao boi tools/build_political_runtime.py
+VIE_politics_can_select = {
+	has_country_flag = VIE_congress_resolved
+	check_variable = { VIE_last_congress > 8 }
+	NOT = { has_country_flag = VIE_programme_active }
+	NOT = { has_country_flag = VIE_programme_selected }
+	NOT = { check_variable = { var = VIE_programme_used_term value = VIE_last_congress compare = equals } }
+	NOT = { check_variable = { VIE_congress_elapsed > 270 } }
+}
+
+VIE_politics_can_select_inspection = {
+	VIE_politics_can_select = yes
+	OR = { VIE_is_central_zone = yes NOT = { check_variable = { VIE_leadership_cohesion < 20 } } }
+
+}
+
+VIE_politics_can_launch_standard = {
+	has_country_flag = VIE_programme_selected
+	NOT = { has_country_flag = VIE_programme_active }
+	NOT = { check_variable = { VIE_congress_elapsed > 270 } }
+	NOT = { check_variable = { VIE_programme_forecast_standard > 800 } }
+	OR = {
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 50 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 46 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 42 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 40 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 36 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 44 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 41 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 37 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 35 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 32 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 38 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 35 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 32 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 30 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 27 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 32 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 29 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 27 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 25 }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 23 }
+		}
+	}
+
+}
+
+VIE_politics_can_launch_fast_paid = {
+	has_country_flag = VIE_programme_selected
+	NOT = { has_country_flag = VIE_programme_active }
+	NOT = { check_variable = { VIE_congress_elapsed > 270 } }
+	NOT = { check_variable = { VIE_programme_forecast_fast > 800 } }
+	VIE_is_central_zone = yes
+	OR = {
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 105 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 101 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 97 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 95 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 91 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 99 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 96 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 92 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 90 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 87 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 93 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 90 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 87 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 85 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 82 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 87 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 84 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 82 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 80 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 78 }
+			NOT = { check_variable = { treasury < 0.5 } }
+		}
+	}
+
+}
+
+VIE_politics_can_launch_fast_override = {
+	has_country_flag = VIE_programme_selected
+	NOT = { has_country_flag = VIE_programme_active }
+	NOT = { check_variable = { VIE_congress_elapsed > 270 } }
+	NOT = { check_variable = { VIE_programme_forecast_fast > 800 } }
+	VIE_is_central_zone = yes
+	OR = {
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 75 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 71 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 67 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 65 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 61 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 69 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 66 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 62 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 60 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 57 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 63 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 60 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 57 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 55 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 52 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 57 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 54 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 52 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 50 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 48 }
+			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
+		}
+	}
+
+}
+
+VIE_politics_corruption_verified = {
+	OR = {
+		AND = { check_variable = { VIE_programme_corruption_baseline = 1 } has_idea = corruption_level_01 }
+		AND = { check_variable = { VIE_programme_corruption_baseline > 1 } check_variable = { VIE_corruption_current > 0 } check_variable = { var = VIE_corruption_current value = VIE_programme_corruption_baseline compare = less_than } }
+	}
+}
+
+VIE_politics_review_condition = {
+	OR = {
+		AND = { has_country_flag = VIE_programme_cadre NOT = { check_variable = { VIE_leadership_cohesion < 55 } } }
+		AND = { has_country_flag = VIE_programme_admin NOT = { check_variable = { treasury_rate < 0 } } }
+		AND = { has_country_flag = VIE_programme_inspection VIE_politics_corruption_verified = yes }
+		has_country_flag = VIE_programme_social
+	}
+}
+
+VIE_politics_job_can_progress = {
+	OR = {
+		NOT = { has_country_flag = VIE_programme_social }
+		AND = { check_variable = { VIE_programme_step = 0 } owns_state = 518 controls_state = 518 }
+		AND = { check_variable = { VIE_programme_step = 1 } owns_state = 526 controls_state = 526 }
+		AND = { check_variable = { VIE_programme_step = 2 } owns_state = 518 controls_state = 518 owns_state = 526 controls_state = 526 }
+	}
+}

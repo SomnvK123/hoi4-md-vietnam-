@@ -46,10 +46,11 @@ VIE_can_split_dual_role = {
 }
 
 VIE_e104_can_amend = {
-	has_country_flag = VIE_e104_signed
+has_country_flag = VIE_e104_signed
 	NOT = { has_country_flag = VIE_e104_terminated }
 	OR = {
 		check_variable = { VIE_e104_remaining_support > 0 }
 		has_country_flag = VIE_e104_rights_unused
 	}
+has_country_flag = VIE_e104_amendment_preapproved
 }

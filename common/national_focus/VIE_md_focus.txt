@@ -2,6 +2,7 @@
 ## History runs on dated events (events/VIE_md_*.txt); focuses are the player's choices.
 ## Rewards use only MD systems: decrease_corruption, change_*_opinion (temp_opinion), modify_treasury_effect
 ## (treasury_change), increase_economic_growth, building constructions on states 519/522.
+## v57 (14/10/2026): adapter chinh tri, E103 tu dong, task/cohort, E104 nghia vu, consumer va 8 node co hau qua that.
 focus_tree = {
 	id = VIE_md_focus
 
@@ -395,8 +396,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_publish_responsibility_rules
@@ -428,8 +427,6 @@ shortcut = {
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -471,8 +468,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_establish_project_command
@@ -511,8 +506,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_publish_land_compensation_plan
@@ -545,8 +538,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_audit_state_enterprise_guarantees
@@ -568,18 +559,13 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 8 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_audit_state_enterprise_guarantees"
-
-			country_event = { id = vie_pol.102 }
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_audit_state_enterprise_guarantees"
+VIE_politics_offer_e102 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -615,8 +601,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_pilot_one_stop_service
@@ -651,8 +635,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_train_successor_candidates
@@ -674,20 +656,13 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 8 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_train_successor_candidates"
-
-			set_country_flag = VIE_f09_train_candidates_done
-
-			if = { limit = { has_country_flag = VIE_programme_cadre } add_to_variable = { VIE_programme_targets_met = 1 } }
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_train_successor_candidates"
+set_country_flag = VIE_F09_tools_ready
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -710,20 +685,13 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 8 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_publish_procurement_audits"
-
-			set_country_flag = VIE_f10_procurement_audits_done
-
-			if = { limit = { has_country_flag = VIE_programme_inspection } add_to_variable = { VIE_programme_targets_met = 1 } }
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_publish_procurement_audits"
+set_country_flag = VIE_F10_tools_ready
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -745,27 +713,33 @@ shortcut = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 8 } }
+		available = {
+ check_variable = { VIE_last_congress > 8 }
+NOT = { political_power < 44 }
+
+}
 
 		completion_reward = {
+log = "[GetDateText]: [Root.GetName]: Focus VIE_ix11_rotate_cadres"
+if = {
+limit = { NOT = { has_country_flag = VIE_record_IX11 } }
+add_political_power = -20
+set_country_flag = VIE_record_IX11
+random_list = {
+65 = { set_temp_variable = { cohesion_add = 4 }
+VIE_modify_cohesion = yes
+set_country_flag = VIE_IX11_consensus }
+35 = { add_political_power = -24
+set_temp_variable = { cohesion_add = -4 }
+VIE_modify_cohesion = yes
+set_country_flag = VIE_IX11_backlash }
+}}
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ix11_rotate_cadres"
-
-			add_political_power = -20
-
-			set_temp_variable = { cohesion_add = 4 }
-
-			VIE_modify_cohesion = yes
-
-			set_country_flag = VIE_record_IX11
-
-		}
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -787,23 +761,24 @@ shortcut = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 8 } }
+		available = {
+ check_variable = { VIE_last_congress > 8 }
+NOT = { political_power < 20 }
+
+}
 
 		completion_reward = {
+log = "[GetDateText]: [Root.GetName]: Focus VIE_ix12_retain_cadres"
+if = {
+limit = { NOT = { has_country_flag = VIE_record_IX12 } }
+add_political_power = -20
+set_country_flag = VIE_record_IX12}
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_ix12_retain_cadres"
-
-			add_political_power = -20
-
-			set_country_flag = VIE_record_IX12
-
-		}
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -826,20 +801,13 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 8 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_establish_grievance_hearings"
-
-			set_country_flag = VIE_f11_grievance_hearings_done
-
-			if = { limit = { has_country_flag = VIE_programme_social } add_to_variable = { VIE_programme_targets_met = 1 } }
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_establish_grievance_hearings"
+set_country_flag = VIE_F11_tools_ready
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -862,20 +830,13 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 8 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_review_program_delivery"
-
-			set_country_flag = VIE_f12_review_done
-
-			if = { limit = { check_variable = { VIE_programme_targets_met > 3 } } VIE_resolve_programme_full = yes }
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_review_program_delivery"
+VIE_politics_evaluate = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -898,20 +859,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x01_state_capital_list"
-
-			set_country_flag = VIE_record_X01
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x01_state_capital_list"
+set_country_flag = VIE_pending_X01
+set_variable = { VIE_record_X01_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.10 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -931,20 +887,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x05_investment_approval_rules"
-
-			set_country_flag = VIE_record_X05
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x05_investment_approval_rules"
+set_country_flag = VIE_pending_X05
+set_variable = { VIE_record_X05_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.14 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -967,20 +918,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x02_separate_guarantees"
-
-			set_country_flag = VIE_record_X02
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x02_separate_guarantees"
+set_country_flag = VIE_pending_X02
+set_variable = { VIE_record_X02_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.11 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1003,20 +949,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x03_equitize_under_published_terms"
-
-			set_country_flag = VIE_record_X03
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x03_equitize_under_published_terms"
+set_country_flag = VIE_pending_X03
+set_variable = { VIE_record_X03_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.12 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1049,8 +990,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_x06_market_access_standards
@@ -1072,20 +1011,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x06_market_access_standards"
-
-			set_country_flag = VIE_record_X06
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x06_market_access_standards"
+set_country_flag = VIE_pending_X06
+set_variable = { VIE_record_X06_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.15 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1108,20 +1042,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x07_screen_sensitive_investments"
-
-			set_country_flag = VIE_record_X07
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x07_screen_sensitive_investments"
+set_country_flag = VIE_pending_X07
+set_variable = { VIE_record_X07_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.16 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1161,8 +1090,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_x10_advance_key_project_capital
@@ -1201,8 +1128,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_x04_audit_post_equitization
@@ -1224,20 +1149,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x04_audit_post_equitization"
-
-			set_country_flag = VIE_record_X04
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x04_audit_post_equitization"
+set_country_flag = VIE_pending_X04
+set_variable = { VIE_record_X04_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.13 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1260,20 +1180,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 9 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_x08_data_governance_roles"
-
-			set_country_flag = VIE_record_X08
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_x08_data_governance_roles"
+set_country_flag = VIE_pending_X08
+set_variable = { VIE_record_X08_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.17 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1309,8 +1224,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_xi01_land_acquisition_records
@@ -1333,19 +1246,17 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi01_land_acquisition_records"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi01_land_acquisition_records"
+set_country_flag = VIE_pending_XI01
+set_variable = { VIE_record_XI01_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.18 }
 
-			set_country_flag = VIE_record_XI01
-
-			add_political_power = 15
-
-		}
+VIE_politics_consume_X05 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1368,22 +1279,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 10 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi02_compensation_fund"
-
-			set_temp_variable = { treasury_change = -0.75 }
-
-			modify_treasury_effect = yes
-
-			set_country_flag = VIE_record_XI02
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi02_compensation_fund"
+set_country_flag = VIE_pending_XI02
+set_variable = { VIE_record_XI02_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.19 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1407,19 +1311,17 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi03_land_dispute_hearings"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi03_land_dispute_hearings"
+set_country_flag = VIE_pending_XI03
+set_variable = { VIE_record_XI03_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.20 }
 
-			set_country_flag = VIE_record_XI03
-
-			add_political_power = 15
-
-		}
+VIE_politics_consume_X06 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1442,20 +1344,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 10 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi04_audit_land_revenues"
-
-			set_country_flag = VIE_record_XI04
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi04_audit_land_revenues"
+set_country_flag = VIE_pending_XI04
+set_variable = { VIE_record_XI04_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.21 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1473,25 +1370,24 @@ shortcut = {
 
 		prerequisite = { focus = VIE_xi01_land_acquisition_records }
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = VIE_x01_state_capital_list }
+search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 10 } }
+		available = {
+ check_variable = { VIE_last_congress > 10 }
+has_country_flag = VIE_gate_XI05
+}
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi05_real_estate_bad_debt"
-
-			set_country_flag = VIE_record_XI05
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi05_real_estate_bad_debt"
+set_country_flag = VIE_pending_XI05
+set_variable = { VIE_record_XI05_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.22 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1527,8 +1423,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_xi06_vamc_debt_resolution
@@ -1551,19 +1445,17 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi06_vamc_debt_resolution"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi06_vamc_debt_resolution"
+set_country_flag = VIE_pending_XI06
+set_variable = { VIE_record_XI06_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.23 }
 
-			set_country_flag = VIE_record_XI06
-
-			add_political_power = 15
-
-		}
+VIE_politics_consume_X02 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1587,19 +1479,17 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi07_frozen_real_estate_projects"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi07_frozen_real_estate_projects"
+set_country_flag = VIE_pending_XI07
+set_variable = { VIE_record_XI07_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.24 }
 
-			set_country_flag = VIE_record_XI07
-
-			add_political_power = 15
-
-		}
+VIE_politics_consume_X03 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1629,13 +1519,12 @@ shortcut = {
 
 			add_political_power = 15
 
-		}
+VIE_politics_consume_X04 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1659,17 +1548,15 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi08_oil_rig_incident_dossier"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi08_oil_rig_incident_dossier"
+set_country_flag = VIE_pending_XI08_history
 
-			country_event = { id = vie_pol.108 }
-
-		}
+VIE_politics_consume_X07 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1691,25 +1578,27 @@ shortcut = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 10 } }
+		available = {
+ check_variable = { VIE_last_congress > 10 }
+NOT = { check_variable = { treasury < 0.5 } }
+
+}
 
 		completion_reward = {
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi09_stalled_project_recovery_fund"
+if = {
+limit = { NOT = { has_country_flag = VIE_record_XI09 } }
+set_temp_variable = { treasury_change = -0.5 }
+modify_treasury_effect = yes
+set_country_flag = VIE_record_XI09
+set_country_flag = VIE_project_XI09_running
+set_variable = { VIE_project_XI09_elapsed = 0 }}
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi09_stalled_project_recovery_fund"
-
-			set_temp_variable = { treasury_change = -0.5 }
-
-			modify_treasury_effect = yes
-
-			set_country_flag = VIE_record_XI09
-
-		}
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1731,23 +1620,24 @@ shortcut = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 10 } }
+		available = {
+ check_variable = { VIE_last_congress > 10 }
+always = yes
+}
 
 		completion_reward = {
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xi10_restructure_stalled_projects"
+if = {
+limit = { NOT = { has_country_flag = VIE_record_XI10 } }
+set_country_flag = VIE_record_XI10
+set_country_flag = VIE_project_XI10_running
+set_variable = { VIE_project_XI10_elapsed = 0 }}
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi10_restructure_stalled_projects"
-
-			set_country_flag = VIE_record_XI10
-
-			add_political_power = 15
-
-		}
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1772,20 +1662,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 11 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii01_delegated_signing_authority"
-
-			set_country_flag = VIE_record_XII01
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii01_delegated_signing_authority"
+set_country_flag = VIE_pending_XII01
+set_variable = { VIE_record_XII01_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.26 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1810,20 +1695,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 11 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii05_cross_sectoral_programmes"
-
-			set_country_flag = VIE_record_XII05
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii05_cross_sectoral_programmes"
+set_country_flag = VIE_pending_XII05
+set_variable = { VIE_record_XII05_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.30 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1846,20 +1726,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 11 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii02_post_audit_approval"
-
-			set_country_flag = VIE_record_XII02
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii02_post_audit_approval"
+set_country_flag = VIE_pending_XII02
+set_variable = { VIE_record_XII02_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.27 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1882,20 +1757,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 11 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii06_long_term_dual_role"
-
-			set_country_flag = VIE_record_XII06
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii06_long_term_dual_role"
+set_country_flag = VIE_pending_XII06
+set_variable = { VIE_record_XII06_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.31 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1925,13 +1795,20 @@ shortcut = {
 
 			add_political_power = 15
 
-		}
+VIE_politics_consume_X08 = yes
+
+VIE_politics_consume_XI02 = yes
+
+VIE_politics_consume_XI05 = yes
+
+VIE_politics_consume_XI06 = yes
+
+VIE_politics_consume_XI07 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -1954,20 +1831,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 11 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii03_reform_acceptance_records"
-
-			set_country_flag = VIE_record_XII03
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii03_reform_acceptance_records"
+set_country_flag = VIE_pending_XII03
+set_variable = { VIE_record_XII03_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.28 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2003,8 +1875,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_xii07_leadership_accountability
@@ -2027,52 +1897,19 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii07_leadership_accountability"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii07_leadership_accountability"
+set_country_flag = VIE_pending_XII07
+set_variable = { VIE_record_XII07_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.32 }
 
-			set_country_flag = VIE_record_XII07
+VIE_politics_consume_XI01 = yes
 
-			add_political_power = 15
-
-		}
-
-		ai_will_do = { base = 70 }
-
-	}
-
-
-
-	focus = {
-
-		id = VIE_xii09_protect_substantive_decisions
-
-		icon = GFX_focus_VIE_xii09_protect_substantive_decisions
-		x = 2
-		y = 1
-		relative_position_id = VIE_xii07_leadership_accountability
-
-		cost = 7
-
-		prerequisite = { focus = VIE_xii07_leadership_accountability }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		available = { check_variable = { VIE_last_congress > 11 } }
-
-		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii09_protect_substantive_decisions"
-
-			set_country_flag = VIE_record_XII09
-
-			add_political_power = 15
-
-		}
+VIE_politics_consume_XI04 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2094,20 +1931,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 11 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii04_conclude_handover"
-
-			set_country_flag = VIE_record_XII04
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii04_conclude_handover"
+set_country_flag = VIE_pending_XII04
+set_variable = { VIE_record_XII04_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.29 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2129,20 +1961,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 11 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii08_dual_role_succession"
-
-			set_country_flag = VIE_record_XII08
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii08_dual_role_succession"
+set_country_flag = VIE_pending_XII08
+set_variable = { VIE_record_XII08_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.33 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2163,9 +1990,46 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii12_mid_term_reassignment"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xii12_mid_term_reassignment"
+set_country_flag = VIE_pending_XII12
+country_event = { id = vie_pol_runtime.60 }
 
-			set_country_flag = VIE_record_XII12
+VIE_politics_consume_XI03 = yes
+}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+focus = {
+
+		id = VIE_xii09_protect_substantive_decisions
+
+		icon = GFX_focus_VIE_xii09_protect_substantive_decisions
+		x = 0
+		y = 1
+		relative_position_id = VIE_xii12_mid_term_reassignment
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xii07_leadership_accountability }
+
+		prerequisite = { focus = VIE_xii12_mid_term_reassignment }
+search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+
+ check_variable = { VIE_last_congress > 11 }
+
+OR = { has_country_flag = VIE_gate_XII09 AND = { has_country_flag = VIE_record_XII12_A check_variable = { VIE_last_congress > 12 } } }
+
+}
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii09_protect_substantive_decisions"
+
+			set_country_flag = VIE_record_XII09
 
 			add_political_power = 15
 
@@ -2174,8 +2038,6 @@ shortcut = {
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2199,19 +2061,17 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii01_maritime_incident_channel"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii01_maritime_incident_channel"
+set_country_flag = VIE_pending_XIII01
+set_variable = { VIE_record_XIII01_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.34 }
 
-			set_country_flag = VIE_record_XIII01
-
-			add_political_power = 15
-
-		}
+VIE_politics_consume_XI08 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2234,20 +2094,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 12 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii02_coordinate_maritime_enforcement"
-
-			set_country_flag = VIE_record_XIII02
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii02_coordinate_maritime_enforcement"
+set_country_flag = VIE_pending_XIII02
+set_variable = { VIE_record_XIII02_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.35 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2270,20 +2125,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 12 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii03_regional_forum_position"
-
-			set_country_flag = VIE_record_XIII03
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii03_regional_forum_position"
+set_country_flag = VIE_pending_XIII03
+set_variable = { VIE_record_XIII03_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.36 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2321,8 +2171,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_xiii04_protect_maritime_economy
@@ -2344,20 +2192,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 12 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii04_protect_maritime_economy"
-
-			set_country_flag = VIE_record_XIII04
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii04_protect_maritime_economy"
+set_country_flag = VIE_pending_XIII04
+set_variable = { VIE_record_XIII04_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.37 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2397,8 +2240,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_xiii05_corporate_bond_obligations
@@ -2420,18 +2261,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 12 } }
 
 		completion_reward = {
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii05_corporate_bond_obligations"
+set_country_flag = VIE_pending_XIII05
+set_variable = { VIE_record_XIII05_source_term = VIE_last_congress }
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii05_corporate_bond_obligations"
-
-			country_event = { id = vie_pol.135 }
-
-		}
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2449,9 +2287,13 @@ shortcut = {
 
 		prerequisite = { focus = VIE_xiii03_regional_forum_position }
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = VIE_xii02_post_audit_approval }
+search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 12 } }
+		available = {
+ check_variable = { VIE_last_congress > 12 }
+has_country_flag = VIE_gate_XIII09
+}
 
 		completion_reward = {
 
@@ -2461,13 +2303,22 @@ shortcut = {
 
 			add_political_power = 15
 
-		}
+VIE_politics_consume_XII01 = yes
+
+VIE_politics_consume_XII03 = yes
+
+VIE_politics_consume_XII04 = yes
+
+VIE_politics_consume_XII05 = yes
+
+VIE_politics_consume_XII06 = yes
+
+VIE_politics_consume_XII08 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2490,20 +2341,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 12 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii06_bond_maturity_restructuring"
-
-			set_country_flag = VIE_record_XIII06
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii06_bond_maturity_restructuring"
+set_country_flag = VIE_pending_XIII06
+set_variable = { VIE_record_XIII06_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.39 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2526,20 +2372,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 12 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii07_protect_retail_bondholders"
-
-			set_country_flag = VIE_record_XIII07
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii07_protect_retail_bondholders"
+set_country_flag = VIE_pending_XIII07
+set_variable = { VIE_record_XIII07_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.40 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2559,21 +2400,23 @@ shortcut = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 12 } }
+		available = {
+ check_variable = { VIE_last_congress > 12 }
+has_country_flag = VIE_e104_signed NOT = { has_country_flag = VIE_e104_terminated }
+}
 
 		completion_reward = {
 
 			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii12_security_contract_adjustment"
 
-			country_event = { id = vie_pol.132 }
+			VIE_politics_dispatch_132 = yes
 
-		}
+VIE_politics_consume_XII07 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2596,20 +2439,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 12 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii08_bond_underwriter_audit"
-
-			set_country_flag = VIE_record_XIII08
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii08_bond_underwriter_audit"
+set_country_flag = VIE_pending_XIII08
+set_variable = { VIE_record_XIII08_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.41 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2629,20 +2467,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 13 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv01_civil_service_standards"
-
-			set_country_flag = VIE_record_XIV01
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv01_civil_service_standards"
+set_country_flag = VIE_pending_XIV01
+set_variable = { VIE_record_XIV01_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.42 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2663,19 +2496,19 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv02_term_audit_results"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv02_term_audit_results"
+set_country_flag = VIE_pending_XIV02
+set_variable = { VIE_record_XIV02_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.43 }
 
-			set_country_flag = VIE_record_XIV02
+VIE_politics_consume_XIII05 = yes
 
-			add_political_power = 15
-
-		}
+VIE_politics_consume_XIII08 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2696,19 +2529,17 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv03_services_and_compensation"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv03_services_and_compensation"
+set_country_flag = VIE_pending_XIV03
+set_variable = { VIE_record_XIV03_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.44 }
 
-			set_country_flag = VIE_record_XIV03
-
-			add_political_power = 15
-
-		}
+VIE_politics_consume_XIII07 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2728,20 +2559,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 13 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv04_handover_new_term"
-
-			set_country_flag = VIE_record_XIV04
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv04_handover_new_term"
+set_country_flag = VIE_pending_XIV04
+set_variable = { VIE_record_XIV04_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.45 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2762,19 +2588,19 @@ shortcut = {
 
 		completion_reward = {
 
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv07_audit_handover_results"
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv07_audit_handover_results"
+set_country_flag = VIE_pending_XIV07
+set_variable = { VIE_record_XIV07_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.48 }
 
-			set_country_flag = VIE_record_XIV07
+VIE_politics_consume_XIII02 = yes
 
-			add_political_power = 15
-
-		}
+VIE_politics_consume_XIII04 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2789,9 +2615,16 @@ shortcut = {
 
 		prerequisite = { focus = VIE_xiv02_term_audit_results }
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = VIE_xiii12_security_contract_adjustment }
+search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { check_variable = { VIE_last_congress > 13 } }
+		available = {
+
+ check_variable = { VIE_last_congress > 13 }
+has_country_flag = VIE_gate_XIV11
+
+has_country_flag = VIE_e104_signed NOT = { has_country_flag = VIE_e104_terminated } check_variable = { var = VIE_XIII12_contract_epoch value = VIE_e104_contract_epoch compare = equals }
+}
 
 		completion_reward = {
 
@@ -2801,13 +2634,16 @@ shortcut = {
 
 			add_political_power = 15
 
-		}
+VIE_politics_consume_XIII01 = yes
+
+VIE_politics_consume_XIII03 = yes
+
+VIE_politics_consume_XIII06 = yes
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2829,20 +2665,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 13 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv05_extend_incomplete_programmes"
-
-			add_political_power = -30
-
-			set_country_flag = VIE_record_XIV05
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv05_extend_incomplete_programmes"
+set_country_flag = VIE_pending_XIV05
+set_variable = { VIE_record_XIV05_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.46 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2864,20 +2695,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 13 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv06_reallocate_failed_resources"
-
-			set_country_flag = VIE_record_XIV06
-
-			add_political_power = 15
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv06_reallocate_failed_resources"
+set_country_flag = VIE_pending_XIV06
+set_variable = { VIE_record_XIV06_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.47 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2910,8 +2736,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_xiv08_retain_specialist_teams
@@ -2932,20 +2756,15 @@ shortcut = {
 		available = { check_variable = { VIE_last_congress > 13 } }
 
 		completion_reward = {
-
-			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv08_retain_specialist_teams"
-
-			add_political_power = -25
-
-			set_country_flag = VIE_record_XIV08
-
-		}
+log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv08_retain_specialist_teams"
+set_country_flag = VIE_pending_XIV08
+set_variable = { VIE_record_XIV08_source_term = VIE_last_congress }
+country_event = { id = vie_pol_runtime.49 }
+}
 
 		ai_will_do = { base = 70 }
 
 	}
-
-
 
 	focus = {
 
@@ -2980,8 +2799,6 @@ shortcut = {
 
 	}
 
-
-
 	focus = {
 
 		id = VIE_xiv12_finalize_2031_transition
@@ -3014,6 +2831,7 @@ shortcut = {
 	}
 
 	## v6-fix: anchor moved above its dependents (engine resolves relative_position_id in file order)
+
 	focus = {
 		id = VIE_asean_integration
 		icon = GFX_focus_VIE_asean_integration

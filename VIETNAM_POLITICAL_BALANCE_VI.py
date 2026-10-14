@@ -41,11 +41,20 @@ def paper_cancel_e104_contract(contract):
     return after
 
 
-def forecast_programme_completion(p, program, route, mode, cohesion, e102="NA", e103="NA",
-                                  rejection_known=False, signed_base_days=None,
+def e103_automatic_outcome(p, evidence_day):
+    """Classify a modeled 4/4 evidence date; no event creates evidence or adds delay."""
+    if evidence_day > p['program_deadline']:
+        return 'partial_at_deadline'
+    return 'on_time_full' if evidence_day <= p['early_days']['inspection'] else 'late_full'
+
+
+def forecast_programme_completion(p, program, route, mode, cohesion, e102="NA", e103="AUTO",
+                                  signed_base_days=None,
                                   elapsed_congress_days=0, recovery_cooldown_remaining=0,
                                   pending_recovery_remaining=None):
-    """Single paper counterpart of the design trigger; an uncertain rejection is not a lock."""
+    """Single deterministic forecast; E103 is automatic and has no rejection delay."""
+    if e103 not in ("AUTO", "NA"):
+        raise ValueError("E103 has no A/B/C choice; use AUTO")
     if program is None or mode is None:
         programmes=list(SEQUENCES) if program is None else [program]
         candidates={}
@@ -77,9 +86,7 @@ def forecast_programme_completion(p, program, route, mode, cohesion, e102="NA", 
     if base is None:
         base = base_at(cohesion)
     evidence = base + (p["e102"][e102][2] if e102 != "NA" else 0)
-    risk = program == "inspection" and e103 == "A" and evidence > p["early_days"][program]
-    risk_day = max(evidence, p["early_days"][program]) + p["e103"]["reappraisal_days"] if risk else evidence
-    deterministic_day = risk_day if rejection_known and risk else evidence
+    deterministic_day = evidence
     start_open = base <= p["program_deadline"] - p["reserve_days"]
     choice_open = deterministic_day <= p["program_deadline"] - p["exception_reserve_days"]
     launch_day=elapsed_congress_days if start_open else None
@@ -105,9 +112,7 @@ def forecast_programme_completion(p, program, route, mode, cohesion, e102="NA", 
     focus_open=mode_legal and launch_day is not None and launch_day<=p['program_start_latest']
     return {"signed_base_days": base, "forecast_full_day": deterministic_day,
             "forecast_reserve_days": p["program_deadline"] - deterministic_day,
-            "risk_full_day": risk_day, "risk_reserve_days": p["program_deadline"] - risk_day,
             "start_available": int(start_open), "choice_available": int(choice_open),
-            "reappraisal_risk": int(risk and not rejection_known),
             "lock_reason": "default_reserve" if not start_open else "deterministic_delay" if not choice_open else "",
             "reopen": "Họp xử lý bất đồng trước khởi động; sau ký timer không giảm" if not start_open else
                       "chọn phương án không cộng trễ; không đổi timer đã ký" if not choice_open else "",
@@ -177,11 +182,11 @@ def check_l2_node_choices():
                         winners.add("A")
                     elif costs[1] < costs[0]:
                         winners.add("B")
-        assert winners == {"A", "B"}, f"{node}: có lựa chọn luôn rẻ nhất tại k={values}"
+        assert node in p["node_choice_cohesion"] or winners == {"A", "B"}, f"{node}: có lựa chọn luôn rẻ nhất tại k={values}"
         scenarios.append({"node": node, "costs_k20_k40_k60": [values[k] for k in p["k_values"]]})
     return {"focus_nodes": len(all_focus_costs), "l2_nodes": len(nodes), "routes_checked": len(p["prepare_days"]),
             "r_values_checked": len(p["r_values"]), "k_values": p["k_values"],
-            "all_events_have_cost_crossover": True, "examples": scenarios[:3]}
+            "standard_events_have_cost_crossover": True, "varied_nodes": list(p["node_choice_cohesion"]), "examples": scenarios[:3]}
 
 
 def run():
@@ -212,31 +217,18 @@ def run():
     def timeline(program, route, fast):
         return p["prepare_days"][route] + sum(p["action_days"][action][int(fast)] for action in sequences[program])
 
-    def audit_outcome(base, e102, e103):
-        evidence = base + p["e102"][e102][2]
-        cutoff = p["early_days"]["inspection"]
-        rejected = e103 == "A" and evidence > cutoff
-        potential = max(evidence, cutoff) + p["e103"]["reappraisal_days"] if rejected else evidence
-        # B buys a contract extension; C closes only the contract as partial.
-        # Neither operation substitutes for program evidence.
-        contract = "accepted" if e103 == "A" and not rejected else "rejected" if rejected else "extended" if e103 == "B" else "partial"
-        if e103 == "B" and evidence > p["e103"]["B_deadline"]:
-            contract = "extension_missed"
-        return potential, rejected, contract
-
     rows = []
     for program, route, mode in itertools.product(sequences, routes, modes):
         fast = mode != "standard"
         combined = mode == "combined_fast_paid"
         legal = not fast or p["bop_route_snapshot"][route] > p["bop_threshold"]
-        event_pairs = itertools.product("ABC", "ABC") if program == "inspection" else [("NA", "NA")]
+        if not legal:
+            continue
+        event_pairs = [(option, "AUTO") for option in "ABC"] if program == "inspection" else [("NA", "NA")]
         for e102, e103 in event_pairs:
             for k, r in itertools.product(p["k_values"], p["r_values"]):
                 record = {"program": program, "route": route, "mode": mode, "e102": e102, "e103": e103,
                           "k": k, "r": r, "eligible": int(legal), "status": "script_calculation_not_engine" if legal else "locked_by_bop"}
-                if not legal:
-                    rows.append(record)
-                    continue
                 cohesion = p["cohesion_initial"]
                 bop = p["bop_route_snapshot"][route]
                 factor = next(band[2] for band in p["cohesion_price_bands"] if band[0] <= cohesion <= band[1])
@@ -269,24 +261,24 @@ def run():
                     recovery = max(0, math.ceil((p["cadre_cohesion_required"] - cohesion) / p["recovery"]["cohesion"]))
                     cohesion += recovery * p["recovery"]["cohesion"]
                 day = timeline(program, route, fast)
-                event_pp, signature, grant = 0, 0, 0
+                event_pp, signature, grant, contract_checks = 0, 0, 0, 0
                 contract = "NA"
-                rejected = False
                 if program == "inspection":
-                    event_pp += p["e102"][e102][0] + p["e103"][e103 + "_pp"]
-                    treasury += p["e102"][e102][1] + p["e103"].get(e103 + "_treasury", 0)
-                    day, rejected, contract = audit_outcome(day, e102, e103)
-                    if rejected:
-                        cohesion += p["e103"]["rejection_cohesion"]
+                    event_pp += p["e102"][e102][0]
+                    treasury += p["e102"][e102][1]
+                    day += p["e102"][e102][2]
+                    contract = e103_automatic_outcome(p, day)
                     if e102 == "A":
                         # Identical partner acceptance scenario on all routes.
                         option = "A" if combined else "B"
                         signature = p["e104"][option + "_pp"]
                         grant = p["e104"][option + "_grant"]
+                        contract_checks=len(p['contract_obligations']['check_days'])*p['contract_obligations']['pp_per_check']
+                        event_pp+=contract_checks
                         treasury -= grant
                 full = day <= p["program_deadline"]
                 early_full = full and day <= p["early_days"][program]
-                early = early_full and (program != "inspection" or contract == "accepted")
+                early = early_full
                 bonus = p["early_pp"] if early else 0
                 if full and route == "collective":
                     cohesion += min(p["collective_full_extra"], max(0, p["collective_extra_cap"] - cohesion))
@@ -297,31 +289,34 @@ def run():
                 daily = (r + p["branch_pp_daily"]) * p["accounting_days"]
                 loss = p["cohesion_initial"] - cohesion
                 record.update(pp_start=start, pp_actions=tools, pp_e102=0 if e102 == "NA" else p["e102"][e102][0],
-                              pp_e103=0 if e103 == "NA" else p["e103"][e103 + "_pp"], pp_fast_upfront=upfront,
+                              pp_e103=0, pp_fast_upfront=upfront,
                               pp_checkpoints=checkpoints, pp_combined=office, pp_signature=signature,
+                              pp_contract_checks=contract_checks,
                               pp_recovery=recovery * p["recovery"]["pp"], pp_early_reward=bonus,
                               treasury_checkpoints=checkpoint_treasury,
-                              event_cost_pp=event_pp + signature, treasury_e103=0 if e103 == "NA" else p["e103"].get(e103 + "_treasury", 0),
+                              event_cost_pp=event_pp + signature, treasury_e103=0,
                               net_treasury_cost=round(treasury, 6),
-                              e103_contract_deadline=p["e103"]["B_deadline"] if e103 == "B" else p["early_days"]["inspection"] if e103 == "A" else "",
+                              e103_early_cutoff=p["early_days"]["inspection"] if e103 == "AUTO" else "",
                               pp_gross_cost=gross, pp_net_cost=net, treasury_net_cost=round(treasury, 6),
                               treasury_pp_equivalent=round(treasury*k, 6), potential_full_day=day,
                               full_day=day if full else "", result="full" if full else "partial_at_deadline",
                               remaining_reserve_days=p["program_deadline"]-day if full else "",
                               full_after_early_cutoff=int(full and day>p["early_days"][program]),
-                              declared_choice_exception=int(program==p["choice_full_exception"]["program"] and (e102 in p["choice_full_exception"]["e102"] or e103 in p["choice_full_exception"]["e103"] or rejected)),
+                              declared_choice_exception=int(program==p["choice_full_exception"]["program"] and (e102 in p["choice_full_exception"]["e102"])),
                               early_cutoff=p["early_days"][program], early_reward_earned=int(early),
                               cohesion_final=cohesion, cohesion_net_spent=loss, bop_final=round(bop, 6),
                               modeled_pp_income=round(daily, 6), modeled_pp_remaining=round(daily-net, 6),
                               gross_cost_income_ratio=round(gross/daily, 6), net_cost_income_ratio=round(net/daily, 6),
                               converted_cost=round(net+treasury*k+loss*p["cohesion_pp_rate"], 6),
                               converted_cost_income_ratio=round((net+treasury*k+loss*p["cohesion_pp_rate"])/daily,6),
-                              e103_contract=contract, e104_grant=grant, side_project_available=int(early_full),
+                              e103_outcome=contract, e104_grant=grant, side_project_available=int(early_full),
                               side_project_if_taken_pp=p["side_project"]["pp"] if early_full else 0,
                               side_project_if_taken_finish=day+p["side_project"]["days"] if early_full else "",
-                              technical_training_opportunity=int(grant > 0),
-                              deep_data_cooperation_opportunity=int(grant == p["e104"]["A_grant"]),
-                              opportunity_count=int(early_full)+int(grant > 0))
+                              training_task_available=int(grant > 0),
+                              training_task_days=p['e104_training']['days'] if grant>0 else 0,
+                              training_reward_if_completed_pp=p['e104_training']['reward_pp'] if grant>0 else 0,
+                              contract_check_count=len(p['contract_obligations']['check_days']) if grant>0 else 0,
+                              contract_check_pp=p['contract_obligations']['pp_per_check'] if grant>0 else 0)
                 forecast = forecast_programme_completion(p, program, route, mode, p["cohesion_initial"], e102, e103)
                 record.update({"forecast_" + key if not key.startswith("forecast_") else key: value
                                for key, value in forecast.items() if not isinstance(value,(dict,list))})

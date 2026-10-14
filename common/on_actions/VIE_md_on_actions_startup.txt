@@ -23,6 +23,7 @@ on_actions = {
 				# Initialise the 9-axis state-building system at game start,
 				# before the first on_monthly tick fires, to prevent stack overflow.
 				VIE_ax_init = yes
+VIE_politics_runtime_init = yes
 
 				# Khoi tao co ban ngay tu ngay dau: Tong Bi thu Le Kha Phieu & Chinh sach Doi ngoai
 				if = {

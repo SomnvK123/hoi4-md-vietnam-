@@ -206,12 +206,16 @@ VIE_political_leadership_category = {
 		icon = generic_propaganda
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_side_project
-				has_country_flag = VIE_last_programme_full
-				NOT = { check_variable = { var = VIE_last_side_project_epoch value = VIE_programme_epoch compare = equals } }
-			}
-		}
+has_country_flag = VIE_last_programme_full has_country_flag = VIE_programme_early_full NOT = { check_variable = { var = VIE_last_side_project_epoch value = VIE_programme_epoch compare = equals } } OR = {
+AND = { check_variable = { VIE_last_congress = 9 } NOT = { date > 2004.10.15 } }
+AND = { check_variable = { VIE_last_congress = 10 } NOT = { date > 2009.7.11 } }
+AND = { check_variable = { VIE_last_congress = 11 } NOT = { date > 2014.7.19 } }
+AND = { check_variable = { VIE_last_congress = 12 } NOT = { date > 2019.7.25 } }
+AND = { check_variable = { VIE_last_congress = 13 } NOT = { date > 2024.7.18 } }
+AND = { check_variable = { VIE_last_congress = 14 } NOT = { date > 2029.7.18 } }
+}
+}
+
 		visible = {
 			has_country_flag = VIE_last_programme_full
 		}
@@ -227,15 +231,11 @@ VIE_political_leadership_category = {
 		}
 
 		remove_effect = {
-			custom_effect_tooltip = VIE_tt_eff_side_project_finish
-			hidden_effect = {
-				log = "[GetDateText]: [Root.GetName]: Complete side project"
-				add_timed_idea = {
-					idea = VIE_side_project_bureaucracy_idea
-					days = 365
-				}
-			}
-		}
+if = {
+limit = { check_variable = { var = VIE_last_side_project_epoch value = VIE_programme_epoch compare = equals } has_country_flag = VIE_programme_early_full }
+add_timed_idea = { idea = VIE_side_project_bureaucracy_idea days = 365 }}
+
+}
 
 		ai_will_do = {
 			base = 60
@@ -251,12 +251,9 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_select_programme
-				NOT = { has_country_flag = VIE_programme_active }
-				NOT = { has_country_flag = VIE_programme_selected }
-			}
-		}
+VIE_politics_can_select = yes
+}
+
 		visible = {
 			has_country_flag = VIE_congress_resolved
 			NOT = { has_country_flag = VIE_programme_active }
@@ -278,12 +275,9 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_select_programme
-				NOT = { has_country_flag = VIE_programme_active }
-				NOT = { has_country_flag = VIE_programme_selected }
-			}
-		}
+VIE_politics_can_select = yes
+}
+
 		visible = {
 			has_country_flag = VIE_congress_resolved
 			NOT = { has_country_flag = VIE_programme_active }
@@ -305,12 +299,9 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_select_programme
-				NOT = { has_country_flag = VIE_programme_active }
-				NOT = { has_country_flag = VIE_programme_selected }
-			}
-		}
+VIE_politics_can_select_inspection = yes
+}
+
 		visible = {
 			has_country_flag = VIE_congress_resolved
 			NOT = { has_country_flag = VIE_programme_active }
@@ -332,12 +323,9 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_select_programme
-				NOT = { has_country_flag = VIE_programme_active }
-				NOT = { has_country_flag = VIE_programme_selected }
-			}
-		}
+VIE_politics_can_select = yes
+}
+
 		visible = {
 			has_country_flag = VIE_congress_resolved
 			NOT = { has_country_flag = VIE_programme_active }
@@ -362,15 +350,13 @@ VIE_term_programmes_category = {
 		icon = generic_propaganda
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_programme_selected
-				has_country_flag = VIE_programme_selected
-			}
-		}
+VIE_politics_can_launch_standard = yes
+}
+
 		visible = {
 			has_country_flag = VIE_programme_selected
 		}
-		cost = 40
+		cost = 0
 
 		complete_effect = {
 			custom_effect_tooltip = VIE_tt_eff_launch_mode_standard
@@ -386,17 +372,14 @@ VIE_term_programmes_category = {
 		icon = generic_propaganda
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_launch_mode_fast_paid
-				has_country_flag = VIE_programme_selected
-				VIE_is_central_zone = yes
-			}
-		}
+VIE_politics_can_launch_fast_paid = yes
+}
+
 		visible = {
 			has_country_flag = VIE_programme_selected
 			VIE_is_central_zone = yes
 		}
-		cost = 65
+		cost = 0
 
 		complete_effect = {
 			custom_effect_tooltip = VIE_tt_eff_launch_mode_fast_paid
@@ -412,18 +395,14 @@ VIE_term_programmes_category = {
 		icon = generic_propaganda
 		allowed = { original_tag = VIE }
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_launch_mode_fast_override
-				has_country_flag = VIE_programme_selected
-				VIE_is_central_zone = yes
-				check_variable = { VIE_leadership_cohesion > 55 }
-			}
-		}
+VIE_politics_can_launch_fast_override = yes
+}
+
 		visible = {
 			has_country_flag = VIE_programme_selected
 			VIE_is_central_zone = yes
 		}
-		cost = 25
+		cost = 0
 
 		complete_effect = {
 			custom_effect_tooltip = VIE_tt_eff_launch_mode_fast_override
@@ -438,60 +417,9 @@ VIE_term_programmes_category = {
 	# ------------------------------------------------------------
 	# Nghiệm thu sớm chương trình (khi đủ 4 chỉ tiêu)
 	# ------------------------------------------------------------
-	VIE_review_programme_early_decision = {
-		icon = generic_political_actions
-		allowed = { original_tag = VIE }
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = VIE_tt_req_review_programme_early
-				has_country_flag = VIE_programme_active
-				check_variable = { VIE_programme_targets_met > 3 }
-			}
-		}
-		visible = {
-			has_country_flag = VIE_programme_active
-		}
-		cost = 10
-
-		complete_effect = {
-			custom_effect_tooltip = VIE_tt_eff_review_programme_early
-			hidden_effect = {
-				VIE_resolve_programme_full = yes
-			}
-		}
-
-		ai_will_do = { base = 100 }
-	}
 
 	# ------------------------------------------------------------
 	# Mission đếm lùi Deadline 900 ngày
 	# ------------------------------------------------------------
-	VIE_term_programme_deadline_mission = {
-		icon = generic_propaganda
-		allowed = { original_tag = VIE }
-		available = {
-			always = no
-		}
-		visible = {
-			has_country_flag = VIE_programme_active
-		}
-		days_mission_timeout = 900
 
-		timeout_effect = {
-			custom_effect_tooltip = VIE_tt_eff_deadline_mission_eval
-			hidden_effect = {
-				if = {
-					limit = { check_variable = { VIE_programme_targets_met > 3 } }
-					VIE_resolve_programme_full = yes
-				}
-				else_if = {
-					limit = { check_variable = { VIE_programme_targets_met > 1 } }
-					VIE_resolve_programme_partial = yes
-				}
-				else = {
-					VIE_resolve_programme_fail = yes
-				}
-			}
-		}
-	}
 }
