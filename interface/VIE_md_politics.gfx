@@ -1,0 +1,309 @@
+spriteTypes = {
+	# Balance of Power sprites
+	spriteType = {
+		name = "GFX_bop_VIE_collective"
+		texturefile = "gfx/interface/goals/public_admin_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_bop_VIE_central"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+
+	# 74 Political Focus Icons
+	spriteType = {
+		name = "GFX_focus_VIE_review_public_administration"
+		texturefile = "gfx/interface/goals/public_admin_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_publish_responsibility_rules"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_consult_provincial_leaders"
+		texturefile = "gfx/interface/goals/prepare_congress_9.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_establish_project_command"
+		texturefile = "gfx/interface/goals/resolution_congress_9.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_publish_land_compensation_plan"
+		texturefile = "gfx/interface/goals/ethnic_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_audit_state_enterprise_guarantees"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_publish_term_action_plan"
+		texturefile = "gfx/interface/goals/resolution_congress_9.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_pilot_one_stop_service"
+		texturefile = "gfx/interface/goals/public_admin_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_train_successor_candidates"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_publish_procurement_audits"
+		texturefile = "gfx/interface/goals/party_inspection.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_ix11_rotate_cadres"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_ix12_retain_cadres"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_establish_grievance_hearings"
+		texturefile = "gfx/interface/goals/party_discipline.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_review_program_delivery"
+		texturefile = "gfx/interface/goals/resolution_congress_9.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x01_state_capital_list"
+		texturefile = "gfx/interface/goals/resolution_congress_10.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x05_investment_approval_rules"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x02_separate_guarantees"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x03_equitize_under_published_terms"
+		texturefile = "gfx/interface/goals/anti_corruption_steering.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x11_disclose_enterprise_guarantees"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x06_market_access_standards"
+		texturefile = "gfx/interface/goals/bamboo_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x07_screen_sensitive_investments"
+		texturefile = "gfx/interface/goals/scs_coast_guard_law.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x09_audited_tranches"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x10_advance_key_project_capital"
+		texturefile = "gfx/interface/goals/resolution_congress_10.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x04_audit_post_equitization"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x08_data_governance_roles"
+		texturefile = "gfx/interface/goals/sec_state_data_center.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_x12_dialogue_investment_terms"
+		texturefile = "gfx/interface/goals/bamboo_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi01_land_acquisition_records"
+		texturefile = "gfx/interface/goals/resolution_congress_11.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi02_compensation_fund"
+		texturefile = "gfx/interface/goals/ethnic_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi03_land_dispute_hearings"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi04_audit_land_revenues"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi05_real_estate_bad_debt"
+		texturefile = "gfx/interface/goals/anti_corruption_law.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi11_land_inspection_conclusions"
+		texturefile = "gfx/interface/goals/party_inspection.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi06_vamc_debt_resolution"
+		texturefile = "gfx/interface/goals/anti_corruption_steering.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi07_frozen_real_estate_projects"
+		texturefile = "gfx/interface/goals/resolution_congress_11.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi12_credit_guarantor_audit"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi08_oil_rig_incident_dossier"
+		texturefile = "gfx/interface/goals/scs_coast_guard_law.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi09_stalled_project_recovery_fund"
+		texturefile = "gfx/interface/goals/anti_corruption_steering.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xi10_restructure_stalled_projects"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii01_delegated_signing_authority"
+		texturefile = "gfx/interface/goals/resolution_congress_12.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii05_cross_sectoral_programmes"
+		texturefile = "gfx/interface/goals/resolution_congress_12.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii02_post_audit_approval"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii06_long_term_dual_role"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii10_cross_sectoral_timeframe"
+		texturefile = "gfx/interface/goals/public_admin_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii03_reform_acceptance_records"
+		texturefile = "gfx/interface/goals/public_admin_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii11_disclose_dual_role_power"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii07_leadership_accountability"
+		texturefile = "gfx/interface/goals/party_discipline.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii04_conclude_handover"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii08_dual_role_succession"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii09_protect_substantive_decisions"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xii12_mid_term_reassignment"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii01_maritime_incident_channel"
+		texturefile = "gfx/interface/goals/scs_law_of_the_sea.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii02_coordinate_maritime_enforcement"
+		texturefile = "gfx/interface/goals/scs_coast_guard_law.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii10_sea_incident_dialogue"
+		texturefile = "gfx/interface/goals/bamboo_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii03_regional_forum_position"
+		texturefile = "gfx/interface/goals/bamboo_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii04_protect_maritime_economy"
+		texturefile = "gfx/interface/goals/naval_defence_law.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii11_enforcement_presence_at_sea"
+		texturefile = "gfx/interface/goals/scs_coast_guard_law.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii05_corporate_bond_obligations"
+		texturefile = "gfx/interface/goals/resolution_congress_13.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii09_technical_cooperation_terms"
+		texturefile = "gfx/interface/goals/sec_cyber_sovereignty.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii06_bond_maturity_restructuring"
+		texturefile = "gfx/interface/goals/anti_corruption_steering.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii07_protect_retail_bondholders"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii12_security_contract_adjustment"
+		texturefile = "gfx/interface/goals/sec_state_data_center.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiii08_bond_underwriter_audit"
+		texturefile = "gfx/interface/goals/party_inspection.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv01_civil_service_standards"
+		texturefile = "gfx/interface/goals/public_admin_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv02_term_audit_results"
+		texturefile = "gfx/interface/goals/resolution_congress_14.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv03_services_and_compensation"
+		texturefile = "gfx/interface/goals/ethnic_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv07_audit_handover_results"
+		texturefile = "gfx/interface/goals/state_audit.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv04_handover_new_term"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv11_review_extended_contracts"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv05_extend_incomplete_programmes"
+		texturefile = "gfx/interface/goals/resolution_congress_14.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv06_reallocate_failed_resources"
+		texturefile = "gfx/interface/goals/rule_of_law_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv08_retain_specialist_teams"
+		texturefile = "gfx/interface/goals/tw4_party_building.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv09_replace_delivery_team"
+		texturefile = "gfx/interface/goals/party_discipline.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv10_delivered_service_commitments"
+		texturefile = "gfx/interface/goals/public_admin_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_VIE_xiv12_finalize_2031_transition"
+		texturefile = "gfx/interface/goals/party_centennial_2030.dds"
+	}
+}

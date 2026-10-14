@@ -1050,7 +1050,7 @@ VIE_military_readiness_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xtc02_prototype_program"
-			add_tech_bonus = { name = VIE_lf_xtc02_tech category = CAT_motorized_mechanized uses = 1 bonus = 1.0 }
+			add_tech_bonus = { name = VIE_lf_xtc02_tech category = CAT_armored_fighting_vehicles uses = 1 bonus = 1.0 }
 			VIE_proc_create_xtc02_variant = yes
 			if = {
 				limit = { has_dlc = "No Step Back" }
@@ -1085,7 +1085,7 @@ VIE_military_readiness_category = {
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VIE_lf_xtc03_upgrade_program"
-			add_tech_bonus = { name = VIE_lf_xtc03_tech category = CAT_motorized_mechanized uses = 1 bonus = 0.75 }
+			add_tech_bonus = { name = VIE_lf_xtc03_tech category = CAT_armored_fighting_vehicles uses = 1 bonus = 0.75 }
 			VIE_proc_create_xtc03_variant = yes
 			if = {
 				limit = { has_dlc = "No Step Back" }

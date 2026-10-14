@@ -291,9 +291,9 @@
  VIE_nav35_I06:0 "Tích hợp hệ thống vũ khí và khí tài tàu chiến"
  VIE_nav35_I06_desc:0 "Tích hợp radar, khí tài và hệ thống chỉ huy tàu chiến. Các mốc tiến bộ kỹ thuật năm 2022 và 2025 bổ sung năng lực khi chương trình đã được triển khai."
  VIE_nav35_I07:0 "Sông Thu: dự án hộ vệ chống ngầm đa năng"
- VIE_nav35_I07_desc:0 "Phê duyệt hộ vệ Sông Thu: chốt blueprint tại cơ sở R&D sau khi hoàn tất đầu tư Viện Thiết kế, tích hợp khí tài và đủ công nghệ. Hợp đồng chiếc đầu tiên thu 0,6 tỷ USD, chạy 1.095 ngày; bàn giao cần căn cứ và xưởng hợp lệ. Không giữ chỗ production queue."
+ VIE_nav35_I07_desc:0 "Phê duyệt đề án hộ vệ hạm Sông Thu: hoàn tất hồ sơ thiết kế chuẩn tại cơ sở R&D sau khi hoàn thành Viện Thiết kế, tích hợp khí tài và đủ công nghệ. Mở hợp đồng thi công chiếc đầu tiên với 0,6 tỷ USD trong 1.095 ngày; bàn giao cần căn cứ và xưởng đóng tàu hợp lệ."
  VIE_nav35_I08:0 "Khinh hạm tàng hình đa nhiệm"
- VIE_nav35_I08_desc:0 "Khởi động chương trình khinh hạm đa nhiệm lấy Istanbul-class làm cảm hứng thiết kế. Blueprint VIE trên stealth_frigate_hull_1 và hợp đồng chiếc đầu tiên chỉ mở sau khi hoàn tất Special Project Stealth Frigate của Millennium Dawn. Mốc 4.000 tấn là giới hạn thiết kế gameplay, không phải thuộc tính engine."
+ VIE_nav35_I08_desc:0 "Khởi động chương trình nghiên cứu và chế tạo khinh hạm tàng hình đa nhiệm 4.000 tấn. Mở ra dự án nghiên cứu thiết kế khinh hạm tàng hình thế hệ mới và hợp đồng thi công đóng mới khi hoàn thiện công nghệ."
  VIE_nav35_L01:0 "Cam Ranh: trung tâm bảo đảm hải quân"
  VIE_nav35_L01_desc:0 "Củng cố tổ chức bảo đảm kỹ thuật, cứu hộ và tiếp tế với Cam Ranh làm trung tâm. Mở chương trình đầu tư bảo đảm căn cứ; mở rộng xưởng đóng tàu được thực hiện bằng quyết định riêng tại một state ven biển đang sở hữu."
  VIE_nav35_L02:0 "Nhà máy X52: bảo dưỡng tàu mặt nước và tàu ngầm"
@@ -375,7 +375,7 @@
  VIE_nav35_vt_start_tt:0 "Giải ngân §Y2 tỷ USD§! một lần; theo dõi chương trình trong §Y180 ngày§!."
  VIE_nav35_vt_finish_tt:0 "Hoàn thành chương trình; nhận năng lực hoặc một lượt giảm thời gian nghiên cứu như mô tả. Không thu thêm tiền và không cấp tàu trực tiếp."
  VIE_nav35_blue_support_program:0 "Đầu tư bảo đảm triển khai biển xa"
- VIE_nav35_blue_support_program_desc:0 "Sau B05, đầu tư 8 tỷ USD/365 ngày. Cần căn cứ và dockyard ven biển đang sở hữu/kiểm soát. Đến hạn thiếu địa điểm sẽ chờ khôi phục; không thu thêm tiền hoặc khởi động lại timer."
+ VIE_nav35_blue_support_program_desc:0 "Đầu tư 8 tỷ USD trong 365 ngày nhằm nâng cao năng lực bảo đảm kỹ thuật và hậu cần tầm xa. Yêu cầu sở hữu căn cứ hải quân và xưởng đóng tàu ven biển đang hoạt động."
  VIE_nav35_blue_support_start_tt:0 "Giải ngân §Y8 tỷ USD§! một lần; theo dõi chương trình trong §Y365 ngày§!."
  VIE_nav35_blue_support_finish_tt:0 "Đủ 365 ngày và còn căn cứ/xưởng hợp lệ: nhận range +5% một lần. Thiếu điều kiện sẽ chờ scheduler thử lại; không thu thêm tiền."
  VIE_decision_molniya_production_run:0 "Ba Son: đẩy nhanh năng lực sản xuất"
@@ -486,9 +486,9 @@
  VIE_nav_shipbuilding_mastery_desc:0 "Kinh nghiệm hoàn thành chiếc hộ vệ Sông Thu đầu tiên củng cố năng lực đóng tàu quân sự. Bonus công nghiệp không tự cấp thêm tàu."
 
  VIE_nav35_asw_frigate_program:0 "Đóng chiếc đầu tiên: Song Thu ASW 2026"
- VIE_nav35_asw_frigate_program_desc:0 "Hợp đồng gameplay 0.6 tỷ USD/1095 ngày cho một chiếc. Cần blueprint đã chốt, ngân sách, căn cứ và dockyard đang kiểm soát. Tối đa một hợp đồng nội địa đang đóng; timer không sử dụng hoặc giữ chỗ production queue."
- VIE_nav35_asw_frigate_requirements_tt:0 "Cần blueprint Song Thu ASW 2026, đủ công nghệ, ít nhất 0.6 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy và chưa nhận chiếc đầu tiên."
- VIE_nav35_asw_frigate_start_tt:0 "Thu 0.6 tỷ USD một lần, đóng trong 1095 ngày. Không giữ chỗ production queue hoặc phát tàu ngay."
+ VIE_nav35_asw_frigate_program_desc:0 "Hợp đồng đóng mới khinh hạm săn ngầm Song Thu ASW 2026 với ngân sách 0,6 tỷ USD trong thời gian 3 năm (1.095 ngày). Yêu cầu đã hoàn tất thiết kế chuẩn, bảo đảm ngân sách và có xưởng đóng tàu ven biển đang hoạt động."
+ VIE_nav35_asw_frigate_requirements_tt:0 "Cần hoàn tất thiết kế Song Thu ASW 2026, đủ công nghệ, tối thiểu 0,6 tỷ USD ngân sách, có căn cứ và xưởng đóng tàu ven biển; không có hợp đồng tàu chiến nội địa nào khác đang thi công."
+ VIE_nav35_asw_frigate_start_tt:0 "Giải ngân §Y0,6 tỷ USD§!; triển khai thi công đóng mới trong §Y1.095 ngày§!."
  VIE_nav35_asw_frigate_finish_tt:0 "Bàn giao đúng một Song Thu ASW 2026 khi đủ thời gian, công nghệ, blueprint, căn cứ và xưởng. Thiếu điều kiện: chờ và thử lại hằng tháng; không thu thêm tiền."
 
  VIE_nav35_N00_reward_tt:0 "Khởi động §YChương trình Hiện đại hóa Hải quân Nhân dân Việt Nam§!:\n • Mở khóa 5 trụ cột phát triển: §YChỉ huy & Đào tạo§!, §YTrinh sát biển C4ISR§!, §YHạm đội tác chiến§!, §YCông nghiệp đóng tàu§!, §YCăn cứ hậu cần kỹ thuật§!.\n • Tăng sẵn sàng tổ chức hải quân: §G+2.0%§!, phối hợp tác chiến: §G+2.0%§!.\n • Tiếp nhận §G50 thiết bị C4ISR / Thông tin chỉ huy§! vào kho dự trữ.\n • Giảm §G25%§! chi phí nghiên cứu Học thuyết Hải quân; nhận §G+25 Điểm Chỉ huy§! và §G+15 Kinh nghiệm Hải quân§!."
@@ -646,11 +646,11 @@
 
  # Ideas
  VIE_lf_xtc_program_idea:0 "Chương trình XTC đang triển khai"
- VIE_lf_xtc_program_idea_desc:0 "Nhà máy Z153 đang triển khai khung gầm XTC-02 và module nâng cấp XTC-03."
+ VIE_lf_xtc_program_idea_desc:0 "Nhà máy Z153 triển khai khung gầm XTC-02 và module XTC-03. Nghiên cứu xe chiến đấu bọc thép +10%; trần hiệu suất sản xuất của toàn bộ nhà máy quân sự +5%."
  VIE_lf_t1_light_tank_idea:0 "Dự án xe tăng T-1 đang thiết kế"
- VIE_lf_t1_light_tank_idea_desc:0 "Viện Kỹ thuật Quân sự đang tiến hành thiết kế cơ bản và thử nghiệm mô hình T-1."
+ VIE_lf_t1_light_tank_idea_desc:0 "Thiết kế và thử nghiệm xe tăng T-1. Nghiên cứu xe tăng hạng nhẹ +10%; trần hiệu suất sản xuất +5% và sản lượng +5% cho toàn bộ nhà máy quân sự."
  VIE_lf_spg_program_idea:0 "Chương trình pháo tự hành đang phát triển"
- VIE_lf_spg_program_idea_desc:0 "Dự án pháo tự hành tích hợp khung gầm bánh xích nội địa cỡ nòng 122mm."
+ VIE_lf_spg_program_idea_desc:0 "Phát triển pháo tự hành nội địa. Nghiên cứu nhóm pháo +10% và nhóm pháo tự hành +10%; công nghệ thuộc cả hai nhóm nhận tổng +20%. Sản lượng của toàn bộ nhà máy quân sự +5%."
 
  # Decisions — XTC
  VIE_lf_xtc02_prototype_program:0 "Nguyên mẫu XTC-02"
@@ -670,17 +670,17 @@
 
  # === LF IND I9 - T-2 MAIN TANK ===
  VIE_lf_ind_t2_main_tank:0 "Xe tang chien dau chu luc T-2"
- VIE_lf_ind_t2_main_tank_desc:0 "Chuong trinh phat trien xe tang chien dau chu luc the he thu hai - dinh cao cong nghiep quoc phong luc quan."
+ VIE_lf_ind_t2_main_tank_desc:0 "Chương trình phát triển xe tăng chiến đấu chủ lực thế hệ thứ hai - đỉnh cao công nghiệp quốc phòng lục quân."
  VIE_lf_i9_reward_tt:0 "Hoan thanh Chuong trinh T-2: Chuoi nghien cuu, nguyen mau va san xuat loat duoc phe duyet. Mo khoa decision T-2. Cong thuong nghien cuu thiet giap x2."
  VIE_lf_i9_bonus:0 "Thiet giap - chuong trinh T-2 MBT"
  VIE_lf_t2_main_tank_idea:0 "Chuong trinh T-2 dang trien khai"
- VIE_lf_t2_main_tank_idea_desc:0 "Toan bo he sinh thai cong nghiep quoc phong luc quan duoc huy dong cho du an xe tang T-2."
- VIE_lf_t2_design_program:0 "Thiet ke T-2"
- VIE_lf_t2_design_program_desc:0 "Hoan thien cau hinh vu khi, he thong bao ve va dong luc hoc cho xe tang T-2."
- VIE_lf_t2_prototype_evaluation:0 "Danh gia nguyen mau T-2"
- VIE_lf_t2_prototype_evaluation_desc:0 "Thu nghiem toan dien tinh co dong, hoa luc va kha nang song sot cua nguyen mau T-2."
- VIE_lf_t2_serial_production:0 "San xuat loat T-2"
- VIE_lf_t2_serial_production_desc:0 "Trien khai day chuyen san xuat loat xe tang T-2 tai Nha may Z179."
+ VIE_lf_t2_main_tank_idea_desc:0 "Huy động công nghiệp quốc phòng cho xe tăng T-2. Nghiên cứu xe tăng chiến đấu chủ lực +15%; trần hiệu suất sản xuất +5% và sản lượng +10% cho toàn bộ nhà máy quân sự."
+ VIE_lf_t2_design_program:0 "Thiết kế T-2"
+ VIE_lf_t2_design_program_desc:0 "Hoàn thiện cấu hình vũ khí, hệ thống bảo vệ và động lực học cho xe tăng T-2."
+ VIE_lf_t2_prototype_evaluation:0 "Đánh giá nguyên mẫu T-2"
+ VIE_lf_t2_prototype_evaluation_desc:0 "Thử nghiệm toàn diện tính cơ động, hỏa lực và khả năng sống sót của nguyên mẫu T-2."
+ VIE_lf_t2_serial_production:0 "Sản xuất loạt T-2"
+ VIE_lf_t2_serial_production_desc:0 "Triển khai dây chuyền sản xuất loạt xe tăng T-2 tại Nhà máy Z179."
 
  # ====================================================================
  # PK-KQ AIR DEFENSE & AIR FORCE BRANCH (35 FOCUSES, 6 IDEAS, 9 DECISIONS)
@@ -876,11 +876,11 @@
 
  VIE_nav35_molniya_ship_program:0 "Đóng chiếc đầu tiên: VIE Molniya 12418"
 
- VIE_nav35_molniya_ship_program_desc:0 "Hợp đồng gameplay 0.15 tỷ USD/730 ngày cho một chiếc. Cần blueprint đã chốt, ngân sách, căn cứ và dockyard đang kiểm soát. Tối đa một hợp đồng nội địa đang đóng; timer không sử dụng hoặc giữ chỗ production queue."
+ VIE_nav35_molniya_ship_program_desc:0 "Hợp đồng đóng mới tàu tên lửa tấn công nhanh Molniya 12418 tại Ba Son với ngân sách 0,15 tỷ USD trong 730 ngày. Yêu cầu đã hoàn tất thiết kế chuẩn và có xưởng đóng tàu ven biển đang hoạt động."
 
- VIE_nav35_molniya_ship_requirements_tt:0 "Cần blueprint VIE Molniya 12418, đủ công nghệ, ít nhất 0.15 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy và chưa nhận chiếc đầu tiên."
+ VIE_nav35_molniya_ship_requirements_tt:0 "Cần hoàn tất thiết kế Molniya 12418, đủ công nghệ, tối thiểu 0,15 tỷ USD ngân sách, có căn cứ và xưởng đóng tàu ven biển; không có hợp đồng tàu chiến nội địa nào khác đang thi công."
 
- VIE_nav35_molniya_ship_start_tt:0 "Thu 0.15 tỷ USD một lần, đóng trong 730 ngày. Không giữ chỗ production queue hoặc phát tàu ngay."
+ VIE_nav35_molniya_ship_start_tt:0 "Giải ngân §Y0,15 tỷ USD§!; triển khai thi công đóng mới trong §Y730 ngày§!."
 
  VIE_nav35_molniya_ship_finish_tt:0 "Bàn giao đúng một VIE Molniya 12418 khi đủ thời gian, công nghệ, blueprint, căn cứ và xưởng. Thiếu điều kiện: chờ và thử lại hằng tháng; không thu thêm tiền."
 
@@ -910,11 +910,11 @@
 
  VIE_nav35_tt400_ship_program:0 "Đóng chiếc đầu tiên: VIE TT400TP"
 
- VIE_nav35_tt400_ship_program_desc:0 "Hợp đồng gameplay 0.05 tỷ USD/365 ngày cho một chiếc. Cần blueprint đã chốt, ngân sách, căn cứ và dockyard đang kiểm soát. Tối đa một hợp đồng nội địa đang đóng; timer không sử dụng hoặc giữ chỗ production queue."
+ VIE_nav35_tt400_ship_program_desc:0 "Hợp đồng đóng mới tàu tuần tra pháo TT400TP tại Hồng Hà với ngân sách 0,05 tỷ USD trong 365 ngày. Yêu cầu đã hoàn tất thiết kế chuẩn và có xưởng đóng tàu ven biển đang hoạt động."
 
- VIE_nav35_tt400_ship_requirements_tt:0 "Cần blueprint VIE TT400TP, đủ công nghệ, ít nhất 0.05 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy và chưa nhận chiếc đầu tiên."
+ VIE_nav35_tt400_ship_requirements_tt:0 "Cần hoàn tất thiết kế TT400TP, đủ công nghệ, tối thiểu 0,05 tỷ USD ngân sách, có căn cứ và xưởng đóng tàu ven biển; không có hợp đồng tàu chiến nội địa nào khác đang thi công."
 
- VIE_nav35_tt400_ship_start_tt:0 "Thu 0.05 tỷ USD một lần, đóng trong 365 ngày. Không giữ chỗ production queue hoặc phát tàu ngay."
+ VIE_nav35_tt400_ship_start_tt:0 "Giải ngân §Y0,05 tỷ USD§!; triển khai thi công đóng mới trong §Y365 ngày§!."
 
  VIE_nav35_tt400_ship_finish_tt:0 "Bàn giao đúng một VIE TT400TP khi đủ thời gian, công nghệ, blueprint, căn cứ và xưởng. Thiếu điều kiện: chờ và thử lại hằng tháng; không thu thêm tiền."
 
@@ -950,7 +950,7 @@
 
  VIE_nav35_stealth_frigate_blueprint:0 "Chốt thiết kế khinh hạm tàng hình đa nhiệm VIE"
 
- VIE_nav35_stealth_frigate_blueprint_desc:0 "Tạo blueprint VIE Stealth Frigate 4000 một lần trên stealth_frigate_hull_1 sau khi hoàn thành Special Project Stealth Frigate và nghiên cứu đủ công nghệ/module. Lấy Istanbul-class làm cảm hứng đa nhiệm; 4.000 tấn là mục tiêu mô phỏng gameplay. Hull MD không có slot sonar riêng trong cấu hình này; khả năng chống ngầm được mô phỏng bằng đạn balanced và trực thăng. Không cấp tàu hoặc tự nghiên cứu công nghệ."
+ VIE_nav35_stealth_frigate_blueprint_desc:0 "Phê duyệt và chuẩn hóa hồ sơ thiết kế khinh hạm tàng hình đa nhiệm 4.000 tấn sau khi hoàn thành dự án nghiên cứu và đủ công nghệ. Tích hợp hệ thống cảm biến hiện đại, hỏa lực phòng không, đối hải và khả năng tác chiến chống ngầm toàn diện."
 
  VIE_nav35_stealth_frigate_blueprint_requirements_tt:0 "Cần I08, event phê duyệt, hoàn thành Special Project Stealth Frigate, có stealth_frigate_hull_1, cơ sở R&D đang sở hữu/kiểm soát và đủ công nghệ/module: $tech_diesel_power_systems_2$, $tech_fire_control_2$, $tech_combat_radar_3$, $tech_light_guns_3$, $tech_point_defense_system_4$, $tech_vls_surface_1$, $tech_vls_surface_3$, $tech_naval_systems_engineering$, $aircraft_heli_engineering_1$."
 
@@ -958,11 +958,11 @@
 
  VIE_nav35_stealth_frigate_program:0 "Ký hợp đồng chiếc đầu tiên: VIE Stealth Frigate 4000"
 
- VIE_nav35_stealth_frigate_program_desc:0 "Hợp đồng gameplay 0,8 tỷ USD/1.460 ngày cho một chiếc. Cần blueprint đã chốt, Special Project và tech còn hiệu lực, ngân sách, căn cứ và dockyard đang kiểm soát. Dùng timer, không giữ chỗ production queue."
+ VIE_nav35_stealth_frigate_program_desc:0 "Ký kết hợp đồng đóng mới khinh hạm tàng hình đa nhiệm thế hệ mới với ngân sách 0,8 tỷ USD trong 1.460 ngày (4 năm). Yêu cầu đã hoàn tất thiết kế chuẩn, dự án nghiên cứu trọng điểm và có xưởng đóng tàu ven biển."
 
- VIE_nav35_stealth_frigate_requirements_tt:0 "Cần I08, blueprint VIE Stealth Frigate 4000, Special Project Stealth Frigate đã hoàn tất, đủ công nghệ, ít nhất 0,8 tỷ USD, căn cứ và dockyard ven biển đang sở hữu/kiểm soát; không có hợp đồng nội địa khác đang chạy."
+ VIE_nav35_stealth_frigate_requirements_tt:0 "Cần hoàn thành dự án thiết kế khinh hạm tàng hình, đủ công nghệ, tối thiểu 0,8 tỷ USD ngân sách, có căn cứ và xưởng đóng tàu ven biển; không có hợp đồng tàu chiến nội địa nào khác đang thi công."
 
- VIE_nav35_stealth_frigate_program_start_tt:0 "Thu 0,8 tỷ USD một lần, chạy hợp đồng 1.460 ngày; chưa cấp tàu."
+ VIE_nav35_stealth_frigate_program_start_tt:0 "Giải ngân §Y0,8 tỷ USD§!; triển khai thi công đóng mới trong §Y1.460 ngày§!."
 
  VIE_nav35_stealth_frigate_program_finish_tt:0 "Bàn giao đúng một VIE Stealth Frigate 4000 khi đủ hạn và còn điều kiện project, công nghệ, căn cứ, xưởng. Nếu thiếu, chờ scheduler; không thu thêm tiền."
 

@@ -1,0 +1,497 @@
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - POLITICAL & TERM PROGRAMME DECISIONS
+# ====================================================================
+
+# ====================================================================
+# BALANCE OF POWER DECISIONS (Hiển thị trong khung Balance of Power)
+# ====================================================================
+VIE_leadership_balance_category = {
+	# Mo rong tham van tap the (BoP -0.05, cooldown chung 180 ngay)
+	VIE_bop_expand_collective_consultation = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_bop_cooldown
+				NOT = { has_country_flag = VIE_bop_action_cooldown }
+			}
+		}
+		visible = {
+			always = yes
+		}
+		cost = 50
+		days_re_enable = 180
+
+		complete_effect = {
+			hidden_effect = {
+				log = "[GetDateText]: [Root.GetName]: Expand collective consultation"
+				set_country_flag = { flag = VIE_bop_action_cooldown days = 180 }
+			}
+			VIE_bop_add_collective = yes
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = {
+				factor = 2
+				power_balance_value = {
+					id = VIE_leadership_balance
+					value > 0.1
+				}
+			}
+		}
+	}
+
+	# Tang quyen dieu phoi trung tam (BoP +0.05, cooldown chung 180 ngay)
+	VIE_bop_strengthen_central_coordination = {
+		icon = generic_propaganda
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_bop_cooldown
+				NOT = { has_country_flag = VIE_bop_action_cooldown }
+			}
+		}
+		visible = {
+			always = yes
+		}
+		cost = 50
+		days_re_enable = 180
+
+		complete_effect = {
+			hidden_effect = {
+				log = "[GetDateText]: [Root.GetName]: Strengthen central coordination"
+				set_country_flag = { flag = VIE_bop_action_cooldown days = 180 }
+			}
+			VIE_bop_add_central = yes
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = {
+				factor = 2
+				power_balance_value = {
+					id = VIE_leadership_balance
+					value < -0.1
+				}
+			}
+		}
+	}
+}
+
+VIE_political_leadership_category = {
+	# Hop xu ly bat dong / Hoa giai kien nghi (cooldown chung 180 ngay)
+	VIE_meeting_resolve_disagreements = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_meeting_disagreements
+				NOT = { has_country_flag = VIE_meeting_disagreements_active }
+			}
+		}
+		visible = {
+			always = yes
+		}
+		cost = 30
+		days_remove = 90
+		days_re_enable = 180
+
+		modifier = {
+			political_power_gain = -0.05
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_meeting_resolve_start
+			hidden_effect = {
+				log = "[GetDateText]: [Root.GetName]: Start meeting resolve disagreements"
+				set_country_flag = VIE_meeting_disagreements_active
+				if = {
+					limit = { check_variable = { VIE_leadership_cohesion < 20 } }
+					add_political_power = 15
+				}
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = VIE_tt_eff_meeting_resolve_finish
+			hidden_effect = {
+				log = "[GetDateText]: [Root.GetName]: Finish meeting resolve disagreements"
+				clr_country_flag = VIE_meeting_disagreements_active
+				set_temp_variable = { cohesion_add = 10 }
+				VIE_modify_cohesion = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 50
+			modifier = {
+				factor = 3
+				check_variable = { VIE_leadership_cohesion < 40 }
+			}
+		}
+	}
+
+	# Kiem nhiem: Tong Bi thu kiem Chu tich nuoc
+	VIE_adopt_dual_role_decision = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_adopt_dual_role
+				VIE_can_adopt_dual_role = yes
+			}
+		}
+		visible = {
+			check_variable = { VIE_last_congress > 8 }
+			NOT = { has_country_flag = VIE_dual_role_active }
+		}
+		cost = 60
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_adopt_dual_role
+			hidden_effect = {
+				VIE_adopt_dual_role = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 30
+			modifier = {
+				factor = 2
+				power_balance_value = {
+					id = VIE_leadership_balance
+					value > 0.4
+				}
+			}
+		}
+	}
+
+	# Tach lai chuc vu
+	VIE_split_dual_role_decision = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_split_dual_role
+				VIE_can_split_dual_role = yes
+			}
+		}
+		visible = {
+			has_country_flag = VIE_dual_role_active
+		}
+		cost = 45
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_split_dual_role
+			hidden_effect = {
+				VIE_split_dual_role = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = {
+				factor = 3
+				power_balance_value = {
+					id = VIE_leadership_balance
+					value < -0.1
+				}
+			}
+		}
+	}
+
+	# Du an ho tro thuc thi sau nghiem thu (Side Project)
+	VIE_side_project_decision = {
+		icon = generic_propaganda
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_side_project
+				has_country_flag = VIE_last_programme_full
+				NOT = { check_variable = { var = VIE_last_side_project_epoch value = VIE_programme_epoch compare = equals } }
+			}
+		}
+		visible = {
+			has_country_flag = VIE_last_programme_full
+		}
+		cost = 30
+		days_remove = 270
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_side_project_start
+			hidden_effect = {
+				log = "[GetDateText]: [Root.GetName]: Start side project"
+				set_variable = { VIE_last_side_project_epoch = VIE_programme_epoch }
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = VIE_tt_eff_side_project_finish
+			hidden_effect = {
+				log = "[GetDateText]: [Root.GetName]: Complete side project"
+				add_timed_idea = {
+					idea = VIE_side_project_bureaucracy_idea
+					days = 365
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 60
+		}
+	}
+}
+
+VIE_term_programmes_category = {
+	# ------------------------------------------------------------
+	# 4 Quyết định chọn Chương trình trọng điểm
+	# ------------------------------------------------------------
+	VIE_select_cadre_decision = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_select_programme
+				NOT = { has_country_flag = VIE_programme_active }
+				NOT = { has_country_flag = VIE_programme_selected }
+			}
+		}
+		visible = {
+			has_country_flag = VIE_congress_resolved
+			NOT = { has_country_flag = VIE_programme_active }
+			NOT = { has_country_flag = VIE_programme_selected }
+		}
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_select_cadre
+			hidden_effect = {
+				VIE_select_programme_cadre = yes
+			}
+		}
+
+		ai_will_do = { base = 25 }
+	}
+
+	VIE_select_admin_decision = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_select_programme
+				NOT = { has_country_flag = VIE_programme_active }
+				NOT = { has_country_flag = VIE_programme_selected }
+			}
+		}
+		visible = {
+			has_country_flag = VIE_congress_resolved
+			NOT = { has_country_flag = VIE_programme_active }
+			NOT = { has_country_flag = VIE_programme_selected }
+		}
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_select_admin
+			hidden_effect = {
+				VIE_select_programme_admin = yes
+			}
+		}
+
+		ai_will_do = { base = 25 }
+	}
+
+	VIE_select_inspection_decision = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_select_programme
+				NOT = { has_country_flag = VIE_programme_active }
+				NOT = { has_country_flag = VIE_programme_selected }
+			}
+		}
+		visible = {
+			has_country_flag = VIE_congress_resolved
+			NOT = { has_country_flag = VIE_programme_active }
+			NOT = { has_country_flag = VIE_programme_selected }
+		}
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_select_inspection
+			hidden_effect = {
+				VIE_select_programme_inspection = yes
+			}
+		}
+
+		ai_will_do = { base = 25 }
+	}
+
+	VIE_select_social_decision = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_select_programme
+				NOT = { has_country_flag = VIE_programme_active }
+				NOT = { has_country_flag = VIE_programme_selected }
+			}
+		}
+		visible = {
+			has_country_flag = VIE_congress_resolved
+			NOT = { has_country_flag = VIE_programme_active }
+			NOT = { has_country_flag = VIE_programme_selected }
+		}
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_select_social
+			hidden_effect = {
+				VIE_select_programme_social = yes
+			}
+		}
+
+		ai_will_do = { base = 25 }
+	}
+
+	# ------------------------------------------------------------
+	# Quyết định chốt Mode Khởi động
+	# ------------------------------------------------------------
+	VIE_launch_mode_standard_decision = {
+		icon = generic_propaganda
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_programme_selected
+				has_country_flag = VIE_programme_selected
+			}
+		}
+		visible = {
+			has_country_flag = VIE_programme_selected
+		}
+		cost = 40
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_launch_mode_standard
+			hidden_effect = {
+				VIE_launch_programme_standard = yes
+			}
+		}
+
+		ai_will_do = { base = 50 }
+	}
+
+	VIE_launch_mode_fast_paid_decision = {
+		icon = generic_propaganda
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_launch_mode_fast_paid
+				has_country_flag = VIE_programme_selected
+				VIE_is_central_zone = yes
+			}
+		}
+		visible = {
+			has_country_flag = VIE_programme_selected
+			VIE_is_central_zone = yes
+		}
+		cost = 65
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_launch_mode_fast_paid
+			hidden_effect = {
+				VIE_launch_programme_fast_paid = yes
+			}
+		}
+
+		ai_will_do = { base = 40 }
+	}
+
+	VIE_launch_mode_fast_override_decision = {
+		icon = generic_propaganda
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_launch_mode_fast_override
+				has_country_flag = VIE_programme_selected
+				VIE_is_central_zone = yes
+				check_variable = { VIE_leadership_cohesion > 55 }
+			}
+		}
+		visible = {
+			has_country_flag = VIE_programme_selected
+			VIE_is_central_zone = yes
+		}
+		cost = 25
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_launch_mode_fast_override
+			hidden_effect = {
+				VIE_launch_programme_fast_override = yes
+			}
+		}
+
+		ai_will_do = { base = 30 }
+	}
+
+	# ------------------------------------------------------------
+	# Nghiệm thu sớm chương trình (khi đủ 4 chỉ tiêu)
+	# ------------------------------------------------------------
+	VIE_review_programme_early_decision = {
+		icon = generic_political_actions
+		allowed = { original_tag = VIE }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = VIE_tt_req_review_programme_early
+				has_country_flag = VIE_programme_active
+				check_variable = { VIE_programme_targets_met > 3 }
+			}
+		}
+		visible = {
+			has_country_flag = VIE_programme_active
+		}
+		cost = 10
+
+		complete_effect = {
+			custom_effect_tooltip = VIE_tt_eff_review_programme_early
+			hidden_effect = {
+				VIE_resolve_programme_full = yes
+			}
+		}
+
+		ai_will_do = { base = 100 }
+	}
+
+	# ------------------------------------------------------------
+	# Mission đếm lùi Deadline 900 ngày
+	# ------------------------------------------------------------
+	VIE_term_programme_deadline_mission = {
+		icon = generic_propaganda
+		allowed = { original_tag = VIE }
+		available = {
+			always = no
+		}
+		visible = {
+			has_country_flag = VIE_programme_active
+		}
+		days_mission_timeout = 900
+
+		timeout_effect = {
+			custom_effect_tooltip = VIE_tt_eff_deadline_mission_eval
+			hidden_effect = {
+				if = {
+					limit = { check_variable = { VIE_programme_targets_met > 3 } }
+					VIE_resolve_programme_full = yes
+				}
+				else_if = {
+					limit = { check_variable = { VIE_programme_targets_met > 1 } }
+					VIE_resolve_programme_partial = yes
+				}
+				else = {
+					VIE_resolve_programme_fail = yes
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,222 @@
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - POLITICAL IDEAS & TIERS
+# ====================================================================
+
+ideas = {
+	country = {
+		# ------------------------------------------------------------
+		# To chuc - Can bo (Cadre Tiers)
+		# ------------------------------------------------------------
+		VIE_tier_cadre_1 = {
+			name = VIE_tier_cadre_1
+			picture = GFX_idea_VIE_idea_self_reliant_deterrence
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.05
+			}
+		}
+
+		VIE_tier_cadre_2 = {
+			name = VIE_tier_cadre_2
+			picture = GFX_idea_VIE_idea_self_reliant_deterrence
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+			}
+		}
+
+		VIE_tier_cadre_3 = {
+			name = VIE_tier_cadre_3
+			picture = GFX_idea_VIE_idea_self_reliant_deterrence
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+			}
+		}
+
+		# ------------------------------------------------------------
+		# Dieu hanh - Cong vu (Public Administration Tiers)
+		# ------------------------------------------------------------
+		VIE_tier_admin_1 = {
+			name = VIE_tier_admin_1
+			picture = GFX_idea_VIE_idea_def_ind_core
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.05
+				consumer_goods_factor = -0.01
+			}
+		}
+
+		VIE_tier_admin_2 = {
+			name = VIE_tier_admin_2
+			picture = GFX_idea_VIE_idea_def_ind_core
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		VIE_tier_admin_3 = {
+			name = VIE_tier_admin_3
+			picture = GFX_idea_VIE_idea_def_ind_core
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		# ------------------------------------------------------------
+		# Kiem tra - Giam sat (Inspection & Audit Tiers)
+		# ------------------------------------------------------------
+		VIE_tier_inspection_1 = {
+			name = VIE_tier_inspection_1
+			picture = GFX_idea_VIE_idea_def_ind_divest
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.01
+			}
+		}
+
+		VIE_tier_inspection_2 = {
+			name = VIE_tier_inspection_2
+			picture = GFX_idea_VIE_idea_def_ind_divest
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.02
+			}
+		}
+
+		VIE_tier_inspection_3 = {
+			name = VIE_tier_inspection_3
+			picture = GFX_idea_VIE_idea_def_ind_divest
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.03
+			}
+		}
+
+		# ------------------------------------------------------------
+		# Dan van - Xa hoi (Social & Mass Mobilization Tiers)
+		# ------------------------------------------------------------
+		VIE_tier_social_1 = {
+			name = VIE_tier_social_1
+			picture = GFX_idea_VIE_idea_military_rescue
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.01
+				war_support_factor = 0.01
+			}
+		}
+
+		VIE_tier_social_2 = {
+			name = VIE_tier_social_2
+			picture = GFX_idea_VIE_idea_military_rescue
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.02
+				war_support_factor = 0.02
+			}
+		}
+
+		VIE_tier_social_3 = {
+			name = VIE_tier_social_3
+			picture = GFX_idea_VIE_idea_military_rescue
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.03
+				war_support_factor = 0.03
+			}
+		}
+
+		# ------------------------------------------------------------
+		# Y niem thuong & phat co thoi han (Timed ideas)
+		# ------------------------------------------------------------
+		VIE_programme_partial_support_idea = {
+			name = VIE_programme_partial_support_idea
+			picture = GFX_idea_VIE_idea_self_reliant_deterrence
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.03
+			}
+		}
+
+		VIE_programme_fail_penalty_idea = {
+			name = VIE_programme_fail_penalty_idea
+			picture = GFX_idea_VIE_idea_military_rescue
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = -0.03
+			}
+		}
+
+		VIE_side_project_bureaucracy_idea = {
+			name = VIE_side_project_bureaucracy_idea
+			picture = GFX_idea_VIE_idea_def_ind_core
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.03
+				consumer_goods_factor = -0.01
+			}
+		}
+
+		VIE_e102_c_soe_construction_idea = {
+			name = VIE_e102_c_soe_construction_idea
+			picture = GFX_idea_VIE_idea_def_ind_core
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.02
+			}
+		}
+
+		VIE_xiv10_service_stability_idea = {
+			name = VIE_xiv10_service_stability_idea
+			picture = GFX_idea_VIE_idea_military_rescue
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.01
+			}
+		}
+
+		VIE_pilot_one_stop_legacy_idea = {
+			name = VIE_pilot_one_stop_legacy_idea
+			picture = GFX_idea_VIE_idea_def_ind_core
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.03
+			}
+		}
+
+		VIE_leadership_transition_penalty = {
+			name = VIE_leadership_transition_penalty
+			picture = GFX_idea_VIE_idea_military_rescue
+			allowed = { original_tag = VIE }
+			removal_cost = -1
+			modifier = {
+				political_power_factor = -0.05
+			}
+		}
+	}
+}

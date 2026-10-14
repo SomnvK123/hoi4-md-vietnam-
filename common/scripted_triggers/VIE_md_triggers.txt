@@ -71,6 +71,11 @@ VIE_us_arms_open_tt = {
 # Vietnam submod triggers: "Con duong Kien dinh" (CPV Hardline, MD ruling party index 4 = Communist-State).
 # Design: Con_duong_Kien_dinh_noi_dung_cay_focus_v2.md. Code plan: Con_duong_Kien_dinh_plan_code.md.
 
+VIE_hl_in_power = {
+	original_tag = VIE
+	emerging_communist_state_are_in_power = yes
+}
+
 # The hardline party (index 4) is in power. Every focus of the tree checks this, so the whole tree closes
 # the moment the party loses power; finished focuses keep their rewards.
 
@@ -404,7 +409,7 @@ VIE_nav35_blue_support_can_start = {
 	NOT = { has_country_flag = VIE_nav35_blue_support_running }
 	NOT = { has_country_flag = VIE_nav35_blue_support_ready }
 	NOT = { has_country_flag = VIE_nav35_blue_support_done }
-	check_variable = { treasury >= 8 }
+	check_variable = { var = treasury value = 8 compare = greater_than_or_equals }
 	VIE_nav35_asw_frigate_has_base = yes
 	VIE_nav35_has_shipyard = yes
 }
@@ -433,7 +438,7 @@ VIE_nav35_asw_frigate_can_start = {
     NOT = { has_country_flag = VIE_nav35_asw_frigate_running }
     NOT = { has_country_flag = VIE_nav35_asw_frigate_ready }
     NOT = { has_country_flag = VIE_nav35_asw_frigate_done }
-    check_variable = { treasury >= 0.6 }
+    check_variable = { var = treasury value = 0.6 compare = greater_than_or_equals }
     VIE_nav35_domestic_contract_free = yes
     VIE_nav35_asw_frigate_technology_ready = yes
     VIE_nav35_asw_frigate_has_base = yes
@@ -459,7 +464,7 @@ VIE_nav35_rd_state_ready = {
 VIE_nav35_rd_can_apply = {
 	original_tag = VIE
 	NOT = { has_country_flag = VIE_nav35_rd_done }
-	check_variable = { treasury >= 8 }
+	check_variable = { var = treasury value = 8 compare = greater_than_or_equals }
 	OR = {
 		519 = { VIE_nav35_rd_state_ready = yes }
 		522 = { VIE_nav35_rd_state_ready = yes }
@@ -532,7 +537,7 @@ VIE_nav35_molniya_ship_can_start = {
 	NOT = { has_country_flag = VIE_nav35_molniya_ship_running }
 	NOT = { has_country_flag = VIE_nav35_molniya_ship_ready }
 	NOT = { has_country_flag = VIE_nav35_molniya_ship_done }
-	check_variable = { treasury >= 0.15 }
+	check_variable = { var = treasury value = 0.15 compare = greater_than_or_equals }
 	VIE_nav35_domestic_contract_free = yes
 	VIE_nav35_molniya_ship_technology_ready = yes
 	VIE_nav35_asw_frigate_has_base = yes
@@ -573,7 +578,7 @@ VIE_nav35_tt400_ship_can_start = {
 	NOT = { has_country_flag = VIE_nav35_tt400_ship_running }
 	NOT = { has_country_flag = VIE_nav35_tt400_ship_ready }
 	NOT = { has_country_flag = VIE_nav35_tt400_ship_done }
-	check_variable = { treasury >= 0.05 }
+	check_variable = { var = treasury value = 0.05 compare = greater_than_or_equals }
 	VIE_nav35_domestic_contract_free = yes
 	VIE_nav35_tt400_ship_technology_ready = yes
 	VIE_nav35_asw_frigate_has_base = yes
@@ -633,7 +638,7 @@ VIE_nav35_stealth_frigate_can_start = {
 	NOT = { has_country_flag = VIE_nav35_stealth_frigate_running }
 	NOT = { has_country_flag = VIE_nav35_stealth_frigate_ready }
 	NOT = { has_country_flag = VIE_nav35_stealth_frigate_done }
-	check_variable = { treasury >= 0.8 }
+	check_variable = { var = treasury value = 0.8 compare = greater_than_or_equals }
 	VIE_nav35_domestic_contract_free = yes
 	VIE_nav35_stealth_frigate_project_ready = yes
 	VIE_nav35_stealth_frigate_technology_ready = yes
@@ -662,49 +667,49 @@ VIE_nav35_blue_support_can_deliver = {
 VIE_nav35_two_surface_ships = {
 	OR = {
 		# Screen destroyer la sub-unit rieng cua MD, dung chung equipment destroyer.
-		check_variable = { num_ships_with_type@screen_destroyer >= 2 }
-		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@corvette >= 1 } }
-		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@stealth_corvette >= 1 } }
-		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@screen_destroyer >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
-		check_variable = { num_ships_with_type@corvette >= 2 }
-		check_variable = { num_ships_with_type@stealth_corvette >= 2 }
-		check_variable = { num_ships_with_type@frigate >= 2 }
-		check_variable = { num_ships_with_type@stealth_frigate >= 2 }
-		check_variable = { num_ships_with_type@heavy_frigate >= 2 }
-		check_variable = { num_ships_with_type@destroyer >= 2 }
-		check_variable = { num_ships_with_type@stealth_destroyer >= 2 }
-		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@stealth_corvette >= 1 } }
-		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@corvette >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_corvette >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@stealth_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@frigate >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_frigate >= 1 } check_variable = { num_ships_with_type@heavy_frigate >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_frigate >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@stealth_frigate >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@heavy_frigate >= 1 } check_variable = { num_ships_with_type@destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@heavy_frigate >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
-		AND = { check_variable = { num_ships_with_type@destroyer >= 1 } check_variable = { num_ships_with_type@stealth_destroyer >= 1 } }
+		check_variable = { var = num_ships_with_type@screen_destroyer value = 2 compare = greater_than_or_equals }
+		AND = { check_variable = { var = num_ships_with_type@screen_destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@corvette value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@screen_destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_corvette value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@screen_destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@screen_destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@screen_destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@heavy_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@screen_destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@screen_destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_destroyer value = 1 compare = greater_than_or_equals } }
+		check_variable = { var = num_ships_with_type@corvette value = 2 compare = greater_than_or_equals }
+		check_variable = { var = num_ships_with_type@stealth_corvette value = 2 compare = greater_than_or_equals }
+		check_variable = { var = num_ships_with_type@frigate value = 2 compare = greater_than_or_equals }
+		check_variable = { var = num_ships_with_type@stealth_frigate value = 2 compare = greater_than_or_equals }
+		check_variable = { var = num_ships_with_type@heavy_frigate value = 2 compare = greater_than_or_equals }
+		check_variable = { var = num_ships_with_type@destroyer value = 2 compare = greater_than_or_equals }
+		check_variable = { var = num_ships_with_type@stealth_destroyer value = 2 compare = greater_than_or_equals }
+		AND = { check_variable = { var = num_ships_with_type@corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_corvette value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@heavy_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@heavy_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_corvette value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@heavy_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@heavy_frigate value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@stealth_frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@heavy_frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@heavy_frigate value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_destroyer value = 1 compare = greater_than_or_equals } }
+		AND = { check_variable = { var = num_ships_with_type@destroyer value = 1 compare = greater_than_or_equals } check_variable = { var = num_ships_with_type@stealth_destroyer value = 1 compare = greater_than_or_equals } }
 	}
 }
 
 VIE_nav35_fleet_ready = {
 	VIE_nav35_asw_frigate_has_base = yes
 	VIE_nav35_two_surface_ships = yes
-	check_variable = { num_ships_with_type@attack_submarine >= 1 }
+	check_variable = { var = num_ships_with_type@attack_submarine value = 1 compare = greater_than_or_equals }
 }
 
 VIE_nav35_g03_can_start = {

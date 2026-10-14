@@ -358,6 +358,2661 @@ shortcut = {
 	## CHINH TRI
 	###############################
 
+		#############################################################
+	## NHANH CHINH TRI: 74 FOCUS (NHIEM KY DAI HOI IX - XIV)
+	## Bo cuc: 6 nhiem ky x 12 focus/nhiem ky + 2 focus mo dau nam 2000
+	## Format: Khoang cach delta_x >= 4 giua cac node cung hang, khong dinh chu
+	## Co che: BoP lanh dao tap the - tap trung, Tiers 1-3 cho 4 linh vuc
+	#############################################################
+
+	focus = {
+
+		id = VIE_review_public_administration
+
+		icon = GFX_focus_VIE_review_public_administration
+
+		x = -64
+
+		y = 1
+
+		relative_position_id = VIE_doi_moi_continues
+
+		cost = 5
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_review_public_administration"
+
+			add_political_power = 30
+
+			set_country_flag = VIE_f01_done
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_publish_responsibility_rules
+
+		icon = GFX_focus_VIE_publish_responsibility_rules
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_review_public_administration
+
+		cost = 7
+
+		prerequisite = { focus = VIE_review_public_administration }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_publish_responsibility_rules"
+
+			add_political_power = -25
+
+			set_country_flag = VIE_f02_done
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_consult_provincial_leaders
+
+		icon = GFX_focus_VIE_consult_provincial_leaders
+
+		x = -4
+
+		y = 1
+
+		relative_position_id = VIE_publish_responsibility_rules
+
+		cost = 5
+
+		prerequisite = { focus = VIE_publish_responsibility_rules }
+
+		mutually_exclusive = { focus = VIE_establish_project_command }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_consult_provincial_leaders"
+
+			VIE_bop_add_large_collective = yes
+
+			set_temp_variable = { cohesion_add = 4 }
+
+			VIE_modify_cohesion = yes
+
+			set_country_flag = VIE_f03_consult_leaders
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_establish_project_command
+
+		icon = GFX_focus_VIE_establish_project_command
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_publish_responsibility_rules
+
+		cost = 5
+
+		prerequisite = { focus = VIE_publish_responsibility_rules }
+
+		mutually_exclusive = { focus = VIE_consult_provincial_leaders }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_establish_project_command"
+
+			VIE_bop_add_large_central = yes
+
+			add_political_power = -25
+
+			set_country_flag = VIE_f04_project_command
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_publish_land_compensation_plan
+
+		icon = GFX_focus_VIE_publish_land_compensation_plan
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_consult_provincial_leaders
+
+		cost = 7
+
+		prerequisite = { focus = VIE_consult_provincial_leaders }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_publish_land_compensation_plan"
+
+			country_event = { id = vie_pol.101 }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_audit_state_enterprise_guarantees
+
+		icon = GFX_focus_VIE_audit_state_enterprise_guarantees
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_establish_project_command
+
+		cost = 7
+
+		prerequisite = { focus = VIE_establish_project_command }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_audit_state_enterprise_guarantees"
+
+			country_event = { id = vie_pol.102 }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_publish_term_action_plan
+
+		icon = GFX_focus_VIE_publish_term_action_plan
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_publish_land_compensation_plan
+
+		cost = 5
+
+		prerequisite = { focus = VIE_publish_land_compensation_plan focus = VIE_audit_state_enterprise_guarantees }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_publish_term_action_plan"
+
+			add_political_power = 20
+
+			set_country_flag = VIE_f07_action_plan_done
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_pilot_one_stop_service
+
+		icon = GFX_focus_VIE_pilot_one_stop_service
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_publish_term_action_plan
+
+		cost = 7
+
+		prerequisite = { focus = VIE_publish_term_action_plan }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_pilot_one_stop_service"
+
+			add_timed_idea = { idea = VIE_pilot_one_stop_legacy_idea days = 365 }
+
+			set_country_flag = VIE_f08_one_stop_done
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_train_successor_candidates
+
+		icon = GFX_focus_VIE_train_successor_candidates
+
+		x = -4
+
+		y = 1
+
+		relative_position_id = VIE_pilot_one_stop_service
+
+		cost = 5
+
+		prerequisite = { focus = VIE_pilot_one_stop_service }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_train_successor_candidates"
+
+			set_country_flag = VIE_f09_train_candidates_done
+
+			if = { limit = { has_country_flag = VIE_programme_cadre } add_to_variable = { VIE_programme_targets_met = 1 } }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_publish_procurement_audits
+
+		icon = GFX_focus_VIE_publish_procurement_audits
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_pilot_one_stop_service
+
+		cost = 5
+
+		prerequisite = { focus = VIE_pilot_one_stop_service }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_publish_procurement_audits"
+
+			set_country_flag = VIE_f10_procurement_audits_done
+
+			if = { limit = { has_country_flag = VIE_programme_inspection } add_to_variable = { VIE_programme_targets_met = 1 } }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_ix11_rotate_cadres
+
+		icon = GFX_focus_VIE_ix11_rotate_cadres
+
+		x = -4
+
+		y = 1
+
+		relative_position_id = VIE_train_successor_candidates
+
+		cost = 5
+
+		prerequisite = { focus = VIE_train_successor_candidates }
+
+		mutually_exclusive = { focus = VIE_ix12_retain_cadres }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_ix11_rotate_cadres"
+
+			add_political_power = -20
+
+			set_temp_variable = { cohesion_add = 4 }
+
+			VIE_modify_cohesion = yes
+
+			set_country_flag = VIE_record_IX11
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_ix12_retain_cadres
+
+		icon = GFX_focus_VIE_ix12_retain_cadres
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_train_successor_candidates
+
+		cost = 5
+
+		prerequisite = { focus = VIE_train_successor_candidates }
+
+		mutually_exclusive = { focus = VIE_ix11_rotate_cadres }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_ix12_retain_cadres"
+
+			add_political_power = -20
+
+			set_country_flag = VIE_record_IX12
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_establish_grievance_hearings
+
+		icon = GFX_focus_VIE_establish_grievance_hearings
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_train_successor_candidates
+
+		cost = 5
+
+		prerequisite = { focus = VIE_train_successor_candidates }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_establish_grievance_hearings"
+
+			set_country_flag = VIE_f11_grievance_hearings_done
+
+			if = { limit = { has_country_flag = VIE_programme_social } add_to_variable = { VIE_programme_targets_met = 1 } }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_review_program_delivery
+
+		icon = GFX_focus_VIE_review_program_delivery
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_publish_procurement_audits
+
+		cost = 3
+
+		prerequisite = { focus = VIE_publish_procurement_audits }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 8 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_review_program_delivery"
+
+			set_country_flag = VIE_f12_review_done
+
+			if = { limit = { check_variable = { VIE_programme_targets_met > 3 } } VIE_resolve_programme_full = yes }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x01_state_capital_list
+
+		icon = GFX_focus_VIE_x01_state_capital_list
+
+		x = -4
+
+		y = 4
+
+		relative_position_id = VIE_publish_term_action_plan
+
+		cost = 5
+
+		prerequisite = { focus = VIE_publish_term_action_plan }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x01_state_capital_list"
+
+			set_country_flag = VIE_record_X01
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x05_investment_approval_rules
+
+		icon = GFX_focus_VIE_x05_investment_approval_rules
+		x = 6
+		y = 4
+		relative_position_id = VIE_publish_term_action_plan
+
+		cost = 5
+
+		prerequisite = { focus = VIE_publish_term_action_plan }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x05_investment_approval_rules"
+
+			set_country_flag = VIE_record_X05
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x02_separate_guarantees
+
+		icon = GFX_focus_VIE_x02_separate_guarantees
+
+		x = -4
+
+		y = 1
+
+		relative_position_id = VIE_x01_state_capital_list
+
+		cost = 7
+
+		prerequisite = { focus = VIE_x01_state_capital_list }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x02_separate_guarantees"
+
+			set_country_flag = VIE_record_X02
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x03_equitize_under_published_terms
+
+		icon = GFX_focus_VIE_x03_equitize_under_published_terms
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_x01_state_capital_list
+
+		cost = 7
+
+		prerequisite = { focus = VIE_x01_state_capital_list }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x03_equitize_under_published_terms"
+
+			set_country_flag = VIE_record_X03
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x11_disclose_enterprise_guarantees
+
+		icon = GFX_focus_VIE_x11_disclose_enterprise_guarantees
+		x = 4
+		y = 1
+		relative_position_id = VIE_x01_state_capital_list
+
+		cost = 7
+
+		prerequisite = { focus = VIE_x01_state_capital_list }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x11_disclose_enterprise_guarantees"
+
+			set_country_flag = VIE_record_X11
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x06_market_access_standards
+
+		icon = GFX_focus_VIE_x06_market_access_standards
+
+		x = -2
+
+		y = 1
+
+		relative_position_id = VIE_x05_investment_approval_rules
+
+		cost = 7
+
+		prerequisite = { focus = VIE_x05_investment_approval_rules }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x06_market_access_standards"
+
+			set_country_flag = VIE_record_X06
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x07_screen_sensitive_investments
+
+		icon = GFX_focus_VIE_x07_screen_sensitive_investments
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_x05_investment_approval_rules
+
+		cost = 7
+
+		prerequisite = { focus = VIE_x05_investment_approval_rules }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x07_screen_sensitive_investments"
+
+			set_country_flag = VIE_record_X07
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x09_audited_tranches
+
+		icon = GFX_focus_VIE_x09_audited_tranches
+
+		x = -2
+
+		y = 1
+
+		relative_position_id = VIE_x02_separate_guarantees
+
+		cost = 5
+
+		prerequisite = { focus = VIE_x02_separate_guarantees }
+
+		mutually_exclusive = { focus = VIE_x10_advance_key_project_capital }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x09_audited_tranches"
+
+			set_temp_variable = { treasury_change = -0.5 }
+
+			modify_treasury_effect = yes
+
+			set_country_flag = VIE_record_X09
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x10_advance_key_project_capital
+
+		icon = GFX_focus_VIE_x10_advance_key_project_capital
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_x02_separate_guarantees
+
+		cost = 5
+
+		prerequisite = { focus = VIE_x02_separate_guarantees }
+
+		mutually_exclusive = { focus = VIE_x09_audited_tranches }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x10_advance_key_project_capital"
+
+			set_temp_variable = { treasury_change = -0.5 }
+
+			modify_treasury_effect = yes
+
+			set_country_flag = VIE_record_X10
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x04_audit_post_equitization
+
+		icon = GFX_focus_VIE_x04_audit_post_equitization
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_x03_equitize_under_published_terms
+
+		cost = 3
+
+		prerequisite = { focus = VIE_x03_equitize_under_published_terms }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x04_audit_post_equitization"
+
+			set_country_flag = VIE_record_X04
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x08_data_governance_roles
+
+		icon = GFX_focus_VIE_x08_data_governance_roles
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_x06_market_access_standards
+
+		cost = 3
+
+		prerequisite = { focus = VIE_x06_market_access_standards focus = VIE_x07_screen_sensitive_investments }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x08_data_governance_roles"
+
+			set_country_flag = VIE_record_X08
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_x12_dialogue_investment_terms
+
+		icon = GFX_focus_VIE_x12_dialogue_investment_terms
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_x06_market_access_standards
+
+		cost = 5
+
+		prerequisite = { focus = VIE_x06_market_access_standards focus = VIE_x07_screen_sensitive_investments }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 9 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_x12_dialogue_investment_terms"
+
+			set_country_flag = VIE_record_X12
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi01_land_acquisition_records
+
+		icon = GFX_focus_VIE_xi01_land_acquisition_records
+
+		x = 0
+
+		y = 7
+
+		relative_position_id = VIE_publish_term_action_plan
+
+		cost = 5
+
+		prerequisite = { focus = VIE_publish_term_action_plan }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi01_land_acquisition_records"
+
+			set_country_flag = VIE_record_XI01
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi02_compensation_fund
+
+		icon = GFX_focus_VIE_xi02_compensation_fund
+
+		x = -8
+
+		y = 1
+
+		relative_position_id = VIE_xi01_land_acquisition_records
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xi01_land_acquisition_records }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi02_compensation_fund"
+
+			set_temp_variable = { treasury_change = -0.75 }
+
+			modify_treasury_effect = yes
+
+			set_country_flag = VIE_record_XI02
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi03_land_dispute_hearings
+
+		icon = GFX_focus_VIE_xi03_land_dispute_hearings
+
+		x = -4
+
+		y = 1
+
+		relative_position_id = VIE_xi01_land_acquisition_records
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xi01_land_acquisition_records }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi03_land_dispute_hearings"
+
+			set_country_flag = VIE_record_XI03
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi04_audit_land_revenues
+
+		icon = GFX_focus_VIE_xi04_audit_land_revenues
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_xi01_land_acquisition_records
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xi01_land_acquisition_records }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi04_audit_land_revenues"
+
+			set_country_flag = VIE_record_XI04
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi05_real_estate_bad_debt
+
+		icon = GFX_focus_VIE_xi05_real_estate_bad_debt
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_xi01_land_acquisition_records
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xi01_land_acquisition_records }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi05_real_estate_bad_debt"
+
+			set_country_flag = VIE_record_XI05
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi11_land_inspection_conclusions
+
+		icon = GFX_focus_VIE_xi11_land_inspection_conclusions
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_xi04_audit_land_revenues
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xi04_audit_land_revenues }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi11_land_inspection_conclusions"
+
+			set_country_flag = VIE_record_XI11
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi06_vamc_debt_resolution
+
+		icon = GFX_focus_VIE_xi06_vamc_debt_resolution
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_xi05_real_estate_bad_debt
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xi05_real_estate_bad_debt }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi06_vamc_debt_resolution"
+
+			set_country_flag = VIE_record_XI06
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi07_frozen_real_estate_projects
+
+		icon = GFX_focus_VIE_xi07_frozen_real_estate_projects
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_xi05_real_estate_bad_debt
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xi05_real_estate_bad_debt }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi07_frozen_real_estate_projects"
+
+			set_country_flag = VIE_record_XI07
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi12_credit_guarantor_audit
+
+		icon = GFX_focus_VIE_xi12_credit_guarantor_audit
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_xi06_vamc_debt_resolution
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xi06_vamc_debt_resolution }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi12_credit_guarantor_audit"
+
+			set_country_flag = VIE_record_XI12
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi08_oil_rig_incident_dossier
+
+		icon = GFX_focus_VIE_xi08_oil_rig_incident_dossier
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_xi07_frozen_real_estate_projects
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xi07_frozen_real_estate_projects }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi08_oil_rig_incident_dossier"
+
+			country_event = { id = vie_pol.108 }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi09_stalled_project_recovery_fund
+
+		icon = GFX_focus_VIE_xi09_stalled_project_recovery_fund
+
+		x = -2
+
+		y = 2
+
+		relative_position_id = VIE_xi07_frozen_real_estate_projects
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xi07_frozen_real_estate_projects }
+
+		mutually_exclusive = { focus = VIE_xi10_restructure_stalled_projects }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi09_stalled_project_recovery_fund"
+
+			set_temp_variable = { treasury_change = -0.5 }
+
+			modify_treasury_effect = yes
+
+			set_country_flag = VIE_record_XI09
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xi10_restructure_stalled_projects
+
+		icon = GFX_focus_VIE_xi10_restructure_stalled_projects
+
+		x = 2
+
+		y = 2
+
+		relative_position_id = VIE_xi07_frozen_real_estate_projects
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xi07_frozen_real_estate_projects }
+
+		mutually_exclusive = { focus = VIE_xi09_stalled_project_recovery_fund }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 10 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xi10_restructure_stalled_projects"
+
+			set_country_flag = VIE_record_XI10
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii01_delegated_signing_authority
+
+		icon = GFX_focus_VIE_xii01_delegated_signing_authority
+
+		x = -14
+
+		y = 1
+
+		relative_position_id = VIE_xi08_oil_rig_incident_dossier
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xi08_oil_rig_incident_dossier focus = VIE_publish_term_action_plan }
+
+		mutually_exclusive = { focus = VIE_xii05_cross_sectoral_programmes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii01_delegated_signing_authority"
+
+			set_country_flag = VIE_record_XII01
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii05_cross_sectoral_programmes
+
+		icon = GFX_focus_VIE_xii05_cross_sectoral_programmes
+
+		x = -10
+
+		y = 1
+
+		relative_position_id = VIE_xi08_oil_rig_incident_dossier
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xi08_oil_rig_incident_dossier focus = VIE_publish_term_action_plan }
+
+		mutually_exclusive = { focus = VIE_xii01_delegated_signing_authority }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii05_cross_sectoral_programmes"
+
+			set_country_flag = VIE_record_XII05
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii02_post_audit_approval
+
+		icon = GFX_focus_VIE_xii02_post_audit_approval
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_xii01_delegated_signing_authority
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xii01_delegated_signing_authority focus = VIE_xii05_cross_sectoral_programmes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii02_post_audit_approval"
+
+			set_country_flag = VIE_record_XII02
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii06_long_term_dual_role
+
+		icon = GFX_focus_VIE_xii06_long_term_dual_role
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_xii01_delegated_signing_authority
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xii01_delegated_signing_authority focus = VIE_xii05_cross_sectoral_programmes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii06_long_term_dual_role"
+
+			set_country_flag = VIE_record_XII06
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii10_cross_sectoral_timeframe
+
+		icon = GFX_focus_VIE_xii10_cross_sectoral_timeframe
+
+		x = -2
+
+		y = 1
+
+		relative_position_id = VIE_xii02_post_audit_approval
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xii02_post_audit_approval }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii10_cross_sectoral_timeframe"
+
+			set_country_flag = VIE_record_XII10
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii03_reform_acceptance_records
+
+		icon = GFX_focus_VIE_xii03_reform_acceptance_records
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xii02_post_audit_approval
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xii02_post_audit_approval }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii03_reform_acceptance_records"
+
+			set_country_flag = VIE_record_XII03
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii11_disclose_dual_role_power
+
+		icon = GFX_focus_VIE_xii11_disclose_dual_role_power
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xii06_long_term_dual_role
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xii06_long_term_dual_role }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii11_disclose_dual_role_power"
+
+			set_country_flag = VIE_record_XII11
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii07_leadership_accountability
+
+		icon = GFX_focus_VIE_xii07_leadership_accountability
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xii03_reform_acceptance_records
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xii03_reform_acceptance_records focus = VIE_xii06_long_term_dual_role }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii07_leadership_accountability"
+
+			set_country_flag = VIE_record_XII07
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii09_protect_substantive_decisions
+
+		icon = GFX_focus_VIE_xii09_protect_substantive_decisions
+		x = 2
+		y = 1
+		relative_position_id = VIE_xii07_leadership_accountability
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xii07_leadership_accountability }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii09_protect_substantive_decisions"
+
+			set_country_flag = VIE_record_XII09
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii04_conclude_handover
+
+		icon = GFX_focus_VIE_xii04_conclude_handover
+		x = -6
+		y = 1
+		relative_position_id = VIE_xii07_leadership_accountability
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xii07_leadership_accountability }
+
+		mutually_exclusive = { focus = VIE_xii08_dual_role_succession }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii04_conclude_handover"
+
+			set_country_flag = VIE_record_XII04
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii08_dual_role_succession
+
+		icon = GFX_focus_VIE_xii08_dual_role_succession
+		x = -2
+		y = 1
+		relative_position_id = VIE_xii07_leadership_accountability
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xii07_leadership_accountability }
+
+		mutually_exclusive = { focus = VIE_xii04_conclude_handover }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii08_dual_role_succession"
+
+			set_country_flag = VIE_record_XII08
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xii12_mid_term_reassignment
+
+		icon = GFX_focus_VIE_xii12_mid_term_reassignment
+		x = 6
+		y = 1
+		relative_position_id = VIE_xii07_leadership_accountability
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xii07_leadership_accountability }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 11 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xii12_mid_term_reassignment"
+
+			set_country_flag = VIE_record_XII12
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii01_maritime_incident_channel
+
+		icon = GFX_focus_VIE_xiii01_maritime_incident_channel
+
+		x = -8
+
+		y = 6
+
+		relative_position_id = VIE_xi08_oil_rig_incident_dossier
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xi08_oil_rig_incident_dossier }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii01_maritime_incident_channel"
+
+			set_country_flag = VIE_record_XIII01
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii02_coordinate_maritime_enforcement
+
+		icon = GFX_focus_VIE_xiii02_coordinate_maritime_enforcement
+
+		x = -4
+
+		y = 1
+
+		relative_position_id = VIE_xiii01_maritime_incident_channel
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xiii01_maritime_incident_channel }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii02_coordinate_maritime_enforcement"
+
+			set_country_flag = VIE_record_XIII02
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii03_regional_forum_position
+
+		icon = GFX_focus_VIE_xiii03_regional_forum_position
+
+		x = 4
+
+		y = 1
+
+		relative_position_id = VIE_xiii01_maritime_incident_channel
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xiii01_maritime_incident_channel }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii03_regional_forum_position"
+
+			set_country_flag = VIE_record_XIII03
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii10_sea_incident_dialogue
+
+		icon = GFX_focus_VIE_xiii10_sea_incident_dialogue
+
+		x = 0
+
+		y = 1
+
+		relative_position_id = VIE_xiii01_maritime_incident_channel
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiii01_maritime_incident_channel }
+
+		mutually_exclusive = { focus = VIE_xiii11_enforcement_presence_at_sea }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii10_sea_incident_dialogue"
+
+			set_country_flag = VIE_record_XIII10
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii04_protect_maritime_economy
+
+		icon = GFX_focus_VIE_xiii04_protect_maritime_economy
+
+		x = -2
+
+		y = 1
+
+		relative_position_id = VIE_xiii02_coordinate_maritime_enforcement
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xiii02_coordinate_maritime_enforcement }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii04_protect_maritime_economy"
+
+			set_country_flag = VIE_record_XIII04
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii11_enforcement_presence_at_sea
+
+		icon = GFX_focus_VIE_xiii11_enforcement_presence_at_sea
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xiii02_coordinate_maritime_enforcement
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xiii02_coordinate_maritime_enforcement }
+
+		mutually_exclusive = { focus = VIE_xiii10_sea_incident_dialogue }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii11_enforcement_presence_at_sea"
+
+			set_temp_variable = { treasury_change = -0.5 }
+
+			modify_treasury_effect = yes
+
+			set_country_flag = VIE_record_XIII11
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii05_corporate_bond_obligations
+
+		icon = GFX_focus_VIE_xiii05_corporate_bond_obligations
+
+		x = -2
+
+		y = 1
+
+		relative_position_id = VIE_xiii03_regional_forum_position
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiii03_regional_forum_position }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii05_corporate_bond_obligations"
+
+			country_event = { id = vie_pol.135 }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii09_technical_cooperation_terms
+
+		icon = GFX_focus_VIE_xiii09_technical_cooperation_terms
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xiii03_regional_forum_position
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiii03_regional_forum_position }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii09_technical_cooperation_terms"
+
+			set_country_flag = VIE_record_XIII09
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii06_bond_maturity_restructuring
+
+		icon = GFX_focus_VIE_xiii06_bond_maturity_restructuring
+
+		x = -2
+
+		y = 1
+
+		relative_position_id = VIE_xiii05_corporate_bond_obligations
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xiii05_corporate_bond_obligations }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii06_bond_maturity_restructuring"
+
+			set_country_flag = VIE_record_XIII06
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii07_protect_retail_bondholders
+
+		icon = GFX_focus_VIE_xiii07_protect_retail_bondholders
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xiii05_corporate_bond_obligations
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xiii05_corporate_bond_obligations }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii07_protect_retail_bondholders"
+
+			set_country_flag = VIE_record_XIII07
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii12_security_contract_adjustment
+
+		icon = GFX_focus_VIE_xiii12_security_contract_adjustment
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xiii09_technical_cooperation_terms
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiii09_technical_cooperation_terms }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii12_security_contract_adjustment"
+
+			country_event = { id = vie_pol.132 }
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiii08_bond_underwriter_audit
+
+		icon = GFX_focus_VIE_xiii08_bond_underwriter_audit
+
+		x = 2
+
+		y = 1
+
+		relative_position_id = VIE_xiii06_bond_maturity_restructuring
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xiii06_bond_maturity_restructuring focus = VIE_xiii07_protect_retail_bondholders }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 12 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiii08_bond_underwriter_audit"
+
+			set_country_flag = VIE_record_XIII08
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv01_civil_service_standards
+
+		icon = GFX_focus_VIE_xiv01_civil_service_standards
+		x = -8
+		y = 7
+		relative_position_id = VIE_xii07_leadership_accountability
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xii07_leadership_accountability }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv01_civil_service_standards"
+
+			set_country_flag = VIE_record_XIV01
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv02_term_audit_results
+
+		icon = GFX_focus_VIE_xiv02_term_audit_results
+		x = -2
+		y = 15
+		relative_position_id = VIE_x04_audit_post_equitization
+
+		cost = 7
+
+		prerequisite = { focus = VIE_x04_audit_post_equitization focus = VIE_xiii08_bond_underwriter_audit }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv02_term_audit_results"
+
+			set_country_flag = VIE_record_XIV02
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv03_services_and_compensation
+
+		icon = GFX_focus_VIE_xiv03_services_and_compensation
+		x = 14
+		y = 13
+		relative_position_id = VIE_xi02_compensation_fund
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xi02_compensation_fund focus = VIE_publish_land_compensation_plan }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv03_services_and_compensation"
+
+			set_country_flag = VIE_record_XIV03
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv04_handover_new_term
+
+		icon = GFX_focus_VIE_xiv04_handover_new_term
+		x = 0
+		y = 1
+		relative_position_id = VIE_xiv02_term_audit_results
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xiv02_term_audit_results }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv04_handover_new_term"
+
+			set_country_flag = VIE_record_XIV04
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv07_audit_handover_results
+
+		icon = GFX_focus_VIE_xiv07_audit_handover_results
+		x = -4
+		y = 1
+		relative_position_id = VIE_xiv02_term_audit_results
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xiv02_term_audit_results }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv07_audit_handover_results"
+
+			set_country_flag = VIE_record_XIV07
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv11_review_extended_contracts
+
+		icon = GFX_focus_VIE_xiv11_review_extended_contracts
+		x = 4
+		y = 1
+		relative_position_id = VIE_xiv02_term_audit_results
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiv02_term_audit_results }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv11_review_extended_contracts"
+
+			set_country_flag = VIE_record_XIV11
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv05_extend_incomplete_programmes
+
+		icon = GFX_focus_VIE_xiv05_extend_incomplete_programmes
+		x = -2
+		y = 1
+		relative_position_id = VIE_xiv03_services_and_compensation
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiv03_services_and_compensation }
+
+		mutually_exclusive = { focus = VIE_xiv06_reallocate_failed_resources }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv05_extend_incomplete_programmes"
+
+			add_political_power = -30
+
+			set_country_flag = VIE_record_XIV05
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv06_reallocate_failed_resources
+
+		icon = GFX_focus_VIE_xiv06_reallocate_failed_resources
+		x = 2
+		y = 1
+		relative_position_id = VIE_xiv03_services_and_compensation
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiv03_services_and_compensation }
+
+		mutually_exclusive = { focus = VIE_xiv05_extend_incomplete_programmes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv06_reallocate_failed_resources"
+
+			set_country_flag = VIE_record_XIV06
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv10_delivered_service_commitments
+
+		icon = GFX_focus_VIE_xiv10_delivered_service_commitments
+		x = 0
+		y = 2
+		relative_position_id = VIE_xiv03_services_and_compensation
+
+		cost = 3
+
+		prerequisite = { focus = VIE_xiv03_services_and_compensation }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv10_delivered_service_commitments"
+
+			add_timed_idea = { idea = VIE_xiv10_service_stability_idea days = 365 }
+
+			set_country_flag = VIE_record_XIV10
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv08_retain_specialist_teams
+
+		icon = GFX_focus_VIE_xiv08_retain_specialist_teams
+		x = -4
+		y = 1
+		relative_position_id = VIE_xiv04_handover_new_term
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiv04_handover_new_term }
+
+		mutually_exclusive = { focus = VIE_xiv09_replace_delivery_team }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv08_retain_specialist_teams"
+
+			add_political_power = -25
+
+			set_country_flag = VIE_record_XIV08
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv09_replace_delivery_team
+
+		icon = GFX_focus_VIE_xiv09_replace_delivery_team
+		x = 4
+		y = 1
+		relative_position_id = VIE_xiv04_handover_new_term
+
+		cost = 5
+
+		prerequisite = { focus = VIE_xiv04_handover_new_term }
+
+		mutually_exclusive = { focus = VIE_xiv08_retain_specialist_teams }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv09_replace_delivery_team"
+
+			set_country_flag = VIE_record_XIV09
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
+
+
+	focus = {
+
+		id = VIE_xiv12_finalize_2031_transition
+
+		icon = GFX_focus_VIE_xiv12_finalize_2031_transition
+		x = 0
+		y = 2
+		relative_position_id = VIE_xiv04_handover_new_term
+
+		cost = 7
+
+		prerequisite = { focus = VIE_xiv04_handover_new_term }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { check_variable = { VIE_last_congress > 13 } }
+
+		completion_reward = {
+
+			log = "[GetDateText]: [Root.GetName]: Focus VIE_xiv12_finalize_2031_transition"
+
+			set_country_flag = VIE_record_XIV12
+
+			add_political_power = 15
+
+		}
+
+		ai_will_do = { base = 70 }
+
+	}
+
 	## v6-fix: anchor moved above its dependents (engine resolves relative_position_id in file order)
 	focus = {
 		id = VIE_asean_integration

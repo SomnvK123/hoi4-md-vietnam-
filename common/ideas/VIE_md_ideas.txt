@@ -450,43 +450,53 @@ ideas = {
 
 		VIE_lf_xtc_program_idea = {
 			picture = GFX_idea_VIE_lf_arm_program
-			modifier = {
-				mechanized_equipment_design_speed_factor = 0.10
-				mechanized_equipment_production_efficiency_cap = 0.05
-				armored_car_equipment_design_speed_factor = 0.10
+			research_bonus = {
+				CAT_armored_fighting_vehicles = 0.10
 			}
-			cancelable = no
+			# Bonus san xuat ap dung cho toan bo nha may quan su.
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+			}
+			cancel_if_invalid = no
 		}
 
 		VIE_lf_t1_light_tank_idea = {
 			picture = GFX_idea_VIE_lf_arm_armor
-			modifier = {
-				light_tank_equipment_design_speed_factor = 0.10
-				light_tank_equipment_production_efficiency_cap = 0.05
-				tank_production_factor = 0.05
+			research_bonus = {
+				CAT_light_tanks = 0.10
 			}
-			cancelable = no
+			# Bonus san xuat ap dung cho toan bo nha may quan su.
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+			cancel_if_invalid = no
 		}
 
 		VIE_lf_spg_program_idea = {
 			picture = GFX_idea_VIE_lf_arm_arty
-			modifier = {
-				artillery_equipment_design_speed_factor = 0.10
-				artillery_production_factor = 0.05
-				self_propelled_artillery_research_speed_factor = 0.10
+			research_bonus = {
+				CAT_artillery = 0.10
+				CAT_self_propelled_artillery = 0.10
 			}
-			cancelable = no
+			# Bonus san xuat ap dung cho toan bo nha may quan su.
+			modifier = {
+				industrial_capacity_factory = 0.05
+			}
+			cancel_if_invalid = no
 		}
 
 		VIE_lf_t2_main_tank_idea = {
 			picture = GFX_idea_VIE_lf_arm_armor
-			modifier = {
-				medium_tank_equipment_design_speed_factor = 0.15
-				medium_tank_equipment_production_efficiency_cap = 0.10
-				tank_production_factor = 0.10
-				armor_research_speed_factor = 0.10
+			research_bonus = {
+				CAT_main_battle_tanks = 0.15
 			}
-			cancelable = no
+			# Bonus san xuat ap dung cho toan bo nha may quan su.
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.10
+			}
+			cancel_if_invalid = no
 		}
 
 
@@ -1504,7 +1514,7 @@ ideas = {
 			modifier = {
 				country_productivity_growth_modifier = -0.015
 				political_power_gain = -0.05
-				interest_rate_multiplier = 0.05
+				interest_rate_multiplier_modifier = 0.05
 			}
 		}
 

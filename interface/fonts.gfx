@@ -224,6 +224,14 @@ bitmapfonts = {
 	languages = { "l_english" } 
 	}	
 	
+
+	# v56: font nen bat buoc truoc override hoi_33w.
+	bitmapfont = {
+		name = "hoi_33w"
+		path = "gfx/fonts/hoi_33"
+		color = 0xffffffff
+	}
+
 	bitmapfont_override = { #Unknown							###(210508)
 		name = "hoi_33w"
 		fontfiles = { 
@@ -265,55 +273,18 @@ bitmapfonts = {
 	}
 
 
-	bitmapfont_override = {									###(210508)
-		name = "loadscreen_header"
-		fontfiles = { 
-			"gfx/fonts/hoi_30header"
-		}
-		color = 0xffffffff
 
-		textcolors = {
-			G = { 86 172 91 }
-			R = { 222 86 70 }
-			Y = { 238 201 35 }
-			H = { 238 201 35 }
-			T = { 255 255 255 }		
-		}
-		languages = { "l_english" } 
-	}
 
-	bitmapfont_override = {									###(210508)
-		name = "loadscreen_tip"
-		fontfiles = { 
-			"gfx/fonts/hoi_24header"
-		}		
-		cursor_offset = { 0 4 }
-		color = 0xffffffff
 
-		textcolors = {
-			G = { 86 172 91 }
-			R = { 222 86 70 }
-			Y = { 238 201 35 }
-			H = { 238 201 35 }
-			T = { 255 255 255 }
-		}
-		languages = { "l_english" } 
-	}
 
 	bitmapfont_override = {		##COUNTRIES'S NAME IN MAIN MAP				###(210508)
 		name = "tahoma_60"
 		fontfiles = { 
 			"gfx/fonts/hoi_mapfont4"
 		}	
-		color = 0xffffffff
+
 	
-		textcolors = {
-			G = { 86 172 91 }
-			R = { 222 86 70 }
-			Y = { 238 201 35 }
-			H = { 238 203 35 }
-			T = { 255 255 255 }	
-		}			
+
 		languages = { "l_english" }
 	}
 

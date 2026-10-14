@@ -1,12 +1,6 @@
 
-# Stubs for BoP effects - replaced when new political branch is implemented
-VIE_bop_reform_small = {}
-VIE_bop_reform_medium = {}
-VIE_bop_reform_large = {}
-VIE_bop_conservative_small = {}
-VIE_bop_conservative_medium = {}
-VIE_bop_conservative_large = {}
-﻿# ====================================================================
+# Alias BoP duoc dinh nghia duy nhat trong VIE_md_effects_politics.txt.
+# ====================================================================
 # MILLENNIUM DAWN: VIETNAM - ALL SCRIPTED EFFECTS
 # Consolidated single scripted_effects file
 # ====================================================================
@@ -208,7 +202,7 @@ VIE_transition_regime = {
 				}
 			}
 			hidden_effect = { clr_country_flag = VIE_party_rule_ended }
-			
+		}
 		else = {
 			hidden_effect = { set_country_flag = VIE_party_rule_ended }
 			# Party rule is over: set_leader_VIE must build the leader of a later return to slot 19 itself
@@ -264,7 +258,8 @@ VIE_event_scheduler = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				# Khai mac Dai hoi IX: 19/04/2001; scheduler chay ngay 01/04.
-							}
+				country_event = { id = vie_pol.1 days = 18 }
+			}
 		}
 		if = {
 			limit = {
@@ -272,11 +267,12 @@ VIE_event_scheduler = {
 				NOT = { has_country_flag = VIE_sched_congress_10 }
 			}
 			hidden_effect = { set_country_flag = VIE_sched_congress_10 }
-						if = {
+			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				# Khai mac Dai hoi X: 18/04/2006; scheduler chay ngay 01/04.
-							}
+				country_event = { id = vie_pol.2 days = 17 }
+			}
 		}
 		if = {
 			limit = {
@@ -284,11 +280,12 @@ VIE_event_scheduler = {
 				NOT = { has_country_flag = VIE_sched_congress_11 }
 			}
 			hidden_effect = { set_country_flag = VIE_sched_congress_11 }
-						if = {
+			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				# Khai mac Dai hoi XI: 12/01/2011; scheduler chay ngay 01/01.
-							}
+				country_event = { id = vie_pol.3 days = 11 }
+			}
 		}
 		if = {
 			limit = {
@@ -296,11 +293,12 @@ VIE_event_scheduler = {
 				NOT = { has_country_flag = VIE_sched_congress_12 }
 			}
 			hidden_effect = { set_country_flag = VIE_sched_congress_12 }
-						if = {
+			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				# Khai mac Dai hoi XII: 20/01/2016; scheduler chay ngay 01/01.
-							}
+				country_event = { id = vie_pol.4 days = 19 }
+			}
 		}
 	}
 
@@ -2023,7 +2021,8 @@ VIE_event_scheduler_p2 = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				# Khai mac chinh thuc Dai hoi XIII: 26/01/2021; scheduler chay ngay 01/01.
-							}
+				country_event = { id = vie_pol.5 days = 24 }
+			}
 		}
 		if = {
 			limit = {
@@ -2039,7 +2038,7 @@ VIE_event_scheduler_p2 = {
 				if = {
 					limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 					hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
-									}
+				}
 			}
 		}
 		if = {
@@ -2048,11 +2047,12 @@ VIE_event_scheduler_p2 = {
 				NOT = { has_country_flag = VIE_sched_congress_14 }
 			}
 			hidden_effect = { set_country_flag = VIE_sched_congress_14 }
-						if = {
+			if = {
 				limit = { NOT = { check_variable = { VIE_catch_up = 1 } } }
 				hidden_effect = { set_country_flag = { flag = VIE_popup_cd value = 1 days = 45 } }
 				# Khai mac Dai hoi XIV: 20/01/2026; scheduler chay ngay 01/01.
-							}
+				country_event = { id = vie_pol.6 days = 18 }
+			}
 		}
 		if = {
 			limit = { has_country_flag = VIE_to_lam_era }

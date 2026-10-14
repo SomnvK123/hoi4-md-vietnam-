@@ -1,0 +1,366 @@
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - POLITICAL EVENTS
+# Namespace: vie_pol
+# ====================================================================
+
+add_namespace = vie_pol
+
+# ------------------------------------------------------------
+# Dai hoi IX (19/04/2001)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.1
+	title = vie_pol.1.t
+	desc = vie_pol.1.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.1.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.1.a executed"
+		VIE_resolve_congress_9 = yes
+		custom_effect_tooltip = VIE_tt_congress_resolved
+	}
+}
+
+# ------------------------------------------------------------
+# Dai hoi X (18/04/2006)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.2
+	title = vie_pol.2.t
+	desc = vie_pol.2.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.2.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.2.a executed"
+		VIE_resolve_congress_10 = yes
+		custom_effect_tooltip = VIE_tt_congress_resolved
+	}
+}
+
+# ------------------------------------------------------------
+# Dai hoi XI (12/01/2011)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.3
+	title = vie_pol.3.t
+	desc = vie_pol.3.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.3.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.3.a executed"
+		VIE_resolve_congress_11 = yes
+		custom_effect_tooltip = VIE_tt_congress_resolved
+	}
+}
+
+# ------------------------------------------------------------
+# Dai hoi XII (20/01/2016)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.4
+	title = vie_pol.4.t
+	desc = vie_pol.4.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.4.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.4.a executed"
+		VIE_resolve_congress_12 = yes
+		custom_effect_tooltip = VIE_tt_congress_resolved
+	}
+}
+
+# ------------------------------------------------------------
+# Dai hoi XIII (25/01/2021)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.5
+	title = vie_pol.5.t
+	desc = vie_pol.5.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.5.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.5.a executed"
+		VIE_resolve_congress_13 = yes
+		custom_effect_tooltip = VIE_tt_congress_resolved
+	}
+}
+
+# ------------------------------------------------------------
+# Dai hoi XIV (19/01/2026)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.6
+	title = vie_pol.6.t
+	desc = vie_pol.6.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.6.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.6.a executed"
+		VIE_resolve_congress_14 = yes
+		custom_effect_tooltip = VIE_tt_congress_resolved
+	}
+}
+
+# ------------------------------------------------------------
+# E101: Phuong an den bu dat dai (Caller: F05)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.101
+	title = vie_pol.101.t
+	desc = vie_pol.101.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# Option A: Chot den bu truoc trien khai
+	option = {
+		name = vie_pol.101.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.101.a executed"
+		add_political_power = -25
+		set_temp_variable = { treasury_change = -0.5 }
+		modify_treasury_effect = yes
+		set_temp_variable = { cohesion_add = 2 }
+		VIE_modify_cohesion = yes
+		VIE_bop_add_collective = yes
+		set_country_flag = VIE_e101_petition_closed
+		set_country_flag = VIE_record_E101_A
+	}
+
+	# Option B: Trien khai truoc theo gia da duyet
+	option = {
+		name = vie_pol.101.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.101.b executed"
+		set_temp_variable = { cohesion_add = -8 }
+		VIE_modify_cohesion = yes
+		VIE_bop_add_central = yes
+		set_country_flag = VIE_e101_petition_pending
+		set_country_flag = VIE_record_E101_B
+	}
+
+	# Option C: Giam dien tich thu hoi
+	option = {
+		name = vie_pol.101.c
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.101.c executed"
+		add_political_power = -15
+		set_temp_variable = { treasury_change = -0.25 }
+		modify_treasury_effect = yes
+		set_temp_variable = { cohesion_add = 1 }
+		VIE_modify_cohesion = yes
+		set_country_flag = VIE_record_E101_C
+	}
+}
+
+# ------------------------------------------------------------
+# E102: Kiem toan bao lanh DNNN (Caller: F06)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.102
+	title = vie_pol.102.t
+	desc = vie_pol.102.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# Option A: Cap von co dieu kien kiem toan va cong khai
+	option = {
+		name = vie_pol.102.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.102.a executed"
+		add_political_power = -30
+		set_temp_variable = { treasury_change = -0.5 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_e102_data_access_unlocked
+		set_country_flag = VIE_record_E102_A
+	}
+
+	# Option B: Kiem toan bang doi trong nuoc
+	option = {
+		name = vie_pol.102.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.102.b executed"
+		add_political_power = -20
+		set_temp_variable = { treasury_change = -0.25 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_record_E102_B
+	}
+
+	# Option C: Giu bao lanh, hoan cong khai
+	option = {
+		name = vie_pol.102.c
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.102.c executed"
+		set_temp_variable = { treasury_change = -0.75 }
+		modify_treasury_effect = yes
+		add_timed_idea = {
+			idea = VIE_e102_c_soe_construction_idea
+			days = 365
+		}
+		set_country_flag = VIE_record_E102_C
+	}
+}
+
+# ------------------------------------------------------------
+# E103: Bang chung truoc han (Caller: Kiem tra ngay 450)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.103
+	title = vie_pol.103.t
+	desc = vie_pol.103.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# Option A: Cam ket nop ho so day du dung han
+	option = {
+		name = vie_pol.103.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.103.a executed"
+		set_country_flag = VIE_e103_committed_standard
+		set_country_flag = VIE_record_E103_A
+	}
+
+	# Option B: Xin gia han, cong khai phan con thieu
+	option = {
+		name = vie_pol.103.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.103.b executed"
+		set_temp_variable = { treasury_change = -0.5 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_e103_early_reward_forfeited
+		set_country_flag = VIE_record_E103_B
+	}
+
+	# Option C: Cong bo ket qua co gioi han
+	option = {
+		name = vie_pol.103.c
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.103.c executed"
+		add_political_power = -15
+		set_country_flag = VIE_e103_early_reward_forfeited
+		set_country_flag = VIE_record_E103_C
+	}
+}
+
+# ------------------------------------------------------------
+# E104: Hop tac ky thuat DNNN va an ninh du lieu (Caller: ngay 500)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.104
+	title = vie_pol.104.t
+	desc = vie_pol.104.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	# Option A: Ky goi co quyen tiep can du lieu
+	option = {
+		name = vie_pol.104.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.104.a executed"
+		add_political_power = -30
+		set_temp_variable = { treasury_change = 0.75 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_e104_signed
+		set_country_flag = VIE_e104_data_rights_granted
+		set_country_flag = VIE_record_E104_A
+	}
+
+	# Option B: Xin goi thu hep du lieu
+	option = {
+		name = vie_pol.104.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.104.b executed"
+		add_political_power = -15
+		set_temp_variable = { treasury_change = 0.25 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_e104_signed
+		set_country_flag = VIE_record_E104_B
+	}
+
+	# Option C: Dung doi trong nuoc
+	option = {
+		name = vie_pol.104.c
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.104.c executed"
+		set_country_flag = VIE_e104_refused
+		set_country_flag = VIE_record_E104_C
+	}
+}
+
+# ------------------------------------------------------------
+# XI08: Ho so ung pho su co Gian khoan 2014
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.108
+	title = vie_pol.108.t
+	desc = vie_pol.108.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.108.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.108.a executed"
+		add_political_power = -15
+		set_country_flag = VIE_record_XI08_A
+	}
+
+	option = {
+		name = vie_pol.108.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.108.b executed"
+		set_temp_variable = { treasury_change = -0.5 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_record_XI08_B
+	}
+}
+
+# ------------------------------------------------------------
+# XIII05: Khung hoang thi truong trai phieu doanh nghiep (Q4/2022)
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.135
+	title = vie_pol.135.t
+	desc = vie_pol.135.d
+	picture = GFX_report_event_generic_stock_traders
+	is_triggered_only = yes
+
+	option = {
+		name = vie_pol.135.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.135.a executed"
+		add_political_power = -20
+		set_country_flag = VIE_record_XIII05_A
+	}
+
+	option = {
+		name = vie_pol.135.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.135.b executed"
+		set_temp_variable = { treasury_change = -0.5 }
+		modify_treasury_effect = yes
+		set_country_flag = VIE_record_XIII05_B
+	}
+}
+
+# ------------------------------------------------------------
+# XIII12: Dieu chinh hop dong sau canh bao an ninh
+# ------------------------------------------------------------
+country_event = {
+	id = vie_pol.132
+	title = vie_pol.132.t
+	desc = vie_pol.132.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	# Option A: Sua dieu kien du lieu
+	option = {
+		name = vie_pol.132.a
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.132.a executed"
+		set_country_flag = VIE_e104_amended
+		set_country_flag = VIE_record_XIII12_A
+	}
+
+	# Option B: Huy hop dong
+	option = {
+		name = vie_pol.132.b
+		log = "[GetDateText]: [This.GetName]: Event vie_pol.132.b executed"
+		set_country_flag = VIE_e104_terminated
+		set_country_flag = VIE_record_XIII12_B
+	}
+}

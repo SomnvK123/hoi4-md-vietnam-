@@ -1,5 +1,20 @@
 # Kiểm tra (validation)
 
+## Sửa error.log v55 — 13/10/2026
+
+Cập nhật v56 (14/10/2026): kiểm thêm schema cộng BoP, bốn delta helper,
+thứ tự/guard retire, biên ngày roster, font nền cho override, schema font,
+provider FNT/DDS và kích thước atlas. Bộ hồi quy hiện có 1.136 kiểm tra;
+I1–I10 được chạy trên bản sao tạm để không ghi lại tài liệu/CSV gốc.
+Chưa nghiệm thu lượt khởi động HOI4 sau v56.
+
+Chạy `python tools/audit/error_log_regressions.py --md <MD root> --game <HOI4 root>`
+để kiểm BOM/ngoặc, schema so sánh, biên ngân khố/số tàu/ngày, epoch dự án phụ,
+khởi tạo BoP, 74 node chính trị, provider category, tổng bonus và roster history.
+`naval_scenarios.py` hỗ trợ cả cú pháp ngắn và `var/value/compare` của engine.
+[Báo cáo, lỗi audit còn mở và checklist runtime](../../VIE_error_log_fix_v55.md).
+Đây là kiểm tĩnh; chưa nghiệm thu lượt chơi mới sau sửa.
+
 Repo không có CI, pre-commit hay pytest. Kiểm tra là các script Python trong `tools/`
 (audit dữ liệu chủ yếu dùng thư viện chuẩn; audit ảnh cần Pillow),
 chạy tay từ gốc repo. Không có công cụ nào chạy được HOI4, nên "đã qua script" chưa có nghĩa là

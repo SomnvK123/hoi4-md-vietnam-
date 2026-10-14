@@ -1,2 +1,53 @@
-# Balance of Power for Vietnam.
-# Reserved for new political branch implementation (VIE_leadership_balance).
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - BALANCE OF POWER
+# VIE_leadership_balance (Lanh dao Tap the <-> Lanh dao Tap trung)
+# ====================================================================
+
+VIE_leadership_balance = {
+	initial_value = 0.0
+	left_side = VIE_bop_side_collective
+	right_side = VIE_bop_side_central
+	decision_category = VIE_leadership_balance_category
+
+	# Vung Can bang: -0.25 den +0.25 (Neutral / Equilibrium Range)
+	range = {
+		id = VIE_bop_range_balanced
+		min = -0.25
+		max = 0.25
+		modifier = {
+			political_power_gain = 0.03
+		}
+	}
+
+	# Vung Tap the: Duoi -0.25 (Left side)
+	side = {
+		id = VIE_bop_side_collective
+		icon = GFX_bop_VIE_collective
+
+		range = {
+			id = VIE_bop_range_collective
+			min = -1.0
+			max = -0.25
+			modifier = {
+				political_power_gain = 0.03
+				stability_factor = 0.05
+			}
+		}
+	}
+
+	# Vung Tap trung: Tren +0.25 (Right side)
+	side = {
+		id = VIE_bop_side_central
+		icon = GFX_bop_VIE_central
+
+		range = {
+			id = VIE_bop_range_central
+			min = 0.25
+			max = 1.0
+			modifier = {
+				political_power_gain = 0.03
+				war_support_factor = 0.03
+			}
+		}
+	}
+}

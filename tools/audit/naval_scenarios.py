@@ -121,13 +121,31 @@ class State:
             elif k == 'custom_trigger_tooltip': result = self.condition([n for n in v if n[0]!='tooltip'])
             elif k == 'has_idea': result = v in self.ideas
             elif k == 'check_variable':
+                # Ho tro ca cu phap ngan va var/value/compare cua engine 1.19.
+                if value(v, 'var') is not None:
+                    var = value(v, 'var')
+                    number = value(v, 'value')
+                    compare = value(v, 'compare', 'equals')
+                    if number is None:
+                        raise AssertionError('check_variable missing value')
+                    pairs = [(var, compare, number)]
+                else:
+                    pairs = [(var, compare, number) for var, compare, number, _ in v]
                 comparisons = []
-                for var, compare, number, _ in v:
+                for var, compare, number in pairs:
                     actual = self.variables.get(var, 0)
-                    expected = float(number)
+                    try:
+                        expected = float(number)
+                    except ValueError:
+                        expected = self.variables.get(number, 0)
                     comparisons.append({'=': actual == expected, '>': actual > expected,
                                         '<': actual < expected, '>=': actual >= expected,
-                                        '<=': actual <= expected}[compare])
+                                        '<=': actual <= expected, 'equals': actual == expected,
+                                        'not_equals': actual != expected,
+                                        'greater_than': actual > expected,
+                                        'greater_than_or_equals': actual >= expected,
+                                        'less_than': actual < expected,
+                                        'less_than_or_equals': actual <= expected}[compare])
                 result = all(comparisons)
             elif k == 'date':
                 when = tuple(int(x) for x in v.split('.'))

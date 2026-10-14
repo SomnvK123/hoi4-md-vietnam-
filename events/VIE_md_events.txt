@@ -984,7 +984,7 @@ country_event = {
 		name = vie_disaster.1.b
 		trigger = {
 			date > 2013.1.1
-			date <= 2023.1.1
+			NOT = { date > 2023.1.1 }
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.b executed"
 		set_temp_variable = { treasury_change = -0.5 }
@@ -996,14 +996,13 @@ country_event = {
 	option = {
 		name = vie_disaster.1.c
 		trigger = {
-			date <= 2013.1.1
+			NOT = { date > 2013.1.1 }
 		}
 		log = "[GetDateText]: [This.GetName]: Event vie_disaster.1.c executed"
 		set_temp_variable = { treasury_change = -2.0 }
 		modify_treasury_effect = yes
 		add_stability = -0.05
 	}
-}
 }
 
 
@@ -1125,7 +1124,6 @@ country_event = {
 	}
 
 	
-	}
 }
 
 ########################################################################

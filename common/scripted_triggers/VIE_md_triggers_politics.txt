@@ -1,0 +1,55 @@
+# ====================================================================
+# MILLENNIUM DAWN: VIETNAM - POLITICAL SCRIPTED TRIGGERS
+# ====================================================================
+
+VIE_is_collective_zone = {
+	power_balance_value = {
+		id = VIE_leadership_balance
+		value < -0.25
+	}
+}
+
+VIE_is_central_zone = {
+	power_balance_value = {
+		id = VIE_leadership_balance
+		value > 0.25
+	}
+}
+
+VIE_is_balanced_zone = {
+	NOT = {
+		power_balance_value = {
+			id = VIE_leadership_balance
+			value < -0.25
+		}
+	}
+	NOT = {
+		power_balance_value = {
+			id = VIE_leadership_balance
+			value > 0.25
+		}
+	}
+}
+
+VIE_can_adopt_dual_role = {
+	check_variable = { VIE_last_congress > 8 }
+	power_balance_value = {
+		id = VIE_leadership_balance
+		value > 0.25
+	}
+	check_variable = { VIE_leadership_cohesion > 54 }
+	NOT = { has_country_flag = VIE_dual_role_active }
+}
+
+VIE_can_split_dual_role = {
+	has_country_flag = VIE_dual_role_active
+}
+
+VIE_e104_can_amend = {
+	has_country_flag = VIE_e104_signed
+	NOT = { has_country_flag = VIE_e104_terminated }
+	OR = {
+		check_variable = { VIE_e104_remaining_support > 0 }
+		has_country_flag = VIE_e104_rights_unused
+	}
+}

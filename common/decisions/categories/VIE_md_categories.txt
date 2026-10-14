@@ -5,6 +5,17 @@ VIE_military_readiness_category = {
 }
 
 # "Thuc hien Nghi quyet": Party-Congress-term decisions (see VIE_congress_spine_redesign.md section 6).
+VIE_political_leadership_category = {
+	allowed = { original_tag = VIE }
+	priority = 95
+	visible = { always = yes }
+}
+
+VIE_term_programmes_category = {
+	allowed = { original_tag = VIE }
+	priority = 94
+	visible = { has_country_flag = VIE_congress_resolved }
+}
 
 # Hop tac an ninh bien (nhanh Bien Dong): tap tran, tau nuoc ngoai tham cang Cam Ranh, huan luyen chung
 # (VIE_md_scs_coop_decisions.txt). Cong la Focus VIE_scs_maritime_cooperation. priority 88: duoi het cac category khac.
@@ -23,10 +34,12 @@ VIE_scs_cooperation_category = {
 # Bo may An ninh: decision cua nhanh Nha nuoc An ninh (focus goc VIE_sec_security_state dat co VIE_security_active).
 
 
-# Cán cân Định hướng của Đảng (liên kết với VIE_party_balance trong common/bop/VIE_md_bop.txt)
-
-
-
+# Can can Phuong thuc Lanh dao (lien ket voi VIE_leadership_balance trong common/bop/VIE_md_bop.txt)
+VIE_leadership_balance_category = {
+	allowed = { original_tag = VIE }
+	icon = GFX_decision_category_power_struggle
+	priority = 96
+}
 
 # Ha tang quoc gia: bon nganh dau tu doc lap.
 
