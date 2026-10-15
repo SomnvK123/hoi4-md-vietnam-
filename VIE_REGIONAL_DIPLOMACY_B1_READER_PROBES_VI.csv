@@ -1,0 +1,11 @@
+﻿link,action,source_band,base_pp,factor,derived_pp,status
+candidate_cohesion_price,send,0..19,30.0,1.25,38,retired_price_reader_not_applied
+candidate_cohesion_price,resend,0..19,20.0,1.25,25,retired_price_reader_not_applied
+candidate_cohesion_price,send,20..39,30.0,1.15,35,retired_price_reader_not_applied
+candidate_cohesion_price,resend,20..39,20.0,1.15,23,retired_price_reader_not_applied
+candidate_cohesion_price,send,40..54,30.0,1.05,32,retired_price_reader_not_applied
+candidate_cohesion_price,resend,40..54,20.0,1.05,21,retired_price_reader_not_applied
+candidate_cohesion_price,send,55..69,30.0,1,30,retired_price_reader_not_applied
+candidate_cohesion_price,resend,55..69,20.0,1,20,retired_price_reader_not_applied
+candidate_cohesion_price,send,70..100,30.0,0.9,27,retired_price_reader_not_applied
+candidate_cohesion_price,resend,70..100,20.0,0.9,18,retired_price_reader_not_applied

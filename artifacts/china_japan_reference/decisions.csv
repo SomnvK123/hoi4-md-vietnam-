@@ -1,0 +1,1173 @@
+﻿id,line,allowed,pp,days_remove,cooldown,source
+CHI_activate_rare_earth_embargo,6255,allowed = { original_tag = CHI },100,,,"CHI_activate_rare_earth_embargo = {
+		icon = SWI_isolate_switzerland
+		allowed = { original_tag = CHI }
+
+		visible = {
+			has_completed_focus = CHI_the_rare_earth_lever
+			NOT = { has_country_flag = CHI_rare_earth_embargo_active }
+		}
+
+		available = {
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+			NOT = { JAP = { has_country_flag = CHI_jap_rare_earth_resilient } }
+		}
+
+		cost = 100
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_activate_rare_earth_embargo executed""
+			set_country_flag = CHI_rare_earth_embargo_active
+			JAP = {
+				capital_scope = { add_dynamic_modifier = { modifier = CHI_rare_earth_embargoed } }
+				add_opinion_modifier = { target = CHI modifier = threatened_measures }
+			}
+			add_to_variable = { CHI_chinese_aggression = 1 tooltip = CHI_chinese_aggression_tt }
+			clamp_variable = { var = CHI_chinese_aggression min = -50 max = 50 }
+		}
+
+		ai_will_do = {
+			base = 2
+			modifier = {
+				factor = 0
+				has_war_with = JAP
+			}
+			modifier = {
+				factor = 0
+				JAP = { has_country_flag = CHI_jap_rare_earth_resilient }
+			}
+		}
+	}"
+CHI_lift_rare_earth_embargo,6296,allowed = { original_tag = CHI },0,,,"CHI_lift_rare_earth_embargo = {
+		icon = SWI_support_humanitarian_efforts
+		allowed = { original_tag = CHI }
+		visible = { has_country_flag = CHI_rare_earth_embargo_active }
+		available = { always = yes }
+		cost = 0
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_lift_rare_earth_embargo executed""
+			clr_country_flag = CHI_rare_earth_embargo_active
+			JAP = {
+				capital_scope = {
+					if = { limit = { has_dynamic_modifier = { modifier = CHI_rare_earth_embargoed } } remove_dynamic_modifier = { modifier = CHI_rare_earth_embargoed } }
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				has_war_with = JAP
+			}
+			modifier = {
+				add = 3
+				JAP = { has_country_flag = CHI_jap_rare_earth_resilient }
+			}
+			modifier = {
+				add = 3
+				JAP = { has_country_flag = JAP_rare_earth_capitulated }
+			}
+		}
+	}"
+CHI_patrol_diaoyu_fishing_grounds,6330,allowed = { original_tag = CHI },50,,90,"CHI_patrol_diaoyu_fishing_grounds = {
+		icon = generic_naval
+		allowed = { original_tag = CHI }
+		visible = { has_completed_focus = CHI_the_diaoyu_sovereignty_declaration }
+
+		available = {
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+		}
+
+		cost = 50
+		days_re_enable = 90
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_patrol_diaoyu_fishing_grounds executed""
+			add_to_variable = { var = CHI_senkaku_pressure value = 3 tooltip = CHI_senkaku_pressure_tt }
+			clamp_variable = { var = CHI_senkaku_pressure min = 0 max = 100 }
+			add_to_variable = { CHI_chinese_aggression = 1 tooltip = CHI_chinese_aggression_tt }
+			clamp_variable = { var = CHI_chinese_aggression min = -50 max = 50 }
+			if = {
+				limit = { NOT = { has_country_flag = CHI_diaoyu_fishing_demand_sent } }
+				set_country_flag = CHI_diaoyu_fishing_demand_sent
+				JAP = { country_event = { id = Japan.8 days = 3 } }
+			}
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_war_with = JAP
+			}
+		}
+	}"
+CHI_deploy_paf_maritime_militia,6365,allowed = { original_tag = CHI },75,,,"CHI_deploy_paf_maritime_militia = {
+		icon = SWE_set_navy_budget
+		allowed = { original_tag = CHI }
+
+		visible = {
+			has_completed_focus = CHI_the_maritime_militia_initiative
+			NOT = { has_country_flag = CHI_paf_militia_toggle_active }
+		}
+
+		available = {
+			country_exists = JAP
+			NOT = { has_war_with = JAP }
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_deploy_paf_maritime_militia executed""
+			set_country_flag = CHI_paf_militia_toggle_active
+			939 = { add_dynamic_modifier = { modifier = CHI_coast_guard_standoff } }
+			add_to_variable = { CHI_senkaku_pressure = 5 tooltip = CHI_senkaku_pressure_tt }
+			clamp_variable = { var = CHI_senkaku_pressure min = 0 max = 100 }
+		}
+
+		ai_will_do = {
+			base = 2
+			modifier = {
+				factor = 0
+				has_war_with = JAP
+			}
+		}
+	}"
+CHI_recall_paf_maritime_militia,6398,allowed = { original_tag = CHI },0,,,"CHI_recall_paf_maritime_militia = {
+		icon = SWE_set_navy_budget
+		allowed = { original_tag = CHI }
+		visible = { has_country_flag = CHI_paf_militia_toggle_active }
+		available = { always = yes }
+		cost = 0
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_recall_paf_maritime_militia executed""
+			clr_country_flag = CHI_paf_militia_toggle_active
+			939 = {
+				if = { limit = { has_dynamic_modifier = { modifier = CHI_coast_guard_standoff } } remove_dynamic_modifier = { modifier = CHI_coast_guard_standoff } }
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				has_war_with = JAP
+			}
+			modifier = {
+				add = 3
+				check_variable = { CHI_senkaku_pressure > 95 }
+			}
+		}
+	}"
+CHI_jap_capitulate_to_demands,6426,allowed = { original_tag = JAP },200,,,"CHI_jap_capitulate_to_demands = {
+		icon = generic_political_discourse
+		allowed = { original_tag = JAP }
+
+		visible = {
+			CHI = { has_country_flag = CHI_rare_earth_embargo_active }
+			NOT = { has_country_flag = CHI_jap_rare_earth_resilient }
+		}
+
+		available = { NOT = { has_war_with = CHI } }
+		cost = 200
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_jap_capitulate_to_demands executed""
+			set_country_flag = JAP_rare_earth_capitulated
+			capital_scope = {
+				if = { limit = { has_dynamic_modifier = { modifier = CHI_rare_earth_embargoed } } remove_dynamic_modifier = { modifier = CHI_rare_earth_embargoed } }
+			}
+			CHI = {
+				clr_country_flag = CHI_rare_earth_embargo_active
+				add_political_power = 100
+				add_opinion_modifier = { target = JAP modifier = threatened_measures }
+			}
+			add_stability = -0.05
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_country_flag = CHI_jap_rare_earth_resilient
+			}
+			modifier = {
+				factor = 2
+				has_war_with = CHI
+			}
+		}
+	}"
+CHI_jap_diversify_rare_earth,6465,allowed = { original_tag = JAP },100,365,,"CHI_jap_diversify_rare_earth = {
+		icon = generic_construction
+		allowed = { original_tag = JAP }
+
+		visible = {
+			CHI = { has_country_flag = CHI_rare_earth_embargo_active }
+			NOT = { has_country_flag = CHI_jap_rare_earth_resilient }
+		}
+
+		available = { NOT = { has_war_with = CHI } }
+		cost = 100
+		days_remove = 365
+		fire_only_once = yes
+		modifier = { civilian_factory_use = 2 }
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_jap_diversify_rare_earth started""
+			add_timed_idea = { idea = JAP_rare_earth_diversification days = 365 }
+		}
+
+		remove_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_jap_diversify_rare_earth completed""
+			set_country_flag = CHI_jap_rare_earth_resilient
+			capital_scope = {
+				if = { limit = { has_dynamic_modifier = { modifier = CHI_rare_earth_embargoed } } remove_dynamic_modifier = { modifier = CHI_rare_earth_embargoed } }
+			}
+			CHI = { clr_country_flag = CHI_rare_earth_embargo_active }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_political_power < 100
+			}
+		}
+	}"
+CHI_jap_reinforce_coast_guard,6503,allowed = { original_tag = JAP },50,,90,"CHI_jap_reinforce_coast_guard = {
+		icon = generic_naval
+		allowed = { original_tag = JAP }
+		visible = { CHI = { has_country_flag = CHI_paf_militia_toggle_active } }
+		available = { NOT = { has_war_with = CHI } }
+		cost = 50
+		days_re_enable = 90
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_jap_reinforce_coast_guard executed""
+			navy_experience = 5
+			CHI = {
+				add_to_variable = { CHI_senkaku_pressure = 1 tooltip = CHI_senkaku_pressure_tt }
+				clamp_variable = { var = CHI_senkaku_pressure min = 0 max = 100 }
+			}
+		}
+
+		ai_will_do = {
+			base = 2
+			modifier = {
+				factor = 0
+				has_war_with = CHI
+			}
+		}
+	}"
+CHI_jap_open_back_channel,6529,allowed = { original_tag = JAP },75,,180,"CHI_jap_open_back_channel = {
+		icon = GFX_decision_generic_decision
+		allowed = { original_tag = JAP }
+		visible = { CHI = { has_country_flag = CHI_senkaku_back_channel_open } }
+		available = { NOT = { has_war_with = CHI } }
+		cost = 75
+		days_re_enable = 180
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_jap_open_back_channel executed""
+			CHI = {
+				add_to_variable = { CHI_senkaku_pressure = -15 tooltip = CHI_senkaku_pressure_tt }
+				clamp_variable = { var = CHI_senkaku_pressure min = 0 max = 100 }
+				add_opinion_modifier = { target = JAP modifier = senkaku_back_channel }
+			}
+			add_opinion_modifier = { target = CHI modifier = senkaku_back_channel }
+		}
+
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				has_war_with = CHI
+			}
+			modifier = {
+				add = 3
+				CHI = { check_variable = { CHI_senkaku_pressure > 60 } }
+			}
+		}
+	}"
+CHI_push_rcep_signing,6560,allowed = { original_tag = CHI },75,180,,"CHI_push_rcep_signing = {
+		icon = GFX_decision_generic_decision
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		available = {
+			has_completed_focus = CHI_the_rcep_acceleration
+			custom_trigger_tooltip = {
+				tooltip = CHI_aggression_below_0_tt
+				check_variable = { CHI_chinese_aggression < 0 }
+			}
+			NOT = { has_war_with = JAP }
+		}
+
+		cost = 75
+		days_remove = 180
+
+		remove_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_push_rcep_signing completed""
+			add_ideas = CHI_rcep_member
+			add_to_variable = { CHI_chinese_aggression = -1 tooltip = CHI_chinese_aggression_tt }
+			clamp_variable = { var = CHI_chinese_aggression min = -50 max = 50 }
+		}
+
+		ai_will_do = { base = 5 }
+	}"
+CHI_cancel_east_china_sea_exercise,6587,allowed = { original_tag = CHI },30,,60,"CHI_cancel_east_china_sea_exercise = {
+		icon = generic_break_treaty
+		allowed = { original_tag = CHI }
+
+		available = {
+			has_completed_focus = CHI_assuage_japanese_concerns
+			NOT = { has_war_with = JAP }
+		}
+
+		cost = 30
+		days_re_enable = 60
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_cancel_east_china_sea_exercise executed""
+			army_experience = -5
+			add_to_variable = { CHI_chinese_aggression = -2 tooltip = CHI_chinese_aggression_tt }
+			clamp_variable = { var = CHI_chinese_aggression min = -50 max = 50 }
+			JAP = { add_opinion_modifier = { target = CHI modifier = peaceful_rise } }
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_war_with = JAP
+			}
+			modifier = {
+				add = 2
+				check_variable = { CHI_chinese_aggression > -10 }
+			}
+		}
+	}"
+CHI_convene_bilateral_channel,6620,allowed = { original_tag = CHI },50,,365,"CHI_convene_bilateral_channel = {
+		icon = hol_exchange_intelligence_data
+		allowed = { original_tag = CHI }
+
+		available = {
+			has_completed_focus = CHI_the_quad_wedge_strategy
+			NOT = { has_war_with = JAP }
+			NOT = { has_war_with = USA }
+		}
+
+		cost = 50
+		days_re_enable = 365
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_convene_bilateral_channel executed""
+			JAP = {
+				add_opinion_modifier = { target = USA modifier = CHI_quad_wedge_doubt }
+				add_opinion_modifier = { target = CHI modifier = peaceful_rise }
+			}
+		}
+
+		ai_will_do = {
+			base = 2
+			modifier = {
+				factor = 0
+				has_war_with = JAP
+			}
+		}
+	}"
+CHI_invite_JAP_mitsubishi_aerospace,6650,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_mitsubishi_aerospace = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_mitsubishi_aerospace executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_air_attack_factor = 0.02 tooltip = air_attack_factor_tt }
+			add_tech_bonus = { name = CHI_invite_JAP_mitsubishi_aerospace bonus = 0.5 uses = 1 category = CAT_aircraft }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.231 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_kawasaki_aerospace,6691,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_kawasaki_aerospace = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_kawasaki_aerospace executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_air_range_factor = 0.03 tooltip = air_range_factor_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.232 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_jsw,6731,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_jsw = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_jsw executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_army_armor_attack_factor = 0.02 tooltip = army_armor_attack_factor_tt }
+			add_to_variable = { CHI_jap_armor_research_factor = 0.02 tooltip = armor_research_factor_tt }
+			if = {
+				limit = { has_dlc = ""Arms Against Tyranny"" }
+				set_country_flag = CHI_JAP_jsw_partnered
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = { is_capital = yes }
+					add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				}
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.233 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_mhi_tank,6778,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_mhi_tank = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_mhi_tank executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_army_armor_attack_factor = 0.03 tooltip = army_armor_attack_factor_tt }
+			if = {
+				limit = { has_dlc = ""Arms Against Tyranny"" }
+				set_country_flag = CHI_JAP_mhi_tank_partnered
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = { is_capital = yes }
+					add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				}
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.234 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_komatsu,6824,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_komatsu = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_komatsu executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_army_armor_defence_factor = 0.02 tooltip = army_armor_defence_factor_tt }
+			if = {
+				limit = { has_dlc = ""Arms Against Tyranny"" }
+				set_country_flag = CHI_JAP_komatsu_partnered
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = { is_capital = yes }
+					add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				}
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.235 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_subaru,6870,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_subaru = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_subaru executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_army_armor_defence_factor = 0.02 tooltip = army_armor_defence_factor_tt }
+			if = {
+				limit = { has_dlc = ""Arms Against Tyranny"" }
+				set_country_flag = CHI_JAP_subaru_partnered
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = { is_capital = yes }
+					add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				}
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.236 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_howa,6916,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_howa = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_howa executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_army_artillery_attack_factor = 0.03 tooltip = army_artillery_attack_factor_tt }
+			if = {
+				limit = { has_dlc = ""Arms Against Tyranny"" }
+				set_country_flag = CHI_JAP_howa_partnered
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = { is_capital = yes }
+					add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				}
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.237 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_nec,6962,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_nec = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_nec executed""
+			add_tech_bonus = { name = CHI_invite_JAP_nec bonus = 0.5 uses = 1 category = CAT_electronics }
+			if = {
+				limit = { has_dlc = ""Arms Against Tyranny"" }
+				set_country_flag = CHI_JAP_nec_partnered
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = { is_capital = yes }
+					add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				}
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.238 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_toshiba,7007,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_toshiba = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_toshiba executed""
+			add_tech_bonus = { name = CHI_invite_JAP_toshiba bonus = 0.5 uses = 1 category = CAT_electronics }
+			if = {
+				limit = { has_dlc = ""Arms Against Tyranny"" }
+				set_country_flag = CHI_JAP_toshiba_partnered
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = { is_capital = yes }
+					add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+				}
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.239 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_mitsubishi_shipbuilding,7052,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_mitsubishi_shipbuilding = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_mitsubishi_shipbuilding executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_naval_speed_factor = 0.03 tooltip = naval_speed_factor_tt }
+			add_tech_bonus = { name = CHI_invite_JAP_mitsubishi_shipbuilding bonus = 0.5 uses = 1 category = CAT_naval }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.240 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_kawasaki_shipbuilding,7093,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_kawasaki_shipbuilding = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_kawasaki_shipbuilding executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_naval_torpedo_screen_penetration_factor = 0.02 tooltip = naval_torpedo_screen_penetration_factor_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.241 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_ihi,7133,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_ihi = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_ihi executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_naval_speed_factor = 0.02 tooltip = naval_speed_factor_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.242 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_jmu,7173,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_jmu = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_jmu executed""
+			add_tech_bonus = { name = CHI_invite_JAP_jmu bonus = 0.5 uses = 1 category = CAT_naval }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.243 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_toyota,7212,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_toyota = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_toyota executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_production_speed_arms_factory_factor = 0.05 tooltip = production_speed_arms_factory_factor_tt }
+			add_to_variable = { CHI_jap_monthly_population = 0.05 tooltip = monthly_population_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.244 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_honda,7253,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_honda = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_honda executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_production_speed_arms_factory_factor = 0.04 tooltip = production_speed_arms_factory_factor_tt }
+			add_to_variable = { CHI_jap_research_speed_factor = 0.02 tooltip = research_speed_factor_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.245 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_nippon_steel,7294,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_nippon_steel = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_nippon_steel executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_production_factory_efficiency_gain_factor = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+			add_to_variable = { CHI_jap_production_speed_industrial_complex_factor = 0.03 tooltip = production_speed_industrial_complex_factor_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.246 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_hitachi,7335,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_hitachi = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_hitachi executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_civilian_factories_productivity = 0.04 tooltip = civilian_factories_productivity_tt }
+			add_to_variable = { CHI_jap_research_speed_factor = 0.03 tooltip = research_speed_factor_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.247 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_panasonic,7376,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_panasonic = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_panasonic executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_tech_bonus = { name = CHI_invite_JAP_panasonic bonus = 0.75 uses = 1 category = CAT_electronics }
+			add_to_variable = { CHI_jap_consumer_goods_factor = -0.05 tooltip = consumer_goods_factor_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.248 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"
+CHI_invite_JAP_jr_east,7417,allowed = { original_tag = CHI },75,,,"CHI_invite_JAP_jr_east = {
+		icon = JAP_zaibatsu_faction
+		allowed = { original_tag = CHI }
+		fire_only_once = yes
+
+		visible = {
+			country_exists = JAP
+			custom_trigger_tooltip = {
+				tooltip = CHI_JAP_invitations_remaining_tt
+				check_variable = { CHI_JAP_invitations_used < 8 }
+			}
+		}
+
+		available = {
+			has_war = no
+			NOT = { has_war_with = JAP }
+			JAP = {
+				has_opinion = { target = ROOT value > 0 }
+				NOT = { has_government = nationalist }
+			}
+		}
+
+		cost = 75
+
+		complete_effect = {
+			log = ""[GetDateText]: [Root.GetName]: Decision CHI_invite_JAP_jr_east executed""
+			custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = CHI_jap_industrial_partnerships }
+			add_to_variable = { CHI_jap_production_speed_infrastructure_factor = 0.05 tooltip = production_speed_infrastructure_factor_tt }
+			add_to_variable = { CHI_jap_monthly_population = 0.05 tooltip = monthly_population_tt }
+			random_owned_controlled_state = {
+				limit = { is_capital = yes }
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+			}
+			add_to_variable = { CHI_JAP_invitations_used = 1 }
+			clamp_variable = { var = CHI_JAP_invitations_used min = 0 max = 8 }
+			JAP = { country_event = { id = CHI_foreign.249 days = 7 } }
+		}
+
+		ai_will_do = { base = 3 }
+	}"

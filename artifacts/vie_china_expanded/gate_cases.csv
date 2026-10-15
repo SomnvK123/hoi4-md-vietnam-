@@ -1,0 +1,25 @@
+﻿gate,completed,prerequisite_pass,scope
+C13,[],0,direct gate only; available/result/finance not simulated
+C13,"[""C12""]",1,direct gate only; available/result/finance not simulated
+C13,"[""C11""]",1,direct gate only; available/result/finance not simulated
+C13,"[""C11"", ""C12""]",1,direct gate only; available/result/finance not simulated
+C15,[],0,direct gate only; available/result/finance not simulated
+C15,"[""C10""]",0,direct gate only; available/result/finance not simulated
+C15,"[""C09""]",0,direct gate only; available/result/finance not simulated
+C15,"[""C09"", ""C10""]",0,direct gate only; available/result/finance not simulated
+C15,"[""C02""]",0,direct gate only; available/result/finance not simulated
+C15,"[""C02"", ""C10""]",1,direct gate only; available/result/finance not simulated
+C15,"[""C02"", ""C09""]",1,direct gate only; available/result/finance not simulated
+C15,"[""C02"", ""C09"", ""C10""]",1,direct gate only; available/result/finance not simulated
+C17,[],0,direct gate only; available/result/finance not simulated
+C17,"[""C16""]",1,direct gate only; available/result/finance not simulated
+C17,"[""C14""]",1,direct gate only; available/result/finance not simulated
+C17,"[""C14"", ""C16""]",1,direct gate only; available/result/finance not simulated
+C18,[],0,direct gate only; available/result/finance not simulated
+C18,"[""C13""]",0,direct gate only; available/result/finance not simulated
+C18,"[""C10""]",0,direct gate only; available/result/finance not simulated
+C18,"[""C10"", ""C13""]",1,direct gate only; available/result/finance not simulated
+C18,"[""C09""]",0,direct gate only; available/result/finance not simulated
+C18,"[""C09"", ""C13""]",1,direct gate only; available/result/finance not simulated
+C18,"[""C09"", ""C10""]",0,direct gate only; available/result/finance not simulated
+C18,"[""C09"", ""C10"", ""C13""]",1,direct gate only; available/result/finance not simulated

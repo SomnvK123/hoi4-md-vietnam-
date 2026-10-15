@@ -1,0 +1,22 @@
+﻿id,result,evidence,scope
+J1,PASS,"Ba giao diện thiết kế G/P/C có writer, consumer, hiệu ứng và tooltip; root OR nguồn thật=True/True; 9 mục C/E đọc gate. Không có script game ngoại giao mới; T tier/kiêm nhiệm hoãn, không tính active.",legacy_51_node_baseline
+J2,FAIL,"G có 16 ca đối chứng đường mặc định/bỏ F02; C: 60−8=52<55, phục hồi 30PP mở lại. P chỉ đổi chuẩn bị 15 ngày, chưa chứng minh đổi lựa chọn. Người dùng chọn giữ lịch, J2 FAIL và L1 mở; không đổi định nghĩa.",legacy_51_node_baseline
+J3,PASS,Đọc JSON trực tiếp; bảng ký/bands khớp tài liệu=True/True; drift=[]; nguồn đổi=[].,legacy_51_node_baseline
+J4,PASS,"7/7 cụm có đúng kỳ và nhãn giả định gameplay; R0 IX+(F02 OR mặc định)=True. B1=X, S1=XIII với phạm vi tách XIII05–08; không coi là năm hình thành quan hệ.",legacy_51_node_baseline
+J5,FAIL,"NỢ ĐÃ BIẾT: ownership biển/S-vs-XIII05–08/W-vs-X05–X08/hợp đồng ghi ngay trong plan 19.5. E104 chỉ có kế hoạch chuyển riêng19.6, sau C qua kiểm; chưa chuyển/kiểm thật nên J5 giữ FAIL.",legacy_51_node_baseline
+D1,FAIL,Chưa chứng minh mọi chương trình: C sâu có trade opinion cao hơn; quyền sâu E/S chưa có consumer đo được.,legacy_51_node_baseline
+D2,FAIL,Chưa có ngưỡng hoàn vốn người dùng chọn; trade opinion/research chưa định giá; gom PP không là hoàn vốn.,legacy_51_node_baseline
+D3,FAIL,"Đúng một chương trình/cụm: phí tháng nhỏ=0.15, sâu=0.32; không có thu treasury. r là PP/ngày; M/E/W có thể nhiều chương trình.",legacy_51_node_baseline
+D4,FAIL,Research: 3×0.01=0.03 chạm trần nếu đủ 3 nguồn. R1 duy nhất 0.05 < trần 0.1; chưa có nguồn thứ hai.,legacy_51_node_baseline
+D5,FAIL,Category/điều kiện/consumer riêng JAP/KOR và USA/SOV/RAJ chưa đủ; không so bằng tên lĩnh vực.,legacy_51_node_baseline
+D6,FAIL,Đã nhập k và công cụ chính trị; chưa có mô hình đủ phản hồi/hủy/vướng mắc hoặc lợi ích định giá.,legacy_51_node_baseline
+D7,PASS,"Đơn vị treasury trong tài liệu/JSON chính trị: chưa xác định; k chỉ là sensitivity, không là tỷ giá engine.",legacy_51_node_baseline
+D8,FAIL,Chưa định nghĩa đủ chiều có tác dụng; không dùng tên cờ cơ hội để tạo PASS.,legacy_51_node_baseline
+N1,FAIL,"M/A/B/E/S/W chưa đủ bảy thành phần; dành L3, chưa viết lại.",legacy_51_node_baseline
+N2,FAIL,Chưa có event mới để thử lựa chọn rẻ nhất.,legacy_51_node_baseline
+N3,FAIL,Quyền hợp tác sâu E/S chưa có consumer chốt; không tính vào so thống trị.,legacy_51_node_baseline
+N4,FAIL,Chưa rà nguồn toàn tài liệu; không thêm mốc/nhân vật; các gate ứng viên ghi giả định gameplay.,legacy_51_node_baseline
+H1,PASS,"catalog/layout/SVG=[51, 51, 51]; 49+2=51; edges=74; errors=[]",legacy_51_node_baseline
+H2,FAIL,"Mâu thuẫn cũ:14.3 A04 sau A02+A03,17.1 từ C4;14.6 chưa chọn duy trì,20.3 có phí tháng;11/14 còn nói chưa có số trong khi21 có bộ thử. Chờ L4.",legacy_51_node_baseline
+H3,PASS,50 anchor trước node/cha trực tiếp; relative=node-anchor; 74 cạnh con thấp hơn cha; min gap=4>=2; errors=[].,legacy_51_node_baseline
+H4,PASS,"Chỉ Python/XML/CSV; chưa chạy HOI4, chưa playtest hay xác nhận cân bằng.",legacy_51_node_baseline

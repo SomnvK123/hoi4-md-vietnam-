@@ -1,0 +1,64 @@
+﻿key,name,slug,cost,prerequisites,mutex,role,available
+R0,Ngoại giao khu vực,regional_framework,5,[],[],legacy baseline,legacy baseline
+C01,Khung quan hệ láng giềng Việt–Trung,china_neighbourly_framework,5,"[[""R0""]]",[],"Mở các hồ sơ hợp tác riêng, không khởi tạo thành quả.",Kỳ IX và công cụ cơ sở theo R0; CHI hợp lệ.
+C02,Kênh tham vấn cấp chính phủ,china_government_consultation,5,"[[""C01""]]",[],Mở đối thoại ban đầu và quyền chuyển hồ sơ vượt thẩm quyền kỹ thuật.,"CHI tồn tại, chưa chiến tranh trực tiếp."
+C03,Chương trình giao thương biên giới,china_border_trade_agenda,5,"[[""C01""]]",[],Xác định phạm vi thương mại và hỏi điều kiện tiếp nhận của CHI.,Chưa có hồ sơ giao thương trùng.
+C04,Phối hợp dân sự qua biên giới,china_civil_border_coordination,5,"[[""C01""]]",[],Mở hợp tác xử lý vụ việc dân sự và lãnh sự trên đất liền.,Có đầu mối dân sự phù hợp; không thay hiệp ước/chủ quyền.
+C05,Một quy trình phối hợp chung,china_common_trade_procedures,7,"[[""C03""], [""C02""]]","[""C06""]",Chọn ủy nhiệm phối hợp trong phạm vi đã thỏa thuận; không tự ký với CHI.,"Cam kết kiến trúc của chương trình giao thương, chưa có cam kết đối lập."
+C06,Hợp tác theo từng phạm vi,china_case_specific_cooperation,7,"[[""C03""], [""C02""]]","[""C05""]",Chọn xác nhận riêng từng phạm vi và ngoại lệ; không cấp quyền điều phối chung.,"Cam kết kiến trúc của cùng chương trình giao thương, chưa có cam kết đối lập."
+C07,Hồ sơ thống nhất và thông báo thay đổi,china_trade_document_protocol,5,"[[""C05""]]",[],Mở soạn quy trình hồ sơ chung và thỏa thuận phương án vận hành thu hẹp từ trước.,Không có phiên soạn/gửi trùng; đủ quyền chia sẻ trong nước; chưa cần CHI nhận dự thảo.
+C08,Danh mục hợp tác và quyền ngoại lệ,china_trade_scope_exemptions,5,"[[""C06""]]",[],Mở soạn phạm vi riêng; phần chưa đồng ý không tự được triển khai.,"Có thể soạn danh mục riêng, không có phiên trùng; chưa cần CHI nhận danh mục."
+C09,Giao thương liên thông vận hành,china_integrated_trade_delivery,7,"[[""C07""]]",[],Công nhận quy trình chung đã được nhận và thực hiện; không thưởng lại.,C.trade đã bàn giao đúng chế độ chung và đang hoạt động.
+C10,Hợp tác chọn lọc vận hành,china_selective_trade_delivery,7,"[[""C08""]]",[],Công nhận phạm vi chọn lọc đã thực hiện; không ép nâng sang chế độ chung.,C.trade đã bàn giao đúng chế độ từng phạm vi và đang hoạt động.
+C11,Đầu mối xử lý vụ việc dân sự,china_civil_border_contacts,7,"[[""C04""]]",[],Mở đề nghị danh bạ xác minh và chuyển đúng cơ quan của hai bên.,"CHI tồn tại, có thể nhận đề nghị; chưa có luồng dân sự trùng; chưa cần CHI chấp thuận."
+C12,Phối hợp lãnh sự và hồi hương,china_consular_return_protocol,7,"[[""C04""], [""C02""]]",[],"Mở đề nghị xác minh nhân thân, đầu mối tiếp nhận và bàn giao có đồng ý.","Có quyền soạn hồ sơ lãnh sự, CHI có thể nhận đề nghị; chưa có luồng trùng; chưa cần CHI chấp thuận."
+C13,Cơ chế dân sự xuyên biên giới,china_border_civil_mechanism,7,"[[""C11"", ""C12""]]",[],Công nhận một cơ chế dân sự hoặc lãnh sự thực sự đã đưa vào sử dụng.,"C.border_civil OR C.consular_return được hai bên nhận, bàn giao và đang hoạt động."
+C14,Phương án điều chỉnh nhịp giao thương,china_trade_flow_contingency,5,"[[""C03""]]",[],Mở chuẩn bị A12; chỉ decision hoàn thành mới ghi dự phòng sẵn sàng.,Không chuẩn bị trùng; dùng phí và lịch dự phòng C hiện có.
+C15,Tham vấn khi hợp tác gặp trở ngại,china_disruption_consultation,5,"[[""C02""], [""C09"", ""C10""]]",[],Mở thương lượng cấp chương trình sau khi công cụ kỹ thuật không giải quyết được.,"Chỉ mở năng lực; có thể chuẩn bị trước sự cố, không bắt tạo khủng hoảng."
+C16,Biên bản khắc phục vướng mắc,china_agreed_remedy_record,7,"[[""C15""]]",[],Công nhận giải pháp hai bên đã nhận; lưu đúng điều khoản được sửa.,"Đã có vướng mắc thật của lượt hợp tác, giải pháp đã được chấp thuận; chưa thưởng lại bàn giao."
+C17,Khôi phục phần hợp tác hợp lệ,china_limited_trade_resumption,7,"[[""C14"", ""C16""]]",[],Mở nối lại theo phương án đã đồng ý trước hoặc biên bản khắc phục; không tự bàn giao.,Đã từng bàn giao C.trade; có gián đoạn; có thỏa thuận/ngoại lệ còn hiệu lực và căn cứ phục hồi thực.
+C18,Hợp tác láng giềng có cơ chế bảo đảm,china_effective_neighbourly_cooperation,7,"[[""C09"", ""C10""], [""C13""]]",[],Hội tụ thương mại và một cơ chế dân sự thực; giữ hai chế độ thương mại khác nhau.,C.trade còn hoạt động AND cơ chế dân sự/lãnh sự còn hoạt động; không yêu cầu xảy ra sự cố.
+M1,Láng giềng và lưu vực Mekong,neighbourhood_framework,5,"[[""R0""]]",[],legacy baseline,legacy baseline
+M2,Kênh hợp tác với Lào,laos_cooperation_channel,5,"[[""M1""]]",[],legacy baseline,legacy baseline
+M3,Kênh hợp tác với Campuchia,cambodia_cooperation_channel,5,"[[""M1""]]",[],legacy baseline,legacy baseline
+M4,Dữ liệu và ưu tiên hạ lưu,mekong_downstream_assessment,5,"[[""M1""]]",[],legacy baseline,legacy baseline
+M5,Tham vấn lưu vực,mekong_consultation_channel,5,"[[""M1""]]",[],legacy baseline,legacy baseline
+M6,Đề xuất phối hợp lưu vực,mekong_cooperation_proposal,7,"[[""M4""], [""M5""]]",[],legacy baseline,legacy baseline
+M7,Chương trình kết nối láng giềng,neighbour_connectivity_program,7,"[[""M2"", ""M3""]]",[],legacy baseline,legacy baseline
+M8,Kết nối có phối hợp hạ lưu,mekong_cooperation_consolidation,7,"[[""M6""], [""M7""]]",[],legacy baseline,legacy baseline
+A1,Phát huy hợp tác ASEAN,asean_framework,5,"[[""R0""]]",[],legacy baseline,legacy baseline
+A2,Tham khảo ưu tiên thành viên,asean_partner_consultation,5,"[[""A1""]]",[],legacy baseline,legacy baseline
+A3,Nhóm công tác khu vực,asean_working_group,5,"[[""A1""]]",[],legacy baseline,legacy baseline
+A4,Chọn lĩnh vực phối hợp,asean_sector_initiative,5,"[[""A3""]]",[],legacy baseline,legacy baseline
+A5,Quy trình tham vấn và ngoại lệ,asean_consultation_rules,5,"[[""A2""]]",[],legacy baseline,legacy baseline
+A6,Đề xuất sáng kiến khu vực,asean_initiative_proposal,7,"[[""A4""], [""A5""]]",[],legacy baseline,legacy baseline
+A7,Sáng kiến ASEAN vận hành,asean_operating_initiative,7,"[[""A6""]]",[],legacy baseline,legacy baseline
+B1,Hợp tác an toàn biển,maritime_safety_framework,5,"[[""R0""]]",[],legacy baseline,legacy baseline
+B2,Hồ sơ yêu cầu cứu nạn,rescue_assistance_dossier,5,"[[""B1""]]",[],legacy baseline,legacy baseline
+B3,Đầu mối liên lạc cứu nạn,rescue_contact_channel,5,"[[""B1""]]",[],legacy baseline,legacy baseline
+B4,Tiêu chí phối hợp cứu nạn,rescue_coordination_standards,5,"[[""B2""]]",[],legacy baseline,legacy baseline
+B5,Chuẩn bị phối hợp cứu nạn,rescue_coordination_preparation,5,"[[""B3""]]",[],legacy baseline,legacy baseline
+B6,Kiểm thử quy trình cứu nạn,rescue_protocol_validation,7,"[[""B4""], [""B5""]]",[],legacy baseline,legacy baseline
+B7,Hợp tác cứu nạn trên biển,maritime_rescue_cooperation,7,"[[""B4""]]",[],legacy baseline,legacy baseline
+B8,Năng lực phối hợp cứu nạn,rescue_coordination_capability,7,"[[""B6"", ""B7""]]",[],legacy baseline,legacy baseline
+E1,Đông Bắc Á và Australia,east_asia_pacific_framework,5,"[[""R0""]]",[],legacy baseline,legacy baseline
+E2,Kênh hợp tác Nhật Bản,japan_cooperation_channel,5,"[[""E1""]]",[],legacy baseline,legacy baseline
+E3,Kênh hợp tác Hàn Quốc,korea_cooperation_channel,5,"[[""E1""]]",[],legacy baseline,legacy baseline
+E4,Kênh hợp tác Australia,australia_cooperation_channel,5,"[[""E1""]]",[],legacy baseline,legacy baseline
+E5,Tiếp nhận và khai thác công nghệ,technology_absorption_program,7,"[[""E2"", ""E3""]]",[],legacy baseline,legacy baseline
+E6,Đào tạo và quản trị chương trình,training_management_program,7,"[[""E2"", ""E3"", ""E4""]]",[],legacy baseline,legacy baseline
+E7,Khai thác hợp tác đã bàn giao,east_partner_delivered_cooperation,7,"[[""E5"", ""E6""]]",[],legacy baseline,legacy baseline
+S1,Đối thoại với đối tác lớn,major_partner_framework,5,"[[""R0""]]",[],legacy baseline,legacy baseline
+S2,Kênh hợp tác với Mỹ,usa_cooperation_channel,5,"[[""S1""]]",[],legacy baseline,legacy baseline
+S3,Kênh hợp tác với Nga,russia_cooperation_channel,5,"[[""S1""]]",[],legacy baseline,legacy baseline
+S4,Kênh hợp tác với Ấn Độ,india_cooperation_channel,5,"[[""S1""]]",[],legacy baseline,legacy baseline
+S5,Hợp tác theo lĩnh vực,sector_cooperation_proposal,7,"[[""S2"", ""S3"", ""S4""]]",[],legacy baseline,legacy baseline
+S6,Rà điều kiện và quyền lựa chọn,commitment_terms_review,5,"[[""S2"", ""S3"", ""S4""]]",[],legacy baseline,legacy baseline
+S7,Quan hệ có cam kết rõ ràng,major_partner_clear_commitments,7,"[[""S5""], [""S6""]]",[],legacy baseline,legacy baseline
+W1,Hợp tác với đối tác châu Âu,europe_framework,5,"[[""R0""]]",[],legacy baseline,legacy baseline
+W2,Đầu mối hợp tác châu Âu,europe_partner_channels,5,"[[""W1""]]",[],legacy baseline,legacy baseline
+W3,Chuẩn bị đáp ứng tiêu chuẩn,market_standards_preparation,5,"[[""W1""]]",[],legacy baseline,legacy baseline
+W4,Hỗ trợ tiêu chuẩn và thị trường,standards_market_proposal,7,"[[""W2""], [""W3""]]",[],legacy baseline,legacy baseline
+W5,Đào tạo với đối tác châu Âu,europe_training_program,7,"[[""W2""]]",[],legacy baseline,legacy baseline
+W6,Hợp tác châu Âu có kết quả,europe_delivered_cooperation,7,"[[""W4"", ""W5""]]",[],legacy baseline,legacy baseline
+R1,Mạng lưới hợp tác có hiệu lực,effective_regional_network,7,"[[""C18"", ""M8"", ""A7"", ""B8"", ""E7"", ""S7"", ""W6""]]",[],legacy baseline,legacy baseline

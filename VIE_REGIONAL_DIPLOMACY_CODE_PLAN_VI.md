@@ -1,5 +1,9 @@
 # Plan code Ngoại giao khu vực Việt Nam — Nội dung, kiến trúc, layout và gameplay
 
+> **Cập nhật phạm vi C theo yêu cầu mở rộng:** [đặc tả Việt–Trung 18 node](VIE_CHINA_EXPANDED_BRANCH_DESIGN_VI.md) là bản phát triển nội dung mới để review; [catalog/layout ứng viên](artifacts/vie_china_expanded/catalog_and_layout.md) tính toàn nhánh **51 − 6 + 18 = 63 focus**. Các mục 13–14/17.1, catalog 51 node và SVG/PNG bên dưới là **baseline trước mở rộng**, chưa hợp nhất với bản C mới; không dùng chúng để chứng nhận bản 63 node. Sáu cụm khác giữ nguyên. Giá/timer B1 chưa đổi; hai chương trình dân sự–lãnh sự mới chưa định giá. L1 vẫn mở, chưa sang cân bằng L2 hoặc code gameplay.
+
+> **Rà soát có kiểm soát — Lượt 1:** [B1](VIE_REGIONAL_DIPLOMACY_B1_VI.md) là bảng số chuẩn; [hồ sơ L1](VIE_REGIONAL_DIPLOMACY_L1_REVIEW_VI.md) ghi giao diện, ownership và changelog. Đã chọn gate cohesion cho gói sâu C/E, B1 mở từ X, S1 giữ XIII với phạm vi riêng; R0 dùng đường F02 **hoặc** công cụ mặc định đại hội. [Bảng tính cohesion](VIE_REGIONAL_DIPLOMACY_L1_CALCULATIONS_VI.md) và [bảng bất biến](VIE_REGIONAL_DIPLOMACY_INVARIANTS_VI.csv) đi kèm. E104 chỉ có kế hoạch chuyển tại 19.6, sau khi C qua kiểm; J5 giữ FAIL như nợ đã biết. **Chưa sang Lượt 2; xem J1/J2/J4/J5 hiện hành trong hồ sơ L1.** Chỉ sửa thiết kế, không sửa gameplay hoặc nhánh chính trị.
+
 > Ngày lập/cập nhật: **15/10/2026**. Trạng thái: **bản thiết kế đề xuất, chưa có thay đổi gameplay**. Phạm vi hiện tại là **toàn nhánh Ngoại giao khu vực**, gồm bảy cụm và gốc chung. Mục **15–24** là kế hoạch tổng thể hiện hành; mục **1–14** lưu kế hoạch đợt mẫu Việt–Trung và đặc tả chương trình đầu tiên. Các giới hạn “chỉ Việt–Trung” trong đợt mẫu không giới hạn phạm vi thiết kế tổng thể.
 
 > **Đầu ra tổng thể:** đề xuất **51 focus**, catalog đầy đủ, đồ thị AND/OR, layout thử có tọa độ/anchor, bảy chương trình khác nhau, luồng event/decision, nguồn modifier, bộ tham số thử và kế hoạch tích hợp–kiểm chứng. Số lượng, định danh mới và giá trị thử là đề xuất của báo cáo, chưa phải code hoặc tham số đã được người dùng chốt.
@@ -18,7 +22,7 @@ Người chơi mở hợp tác, lựa chọn điều kiện cam kết, xử lý 
 
 | Nội dung | Phạm vi đợt đầu |
 |---|---|
-| Gốc Ngoại giao khu vực | Mở nội dung và hành động thuộc cụm Việt–Trung |
+| Gốc Ngoại giao khu vực | Sau IX đã giải quyết, đọc F02 hoặc đường công cụ mặc định đại hội; không bắt làm F02; gate là giả định gameplay |
 | Cụm Việt–Trung | Một mục tiêu hợp tác cụ thể, lựa chọn cam kết, đối thoại và phương án dự phòng |
 | Phản hồi đối tác | Chấp thuận đầy đủ, chấp thuận một phần, yêu cầu điều chỉnh hoặc từ chối |
 | Triển khai | Hành động thực hiện chương trình đã được chấp thuận và ghi kết quả |
@@ -139,10 +143,10 @@ Chọn một nguồn dữ liệu cho từng trạng thái. Không đồng thời
 
 | Hệ thống | Liên kết trong đợt này |
 |---|---|
-| Chính trị | Chỉ đọc năng lực đã xác minh nếu nó thay đổi lựa chọn, giá, thời gian hoặc kết quả cụ thể; không mặc định kiểm mọi tier |
+| Chính trị | Đọc kỳ/công cụ cơ sở, BoP và cohesion theo giao diện L1; gói sâu C/E cần cadre_cohesion_required, không nhân phí gửi. Lịch ký tier/kiêm nhiệm còn hoãn theo kế hoạch chuyển E104; không tính là reader ngoại giao đang hoạt động |
 | Kinh tế/quân sự | Xác định nơi thực hiện và cấp thưởng; không cấp cùng kết quả tại cả bàn giao ngoại giao và focus chuyên ngành |
 | Phát triển đối ngoại | Ghi nhu cầu công cụ dùng chung; chưa xây toàn nhánh hoặc bắt cụm đầu phụ thuộc một focus chưa có |
-| An ninh biển | Cụm này sẽ chịu trách nhiệm triển khai sự cố; Việt–Trung có thể đọc hậu quả khi consumer và provider đã có |
+| An ninh biển | Chính trị giữ XI08, XIII01–04, XIII10–11; cụm B chuẩn bị/cứu nạn và đọc kết quả chính trị khi có provider, không tạo lại sự cố đó |
 | Nội dung MD Trung Quốc | Rà caller tác động trực tiếp tới VIE nếu chương trình mới giao nhau; chưa sửa script Trung Quốc |
 
 Bản đầu phải chơi được với những provider thực đã có. Nếu hậu quả biển chưa có nguồn hợp lệ, không dùng một flag không ai ghi để khóa thành quả Việt–Trung; ghi liên kết đó là phần tích hợp về sau.
@@ -368,6 +372,7 @@ Chuẩn bị trong nước và mở kênh đối thoại là hai chức năng b�
 |---|---|---|
 | Phạm vi cam kết | Một phạm vi phối hợp hạn chế, dùng để đưa quy trình chung vào hoạt động | Áp dụng cùng quy trình cho phạm vi giao thương rộng hơn, cần phối hợp nhiều hơn |
 | Chuẩn bị | Đủ đầu mối, phương án thực hiện và nguồn lực cho phạm vi hạn chế | Có nền của gói thí điểm và chứng minh khả năng phối hợp thêm; không bắt đã bàn giao thí điểm mới được đề nghị mở rộng |
+| Liên kết chính trị L1 | Không yêu cầu ngưỡng cohesion của gói sâu | Đọc trực tiếp VIE_leadership_cohesion ≥ politics.cadre_cohesion_required tại soạn/gửi/bắt đầu và nâng gói; không kiểm đủ các tier |
 | Việc hai bên đồng ý | Đầu mối liên lạc, thông báo thay đổi yêu cầu và xử lý vướng mắc trong phạm vi thí điểm | Các nội dung đó trên phạm vi rộng hơn, kèm trách nhiệm phối hợp khi phải thu hẹp hoặc tạm dừng |
 | Việc Việt Nam thực hiện | Tổ chức đầu mối và đưa quy trình đã thống nhất vào sử dụng | Bố trí thêm năng lực thực hiện và duy trì phối hợp trên phạm vi mở rộng |
 | Lợi ích dự kiến | Lợi ích hợp tác thường xuyên nhỏ hơn, nghĩa vụ duy trì gọn hơn | Lợi ích hợp tác thường xuyên lớn hơn, giá triển khai và nghĩa vụ duy trì lớn hơn |
@@ -389,11 +394,11 @@ Các hàng là **hành động hoặc chức năng**, chưa ấn định mỗi h
 | A01 — Mở hợp tác Việt–Trung | Focus trong cụm, sau gốc Ngoại giao khu vực | Root đã hoàn thành; đối tượng hợp tác hợp lệ | Mở chuẩn bị và đối thoại; không cấp lợi ích chương trình |
 | A02 — Chuẩn bị phương án thực hiện | Focus chuẩn bị | A01; năng lực nền cần được xác minh | Ghi đã chuẩn bị; A04/A05 đọc. Điều kiện bổ sung của mở rộng được giải thích riêng |
 | A03 — Thiết lập đầu mối đối thoại | Focus song song A02 | A01; CHI tồn tại và có thể nhận đề nghị | Mở kênh đàm phán và xử lý vướng mắc; A05/A07/A11 đọc |
-| A04 — Soạn gói điều kiện | Event VIE, do hoàn thành cả A02 và A03 hoặc decision gọi | Chưa có phiên đang chờ hay thỏa thuận đang triển khai | Chọn thí điểm/mở rộng, xem giá và nghĩa vụ; lưu bản dự thảo, chưa gửi hoặc trả phí triển khai |
-| A05 — Gửi đề nghị | Decision VIE gọi effect rồi event CHI | Có dự thảo hợp lệ; cả A02 AND A03; đủ phí gửi và điều kiện đối tác | Trả phí gửi một lần, tạo phiên đang chờ, khởi động hạn phản hồi; A06 đọc đúng phiên |
+| A04 — Soạn gói điều kiện | Event VIE, do hoàn thành cả A02 và A03 hoặc decision gọi | Chưa có phiên đang chờ hay thỏa thuận đang triển khai; gói mở rộng cần cohesion đạt cadre_cohesion_required | Chọn thí điểm/mở rộng khi đủ điều kiện, xem giá và nghĩa vụ; lưu dự thảo, chưa gửi hoặc trả phí triển khai |
+| A05 — Gửi đề nghị | Decision VIE gọi effect rồi event CHI | Có dự thảo hợp lệ; cả A02 AND A03; đủ phí gửi/đối tác; kiểm lại ngưỡng cohesion nếu là gói mở rộng | Trả phí gốc một lần, không nhân cohesion; tạo phiên đang chờ; A06 đọc đúng phiên |
 | A06 — Phản hồi của CHI | Event CHI, caller từ A05 | Phiên còn hiệu lực; đúng bên gửi/nhận; cam kết vẫn hợp lệ | Ghi chấp thuận, đề nghị thu hẹp/sửa hoặc từ chối. Gói thay đổi gửi lại cho VIE quyết định |
 | A07 — Nhận, sửa hoặc rút đề nghị | Event VIE cho phản hồi khác gói; decision cho sửa/gửi lại/rút | Có phản hồi đang chờ VIE hoặc phiên cần điều chỉnh | Nhận thì khóa phạm vi thống nhất; sửa thì đóng phiên cũ và tạo dự thảo mới; rút thì kết thúc phiên |
-| A08 — Bắt đầu triển khai | Decision VIE gọi effect, kích hoạt tiến trình có thời hạn | Hai bên đã đồng ý; thỏa thuận chưa hết hạn; đủ nguồn lực tại lúc bắt đầu | Trả phí triển khai đúng gói, lưu gói và lịch thực hiện; A09/A10 đọc |
+| A08 — Bắt đầu triển khai | Decision VIE gọi effect, kích hoạt tiến trình có thời hạn | Hai bên đã đồng ý; chưa hết hạn; đủ nguồn lực; gói mở rộng vẫn đạt ngưỡng cohesion tại điểm bắt đầu | Chỉ lúc hợp lệ mới trả phí/chiếm slot; thiếu cohesion giữ chờ trong hạn, không tự gia hạn; A09/A10 đọc |
 | A09 — Nghiệm thu và đưa vào vận hành | Caller kết thúc tiến trình A08 gọi effect chung | Đúng lượt triển khai; chương trình chưa bị hủy; điều kiện bàn giao còn hợp lệ | Ghi bàn giao một lần, áp lợi ích duy trì đúng gói, mở A11/A13. Không có thêm reward ở tooltip hoặc event thông báo |
 | A10 — Hủy hoặc kết thúc cam kết | Decision VIE hoặc caller khi cam kết mất hiệu lực | Phiên/thỏa thuận/triển khai còn hoạt động | Đóng đúng luồng; xử lý phí theo mục 14.5; không cấp reward bàn giao |
 | A11 — Xử lý vướng mắc | Event VIE và decision đối thoại; event CHI nếu thay điều kiện | Có vướng mắc chưa xử lý của chương trình đang vận hành | Tiếp tục, đề nghị thu hẹp, tạm dừng hoặc kết thúc theo mục 14.6; cập nhật lợi ích và nghĩa vụ |
@@ -477,7 +482,7 @@ Tác dụng này chỉ xử lý tình huống chậm phối hợp ở mục 14.6
 |---|---|---|
 | Phí gửi và gửi lại | A05; A07 chuyển sang A05 khi gửi phiên mới | Chọn một nơi trừ PP; gửi lại không đồng thời trả hai khoản cho cùng hành động |
 | Hạn phản hồi và khoảng cách gửi lại | A05–A07 | Timeout đóng đúng phiên; khoảng cách là điều kiện cùng với sửa trở ngại, không thay nó |
-| Điều kiện mở rộng | A04/A05 và A08 | Cùng luật/tooltip; không bắt đã hoàn thành gói mở rộng mới đủ năng lực xin gói ấy |
+| Điều kiện mở rộng | A04/A05 và A08, nâng gói sau C6 | Đọc cohesion hiện tại và cadre_cohesion_required theo 19.4; cùng luật/tooltip, không bắt completed gói sâu hoặc kiểm mọi tier |
 | Hạn bắt đầu sau khi thống nhất | A08/A10 | Hết hạn chưa triển khai thì đóng thỏa thuận, không bàn giao và không thu phí triển khai |
 | Giá và thời lượng triển khai từng gói | A08/A09 | Mở rộng dùng thêm nguồn lực; giá/lịch lưu khi bắt đầu; hủy không hoàn khoản đã dùng |
 | Lợi ích duy trì từng gói | A09; thay gói/đình chỉ/kết thúc | Một owner áp/thay/gỡ; lợi ích mở rộng lớn hơn thí điểm, không chồng hai gói |
@@ -536,12 +541,14 @@ Lần này chỉ cập nhật plan Markdown. Chưa tạo hoặc sửa script gam
 
 Kế hoạch tổng thể đề xuất **51 focus: 2 node chung + 49 node thuộc 7 cụm**. Đây là phạm vi thiết kế đầy đủ cho lần viết này; triển khai theo từng đợt ở mục 24. Không bắt giữ số lượng hoặc nội dung ngoại giao hiện có. Chính trị, công nghiệp và quân sự giữ vai trò cung cấp năng lực; ngoại giao mở quyền hợp tác, điều kiện sử dụng và phản ứng của đối tác.
 
+R0 cần IX đã giải quyết và đường công cụ cơ sở **F02 hoặc mặc định đại hội**, không khóa cả nhánh nếu bỏ F02. Các root cụm đọc kỳ ở catalog 16; B1 đã chọn X, S1 giữ XIII sau khi tách khỏi hồ sơ trái phiếu XIII05–08. Gate là giả định gameplay, không diễn giải thành năm hình thành quan hệ.
+
 | Cụm | Focus | Bài toán riêng | Thành quả |
 |---|---:|---|---|
 | Việt–Trung | 6 | Hợp tác thương mại và xử lý gián đoạn | Chương trình chọn lọc/rộng vận hành, có đối thoại và dự phòng |
 | Láng giềng–Mekong | 8 | Kết nối có lợi trong khi bảo vệ ưu tiên hạ lưu | Chương trình kết nối và cơ chế phối hợp lưu vực thực hiện được |
 | ASEAN | 7 | Tập hợp các nước khác lợi ích quanh một sáng kiến cụ thể | Nhóm hợp tác có thành viên thực và nghĩa vụ rõ |
-| An ninh biển | 8 | Duy trì hoạt động và kiểm soát sự cố | Xử lý được tình huống hoặc hoàn tất hợp tác cứu nạn phù hợp |
+| An ninh biển | 8 | Chuẩn bị hồ sơ an toàn, phối hợp và cứu nạn | Hoàn tất kiểm thử quy trình hoặc chương trình cứu nạn; đọc riêng kết quả sự cố thuộc chính trị |
 | Đông Bắc Á–Australia | 7 | Tiếp nhận công nghệ và nâng khả năng sử dụng | Một chương trình công nghệ/đào tạo bàn giao hợp lệ |
 | Mỹ–Nga–Ấn Độ | 7 | Hợp tác theo lĩnh vực trong khi giữ quyền lựa chọn | Hợp tác thực với ít nhất một đối tác, điều kiện sử dụng minh bạch |
 | Châu Âu | 6 | Đáp ứng tiêu chuẩn để khai thác cơ hội thị trường | Hợp tác tiêu chuẩn/thị trường hoặc đào tạo đã triển khai |
@@ -578,14 +585,14 @@ Mã R/C/M/A/B/E/S/W là tham chiếu tài liệu. Cột slug cho ID **mới dự
 
 | Mã — tên focus | Slug mới dự kiến | Cost | Prerequisite | Available bổ sung | Reward/quyền mở |
 |---|---|---:|---|---|---|
-| **R0 — Ngoại giao khu vực** | `regional_framework` | 5 | Root | VIE và cây được nạp | Mở bảy cụm và category có gate thật |
-| **C1 — Khung hợp tác Việt–Trung** | `china_framework` | 5 | R0 | CHI hợp lệ | Mở chuẩn bị và đối thoại |
+| **R0 — Ngoại giao khu vực** | `regional_framework` | 5 | Root | VIE; kỳ đã giải quyết ≥IX AND (F02 OR VIE_congress_resolved); giả định gameplay | Mở category và bảy cụm theo gate kỳ riêng; đọc công cụ mặc định đại hội nếu bỏ F02 |
+| **C1 — Khung hợp tác Việt–Trung** | `china_framework` | 5 | R0 | CHI hợp lệ; kỳ ≥IX, giả định gameplay | Mở chuẩn bị và đối thoại |
 | **C2 — Chuẩn bị phối hợp giao thương** | `china_delivery_capacity` | 5 | C1 | Năng lực nền của VIE | Ghi chuẩn bị cho gói thương mại |
 | **C3 — Đầu mối đối thoại Việt–Trung** | `china_dialogue_channel` | 5 | C1 | CHI tồn tại, chưa chiến tranh trực tiếp | Mở đàm phán và xử lý vướng mắc |
 | **C4 — Đề xuất phối hợp thương mại** | `china_trade_proposal` | 7 | C2 AND C3 | Không luồng cam kết trùng | Mở soạn gói và decision gửi; không tự nhận lời |
 | **C5 — Phương án điều chỉnh giao thương** | `china_trade_contingency` | 5 | C2 | Chưa có quyền chuẩn bị này | Mở decision chuẩn bị dự phòng A12 |
 | **C6 — Củng cố hợp tác Việt–Trung** | `china_cooperation_consolidation` | 7 | C4 | Thí điểm hoặc mở rộng đã bàn giao và hoạt động | Công nhận đúng gói; mở đề nghị nâng gói qua decision |
-| **M1 — Láng giềng và lưu vực Mekong** | `neighbourhood_framework` | 5 | R0 | Có bên phù hợp trong phạm vi cụm | Mở kênh láng giềng và chuẩn bị lưu vực |
+| **M1 — Láng giềng và lưu vực Mekong** | `neighbourhood_framework` | 5 | R0 | Có bên phù hợp; kỳ ≥IX, giả định gameplay | Mở kênh láng giềng và chuẩn bị lưu vực |
 | **M2 — Kênh hợp tác với Lào** | `laos_cooperation_channel` | 5 | M1 | LAO hợp lệ | Mở đề nghị kết nối LAO |
 | **M3 — Kênh hợp tác với Campuchia** | `cambodia_cooperation_channel` | 5 | M1 | CAM hợp lệ | Mở đề nghị kết nối CAM |
 | **M4 — Dữ liệu và ưu tiên hạ lưu** | `mekong_downstream_assessment` | 5 | M1 | Chưa có kết quả chuẩn bị tương đương | Ghi năng lực hồ sơ, mở ưu tiên dữ liệu/vận hành |
@@ -593,36 +600,36 @@ Mã R/C/M/A/B/E/S/W là tham chiếu tài liệu. Cột slug cho ID **mới dự
 | **M6 — Đề xuất phối hợp lưu vực** | `mekong_cooperation_proposal` | 7 | M4 AND M5 | Không phiên lưu vực trùng | Mở hai phạm vi nhiều bên/song phương sửa |
 | **M7 — Chương trình kết nối láng giềng** | `neighbour_connectivity_program` | 7 | M2 OR M3 | Bên được chọn đã mở kênh | Mở đề nghị LAO hoặc CAM; chưa thưởng công trình |
 | **M8 — Kết nối có phối hợp hạ lưu** | `mekong_cooperation_consolidation` | 7 | M6 AND M7 | Phối hợp và kết nối đã vận hành đúng gói | Công nhận hai chức năng, giữ roster/phạm vi |
-| **A1 — Phát huy hợp tác ASEAN** | `asean_framework` | 5 | R0 | Tư cách hiện tại qua provider MD | Mở nội dung sáng kiến, không gia nhập lại |
+| **A1 — Phát huy hợp tác ASEAN** | `asean_framework` | 5 | R0 | Tư cách qua provider MD; kỳ ≥X, giả định gameplay | Mở nội dung sáng kiến, không gia nhập lại |
 | **A2 — Tham khảo ưu tiên thành viên** | `asean_partner_consultation` | 5 | A1 | Có thành viên đủ tư cách | Mở tham vấn về sáng kiến |
 | **A3 — Nhóm công tác khu vực** | `asean_working_group` | 5 | A1 | Quyền tổ chức phù hợp | Mở đầu mối chương trình |
 | **A4 — Chọn lĩnh vực phối hợp** | `asean_sector_initiative` | 5 | A3 | Có đầu mối | Event chọn chủ đề/nhóm thực hiện |
 | **A5 — Quy trình tham vấn và ngoại lệ** | `asean_consultation_rules` | 5 | A2 | Đã có tham khảo ý kiến | Ghi quy trình xử lý ngoại lệ/rút |
 | **A6 — Đề xuất sáng kiến khu vực** | `asean_initiative_proposal` | 7 | A4 AND A5 | Chưa có phiên sáng kiến trùng | Gửi lời mời theo roster, không auto-member |
 | **A7 — Sáng kiến ASEAN vận hành** | `asean_operating_initiative` | 7 | A6 | Đủ bên thật theo gói và đã triển khai | Công nhận tổ chức có hiệu lực, mở sửa roster |
-| **B1 — Bảo đảm hoạt động trên biển** | `maritime_framework` | 5 | R0 | Nội dung biển VIE hợp lệ | Mở ba công cụ bổ sung |
-| **B2 — Chuẩn bị hồ sơ và căn cứ** | `maritime_legal_preparation` | 5 | B1 | Không trùng owner hồ sơ cũ | Mở chuẩn bị nội dung vận động |
-| **B3 — Kênh liên lạc xử lý sự cố** | `maritime_contact_channel` | 5 | B1 | Có đối tượng liên lạc phù hợp | Mở thông báo và trả lời sự cố |
-| **B4 — Hoàn thiện hồ sơ hoạt động** | `maritime_documentation` | 5 | B2 | Hồ sơ đã chuẩn bị | Ghi năng lực công bố/vận động |
-| **B5 — Quy trình bảo đảm hiện trường** | `maritime_incident_procedures` | 5 | B3 | Reader năng lực hiện trường được xác minh | Mở option/decision ứng phó phù hợp |
-| **B6 — Vận dụng công cụ xử lý sự cố** | `maritime_incident_response` | 7 | B4 AND B5 | Caller tình huống có một owner | Mở một tình huống/reader sự kiện cũ, không tự thắng |
+| **B1 — Hợp tác an toàn biển** | `maritime_safety_framework` | 5 | R0 | Nội dung cứu nạn hợp lệ; kỳ ≥X, giả định gameplay | Mở công cụ an toàn/cứu nạn, không mở lại sự cố chính trị |
+| **B2 — Hồ sơ yêu cầu cứu nạn** | `rescue_assistance_dossier` | 5 | B1 | Có yêu cầu phối hợp cứu nạn | Mở hồ sơ yêu cầu trợ giúp/phạm vi chia sẻ, không lập lại hồ sơ tranh chấp |
+| **B3 — Đầu mối liên lạc cứu nạn** | `rescue_contact_channel` | 5 | B1 | Có đầu mối cứu nạn phù hợp | Mở thông báo cứu nạn và xác nhận đầu mối; không tạo kênh tranh chấp thứ hai |
+| **B4 — Tiêu chí phối hợp cứu nạn** | `rescue_coordination_standards` | 5 | B2 | Hồ sơ cứu nạn đã chuẩn bị | Ghi tiêu chí bàn giao/hồ sơ trợ giúp để B6/B7 đọc |
+| **B5 — Chuẩn bị phối hợp cứu nạn** | `rescue_coordination_preparation` | 5 | B3 | Năng lực cứu nạn được xác minh | Mở chuẩn bị phối hợp cứu nạn theo BoP; không tự triển khai chấp pháp |
+| **B6 — Kiểm thử quy trình cứu nạn** | `rescue_protocol_validation` | 7 | B4 AND B5 | Một kiểm thử quy trình cứu nạn hợp lệ, không luồng trùng | Mở kiểm thử giả định cứu người/tàu gặp nạn, không gọi lại XI08/XIII |
 | **B7 — Hợp tác cứu nạn trên biển** | `maritime_rescue_cooperation` | 7 | B4 | Có đối tác và năng lực gói được chọn | Mở đề nghị trao đổi/diễn tập cứu nạn |
-| **B8 — Công cụ bảo đảm hoạt động** | `maritime_operating_safeguards` | 7 | B6 OR B7 | Sự cố đạt mục tiêu hoặc cứu nạn đã bàn giao | Công nhận đúng kết quả, không chuyển state/core |
-| **E1 — Đông Bắc Á và Australia** | `east_asia_pacific_framework` | 5 | R0 | Có đối tác hợp lệ | Mở ba kênh đối tác |
+| **B8 — Năng lực phối hợp cứu nạn** | `rescue_coordination_capability` | 7 | B6 OR B7 | Kiểm thử cứu nạn đạt mục tiêu hoặc hợp tác cứu nạn đã bàn giao | Công nhận đúng kết quả cứu nạn, không dùng kết quả chính trị thay bàn giao |
+| **E1 — Đông Bắc Á và Australia** | `east_asia_pacific_framework` | 5 | R0 | Có đối tác hợp lệ; kỳ ≥X, giả định gameplay | Mở ba kênh đối tác |
 | **E2 — Kênh hợp tác Nhật Bản** | `japan_cooperation_channel` | 5 | E1 | JAP hợp lệ | Mở quyền đề nghị JAP ở E5/E6 |
 | **E3 — Kênh hợp tác Hàn Quốc** | `korea_cooperation_channel` | 5 | E1 | KOR hợp lệ | Mở quyền đề nghị KOR ở E5/E6 |
 | **E4 — Kênh hợp tác Australia** | `australia_cooperation_channel` | 5 | E1 | AST hợp lệ | Mở quyền đề nghị AST ở E6 |
-| **E5 — Tiếp nhận và khai thác công nghệ** | `technology_absorption_program` | 7 | E2 OR E3 | Bên chọn đã mở kênh; category thật | Mở gói trực tiếp/xây năng lực JAP hoặc KOR |
-| **E6 — Đào tạo và quản trị chương trình** | `training_management_program` | 7 | E2 OR E3 OR E4 | Đối tác được chọn có kênh | Mở gói đào tạo theo đối tác |
+| **E5 — Tiếp nhận và khai thác công nghệ** | `technology_absorption_program` | 7 | E2 OR E3 | Bên chọn đã mở kênh; category thật | Mở gói JAP/KOR; riêng gói sâu kiểm cadre_cohesion_required, không khóa focus/gói nhỏ |
+| **E6 — Đào tạo và quản trị chương trình** | `training_management_program` | 7 | E2 OR E3 OR E4 | Đối tác được chọn có kênh | Mở gói đào tạo; riêng gói sâu kiểm cadre_cohesion_required, không khóa focus/gói nhỏ |
 | **E7 — Khai thác hợp tác đã bàn giao** | `east_partner_delivered_cooperation` | 7 | E5 OR E6 | Ít nhất một chương trình bàn giao hợp lệ | Công nhận lĩnh vực thực và quyền hợp tác sâu |
-| **S1 — Đối thoại với đối tác lớn** | `major_partner_framework` | 5 | R0 | Có đối tác hợp lệ | Mở USA/SOV/RAJ theo lĩnh vực |
+| **S1 — Đối thoại với đối tác lớn** | `major_partner_framework` | 5 | R0 | Có đối tác hợp lệ; kỳ ≥XIII, giả định gameplay; chương trình riêng với XIII05–08 | Mở USA/SOV/RAJ theo lĩnh vực, không xử lý hồ sơ trái phiếu trong nước |
 | **S2 — Kênh hợp tác với Mỹ** | `usa_cooperation_channel` | 5 | S1 | USA hợp lệ | Mở đào tạo/tiêu chuẩn dân sự USA |
 | **S3 — Kênh hợp tác với Nga** | `russia_cooperation_channel` | 5 | S1 | SOV hợp lệ | Mở hỗ trợ kỹ thuật SOV, reader ngành thật |
 | **S4 — Kênh hợp tác với Ấn Độ** | `india_cooperation_channel` | 5 | S1 | RAJ hợp lệ | Mở trao đổi/đào tạo hoạt động biển RAJ |
 | **S5 — Hợp tác theo lĩnh vực** | `sector_cooperation_proposal` | 7 | S2 OR S3 OR S4 | Bên chọn đã mở kênh; không phiên trùng | Mở đề nghị đúng lĩnh vực/đối tác |
 | **S6 — Rà điều kiện và quyền lựa chọn** | `commitment_terms_review` | 5 | S2 OR S3 OR S4 | Quy trình chưa được mở | Mở rà điều kiện/sửa/chuyển đối tác có phí |
 | **S7 — Quan hệ có cam kết rõ ràng** | `major_partner_clear_commitments` | 7 | S5 AND S6 | Một chương trình thực cùng quyền rà điều kiện | Công nhận hợp tác và cách giữ quyền lựa chọn |
-| **W1 — Hợp tác với đối tác châu Âu** | `europe_framework` | 5 | R0 | Có đối tác quốc gia hợp lệ | Mở GER/FRA/ITA cho chương trình thử |
+| **W1 — Hợp tác với đối tác châu Âu** | `europe_framework` | 5 | R0 | Có đối tác quốc gia hợp lệ; kỳ ≥XI, giả định gameplay | Mở GER/FRA/ITA cho chương trình thử |
 | **W2 — Đầu mối hợp tác châu Âu** | `europe_partner_channels` | 5 | W1 | Đối tác được chọn tồn tại | Mở kênh theo từng nước, không tag EU |
 | **W3 — Chuẩn bị đáp ứng tiêu chuẩn** | `market_standards_preparation` | 5 | W1 | Năng lực trong nước cần chuẩn bị | Ghi khả năng đề nghị gói tiêu chuẩn |
 | **W4 — Hỗ trợ tiêu chuẩn và thị trường** | `standards_market_proposal` | 7 | W2 AND W3 | Đối tác/gói thật, chưa cam kết trùng | Mở đề nghị, nghiệm thu và quyền sửa một lần |
@@ -669,21 +676,27 @@ A7 yêu cầu đủ người cho gói đã chọn và triển khai thành công.
 
 ### 17.4. An ninh biển — ba công cụ bổ sung và một kết quả có điều kiện
 
-Ba chức năng là **hồ sơ/pháp lý**, **liên lạc xử lý sự cố**, **hợp tác cứu nạn và hỗ trợ hoạt động**. Chúng cùng tồn tại. B4 phát triển hồ sơ từ B2; B5 phát triển quy trình ứng phó từ B3; B6 cần cả hai. B7 mở chương trình cứu nạn với đối tác phù hợp; B8 cho phép đi từ B6 OR B7 nhưng cần kết quả thật tương ứng.
+**Ownership đã chốt ở L1:** chính trị giữ XI08, XIII01–04, XIII10–11 và mọi phản hồi/hiện diện đã viết cho các hồ sơ đó. Cụm B giữ tám node, chuyển phần trùng sang **hồ sơ trợ giúp**, **đầu mối cứu nạn** và **kiểm thử/hợp tác cứu nạn**. Tên/slug tài liệu đã đổi theo catalog 16 cho đúng cứu nạn; mã B1–B8, cost, đồ thị và tọa độ giữ nguyên. Mapping cũ→mới ở hồ sơ L1; chưa đổi ID/loc trong game vì các ID này chưa được triển khai.
+
+B2 chuẩn bị phạm vi trợ giúp/chia sẻ dữ liệu; B4 chốt tiêu chí kiểm thử và nghiệm thu. B3 mở đầu mối chuyên môn; B5 chuẩn bị quy trình phối hợp. B6 cần B4 AND B5 và kiểm thử quy trình đã chuẩn bị, không trả thêm cùng khoản chuẩn bị. B7 là hợp tác cứu nạn với đối tác có quyền trả lời; B8 đọc B6 OR B7 cùng kết quả tương ứng.
 
 | Nội dung | Quyền lựa chọn | Hậu quả |
 |---|---|---|
-| Sự cố gây cản trở hoạt động | Dùng liên lạc để giảm căng thẳng; công bố hồ sơ và vận động hỗ trợ; tăng bảo đảm hiện trường nếu có năng lực thật | Đối tác có thể đồng ý xử lý, nhận một phần hoặc từ chối. Giữ hoạt động có chi phí; công bố hồ sơ có lợi ích vận động và ảnh hưởng quan hệ với bên liên quan |
+| Kiểm thử quy trình cứu nạn | Chọn phạm vi chia sẻ thông tin và yêu cầu trợ giúp theo hồ sơ đã chuẩn bị | Đầu mối trả lời, thiếu thông tin thì cần bổ sung; không tự tính là đã cứu người hoặc đã giải quyết tranh chấp |
 | Hợp tác cứu nạn | Trao đổi đầu mối/đào tạo, hoặc phối hợp diễn tập | Quy mô lớn cần năng lực quân sự phù hợp; không tự cấp tàu, căn cứ hoặc quyền tiếp cận quân sự |
-| Kết thúc tình huống | Thỏa thuận cách xử lý; tiếp tục với phạm vi hạn chế; rút hoạt động có kiểm soát | Ghi cách đã xử lý, thiệt hại và nghĩa vụ; không coi rút là chiến thắng ngoại giao đầy đủ |
+| Kết thúc kiểm thử/cứu nạn | Đối chiếu tiêu chí kết quả, ghi phần thực hiện/không thực hiện và nghĩa vụ trợ giúp còn lại | Kết quả đúng hồ sơ mở B8; không dùng completed focus chính trị để tự bàn giao cứu nạn |
 
-Bản thử có **một tình huống được tác giả viết**, caller sau B6, không dùng MTTH mở hoặc bộ đếm clash toàn thế giới. Trước code phải đối chiếu các event biển hiện có ở chính trị/ngoại giao và caller MD Trung Quốc; cùng một sự kiện chỉ có một owner. Nếu tái sử dụng sự kiện hiện có, B6 mở các option/decision ứng phó của nó và không lịch thêm bản sao.
+Bản thử B6 là **kiểm thử cứu nạn giả định gameplay**, chỉ phát sinh trong phạm vi quy trình, không lịch thêm XI08/XIII hoặc tình huống đối đầu khác. Kết quả sự cố chính trị chỉ được đọc qua giao diện cùng đối tượng nếu có consumer xác minh; B không ghi lại kết quả/cấp lại thưởng của nó. Không sửa caller Trung Quốc.
 
-B8 có hai con đường hợp lệ: xử lý một sự cố và duy trì được phần hoạt động đã đặt mục tiêu, hoặc bàn giao chương trình cứu nạn. Giải quyết sự cố bằng liên lạc và bằng vận động để lại phản ứng/chi phí khác nhau. Không cấp war goal, core hoặc chuyển state như capstone Trung Quốc. Những hành động quân sự trong engine tiếp tục thuộc hệ thống quân sự thực.
+B8 có hai đường: kiểm thử quy trình cứu nạn đạt tiêu chí hoặc chương trình hợp tác cứu nạn bàn giao thật. Không cấp war goal, core, chuyển state hoặc phương tiện chấp pháp. B1 đã chuyển về X theo lựa chọn người dùng; kỳ mở là giả định gameplay cho chương trình cứu nạn mới, không phải năm hình thành mọi quan hệ biển. Nguồn bối cảnh DOC có trong hồ sơ L1.
+
+**Rủi ro nội dung cho L3:** sau bỏ phần tranh chấp đã thuộc chính trị, B chưa đủ bảy thành phần của yêu cầu L3; đặc biệt thiếu hai gói khác loại, hai event khác cấu trúc, yếu tố phản hồi đối tác và hậu quả kỳ sau. Tám vai trò trên giữ được nhưng chưa chứng minh tám focus đều cần thiết. N1 giữ FAIL cho B; chưa tự giảm cụm/node hoặc dùng các bước chuẩn bị rỗng để lấp số.
 
 ### 17.5. Đông Bắc Á–Australia — tiếp nhận và khai thác hợp tác
 
 E2 mở kênh JAP, E3 mở kênh KOR, E4 mở kênh AST. E5 mở chương trình tiếp nhận công nghệ với JAP OR KOR; E6 mở đào tạo/quản trị với JAP OR KOR OR AST. Các quan hệ này không mutex và E7 chỉ cần một chức năng đã bàn giao hợp lệ.
+
+**Gate L1 đã chọn:** riêng gói sâu của E5/E6 cần VIE_leadership_cohesion ≥ politics.cadre_cohesion_required tại soạn/gửi/bắt đầu/nâng gói. Gói nhỏ và focus mở quyền không bị khóa theo ngưỡng này. Phản hồi chấp thuận vẫn có thể ghi khi cohesion giảm trong lúc chờ, nhưng chưa có quyền start gói sâu tới khi đạt lại; không gia hạn tự động. Sau start giữ timer, không hủy hồi tố chỉ vì cohesion giảm.
 
 | Chương trình | Gói trực tiếp | Gói xây năng lực |
 |---|---|---|
@@ -698,6 +711,8 @@ Event đặc trưng: đối tác đưa điều kiện sử dụng/phạm vi hỗ
 
 S2/S3/S4 mở các kênh USA/SOV/RAJ riêng; tag là theo MD, cần kiểm tồn tại và đối tượng tại lúc gửi. S5 dùng một kênh đã mở để đề nghị chương trình theo lĩnh vực. S6 cần một trong các kênh S2/S3/S4 để thiết lập quy trình rà điều kiện cam kết, không đặt trục ý thức hệ mới. S7 cần S5 AND S6 và ít nhất một chương trình đã bàn giao.
 
+**Ownership với XIII05–08:** catalog chính trị 7.4 xác định các node đó là công bố nghĩa vụ trái phiếu, cơ cấu kỳ hạn, bảo vệ người mua và trách nhiệm bên phân phối/bảo lãnh. Chính trị là owner duy nhất của các hồ sơ vốn/chủ nợ/người mua và hậu quả kỳ sau ấy. S chỉ sở hữu đề nghị kỹ thuật/đào tạo với nước ngoài theo chương trình riêng; không sửa kỳ hạn trái phiếu, cứu dự án hay cấp bảo lãnh/tái cấp hỗ trợ của XIII. Một record có cùng đối tượng/source epoch không được xử lý lại qua S6. S1 giữ XIII là **giả định gameplay để phân kỳ nội dung mới**, không khẳng định các quan hệ chỉ hình thành lúc này. Hợp đồng E104/XIII09/XIII12 tiếp tục thuộc kế hoạch chuyển riêng 19.6.
+
 | Đối tác | Chương trình thử | Lựa chọn có ý nghĩa |
 |---|---|---|
 | USA | Đào tạo và tiêu chuẩn sử dụng công nghệ dân sự | Tiếp nhận trong phạm vi hẹp, hoặc chuẩn bị thêm để xin gói sâu với điều kiện sử dụng rõ |
@@ -711,6 +726,8 @@ Tình huống đặc trưng: điều kiện sử dụng thay đổi khi chuẩn 
 ### 17.7. Châu Âu — tiêu chuẩn, thị trường và đào tạo
 
 W2 mở đàm phán với danh sách đối tác thử GER/FRA/ITA. Đây là các đối tác quốc gia; không scope tới một tag “EU” giả định. W3 chuẩn bị tiêu chuẩn; W4 cần W2 AND W3 để đề nghị hợp tác tiêu chuẩn/thị trường với một đối tác được chọn. W5 mở đào tạo với đối tác đã có kênh. W6 đọc W4 OR W5 và kết quả thực.
+
+**Ownership với X05–X08:** chính trị sở hữu quy trình chấp thuận đầu tư, ngoại lệ tiếp cận thị trường, thẩm tra ngành nhạy cảm và quyền truy cập dữ liệu trong nước. W3 chỉ lập hồ sơ/bằng chứng đáp ứng yêu cầu kỹ thuật của gói đang đề nghị; W4 thương lượng và nghiệm thu hỗ trợ theo hồ sơ ấy. W không mở lại lựa chọn ngoại lệ X06, tự cấp quyền dữ liệu X08 hoặc thưởng lại cải cách X05/X07. Nếu chương trình cần dữ liệu mà record chính trị không cho chia sẻ, phải chọn phạm vi được phép hoặc dừng gói, không dùng W3 để ghi đè. Tên “tiêu chuẩn” ở hai nhánh không chứng minh cùng một kết quả: quy trình nội địa có một owner chính trị; dịch vụ hỗ trợ/đánh giá của đối tác có một owner W, cùng hồ sơ không nhận hai lần reward. Chưa thêm flag/quyền giả hoặc khoản hoàn PP mới.
 
 Chương trình thử **hỗ trợ đáp ứng tiêu chuẩn và kết nối thị trường** có hai ưu tiên: tiếp cận cơ hội trước trong phạm vi đã đáp ứng, hoặc đầu tư thêm khả năng đáp ứng tiêu chuẩn để mở hợp tác sâu hơn. Gói thứ hai dài và tốn hơn; không tự ký EVFTA hay biến mọi nước châu Âu thành bên chấp thuận.
 
@@ -780,7 +797,7 @@ Namespace `vie_rd` và dải số là dự kiến mới, phải kiểm không tr
 | 10–29 | C | VIE chọn gói; CHI phản hồi; VIE nhận phạm vi thu hẹp; kết quả; vướng mắc/giải pháp |
 | 30–59 | M | Chọn ưu tiên lưu vực; từng nước trả lời; tổng hợp roster; thu hẹp; thông tin tới chậm; kết quả kết nối |
 | 60–89 | A | Chọn chủ đề/cách tổ chức; từng thành viên trả lời; ngoại lệ; sửa roster; rút; kết quả |
-| 90–119 | B | Sự cố và cách phản ứng; bên liên quan trả lời; vận động hỗ trợ; cứu nạn; kết thúc tình huống |
+| 90–119 | B | Hồ sơ/đầu mối trợ giúp; phản hồi thông tin cứu nạn; kiểm thử quy trình; hợp tác cứu nạn; nghiệm thu, không gọi lại sự cố chính trị |
 | 120–149 | E | Chọn đối tác/gói; trả lời điều kiện tiếp nhận; điều chỉnh; kết quả công nghệ/đào tạo |
 | 150–179 | S | Chọn lĩnh vực; đối tác trả lời; điều kiện sử dụng thay đổi; đổi đối tác; kết quả |
 | 180–209 | W | Chọn phạm vi; đối tác trả lời; yêu cầu bổ sung; phạm vi hẹp; kết quả |
@@ -792,11 +809,11 @@ Option chung: chấp thuận đầy đủ, đề nghị phạm vi khác, yêu c�
 
 | Hành động | Visible | Available và giao dịch | Kết thúc |
 |---|---|---|---|
-| Soạn/sửa | Focus chương trình đã mở quyền | Không có luồng đang chờ chưa đóng; sửa có thay đổi thực | Lưu dự thảo, chưa cấp reward |
-| Gửi/gửi lại | Có dự thảo | Đối tác hợp lệ, đủ PP, hết hạn chờ gửi và đáp ứng trở ngại | Trả phí một lần; mở phản hồi |
-| Bắt đầu | Đã thống nhất gói | Chưa hết hạn, đủ tiền/năng lực và slot | Trả ngân khố, kích hoạt tiến trình |
+| Soạn/sửa | Focus chương trình đã mở quyền | Không có luồng chưa đóng; gói sâu C/E kiểm cadre_cohesion_required; sửa có thay đổi thực | Lưu dự thảo hợp lệ, chưa cấp reward |
+| Gửi/gửi lại | Có dự thảo | Đối tác hợp lệ, đủ PP, hết chờ gửi và xử lý trở ngại; kiểm lại cohesion cho gói sâu C/E | Trả phí gốc một lần, không nhân cohesion; mở phản hồi |
+| Bắt đầu | Đã thống nhất gói | Chưa hết hạn, đủ tiền/năng lực/slot; gói sâu C/E đạt ngưỡng cohesion hiện tại | Chỉ khi đủ mới trả phí/chiếm slot; thiếu thì giữ chờ trong hạn, không tự gia hạn |
 | Mission triển khai | Đang thực hiện | Timer của gói lưu lúc bắt đầu | Timeout gọi bàn giao nếu hợp lệ; cancel gọi kết thúc |
-| Chuẩn bị dự phòng | C5/B5 hoặc quyền tương ứng đã mở | Chưa chuẩn bị/không làm trùng; đủ PP | Hết thời gian chuẩn bị mới ghi sẵn sàng |
+| Chuẩn bị dự phòng/phối hợp | C5 mở dự phòng C; B5 mở quy trình cứu nạn riêng | Chưa làm trùng; đủ điều kiện đã đặc tả; B6 chỉ đọc kết quả chuẩn bị B5 | Hết chuẩn bị mới ghi sẵn sàng; BoP chỉ áp danh sách ở 19.4 |
 | Xử lý vướng mắc | Có tình huống hoạt động | Đúng phiên và quyền phản ứng | Giữ/sửa/tạm dừng/kết thúc; không thưởng bàn giao lại |
 | Mời bổ sung/thu hẹp | Roster không đủ hoặc phạm vi cần sửa | Không có phiên nhóm đang sửa; giới hạn lời mời | Roster thật được cập nhật sau phản hồi |
 | Tạm dừng/nối lại | Đã bàn giao, trạng thái tương ứng | Cam kết còn hiệu lực, đáp ứng điều kiện nối lại | Refresh lợi ích; không reset dấu đã nhận reward |
@@ -808,14 +825,57 @@ Option chung: chấp thuận đầy đủ, đề nghị phạm vi khác, yêu c�
 
 | Writer | Reader | Hậu quả và giới hạn |
 |---|---|---|
-| C: kênh đối thoại, cách xử lý gián đoạn | B: option liên lạc khi bên liên quan là CHI | Mở công cụ/đổi giá thương lượng cụ thể; không giải quyết sự cố tự động |
-| B: kết quả xử lý sự cố với CHI | C: vướng mắc/đối thoại tiếp theo | Phản ứng song phương có thời hạn; không hủy thương mại bằng flag gửi sự kiện |
+| C: kênh đối thoại, cách xử lý gián đoạn | B: liên lạc trợ giúp khi đối tác cứu nạn là CHI | Chỉ mở liên hệ đúng chương trình; không giải quyết tranh chấp hoặc tự tạo chấp thuận cứu nạn |
+| Chính trị: kết quả sự cố với CHI | C: đối thoại tiếp theo, B: công cụ áp dụng nếu có reader | Cùng đối tượng và một owner chính trị; không hủy thương mại bằng flag gửi sự kiện, không thưởng lại ở B |
 | M: chương trình dữ liệu bàn giao | A: ưu tiên chia sẻ thông tin cho sáng kiến | Thêm nội dung/giảm một chi phí chuẩn bị nếu được chốt; không cộng lại reward M |
 | A: các bên thật đang hợp tác | B: vận động bên đó trả lời hỗ trợ | Sửa eligibility của lời mời; không auto-accept hoặc thao tác faction |
 | E/W: đào tạo, đáp ứng tiêu chuẩn đã nghiệm thu | C/M/S: gói cần năng lực tương ứng | Chỉ đọc năng lực có owner; không biến mọi dự án thành cần làm E/W |
-| Chính trị: tier/cohesion hiện có | Một gói mở rộng cụ thể | Có thể rút ngắn chuẩn bị hoặc mở quyền sửa; luật và tham số phải tra hiện trạng trước tích hợp |
+| Chính trị: kỳ/công cụ cơ sở, BoP và cohesion | Root cụm; chuẩn bị B5/S5; lựa chọn/start gói sâu C/E | Ba giao diện thiết kế có consumer ở 19.4; không có biến phản chiếu; tác dụng đổi lựa chọn của BoP còn chưa được chứng minh |
+| Chính trị: tier cán bộ và VIE_dual_role_active tạm | Lịch ký hợp đồng chung khi chuyển E104 | Liên kết hoãn theo 19.6, không đếm là reader ngoại giao đang hoạt động; kiêm nhiệm không rút chuẩn bị |
 
 BoP chỉ đọc quy trình khi có tác dụng được đặc tả, không cộng drift vì chọn nước. Snapshot hiện tại của `VIE_is_collective_zone`/`VIE_is_central_zone` đã dùng `power_balance_value`; nhận xét lỗi cũ tại báo cáo Trung Quốc 10.4 không là yêu cầu sửa lại. Không tạo prerequisite ngang giữa mọi focus ở bảy cụm; trạng thái chương trình đọc qua trigger với tooltip nguồn rõ.
+
+### 19.4. Giao diện chính trị đã chốt và giới hạn kiểm chứng
+
+**G — kỳ và công cụ cơ sở:** R0 đọc kỳ IX đã giải quyết và điều kiện công cụ cơ sở **F02 hoặc mặc định đại hội** như nhánh chính trị. Provider đã đọc: resolver ghi VIE_congress_resolved; decision chương trình dùng flag này để mở đường không cần F02. Không thấy một scripted trigger riêng chỉ chứa điều kiện cơ sở; dùng biểu thức nguồn dưới đây, không bịa tên trigger hoặc gọi nguyên VIE_politics_can_select vốn có thêm hạn/chốt programme. Root cụm đọc kỳ ở catalog. Đây là gate thiết kế giả định gameplay, chưa là sửa script.
+
+```pdx
+# Dieu kien co so cua R0, sau khi da kiem ky IX
+OR = {
+    has_completed_focus = VIE_publish_responsibility_rules
+    has_country_flag = VIE_congress_resolved
+}
+```
+
+Tooltip trước: kỳ đã giải quyết, và một trong hai nguồn công cụ cơ sở còn thiếu. Tooltip sau: nguồn mở thực tế F02/đại hội, không tính là đã bàn giao chương trình. AI dùng cùng điều kiện; F02 chỉ có trọng số, không bảo đảm luôn được AI chọn. Không kéo hạn chọn programme nội trị sang R0.
+
+**P — chuẩn bị theo BoP:** politics.prepare_days chỉ áp **B5: chuẩn bị phối hợp cứu nạn** và **S5: soạn hồ sơ hợp tác theo lĩnh vực** sau focus; không thay focus cost. B6 dùng kết quả B5, không rút/thu phí chuẩn bị lần nữa. Khi bắt đầu chốt một timer theo BoP; đổi BoP giữa chừng không viết lại timer. Tooltip nêu lịch trước chọn và ngày đã chốt sau chọn. Chênh lịch có thể tính được, nhưng chưa có bằng chứng nó đủ đổi lựa chọn. **Người dùng đã chọn giữ lịch này, để J2 FAIL và chưa đóng L1**; không tự thêm deadline để làm PASS.
+
+**C — gate cohesion đã chọn:** riêng gói sâu C và E5/E6 cần VIE_leadership_cohesion ≥ politics.cadre_cohesion_required ở soạn, gửi/gửi lại, bắt đầu và nâng gói. Không khóa gói nhỏ, focus mở quyền hoặc tự bác phản hồi đã chấp thuận. Nếu giảm trước start thì chờ phục hồi trong hạn bắt đầu hiện có hoặc thương lượng gói nhỏ theo luật, không tự gia hạn/thu phí triển khai khi chưa hợp lệ. Sau start không hủy hoặc viết lại timer chỉ vì cohesion giảm. Phí gửi giữ giá gốc B1, không nhân hệ số cohesion.
+
+Tooltip C trước: cohesion hiện tại/ngưỡng đọc từ B1, gói nhỏ còn mở, nguồn phục hồi chính trị và thời gian; sau: gói đã chọn/đã trả, điều kiện cần giữ trước start. Phép thử sau một lần vượt phản đối dùng đúng cohesion_initial, override_cohesion và recovery của JSON chính trị, có bảng mọi band và kết quả riêng trong báo cáo tính L1. Không thêm tham số chuẩn bị do kiêm nhiệm hoặc bonus phục hồi đa phương chưa có caller.
+
+**T — liên kết hoãn, chưa đếm là active:** lịch ký dự kiến đọc idea tier cán bộ và tạm đọc VIE_dual_role_active; có kiêm nhiệm lấy min(lịch tier, politics.combined.sign_days). Mảng roster thiết kế chưa có provider xác minh; runtime tier vừa có biến vừa có idea. Ngoại giao không tạo bản sao và không sửa chính trị. Hiện chưa có cửa sổ ký ngoại giao ngoài kế hoạch chuyển 19.6, nên không tính tier/kiêm nhiệm thành hai reader thực. Bảng giao diện, phép thử và các bất biến được bàn giao cùng hồ sơ L1.
+
+### 19.5. Ownership giữa 74 node chính trị và ngoại giao
+
+| Chủ đề / hồ sơ | Owner | Phạm vi nhánh kia được đọc |
+|---|---|---|
+| Sự cố biển XI08, XIII01–04, XIII10–11 | Chính trị | B đọc hồ sơ/kết quả, không gọi lại sự cố hoặc cấp lại thưởng; B chỉ sở hữu trợ giúp/kiểm thử/cứu nạn mới |
+| Hồ sơ vốn, trái phiếu và bảo lãnh XIII05–08 | Chính trị | S không sửa kỳ hạn, cứu dự án, bảo lãnh hoặc phát lại hỗ trợ; S sở hữu chương trình kỹ thuật/đào tạo nước ngoài khác đối tượng, theo 17.6 |
+| Quy trình mở cửa/quyền dữ liệu X05–X08 | Chính trị | W3 lập bằng chứng cho gói kỹ thuật cụ thể; W4 sở hữu hỗ trợ/đánh giá đối tác, không ghi đè quy trình/ngoại lệ/quyền nội địa, theo 17.7 |
+| Hợp đồng kỹ thuật E104 → XIII09/XIII12 | Hiện tại chính trị; đích là một owner giao thức chung | Chỉ thực hiện kế hoạch chuyển ở 19.6 sau C; trước đó E/S/W không ghi vào hợp đồng này |
+
+Owner được xác định theo đúng hồ sơ/đối tượng/source epoch, không dùng tên “quan hệ lớn” hoặc “tiêu chuẩn” để thưởng một kết quả ở hai nhánh. Không sửa node chính trị. Bảng này làm rõ S/W nhưng **không đóng J5** khi chuyển hợp đồng thật chưa được kiểm.
+
+### 19.6. Kế hoạch chuyển E104 — chỉ tài liệu, chưa thực hiện
+
+1. **Điều kiện vào:** C qua kiểm toàn vòng, gồm phản hồi/giao dịch/hủy/callback/nghĩa vụ, save/load và bằng chứng engine. Completed C6 hoặc fixture Python không thay điều kiện này.
+2. **Mapping instance đầu tiên:** giữ đối tác/đối tượng/source epoch, pending/deadline/lịch ký, hỗ trợ đã hứa/đã trả/đã mất, quyền đã cấp/dùng/thu hồi, cảnh báo, trạng thái và nghĩa vụ/checkpoint của E104. Writer cũ giữ quyền tới lúc chuyển.
+3. **Adapter được đề xuất riêng sau C:** chỉ một owner xử lý hợp đồng; caller chính trị dùng giao thức chung, XIII09/XIII12 đọc đúng instance. Giữ giá/lịch/nghĩa vụ từ JSON chính trị. Không thêm phí gửi/phí tháng/slot lần hai chỉ vì chuyển nhãn.
+4. **Chiều ngược:** bàn giao ngoại giao ghi chứng cứ gắn đúng hợp đồng/đối tác/source epoch. XIII09 vẫn cần pending/phản hồi an ninh; XIII12 vẫn cần cảnh báo/lợi ích còn lại/điều kiện sửa. Không dùng cờ chung “đã nhận công nghệ” để vượt các gate ấy.
+5. **Kiểm trước chuyển thật:** trình mapping/adapter cụ thể ở công việc riêng; kiểm phản hồi cũ, nghĩa vụ còn lại, thanh toán và bonus một lần, migration save. Chưa sửa hoặc chạy generator chính trị trong L1.
+6. **Nợ J5:** E104 được chọn làm instance đầu tiên của một giao thức/một sổ chung; chỉ sau chuyển và kiểm thực mới xét đóng nợ. Hiện J5 giữ FAIL, không đổi định nghĩa bất biến.
 
 ## 20. Reward, modifier và quyền duy trì
 
@@ -888,11 +948,11 @@ Khoản sửa/gửi lại chỉ thu một lần ở decision gửi, không đồ
 
 | Chương trình | Gói nhỏ: tiền/ngày/phí tháng | Gói sâu: tiền/ngày/phí tháng | Điều kiện bổ sung |
 |---|---|---|---|
-| C thương mại | 2 / 180 / 0,02 | 5 / 365 / 0,05 | Mở rộng cần năng lực phối hợp đã tra provider; không bắt completed mở rộng trước |
+| C thương mại | 2 / 180 / 0,02 | 5 / 365 / 0,05 | Gói sâu đọc cadre_cohesion_required theo 19.4 và năng lực phối hợp; không bắt completed mở rộng trước |
 | M dữ liệu/kết nối | 2 / 180 / 0,02 | 4 / 365 / 0,04 | Roster hoặc bên ký đúng phạm vi; mỗi chương trình M là lượt riêng |
 | A sáng kiến | 3 / 180 / 0,03 | 5 / 365 / 0,05 | Đủ 3 bên cho khung rộng hoặc 2 bên cho nhóm sâu, theo cách tổ chức |
 | B cứu nạn | 1 / 120 / 0,01 | 3 / 180 / 0,03 | Gói diễn tập cần lực lượng phù hợp đã xác minh; không mua tàu bằng phí này |
-| E công nghệ/đào tạo | 3 / 180 / 0,03 | 6 / 365 / 0,06 | Đối tác và category phù hợp, quyền tiếp nhận đã mở |
+| E công nghệ/đào tạo | 3 / 180 / 0,03 | 6 / 365 / 0,06 | Đối tác/category/quyền tiếp nhận phù hợp; gói sâu E5/E6 đọc ngưỡng cohesion theo 19.4 |
 | S kỹ thuật/đào tạo | 2 / 180 / 0,02 | 4 / 365 / 0,04 | Đối tác hợp lệ, năng lực ngành nếu reader thưởng đòi hỏi |
 | W tiêu chuẩn/đào tạo | 2 / 180 / 0,02 | 5 / 365 / 0,05 | Nghiệm thu theo gói; hỗ trợ tiêu chuẩn cần W3 |
 
@@ -905,6 +965,8 @@ Ví dụ C nhỏ và E sâu cùng triển khai: chi ban đầu **2 + 6 = 8** ng�
 Luật cứng chung: nước ký tồn tại, đúng đối tác chương trình, chưa chiến tranh trực tiếp với VIE, không có luồng trùng, VIE đủ tiền tại điểm thanh toán. Opinion là một yếu tố phản hồi; không tự thêm ngưỡng cho every focus. Các chương trình có tên lịch sử cần chronology riêng trước khi thêm gate ngày; những chương trình giả định này mở theo năng lực.
 
 AI giữ hai hồ sơ Historical/Hardline theo tài liệu repo, không thêm persona ngoại giao mới. Historical ưu tiên láng giềng, ASEAN và gói vừa khả năng chi; Hardline ưu tiên công cụ bảo đảm/quyền lựa chọn nhưng vẫn đọc đủ luật, không auto-annex hoặc ép đối tác nhận lời. Không đặt lại BoP, roster hay kết quả phản hồi để AI đi đúng cây như một số override Trung Quốc.
+
+AI phải đọc cùng đường công cụ F02 hoặc mặc định đại hội, gate kỳ, gate cohesion gói sâu C/E và timer chuẩn bị B5/S5 ở 19.4. Không giả định AI luôn chọn F02 hoặc kiêm nhiệm giảm chuẩn bị; không nhân phí gửi theo cohesion. Tier/kiêm nhiệm chưa có reader ký ngoại giao thực; không cho AI gọi migration E104 trước khi C qua kiểm.
 
 Ở event đối tác, đề xuất base weight nhận/sửa/từ chối **4/3/2**; gói không đủ năng lực nhận có weight nhận bằng 0, sửa phạm vi tăng nếu có gói nhỏ khả thi; chiến tranh trực tiếp làm lời mời mất hiệu lực thay vì xử lý bằng xác suất. Các trọng số còn phải viết theo nội dung từng đối tác và playtest; không diễn giải 4/3/2 là xác suất cố định. Focus ưu tiên phải có guard chống phá sản và program slot; AI không lặp gửi khi trở ngại chưa thay đổi.
 
@@ -1019,14 +1081,14 @@ Sơ đồ Mermaid giải thích kiến trúc, không tái tạo toàn bộ 51 no
 
 ### 22.3. Luật kết quả toàn nhánh R1
 
-R1 cần **ít nhất 3 cụm có kết quả còn hiệu lực**, gồm ít nhất một cụm gần C/M/A và một cụm đối tác E/S/W. Đồng thời có công cụ bảo đảm: dự phòng C đã chuẩn bị hoặc kết quả ứng phó/cứu nạn B hợp lệ. Đây là các nhóm chức năng, không điểm ngoại giao mới.
+R1 cần **ít nhất 3 cụm có kết quả còn hiệu lực**, gồm ít nhất một cụm gần C/M/A và một cụm đối tác E/S/W. Đồng thời có công cụ bảo đảm: dự phòng C đã chuẩn bị hoặc kiểm thử/hợp tác cứu nạn B hợp lệ. Đây là các nhóm chức năng, không điểm ngoại giao mới; không đếm lại kết quả sự cố do chính trị sở hữu.
 
 | Cụm được tính | Điều kiện kết quả còn hiệu lực |
 |---|---|
 | C | C6 hoàn thành và gói thương mại còn vận hành |
 | M | M8 hoàn thành; phối hợp và kết nối đều còn hiệu lực đúng phạm vi được chấp thuận |
 | A | A7 hoàn thành; sáng kiến đang hoạt động, roster thật còn đạt ngưỡng của gói |
-| B | B8 hoàn thành; chương trình cứu nạn còn hoạt động, hoặc kết quả xử lý đạt mục tiêu còn trong cửa sổ ghi nhận thử 730 ngày |
+| B | B8 hoàn thành; chương trình cứu nạn còn hoạt động, hoặc kiểm thử quy trình cứu nạn đạt mục tiêu còn trong cửa sổ ghi nhận thử 730 ngày; không đếm lại kết quả sự cố chính trị |
 | E/S/W | Focus cuối cụm hoàn thành; chương trình trao đổi còn hoạt động, hoặc kết quả bàn giao một lần còn trong cửa sổ ghi nhận thử 730 ngày và quan hệ hợp tác đó chưa kết thúc |
 
 Đề xuất cửa sổ ghi nhận có thời hạn cho kết quả một lần để nó không biến thành lợi ích mạng lưới vĩnh viễn sau khi mọi hợp tác đã ngừng. Writer bàn giao ghi mốc/đánh dấu có thời hạn; tick VIE refresh R1 khi hết hạn. Giữ lịch sử đã bàn giao riêng, không thu hồi bonus nghiên cứu đã dùng. Một loại chương trình chỉ nhận bonus nghiên cứu một lần trong chiến dịch; nâng gói, ký lại hoặc đổi luồng sau cùng chương trình không cấp thêm bản sao. Định nghĩa “loại chương trình” phải cố định trong mapping trước code, không tạo ID mới để lách guard.
@@ -1073,7 +1135,7 @@ Focus hiệp định lịch sử có owner riêng có thể giữ và đổi con
 | P2a — Cụm mẫu C | R0 + C1–C6, chương trình hai gói, dự phòng, vướng mắc | Chơi được toàn vòng; chi tiền/reward/slot đúng; hai gói có đánh đổi |
 | P2b — Chương trình E thử | E1, kênh đối tác cần thiết và một chương trình công nghệ/đào tạo | Chứng minh reward khác C, tái sử dụng giao thức khi có nhu cầu thật |
 | P3a — M và A | Roster nhiều bên, phản hồi từng nước, thu hẹp/rút | Không phantom member, quorum đúng gói; kết quả không tự thưởng từ lời mời |
-| P3b — B và liên kết C/A | Tình huống biển/cứu nạn, reader đã chọn | Một owner sự cố; không thưởng/quyền lực quân sự giả; không phá hợp tác khác ngoài luật |
+| P3b — B và liên kết C/A | Kiểm thử/hợp tác cứu nạn; đọc hồ sơ chính trị nếu có provider | Chính trị giữ sự cố đã viết; không tạo lại caller, không thưởng/quyền lực quân sự giả; N1 của B còn phải hoàn thiện |
 | P3c — E/S/W hoàn chỉnh | Các kênh/ lĩnh vực còn lại, điều kiện sử dụng/tiêu chuẩn | Mỗi lĩnh vực có kết quả riêng; không duplicate với kinh tế/quân sự/hiệp định |
 | P4 — Layout/AI/loc/R1 | Toàn bộ 51 node và cấu hình kết quả | Shortcut/hover/dây rõ; AI hai profile có đường khả thi; tổng reward trong trần |
 | P5 — Nghiệm thu | Lượt mới, save/load, deadline, cleanup, balance | Kiểm tĩnh và game có bằng chứng; ghi giới hạn/lỗi còn mở |
@@ -1090,8 +1152,8 @@ Kế hoạch đầy đủ không có nghĩa sinh cả 51 node trước khi vòng
 | Roster | Đúng ngưỡng, thiếu một bên, nước rút/biến mất, từ chối không thành member, đổi gói cần đồng ý đúng phạm vi |
 | Duy trì | Thiếu tiền tháng, nối lại không trả hai lần, thứ tự ưu tiên, gián đoạn gỡ đúng nguồn, một nước mất không xóa mọi cụm |
 | Reward | Hoàn thành/hủy/đổi gói lặp, bonus đã dùng, targeted đúng nước, DM không cộng dồn mỗi tick, cap phần mới |
-| Tình huống | Dự phòng trước/sau chậm trễ, một đợt dùng một lần, B không trùng event cũ, W sửa quá giới hạn |
-| Liên kết | C→B/B→C và A→B đúng đối tượng; không tự tạo phản hồi; tier chỉ đọc gói cần nó |
+| Tình huống | Dự phòng trước/sau chậm trễ, một đợt dùng một lần; B kiểm thử/cứu nạn, không gọi lại XI08/XIII; W sửa quá giới hạn |
+| Liên kết | R0 mở khi bỏ F02 nhưng có mặc định đại hội, giữ mở sau hạn chọn programme; C/E sâu kiểm VIE_leadership_cohesion ≥ cadre_cohesion_required, bị khóa sau vượt phản đối và mở lại đúng nguồn phục hồi; BoP không rút hai lần; S/W không thưởng/ghi đè hồ sơ chính trị; tier/proxy là reader hoãn |
 | R1 | Các cấu hình hợp lệ/thiếu nhóm, một cụm nhiều chương trình tính một, mất hiệu lực sau khi focus đã hoàn thành |
 | Save và AI | Lưu khi pending/implementing/issue/suspended; AI không spam/hết tiền; profile không bỏ gate của người chơi |
 
@@ -1103,4 +1165,6 @@ Khi có code chạy audit focus, live refs, event, loc và diagnostics theo mụ
 
 Các định danh và số thử là **đề xuất để triển khai**, không phải định nghĩa đã có hoặc quyết định đã được người dùng chốt. Provider/scoping còn phải hoàn tất ở P1; layout thử cần xem trong HOI4 và bố trí vùng thay thế cuối. Lần viết này chỉ sửa tài liệu và xuất sơ đồ, chưa sửa gameplay, chưa playtest hoặc xác nhận cân bằng.
 
-Kiểm tài liệu lần này: catalog, bảng tọa độ và SVG khớp **51 node**; slug không trùng; anchor là tiền đề trực tiếp khai báo trước; node thấp hơn mọi cha; gap cùng hàng tối thiểu 2. Sơ đồ đã được xem và kiểm hình học, không còn dây vẽ đi xuyên hộp node không liên quan. **13 liên kết local** có file thật; UTF-8, heading, code fence và kiểm whitespace đạt. Đây là kiểm bản thiết kế và sơ đồ xuất kèm, không phải audit file focus gameplay hay xác nhận routing trong engine.
+**Cập nhật L1:** đã chọn gate cohesion C/E, B1 về X, S1 giữ XIII với ownership riêng, sửa R0 theo đường công cụ mặc định. B đổi tên/slug tài liệu và nhãn SVG/PNG, giữ số node/đồ thị/tọa độ. Ownership S/W ở 17.6/17.7 và 19.5; kế hoạch chuyển E104 ở 19.6. Theo quyết định bổ sung, giữ lịch BoP, J2 FAIL và L1 chưa đóng; J5 là nợ chuyển sau C; N1 của B vẫn chưa đạt. Kết quả J1/J2/J4/J5 được bàn giao cùng hồ sơ và bảng bất biến; chưa sang L2 hoặc nhận nghiệm thu engine.
+
+Kiểm tài liệu hiện hành được sinh lại trong hồ sơ/B1 và báo cáo kiểm: đếm liên kết theo **số lần xuất hiện lẫn số đích duy nhất**, không giữ số đếm cũ khi thêm link. Catalog/layout/SVG cần khớp node, tên/slug và hình học; PNG được xuất lại từ SVG sau đổi nhãn. Đây là kiểm file/tài liệu, không phải audit focus gameplay, kiểm routing engine hoặc playtest.

@@ -1,0 +1,3252 @@
+{
+  "design_variants": {
+    "C_expanded": {
+      "status": "expanded_content_proposal_not_gameplay",
+      "scope": "C only; user lifted six-node limit; legacy 51-node catalog remains frozen baseline",
+      "cost_source": "focus.cost_values",
+      "economic_source": "parameters in this registry; politics entries resolve their source_file/source_key; no new economic values",
+      "unpriced_programs": [
+        "C.border_civil",
+        "C.consular_return"
+      ],
+      "external_root": "R0",
+      "nodes": [
+        {
+          "key": "C01",
+          "slug": "china_neighbourly_framework",
+          "name": "Khung quan hệ láng giềng Việt–Trung",
+          "cost_index": 0,
+          "pre": [
+            [
+              "R0"
+            ]
+          ],
+          "anchor": "R0",
+          "xy": [
+            320,
+            2
+          ],
+          "role": "Mở các hồ sơ hợp tác riêng, không khởi tạo thành quả.",
+          "gate": "Kỳ IX và công cụ cơ sở theo R0; CHI hợp lệ."
+        },
+        {
+          "key": "C02",
+          "slug": "china_government_consultation",
+          "name": "Kênh tham vấn cấp chính phủ",
+          "cost_index": 0,
+          "pre": [
+            [
+              "C01"
+            ]
+          ],
+          "anchor": "C01",
+          "xy": [
+            324,
+            4
+          ],
+          "role": "Mở đối thoại ban đầu và quyền chuyển hồ sơ vượt thẩm quyền kỹ thuật.",
+          "gate": "CHI tồn tại, chưa chiến tranh trực tiếp."
+        },
+        {
+          "key": "C03",
+          "slug": "china_border_trade_agenda",
+          "name": "Chương trình giao thương biên giới",
+          "cost_index": 0,
+          "pre": [
+            [
+              "C01"
+            ]
+          ],
+          "anchor": "C01",
+          "xy": [
+            314,
+            4
+          ],
+          "role": "Xác định phạm vi thương mại và hỏi điều kiện tiếp nhận của CHI.",
+          "gate": "Chưa có hồ sơ giao thương trùng."
+        },
+        {
+          "key": "C04",
+          "slug": "china_civil_border_coordination",
+          "name": "Phối hợp dân sự qua biên giới",
+          "cost_index": 0,
+          "pre": [
+            [
+              "C01"
+            ]
+          ],
+          "anchor": "C01",
+          "xy": [
+            330,
+            4
+          ],
+          "role": "Mở hợp tác xử lý vụ việc dân sự và lãnh sự trên đất liền.",
+          "gate": "Có đầu mối dân sự phù hợp; không thay hiệp ước/chủ quyền."
+        },
+        {
+          "key": "C05",
+          "slug": "china_common_trade_procedures",
+          "name": "Một quy trình phối hợp chung",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C03"
+            ],
+            [
+              "C02"
+            ]
+          ],
+          "anchor": "C03",
+          "xy": [
+            308,
+            6
+          ],
+          "mutex": [
+            "C06"
+          ],
+          "role": "Chọn ủy nhiệm phối hợp trong phạm vi đã thỏa thuận; không tự ký với CHI.",
+          "gate": "Cam kết kiến trúc của chương trình giao thương, chưa có cam kết đối lập."
+        },
+        {
+          "key": "C06",
+          "slug": "china_case_specific_cooperation",
+          "name": "Hợp tác theo từng phạm vi",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C03"
+            ],
+            [
+              "C02"
+            ]
+          ],
+          "anchor": "C03",
+          "xy": [
+            316,
+            6
+          ],
+          "mutex": [
+            "C05"
+          ],
+          "role": "Chọn xác nhận riêng từng phạm vi và ngoại lệ; không cấp quyền điều phối chung.",
+          "gate": "Cam kết kiến trúc của cùng chương trình giao thương, chưa có cam kết đối lập."
+        },
+        {
+          "key": "C07",
+          "slug": "china_trade_document_protocol",
+          "name": "Hồ sơ thống nhất và thông báo thay đổi",
+          "cost_index": 0,
+          "pre": [
+            [
+              "C05"
+            ]
+          ],
+          "anchor": "C05",
+          "xy": [
+            308,
+            8
+          ],
+          "role": "Mở soạn quy trình hồ sơ chung và thỏa thuận phương án vận hành thu hẹp từ trước.",
+          "gate": "Không có phiên soạn/gửi trùng; đủ quyền chia sẻ trong nước; chưa cần CHI nhận dự thảo."
+        },
+        {
+          "key": "C08",
+          "slug": "china_trade_scope_exemptions",
+          "name": "Danh mục hợp tác và quyền ngoại lệ",
+          "cost_index": 0,
+          "pre": [
+            [
+              "C06"
+            ]
+          ],
+          "anchor": "C06",
+          "xy": [
+            316,
+            8
+          ],
+          "role": "Mở soạn phạm vi riêng; phần chưa đồng ý không tự được triển khai.",
+          "gate": "Có thể soạn danh mục riêng, không có phiên trùng; chưa cần CHI nhận danh mục."
+        },
+        {
+          "key": "C09",
+          "slug": "china_integrated_trade_delivery",
+          "name": "Giao thương liên thông vận hành",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C07"
+            ]
+          ],
+          "anchor": "C07",
+          "xy": [
+            308,
+            10
+          ],
+          "role": "Công nhận quy trình chung đã được nhận và thực hiện; không thưởng lại.",
+          "gate": "C.trade đã bàn giao đúng chế độ chung và đang hoạt động."
+        },
+        {
+          "key": "C10",
+          "slug": "china_selective_trade_delivery",
+          "name": "Hợp tác chọn lọc vận hành",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C08"
+            ]
+          ],
+          "anchor": "C08",
+          "xy": [
+            316,
+            10
+          ],
+          "role": "Công nhận phạm vi chọn lọc đã thực hiện; không ép nâng sang chế độ chung.",
+          "gate": "C.trade đã bàn giao đúng chế độ từng phạm vi và đang hoạt động."
+        },
+        {
+          "key": "C11",
+          "slug": "china_civil_border_contacts",
+          "name": "Đầu mối xử lý vụ việc dân sự",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C04"
+            ]
+          ],
+          "anchor": "C04",
+          "xy": [
+            328,
+            6
+          ],
+          "role": "Mở đề nghị danh bạ xác minh và chuyển đúng cơ quan của hai bên.",
+          "gate": "CHI tồn tại, có thể nhận đề nghị; chưa có luồng dân sự trùng; chưa cần CHI chấp thuận."
+        },
+        {
+          "key": "C12",
+          "slug": "china_consular_return_protocol",
+          "name": "Phối hợp lãnh sự và hồi hương",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C04"
+            ],
+            [
+              "C02"
+            ]
+          ],
+          "anchor": "C04",
+          "xy": [
+            332,
+            6
+          ],
+          "role": "Mở đề nghị xác minh nhân thân, đầu mối tiếp nhận và bàn giao có đồng ý.",
+          "gate": "Có quyền soạn hồ sơ lãnh sự, CHI có thể nhận đề nghị; chưa có luồng trùng; chưa cần CHI chấp thuận."
+        },
+        {
+          "key": "C13",
+          "slug": "china_border_civil_mechanism",
+          "name": "Cơ chế dân sự xuyên biên giới",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C11",
+              "C12"
+            ]
+          ],
+          "anchor": "C11",
+          "xy": [
+            330,
+            10
+          ],
+          "role": "Công nhận một cơ chế dân sự hoặc lãnh sự thực sự đã đưa vào sử dụng.",
+          "gate": "C.border_civil OR C.consular_return được hai bên nhận, bàn giao và đang hoạt động."
+        },
+        {
+          "key": "C14",
+          "slug": "china_trade_flow_contingency",
+          "name": "Phương án điều chỉnh nhịp giao thương",
+          "cost_index": 0,
+          "pre": [
+            [
+              "C03"
+            ]
+          ],
+          "anchor": "C03",
+          "xy": [
+            320,
+            6
+          ],
+          "role": "Mở chuẩn bị A12; chỉ decision hoàn thành mới ghi dự phòng sẵn sàng.",
+          "gate": "Không chuẩn bị trùng; dùng phí và lịch dự phòng C hiện có."
+        },
+        {
+          "key": "C15",
+          "slug": "china_disruption_consultation",
+          "name": "Tham vấn khi hợp tác gặp trở ngại",
+          "cost_index": 0,
+          "pre": [
+            [
+              "C02"
+            ],
+            [
+              "C09",
+              "C10"
+            ]
+          ],
+          "anchor": "C09",
+          "xy": [
+            312,
+            12
+          ],
+          "role": "Mở thương lượng cấp chương trình sau khi công cụ kỹ thuật không giải quyết được.",
+          "gate": "Chỉ mở năng lực; có thể chuẩn bị trước sự cố, không bắt tạo khủng hoảng."
+        },
+        {
+          "key": "C16",
+          "slug": "china_agreed_remedy_record",
+          "name": "Biên bản khắc phục vướng mắc",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C15"
+            ]
+          ],
+          "anchor": "C15",
+          "xy": [
+            312,
+            14
+          ],
+          "role": "Công nhận giải pháp hai bên đã nhận; lưu đúng điều khoản được sửa.",
+          "gate": "Đã có vướng mắc thật của lượt hợp tác, giải pháp đã được chấp thuận; chưa thưởng lại bàn giao."
+        },
+        {
+          "key": "C17",
+          "slug": "china_limited_trade_resumption",
+          "name": "Khôi phục phần hợp tác hợp lệ",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C14",
+              "C16"
+            ]
+          ],
+          "anchor": "C16",
+          "xy": [
+            320,
+            16
+          ],
+          "role": "Mở nối lại theo phương án đã đồng ý trước hoặc biên bản khắc phục; không tự bàn giao.",
+          "gate": "Đã từng bàn giao C.trade; có gián đoạn; có thỏa thuận/ngoại lệ còn hiệu lực và căn cứ phục hồi thực."
+        },
+        {
+          "key": "C18",
+          "slug": "china_effective_neighbourly_cooperation",
+          "name": "Hợp tác láng giềng có cơ chế bảo đảm",
+          "cost_index": 1,
+          "pre": [
+            [
+              "C09",
+              "C10"
+            ],
+            [
+              "C13"
+            ]
+          ],
+          "anchor": "C13",
+          "xy": [
+            330,
+            14
+          ],
+          "role": "Hội tụ thương mại và một cơ chế dân sự thực; giữ hai chế độ thương mại khác nhau.",
+          "gate": "C.trade còn hoạt động AND cơ chế dân sự/lãnh sự còn hoạt động; không yêu cầu xảy ra sự cố."
+        }
+      ],
+      "migration": {
+        "C1": "C01",
+        "C2": "C03 plus C07/C08 according to chosen policy",
+        "C3": "C02; technical dialogue follows C07/C08; advanced dialogue C15",
+        "C4": "C05/C06 then C07/C08; repeated sending stays in decisions",
+        "C5": "C14",
+        "C6": "C09/C10 for trade outcome; C18 for expanded regional capstone"
+      },
+      "r1_replace_old_c_final": "C18"
+    }
+  },
+  "schema": "Diplomacy B1 baseline plus proposed expanded C variant; L1 open",
+  "policy": "Registry owns diplomacy proposals; political entries are live references. CSV/MD are generated views.",
+  "treasury_unit": "chưa xác định trong JSON/tài liệu chính trị; k không phải tỷ giá engine",
+  "parameters": [
+    {
+      "id": "action.send.pp",
+      "value": 30.0,
+      "unit": "PP",
+      "source": "21.1/Gửi đề nghị/pp",
+      "diplomacy_refs": [
+        "14.3",
+        "14.5",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "gửi",
+        "đề nghị",
+        "phí gửi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.send.treasury",
+      "value": 0.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Gửi đề nghị/treasury",
+      "diplomacy_refs": [
+        "14.3",
+        "14.5",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "gửi",
+        "đề nghị",
+        "phí gửi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.send.timer_days",
+      "value": 60.0,
+      "unit": "day",
+      "source": "21.1/Gửi đề nghị/timer",
+      "diplomacy_refs": [
+        "14.3",
+        "14.5",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "gửi",
+        "đề nghị",
+        "phí gửi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.resend.pp",
+      "value": 20.0,
+      "unit": "PP",
+      "source": "21.1/Sửa và gửi lại/pp",
+      "diplomacy_refs": [
+        "13.5",
+        "13.8",
+        "14.3",
+        "14.4",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "gửi lại",
+        "sửa",
+        "phiên mới"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.resend.treasury",
+      "value": 0.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Sửa và gửi lại/treasury",
+      "diplomacy_refs": [
+        "13.5",
+        "13.8",
+        "14.3",
+        "14.4",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "gửi lại",
+        "sửa",
+        "phiên mới"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.resend.timer_days",
+      "value": 90.0,
+      "unit": "day",
+      "source": "21.1/Sửa và gửi lại/timer",
+      "diplomacy_refs": [
+        "13.5",
+        "13.8",
+        "14.3",
+        "14.4",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "gửi lại",
+        "sửa",
+        "phiên mới"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.accept_partial.pp",
+      "value": 0.0,
+      "unit": "PP",
+      "source": "21.1/Nhận phạm vi thu hẹp/pp",
+      "diplomacy_refs": [
+        "13.5",
+        "13.6",
+        "14.3",
+        "14.4",
+        "17.1",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "thu hẹp",
+        "phạm vi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.accept_partial.treasury",
+      "value": 0.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Nhận phạm vi thu hẹp/treasury",
+      "diplomacy_refs": [
+        "13.5",
+        "13.6",
+        "14.3",
+        "14.4",
+        "17.1",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "thu hẹp",
+        "phạm vi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.accept_partial.timer_days",
+      "value": 30.0,
+      "unit": "day",
+      "source": "21.1/Nhận phạm vi thu hẹp/timer",
+      "diplomacy_refs": [
+        "13.5",
+        "13.6",
+        "14.3",
+        "14.4",
+        "17.1",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "thu hẹp",
+        "phạm vi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.start.pp",
+      "value": 0.0,
+      "unit": "PP",
+      "source": "21.1/Bắt đầu sau đồng ý/pp",
+      "diplomacy_refs": [
+        "14.3",
+        "14.5",
+        "14.8",
+        "18.4",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "bắt đầu",
+        "triển khai",
+        "hạn bắt đầu"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.start.treasury",
+      "value": null,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Bắt đầu sau đồng ý/treasury",
+      "diplomacy_refs": [
+        "14.3",
+        "14.5",
+        "14.8",
+        "18.4",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "bắt đầu",
+        "triển khai",
+        "hạn bắt đầu"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.start.timer_days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.1/Bắt đầu sau đồng ý/timer",
+      "diplomacy_refs": [
+        "14.3",
+        "14.5",
+        "14.8",
+        "18.4",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "bắt đầu",
+        "triển khai",
+        "hạn bắt đầu"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.contingency_prepare.pp",
+      "value": 50.0,
+      "unit": "PP",
+      "source": "21.1/Chuẩn bị dự phòng C/pp",
+      "diplomacy_refs": [
+        "14.3",
+        "14.7",
+        "14.8",
+        "17.1",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "dự phòng",
+        "chuẩn bị"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.contingency_prepare.treasury",
+      "value": 0.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Chuẩn bị dự phòng C/treasury",
+      "diplomacy_refs": [
+        "14.3",
+        "14.7",
+        "14.8",
+        "17.1",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "dự phòng",
+        "chuẩn bị"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.contingency_prepare.timer_days",
+      "value": 90.0,
+      "unit": "day",
+      "source": "21.1/Chuẩn bị dự phòng C/timer",
+      "diplomacy_refs": [
+        "14.3",
+        "14.7",
+        "14.8",
+        "17.1",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "dự phòng",
+        "chuẩn bị"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.contingency_use.pp",
+      "value": 20.0,
+      "unit": "PP",
+      "source": "21.1/Kích hoạt dự phòng C/pp",
+      "diplomacy_refs": [
+        "14.7",
+        "14.8",
+        "20.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "dự phòng",
+        "kích hoạt",
+        "ứng phó"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.contingency_use.treasury",
+      "value": 0.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Kích hoạt dự phòng C/treasury",
+      "diplomacy_refs": [
+        "14.7",
+        "14.8",
+        "20.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "dự phòng",
+        "kích hoạt",
+        "ứng phó"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.contingency_use.timer_days",
+      "value": 90.0,
+      "unit": "day",
+      "source": "21.1/Kích hoạt dự phòng C/timer",
+      "diplomacy_refs": [
+        "14.7",
+        "14.8",
+        "20.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "dự phòng",
+        "kích hoạt",
+        "ứng phó"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.issue_dialogue.pp",
+      "value": 35.0,
+      "unit": "PP",
+      "source": "21.1/Đối thoại xử lý/pp",
+      "diplomacy_refs": [
+        "14.6",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "vướng mắc",
+        "đối thoại",
+        "phản hồi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.issue_dialogue.treasury",
+      "value": 0.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Đối thoại xử lý/treasury",
+      "diplomacy_refs": [
+        "14.6",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "vướng mắc",
+        "đối thoại",
+        "phản hồi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.issue_dialogue.timer_days",
+      "value": 30.0,
+      "unit": "day",
+      "source": "21.1/Đối thoại xử lý/timer",
+      "diplomacy_refs": [
+        "14.6",
+        "14.8",
+        "19.2",
+        "21.1"
+      ],
+      "search_terms": [
+        "vướng mắc",
+        "đối thoại",
+        "phản hồi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.w_repair.pp",
+      "value": 20.0,
+      "unit": "PP",
+      "source": "21.1/Sửa thực hiện W/pp",
+      "diplomacy_refs": [
+        "17.7",
+        "19.2",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "sửa",
+        "yêu cầu bổ sung",
+        "gia hạn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.w_repair.treasury",
+      "value": 1.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Sửa thực hiện W/treasury",
+      "diplomacy_refs": [
+        "17.7",
+        "19.2",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "sửa",
+        "yêu cầu bổ sung",
+        "gia hạn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.w_repair.timer_days",
+      "value": 90.0,
+      "unit": "day",
+      "source": "21.1/Sửa thực hiện W/timer",
+      "diplomacy_refs": [
+        "17.7",
+        "19.2",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "sửa",
+        "yêu cầu bổ sung",
+        "gia hạn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.w_repair.max_per_run",
+      "value": 1,
+      "unit": "count",
+      "source": "21.1/Sửa thực hiện W/một lần",
+      "diplomacy_refs": [
+        "17.7",
+        "19.2",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "sửa",
+        "yêu cầu bổ sung",
+        "gia hạn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.resume.pp",
+      "value": 20.0,
+      "unit": "PP",
+      "source": "21.1/Nối lại chương trình/pp",
+      "diplomacy_refs": [
+        "14.6",
+        "19.2",
+        "20.3",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "nối lại",
+        "tạm dừng",
+        "tháng"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.resume.treasury",
+      "value": null,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Nối lại chương trình/treasury",
+      "diplomacy_refs": [
+        "14.6",
+        "19.2",
+        "20.3",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "nối lại",
+        "tạm dừng",
+        "tháng"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.cancel.pp",
+      "value": 0.0,
+      "unit": "PP",
+      "source": "21.1/Rút/hủy/pp",
+      "diplomacy_refs": [
+        "5.2",
+        "14.5",
+        "18.4",
+        "19.2",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "hủy",
+        "rút",
+        "hoàn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "action.cancel.treasury",
+      "value": 0.0,
+      "unit": "treasury_script_unit",
+      "source": "21.1/Rút/hủy/treasury",
+      "diplomacy_refs": [
+        "5.2",
+        "14.5",
+        "18.4",
+        "19.2",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "hủy",
+        "rút",
+        "hoàn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.C.small.treasury",
+      "value": 2.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/C thương mại/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.1",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.C.small.days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.2/C thương mại/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.1",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.C.small.monthly",
+      "value": 0.02,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/C thương mại/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.1",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.C.deep.treasury",
+      "value": 5.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/C thương mại/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.1",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.C.deep.days",
+      "value": 365.0,
+      "unit": "day",
+      "source": "21.2/C thương mại/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.1",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.C.deep.monthly",
+      "value": 0.05,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/C thương mại/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.1",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.M.small.treasury",
+      "value": 2.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/M dữ liệu/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.2",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.M.small.days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.2/M dữ liệu/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.2",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.M.small.monthly",
+      "value": 0.02,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/M dữ liệu/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.2",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.M.deep.treasury",
+      "value": 4.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/M dữ liệu/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.2",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.M.deep.days",
+      "value": 365.0,
+      "unit": "day",
+      "source": "21.2/M dữ liệu/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.2",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.M.deep.monthly",
+      "value": 0.04,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/M dữ liệu/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.2",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.A.small.treasury",
+      "value": 3.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/A sáng kiến/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.3",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.A.small.days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.2/A sáng kiến/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.3",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.A.small.monthly",
+      "value": 0.03,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/A sáng kiến/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.3",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.A.deep.treasury",
+      "value": 5.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/A sáng kiến/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.3",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.A.deep.days",
+      "value": 365.0,
+      "unit": "day",
+      "source": "21.2/A sáng kiến/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.3",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.A.deep.monthly",
+      "value": 0.05,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/A sáng kiến/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.3",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.B.small.treasury",
+      "value": 1.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/B cứu nạn/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.4",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.B.small.days",
+      "value": 120.0,
+      "unit": "day",
+      "source": "21.2/B cứu nạn/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.4",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.B.small.monthly",
+      "value": 0.01,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/B cứu nạn/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.4",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.B.deep.treasury",
+      "value": 3.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/B cứu nạn/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.4",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.B.deep.days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.2/B cứu nạn/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.4",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.B.deep.monthly",
+      "value": 0.03,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/B cứu nạn/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.4",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.E.small.treasury",
+      "value": 3.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/E công nghệ/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.5",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.E.small.days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.2/E công nghệ/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.5",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.E.small.monthly",
+      "value": 0.03,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/E công nghệ/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.5",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.E.deep.treasury",
+      "value": 6.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/E công nghệ/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.5",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.E.deep.days",
+      "value": 365.0,
+      "unit": "day",
+      "source": "21.2/E công nghệ/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.5",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.E.deep.monthly",
+      "value": 0.06,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/E công nghệ/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.5",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.S.small.treasury",
+      "value": 2.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/S kỹ thuật/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.6",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.S.small.days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.2/S kỹ thuật/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.6",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.S.small.monthly",
+      "value": 0.02,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/S kỹ thuật/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.6",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.S.deep.treasury",
+      "value": 4.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/S kỹ thuật/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.6",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.S.deep.days",
+      "value": 365.0,
+      "unit": "day",
+      "source": "21.2/S kỹ thuật/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.6",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.S.deep.monthly",
+      "value": 0.04,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/S kỹ thuật/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.6",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.W.small.treasury",
+      "value": 2.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/W tiêu chuẩn/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.7",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.W.small.days",
+      "value": 180.0,
+      "unit": "day",
+      "source": "21.2/W tiêu chuẩn/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.7",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.W.small.monthly",
+      "value": 0.02,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/W tiêu chuẩn/small",
+      "diplomacy_refs": [
+        "14.8",
+        "17.7",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.W.deep.treasury",
+      "value": 5.0,
+      "unit": "treasury_script_unit",
+      "source": "21.2/W tiêu chuẩn/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.7",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.W.deep.days",
+      "value": 365.0,
+      "unit": "day",
+      "source": "21.2/W tiêu chuẩn/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.7",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "package.W.deep.monthly",
+      "value": 0.05,
+      "unit": "treasury_script_unit/month",
+      "source": "21.2/W tiêu chuẩn/deep",
+      "diplomacy_refs": [
+        "14.8",
+        "17.7",
+        "18.4",
+        "20.3",
+        "21.1",
+        "21.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "gói",
+        "ngân khố",
+        "duy trì",
+        "triển khai"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.C.trade_targeted.small",
+      "value": 0.05,
+      "unit": "targeted_trade_opinion",
+      "source": "20.2/C thương mại/small",
+      "diplomacy_refs": [
+        "14.2",
+        "17.1",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "C thương mại",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.C.trade_targeted.deep",
+      "value": 0.1,
+      "unit": "targeted_trade_opinion",
+      "source": "20.2/C thương mại/deep",
+      "diplomacy_refs": [
+        "14.2",
+        "17.1",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "C thương mại",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.M.trade_targeted.small",
+      "value": 0.05,
+      "unit": "targeted_trade_opinion",
+      "source": "20.2/M kết nối/small",
+      "diplomacy_refs": [
+        "17.2",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "M kết nối",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.M.trade_targeted.deep",
+      "value": 0.08,
+      "unit": "targeted_trade_opinion",
+      "source": "20.2/M kết nối/deep",
+      "diplomacy_refs": [
+        "17.2",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "M kết nối",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.A.trade_national.small",
+      "value": 0.02,
+      "unit": "national_trade_opinion",
+      "source": "20.2/A sáng kiến/small",
+      "diplomacy_refs": [
+        "17.3",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "A sáng kiến",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.A.trade_national.deep",
+      "value": 0.03,
+      "unit": "national_trade_opinion",
+      "source": "20.2/A sáng kiến/deep",
+      "diplomacy_refs": [
+        "17.3",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "A sáng kiến",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.E.research_bonus_percent.small",
+      "value": 10.0,
+      "unit": "percent",
+      "source": "20.2/E công nghệ/small",
+      "diplomacy_refs": [
+        "17.5",
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "E công nghệ",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.E.research_bonus_percent.deep",
+      "value": 15.0,
+      "unit": "percent",
+      "source": "20.2/E công nghệ/deep",
+      "diplomacy_refs": [
+        "17.5",
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "E công nghệ",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.E.research_bonus_percent.uses",
+      "value": 1.0,
+      "unit": "count",
+      "source": "20.2/E công nghệ/uses",
+      "diplomacy_refs": [
+        "17.5",
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "lần dùng",
+        "nghiên cứu",
+        "bonus"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.EW.research_speed.small",
+      "value": 0.005,
+      "unit": "research_speed_factor",
+      "source": "20.2/E/W đào tạo/small",
+      "diplomacy_refs": [
+        "17.5",
+        "17.7",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "E/W đào tạo",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.EW.research_speed.deep",
+      "value": 0.01,
+      "unit": "research_speed_factor",
+      "source": "20.2/E/W đào tạo/deep",
+      "diplomacy_refs": [
+        "17.5",
+        "17.7",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "E/W đào tạo",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.S.research_bonus_percent.small",
+      "value": 10.0,
+      "unit": "percent",
+      "source": "20.2/S hỗ trợ/small",
+      "diplomacy_refs": [
+        "17.6",
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "S hỗ trợ",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.S.research_bonus_percent.deep",
+      "value": 15.0,
+      "unit": "percent",
+      "source": "20.2/S hỗ trợ/deep",
+      "diplomacy_refs": [
+        "17.6",
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "S hỗ trợ",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.S.research_bonus_percent.uses",
+      "value": 1.0,
+      "unit": "count",
+      "source": "20.2/S hỗ trợ/uses",
+      "diplomacy_refs": [
+        "17.6",
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "lần dùng",
+        "nghiên cứu",
+        "bonus"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.W.trade_targeted.small",
+      "value": 0.05,
+      "unit": "targeted_trade_opinion",
+      "source": "20.2/W thị trường/small",
+      "diplomacy_refs": [
+        "17.7",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "W thị trường",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.W.trade_targeted.deep",
+      "value": 0.08,
+      "unit": "targeted_trade_opinion",
+      "source": "20.2/W thị trường/deep",
+      "diplomacy_refs": [
+        "17.7",
+        "20.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "W thị trường",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.C.issue_pp_factor.small",
+      "value": -0.02,
+      "unit": "political_power_factor",
+      "source": "20.2/Vướng mắc C/small",
+      "diplomacy_refs": [
+        "14.6",
+        "14.7",
+        "17.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "Vướng mắc C",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.C.issue_pp_factor.deep",
+      "value": -0.03,
+      "unit": "political_power_factor",
+      "source": "20.2/Vướng mắc C/deep",
+      "diplomacy_refs": [
+        "14.6",
+        "14.7",
+        "17.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "Vướng mắc C",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.C.contingency_pp_factor.small",
+      "value": -0.01,
+      "unit": "political_power_factor",
+      "source": "20.2/Dự phòng C/small",
+      "diplomacy_refs": [
+        "14.7",
+        "17.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "Dự phòng C",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.C.contingency_pp_factor.deep",
+      "value": -0.015,
+      "unit": "political_power_factor",
+      "source": "20.2/Dự phòng C/deep",
+      "diplomacy_refs": [
+        "14.7",
+        "17.1",
+        "20.2"
+      ],
+      "search_terms": [
+        "Dự phòng C",
+        "lợi ích",
+        "bonus",
+        "phạt"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.R1.maintain_cost_factor",
+      "value": -0.05,
+      "unit": "improve_relations_maintain_cost_factor",
+      "source": "20.2/R1",
+      "diplomacy_refs": [
+        "16",
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "R1",
+        "mạng lưới",
+        "duy trì quan hệ"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "reward.EW.duration",
+      "value": 730.0,
+      "unit": "day",
+      "source": "20.2/EW/lifetime",
+      "diplomacy_refs": [
+        "20.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "730",
+        "trao đổi",
+        "đào tạo"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "cap.research",
+      "value": 0.03,
+      "unit": "research_speed_factor",
+      "source": "20.2/caps",
+      "diplomacy_refs": [
+        "20.1",
+        "20.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "trần",
+        "clamp",
+        "tối đa",
+        "cap"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "cap.trade_national",
+      "value": 0.05,
+      "unit": "trade_opinion_factor",
+      "source": "20.2/caps",
+      "diplomacy_refs": [
+        "20.1",
+        "20.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "trần",
+        "clamp",
+        "tối đa",
+        "cap"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "cap.maintain_reduction",
+      "value": 0.1,
+      "unit": "reduction_magnitude",
+      "source": "20.2/caps",
+      "diplomacy_refs": [
+        "20.1",
+        "20.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "trần",
+        "clamp",
+        "tối đa",
+        "cap"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "cap.trade_targeted",
+      "value": 0.1,
+      "unit": "targeted_trade_opinion",
+      "source": "20.2/caps",
+      "diplomacy_refs": [
+        "20.1",
+        "20.2",
+        "24.2"
+      ],
+      "search_terms": [
+        "trần",
+        "clamp",
+        "tối đa",
+        "cap"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "roster.A.wide_quorum",
+      "value": 3,
+      "unit": "country",
+      "source": "17.3/quorum",
+      "diplomacy_refs": [
+        "17.3",
+        "21.2",
+        "22.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "roster",
+        "ngưỡng",
+        "khung rộng",
+        "nhóm"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "roster.A.deep_quorum",
+      "value": 2,
+      "unit": "country",
+      "source": "17.3/quorum",
+      "diplomacy_refs": [
+        "17.3",
+        "21.2",
+        "22.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "roster",
+        "ngưỡng",
+        "khung rộng",
+        "nhóm"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "roster.A.invited",
+      "value": 5,
+      "unit": "country",
+      "source": "17.3/quorum",
+      "diplomacy_refs": [
+        "17.3",
+        "21.2",
+        "22.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "roster",
+        "ngưỡng",
+        "khung rộng",
+        "nhóm"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "roster.M.quorum",
+      "value": 2,
+      "unit": "country",
+      "source": "17.2/quorum",
+      "diplomacy_refs": [
+        "17.2",
+        "21.2",
+        "22.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "roster",
+        "hai bên",
+        "nước nhận"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "roster.M.bilateral_quorum",
+      "value": 1,
+      "unit": "country",
+      "source": "17.2/bilateral fallback",
+      "diplomacy_refs": [
+        "17.2",
+        "22.3"
+      ],
+      "search_terms": [
+        "song phương dữ liệu"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "implementation_slots",
+      "value": 2,
+      "unit": "program",
+      "source": "18.2/slots",
+      "diplomacy_refs": [
+        "18.2",
+        "18.4",
+        "19.2",
+        "21.2",
+        "21.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "slot",
+        "hai chương trình"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "network.min_regions",
+      "value": 3,
+      "unit": "region",
+      "source": "22.3/R1",
+      "diplomacy_refs": [
+        "16",
+        "22.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "ba cụm",
+        "3 cụm",
+        "R1"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "network.recognition_days",
+      "value": 730,
+      "unit": "day",
+      "source": "22.3/recognition",
+      "diplomacy_refs": [
+        "20.2",
+        "22.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "730",
+        "ghi nhận",
+        "hết hạn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "ai.base_weight.accept",
+      "value": 4.0,
+      "unit": "relative_weight",
+      "source": "21.3/weights",
+      "diplomacy_refs": [
+        "13.6",
+        "14.4",
+        "21.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "weight",
+        "trọng số",
+        "phản hồi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "ai.base_weight.amend",
+      "value": 3.0,
+      "unit": "relative_weight",
+      "source": "21.3/weights",
+      "diplomacy_refs": [
+        "13.6",
+        "14.4",
+        "21.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "weight",
+        "trọng số",
+        "phản hồi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "ai.base_weight.refuse",
+      "value": 2.0,
+      "unit": "relative_weight",
+      "source": "21.3/weights",
+      "diplomacy_refs": [
+        "13.6",
+        "14.4",
+        "21.3",
+        "24.2"
+      ],
+      "search_terms": [
+        "weight",
+        "trọng số",
+        "phản hồi"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "politics.cohesion_price_bands",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "cohesion_price_bands",
+      "unit": "[cohesion lower, cohesion upper, PP multiplier]",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.cohesion_price_bands.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 rejected fee reader",
+        "L1 calculations"
+      ],
+      "search_terms": [
+        "cohesion_price_bands"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.sign_days",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "sign_days",
+      "unit": "day, indexed by cadre tier",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.sign_days.value",
+      "diplomacy_refs": [
+        "6",
+        "19.3",
+        "19.4",
+        "L1.T migration pending"
+      ],
+      "search_terms": [
+        "sign_days"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.prepare_days",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "prepare_days",
+      "unit": "day, indexed by BoP zone",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.prepare_days.value",
+      "diplomacy_refs": [
+        "6",
+        "16",
+        "19.2",
+        "19.3",
+        "19.4",
+        "21.3",
+        "24.2",
+        "L1.P"
+      ],
+      "search_terms": [
+        "prepare_days"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.combined",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "combined",
+      "unit": "mixed fields; keys name units, see political source",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.combined.value",
+      "diplomacy_refs": [
+        "19.4",
+        "L1.T migration pending",
+        "L2 not started"
+      ],
+      "search_terms": [
+        "combined"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.split",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "split",
+      "unit": "mixed fields; keys name units, see political source",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.split.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "split"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.bop_threshold",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "bop_threshold",
+      "unit": "BoP",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.bop_threshold.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "bop_threshold"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.bop_limits",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "bop_limits",
+      "unit": "BoP",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.bop_limits.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "bop_limits"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.cohesion_initial",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "cohesion_initial",
+      "unit": "cohesion",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.cohesion_initial.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "cohesion_initial"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.cohesion_limits",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "cohesion_limits",
+      "unit": "cohesion",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.cohesion_limits.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "cohesion_limits"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.collective_full_extra",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "collective_full_extra",
+      "unit": "cohesion",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.collective_full_extra.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "collective_full_extra"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.collective_extra_cap",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "collective_extra_cap",
+      "unit": "cohesion",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.collective_extra_cap.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "collective_extra_cap"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.outcome_cohesion",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "outcome_cohesion",
+      "unit": "cohesion",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.outcome_cohesion.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "outcome_cohesion"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.cadre_cohesion_required",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "cadre_cohesion_required",
+      "unit": "cohesion",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.cadre_cohesion_required.value",
+      "diplomacy_refs": [
+        "14.2",
+        "14.3",
+        "14.8",
+        "16",
+        "17.5",
+        "19.2",
+        "19.4",
+        "21.2",
+        "21.3",
+        "24.2",
+        "L1.C selected"
+      ],
+      "search_terms": [
+        "cadre_cohesion_required"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.tier_cap",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "tier_cap",
+      "unit": "tier",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.tier_cap.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "tier_cap"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.cadre_discount_pp",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "cadre_discount_pp",
+      "unit": "PP, indexed by tier",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.cadre_discount_pp.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "cadre_discount_pp"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.low_cohesion_prepare_extra",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "low_cohesion_prepare_extra",
+      "unit": "day",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.low_cohesion_prepare_extra.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "low_cohesion_prepare_extra"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.recovery",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "recovery",
+      "unit": "mixed fields; keys name units, see political source",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.recovery.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 gate candidate calculations"
+      ],
+      "search_terms": [
+        "recovery"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.congress_dates",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "congress_dates",
+      "unit": "date from source; no new historical claim",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.congress_dates.value",
+      "diplomacy_refs": [
+        "1",
+        "15.1",
+        "16",
+        "19.4",
+        "21.3",
+        "24.2",
+        "24.3",
+        "L1.gates"
+      ],
+      "search_terms": [
+        "congress_dates"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.e104",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "e104",
+      "unit": "mixed fields; keys name units, see political source",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.e104.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "e104"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.late_signature_windows",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "late_signature_windows",
+      "unit": "day",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.late_signature_windows.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "late_signature_windows"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.contract_obligations",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "contract_obligations",
+      "unit": "mixed fields; keys name units, see political source",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.contract_obligations.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "contract_obligations"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.e104_training",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "e104_training",
+      "unit": "mixed fields; keys name units, see political source",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.e104_training.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "e104_training"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.k_values",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "k_values",
+      "unit": "PP/treasury script unit, sensitivity only",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.k_values.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "k_values"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.r_values",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "r_values",
+      "unit": "PP/day",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.r_values.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "r_values"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.cohesion_pp_rate",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "cohesion_pp_rate",
+      "unit": "PP/cohesion, accounting only",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.cohesion_pp_rate.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "cohesion_pp_rate"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.accounting_days",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "accounting_days",
+      "unit": "day",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.accounting_days.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "accounting_days"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.branch_pp_daily",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "branch_pp_daily",
+      "unit": "PP/day",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.branch_pp_daily.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "branch_pp_daily"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.focus_days_per_cost",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "focus_days_per_cost",
+      "unit": "day/focus_cost, paper assumption",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.focus_days_per_cost.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "focus_days_per_cost"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.tools",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "tools",
+      "unit": "[PP, treasury script unit]",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.tools.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "tools"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.action_days",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "action_days",
+      "unit": "[standard days, fast days]",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.action_days.value",
+      "diplomacy_refs": [
+        "B1",
+        "L1 (pending)",
+        "L2 (not started)"
+      ],
+      "search_terms": [
+        "action_days"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "reward.C.issue_max_days",
+      "value": 90.0,
+      "unit": "day",
+      "source": "20.2/Vướng mắc C/lifetime",
+      "diplomacy_refs": [
+        "14.6",
+        "14.7",
+        "20.2",
+        "21.1",
+        "24.2"
+      ],
+      "search_terms": [
+        "90",
+        "vướng mắc",
+        "thời hạn"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "focus.cost_values",
+      "value": [
+        5,
+        7
+      ],
+      "unit": "focus_cost",
+      "source": "16/catalog costs",
+      "diplomacy_refs": [
+        "16",
+        "22.1",
+        "24.1"
+      ],
+      "search_terms": [
+        "Cost",
+        "cost",
+        "focus"
+      ],
+      "status": "proposal_from_existing_plan"
+    },
+    {
+      "id": "politics.override_cohesion",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "override_cohesion",
+      "unit": "cohesion lost per override",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.override_cohesion.value",
+      "diplomacy_refs": [
+        "19.4",
+        "24.2",
+        "L1.C override test"
+      ],
+      "search_terms": [
+        "override_cohesion"
+      ],
+      "status": "read_only_reference"
+    },
+    {
+      "id": "politics.program_start_latest",
+      "source_file": "VIETNAM_POLITICAL_PARAMETERS_VI.json",
+      "source_key": "program_start_latest",
+      "unit": "day",
+      "source": "VIETNAM_POLITICAL_PARAMETERS_VI.json:parameters.program_start_latest.value",
+      "diplomacy_refs": [
+        "L1.R0 no inherited deadline"
+      ],
+      "search_terms": [
+        "program_start_latest"
+      ],
+      "status": "read_only_reference"
+    }
+  ],
+  "protected_sha256": {
+    "VIE_REGIONAL_DIPLOMACY_LAYOUT_PLAN.svg": "c528802e614a7aafd9c2c76855d01cd056a6865d1a800a325f91054b27a4de06",
+    "VIETNAM_POLITICAL_FOCUS_DESIGN_VI.md": "c17ad74ed1566ee0163f15c1e863754817b96735c2f6d2ec671b8542a04fdee0",
+    "VIETNAM_POLITICAL_PARAMETERS_VI.json": "56efedbfc5539d16ad42b2d322223845dbb0ea5825e4db58310b344d8b934ad9",
+    "VIETNAM_POLITICAL_BALANCE_VI.py": "2330a5609a3592221d3c302429d24b1106f6f553b7a93ae758bc605923e0cb25",
+    "VIETNAM_POLITICAL_BALANCE_VI.csv": "51049e43f4f737527be22cd6581e6711c67f7bc33eb87fffcfb1966235ce6b18",
+    "VIETNAM_POLITICAL_NODE_CHOICES_VI.csv": "69e2a541b76896414ec8251fe5bbd26a18f113ab1c8431d9e6bcca7208e3a6c3",
+    "VIETNAM_POLITICAL_I5_EXCEPTIONS_VI.csv": "2eab50e90125dcd2ef41fd1777b4816d8e599e473bd9354e107eea3d1a04da2c",
+    "VIETNAM_POLITICAL_CONSUMERS_VI.py": "e3e5cba8efdbf09ee22e215ee7c1144332f44701b69ff524c48952009e4be5d6",
+    "VIETNAM_POLITICAL_CROSSCHECK_VI.py": "3c85cbe8cf26bb65dd58595235e1dec9f01d00e70bf88829dda9fd00a712d940",
+    "CHINA_POLITICS_DIPLOMACY_ARCHITECTURE_REPORT_VI.md": "27b81124c908d523493a0123465bfcf2733eb45c24f61ea2418382fff3e640e8",
+    "VIE_REGIONAL_DIPLOMACY_LAYOUT_PLAN.png": "cb54dca304e21eb94b900b2caa887a7666ab681ff6bfc5ed44a9c6d5d395ef5e",
+    "common/scripted_effects/VIE_md_effects_politics.txt": "4cd214ae943733fea13c686c41e327abdadaedfaf0f186184934fc1214129a5e",
+    "common/scripted_effects/VIE_md_effects_politics_runtime.txt": "8d1a4bc8f02c808177246cd3a19b7546bec0ad914d124518138f9265e13e964a",
+    "common/scripted_triggers/VIE_md_triggers_politics.txt": "ee0d9ee23b786194ff85483f3131110edb49b7f8cdaf9478a94085f3234a9706",
+    "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt": "f26b928969c3567baeb217c92f2cdb096c62fa19a490ed7b13b03a33fe780549",
+    "common/national_focus/VIE_md_focus.txt": "46a3053430c68723030736255c3d04fe1fa99c361fd58237f49e06fbc84deb47",
+    "common/ai_strategy_plans/VIE_strategy_plans.txt": "5a63942e5c49165d3e21b4d6128422cffba758f6953028fd62a48079aca94206",
+    "common/decisions/VIE_md_politics_decisions.txt": "4b75705a356cddc38a49e879cad9ec24ea3ba123819bbadb1c8909be3e4bc69c",
+    "common/decisions/categories/VIE_md_categories.txt": "126a02d356db62141776f48fa2cd88cf9d7d6b82a42d8d3acfdee6602c6233c8"
+  },
+  "original_plan_sha256": "04f879eb5ac51c63f38670e61e9ff25bd09eefb3cd23e3019ea35d65c4dd46e9",
+  "l1_review": {
+    "contract_protocol": "E104_first_instance_plan_only",
+    "migration_after": "C_passes_validation",
+    "j5_known_debt": true,
+    "political_sea_owners": [
+      "XI08",
+      "XIII01",
+      "XIII02",
+      "XIII03",
+      "XIII04",
+      "XIII10",
+      "XIII11"
+    ],
+    "runtime_roster_reader": "VIE_dual_role_active",
+    "tier_reader": "idea tier; runtime also has VIE_tier_cadre; no political changes",
+    "preparation_source": "politics.prepare_days",
+    "signature_source": "min(politics.sign_days[tier], politics.combined.sign_days) when dual role active",
+    "preparation_actions": [
+      "B5",
+      "S5"
+    ],
+    "cohesion_choice": "approved_deep_gate_C_E",
+    "cohesion_gate_source": "politics.cadre_cohesion_required",
+    "gate_review": {
+      "R0": "IX+(F02 OR VIE_congress_resolved)",
+      "C1": "IX",
+      "M1": "IX",
+      "A1": "X",
+      "E1": "X",
+      "W1": "XI",
+      "B1": "X",
+      "S1": "XIII"
+    },
+    "svg_render_sha256": "6ad354db5c28ede0713ee996c9a183720c2203844720dd80af33f474b824406f",
+    "closure": "not_closed_J2_BoP_behavior_unproven_J5_known_debt",
+    "root_basic_tools": "F02 OR VIE_congress_resolved; min congress IX",
+    "active_readers": [
+      "G",
+      "P",
+      "C"
+    ],
+    "deferred_readers": [
+      "T"
+    ],
+    "b_names": {
+      "B1": [
+        "Hợp tác an toàn biển",
+        "maritime_safety_framework"
+      ],
+      "B2": [
+        "Hồ sơ yêu cầu cứu nạn",
+        "rescue_assistance_dossier"
+      ],
+      "B3": [
+        "Đầu mối liên lạc cứu nạn",
+        "rescue_contact_channel"
+      ],
+      "B4": [
+        "Tiêu chí phối hợp cứu nạn",
+        "rescue_coordination_standards"
+      ],
+      "B5": [
+        "Chuẩn bị phối hợp cứu nạn",
+        "rescue_coordination_preparation"
+      ],
+      "B6": [
+        "Kiểm thử quy trình cứu nạn",
+        "rescue_protocol_validation"
+      ],
+      "B7": [
+        "Hợp tác cứu nạn trên biển",
+        "maritime_rescue_cooperation"
+      ],
+      "B8": [
+        "Năng lực phối hợp cứu nạn",
+        "rescue_coordination_capability"
+      ]
+    },
+    "svg_geometry_sha256": "3dce53e90782e35d1f3cdcd0f5871231919ec7ebc53749dbe8d3cd20c43cef74",
+    "b_rename_mapping": [
+      {
+        "node": "B1",
+        "old_name": "Bảo đảm hoạt động trên biển",
+        "old_slug": "maritime_framework",
+        "new_name": "Hợp tác an toàn biển",
+        "new_slug": "maritime_safety_framework"
+      },
+      {
+        "node": "B2",
+        "old_name": "Chuẩn bị hồ sơ và căn cứ",
+        "old_slug": "maritime_legal_preparation",
+        "new_name": "Hồ sơ yêu cầu cứu nạn",
+        "new_slug": "rescue_assistance_dossier"
+      },
+      {
+        "node": "B3",
+        "old_name": "Kênh liên lạc xử lý sự cố",
+        "old_slug": "maritime_contact_channel",
+        "new_name": "Đầu mối liên lạc cứu nạn",
+        "new_slug": "rescue_contact_channel"
+      },
+      {
+        "node": "B4",
+        "old_name": "Hoàn thiện hồ sơ hoạt động",
+        "old_slug": "maritime_documentation",
+        "new_name": "Tiêu chí phối hợp cứu nạn",
+        "new_slug": "rescue_coordination_standards"
+      },
+      {
+        "node": "B5",
+        "old_name": "Quy trình bảo đảm hiện trường",
+        "old_slug": "maritime_incident_procedures",
+        "new_name": "Chuẩn bị phối hợp cứu nạn",
+        "new_slug": "rescue_coordination_preparation"
+      },
+      {
+        "node": "B6",
+        "old_name": "Vận dụng công cụ xử lý sự cố",
+        "old_slug": "maritime_incident_response",
+        "new_name": "Kiểm thử quy trình cứu nạn",
+        "new_slug": "rescue_protocol_validation"
+      },
+      {
+        "node": "B7",
+        "old_name": "Hợp tác cứu nạn trên biển",
+        "old_slug": "maritime_rescue_cooperation",
+        "new_name": "Hợp tác cứu nạn trên biển",
+        "new_slug": "maritime_rescue_cooperation"
+      },
+      {
+        "node": "B8",
+        "old_name": "Công cụ bảo đảm hoạt động",
+        "old_slug": "maritime_operating_safeguards",
+        "new_name": "Năng lực phối hợp cứu nạn",
+        "new_slug": "rescue_coordination_capability"
+      }
+    ],
+    "bop_behavior_decision": "user_keep_schedule_J2_FAIL_L1_open"
+  }
+}

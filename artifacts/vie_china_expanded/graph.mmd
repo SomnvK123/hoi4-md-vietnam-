@@ -1,0 +1,48 @@
+flowchart TD
+    R0["R0 · Ngoại giao khu vực"]
+    C01["C01 · Khung quan hệ láng giềng Việt–Trung"]
+    C02["C02 · Kênh tham vấn cấp chính phủ"]
+    C03["C03 · Chương trình giao thương biên giới"]
+    C04["C04 · Phối hợp dân sự qua biên giới"]
+    C05["C05 · Một quy trình phối hợp chung"]
+    C06["C06 · Hợp tác theo từng phạm vi"]
+    C07["C07 · Hồ sơ thống nhất và thông báo thay đổi"]
+    C08["C08 · Danh mục hợp tác và quyền ngoại lệ"]
+    C09["C09 · Giao thương liên thông vận hành"]
+    C10["C10 · Hợp tác chọn lọc vận hành"]
+    C11["C11 · Đầu mối xử lý vụ việc dân sự"]
+    C12["C12 · Phối hợp lãnh sự và hồi hương"]
+    C13["C13 · Cơ chế dân sự xuyên biên giới"]
+    C14["C14 · Phương án điều chỉnh nhịp giao thương"]
+    C15["C15 · Tham vấn khi hợp tác gặp trở ngại"]
+    C16["C16 · Biên bản khắc phục vướng mắc"]
+    C17["C17 · Khôi phục phần hợp tác hợp lệ"]
+    C18["C18 · Hợp tác láng giềng có cơ chế bảo đảm"]
+    R0 -->|AND| C01
+    C01 -->|AND| C02
+    C01 -->|AND| C03
+    C01 -->|AND| C04
+    C03 -->|AND| C05
+    C02 -->|AND| C05
+    C03 -->|AND| C06
+    C02 -->|AND| C06
+    C05 -->|AND| C07
+    C06 -->|AND| C08
+    C07 -->|AND| C09
+    C08 -->|AND| C10
+    C04 -->|AND| C11
+    C04 -->|AND| C12
+    C02 -->|AND| C12
+    C11 -->|OR| C13
+    C12 -->|OR| C13
+    C03 -->|AND| C14
+    C02 -->|AND| C15
+    C09 -->|OR| C15
+    C10 -->|OR| C15
+    C15 -->|AND| C16
+    C14 -->|OR| C17
+    C16 -->|OR| C17
+    C09 -->|OR| C18
+    C10 -->|OR| C18
+    C13 -->|AND| C18
+    C05 -. "mutex: chỉ chế độ giao thương" .- C06

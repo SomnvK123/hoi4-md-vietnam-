@@ -1,0 +1,24 @@
+{
+  "legacy_total": 51,
+  "legacy_c": 6,
+  "proposed_c": 18,
+  "proposed_total": 63,
+  "delta": 12,
+  "global_edges": 94,
+  "min_row_gap": 4,
+  "checked_completion_subsets": 262144,
+  "reachable_structural_states": 365,
+  "capstone_without_policy": 0,
+  "both_policies_completed": 0,
+  "economic_parameters_added": 0,
+  "unpriced_programs": [
+    "C.border_civil",
+    "C.consular_return"
+  ],
+  "geometry_errors": [],
+  "other_region_layout_cost_names_unchanged": true,
+  "legacy_svg_is_expanded_diagram": false,
+  "engine_tested": false,
+  "c_catalog_cost": 110,
+  "protected_files_unchanged_during_run": true
+}
