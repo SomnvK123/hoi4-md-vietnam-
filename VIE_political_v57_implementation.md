@@ -1,5 +1,13 @@
 # Chính trị v57 — adapter game, 14/10/2026
 
+**Cập nhật v61 (14/10/2026):** đã sửa 260 trigger kiểm PP sang
+`has_political_power`, sửa nguồn sinh và fixture từ chối token cũ. Generator
+giữ layout/thứ tự live v58/v59/v60; kiểm bản sao tạm với input cũ và sinh hai lần không tích
+lũy gate. Hiện `politics_runtime.py` có 747 kiểm PASS. Chưa nghiệm thu engine
+sau restart; focus hot reload lúc 20:02 không lỗi parser.
+[Báo cáo v61](VIE_error_log_fix_v61.md) ghi provider đã xác minh và
+checklist runtime. Các số kiểm và giới hạn provider bên dưới là lịch sử v57.
+
 Đã triển khai các thay đổi đã chốt vào script game của checkout. Đây là bản kiểm
 script, **chưa nghiệm thu một lượt HOI4**. I3/I10 của mô hình vẫn REVIEW, không
 đổi thành PASS cân bằng chỉ vì đã có code.

@@ -1,5 +1,28 @@
 # Kiểm tra (validation)
 
+## Sửa error.log v61 — 14/10/2026
+
+`politics_runtime.py`: 747 kiểm PASS, gồm 260 tham chiếu PP live và 50 phép so
+sánh; từ chối `political_power`, nhận `has_political_power`, kiểm biên thập phân
+và các consumer trả phí thực. `error_log_regressions.py --md <MD> --game <HOI4>`:
+1.086 kiểm, 0 FAIL; kiểm cả 85 category reference tech bonus, provider font
+theo overlay đường dẫn, nền trước override và FNT/DDS/atlas kể cả Garamond legacy.
+Số kiểm font được nhóm theo consumer; không so số đếm thô với bộ v56.
+
+Chạy thêm `python tools/audit/political_generator_regressions.py`: trên bản sao
+tạm, tái hiện input PP cũ, giữ semantics/thứ tự/layout v58, sinh hai lần không
+đổi byte lần hai; giữ cả layout v59/v60 được người dùng sửa đồng thời. Script
+không ghi vào checkout. Các fixture font âm nằm trong
+bộ hồi quy error.log; không sửa `.fnt` để xóa cảnh báo metric.
+
+Đối chiếu hai phiên bằng
+`python tools/audit/compare_error_logs.py <error_MD> <error_MD_VIE> [--json]`;
+`--self-test` kiểm công cụ. Log gốc và manifest lưu ở `docs/error-log/v61/`
+tính từ `.claude/`. [Báo cáo và checklist](../../VIE_error_log_fix_v61.md).
+Focus hot reload lúc 20:02 ngày 14/10/2026 báo `no errors` trong log đã lưu.
+**Chưa nghiệm thu toàn bộ mod sau restart, gameplay, font hoặc so sánh playset
+MD riêng với MD+VIE.**
+
 ## Chính trị v57 — 14/10/2026
 
 `python tools/audit/politics_runtime.py`: fixture đọc script game,351 kiểm về

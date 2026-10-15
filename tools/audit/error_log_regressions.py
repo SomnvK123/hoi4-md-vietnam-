@@ -1,4 +1,4 @@
-"""Kiem tinh cac loi parser v55; khong thay the engine HOI4.
+"""Kiem tinh cac loi parser/provider v55-v61; khong thay the engine HOI4.
 
 Chay: python tools/audit/error_log_regressions.py --md <MD> --game <HOI4>
 """
@@ -60,19 +60,112 @@ def parse_text(text):
     return namespace['parse'](namespace['tokenize'](text))
 
 
+def overlay(layers):
+    # Uu tien VIE > MD > vanilla; cung duong dan chi nap mot file.
+    result = {}
+    for layer in layers:
+        for relative, item in layer.items():
+            result.setdefault(str(relative).replace('\\', '/').casefold(), item)
+    return result
+
+
+def effective_files(providers, folder, suffix):
+    return overlay([{p.relative_to(root): p for p in (root / folder).rglob('*' + suffix)}
+                    for root in providers])
+
+
+def font_inventory(entries):
+    bases = set()
+    positions = {}
+    overrides = []
+    for path, blocks in entries.items():
+        for index, (k, op, v, line) in enumerate(walk(blocks)):
+            name = value(v, 'name') if isinstance(v, list) else None
+            if k == 'bitmapfont':
+                bases.add(name)
+                positions.setdefault((path, name), index)
+            elif k == 'bitmapfont_override':
+                overrides.append((path, v, index))
+    issues = []
+    for path, block, index in overrides:
+        name = value(block, 'name')
+        if name not in bases:
+            issues.append(('missing', path, name))
+        if (path, name) in positions and positions[path, name] >= index:
+            issues.append(('order', path, name))
+    return bases, overrides, issues
+
+
+def font_overlay_regressions():
+    base = parse_text('bitmapfonts = { bitmapfont = { name = "test" path = "test" } }')
+    override = parse_text('bitmapfonts = { bitmapfont_override = { name = "test" fontfiles = { "test" } languages = { "l_english" } } }')
+    hidden = overlay([{'interface/fonts.gfx': override}, {'interface/fonts.gfx': base}])
+    check(font_inventory(hidden)[2] == [('missing', 'interface/fonts.gfx', 'test')],
+          'Font fixture: hidden vanilla base cannot satisfy override')
+    merged = parse_text('bitmapfonts = { bitmapfont = { name = "test" path = "test" } bitmapfont_override = { name = "test" } }')
+    check(not font_inventory({'interface/fonts.gfx': merged})[2], 'Font fixture: base precedes override')
+    reversed_blocks = parse_text('bitmapfonts = { bitmapfont_override = { name = "test" } bitmapfont = { name = "test" path = "test" } }')
+    check(font_inventory({'interface/fonts.gfx': reversed_blocks})[2] == [('order', 'interface/fonts.gfx', 'test')],
+          'Font fixture: reject override before its local base')
+    separate = overlay([{'interface/vie.gfx': override}, {'interface/fonts.gfx': base}])
+    check(not font_inventory(separate)[2], 'Font fixture: distinct provider path remains effective')
+    check(overlay([{'Interface/Fonts.gfx': 'VIE'}, {'interface/fonts.gfx': 'vanilla'}]) == {'interface/fonts.gfx': 'VIE'},
+          'Font fixture: Windows path case normalization')
+    legacy = 'common lineHeight=12 base=9 scaleW=256 scaleH=256 pages=1\nchar id=32 x=0 y=0 width=1 height=0 page=0\n'
+    check(single_font_atlas(legacy), 'Font fixture: vanilla legacy single atlas without page declaration')
+    check(not single_font_atlas(legacy.replace('pages=1', 'pages=2')), 'Font fixture: reject multipage legacy')
+    check(not single_font_atlas(legacy.replace('page=0', 'page=1')), 'Font fixture: reject glyph on undeclared page')
+    check(not single_font_atlas('common scaleW=256 scaleH=256 pages=1'), 'Font fixture: reject absent glyph metadata')
+    header = bytearray(128)
+    header[:4] = b'DDS '
+    struct.pack_into('<II', header, 12, 256, 256)
+    check(not font_provider_issues(legacy, header), 'Font fixture: valid FNT/DDS provider and atlas')
+    check('missing FNT' in font_provider_issues(None, header), 'Font fixture: missing FNT rejected')
+    check('missing DDS' in font_provider_issues(legacy, None), 'Font fixture: missing DDS rejected')
+    check('DDS header' in font_provider_issues(legacy, b'broken'), 'Font fixture: broken DDS header rejected')
+    struct.pack_into('<II', header, 12, 128, 256)
+    check('atlas dimensions' in font_provider_issues(legacy, header), 'Font fixture: mismatched atlas rejected')
+
+
+def single_font_atlas(text):
+    # Garamond vanilla 1.19 dung common pages=1 + char page=0, khong co dong page file.
+    common = re.search(r'^common\s+([^\n]+)', text, re.M)
+    if not common or not re.search(r'\bpages=1\b', common[1]):
+        return False
+    declarations = re.findall(r'^page\s+id=(\d+)\s+file="([^"]+)"', text, re.M)
+    glyphs = re.findall(r'^char\s+id=\d+\s+([^\n]+)', text, re.M)
+    return bool(glyphs) and (not declarations or len(declarations)==1 and declarations[0][0]=='0') and all(
+        re.search(r'\bpage=0\b', glyph) is not None for glyph in glyphs)
+
+
+def font_provider_issues(text, header):
+    issues = []
+    if text is None:
+        issues.append('missing FNT')
+    elif not single_font_atlas(text):
+        issues.append('single atlas/glyph page metadata')
+    if header is None:
+        issues.append('missing DDS')
+    elif len(header) != 128 or header[:4] != b'DDS ':
+        issues.append('DDS header')
+    elif text is not None:
+        height, width = struct.unpack_from('<II', header, 12)
+        scale = re.search(r'scaleW=(\d+)\s+scaleH=(\d+)', text)
+        if scale is None or (width, height) != tuple(map(int, scale.groups())):
+            issues.append('atlas dimensions')
+    return issues
+
+
 def font_checks(md, game):
     providers = (ROOT, md, game)
-    bases = set()
-    overrides = []
-    for root in providers:
-        for path in (root / 'interface').rglob('*.gfx'):
-            blocks = parse_text(path.read_text(encoding='utf-8-sig', errors='replace'))
-            for k, op, v, line in walk(blocks):
-                if k == 'bitmapfont':
-                    bases.add(value(v, 'name'))
-                if root == ROOT and k == 'bitmapfont_override':
-                    overrides.append((path, v))
-    for path, block in overrides:
+    entries = {path: parse_text(path.read_text(encoding='utf-8-sig', errors='replace'))
+               for path in effective_files(providers, 'interface', '.gfx').values()}
+    bases, overrides, issues = font_inventory(entries)
+    for issue, path, name in issues:
+        check(False, f'Effective font {issue}: {path.name}: {name}')
+    for path, block, index in overrides:
+        if ROOT not in path.parents:
+            continue
         name = value(block, 'name')
         check(name in bases, f'Font nen cho override {name}')
         check(set(k for k, op, v, line in block) <= {'name', 'fontfiles', 'languages'},
@@ -88,27 +181,14 @@ def font_checks(md, game):
         for prefix in paths:
             fnt = next((root / (prefix + '.fnt') for root in providers
                         if (root / (prefix + '.fnt')).is_file()), None)
-            check(fnt is not None, f'Font provider {name}: {prefix}')
-            if fnt is None:
-                continue
-            text = fnt.read_text(encoding='utf-8-sig', errors='replace')
-            pages = re.findall(r'\bpage\s+id=\d+\s+file="([^"]+)"', text)
-            check(bool(pages), f'Font page metadata {prefix}')
             # HOI4 dung cap prefix.fnt/prefix.dds: vanilla hoi_33.fnt cung
             # ghi page hoi_33_0.dds nhung provider thuc la hoi_33.dds.
             # Chi xu ly font mot atlas trong goi hien tai, khong bo qua multipage.
-            check(len(pages) == 1, f'Single atlas font {prefix}')
             texture = next((root / (prefix + '.dds') for root in providers
                             if (root / (prefix + '.dds')).is_file()), None)
-            check(texture is not None, f'Font texture consumer {prefix}.dds')
-            if texture is not None:
-                header = texture.read_bytes()[:128]
-                check(len(header) == 128 and header[:4] == b'DDS ', f'DDS header {prefix}')
-                if len(header) == 128:
-                    height, width = struct.unpack_from('<II', header, 12)
-                    scale = re.search(r'scaleW=(\d+)\s+scaleH=(\d+)', text)
-                    check(scale is not None and (width, height) == tuple(map(int, scale.groups())),
-                          f'Font atlas dimensions {prefix}')
+            issues = font_provider_issues(fnt.read_text(encoding='utf-8-sig', errors='replace') if fnt else None,
+                                          texture.read_bytes()[:128] if texture else None)
+            check(not issues, f'Font provider {name}: {prefix}: {issues}')
     for path in (ROOT / 'interface').rglob('*.gui'):
         text = path.read_text(encoding='utf-8-sig')
         for font in re.findall(r'\bfont\s*=\s*"?([\w.]+)', text):
@@ -121,6 +201,36 @@ def font_checks(md, game):
     base = next(v for k, op, v, line in walk(own)
                 if k == 'bitmapfont' and value(v, 'name') == 'hoi_33w')
     check(value(base, 'path') == 'gfx/fonts/hoi_33', 'hoi_33w dung glyph hien co')
+    for name in ('garamond_12', 'cw_3d_debug'):
+        base = next((v for k, op, v, line in walk(own)
+                     if k == 'bitmapfont' and value(v, 'name') == name), [])
+        check(value(base, 'path') == 'gfx/fonts/garamond_12' and value(base, 'color') == '0xffffffff',
+              f'Vanilla base schema {name}')
+
+
+def tech_bonus_checks(md, game):
+    categories = set()
+    for path in effective_files((ROOT, md, game), 'common/technology_tags', '.txt').values():
+        for k, op, v, line in parse_text(path.read_text(encoding='utf-8-sig')):
+            if k.casefold() == 'technology_categories':
+                categories.update(name for name, op, val, ln in walk(v))
+    check('CAT_armored_fighting_vehicles' in categories, 'AFV category effective provider')
+    check('CAT_motorized_mechanized' not in categories, 'Old XTC category rejected by effective MD provider')
+    count = 0
+    for folder in ('common', 'events', 'history'):
+        for path in (ROOT / folder).rglob('*.txt'):
+            for k, op, v, line in walk(load(path.relative_to(ROOT))):
+                if k != 'add_tech_bonus':
+                    continue
+                for field, operator, category, ln in v:
+                    if field == 'category':
+                        count += 1
+                        check(category in categories, f'Tech bonus category {path.relative_to(ROOT)}:{ln} {category}')
+                if value(v, 'name') == 'VIE_lf_i5_bonus':
+                    check(value(v, 'category') == 'CAT_armored_fighting_vehicles'
+                          and value(v, 'uses') == '1' and value(v, 'bonus') == '0.50', 'XTC50% one use')
+    check(count > 0, 'Technology bonus consumers found')
+    print(f'Tech bonus: {count} category references checked against effective providers.')
 
 
 def retire_checks(start):
@@ -188,6 +298,8 @@ def main():
     parser.add_argument('--md', type=Path, required=True)
     parser.add_argument('--game', type=Path, required=True)
     args = parser.parse_args()
+    font_overlay_regressions()
+    tech_bonus_checks(args.md, args.game)
     for folder in ('common', 'events', 'interface', 'history'):
         for path in (ROOT / folder).rglob('*'):
             if path.suffix not in ('.txt', '.gfx'):
@@ -207,6 +319,8 @@ def main():
                   f'So sanh ngan khong hop le: {path.relative_to(ROOT)}')
             check(not re.search(r'\bdate\s*(<=|>=)', clean(text)),
                   f'So sanh ngay: {path.relative_to(ROOT)}')
+            check(not re.search(r'\bpolitical_power\s*[<>=]', clean(text)),
+                  f'Trigger PP cu: {path.relative_to(ROOT)}')
     for path in (ROOT / 'localisation').rglob('*.yml'):
         check(path.read_bytes().startswith(b'\xef\xbb\xbf'), f'Loc BOM: {path.name}')
     for folder in ('scripted_effects', 'scripted_triggers'):

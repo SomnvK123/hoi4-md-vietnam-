@@ -9,13 +9,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X01 NOT = { has_country_flag = VIE_record_X01 } }
 	option = {
 		name = vie_pol_runtime.10.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X01 NOT = { has_country_flag = VIE_record_X01 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_X01 NOT = { has_country_flag = VIE_record_X01 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X01 NOT = { has_country_flag = VIE_record_X01 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_X01 NOT = { has_country_flag = VIE_record_X01 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_X01_A
@@ -62,13 +62,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X02 NOT = { has_country_flag = VIE_record_X02 } }
 	option = {
 		name = vie_pol_runtime.11.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X02 NOT = { has_country_flag = VIE_record_X02 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_X02 NOT = { has_country_flag = VIE_record_X02 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X02 NOT = { has_country_flag = VIE_record_X02 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_X02 NOT = { has_country_flag = VIE_record_X02 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_X02_A
@@ -113,13 +113,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X03 NOT = { has_country_flag = VIE_record_X03 } }
 	option = {
 		name = vie_pol_runtime.12.a
-		trigger = { NOT = { political_power < 30 }
+		trigger = { NOT = { has_political_power < 30 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X03 NOT = { has_country_flag = VIE_record_X03 } NOT = { political_power < 30 }
+			limit = { has_country_flag = VIE_pending_X03 NOT = { has_country_flag = VIE_record_X03 } NOT = { has_political_power < 30 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X03 NOT = { has_country_flag = VIE_record_X03 } NOT = { political_power < 30 }
+				limit = { has_country_flag = VIE_pending_X03 NOT = { has_country_flag = VIE_record_X03 } NOT = { has_political_power < 30 }
 				}
 				add_political_power = -30
 				set_country_flag = VIE_record_X03_A
@@ -164,13 +164,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X04 NOT = { has_country_flag = VIE_record_X04 } }
 	option = {
 		name = vie_pol_runtime.13.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X04 NOT = { has_country_flag = VIE_record_X04 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_X04 NOT = { has_country_flag = VIE_record_X04 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X04 NOT = { has_country_flag = VIE_record_X04 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_X04 NOT = { has_country_flag = VIE_record_X04 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_X04_A
@@ -215,13 +215,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X05 NOT = { has_country_flag = VIE_record_X05 } }
 	option = {
 		name = vie_pol_runtime.14.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X05 NOT = { has_country_flag = VIE_record_X05 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_X05 NOT = { has_country_flag = VIE_record_X05 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X05 NOT = { has_country_flag = VIE_record_X05 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_X05 NOT = { has_country_flag = VIE_record_X05 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_X05_A
@@ -266,13 +266,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X06 NOT = { has_country_flag = VIE_record_X06 } }
 	option = {
 		name = vie_pol_runtime.15.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X06 NOT = { has_country_flag = VIE_record_X06 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_X06 NOT = { has_country_flag = VIE_record_X06 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X06 NOT = { has_country_flag = VIE_record_X06 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_X06 NOT = { has_country_flag = VIE_record_X06 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_X06_A
@@ -317,13 +317,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X07 NOT = { has_country_flag = VIE_record_X07 } }
 	option = {
 		name = vie_pol_runtime.16.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X07 NOT = { has_country_flag = VIE_record_X07 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_X07 NOT = { has_country_flag = VIE_record_X07 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X07 NOT = { has_country_flag = VIE_record_X07 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_X07 NOT = { has_country_flag = VIE_record_X07 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_X07_A
@@ -368,13 +368,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_X08 NOT = { has_country_flag = VIE_record_X08 } }
 	option = {
 		name = vie_pol_runtime.17.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_X08 NOT = { has_country_flag = VIE_record_X08 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_X08 NOT = { has_country_flag = VIE_record_X08 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_X08 NOT = { has_country_flag = VIE_record_X08 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_X08 NOT = { has_country_flag = VIE_record_X08 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_X08_A
@@ -419,13 +419,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XI01 NOT = { has_country_flag = VIE_record_XI01 } }
 	option = {
 		name = vie_pol_runtime.18.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI01 NOT = { has_country_flag = VIE_record_XI01 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XI01 NOT = { has_country_flag = VIE_record_XI01 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI01 NOT = { has_country_flag = VIE_record_XI01 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XI01 NOT = { has_country_flag = VIE_record_XI01 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XI01_A
@@ -488,13 +488,13 @@ country_event = {
 	}
 	option = {
 		name = vie_pol_runtime.19.b
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI02 NOT = { has_country_flag = VIE_record_XI02 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XI02 NOT = { has_country_flag = VIE_record_XI02 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI02 NOT = { has_country_flag = VIE_record_XI02 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XI02 NOT = { has_country_flag = VIE_record_XI02 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XI02_B
@@ -521,13 +521,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XI03 NOT = { has_country_flag = VIE_record_XI03 } }
 	option = {
 		name = vie_pol_runtime.20.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI03 NOT = { has_country_flag = VIE_record_XI03 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XI03 NOT = { has_country_flag = VIE_record_XI03 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI03 NOT = { has_country_flag = VIE_record_XI03 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XI03 NOT = { has_country_flag = VIE_record_XI03 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XI03_A
@@ -572,13 +572,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XI04 NOT = { has_country_flag = VIE_record_XI04 } }
 	option = {
 		name = vie_pol_runtime.21.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI04 NOT = { has_country_flag = VIE_record_XI04 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_XI04 NOT = { has_country_flag = VIE_record_XI04 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI04 NOT = { has_country_flag = VIE_record_XI04 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_XI04 NOT = { has_country_flag = VIE_record_XI04 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_XI04_A
@@ -623,13 +623,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XI05 NOT = { has_country_flag = VIE_record_XI05 } }
 	option = {
 		name = vie_pol_runtime.22.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI05 NOT = { has_country_flag = VIE_record_XI05 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XI05 NOT = { has_country_flag = VIE_record_XI05 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI05 NOT = { has_country_flag = VIE_record_XI05 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XI05 NOT = { has_country_flag = VIE_record_XI05 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XI05_A
@@ -674,13 +674,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XI06 NOT = { has_country_flag = VIE_record_XI06 } }
 	option = {
 		name = vie_pol_runtime.23.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI06 NOT = { has_country_flag = VIE_record_XI06 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XI06 NOT = { has_country_flag = VIE_record_XI06 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI06 NOT = { has_country_flag = VIE_record_XI06 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XI06 NOT = { has_country_flag = VIE_record_XI06 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XI06_A
@@ -725,13 +725,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XI07 NOT = { has_country_flag = VIE_record_XI07 } }
 	option = {
 		name = vie_pol_runtime.24.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI07 NOT = { has_country_flag = VIE_record_XI07 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XI07 NOT = { has_country_flag = VIE_record_XI07 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI07 NOT = { has_country_flag = VIE_record_XI07 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XI07 NOT = { has_country_flag = VIE_record_XI07 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XI07_A
@@ -776,13 +776,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XI08 NOT = { has_country_flag = VIE_record_XI08 } }
 	option = {
 		name = vie_pol_runtime.25.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XI08 NOT = { has_country_flag = VIE_record_XI08 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_XI08 NOT = { has_country_flag = VIE_record_XI08 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XI08 NOT = { has_country_flag = VIE_record_XI08 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_XI08 NOT = { has_country_flag = VIE_record_XI08 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_XI08_A
@@ -827,13 +827,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII01 NOT = { has_country_flag = VIE_record_XII01 } }
 	option = {
 		name = vie_pol_runtime.26.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII01 NOT = { has_country_flag = VIE_record_XII01 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XII01 NOT = { has_country_flag = VIE_record_XII01 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII01 NOT = { has_country_flag = VIE_record_XII01 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XII01 NOT = { has_country_flag = VIE_record_XII01 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XII01_A
@@ -878,13 +878,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII02 NOT = { has_country_flag = VIE_record_XII02 } }
 	option = {
 		name = vie_pol_runtime.27.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII02 NOT = { has_country_flag = VIE_record_XII02 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XII02 NOT = { has_country_flag = VIE_record_XII02 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII02 NOT = { has_country_flag = VIE_record_XII02 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XII02 NOT = { has_country_flag = VIE_record_XII02 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XII02_A
@@ -931,13 +931,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII03 NOT = { has_country_flag = VIE_record_XII03 } }
 	option = {
 		name = vie_pol_runtime.28.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII03 NOT = { has_country_flag = VIE_record_XII03 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_XII03 NOT = { has_country_flag = VIE_record_XII03 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII03 NOT = { has_country_flag = VIE_record_XII03 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_XII03 NOT = { has_country_flag = VIE_record_XII03 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_XII03_A
@@ -982,13 +982,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII04 NOT = { has_country_flag = VIE_record_XII04 } }
 	option = {
 		name = vie_pol_runtime.29.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII04 NOT = { has_country_flag = VIE_record_XII04 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XII04 NOT = { has_country_flag = VIE_record_XII04 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII04 NOT = { has_country_flag = VIE_record_XII04 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XII04 NOT = { has_country_flag = VIE_record_XII04 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XII04_A
@@ -1033,13 +1033,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII05 NOT = { has_country_flag = VIE_record_XII05 } }
 	option = {
 		name = vie_pol_runtime.30.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII05 NOT = { has_country_flag = VIE_record_XII05 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XII05 NOT = { has_country_flag = VIE_record_XII05 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII05 NOT = { has_country_flag = VIE_record_XII05 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XII05 NOT = { has_country_flag = VIE_record_XII05 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XII05_A
@@ -1084,13 +1084,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII06 NOT = { has_country_flag = VIE_record_XII06 } }
 	option = {
 		name = vie_pol_runtime.31.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII06 NOT = { has_country_flag = VIE_record_XII06 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XII06 NOT = { has_country_flag = VIE_record_XII06 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII06 NOT = { has_country_flag = VIE_record_XII06 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XII06 NOT = { has_country_flag = VIE_record_XII06 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XII06_A
@@ -1135,13 +1135,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII07 NOT = { has_country_flag = VIE_record_XII07 } }
 	option = {
 		name = vie_pol_runtime.32.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII07 NOT = { has_country_flag = VIE_record_XII07 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XII07 NOT = { has_country_flag = VIE_record_XII07 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII07 NOT = { has_country_flag = VIE_record_XII07 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XII07 NOT = { has_country_flag = VIE_record_XII07 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XII07_A
@@ -1186,13 +1186,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XII08 NOT = { has_country_flag = VIE_record_XII08 } }
 	option = {
 		name = vie_pol_runtime.33.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XII08 NOT = { has_country_flag = VIE_record_XII08 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_XII08 NOT = { has_country_flag = VIE_record_XII08 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XII08 NOT = { has_country_flag = VIE_record_XII08 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_XII08 NOT = { has_country_flag = VIE_record_XII08 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_XII08_A
@@ -1237,13 +1237,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII01 NOT = { has_country_flag = VIE_record_XIII01 } }
 	option = {
 		name = vie_pol_runtime.34.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII01 NOT = { has_country_flag = VIE_record_XIII01 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XIII01 NOT = { has_country_flag = VIE_record_XIII01 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII01 NOT = { has_country_flag = VIE_record_XIII01 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XIII01 NOT = { has_country_flag = VIE_record_XIII01 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XIII01_A
@@ -1288,13 +1288,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII02 NOT = { has_country_flag = VIE_record_XIII02 } }
 	option = {
 		name = vie_pol_runtime.35.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII02 NOT = { has_country_flag = VIE_record_XIII02 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XIII02 NOT = { has_country_flag = VIE_record_XIII02 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII02 NOT = { has_country_flag = VIE_record_XIII02 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XIII02 NOT = { has_country_flag = VIE_record_XIII02 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XIII02_A
@@ -1339,13 +1339,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII03 NOT = { has_country_flag = VIE_record_XIII03 } }
 	option = {
 		name = vie_pol_runtime.36.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII03 NOT = { has_country_flag = VIE_record_XIII03 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_XIII03 NOT = { has_country_flag = VIE_record_XIII03 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII03 NOT = { has_country_flag = VIE_record_XIII03 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_XIII03 NOT = { has_country_flag = VIE_record_XIII03 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_XIII03_A
@@ -1390,13 +1390,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII04 NOT = { has_country_flag = VIE_record_XIII04 } }
 	option = {
 		name = vie_pol_runtime.37.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII04 NOT = { has_country_flag = VIE_record_XIII04 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XIII04 NOT = { has_country_flag = VIE_record_XIII04 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII04 NOT = { has_country_flag = VIE_record_XIII04 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XIII04 NOT = { has_country_flag = VIE_record_XIII04 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XIII04_A
@@ -1441,13 +1441,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII05 NOT = { has_country_flag = VIE_record_XIII05 } }
 	option = {
 		name = vie_pol_runtime.38.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII05 NOT = { has_country_flag = VIE_record_XIII05 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XIII05 NOT = { has_country_flag = VIE_record_XIII05 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII05 NOT = { has_country_flag = VIE_record_XIII05 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XIII05 NOT = { has_country_flag = VIE_record_XIII05 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XIII05_A
@@ -1492,13 +1492,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII06 NOT = { has_country_flag = VIE_record_XIII06 } }
 	option = {
 		name = vie_pol_runtime.39.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII06 NOT = { has_country_flag = VIE_record_XIII06 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XIII06 NOT = { has_country_flag = VIE_record_XIII06 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII06 NOT = { has_country_flag = VIE_record_XIII06 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XIII06 NOT = { has_country_flag = VIE_record_XIII06 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XIII06_A
@@ -1543,13 +1543,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII07 NOT = { has_country_flag = VIE_record_XIII07 } }
 	option = {
 		name = vie_pol_runtime.40.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII07 NOT = { has_country_flag = VIE_record_XIII07 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XIII07 NOT = { has_country_flag = VIE_record_XIII07 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII07 NOT = { has_country_flag = VIE_record_XIII07 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XIII07 NOT = { has_country_flag = VIE_record_XIII07 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XIII07_A
@@ -1594,13 +1594,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIII08 NOT = { has_country_flag = VIE_record_XIII08 } }
 	option = {
 		name = vie_pol_runtime.41.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIII08 NOT = { has_country_flag = VIE_record_XIII08 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_XIII08 NOT = { has_country_flag = VIE_record_XIII08 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIII08 NOT = { has_country_flag = VIE_record_XIII08 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_XIII08 NOT = { has_country_flag = VIE_record_XIII08 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_XIII08_A
@@ -1645,13 +1645,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV01 NOT = { has_country_flag = VIE_record_XIV01 } }
 	option = {
 		name = vie_pol_runtime.42.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV01 NOT = { has_country_flag = VIE_record_XIV01 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XIV01 NOT = { has_country_flag = VIE_record_XIV01 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV01 NOT = { has_country_flag = VIE_record_XIV01 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XIV01 NOT = { has_country_flag = VIE_record_XIV01 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XIV01_A
@@ -1696,13 +1696,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV02 NOT = { has_country_flag = VIE_record_XIV02 } }
 	option = {
 		name = vie_pol_runtime.43.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV02 NOT = { has_country_flag = VIE_record_XIV02 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XIV02 NOT = { has_country_flag = VIE_record_XIV02 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV02 NOT = { has_country_flag = VIE_record_XIV02 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XIV02 NOT = { has_country_flag = VIE_record_XIV02 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XIV02_A
@@ -1747,13 +1747,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV03 NOT = { has_country_flag = VIE_record_XIV03 } }
 	option = {
 		name = vie_pol_runtime.44.a
-		trigger = { NOT = { political_power < 15 }
+		trigger = { NOT = { has_political_power < 15 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV03 NOT = { has_country_flag = VIE_record_XIV03 } NOT = { political_power < 15 }
+			limit = { has_country_flag = VIE_pending_XIV03 NOT = { has_country_flag = VIE_record_XIV03 } NOT = { has_political_power < 15 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV03 NOT = { has_country_flag = VIE_record_XIV03 } NOT = { political_power < 15 }
+				limit = { has_country_flag = VIE_pending_XIV03 NOT = { has_country_flag = VIE_record_XIV03 } NOT = { has_political_power < 15 }
 				}
 				add_political_power = -15
 				set_country_flag = VIE_record_XIV03_A
@@ -1798,13 +1798,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV04 NOT = { has_country_flag = VIE_record_XIV04 } }
 	option = {
 		name = vie_pol_runtime.45.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV04 NOT = { has_country_flag = VIE_record_XIV04 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XIV04 NOT = { has_country_flag = VIE_record_XIV04 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV04 NOT = { has_country_flag = VIE_record_XIV04 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XIV04 NOT = { has_country_flag = VIE_record_XIV04 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XIV04_A
@@ -1849,13 +1849,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV05 NOT = { has_country_flag = VIE_record_XIV05 } }
 	option = {
 		name = vie_pol_runtime.46.a
-		trigger = { NOT = { political_power < 30 }
+		trigger = { NOT = { has_political_power < 30 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV05 NOT = { has_country_flag = VIE_record_XIV05 } NOT = { political_power < 30 }
+			limit = { has_country_flag = VIE_pending_XIV05 NOT = { has_country_flag = VIE_record_XIV05 } NOT = { has_political_power < 30 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV05 NOT = { has_country_flag = VIE_record_XIV05 } NOT = { political_power < 30 }
+				limit = { has_country_flag = VIE_pending_XIV05 NOT = { has_country_flag = VIE_record_XIV05 } NOT = { has_political_power < 30 }
 				}
 				add_political_power = -30
 				set_country_flag = VIE_record_XIV05_A
@@ -1900,13 +1900,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV06 NOT = { has_country_flag = VIE_record_XIV06 } }
 	option = {
 		name = vie_pol_runtime.47.a
-		trigger = { NOT = { political_power < 20 }
+		trigger = { NOT = { has_political_power < 20 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV06 NOT = { has_country_flag = VIE_record_XIV06 } NOT = { political_power < 20 }
+			limit = { has_country_flag = VIE_pending_XIV06 NOT = { has_country_flag = VIE_record_XIV06 } NOT = { has_political_power < 20 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV06 NOT = { has_country_flag = VIE_record_XIV06 } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_pending_XIV06 NOT = { has_country_flag = VIE_record_XIV06 } NOT = { has_political_power < 20 }
 				}
 				add_political_power = -20
 				set_country_flag = VIE_record_XIV06_A
@@ -1951,13 +1951,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV07 NOT = { has_country_flag = VIE_record_XIV07 } }
 	option = {
 		name = vie_pol_runtime.48.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV07 NOT = { has_country_flag = VIE_record_XIV07 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XIV07 NOT = { has_country_flag = VIE_record_XIV07 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV07 NOT = { has_country_flag = VIE_record_XIV07 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XIV07 NOT = { has_country_flag = VIE_record_XIV07 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XIV07_A
@@ -2002,13 +2002,13 @@ country_event = {
 	trigger = { has_country_flag = VIE_pending_XIV08 NOT = { has_country_flag = VIE_record_XIV08 } }
 	option = {
 		name = vie_pol_runtime.49.a
-		trigger = { NOT = { political_power < 25 }
+		trigger = { NOT = { has_political_power < 25 }
 		}
 		if = {
-			limit = { has_country_flag = VIE_pending_XIV08 NOT = { has_country_flag = VIE_record_XIV08 } NOT = { political_power < 25 }
+			limit = { has_country_flag = VIE_pending_XIV08 NOT = { has_country_flag = VIE_record_XIV08 } NOT = { has_political_power < 25 }
 			}
 			if = {
-				limit = { has_country_flag = VIE_pending_XIV08 NOT = { has_country_flag = VIE_record_XIV08 } NOT = { political_power < 25 }
+				limit = { has_country_flag = VIE_pending_XIV08 NOT = { has_country_flag = VIE_record_XIV08 } NOT = { has_political_power < 25 }
 				}
 				add_political_power = -25
 				set_country_flag = VIE_record_XIV08_A
@@ -2107,14 +2107,14 @@ country_event = {
 		check_variable = { VIE_last_congress = 10 }
 	}
 	option = { name = vie_pol.102.a
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			check_variable = { VIE_last_congress = 10 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 10 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 					NOT = { check_variable = { treasury < 0.5 } }
 				}
 				add_political_power = -30
@@ -2128,14 +2128,14 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.102.b
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			check_variable = { VIE_last_congress = 10 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 10 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 					NOT = { check_variable = { treasury < 0.25 } }
 				}
 				add_political_power = -20
@@ -2190,14 +2190,14 @@ country_event = {
 		check_variable = { VIE_last_congress = 11 }
 	}
 	option = { name = vie_pol.102.a
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			check_variable = { VIE_last_congress = 11 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 11 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 					NOT = { check_variable = { treasury < 0.5 } }
 				}
 				add_political_power = -30
@@ -2211,14 +2211,14 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.102.b
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			check_variable = { VIE_last_congress = 11 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 11 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 					NOT = { check_variable = { treasury < 0.25 } }
 				}
 				add_political_power = -20
@@ -2273,14 +2273,14 @@ country_event = {
 		check_variable = { VIE_last_congress = 12 }
 	}
 	option = { name = vie_pol.102.a
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			check_variable = { VIE_last_congress = 12 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 12 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 					NOT = { check_variable = { treasury < 0.5 } }
 				}
 				add_political_power = -30
@@ -2294,14 +2294,14 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.102.b
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			check_variable = { VIE_last_congress = 12 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 12 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 					NOT = { check_variable = { treasury < 0.25 } }
 				}
 				add_political_power = -20
@@ -2356,14 +2356,14 @@ country_event = {
 		check_variable = { VIE_last_congress = 13 }
 	}
 	option = { name = vie_pol.102.a
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			check_variable = { VIE_last_congress = 13 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 13 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 					NOT = { check_variable = { treasury < 0.5 } }
 				}
 				add_political_power = -30
@@ -2377,14 +2377,14 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.102.b
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			check_variable = { VIE_last_congress = 13 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 13 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 					NOT = { check_variable = { treasury < 0.25 } }
 				}
 				add_political_power = -20
@@ -2439,14 +2439,14 @@ country_event = {
 		check_variable = { VIE_last_congress = 14 }
 	}
 	option = { name = vie_pol.102.a
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			check_variable = { VIE_last_congress = 14 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 14 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 					NOT = { check_variable = { treasury < 0.5 } }
 				}
 				add_political_power = -30
@@ -2460,14 +2460,14 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.102.b
-		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+		trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			check_variable = { VIE_last_congress = 14 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 14 } }
 
 			if = {
-				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+				limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 					NOT = { check_variable = { treasury < 0.25 } }
 				}
 				add_political_power = -20
@@ -2522,13 +2522,13 @@ country_event = {
 		check_variable = { VIE_last_congress = 10 }
 	}
 	option = { name = vie_pol.104.a
-		trigger = {  NOT = { political_power < 30 }
+		trigger = {  NOT = { has_political_power < 30 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 10 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 10 } }
 
 			if = {
-				limit = { NOT = { political_power < 30 }
+				limit = { NOT = { has_political_power < 30 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -30
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2544,13 +2544,13 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.104.b
-		trigger = {  NOT = { political_power < 15 }
+		trigger = {  NOT = { has_political_power < 15 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 10 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 10 } }
 
 			if = {
-				limit = { NOT = { political_power < 15 }
+				limit = { NOT = { has_political_power < 15 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -15
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2587,13 +2587,13 @@ country_event = {
 		check_variable = { VIE_last_congress = 11 }
 	}
 	option = { name = vie_pol.104.a
-		trigger = {  NOT = { political_power < 30 }
+		trigger = {  NOT = { has_political_power < 30 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 11 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 11 } }
 
 			if = {
-				limit = { NOT = { political_power < 30 }
+				limit = { NOT = { has_political_power < 30 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -30
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2609,13 +2609,13 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.104.b
-		trigger = {  NOT = { political_power < 15 }
+		trigger = {  NOT = { has_political_power < 15 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 11 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 11 } }
 
 			if = {
-				limit = { NOT = { political_power < 15 }
+				limit = { NOT = { has_political_power < 15 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -15
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2652,13 +2652,13 @@ country_event = {
 		check_variable = { VIE_last_congress = 12 }
 	}
 	option = { name = vie_pol.104.a
-		trigger = {  NOT = { political_power < 30 }
+		trigger = {  NOT = { has_political_power < 30 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 12 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 12 } }
 
 			if = {
-				limit = { NOT = { political_power < 30 }
+				limit = { NOT = { has_political_power < 30 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -30
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2674,13 +2674,13 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.104.b
-		trigger = {  NOT = { political_power < 15 }
+		trigger = {  NOT = { has_political_power < 15 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 12 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 12 } }
 
 			if = {
-				limit = { NOT = { political_power < 15 }
+				limit = { NOT = { has_political_power < 15 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -15
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2717,13 +2717,13 @@ country_event = {
 		check_variable = { VIE_last_congress = 13 }
 	}
 	option = { name = vie_pol.104.a
-		trigger = {  NOT = { political_power < 30 }
+		trigger = {  NOT = { has_political_power < 30 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 13 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 13 } }
 
 			if = {
-				limit = { NOT = { political_power < 30 }
+				limit = { NOT = { has_political_power < 30 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -30
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2739,13 +2739,13 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.104.b
-		trigger = {  NOT = { political_power < 15 }
+		trigger = {  NOT = { has_political_power < 15 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 13 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 13 } }
 
 			if = {
-				limit = { NOT = { political_power < 15 }
+				limit = { NOT = { has_political_power < 15 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -15
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2782,13 +2782,13 @@ country_event = {
 		check_variable = { VIE_last_congress = 14 }
 	}
 	option = { name = vie_pol.104.a
-		trigger = {  NOT = { political_power < 30 }
+		trigger = {  NOT = { has_political_power < 30 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 14 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 14 } }
 
 			if = {
-				limit = { NOT = { political_power < 30 }
+				limit = { NOT = { has_political_power < 30 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -30
 				set_variable = { VIE_e104_sign_days = 21 }
@@ -2804,13 +2804,13 @@ country_event = {
 		}
 	}
 	option = { name = vie_pol.104.b
-		trigger = {  NOT = { political_power < 15 }
+		trigger = {  NOT = { has_political_power < 15 }
 			NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 14 } }
 		if = {
 			limit = { check_variable = { VIE_last_congress = 14 } }
 
 			if = {
-				limit = { NOT = { political_power < 15 }
+				limit = { NOT = { has_political_power < 15 }
 					NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 				add_political_power = -15
 				set_variable = { VIE_e104_sign_days = 21 }

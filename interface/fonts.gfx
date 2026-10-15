@@ -1,5 +1,17 @@
 bitmapfonts = {
 
+	# Nen vanilla bi file nay ghi de; khai bao truoc override tieng Viet.
+	bitmapfont = {
+		name = "garamond_12"
+		path = "gfx/fonts/garamond_12"
+		color = 0xffffffff
+	}
+	bitmapfont = {
+		name = "cw_3d_debug"
+		path = "gfx/fonts/garamond_12"
+		color = 0xffffffff
+	}
+
 	bitmapfont_override = { #Unknown							###(210508) Checking
 		name = "ToolTip_Font"
 		fontfiles = { 

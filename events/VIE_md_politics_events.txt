@@ -176,14 +176,14 @@ trigger = {
 check_variable = { VIE_last_congress = 9 }
 }
 option = { name = vie_pol.102.a
-trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 NOT = { check_variable = { treasury < 0.5 } }
   check_variable = { VIE_last_congress = 9 } }
 if = {
 limit = { check_variable = { VIE_last_congress = 9 } }
 
 if = {
-limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 30 }
+limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 30 }
 NOT = { check_variable = { treasury < 0.5 } }
  }
 add_political_power = -30
@@ -197,14 +197,14 @@ set_country_flag = VIE_e102_data_access_unlocked
 }
 }
 option = { name = vie_pol.102.b
-trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+trigger = {  has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 NOT = { check_variable = { treasury < 0.25 } }
   check_variable = { VIE_last_congress = 9 } }
 if = {
 limit = { check_variable = { VIE_last_congress = 9 } }
 
 if = {
-limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { political_power < 20 }
+limit = { has_country_flag = VIE_programme_active has_country_flag = VIE_e102_choice_pending check_variable = { var = VIE_e102_choice_epoch value = VIE_programme_epoch compare = equals } NOT = { has_political_power < 20 }
 NOT = { check_variable = { treasury < 0.25 } }
  }
 add_political_power = -20
@@ -273,13 +273,13 @@ trigger = {
 check_variable = { VIE_last_congress = 9 }
 }
 option = { name = vie_pol.104.a
-trigger = {  NOT = { political_power < 30 }
+trigger = {  NOT = { has_political_power < 30 }
 NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 9 } }
 if = {
 limit = { check_variable = { VIE_last_congress = 9 } }
 
 if = {
-limit = { NOT = { political_power < 30 }
+limit = { NOT = { has_political_power < 30 }
 NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } OR = { NOT = { check_variable = { VIE_tier_cadre < 1 } } has_country_flag = VIE_dual_role_active } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 add_political_power = -30
 set_variable = { VIE_e104_sign_days = 21 }
@@ -295,13 +295,13 @@ VIE_politics_e104_sign_begin = yes
 }
 }
 option = { name = vie_pol.104.b
-trigger = {  NOT = { political_power < 15 }
+trigger = {  NOT = { has_political_power < 15 }
 NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved }  check_variable = { VIE_last_congress = 9 } }
 if = {
 limit = { check_variable = { VIE_last_congress = 9 } }
 
 if = {
-limit = { NOT = { political_power < 15 }
+limit = { NOT = { has_political_power < 15 }
 NOT = { has_country_flag = VIE_e104_signed } has_country_flag = VIE_programme_active check_variable = { var = VIE_e104_offer_epoch value = VIE_programme_epoch compare = equals } NOT = { has_country_flag = VIE_e104_signing } NOT = { has_country_flag = VIE_e104_offer_resolved } }
 add_political_power = -15
 set_variable = { VIE_e104_sign_days = 21 }

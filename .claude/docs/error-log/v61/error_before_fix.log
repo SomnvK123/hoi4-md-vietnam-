@@ -1,0 +1,612 @@
+[18:56:10][no_game_date][dlc.cpp:142]: incorrect checksum for DLC
+[18:56:24][no_game_date][bitmapfont.cpp:576]: base (14) in 'gfx/fonts/hoi_18_cryllic.fnt' does not match previous fontfiles in font 'hoi_18b'
+[18:56:24][no_game_date][bitmapfont.cpp:576]: base (14) in 'gfx/fonts/hoi_18_cryllic.fnt' does not match previous fontfiles in font 'AnimatedMapText'
+[18:56:25][no_game_date][bitmapfont.cpp:561]: lineHeight (16) in 'gfx/fonts/hoi_16typewriter_inverted.fnt' does not match previous fontfiles in font 'hoi4_typewriter16_inverted'
+[18:56:25][no_game_date][bitmapfont.cpp:576]: base (13) in 'gfx/fonts/hoi_16typewriter_inverted.fnt' does not match previous fontfiles in font 'hoi4_typewriter16_inverted'
+[18:56:25][no_game_date][bitmapfont.cpp:576]: base (14) in 'gfx/fonts/hoi_18_cryllic.fnt' does not match previous fontfiles in font 'hoi_18'
+[18:56:25][no_game_date][graphics.cpp:1280]: No font with name garamond_12
+[18:56:25][no_game_date][graphics.cpp:1280]: No font with name cw_3d_debug
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_Mech_Inf_Bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_Arm_Inf_Bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_L_Air_assault_Bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_attack_helo_bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_armor_Bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_L_arm_Bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_SP_Arty_Bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_SP_R_arty_Bat' has 'group = support' but no 'support' in its type list
+[18:57:14][no_game_date][subunitdefinition.cpp:432]: Sub-unit 'Light_SP_AA_Bat' has 'group = support' but no 'support' in its type list
+[18:57:21][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 29" in file: "history/states/39_Schleswig_Holstein.txt" near line: 29
+[18:57:21][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 29" in file: "history/states/41_Lower_Saxony.txt" near line: 29
+[18:57:22][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 31" in file: "history/states/56_North_Rhine_Westphalia.txt" near line: 31
+[18:57:22][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 33" in file: "history/states/58_Saxony.txt" near line: 33
+[18:57:22][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 29" in file: "history/states/59_Brandenburg.txt" near line: 29
+[18:57:22][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 31" in file: "history/states/5_Berlin.txt" near line: 31
+[18:57:22][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 29" in file: "history/states/67_Hesse.txt" near line: 29
+[18:57:22][no_game_date][persistent.cpp:67]: Error: "Unexpected token: supply_state_category, near line: 30" in file: "history/states/68_Bavaria.txt" near line: 30
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_light_2
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_submarine_3
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_heavy_2
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_light_4
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_carrier
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_super_heavy_1
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_submarine_4
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_heavy_4
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_light_1
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_cruiser_2
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_light_3
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_carrier_2
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_heavy_1
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_submarine_2
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_heavy_3
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_cruiser_1
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_carrier_1
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_cruiser_4
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_cruiser_3
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_carrier_3
+[18:57:51][no_game_date][equipment_graphic_database.cpp:106]: Unknown equipment type: ship_hull_submarine_1
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 67
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 67" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 67
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 68
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 68" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 68
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 76
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 76" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 76
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 97
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 97" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 97
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 118
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 118" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 118
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 139
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 139" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 139
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 160
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 160" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 160
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 178
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 178" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 178
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 196
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 196" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 196
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 214
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 214" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 214
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 232
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 232" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 232
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 253
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 253" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 253
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 274
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 274" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 274
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 295
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 295" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 295
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 316
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 316" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 316
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 334
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 334" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 334
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 352
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 352" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 352
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 373
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 373" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 373
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 394
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 394" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 394
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 415
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 415" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 415
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 436
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 436" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 436
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 457
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 457" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 457
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 478
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 478" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 478
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 496
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 496" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 496
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 514
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 514" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 514
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 535
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 535" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 535
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 556
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 556" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 556
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 577
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 577" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 577
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 598
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 598" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 598
+[18:58:27][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/decisions/VIE_md_politics_runtime_decisions.txt line : 616
+[18:58:27][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 616" in file: "common/decisions/VIE_md_politics_runtime_decisions.txt" near line: 616
+[18:58:29][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/national_focus/VIE_md_focus.txt line : 718
+[18:58:29][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 718" in file: "common/national_focus/VIE_md_focus.txt" near line: 718
+[18:58:29][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/national_focus/VIE_md_focus.txt line : 766
+[18:58:29][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 766" in file: "common/national_focus/VIE_md_focus.txt" near line: 766
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 23
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 23" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 23
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 25
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 25" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 25
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 27
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 27" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 27
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 29
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 29" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 29
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 31
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 31" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 31
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 33
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 33" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 33
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 35
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 35" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 35
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 37
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 37" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 37
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 39
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 39" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 39
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 41
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 41" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 41
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 43
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 43" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 43
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 45
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 45" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 45
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 47
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 47" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 47
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 49
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 49" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 49
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 51
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 51" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 51
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 53
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 53" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 53
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 55
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 55" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 55
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 57
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 57" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 57
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 59
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 59" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 59
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 61
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 61" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 61
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 74
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 74" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 74
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 77
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 77" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 77
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 80
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 80" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 80
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 83
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 83" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 83
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 86
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 86" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 86
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 89
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 89" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 89
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 92
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 92" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 92
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 95
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 95" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 95
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 98
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 98" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 98
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 101
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 101" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 101
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 104
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 104" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 104
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 107
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 107" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 107
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 110
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 110" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 110
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 113
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 113" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 113
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 116
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 116" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 116
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 119
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 119" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 119
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 122
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 122" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 122
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 125
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 125" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 125
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 128
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 128" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 128
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 131
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 131" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 131
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 145
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 145" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 145
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 148
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 148" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 148
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 151
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 151" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 151
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 154
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 154" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 154
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 157
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 157" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 157
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 160
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 160" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 160
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 163
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 163" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 163
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 166
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 166" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 166
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 169
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 169" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 169
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 172
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 172" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 172
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 175
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 175" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 175
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 178
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 178" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 178
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 181
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 181" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 181
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 184
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 184" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 184
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 187
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 187" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 187
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 190
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 190" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 190
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 193
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 193" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 193
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 196
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 196" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 196
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 199
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 199" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 199
+[18:58:37][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in common/scripted_triggers/VIE_md_triggers_politics_runtime.txt line : 202
+[18:58:37][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 202" in file: "common/scripted_triggers/VIE_md_triggers_politics_runtime.txt" near line: 202
+[18:58:38][no_game_date][persistent.cpp:67]: Error: "Unexpected token: context_type, near line: 7" in file: "common/scripted_guis/02_conditional_peace_deals_scripted_gui.txt" near line: 7
+[18:58:38][no_game_date][persistent.cpp:67]: Error: "Unexpected token: context_type, near line: 161" in file: "common/scripted_guis/02_conditional_peace_deals_scripted_gui.txt" near line: 161
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4072: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4073: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4074: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4075: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4076: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4077: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4078: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4079: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4096: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4097: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4098: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4099: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4100: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4101: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4102: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4103: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4104: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][effectimplementation.cpp:5524]: events/VIE_md_events.txt:4105: recruit_character should only happen in game/history files in order to be executed only at game start
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 179
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 179" in file: "events/VIE_md_politics_events.txt" near line: 179
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 186
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 186" in file: "events/VIE_md_politics_events.txt" near line: 186
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 200
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 200" in file: "events/VIE_md_politics_events.txt" near line: 200
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 207
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 207" in file: "events/VIE_md_politics_events.txt" near line: 207
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 276
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 276" in file: "events/VIE_md_politics_events.txt" near line: 276
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 282
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 282" in file: "events/VIE_md_politics_events.txt" near line: 282
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 298
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 298" in file: "events/VIE_md_politics_events.txt" near line: 298
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_events.txt line : 304
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 304" in file: "events/VIE_md_politics_events.txt" near line: 304
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 12
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 12" in file: "events/VIE_md_politics_runtime_events.txt" near line: 12
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 15
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 15" in file: "events/VIE_md_politics_runtime_events.txt" near line: 15
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 18
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 18" in file: "events/VIE_md_politics_runtime_events.txt" near line: 18
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 65
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 65" in file: "events/VIE_md_politics_runtime_events.txt" near line: 65
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 68
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 68" in file: "events/VIE_md_politics_runtime_events.txt" near line: 68
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 71
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 71" in file: "events/VIE_md_politics_runtime_events.txt" near line: 71
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 116
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 116" in file: "events/VIE_md_politics_runtime_events.txt" near line: 116
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 119
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 119" in file: "events/VIE_md_politics_runtime_events.txt" near line: 119
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 122
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 122" in file: "events/VIE_md_politics_runtime_events.txt" near line: 122
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 167
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 167" in file: "events/VIE_md_politics_runtime_events.txt" near line: 167
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 170
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 170" in file: "events/VIE_md_politics_runtime_events.txt" near line: 170
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 173
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 173" in file: "events/VIE_md_politics_runtime_events.txt" near line: 173
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 218
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 218" in file: "events/VIE_md_politics_runtime_events.txt" near line: 218
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 221
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 221" in file: "events/VIE_md_politics_runtime_events.txt" near line: 221
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 224
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 224" in file: "events/VIE_md_politics_runtime_events.txt" near line: 224
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 269
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 269" in file: "events/VIE_md_politics_runtime_events.txt" near line: 269
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 272
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 272" in file: "events/VIE_md_politics_runtime_events.txt" near line: 272
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 275
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 275" in file: "events/VIE_md_politics_runtime_events.txt" near line: 275
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 320
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 320" in file: "events/VIE_md_politics_runtime_events.txt" near line: 320
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 323
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 323" in file: "events/VIE_md_politics_runtime_events.txt" near line: 323
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 326
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 326" in file: "events/VIE_md_politics_runtime_events.txt" near line: 326
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 371
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 371" in file: "events/VIE_md_politics_runtime_events.txt" near line: 371
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 374
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 374" in file: "events/VIE_md_politics_runtime_events.txt" near line: 374
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 377
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 377" in file: "events/VIE_md_politics_runtime_events.txt" near line: 377
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 422
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 422" in file: "events/VIE_md_politics_runtime_events.txt" near line: 422
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 425
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 425" in file: "events/VIE_md_politics_runtime_events.txt" near line: 425
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 428
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 428" in file: "events/VIE_md_politics_runtime_events.txt" near line: 428
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 491
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 491" in file: "events/VIE_md_politics_runtime_events.txt" near line: 491
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 494
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 494" in file: "events/VIE_md_politics_runtime_events.txt" near line: 494
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 497
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 497" in file: "events/VIE_md_politics_runtime_events.txt" near line: 497
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 524
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 524" in file: "events/VIE_md_politics_runtime_events.txt" near line: 524
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 527
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 527" in file: "events/VIE_md_politics_runtime_events.txt" near line: 527
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 530
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 530" in file: "events/VIE_md_politics_runtime_events.txt" near line: 530
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 575
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 575" in file: "events/VIE_md_politics_runtime_events.txt" near line: 575
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 578
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 578" in file: "events/VIE_md_politics_runtime_events.txt" near line: 578
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 581
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 581" in file: "events/VIE_md_politics_runtime_events.txt" near line: 581
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 626
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 626" in file: "events/VIE_md_politics_runtime_events.txt" near line: 626
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 629
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 629" in file: "events/VIE_md_politics_runtime_events.txt" near line: 629
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 632
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 632" in file: "events/VIE_md_politics_runtime_events.txt" near line: 632
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 677
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 677" in file: "events/VIE_md_politics_runtime_events.txt" near line: 677
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 680
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 680" in file: "events/VIE_md_politics_runtime_events.txt" near line: 680
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 683
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 683" in file: "events/VIE_md_politics_runtime_events.txt" near line: 683
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 728
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 728" in file: "events/VIE_md_politics_runtime_events.txt" near line: 728
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 731
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 731" in file: "events/VIE_md_politics_runtime_events.txt" near line: 731
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 734
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 734" in file: "events/VIE_md_politics_runtime_events.txt" near line: 734
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 779
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 779" in file: "events/VIE_md_politics_runtime_events.txt" near line: 779
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 782
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 782" in file: "events/VIE_md_politics_runtime_events.txt" near line: 782
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 785
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 785" in file: "events/VIE_md_politics_runtime_events.txt" near line: 785
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 830
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 830" in file: "events/VIE_md_politics_runtime_events.txt" near line: 830
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 833
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 833" in file: "events/VIE_md_politics_runtime_events.txt" near line: 833
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 836
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 836" in file: "events/VIE_md_politics_runtime_events.txt" near line: 836
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 881
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 881" in file: "events/VIE_md_politics_runtime_events.txt" near line: 881
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 884
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 884" in file: "events/VIE_md_politics_runtime_events.txt" near line: 884
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 887
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 887" in file: "events/VIE_md_politics_runtime_events.txt" near line: 887
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 934
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 934" in file: "events/VIE_md_politics_runtime_events.txt" near line: 934
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 937
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 937" in file: "events/VIE_md_politics_runtime_events.txt" near line: 937
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 940
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 940" in file: "events/VIE_md_politics_runtime_events.txt" near line: 940
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 985
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 985" in file: "events/VIE_md_politics_runtime_events.txt" near line: 985
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 988
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 988" in file: "events/VIE_md_politics_runtime_events.txt" near line: 988
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 991
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 991" in file: "events/VIE_md_politics_runtime_events.txt" near line: 991
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1036
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1036" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1036
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1039
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1039" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1039
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1042
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1042" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1042
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1087
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1087" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1087
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1090
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1090" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1090
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1093
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1093" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1093
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1138
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1138" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1138
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1141
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1141" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1141
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1144
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1144" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1144
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1189
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1189" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1189
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1192
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1192" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1192
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1195
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1195" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1195
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1240
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1240" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1240
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1243
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1243" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1243
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1246
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1246" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1246
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1291
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1291" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1291
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1294
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1294" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1294
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1297
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1297" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1297
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1342
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1342" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1342
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1345
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1345" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1345
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1348
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1348" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1348
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1393
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1393" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1393
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1396
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1396" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1396
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1399
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1399" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1399
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1444
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1444" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1444
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1447
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1447" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1447
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1450
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1450" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1450
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1495
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1495" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1495
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1498
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1498" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1498
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1501
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1501" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1501
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1546
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1546" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1546
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1549
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1549" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1549
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1552
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1552" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1552
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1597
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1597" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1597
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1600
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1600" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1600
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1603
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1603" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1603
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1648
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1648" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1648
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1651
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1651" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1651
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1654
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1654" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1654
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1699
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1699" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1699
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1702
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1702" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1702
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1705
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1705" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1705
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1750
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1750" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1750
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1753
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1753" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1753
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1756
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1756" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1756
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1801
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1801" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1801
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1804
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1804" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1804
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1807
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1807" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1807
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1852
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1852" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1852
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1855
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1855" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1855
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1858
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1858" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1858
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1903
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1903" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1903
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1906
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1906" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1906
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1909
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1909" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1909
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1954
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1954" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1954
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1957
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1957" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1957
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 1960
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1960" in file: "events/VIE_md_politics_runtime_events.txt" near line: 1960
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2005
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2005" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2005
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2008
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2008" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2008
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2011
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2011" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2011
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2110
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2110" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2110
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2117
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2117" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2117
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2131
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2131" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2131
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2138
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2138" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2138
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2193
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2193" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2193
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2200
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2200" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2200
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2214
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2214" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2214
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2221
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2221" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2221
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2276
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2276" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2276
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2283
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2283" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2283
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2297
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2297" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2297
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2304
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2304" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2304
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2359
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2359" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2359
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2366
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2366" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2366
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2380
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2380" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2380
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2387
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2387" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2387
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2442
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2442" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2442
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2449
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2449" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2449
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2463
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2463" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2463
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2470
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2470" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2470
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2525
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2525" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2525
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2531
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2531" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2531
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2547
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2547" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2547
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2553
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2553" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2553
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2590
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2590" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2590
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2596
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2596" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2596
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2612
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2612" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2612
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2618
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2618" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2618
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2655
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2655" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2655
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2661
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2661" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2661
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2677
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2677" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2677
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2683
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2683" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2683
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2720
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2720" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2720
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2726
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2726" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2726
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2742
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2742" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2742
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2748
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2748" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2748
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2785
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2785" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2785
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2791
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2791" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2791
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2807
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2807" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2807
+[18:58:40][no_game_date][trigger.cpp:700]: Invalid trigger 'political_power' in events/VIE_md_politics_runtime_events.txt line : 2813
+[18:58:40][no_game_date][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 2813" in file: "events/VIE_md_politics_runtime_events.txt" near line: 2813
+[18:58:41][no_game_date][effect.cpp:813]: common/national_focus/VIE_md_focus.txt:4254: add_tech_bonus: Unknown technology category CAT_motorized_mechanized
+[18:59:04][2000.01.01.12][gamelobby.cpp:1779]: Exception in: C:\mnt\gsg\hoi4\hoi4_merged\clausewitz\clausewitzlib\remotefile.cpp, line: 238. Description: Failed allocate data buffer.
+[18:59:04][2000.01.01.12][gamelobby.cpp:1779]: Exception in: C:\mnt\gsg\hoi4\hoi4_merged\clausewitz\clausewitzlib\remotefile.cpp, line: 238. Description: Failed allocate data buffer.
+[18:59:04][2000.01.01.12][gamelobby.cpp:1779]: Exception in: C:\mnt\gsg\hoi4\hoi4_merged\clausewitz\clausewitzlib\remotefile.cpp, line: 238. Description: Failed allocate data buffer.
+[19:14:39][2000.01.01.12][gameitemdatabase.h:303]: Reloading Database: common/national_focus
+[19:14:40][2000.01.01.12][trigger.cpp:700]: Invalid trigger 'political_power' in common/national_focus/VIE_md_focus.txt line : 1002
+[19:14:40][2000.01.01.12][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1002" in file: "common/national_focus/VIE_md_focus.txt" near line: 1002
+[19:14:40][2000.01.01.12][trigger.cpp:700]: Invalid trigger 'political_power' in common/national_focus/VIE_md_focus.txt line : 1050
+[19:14:40][2000.01.01.12][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1050" in file: "common/national_focus/VIE_md_focus.txt" near line: 1050
+[19:14:40][2000.01.01.12][effect.cpp:813]: common/national_focus/VIE_md_focus.txt:4253: add_tech_bonus: Unknown technology category CAT_motorized_mechanized
+[19:14:40][2000.01.01.12][gameitemdatabase.h:324]: 5 errors.
+[19:14:40][2000.01.01.12][gameitemdatabase.h:336]: =============================
+[19:14:40][2000.01.01.12][gameitemdatabase.h:303]: Reloading Database: common/bookmarks
+[19:14:40][2000.01.01.12][gameitemdatabase.h:331]: no errors.
+[19:14:40][2000.01.01.12][gameitemdatabase.h:336]: =============================
+[19:44:31][2000.01.01.12][gameitemdatabase.h:303]: Reloading Database: common/national_focus
+[19:44:32][2000.01.01.12][trigger.cpp:700]: Invalid trigger 'political_power' in common/national_focus/VIE_md_focus.txt line : 1003
+[19:44:32][2000.01.01.12][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1003" in file: "common/national_focus/VIE_md_focus.txt" near line: 1003
+[19:44:32][2000.01.01.12][trigger.cpp:700]: Invalid trigger 'political_power' in common/national_focus/VIE_md_focus.txt line : 1051
+[19:44:32][2000.01.01.12][trigger.cpp:568]: Error: "Unknown trigger-type: political_power, near line: 1051" in file: "common/national_focus/VIE_md_focus.txt" near line: 1051
+[19:44:32][2000.01.01.12][effect.cpp:813]: common/national_focus/VIE_md_focus.txt:4254: add_tech_bonus: Unknown technology category CAT_motorized_mechanized
+[19:44:33][2000.01.01.12][gameitemdatabase.h:324]: 5 errors.
+[19:44:33][2000.01.01.12][gameitemdatabase.h:336]: =============================
+[19:44:33][2000.01.01.12][gameitemdatabase.h:303]: Reloading Database: common/bookmarks
+[19:44:33][2000.01.01.12][gameitemdatabase.h:331]: no errors.
+[19:44:33][2000.01.01.12][gameitemdatabase.h:336]: =============================

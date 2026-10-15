@@ -23,6 +23,14 @@ Ba file `.json` mà `audit.py` / `xref.py` sinh ra khi chạy nằm trong `.giti
 
 Yêu cầu: Python 3.8+. Không có dependency ngoài thư viện chuẩn.
 
+Hồi quy error.log v61: `politics_runtime.py` kiểm biên PP bằng script live;
+`error_log_regressions.py --md <MD> --game <HOI4>` cần provider đang cài để kiểm
+category/font theo đường dẫn hiệu lực. `political_generator_regressions.py`
+chạy generator hai lần trên bản sao tạm, kiểm chuẩn hóa token PP cũ và bảo toàn
+layout/thứ tự/semantics, không sửa checkout.
+`compare_error_logs.py <log_MD> <log_MD_VIE> [--json]` so sánh diagnostic,
+`--self-test` kiểm công cụ. Không script nào thay nghiệm thu gameplay trong HOI4.
+
 `industry.py` (Python 3.10+) kiểm riêng 39 focus công nghiệp v17: 64 tổ hợp nhóm
 ngành, ngưỡng điểm, hai đường FDI, sự kiện save cũ, hai mức hỗ trợ bán dẫn và cổng
 Vinashin. Bộ kiểm tra dùng một phần nhỏ trigger/effect đã khai báo và từ chối token

@@ -28,8 +28,13 @@ def effect_body(text):
     return body
 def definition(name,body): EFFECTS.append(name+' = {\n'+body+'\n}\n')
 def condition(name,body): TRIGGERS.append(name+' = {\n'+body+'\n}\n')
+def normalize_pp(text):
+    # Chi doi trigger cu; giu strings, comment va add_political_power.
+    return re.sub(r'"(?:\\.|[^"\\])*"|#[^\n]*|\bpolitical_power\b(?=\s*[<>=])',
+                  lambda m: 'has_political_power' if m[0]=='political_power' else m[0], text)
+
 def funds(pp=0,cash=0,cohesion=0):
-    return (f'NOT = {{ political_power < {pp} }}\n' if pp else '')+(f'NOT = {{ check_variable = {{ treasury < {cash} }} }}\n' if cash else '')+(f'NOT = {{ check_variable = {{ VIE_leadership_cohesion < {40+cohesion} }} }}\n' if cohesion else '')
+    return (f'NOT = {{ has_political_power < {pp} }}\n' if pp else '')+(f'NOT = {{ check_variable = {{ treasury < {cash} }} }}\n' if cash else '')+(f'NOT = {{ check_variable = {{ VIE_leadership_cohesion < {40+cohesion} }} }}\n' if cohesion else '')
 def money(value):return f'set_temp_variable = {{ treasury_change = {value:g} }}\nmodify_treasury_effect = yes\n' if value else ''
 def cohesion(value):return f'set_temp_variable = {{ cohesion_add = {value:g} }}\nVIE_modify_cohesion = yes\n' if value else ''
 def pay(pp=0,cash=0,loss=0):return (f'add_political_power = {-pp:g}\n' if pp else '')+money(-cash)+cohesion(-loss)
@@ -51,7 +56,7 @@ def event(number,title,desc,options,trigger='always = yes',hidden=False):
     EVENTS.append(text+'}\n')
 
 focus_path=ROOT/'common/national_focus/VIE_md_focus.txt'
-tree=focus_path.read_text(encoding='utf-8-sig')
+tree=normalize_pp(focus_path.read_text(encoding='utf-8-sig'))
 focuses={}
 for match in re.finditer(r'\bfocus\s*=\s*\{',tree):
     text=tree[match.start():block_end(tree,match.start())]
@@ -240,8 +245,8 @@ for i,end in [(1,90),(2,180)]:
 decision('VIE_e104_training_task','Đào tạo kỹ thuật theo hợp đồng','Task90ngày. Chỉ nhận25PP một lần sau hoàn tất đào tạo và hai đợt kiểm chứng hợp đồng; hủy hợp đồng mất quyền chưa dùng.','has_country_flag = VIE_e104_signed has_country_flag = VIE_e104_rights_unused NOT = { has_country_flag = VIE_e104_terminated } NOT = { has_country_flag = VIE_e104_training_running } NOT = { has_country_flag = VIE_e104_training_complete }','set_country_flag = VIE_e104_training_running\nset_variable = { VIE_e104_training_elapsed = 0 }',visible='has_country_flag = VIE_e104_signed')
 decision('VIE_e104_cancel_task','Chấm dứt hợp đồng kỹ thuật','Đóng nghĩa vụ tương lai và mất hỗ trợ chưa nhận/quyền đào tạo chưa dùng. Không thu hồi tiền hoặc thưởng đã nhận.','has_country_flag = VIE_e104_signed','VIE_politics_e104_cancel = yes')
 DECISIONS[-1]=DECISIONS[-1].replace('ai_will_do = { base = 50 }','''ai_will_do = { base = 50 modifier = { factor = 0 NOT = { OR = {
-AND = { check_variable = { VIE_e104_contract_elapsed > 80 } NOT = { has_country_flag = VIE_e104_check1_paid } political_power < 10 }
-AND = { check_variable = { VIE_e104_contract_elapsed > 170 } NOT = { has_country_flag = VIE_e104_check2_paid } political_power < 10 }
+AND = { check_variable = { VIE_e104_contract_elapsed > 80 } NOT = { has_country_flag = VIE_e104_check1_paid } has_political_power < 10 }
+AND = { check_variable = { VIE_e104_contract_elapsed > 170 } NOT = { has_country_flag = VIE_e104_check2_paid } has_political_power < 10 }
 } } } }''')
 
 # Programme tools: an actual paid task must finish before evidence is recorded.
@@ -418,11 +423,7 @@ for reader,writer in [('XI05','X01'),('XIII09','XII02'),('XII09','XII12'),('XIV1
     text=focuses[IDS[reader]]
     if IDS[writer] not in re.findall(r'prerequisite\s*=\s*\{\s*focus\s*=\s*(\w+)',text): text=text.replace('search_filters =',f'prerequisite = {{ focus = {IDS[writer]} }}\nsearch_filters =',1)
     focuses[IDS[reader]]=text
-# Put XII09 below its new direct prerequisite, avoiding an invisible sibling dependency.
-text=focuses[IDS['XII09']]
-text=re.sub(r'relative_position_id\s*=\s*\w+','relative_position_id = '+IDS['XII12'],text)
-text=re.sub(r'\bx\s*=\s*-?\d+','x = 0',text,count=1);text=re.sub(r'\by\s*=\s*-?\d+','y = 1',text,count=1)
-focuses[IDS['XII09']]=text
+# Giu layout va thu tu live; prerequisite da duoc them o tren.
 identifier=IDS['XIII12'];text=focuses[identifier]
 text=re.sub(r'VIE_e104_can_amend\s*=\s*yes','has_country_flag = VIE_e104_signed NOT = { has_country_flag = VIE_e104_terminated }',text)
 focuses[identifier]=text
@@ -450,20 +451,15 @@ VIE_politics_project_tick = yes
 event(1,'','', 'VIE_politics_daily = yes\ncountry_event = { id = vie_pol_runtime.1 days = 1 }','original_tag = VIE',True)
 
 for identifier,old in list(focuses.items()):
-    if identifier==IDS['XII09']: continue
     # Replace exactly one original focus block, leaving unrelated user changes intact.
     match=re.search(r'\bfocus\s*=\s*\{\s*id\s*=\s*'+re.escape(identifier)+r'\b',tree)
     if not match: continue
     tree=tree[:match.start()]+old+tree[block_end(tree,match.start()):]
-match=re.search(r'\bfocus\s*=\s*\{\s*id\s*=\s*'+re.escape(IDS['XII09'])+r'\b',tree)
-tree=tree[:match.start()]+tree[block_end(tree,match.start()):]
-match=re.search(r'\bfocus\s*=\s*\{\s*id\s*=\s*'+re.escape(IDS['XII12'])+r'\b',tree)
-end=block_end(tree,match.start());tree=tree[:end]+'\n\n'+focuses[IDS['XII09']]+tree[end:]
 if '## v57 (14/10/2026)' not in tree: tree=tree.replace('focus_tree = {','## v57 (14/10/2026): adapter chinh tri, E103 tu dong, task/cohort, E104 nghia vu, consumer va 8 node co hau qua that.\nfocus_tree = {',1)
 focus_path.write_text(tree,encoding='utf-8')
 
 # Existing IDs retain their callers; replace only their revised behaviour.
-base=ROOT/'common/scripted_effects/VIE_md_effects_politics.txt';s=base.read_text(encoding='utf-8-sig')
+base=ROOT/'common/scripted_effects/VIE_md_effects_politics.txt';s=normalize_pp(base.read_text(encoding='utf-8-sig'))
 for mode in ['standard','fast_paid','fast_override']:s=replace_block(s,'VIE_launch_programme_'+mode,'VIE_politics_begin_'+mode+' = yes')
 match=re.search(r'VIE_resolve_programme_full\s*=\s*\{',s);original=s[match.start():block_end(s,match.start())]
 start=original.find('\t# Thuong som');end=original.find('\t# Tang Tier',max(start,0))
@@ -499,7 +495,7 @@ for term in range(9,15):
 base.write_text(s,encoding='utf-8')
 
 # Extend original decisions with authoritative launch/select gates and early-only side task.
-path=ROOT/'common/decisions/VIE_md_politics_decisions.txt';s=path.read_text(encoding='utf-8-sig')
+path=ROOT/'common/decisions/VIE_md_politics_decisions.txt';s=normalize_pp(path.read_text(encoding='utf-8-sig'))
 for mode in ['standard','fast_paid','fast_override']:
     key='VIE_launch_mode_'+mode+'_decision';match=re.search(key+r'\s*=\s*\{',s);old=s[match.start():block_end(s,match.start())]
     revised=replace_block(old,'available','VIE_politics_can_launch_'+mode+' = yes')
@@ -524,7 +520,7 @@ for key in ['VIE_term_programme_deadline_mission','VIE_review_programme_early_de
     if match:s=s[:match.start()]+s[block_end(s,match.start()):]
 path.write_text(s,encoding='utf-8')
 
-triggers=ROOT/'common/scripted_triggers/VIE_md_triggers_politics.txt';s=triggers.read_text(encoding='utf-8-sig')
+triggers=ROOT/'common/scripted_triggers/VIE_md_triggers_politics.txt';s=normalize_pp(triggers.read_text(encoding='utf-8-sig'))
 match=re.search(r'VIE_e104_can_amend\s*=\s*\{',s);old=s[match.start():block_end(s,match.start())]
 body=effect_body(old)
 if 'VIE_e104_amendment_preapproved' not in body:body+='\nhas_country_flag = VIE_e104_amendment_preapproved'
@@ -535,7 +531,7 @@ if 'VIE_politics_runtime_init' not in s:s=s.replace('VIE_ax_init = yes','VIE_ax_
 startup.write_text(s,encoding='utf-8')
 
 # E103 has only an informational acknowledgement; E102/E104 get transaction guards.
-path=ROOT/'events/VIE_md_politics_events.txt';s=path.read_text(encoding='utf-8-sig')
+path=ROOT/'events/VIE_md_politics_events.txt';s=normalize_pp(path.read_text(encoding='utf-8-sig'))
 def replace_event(text,id,body):
     for match in re.finditer(r'country_event\s*=\s*\{',text):
         end=block_end(text,match.start());old=text[match.start():end]

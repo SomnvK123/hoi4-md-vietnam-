@@ -64,8 +64,8 @@ VIE_term_programmes_category = {
 			VIE_politics_e104_cancel = yes
 		}
 		ai_will_do = { base = 50 modifier = { factor = 0 NOT = { OR = {
-						AND = { check_variable = { VIE_e104_contract_elapsed > 80 } NOT = { has_country_flag = VIE_e104_check1_paid } political_power < 10 }
-						AND = { check_variable = { VIE_e104_contract_elapsed > 170 } NOT = { has_country_flag = VIE_e104_check2_paid } political_power < 10 }
+						AND = { check_variable = { VIE_e104_contract_elapsed > 80 } NOT = { has_country_flag = VIE_e104_check1_paid } has_political_power < 10 }
+						AND = { check_variable = { VIE_e104_contract_elapsed > 170 } NOT = { has_country_flag = VIE_e104_check2_paid } has_political_power < 10 }
 					} } } }
 	}
 
@@ -73,7 +73,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 0 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { has_political_power < 25 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			has_country_flag = VIE_mode_standard NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -94,7 +94,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { has_political_power < 25 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			NOT = { has_country_flag = VIE_mode_standard } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -115,7 +115,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 1 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { has_political_power < 25 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			has_country_flag = VIE_mode_standard NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -136,7 +136,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { has_political_power < 25 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			NOT = { has_country_flag = VIE_mode_standard } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -157,7 +157,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 2 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { has_political_power < 30 }
 			has_country_flag = VIE_mode_standard NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -175,7 +175,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_train_successor_candidates NOT = { has_political_power < 30 }
 			NOT = { has_country_flag = VIE_mode_standard } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -193,7 +193,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 3 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			has_country_flag = VIE_mode_standard NOT = { check_variable = { VIE_leadership_cohesion < 55 } } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -211,7 +211,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_cadre check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			NOT = { has_country_flag = VIE_mode_standard } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -229,7 +229,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 0 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { political_power < 40 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { has_political_power < 40 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			has_country_flag = VIE_mode_standard NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -250,7 +250,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { political_power < 40 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { has_political_power < 40 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			NOT = { has_country_flag = VIE_mode_standard } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -271,7 +271,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 1 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { political_power < 40 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { has_political_power < 40 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			has_country_flag = VIE_mode_standard NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -292,7 +292,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { political_power < 40 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_pilot_one_stop_service NOT = { has_political_power < 40 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			NOT = { has_country_flag = VIE_mode_standard } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -313,7 +313,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 2 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			has_country_flag = VIE_mode_standard NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -331,7 +331,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_admin check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			NOT = { has_country_flag = VIE_mode_standard } NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -349,7 +349,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 0 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_audit_state_enterprise_guarantees NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_audit_state_enterprise_guarantees NOT = { has_political_power < 25 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			has_country_flag = VIE_mode_standard has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -370,7 +370,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_audit_state_enterprise_guarantees NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_audit_state_enterprise_guarantees NOT = { has_political_power < 25 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			NOT = { has_country_flag = VIE_mode_standard } has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -391,7 +391,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 1 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			has_country_flag = VIE_mode_standard has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -412,7 +412,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			NOT = { has_country_flag = VIE_mode_standard } has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -433,7 +433,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 2 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			has_country_flag = VIE_mode_standard has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -454,7 +454,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_publish_procurement_audits NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.25 } }
 			NOT = { has_country_flag = VIE_mode_standard } has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -475,7 +475,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 3 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			has_country_flag = VIE_mode_standard has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -493,7 +493,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_inspection check_variable = { VIE_programme_step = 3 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			NOT = { has_country_flag = VIE_mode_standard } has_country_flag = VIE_e102_choice_resolved NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -511,7 +511,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 0 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			has_country_flag = VIE_mode_standard owns_state = 518 controls_state = 518 NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -532,7 +532,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 0 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			NOT = { has_country_flag = VIE_mode_standard } owns_state = 518 controls_state = 518 NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -553,7 +553,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 1 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			has_country_flag = VIE_mode_standard owns_state = 526 controls_state = 526 NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -574,7 +574,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { political_power < 30 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 1 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_establish_grievance_hearings NOT = { has_political_power < 30 }
 			NOT = { check_variable = { treasury < 0.5 } }
 			NOT = { has_country_flag = VIE_mode_standard } owns_state = 526 controls_state = 526 NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
@@ -595,7 +595,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 2 } has_country_flag = VIE_mode_standard }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			has_country_flag = VIE_mode_standard owns_state = 518 controls_state = 518 owns_state = 526 controls_state = 526 NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {
@@ -613,7 +613,7 @@ VIE_term_programmes_category = {
 		icon = generic_political_actions
 		allowed = { original_tag = VIE }
 		visible = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_mode_standard } }
-		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { political_power < 25 }
+		available = { has_country_flag = VIE_programme_active has_country_flag = VIE_programme_social check_variable = { VIE_programme_step = 2 } NOT = { has_country_flag = VIE_programme_job_running } NOT = { check_variable = { var = VIE_programme_elapsed value = VIE_programme_prepare_days compare = less_than } } has_completed_focus = VIE_review_program_delivery NOT = { has_political_power < 25 }
 			NOT = { has_country_flag = VIE_mode_standard } owns_state = 518 controls_state = 518 owns_state = 526 controls_state = 526 NOT = { has_country_flag = VIE_programme_job_delay } }
 		cost = 0
 		complete_effect = {

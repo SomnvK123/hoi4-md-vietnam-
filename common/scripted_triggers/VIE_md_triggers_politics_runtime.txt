@@ -20,45 +20,45 @@ VIE_politics_can_launch_standard = {
 	NOT = { check_variable = { VIE_congress_elapsed > 270 } }
 	NOT = { check_variable = { VIE_programme_forecast_standard > 800 } }
 	OR = {
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 50 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 50 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 46 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 46 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 42 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 42 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 40 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 40 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 36 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 36 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 44 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 44 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 41 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 41 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 37 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 37 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 35 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 35 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 32 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 32 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 38 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 38 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 35 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 35 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 32 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 32 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 30 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 30 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 27 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 27 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 32 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 32 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 29 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 29 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 27 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 27 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 25 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 25 }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 23 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 23 }
 		}
 	}
 
@@ -71,64 +71,64 @@ VIE_politics_can_launch_fast_paid = {
 	NOT = { check_variable = { VIE_programme_forecast_fast > 800 } }
 	VIE_is_central_zone = yes
 	OR = {
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 105 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 105 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 101 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 101 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 97 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 97 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 95 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 95 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 91 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 91 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 99 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 99 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 96 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 96 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 92 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 92 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 90 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 90 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 87 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 87 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 93 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 93 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 90 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 90 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 87 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 87 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 85 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 85 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 82 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 82 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 87 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 87 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 84 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 84 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 82 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 82 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 80 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 80 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 78 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 78 }
 			NOT = { check_variable = { treasury < 0.5 } }
 		}
 	}
@@ -142,64 +142,64 @@ VIE_politics_can_launch_fast_override = {
 	NOT = { check_variable = { VIE_programme_forecast_fast > 800 } }
 	VIE_is_central_zone = yes
 	OR = {
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 75 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 75 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 71 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 71 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 67 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 67 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 65 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 65 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 61 }
+		AND = { check_variable = { VIE_tier_cadre = 0 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 61 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 69 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 69 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 66 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 66 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 62 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 62 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 60 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 60 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 57 }
+		AND = { check_variable = { VIE_tier_cadre = 1 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 57 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 63 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 63 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 60 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 60 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 57 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 57 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 55 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 55 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 52 }
+		AND = { check_variable = { VIE_tier_cadre = 2 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 52 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { political_power < 57 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 0 } } check_variable = { VIE_leadership_cohesion < 20 } NOT = { has_political_power < 57 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { political_power < 54 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 20 } } check_variable = { VIE_leadership_cohesion < 40 } NOT = { has_political_power < 54 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { political_power < 52 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 40 } } check_variable = { VIE_leadership_cohesion < 55 } NOT = { has_political_power < 52 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { political_power < 50 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 55 } } check_variable = { VIE_leadership_cohesion < 70 } NOT = { has_political_power < 50 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
-		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { political_power < 48 }
+		AND = { check_variable = { VIE_tier_cadre = 3 } NOT = { check_variable = { VIE_leadership_cohesion < 70 } } check_variable = { VIE_leadership_cohesion < 101 } NOT = { has_political_power < 48 }
 			NOT = { check_variable = { VIE_leadership_cohesion < 56 } }
 		}
 	}

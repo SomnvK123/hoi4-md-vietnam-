@@ -535,7 +535,6 @@
  VIE_lf_d5_bonus:0 "Công trình và cơ sở bảo đảm phòng thủ"
  VIE_lf_b4_bonus:0 "Nâng cao trình độ công binh chiến đấu"
  VIE_lf_i1_bonus:0 "Đổi mới quản trị cơ sở công nghiệp quốc phòng"
- VIE_lf_i5_bonus:0 "Chuẩn bị dây chuyền sản xuất loạt trang bị mặt đất"
  VIE_lf_p4_bonus:0 "Hỏa lực chặn kích và chống đột phá chiến dịch"
  VIE_lf_m3_bonus:0 "Học thuyết mũi nhọn thiết giáp đột kích"
  VIE_lf_m4_bonus:0 "Tập trung hỏa lực pháo binh yểm trợ thiết giáp"
@@ -583,7 +582,6 @@
 
  VIE_lf_i4_reward_tt:0 "Đề án Chế tạo Xe Chiến đấu Bộ binh Bánh xích XCB-01 Nội địa:\n • Mở khóa các quyết định nghiên cứu và chế tạo xe chiến đấu bộ binh XCB-01.\n • Làm chủ tích hợp tháp pháo tự động 30mm, tên lửa chống tăng và hệ thống kính ngắm kỹ thuật số.\n • Nhận ưu đãi nghiên cứu Xe Chiến đấu Bộ binh (IFV): §G+50%§!."
 
- VIE_lf_i5_reward_tt:0 "Hoàn thiện Dây chuyền Sản xuất Loạt Khí tài Mặt đất Nội địa:\n • Mở khóa quyết định đưa xe chiến đấu bộ binh XCB-01 vào sản xuất hàng loạt.\n • Giảm chi phí công nghiệp chế tạo phương tiện chiến đấu cơ giới: §G-5.0%§!.\n • Nhận ưu đãi nghiên cứu Thiết giáp và Xe cơ giới Chiến đấu: §G+50%§!."
 
  VIE_lf_p1_reward_tt:0 "Xác lập Học thuyết Chiến tranh Nhân dân Bảo vệ Tổ quốc:\n • Cấp học thuyết: §YChiến tranh Nhân dân Phòng thủ Chiến lược (Bậc 1)§!\n   - Sức phòng thủ lục quân toàn tuyến: §G+1.0%§!\n   - Tốc độ di chuyển cơ động: -1.0% (tập trung chốt giữ địa bàn)\n • Lấy thế trận làng xã, khu vực phòng thủ và quân khu làm nền tảng giam chân đối phương."
 
@@ -635,8 +633,6 @@
  VIE_lf_ind_serial_industrialization:0 "Công nghiệp hóa sản xuất loạt"
  VIE_lf_ind_serial_industrialization_desc:0 "Hoàn thiện dây chuyền sản xuất loạt toàn bộ hệ thống khí tài mặt đất."
 
- VIE_lf_i5_reward_tt:0 "Hoàn thành §YChương trình XTC§!: Nghiên cứu và thử nghiệm nguyên mẫu XTC-02/XTC-03 bắt đầu. Mở khóa các §Ydecision chương trình XTC§!. Cộng thưởng nghiên cứu cơ giới hóa."
- VIE_lf_i5_bonus:0 "Cơ giới hóa — nghiên cứu XTC"
  VIE_lf_i6_reward_tt:0 "Hoàn thành §YDự án T-1§!: Thiết kế xe tăng bơi hạng nhẹ T-1 được phê duyệt. Mở khóa các §Ydecision chương trình T-1§!. Cộng thưởng nghiên cứu thiết giáp hạng nhẹ."
  VIE_lf_i6_bonus:0 "Thiết giáp hạng nhẹ — nghiên cứu T-1"
  VIE_lf_i7_reward_tt:0 "Hoàn thành §YPháo tự hành nội địa§!: Nền tảng thiết kế pháo tự hành được xây dựng. Mở khóa các §Ydecision chương trình SPG§!. Cộng thưởng nghiên cứu pháo binh."
@@ -999,3 +995,5 @@
  vie_nav35.14.d:0 "Chọn một ưu tiên nghiên cứu sau khi chuẩn bị cụm tác chiến mặt nước và hàng không hạm. Mỗi chương trình nhận một bonus 25%, một lượt; không tự hoàn tất công nghệ hoặc cấp tàu."
  vie_nav35.14.a:0 "Ưu tiên tàu hộ vệ đa nhiệm — nghiên cứu frigate 25%"
  vie_nav35.14.b:0 "Ưu tiên hàng không hạm — nghiên cứu carrier 25%"
+ VIE_lf_i5_reward_tt:0 "Hoàn thành §YChương trình XTC§!: Mở khóa các §Ydecision chương trình XTC§!. Nhận §G+50%§! thưởng nghiên cứu cho nhóm §YThiết giáp và Xe cơ giới Chiến đấu§!, dùng một lần."
+ VIE_lf_i5_bonus:0 "Chương trình XTC - nghiên cứu thiết giáp và xe cơ giới chiến đấu"

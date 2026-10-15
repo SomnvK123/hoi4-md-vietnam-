@@ -56,7 +56,7 @@ class State:
             elif k=='has_idea':result=v in self.ideas
             elif k=='owns_state':result=int(v) in self.owned
             elif k=='controls_state':result=int(v) in self.controlled
-            elif k=='political_power':result=self.compare(self.pp,op,float(v))
+            elif k=='has_political_power':result=self.compare(self.pp,op,float(v))
             elif k=='date':result=self.compare(self.now,op,tuple(map(int,v.split('.'))))
             elif k=='power_balance_value':
                 _,operator,number,_=next(n for n in v if n[0]=='value');result=self.compare(self.bop,operator,float(number))
@@ -121,7 +121,9 @@ class State:
     def effect(self,name):self.apply(FX[name])
     def click(self,name):
         check(self.condition(value(DEC[name],'available',[])),name+' unavailable')
-        self.pp-=float(value(DEC[name],'cost',0));self.apply(value(DEC[name],'complete_effect',[]))
+        cost=float(value(DEC[name],'cost',0))
+        if self.pp < cost:raise AssertionError(name+' insufficient native PP cost')
+        self.pp-=cost;self.apply(value(DEC[name],'complete_effect',[]))
     def option(self,event,index):
         option=blocks(EV[event],'option')[index]
         check(self.condition(value(option,'trigger',[])),event+' option unavailable')
@@ -140,7 +142,78 @@ def programme(program,mode,choice='B',growth=True):
     raise AssertionError('Programme never terminates')
 
 
+def pp_regressions():
+    state=State()
+    try:state.condition([('political_power','<','25',0)])
+    except AssertionError as error:check('Unsupported trigger political_power' in str(error),'Reject old PP token')
+    else:check(False,'Old PP trigger accepted')
+    def walk(block):
+        for node in block:
+            yield node
+            if isinstance(node[2],list):yield from walk(node[2])
+    seen=set();old_tokens=0;references=0
+    for group in (FX,TR,DEC,EV,FOCUS):
+        for block in group.values():
+            for k,op,v,line in walk(block):
+                old_tokens+=int(k=='political_power')
+                if k!='has_political_power':continue
+                references+=1
+                seen.add((op,float(v)))
+    check(old_tokens==0,'No old PP token in live AST')
+    check(references>0,'PP comparisons found in live AST')
+    for op,threshold in sorted(seen):
+        check(op in ('<','>'),'PP comparison supported by engine')
+        for pp in (threshold-.01,threshold,threshold+.01):
+            state.pp=pp
+            expected=pp<threshold if op=='<' else pp>threshold
+            node=('has_political_power',op,str(threshold),0)
+            check(state.condition([node])==expected,f'PP boundary {op} {threshold}: {pp}')
+            check(state.condition([('NOT','=',[node],0)])== (not expected),'NOT PP inclusive boundary')
+    for threshold,focus in ((44,'VIE_ix11_rotate_cadres'),(20,'VIE_ix12_retain_cadres')):
+        for pp in (threshold-.01,threshold,threshold+.01):
+            state=State();state.pp=pp
+            check(state.condition(value(FOCUS[focus],'available'))==(pp>=threshold),'Actual focus PP gate '+focus)
+    for pp in (24.99,25,25.01):
+        state=State();state.pp=pp
+        state.flags|={'VIE_programme_active','VIE_programme_cadre','VIE_mode_standard'}
+        name='VIE_programme_cadre_0_standard'
+        check(state.condition(value(DEC[name],'available'))==(pp>=25),'Actual task PP gate')
+        if pp>=25:
+            state.click(name);check(math.isclose(state.pp,pp-25),'Task charges25 exactly once on start')
+            check(not state.condition(value(DEC[name],'available')),'Running task cannot restart')
+    option=blocks(EV['vie_pol_runtime.10'],'option')[0]
+    for pp in (19.99,20,20.01):
+        state=State();state.pp=pp;state.flags.add('VIE_pending_X01')
+        check(state.condition(value(option,'trigger'))==(pp>=20),'Actual option PP visibility')
+        before=copy.deepcopy(state.__dict__)
+        state.apply([n for n in option if n[0] not in ('name','trigger')])
+        if pp<20:check(state.__dict__==before,'Option payment guard blocks underfunded callback')
+        else:
+            check(math.isclose(state.pp,pp-20),'Option pays20')
+            before=copy.deepcopy(state.__dict__)
+            state.apply([n for n in option if n[0] not in ('name','trigger')])
+            check(state.__dict__==before,'Option replay cannot charge twice')
+    modifier=value(value(DEC['VIE_e104_cancel_task'],'ai_will_do'),'modifier')
+    for elapsed,paid in ((81,set()),(171,{'VIE_e104_check1_paid'})):
+        for pp in (9.99,10,10.01):
+            state=State();state.pp=pp;state.flags|=paid
+            state.v['VIE_e104_contract_elapsed']=elapsed
+            check(state.condition([n for n in modifier if n[0]!='factor'])==(pp>=10),'AI cancel only if unable to fund outstanding check')
+    for name,flags in (('VIE_e104_fund_check_1',set()),('VIE_e104_fund_check_2',{'VIE_e104_check1_done'})):
+        for pp in (9.99,10,10.01):
+            state=State();state.pp=pp;state.flags|=flags|{'VIE_e104_signed'}
+            before=copy.deepcopy(state.__dict__)
+            if pp<10:
+                try:state.click(name)
+                except AssertionError as error:check('insufficient native PP cost' in str(error),'Native E104 cost enforced')
+                else:check(False,'Underfunded E104 accepted')
+                check(state.__dict__==before,'Underfunded native decision leaves state intact')
+            else:
+                state.click(name);check(math.isclose(state.pp,pp-10),'Native E104 fee10')
+    print(f'PP regression: {references} live references; {len(seen)} distinct comparisons; decimal boundaries and actual consumers checked')
+
 def run():
+    pp_regressions()
     for program,normal,fast in [('cadre',645,555),('admin',645,555),('inspection',735,645),('social',645,555)]:
         standard,day=programme(program,'standard');quick,early=programme(program,'fast_paid')
         check(day==normal and early==fast,f'{program} live timer {day}/{early}')
